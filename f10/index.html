@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: 10. hét: láncolt listák</title>
+<meta property="og:title" content="TEST InfoC :: 10. hét: láncolt listák">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum h3toid" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="10. hét: láncolt listák">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">10. hét: láncolt listák</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Nagy Gergely, Pohl László · <i class="ido"></i> 2020.08.24.</p>
+<p class="kivonat">Gyakorlófeladatok az előadás anyagához kapcsolódóan.</p>
+</div>
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Egy irányban láncolt listák</a>
+              <li><a href="index.html#2" class="">Oda-vissza láncolt listák</a>
+              <li><a href="index.html#3" class="">Hosszabban kidolgozandó listás feladatok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egy irányban láncolt listák">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="feladatlancoltlista" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Egy irányban láncolt listák<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Tömbből lista</h3>
+
+<p>Definiálj listát, amelyik valós számokat tartalmaz! Írj függvényt, amelyik valós számokat tartalmazó tömböt vesz át 
+paraméterként, és létrehoz egy újonnan létrehozott listát, amelybe a megadott számokat másolja! Egy másik függvénnyel gondoskodj a 
+lista felszabadításáról is.</p>
+
+<p>Ennek a feladatnak a megoldását fel tudod használni a többi feladatban a teszteléshez.</p>
+
+<h3>Egyszeresen láncolt lista másolása</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Definiálj egy irányban láncolt lista elemeinek tárolására alkalmas adatstruktúrát, a lista 
+20 elemű <code>int</code> tömb adattaggal rendelkezik! Írj függvényt, amely paraméterként kapja egy ilyen 
+elemekből felépülő lista címét! A függvény adja vissza a lista másolatát (a másolt lista 
+kezdőelemének címét)! (Vagyis hozzon létre egy másik listát, amely ugyanazokat az adatokat 
+tartalmazza ugyanolyan sorrendben, mint a paraméterként átvett!)</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">typedef struct Elem {
+    int adat[20];
+    struct Elem *next;
+} Elem;
+
+Elem *masol(Elem *start) {
+    Elem *ujstart, *ujfuto;
+    for (ujstart = ujfuto = NULL; start != NULL; start = start-&gt;next) {
+        Elem *p = (Elem*)malloc(sizeof(Elem));
+        *p = *start;
+        p-&gt;next = NULL;
+        if (ujstart == NULL)
+            ujstart = ujfuto = p;
+        else {
+            ujfuto-&gt;next = p;
+            ujfuto = ujfuto-&gt;next;
+        }
+    }
+    return ujstart;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Lista másolása megfordítva</h3>
+
+<p>Írj függvényt, amely lemásol egy listát, de úgy, hogy a másolat az eredeti fordítottja legyen! Ötlet: ehhez használható a 
+gyakorlati óráról származó lista megfordítása ötlet.</p>
+
+
+
+
+<h3>Nincs benne ismétlés</h3>
+
+<p>Írj függvényt, amely úgy módosít egy paraméterként kapott listát, hogy abban ne legyen kétszer egymás után ugyanaz az elem! Pl. 
+ha a bemeneti lista <em>1,1</em>,5,7,<em>4,4</em>,1,<em>5,5,5</em>,6, a megváltozott lista tartalma legyen 1,5,7,4,1,5,6.
+(Figyelj arra, hogy ehhez csak egymás melletti elemeket kell vizsgálni. Egymástól távol szerepelhet többször is ugyanaz a szám.)</p>
+
+<p>A függvény megírása előtt gondold át, fog-e módosulni itt a lista eleje mutató!</p>
+
+
+
+<h3>Mindegyik elem csak egyszer</h3>
+<p>Írj függvényt, amely úgy módosít egy paraméterként kapott listát,
+hogy abban minden elem csak egyszer szerepeljen! Térjen vissza a függvény
+az esetleg megváltozott lista eleje pointerrel! (Pl. ha a bemeneti
+lista 1,5,7,4,4,1,5,6, a megváltozott lista tartalma legyen 1,5,7,4,6).</p>
+
+
+<h3>Mindegyik elem csak egyszer – új listával</h3>
+<p>Írj függvényt, amely létrehoz egy listát olyan módon, hogy az
+a paraméterként kapott lista minden elemét csak egyszer tartalmazza.
+(Vagyis a feladat ugyanaz, mint az előbb, csak nem módosítani kell a listát,
+hanem létrehozni egy újat.)</p>
+
+
+<h3>Lista közepe</h3>
+<div class="sticky">állásinterjú</div>
+<p>Adott egy láncolt lista, amelyről tudjuk, hogy páratlan számú eleme van.
+Meg kell keresni a középsőt, és adni rá egy pointert. De úgy, hogy csak egyetlen
+ciklust használunk! (Tehát ha megszámoljuk, mekkora – első ciklus, és utána
+újra az elejéről elindulva megkeressük a középsőt – második ciklus, az nem jó.)</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Az ötlet egy lemaradó pointer. Legyen egy pointerünk (nyúl), amelyik kettesével
+lépked a listán, és egy másik (teknős), amely egyesével! Írni kell egy ciklust,
+amely végigszalad a nyúllal a listán; amikor a nyúl a végére ért, a teknős a közepén
+tart.</p>
+</div>
+</details>
+
+
+
+<h3>Beszúrás az ötödik helyre</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely egy listába beszúr egy elemet úgy, hogy az az ötödik legyen! (A számozás 
+1-től indul.) Ha a lista rövidebb, akkor kerüljön a végére az új elem. A függvénynek paraméterei 
+legyenek a lista elejére mutató pointer és a beszúrandó adat. Visszatérési értéke legyen a lista 
+elejét mutató pointer.</p>
+<p>Definiáld az egyszeresen láncolt lista elemét úgy, hogy az max. 50 karakter 
+hosszúságú neveket tároljon! Készíts rajzot, amely a listakezelést mutatja számozott lépésekkel! 
+Írj rövid főprogramot, amelyben definiálsz egy listát. Feltételezve, hogy a lista fel van 
+töltve, szúrd be az 5. helyre a Mézga Géza nevet!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<img src="zh5c.svg" class="kozep" style="width: 80%">
+<pre   ><code class="language-c">typedef struct ListaElem {
+    char nev[50 + 1];
+    struct ListaElem *kov;
+} ListaElem;
+
+ListaElem* beszur_5(ListaElem *eleje, char *nev) {
+    ListaElem *uj;
+    uj = (ListaElem*) malloc(sizeof(ListaElem));
+    strcpy(uj-&gt;nev, nev);
+
+    if (eleje == NULL) {
+        uj-&gt;kov = NULL;
+        return uj;
+    }
+
+    ListaElem *iter;
+    int i;
+    for (iter = eleje, i = 1; iter-&gt;kov != NULL &amp;&amp; i &lt; 4; iter = iter-&gt;kov, i++)
+        ;
+
+    uj-&gt;kov = iter-&gt;kov;
+    iter-&gt;kov = uj;
+    return eleje;
+}
+
+ListaElem *l = .....;
+l = beszur_5(l, &quot;MezgaGeza&quot;);</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+
+
+
+<h3>Ötödik elem törlése</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely egy lista ötödik elemét törli! (A számozás 1-től indul.) Ha nincs ötödik 
+elem, akkor ne történjen semmi. A függvénynek egy paramétere legyen csak, az a lista elejére 
+mutató pointer.</p>
+<p>Definiáld az egyszeresen láncolt lista adatszerkezetét úgy, hogy max. 30 karakter hosszúságú 
+szavakat tároljon! Készíts rajzot, amely a listakezelést mutatja számozott lépésekkel! Írj rövid 
+főprogramot, amelyben definiálsz egy listát. Feltételezve, hogy a lista fel van töltve, töröld 
+ki a függvénnyel az 5. elemet!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<img src="zh5b.svg" class="kozep" style="width: 80%">
+<pre   ><code class="language-c">typedef struct ListaElem {
+    char szo[30 + 1];
+    struct ListaElem *kov;
+} ListaElem;
+
+void lista_torol_5(ListaElem *lista) {
+    ListaElem *iter;
+    int i;
+    for (iter = lista, i = 1; iter != NULL &amp;&amp; i &lt; 4; iter = iter-&gt;kov, ++i)
+        ;
+
+    ListaElem *negyedik = iter;
+    if (negyedik == NULL) return;
+    ListaElem *otodik = negyedik-&gt;kov;
+    if (otodik == NULL) return;
+
+    negyedik-&gt;kov = otodik-&gt;kov;
+
+    free(otodik);
+}
+
+ListaElem *l = .....;
+
+lista_torol_5(l);</code></pre>
+
+</div>
+</details>
+
+
+
+<h3>Párosak törlése</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely paraméterként vesz át egy számokból álló 
+listát, és törli abból a páros számokat! Ha a lista eredeti tartalma 
+2,3,4,5,6, akkor a módosított lista 3,5 kell legyen.</p>
+<p>Definiáld az egyszeresen láncolt lista adatszerkezetét úgy, hogy 
+az egész számokat tartalmazzon! Készíts rajzot, amely a 
+listakezelést mutatja számozott lépésekkel! Írj programrészt, 
+amely meghívja egy listára a függvényt!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<img src="parosak.svg" class="kozep" style="width: 26em;">
+<pre   ><code class="language-c">typedef struct ListaElem {
+    int szam;
+    struct ListaElem *kov;
+} ListaElem;
+
+ListaElem *parosakat_torol(ListaElem *eleje) {
+    ListaElem *iter, *lemarado;
+
+    iter = eleje;
+    lemarado = NULL;
+
+    while (iter != NULL) {
+        if (iter-&gt;szam % 2 == 0) {
+            ListaElem *kov = iter-&gt;kov;
+            if (lemarado != NULL)
+                lemarado-&gt;kov = kov;
+            else
+                eleje = kov;
+
+            free(iter);
+            iter = kov;
+        } else {
+            lemarado = iter;
+            iter = iter-&gt;kov;
+        }
+    }
+
+    return eleje;
+}
+
+ListaElem *eleje = ..........;
+
+eleje = parosakat_torol(eleje);</code></pre>
+</div>
+</details>
+
+
+<h3>Beszúrás adott helyekre</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely paraméterként vesz át egy számokból álló listát, és minden páros szám 
+elé beszúr egy listaelemet, amely annak ellentettjét tartalmazza! Például ha az eredeti lista 
+2,3,4,5, akkor a módosított -2,2,3,-4,4,5 legyen.</p>
+<p>Definiáld az egyszeresen láncolt lista adatszerkezetét úgy, hogy az egész számokat 
+tartalmazzon! Készíts rajzot, amely a listakezelést mutatja számozott lépésekkel! Írj 
+programrészt, amely létrehoz két listaelemet, és meghívja a keletkező listára a függvényt.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<img src="ellentettek.svg" class="kozep" style="width: 26em;">
+<pre   ><code class="language-c">typedef struct ListaElem {
+    int szam;
+    struct ListaElem *kov;
+} ListaElem;
+
+ListaElem *parosakat_duplaz(ListaElem *eleje) {
+    ListaElem *iter, *lemarado;
+    for (iter = eleje, lemarado = NULL;
+         iter != NULL;
+         lemarado = iter, iter = iter-&gt;kov)
+    {
+        if (iter-&gt;szam%2 == 0) {
+            ListaElem *uj = (ListaElem *) malloc(sizeof(ListaElem));
+            uj-&gt;szam = -iter-&gt;szam;
+            uj-&gt;kov = iter;
+            if (lemarado!=NULL)
+                lemarado-&gt;kov = uj;
+            else
+                eleje = uj;
+        }
+    }
+
+    return eleje;
+}
+
+ListaElem *eleje = .............;
+
+eleje = parosakat_duplaz(eleje);</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Elejéről a végére</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely egy lista legelső elemét a lista végére helyezi át! (Például az 
+1,2,3,4,5 listából így 2,3,4,5,1 lesz.) Ha kettőnél kevesebb elem van, akkor ne csináljon 
+semmit.</p>
+<p>Definiáld az egyszeresen láncolt lista adatszerkezetét úgy, hogy egész számokat tartalmazzon! 
+Készíts rajzot, amely a listakezelést mutatja számozott lépésekkel! Írj programrészt, amely 
+létrehoz két listaelemet, és a függvénnyel áthelyezi az első elemet a lista végére!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<img src="vegere.svg" class="kozep" style="width: 26em;">
+<pre   ><code class="language-c">typedef struct ListaElem {
+    int szam;
+    struct ListaElem *kov;
+} ListaElem;
+
+ListaElem *elso_vegere(ListaElem *elso) {
+    if (elso == NULL) return;
+    if (elso-&gt;kov == NULL) return;
+
+    ListaElem *iter
+    for (iter = elso; iter-&gt;kov != NULL; iter = iter-&gt;kov)
+        ;
+    ListaElem *masodik = elso-&gt;kov;
+    iter-&gt;kov = elso;
+    elso-&gt;kov = NULL;
+    return masodik;
+}
+
+ListaElem *eleje;
+
+eleje = (ListaElem*) malloc(sizeof(ListaElem));
+eleje-&gt;szam = 3;
+eleje-&gt;kov = (ListaElem*) malloc(sizeof(ListaElem));
+eleje-&gt;kov-&gt;szam = 4;
+eleje-&gt;kov-&gt;kov = NULL;
+
+eleje = elso_vegere(eleje);</code></pre>
+</div>
+</details>
+
+
+<h3>Végéről az elejére</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely egy lista utolsó elemét a lista elejére helyezi át! (Például az 
+1,2,3,4,5 listából így 5,1,2,3,4 lesz.) Ha kettőnél kevesebb elem van, akkor ne csináljon 
+semmit.</p>
+<p>Definiáld az egyszeresen láncolt lista adatszerkezetét úgy, hogy az valós számokat 
+tartalmazzon! Készíts rajzot, amely a listakezelést mutatja számozott lépésekkel! Írj 
+programrészt, amely létrehoz két listaelemet, és meghívja a keletkező listára a függvényt.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<img src="elejere.svg" class="kozep" style="width: 26em;">
+<pre   ><code class="language-c">typedef struct Lista {
+   double szam;
+   struct Lista *kov;
+} Lista;
+ 
+Lista *utolso_elore(Lista *eleje) {
+   if (eleje == NULL) return;
+   if (eleje-&gt;kov == NULL) return;
+   
+   Lista *iter;
+   for (iter = eleje; iter-&gt;kov-&gt;kov != NULL; iter = iter-&gt;kov)
+      ;
+   Lista *utolso = iter-&gt;kov;
+   
+   utolso-&gt;kov = eleje;   
+   iter-&gt;kov = NULL;      
+   return utolso;       
+}
+ 
+Lista *eleje;
+
+eleje=(Lista*) malloc(sizeof(Lista));
+eleje-&gt;szam=3;
+eleje-&gt;kov=(Lista*) malloc(sizeof(Lista));
+eleje-&gt;kov-&gt;szam=4;
+eleje-&gt;kov-&gt;kov=NULL;
+
+eleje = utolso_elore(eleje);</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Fordított listák</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Definiálj egy irányban láncolt lista elemeinek tárolására alkalmas adatstruktúrát, 
+a lista valós típusú adattaggal rendelkezik! Írj függvényt, amely paraméterként kapja két, 
+ilyen elemekből felépülő lista címét! A függvény tegye át a két lista elemeit fordított 
+sorrendben egy harmadik listába, és ennek a listának a kezdőcímét adja vissza! (Ne foglalj 
+memóriát, hanem az eredeti listaelemek pointereinek átállításával oldd meg a feladatot!) Például 
+ha a két bemenő lista elemei: {1.0, 3.0, 5.0} és {2.0, 4.0, 6.0}, akkor a kimenő lista {6.0, 
+4.0, 2.0, 5.0, 3.0, 1.0} legyen!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">typedef struct elem {
+    double adat;
+    struct elem *next;
+} elem;
+
+elem *forditvafuz(elem *lista1, elem *lista2) {
+    elem *cel = NULL;
+    while (lista1 != NULL) {
+        elem *temp = lista1-&gt;next;
+        lista1-&gt;next = cel;
+        cel = lista1;
+        lista1 = temp;
+    }
+    while (lista2 != NULL) {
+        elem *temp = lista2-&gt;next;
+        lista2-&gt;next = cel;
+        cel = lista2;
+        lista2 = temp;
+    }
+    return cel;
+}</code></pre>
+</div>
+</details>
+
+
+<h3>Páratlanok duplázása</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Definiálj két irányban láncolt lista elemeinek tárolására alkalmas adatstruktúrát, 
+a lista pozitív egész számokat tárol! Írj függvényt, amely paraméterként kapja egy ilyen 
+elemekből felépülő, mindkét végén strázsával lezárt lista címét! A függvény duplázzon meg minden 
+olyan listaelemet, amely páratlan számot tartalmaz, vagyis hozzon létre és fűzzön be minden 
+ilyen listaelem elé vagy mögé egy új listaelemet, melybe a páratlan értéket átmásolja!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">typedef struct ListElem {
+    int data;
+    struct ListElem *prev, *next;
+} ListElem;
+
+void double_odd(ListElem *start) {
+    for (start = start-&gt;next; start-&gt;next != NULL; start = start-&gt;next) {
+        if (start-&gt;data % 2 == 1) {
+            ListElem *p = (ListElem*)malloc(sizeof(ListElem));
+            *p = *start;
+            p-&gt;next = start;
+            p-&gt;next-&gt;prev = p;
+            p-&gt;prev-&gt;next = p;
+        }
+    }
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+<h3>Rendezett beszúrás</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Hozz létre típust, mely alkalmas egészek láncolt listában való 
+tárolására! Írj függvényt, amely átvesz egy NULL-terminált, 
+növekvően rendezett listát a fenti típusból, és egy új számot. A 
+számot úgy szúrja a listába, hogy annak rendezettsége megmaradjon. A 
+működés áttekintéséhez készíts ábrát! Egy másik függvénnyel 
+gondoskodj a lista felszabadításáról is. Az elkészült függvények 
+alkalmazását rövid programrészlettel szemléltesd; a listát 
+feltöltöttnek tekintheted.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">typedef struct ListaElem {
+    int adat;
+    struct ListaElem *kov;
+} ListaElem;
+
+ListaElem *beszur(ListaElem *elso, int ertek) {
+    ListaElem *uj = (ListaElem *)malloc(sizeof(ListaElem));
+    uj-&gt;adat = ertek;
+
+    if (elso == NULL || elso-&gt;adat &gt; ertek) {
+        uj-&gt;kov = elso;
+        elso = uj;
+    }
+    else {
+        ListaElem *futo, *lemarado;
+        for (futo = elso; futo != NULL &amp;&amp; futo-&gt;adat &lt;= ertek; futo = futo-&gt;kov)
+            lemarado = futo;
+        uj-&gt;kov = futo;
+        lemarado-&gt;kov = uj;
+    }
+    return elso;
+}
+
+void felszab(ListaElem *elso) {
+    ListaElem *futo = elso, *lemarado;
+    while (futo != NULL) {
+        lemarado = futo;
+        futo = futo-&gt;kov;
+        free(lemarado);
+    }
+}
+
+
+ListaElem *elso = NULL;
+elso = beszur(elso, 5);
+felszab(elso);</code></pre>
+</div>
+</details>
+
+
+
+<h3>Listák összefűzése</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Hozz létre típust, mely alkalmas tetszőleges méretű szavak 
+láncolt listában való tárolására! (A szavak helyét dinamikusan 
+kell kezelni!) Írj függvényt, amely átvesz két NULL-terminált listát 
+a fenti típusból, és az első lista végéhez fűzi a másodikat. A 
+függvény az új lista kezdőcímével térjen vissza; feltételezhetjük, 
+hogy az átvett eredeti listákat és kezdőcímeiket a hívás helyén már 
+nem használjuk tovább. A függvény akkor is helyesen működjön, ha 
+bármelyik lista üres! A működés áttekintéséhez készíts ábrát! Egy 
+másik függvénnyel gondoskodj a lista felszabadításáról is. Az 
+elkészült függvények alkalmazását rövid programrészlettel 
+szemléltesd; a listákat feltöltöttnek tekintheted.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">typedef struct ListaElem {
+    char *szo;      
+    struct ListaElem *kov;
+} ListaElem;
+
+ListaElem *osszefuz(ListaElem *elso, ListaElem *masodik) {
+    if (elso == NULL) 
+        return masodik;
+
+    ListaElem *futo;
+    for (futo = elso; futo-&gt;kov != NULL; futo = futo-&gt;kov)
+        ;   /* üres */
+    futo-&gt;kov = masodik; 
+    return elso;
+}
+
+void felszab(ListaElem *elso) {
+    ListaElem *futo = elso;
+    while (futo != NULL) {
+        ListaElem *lemarado = futo;
+        futo = futo-&gt;kov;
+        free(lemarado-&gt;szo);
+        free(lemarado);
+    }
+}
+
+
+ListaElem *egy, *ket, *uj;
+uj = osszefuz(egy, ket);
+felszab(uj);</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Beszúrás véletlenszerű helyre</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Hozz létre típust, mely alkalmas valós számok láncolt listában 
+való tárolására! Írj függvényt, amely átvesz egy NULL-terminált 
+listát a fenti típusból, és egy új számot. A számot véletlenszerűen 
+kiválasztott helyre szúrja a listába, tehát az a végére és az 
+elejére is kerülhet! A működés áttekintéséhez készíts ábrát! Az 
+elkészült függvény alkalmazását rövid programrészlettel szemléltesd; 
+a listát feltöltöttnek tekintheted.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">typedef struct ListaElem {
+    double adat;
+    struct ListaElem *kov;
+} ListaElem;
+
+
+int szamol(ListaElem *elso) {
+    int i = 0;
+    for (ListaElem *iter = elso; iter != NULL; iter = iter-&gt;kov)
+        i++;
+    return i;
+}
+
+void veletlenbe(ListaElem **elso, double ertek) {
+    ListaElem *uj = (ListaElem *)malloc(sizeof(ListaElem));
+    uj-&gt;adat = ertek;
+
+    int n = rand() % (szamol(*elso) + 1);
+    if (n == 0)  {
+        uj-&gt;kov = *elso;
+        *elso = uj;
+    }
+    else {
+        ListaElem *futo;
+        futo = *elso;
+        for (int i = 1; i &lt; n; i++)
+            futo = futo-&gt;kov;
+        uj-&gt;kov = futo-&gt;kov;
+        futo-&gt;kov = uj;
+    }
+}
+
+
+ListaElem *elso = NULL;
+veletlenbe(&amp;elso, 2.71);</code></pre>
+</div>
+</details>
+
+<h3>Hány különböző?</h3>
+<p>Adott az alábbi struktúrájú, egész számokat tároló láncolt lista:
+<pre   ><code class="language-c">struct ListaElem {
+    int ertek;
+    struct ListaElem *kov;
+};</code></pre>
+<p>Készíts programot, mely megszámolja, hogy a listában hány különböző érték van!
+Az eredeti listát ne változtasd meg!</p>
+
+
+<h3>A lista fájlba írása</h3>
+
+<p>Definiáljunk legfeljebb 50 betűs szavak tárolására alkalmas, egyszeresen láncolt listát!</p>
+
+<p>Írjunk függvényt, amely egy paraméterként kapott listát egy szintén paraméterként kapott nevű
+szövegfájlba ír! Legyen minden sorban egy szó!</p>
+
+<p>Írjunk függvényt, amely egy fájlnevet kap paraméterként, visszatérési értéke pedig a fájlból 
+beolvasott szavakat tartalmazó lista!</p>
+
+<p>Figyeljünk arra, hogy a fájlba kiírt szavak sorrendje visszaolvasva ne forduljon meg!</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+ 
+ 
+typedef struct Lista {
+    char szo[50+1];
+    struct Lista *kov;
+} Lista;
+
+
+/* az első paraméterként kapott listát a második paraméterként
+ * kapott nevű szövegfájlba írja. */
+void fajlba_ir(Lista *l, char const *fajlnev) {
+    FILE *fp;
+    fp = fopen(fajlnev, &quot;wt&quot;);    /* write, text */
+    if (fp == NULL) {
+        perror(&quot;Nem sikerult fajlba menteni a listat&quot;);
+        return;
+    }
+    for (Lista *iter = l; iter != NULL; iter = iter-&gt;kov)
+        fprintf(fp, &quot;%s\n&quot;, iter-&gt;szo);
+    fclose(fp);
+}
+
+
+/* a paraméterként kapott nevű fájlból beolvassa a szavak
+ * listáját. a visszatérési érték az újonnan foglalt lista,
+ * amelynek elemeit a hívónak kell majd felszabadítania. */
+Lista *fajlbol_olvas(char const *fajlnev) {
+    FILE *fp;
+    Lista *eleje = NULL, *utolso = NULL;
+    char szo[50+1];
+    
+    fp = fopen(fajlnev, &quot;rt&quot;);  /* read, text */
+    if (fp == NULL) {
+        perror(&quot;Nem sikerult megnyitni a fajlt&quot;);
+        return NULL;
+    }
+    while (fscanf(fp, &quot;%s&quot;, szo) == 1) {
+        Lista *uj = (Lista *) malloc(sizeof(Lista));
+        strcpy(uj-&gt;szo, szo);
+        uj-&gt;kov = NULL;
+        if (utolso == NULL)
+            eleje = uj;
+        else
+            utolso-&gt;kov = uj;
+        /* mindig megjegyzi, melyik az utolsó elem,
+         * mert a következőt oda kell majd hozzáfázni. */
+        utolso = uj;
+    }
+    fclose(fp);
+    return eleje;
+}
+ 
+
+/* teszteléshez. */
+void lista_kiir(Lista *l) {
+    for (Lista *iter = l; iter != NULL; iter = iter-&gt;kov)
+        printf(&quot;%s &quot;, iter-&gt;szo);
+    printf(&quot;\n&quot;);
+}
+
+
+/* felszabadítjuk a listát. előbb fel kell szabadítani
+ * az ebből az elemből kiinduló listát, utána pedig ezt
+ * az elemet. az ötlet hasonló, mint a hátrafelé kiírásnál. */
+void lista_felszabadit(Lista *l) {
+    if (l == NULL)
+        return;
+    lista_felszabadit(l-&gt;kov);
+    free(l);
+}
+ 
+ 
+int main(void) {
+    Lista *eredeti;
+    
+    eredeti = (Lista *) malloc(sizeof(Lista));
+    strcpy(eredeti-&gt;szo, &quot;alma&quot;);
+    eredeti-&gt;kov = (Lista *) malloc(sizeof(Lista));
+    strcpy(eredeti-&gt;kov-&gt;szo, &quot;barack&quot;);
+    eredeti-&gt;kov-&gt;kov = (Lista *) malloc(sizeof(Lista));
+    strcpy(eredeti-&gt;kov-&gt;kov-&gt;szo, &quot;korte&quot;);
+    eredeti-&gt;kov-&gt;kov-&gt;kov = NULL;
+    
+    lista_kiir(eredeti);
+    
+    fajlba_ir(eredeti, &quot;szavak.txt&quot;);
+
+    Lista* fajlbol;
+    fajlbol = fajlbol_olvas(&quot;szavak.txt&quot;);
+    lista_kiir(fajlbol);
+    
+    lista_felszabadit(eredeti);
+    lista_felszabadit(fajlbol);
+    
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+<h3>Névsor összeállítása</h3>
+<p>Készíts programot, amely beolvassa az egy megadott szövegfájlban soraiban található neveket, 
+és névsort állít össze belőlük. A nevek maximum 100 karakteresek, viszont tetszőlegesen sok 
+lehet belőlük.</p>
+
+<h3>Szélsőérték keresése</h3>
+<p>Egy csapat névsorát az alábbi láncolt listában tároljuk:</p>
+<pre   ><code class="language-c">struct NevLista {
+    char nev[100];
+    unsigned int eletkor;
+    struct NevLista *next;
+};</code></pre>
+<p>Készíts programot, mely a csapat leghosszabb nevű tagjának az életkorát 
+képes megmondani! (Feltesszük, hogy csak egy leghosszabb nevű létezik.)</p>
+
+<h3>Lista rendezése szélsőérték keresésével</h3>
+<p>Írj függvényt, amely egy paraméterül kapott, egész számokból álló listát rendez
+növekvő sorrendbe, szélsőértékkereséses módszerrel!</p>
+
+<h3>Lista rendezése buborékrendezéssel</h3>
+<p>Írj függvényt, amely egy paraméterül kapott, egész számokból álló listát rendez
+növekvő sorrendbe, buborék módszerrel!</p>
+
+<h3>Futóverseny</h3>
+<p>Adott egy futóverseny résztvevőinek listája:
+<pre   ><code class="language-c">struct Versenyzo {
+    char *nev;
+    time_t ind, erk;
+    struct Versenyzo *next;
+};</code></pre>
+<p>Az ind adat az indulási időpontját, az erk az érkezését tárolja egész számként, UnixTime formátumban (1970. jan. 1. 0:00 óta eltelt másodpercek száma). Készíts programot, mely meghatározza, hogy melyik futó kapja az első, második és harmadik díjat!</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Oda-vissza láncolt listák">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Oda-vissza láncolt listák<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Duplán láncolt lista másolása</h3>
+<p>Írj függvényt, amely lemásol egy duplán láncolt listát!</p>
+
+<h3>Duplán láncolt lista megfordítása</h3>
+<p>Írj függvényt, amely megfordít egy duplán láncolt listát! Vajon elég ehhez csak megcserélni a 
+kezdő- és a végstrázsát? Rajzold le!</p>
+
+<h3>Duplán láncolt listák összefűzése</h3>
+<p>Írj függvényt, amely egy paraméterként kapott, duplán láncolt, mindkét végén strázsás 
+listához hozzáfűz egy másikat! (Az első lista ezáltal hosszabb lesz, a második pedig megszűnik 
+létezni. Figyelj arra, hogy a második lista strázsáit ilyenkor fel kell szabadítani!)</p>
+
+<h3>Könyvek</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Definiálj C-ben egy duplán láncolt, mindkét végén strázsás listát,
+amelyik könyek adatait képes tárolni –
+szerző (max. 30 betű), cím (max. 50 betű) és terjedelem
+(pozitív egész szám) formájában. Írj egy függvényt, amelyik megadja, hogy a paraméterként
+kapott szerző hány oldalnyi könyvet írt összesen.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A kis ZH-ban csak a struktúrát és a válogató függvényt kellett megadni.</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct Konyv {
+    char szerzo[31];
+    char cim[51];
+    unsigned terjedelem;
+
+    struct Konyv *elozo, *kovetkezo;
+} Konyv;
+
+unsigned szumma(Konyv *eleje, char *szerzo) {
+    unsigned szum = 0;
+    Konyv *futo;
+    /* a strazsakat nem dolgozzuk fel! */
+    for (futo = eleje-&gt;kovetkezo; futo-&gt;kovetkezo != NULL; futo = futo-&gt;kovetkezo)
+        if (strcmp(szerzo, futo-&gt;szerzo) == 0)
+            szum += futo-&gt;terjedelem;
+
+    return szum;
+}
+
+/* csak hogy kiprobaljam */
+void uj(Konyv *ezutan, char *szerzo, char *cim, unsigned terjedelem) {
+    Konyv *uj = (Konyv *)malloc(sizeof(Konyv));
+    strcpy(uj-&gt;szerzo, szerzo);
+    strcpy(uj-&gt;cim, cim);
+    uj-&gt;terjedelem = terjedelem;
+    uj-&gt;elozo = ezutan;
+    uj-&gt;kovetkezo = ezutan-&gt;kovetkezo;
+
+    ezutan-&gt;kovetkezo-&gt;elozo = uj;
+    ezutan-&gt;kovetkezo = uj;
+}
+
+/* csak hogy kiprobaljam */
+int main(void) {
+    Konyv *lista;
+    /* strazsak */
+    lista = (Konyv *)malloc(sizeof(Konyv));
+    lista-&gt;elozo = NULL;
+    lista-&gt;kovetkezo = (Konyv *)malloc(sizeof(Konyv));
+    lista-&gt;kovetkezo-&gt;kovetkezo = NULL;
+    lista-&gt;kovetkezo-&gt;elozo = lista;
+    /* konyvek az elejere */
+    uj(lista, &quot;Dosztojevszkij&quot;, &quot;Bun es bunhodes&quot;, 600);
+    uj(lista, &quot;Dosztojevszkij&quot;, &quot;A felkegyelmu&quot;, 800);
+    uj(lista, &quot;Tolsztoj&quot;, &quot;Haboru es beke&quot;, 900);
+
+    printf(&quot;%d&quot;, szumma(lista, &quot;Dosztojevszkij&quot;));
+
+    /* felszabadit */
+    while (lista) {
+        Konyv *temp = lista-&gt;kovetkezo;
+        free(lista);
+        lista = temp;
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Fésűs lista</h3>
+
+<p>Dolgozd át úgy az előző „szerzők, könyvek” programot, hogy fésűs listát alkalmazzon! A fő 
+listában a szerzők legyenek, amely szerzőkhöz további listákat, a könyvek listáit rendeljük 
+hozzá.</p>
+
+
+
+<h3>Keresés a raktárban</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Egy duplán láncolt, mindkét végén strázsás lista termékeket tárol, név (30 karakter), 
+cikkszám (20 karakter), és raktárkészlet (darab) formájában. Definiáld a lista struktúrát! Írj 
+egy függvényt, amelyik egy adott cikkszámú elemről megmondja, hogy mennyi áll rendelkezésre a 
+raktárban. Egy cikkszám csak egyszer szerepel. Ha nincs olyan, akkor 0.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A kis ZH-ban csak a struktúrát és a kereső függvényt kellett megadni.</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct Raktar {
+    char nev[30 + 1];
+    char cikkszam[20 + 1];
+    unsigned keszlet;
+
+    struct Raktar *elozo, *kovetkezo;
+} Raktar;
+
+unsigned darab(Raktar *eleje, char *cikkszam) {
+    /* a strazsakat nem dolgozzuk fel! */
+    Raktar *futo;
+    for (futo = eleje-&gt;kovetkezo; futo-&gt;kovetkezo != NULL; futo = futo-&gt;kovetkezo)
+        if (strcmp(cikkszam, futo-&gt;cikkszam) == 0)
+            return futo-&gt;keszlet;
+
+    return 0;
+}
+
+/* csak hogy kiprobaljam */
+void uj(Raktar *ezutan, char *nev, char *cikkszam, unsigned keszlet) {
+    Raktar *uj = (Raktar *)malloc(sizeof(Raktar));
+    strcpy(uj-&gt;nev, nev);
+    strcpy(uj-&gt;cikkszam, cikkszam);
+    uj-&gt;keszlet = keszlet;
+
+    uj-&gt;elozo = ezutan;
+    uj-&gt;kovetkezo = ezutan-&gt;kovetkezo;
+    ezutan-&gt;kovetkezo-&gt;elozo = uj;
+    ezutan-&gt;kovetkezo = uj;
+}
+
+/* csak hogy kiprobaljam */
+int main(void) {
+    Raktar *lista;
+    /* strazsak */
+    lista = (Raktar *)malloc(sizeof(Raktar));
+    lista-&gt;elozo = NULL;
+    lista-&gt;kovetkezo = (Raktar *)malloc(sizeof(Raktar));
+    lista-&gt;kovetkezo-&gt;kovetkezo = NULL;
+    lista-&gt;kovetkezo-&gt;elozo = lista;
+    /* 2 cikk az elejere */
+    uj(lista, &quot;strandlabda&quot;, &quot;00-17-24&quot;, 35);
+    uj(lista, &quot;karacsonyfa&quot;, &quot;99-33-12&quot;, 17);
+
+    printf(&quot;%d&quot;, darab(lista, &quot;00-17-24&quot;));
+
+    /* felszabadit */
+    while (lista) {
+        Raktar *temp = lista-&gt;kovetkezo;
+        free(lista);
+        lista = temp;
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+<h3>Duplán láncolt lista – különféle műveletek</h3>
+
+<div class="sticky">Vizsga volt</div>
+
+<p>Az alábbi struktúrával megadott, két irányban láncolt, mindkét 
+végén strázsával lezárt láncolt listát egy több szerző által közösen 
+készített C nyelvű program kezeli.</p>
+
+<ul>
+    <li>Első strázsa: prev=NULL, erről megismerhető
+    <li>Végstrázsa: next=NULL, erről megismerhető
+</ul>
+
+<pre   ><code class="language-c">typedef struct ListaElem {
+    char ident[50+1];
+    struct ListaElem *prev, *next;
+} ListaElem;</code></pre>
+
+<p>A feladat elkészíteni a lista kezeléséhez szükséges alábbi függvényeket:</p>
+<ol>
+    <li>Törlő függvény, mely két pointert kap: a lista kezdő- (strázsa-) elemének címét, valamint a törlendő elem címét. Nem biztos, hogy
+    a törlendő elem a megadott listában található. Feladat: megkeresni a listában a megadott elemet. Ha benne van, kifűzni a listából és
+    felszabadítani az általa lefoglalt memóriát.
+    <li>Beszúró függvényt, mely két pointert kap: a lista kezdő- (strázsa-) elemének címét, valamint a beszúrandó elem címét. Az új elemet
+    az ident mező szerint ABC sorba rendezett listába ident szerint rendezetten kell beszúrnia! A beszúrandó elemet a program más részén már
+    lefoglalták, most tehát a pointerek megfelelő beállítása a feladat.
+</ol>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">/* ha duplan lancolt a lista, akkor a lista eleje
+   pointer nem is kellene a torleshez. itt viszont
+   azt mondja a feladat, hogy ellenorizni kell,
+   a kapott pointer egyaltalan a ebben a listaban
+   van-e. */
+void torol(ListaElem *elso_s, ListaElem *torlendo) {
+    ListaElem *futo;
+
+    /* megnezzuk, itt van-e. */
+    bool megvan = false;
+    /* futo=elso_ertelmes, futo!=vegstrazsa */
+    for (futo = elso_s-&gt;next; futo-&gt;next != NULL; futo = futo-&gt;next)
+        if (futo == torlendo)
+            megvan = true;
+    if (!megvan)
+        return;
+
+    /* kifuzzuk a listabol */
+    torlendo-&gt;prev-&gt;next = torlendo-&gt;next;
+    torlendo-&gt;next-&gt;prev = torlendo-&gt;prev;
+    /* es ennyi */
+    free(torlendo);
+}
+
+void befuz(ListaElem *elso_s, ListaElem *uj) {
+    ListaElem *mi_ele;
+
+    /* beallitjuk a mi_ele pointert az elso ertelmes adatra.
+       addig megyunk, amig a vegstrazsat meg nem talaljuk
+       ES az uj elem kisebb, mint a vizsgalt. */
+    mi_ele = elso_s-&gt;next;
+    while (mi_ele-&gt;next != NULL &amp;&amp; strcmp(uj-&gt;ident, mi_ele-&gt;ident) &gt; 0)
+        mi_ele = mi_ele-&gt;next;
+    /* ha ennek a ciklusnak vege, akkor a mi_ele lesz pont
+       az az elem, ami ele be kell szurnunk az ujat. vagy azert,
+       mert ez az elso a listaban, aminel nagyobb az uj elemunk,
+       vagy azert, mert a vegstrazsat talaltuk meg. */
+
+    /* az uj elem pointereit beallitjuk */
+    uj-&gt;prev = mi_ele-&gt;prev;
+    uj-&gt;next = mi_ele;
+
+    /* elotte es utana levo pointereit erre allitjuk */
+    mi_ele-&gt;prev-&gt;next = uj;
+    mi_ele-&gt;prev = uj;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+<h3>Negatívak törlése</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Hozz létre típust, mely alkalmas egészek kétszeresen láncolt 
+listában való tárolására! Írj függvényt, amely átvesz egy mindkét 
+végén strázsával lezárt listát a fenti típusból, és kitörli a negatív 
+értékű elemeket. A működés áttekintéséhez készíts ábrát! Egy másik 
+függvénnyel gondoskodj a lista felszabadításáról is. Az elkészült 
+függvények alkalmazását rövid programrészlettel szemléltesd; a 
+listát feltöltöttnek tekintheted.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">typedef struct ListaElem {
+    int adat;
+    struct ListaElem *elozo, *kov;
+} ListaElem;
+
+void kiszed(ListaElem *elso) {
+    ListaElem *futo = elso-&gt;kov;
+    while (futo-&gt;kov != NULL) {
+        if (futo-&gt;adat &lt; 0) {
+            ListaElem *torlendo = futo;
+            futo = futo-&gt;kov;
+            torlendo-&gt;elozo-&gt;kov = torlendo-&gt;kov;
+            torlendo-&gt;kov-&gt;elozo = torlendo-&gt;elozo;
+            free(torlendo);
+        }
+        else
+            futo = futo-&gt;kov;
+    }
+}
+
+void felszab(ListaElem *elso) {
+    ListaElem *futo = elso, *lemarado;
+    while (futo != NULL)
+    {
+        lemarado = futo;
+        futo = futo-&gt;kov;
+        free(lemarado);
+    }
+}
+
+ListaElem *elso, *utolso;
+kiszed(elso);
+felszab(elso);</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Duplán láncolt lista másolása</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Definiálj két irányban láncolt lista elemeinek tárolására alkalmas adatstruktúrát, 
+a lista 20 elemű <code>int</code> tömb adattaggal rendelkezik! Írj függvényt, amely paraméterként 
+kapja egy ilyen elemekből felépülő lista címét! A függvény adja vissza a lista másolatát 
+(a másolt lista kezdőelemének címét)! (Vagyis hozzon létre egy másik listát, amely ugyanazokat 
+az adatokat tartalmazza ugyanolyan sorrendben, mint a paraméterként átvett!)</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">typedef struct Elem {
+    int adat[20];
+    struct Elem *prev, *next;
+} Elem;
+
+Elem *masol(Elem *start) {
+    Elem *ujstart, *ujfuto;
+    for (ujstart = ujfuto = NULL; start != NULL; start = start-&gt;next) {
+        Elem *p = (Elem*)malloc(sizeof(Elem));
+        *p = *start;
+        p-&gt;next = NULL;
+        if (ujstart == NULL) {
+            ujstart = ujfuto = p;
+            p-&gt;prev = NULL;
+        }
+        else {
+            ujfuto-&gt;next = p;
+            p-&gt;prev = ujfuto;
+            ujfuto = ujfuto-&gt;next;
+        }
+    }
+    return ujstart;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Hosszabban kidolgozandó listás feladatok">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Hosszabban kidolgozandó listás feladatok<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+
+<h3>Beszúrás az ötödik elem után</h3>
+<div class="sticky">Részben KZH volt</div>
+<p>Definiálj C-ben egy egyszeresen láncolt listát, amelyik egész számokat tárol. Írj egy 
+függvényt, amelyik egy paraméterként kapott lista ötödik eleme után beszúr egy 
+ugyancsak paraméterként kapott számot. Ha rövidebb, akkor az elejére kerüljön az új 
+szám.</p>
+<p>Készíts teljes programot, amellyel a függvény működése kipróbálható!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A kis ZH-ban csak a struktúrát és a beszúró függvényt kellett megadni.</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct Szam {
+    int szam;
+    struct Szam *kovetkezo;
+} Szam;
+
+Szam *beszur(Szam *lista, int sz) {
+    Szam *futo, *ujeleje;
+    int i;
+
+    for (futo = lista, i = 0; futo != NULL &amp;&amp; i &lt; 4; futo = futo-&gt;kovetkezo, i++) {
+        /* megkeresem a &quot;negyediket&quot; vagy a veget, amelyik elobb jon */
+        /* 0-tol indul a szamozas */
+        /* ciklusmag ures */
+    }
+
+    /* ez tuti: hogy lesz egy uj elem. csak hova kerul, es
+     * mi a kov pointere? */
+    Szam *uj = (Szam *) malloc(sizeof(Szam));
+    uj-&gt;szam = sz;
+
+    /* ha a lista tul rovid, futo==NULL miatt szalltunk ki a ciklusbol */
+    if (futo == NULL) {
+        /* elejere */
+        uj-&gt;kovetkezo = lista;
+        ujeleje = uj;
+    } else {
+        /* ha nem rovid, akkor a mutatott elem utanra rakjuk */
+        uj-&gt;kovetkezo = futo-&gt;kovetkezo;
+        futo-&gt;kovetkezo = uj;
+        ujeleje = lista;    /* marad */
+    }
+
+    /* a lista eleje mutato megvaltozhatott, ezert vissza kell adnunk! */
+    return ujeleje;
+}
+
+/* csak hogy kiprobaljam; uj listaelejevel ter vissza */
+Szam *elejere(Szam *lista, int sz) {
+    Szam *uj = (Szam *) malloc(sizeof(Szam));
+    uj-&gt;szam = sz;
+    uj-&gt;kovetkezo = lista;
+    return uj;
+}
+
+void kiir(Szam *lista) {
+    for (Szam *futo = lista; futo != NULL; futo = futo-&gt;kovetkezo)
+        printf(&quot;%d &quot;, futo-&gt;szam);
+    printf(&quot;\n&quot;);
+}
+
+/* csak hogy kiprobaljam */
+int main(void) {
+    Szam *lista = NULL;
+
+    for (int i = 1; i &lt; 10; i++)
+        lista = elejere(lista, i);
+    kiir(lista);
+    lista = beszur(lista, 0);
+    kiir(lista);
+
+    /* felszabadit */
+    while (lista) {
+        Szam *temp = lista-&gt;kovetkezo;
+        free(lista);
+        lista = temp;
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+<h3>Tizedik elem törlése</h3>
+<div class="sticky">Részben KZH volt</div>
+<p>Definiálj C-ben egyszeresen láncolt listát, amelyik maximum 45 betűs szavakat tárol. Írj egy 
+függvényt, amelyik egy paraméterként kapott lista tizedik elemét törli; ha a lista 
+rövidebb ennél, akkor ne csináljon semmit.</p>
+<p>Készíts teljes programot, amellyel a függvény működése kipróbálható!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A kis ZH-ban csak a struktúrát és a törlő függvényt kellett megadni.</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct Szavak {
+    char szo[45 + 1];
+    struct Szavak *kovetkezo;
+} Szavak;
+
+void tizedik_torol(Szavak *lista) {
+    Szavak *futo, *torlendo;
+    int i;
+
+    for (futo = lista, i = 0; futo != NULL &amp;&amp; i &lt; 8; futo = futo-&gt;kovetkezo, i++) {
+        /* megkeresem a torlendo ELOTTIT vagy a veget, amelyik elobb jon */
+        /* 0-tol indul a szamozas */
+        /* ciklusmag ures */
+    }
+
+    /* ha emiatt alltam meg, nincs dolog */
+    if (futo == NULL || futo-&gt;kovetkezo == NULL)
+        return;
+
+    /* a futo UTANI elemet toroljuk, ezert szamoltunk csak i&lt;9-ig */
+    /* ez a torlendo elem */
+    torlendo = futo-&gt;kovetkezo;
+    /* a megazutanira allitjuk a ptr-t */
+    futo-&gt;kovetkezo = torlendo-&gt;kovetkezo;
+    free(torlendo);
+
+    /* vagy a 10. elemet toroltunk, vagy nem csinaltunk semmit;
+     * ettol a listaeleje ptr nem valtozik */
+    return;
+}
+
+/* csak hogy kiprobaljam; uj listaelejevel ter vissza */
+Szavak *elejere(Szavak *lista, char *szo) {
+    Szavak *uj = (Szavak *) malloc(sizeof(Szavak));
+    strcpy(uj-&gt;szo, szo);
+    uj-&gt;kovetkezo = lista;
+    return uj;
+}
+
+void kiir(Szavak *lista) {
+    for (Szavak *futo = lista; futo != NULL; futo = futo-&gt;kovetkezo)
+        printf(&quot;%s &quot;, futo-&gt;szo);
+    printf(&quot;\n&quot;);
+}
+
+/* csak hogy kiprobaljam */
+int main(void) {
+    Szavak *lista = NULL;
+
+    for (int i = 1; i &lt; 15; i++) {
+        char s[10];
+        sprintf(s, &quot;szo%d&quot;, i);
+        lista = elejere(lista, s);
+    }
+    kiir(lista);
+    tizedik_torol(lista);
+    kiir(lista);
+
+    /* felszabadit */
+    while (lista) {
+        Szavak *temp = lista-&gt;kovetkezo;
+        free(lista);
+        lista = temp;
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+<h3>Lista átláncolása (megoldás hosszú magyarázattal)</h3>
+<div class="sticky">Vizsga volt</div>
+<p>Adott a következő definíció:</p>
+<pre   ><code class="language-c">typedef struct elem {
+    int adat;
+    struct elem *kov;
+} Elem;</code></pre>
+
+<p>A fenti elemekből egyszeresen láncolt, NULL-terminált láncolt listát építünk. Írj olyan 
+függvényt, amely átvesz egy listát a fenti típusból, a lista első elemét kiveszi, és a lista 
+végére fűzi; az így kapott lista kezdőcímét adja vissza. Pl.
+start&rarr;A&rarr;B&rarr;C&rarr;NULL lista helyett az ujstart&rarr;B&rarr;C&rarr;A&rarr;NULL
+listát kapjuk. A lista teljes tartalmáról nem készíthet másolatot a memóriában.</p>
+
+<p>Készíts teljes programot, amellyel a függvény működése kipróbálható!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A lista tartalmának másolása tiltva van. Ez azt jelenti, hogy a meglévő listaelemek 
+átláncolásával kell létrehozni az új állapotot. Bármi listás feladatról van is szó, egy rajz 
+háromnegyed siker. A lenti rajzon a felső rész mutatja az eredeti állapotot, az alsó pedig a 
+keletkezőt. Piros szín jelöli azokat a pointereket, amelyek megváltoznak.</p>
+
+<img src="listavegere.svg" style="width: 28em;" class="kozep">
+
+<p>Minden új pointerhez (új nyílhoz) a kódban egy pointer értékadás 
+felel meg. Vagyis lényegében három pointer értékadást kell csinálni.</p>
+
+<ol>
+    <li>Egyrészt az új lista <code>ujstart</code> pointere ezentúl a B elemre mutat, amelyik eddig a második volt.
+        Ezt a B elemet úgy érjük el, hogy <code>start-&gt;kov</code>, hiszen <code>start</code> volt eddig az
+        első elem, az utána következő pedig a második.
+    <li>Másrészt, az eddigi első elem következő pointerét lenullázhatjuk majd, mert mostantól abból utolsó elem lesz.
+        (Ez a művelet nem lehet az első lépés, mert akkor elveszítenénk a lista összes többi elemét.)
+    <li>Harmadrészt, a lista legvégére be kell fűzni a régi első elemet. Ehhez megkeressük az utolsó elemet, és
+        annak a kov pointerébe (amelyik NULL kell legyen, mert attól az az utolsó) betesszük A címét.
+</ol>
+
+<p>Két speciális esetre külön kell figyelni kell. Ezeket a fenti 
+kód előtt érdemes ellenőrizni, hiszen a fenti kód feltételezi 
+<code>start</code> és <code>start-&gt;kov</code> létezését.</p>
+
+<ol>
+    <li>Egyik az, ha teljesen üres a lista; akkor nem kell csinálni semmit.
+    <li>Másik pedig, ha csak egy elem van, tulajdonképpen akkor sem.
+</ol>
+
+<p>A fentiek alapján a kód, a kipróbáló programrésszel együtt – 
+amelyeket amúgy a vizsgafeladat nem kért – így néz ki.
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct elem {
+    int adat;
+    struct elem *kov;
+} Elem;
+
+/* csak ezt a fuggvenyt kerte a feladat */
+Elem *atrendez(Elem *start) {
+    Elem *A, *B, *C;        /* az erthetoseg kedveert */
+
+    if (start == NULL)      /* ures lista -&gt; vissza is ures lista */
+        return NULL;
+    if (start-&gt;kov == NULL)   /* csak egy elem -&gt; atrendezni akkor sem kell,
+                               es a lista start igy is valtozatlan */
+        return start;
+
+    /* megkeressuk a utolsot (a rajzon a C-t) */
+    Elem *futo;
+    for (futo = start; futo-&gt;kov != NULL; futo = futo-&gt;kov)
+        ;
+    C = futo;
+    /* meg erre is fogunk hivatkozni */
+    A = start;
+    B = start-&gt;kov;
+
+    /* ez az uj lista eleje, az eddigi masodik. a rajzon a B. */
+    Elem *ujstart = B;
+
+    /* az eddigi A elem lesz a vege, ez a rajzon az A. */
+    A-&gt;kov = NULL;
+
+    /* itt allitjuk be C-t kovetonek az A-t. */
+    C-&gt;kov = A;
+
+    return ujstart;
+}
+
+/* ezeket nem kerte a feladat */
+void kiir(Elem *lista) {
+    for (Elem *futo = lista; futo != NULL; futo = futo-&gt;kov)
+        printf(&quot;%c &quot;, futo-&gt;adat);
+    printf(&quot;\n&quot;);
+}
+
+Elem* uj(int adat) {
+    Elem *uj = (Elem *) malloc(sizeof(Elem));
+    uj-&gt;adat = adat;
+    uj-&gt;kov = NULL;
+    return uj;
+}
+
+int main(void) {
+    Elem *lista;
+
+    printf(&quot;Ures lista:\n&quot;);
+    lista = NULL;
+    kiir(lista);
+    lista = atrendez(lista);
+    kiir(lista);
+
+    printf(&quot;Csak egy elem:\n&quot;);
+    lista = uj('A');
+    kiir(lista);
+    lista = atrendez(lista);
+    kiir(lista);
+
+    printf(&quot;Ket elem, itt mar mukodik:\n&quot;);
+    lista-&gt;kov = uj('B');
+    kiir(lista);
+    lista = atrendez(lista);
+    kiir(lista);
+    /* visszarendezzuk */
+    lista = atrendez(lista);
+
+    printf(&quot;Harom elem, mint a rajzon:\n&quot;);
+    lista-&gt;kov-&gt;kov = uj('C');
+    kiir(lista);
+    lista = atrendez(lista);
+    kiir(lista);
+
+    /* felszabadit */
+    while (lista) {
+        Elem *temp = lista-&gt;kov;
+        free(lista);
+        lista = temp;
+    }
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+
+
+<h3>Melyik szó hányszor</h3>
+<p>Írj programot, amelyik végigolvas egy szövegfájlt, és kiírja ABC szerint rendezve a benne 
+szereplő összes szót, illetve melléjük, hogy melyik hányszor szerepelt.</p>
+
+<h3>Kereszthivatkozások</h3>
+<p>Írj programot, amely kereszthivatkozás listát készít egy adott 
+szövegfájlról; vagyis megadja az összes benne szereplő szót, és minden szó 
+mellé azoknak a soroknak a számát, amelyekben az illető szó megtalálható!</p>
+
+
+<h3>Gráf listában</h3>
+<p>Adott egy gráf, amelyet láncolt listákban tárolunk. A láncolt lista egy eleme tartalmaz egy jelzőbitet, egy mutatót az ő szomszédjait felsoroló láncolt listára, illetve a következő elem mutatóját:
+<pre   ><code class="language-c">struct graf {
+    bool jelzobit;
+    struct szomszed *szom;
+    struct graf *next;
+};</code></pre>
+<p>A jelzőbitet a program szabadon használhatja. A szomszédos elemek mutatóit tartalmazó láncolt lista szerkezete az alábbi:
+<pre   ><code class="language-c">struct szomszed {
+    struct graf *el;
+    struct szomszed *next;
+};</code></pre>
+<p>Határozza meg a program, hogy az így leírt gráf összefüggő-e!</p>
+<p>Keress hurkot a gráfban, és írja ki a programod, hogy van-e benne!</p>
+
+
+
+<h3>Határidőnapló listában</h2>
+
+<p>Írj programot, amely határidőnaplót kezel! A program tárolja 
+események adatait időponttal és fontossággal! A programnak 
+tetszőlegesen sok eseményt tudnia kell tárolni; az események száma 
+futás közben változhat. Az adatszerkezet gyakori méretváltozása 
+kizárja a tömbbel történő praktikus megvalósítást, ezért válassz 
+láncolt listát a megvalósításhoz! Feladatok:</p>
+
+<ol>
+    <li>Programrészt írni, amelyik a lista elejére beszúr egy új eseményt.
+    <li>Programrészt írni, amelyik a lista végére fűz egy új eseményt.
+    <li>Összes eseményt kilistázó programrész.
+    <li>A listát felszabadító programrész.
+</ol>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A felszabadításnál az adott listaelemből a <code>free()</code> 
+előtt ki kell mentenünk a mutatót, ugyanis a <code>free()</code> 
+után már nem olvashatunk bele a felszabadított elembe. C-ben 
+rekurzív algoritmussal listát felszabadítani értelmetlen pazarlás.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+/* Fontos resz: ez a struktura adja a lancolt listat; ezek az
+ * elemek a struct _esemeny *kov miatt listaba fuzhetoek. */
+typedef struct _esemeny {
+    char leiras[101];               /* ezek a tarolt adatok */
+    int ev, honap, nap;
+    int ora, perc;
+    enum _fontossag {
+        magas, kozepes, alacsony
+    } fontossag;
+
+    struct _esemeny *kov;           /* ez meg a lancolt lista miatt */
+} Esemeny;
+
+int main(void) {
+    Esemeny e;
+    Esemeny *lista=NULL;    /* ures lista */
+    Esemeny *temp, *futo;
+
+    /* A LISTA ELEJERE szurjuk be ennek a masolatat (1. feladat) */
+    strcpy(e.leiras, &quot;Prog 1 Nagy ZH&quot;);
+    e.ev=2010; e.honap=11; e.nap=4;
+    e.ora=8; e.perc=0;
+    e.fontossag=kozepes;
+    /* beszuras */
+    /* uj esemeny, egyelore memoriaszemettel */
+    temp=(Esemeny *) malloc(sizeof(Esemeny));
+    /* bemasoljuk az adatokat. struct=struct -&gt; konkret adatmasolas! */
+    *temp=e;
+    /* ennek a kov mutatoja az eddigi listaeleje */
+    /* pointer=pointer -&gt; csak a pointer allitodik, a hasznos
+       adat ilyenkor nem masolodik! */
+    temp-&gt;kov=lista;
+    /* a lista eleje pedig innentol kezdve erre mutat */
+    /* ez is pointer=pointer. */
+    lista=temp;
+
+    /* A LISTA VEGEHEZ FUZZUK ennek a masolatat - 2. feladat. */
+    strcpy(e.leiras, &quot;Prog 1 PZH&quot;);
+    e.nap=18;
+    /* vegehez fuzes */
+    temp=(Esemeny *) malloc(sizeof(Esemeny));
+    *temp=e;
+    temp-&gt;kov=NULL;         /* ez biztos, mert utolso elem lesz. */
+    /* innentol ket lehetoseg - ures volt eddig, vagy nem */
+    if (lista==NULL) {
+        /* mert ha ures, akkor a lista eleje pointer is valtozik. */
+        lista=temp;
+    } else {
+        /* ha nem, akkor meg kell keresnunk az utolso elemet */
+        Esemeny *futo;
+
+        futo=lista;
+        while (futo-&gt;kov!=NULL) /* ha nem NULL, van meg elem */
+            futo=futo-&gt;kov;
+        /* megtalaltuk az utolsot - annak a pointere mostantol erre. */
+        futo-&gt;kov=temp;
+    }
+
+    /* MINDEN ELEMET KIIRUNK - 3. feladat. */
+    futo=lista;
+    while (futo!=NULL) {
+        printf(&quot;%s\n&quot;, futo-&gt;leiras);
+        futo=futo-&gt;kov;
+    }
+
+    /* MINDEN ELEMET FELSZABADITUNK - 4. feladat. */
+    futo=lista;
+    while (futo!=NULL) {
+        Esemeny *kov;
+
+        kov=futo-&gt;kov;  /* elmentjuk */
+        free(futo);     /* felszabaditjuk */
+        futo=kov;       /* elmentett pointer */
+    }
+    lista=NULL;     /* innentol ures */
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+<h3>Listakezelő függvények</h3>
+
+<p>Írd meg függvényekként az előző feladat programrészeit!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Mind a lista elejére beszúrás, mind a lista végére fűzés esetében
+módosulhat a lista első elemére mutató pointer. Az első esetben értelemszerűen
+mindig; az utóbbinál akkor, ha eredendően a lista üres. A listába beszúró
+függvényeknek ezért valahogy azt módosítaniuk kell tudni. Erre két megoldás
+van, 1) pointert kapnak a listaeleje pointerre (cím szerint veszik át
+azt a paramétert), 2) visszatérési értékként adják vissza
+az új (esetleg megváltozott) lista első eleme pointert.</p>
+
+<p>A lenti kód teljesen ugyanaz, mint az előző feladat, csak 
+függvényekkel. Így sokkal áttekinthetőbb kódot kapunk! Mind a két 
+megvalósításra (cím szerint átvett lista kezdőcím, és visszatérési 
+értékben visszaadott új cím) mutat példát.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct _esemeny {
+    char leiras[101];
+    int ev, honap, nap;
+    int ora, perc;
+    enum _fontossag {
+        magas, kozepes, alacsony
+    } fontossag;
+
+    struct _esemeny *kov;
+} Esemeny;
+
+Esemeny *elejere_beszur(Esemeny *lista, Esemeny e) {
+    Esemeny *temp;
+
+    temp = (Esemeny *) malloc(sizeof(Esemeny));
+    *temp = e;
+    temp-&gt;kov = lista;
+    lista = temp;   /* FIGYELEM! ezzel csak a lokalis valtozot allitjuk at! */
+
+    return lista;   /* visszaadjuk a hivonak */
+}
+
+/* itt is lehetne egyszeres indirekcioval is */
+void vegehez_fuz(Esemeny **lista, Esemeny e) {
+    Esemeny *temp;
+
+    temp = (Esemeny *) malloc(sizeof(Esemeny));
+    *temp = e;
+    temp-&gt;kov = NULL;
+    if (*lista == NULL) {
+        *lista = temp;
+    } else {
+        Esemeny *futo = *lista;
+        while (futo-&gt;kov != NULL)
+            futo = futo-&gt;kov;
+        futo-&gt;kov = temp;
+    }
+}
+
+void kiir(Esemeny *lista) {
+    Esemeny *futo = lista;
+    while (futo != NULL) {
+        printf(&quot;%s\n&quot;, futo-&gt;leiras);
+        futo = futo-&gt;kov;
+    }
+}
+
+void felszabadit(Esemeny *lista) {
+    Esemeny *futo = lista;
+    while (futo != NULL) {
+        Esemeny *kov = futo-&gt;kov;
+        free(futo);
+        futo = kov;
+    }
+}
+
+int main(void) {
+    Esemeny e;
+    Esemeny *lista = NULL;
+
+    strcpy(e.leiras, &quot;Prog 1 Nagy ZH&quot;);
+    e.ev = 2010;
+    e.honap = 11;
+    e.nap = 4;
+    e.ora = 8;
+    e.perc = 0;
+    e.fontossag = kozepes;
+    lista = elejere_beszur(lista, e);
+
+    strcpy(e.leiras, &quot;Prog 1 PZH&quot;);
+    e.nap = 18;
+    vegehez_fuz(&amp;lista, e);
+
+    kiir(lista);
+
+    felszabadit(lista);
+    lista = NULL;
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+
+<h3>Listák és rekurzió</h3>
+
+<p>Egy láncolt lista egy első elemből, és egy abból kiinduló láncolt listából áll. Ezen gondolat 
+alapján írjunk függvényeket, amelyek:</p>
+
+<ul>
+    <li>Kiírják az egyszeresen láncolt listában tárolt adatokat.
+    <li>Kiírják az egyszeresen láncolt lista adatait <em>visszafelé</em>.
+    <li>Felszabadítják a listát.
+</ul>
+
+<p>Mikor érdemes használni a rekurziót a listáknál? Mikor nem?</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+
+typedef struct Lista {
+   int adat;
+   struct Lista *kov;
+} Lista;
+
+
+/* hogy legyen teszt adat */
+Lista *lista_letrehoz(void) {
+    Lista *l = NULL;
+    for (int i = 0; i &lt; 20; ++i) {
+        Lista* u = (Lista*)malloc(sizeof(Lista));
+        u-&gt;kov = l;
+        u-&gt;adat = rand() % 100;
+        l = u;
+    }
+    return l;
+}
+
+
+/* kiírja a listát előrefelé. a lista a legelső elemből,
+ * és a többi részéből áll (ami úgyszintén egy lista).
+ * üres listánál nem kell csinálni semmit. */
+void lista_kiir_elore(Lista *l) {
+    if (l == NULL)
+        return;
+    printf(&quot;%d &quot;, l-&gt;adat);
+    lista_kiir_elore(l-&gt;kov);
+}
+
+
+/* kiírja a listát visszafelé. az előző függvényhez
+ * képest csak megcseréltük a két hátsó sort: előbb a
+ * lista &quot;többi részét&quot; írjuk ki, csak utána az első elemet.
+ * mivel ezt nem csak az első elemnél, hanem az összesnél így
+ * csináljuk, ezért nem csak az első elem kerül a végére,
+ * hanem az egész megfordul. */
+void lista_kiir_hatra(Lista *l) {
+    if (l == NULL)
+        return;
+    lista_kiir_hatra(l-&gt;kov);
+    printf(&quot;%d &quot;, l-&gt;adat);
+}
+
+
+/* felszabadítjuk a listát. előbb fel kell szabadítani
+ * az ebből az elemből kiinduló listát, utána pedig ezt
+ * az elemet. az ötlet hasonló, mint a hátrafelé kiírásnál. */
+void lista_felszabadit(Lista *l) {
+    if (l == NULL)
+        return;
+    lista_felszabadit(l-&gt;kov);
+    free(l);
+}
+
+
+int main(void) {
+    Lista *l = lista_letrehoz();
+    
+    lista_kiir_elore(l); printf(&quot;\n&quot;);
+    lista_kiir_hatra(l); printf(&quot;\n&quot;);
+    lista_felszabadit(l); 
+    
+    return 0;
+}</code></pre>
+<p>A rekurziót csak a hátrafelé kiírásnál érdemes alkalmazni. Az előrefelé történő kiírás és a 
+felszabadítás könnyedén megoldható ciklussal is, mivel a pointerek amúgy is előrefelé mutatnak a 
+listában. Ilyenkor nem érdemes egy Θ(n) memóriaigényű megoldást választani a Θ(1) memóriaigényű 
+helyett!</p>
+</div>
+</details>
+
+
+
+<h3>Lista rendezése új lista építésével</h3>
+
+<p>Írj programot, amely duplán láncolt, mindkét végén strázsás listát épít könyvek címeiből! Írj 
+függvényt, amely egy paraméterként kapott listát rendez a mű címe szerinti ábécé sorrendbe!</p>
+
+<p>Lista rendezésére kétféle megoldás létezik: első, hogy a lista elemei megmaradnak, és a 
+bennük lévő adatokat cseréljük ki (mint a tömböknél); a második, sokkal hatékonyabb megoldás 
+pedig az, hogy az átláncolásukkal rendezzük a listát. Ilyenkor ugyanis nincsen szükség adatok 
+cserélgetésére, hanem csak a pointerek módosulnak. A feladat ezért az utóbbi megvalósítása.</p>
+
+<details >
+<summary>Tipp</summary>
+<div>
+  <ul>
+    <li>Segédfüggvény készítése, amely paraméterként kap egy rendezett, strázsákkal lezárt 
+    listát, valamint egy listaelem címét, és a listaelemet a megfelelő helyre befűzi a listába. 
+    (Memóriafoglalás tehát nem történik, csak a pointerek állítgatása.)
+    
+    <li>A rendezőfüggvény emelje ki a rendezetlen listából a két strázsa közötti elemeket egy 
+    strázsa nélküli listába, a két strázsa pedig mutasson egymásra (azaz üres lista jön létre, 
+    ez lesz a rendezett lista).
+    
+    <li>Egy ciklusban vegye le a rendezetlen lista első elemét, és hívja meg a segédfüggvényt, 
+    amely ezt az elemet beszúrja a rendezett listába! A ciklus addig menjen, amíg van elem a 
+    rendezetlen listában!
+  </ul>
+</div>
+</details>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A rendező függvény (a rendezve beszúró nélkül):</p>
+
+<pre   ><code class="language-c">void lista_rendez(Lista *lista) {
+    /*  kiemeljuk az elsot, es lenullazzuk az utolso kov pointeret */
+    ListaElem *elso;
+    elso = lista-&gt;eleje-&gt;kovetkezo;
+    lista-&gt;vege-&gt;elozo-&gt;kovetkezo = NULL;
+
+    /*  egymasra allitjuk a strazsakat, ezert ures listava valik */
+    lista-&gt;eleje-&gt;kovetkezo = lista-&gt;vege;
+    lista-&gt;vege-&gt;elozo = lista-&gt;eleje;
+
+    while (elso != NULL) {
+        ListaElem *kovetkezo_lesz = elso-&gt;kovetkezo;
+        lista_rendezve_beszur(lista, elso);
+
+        elso = kovetkezo_lesz;
+    }
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Lista rendezése quicksort algoritmussal</h3>
+<p>Írj függvényt, amely egy paraméterül kapott, egész számokból álló,
+duplán láncolt listát rendez gyorsrendezéssel!</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

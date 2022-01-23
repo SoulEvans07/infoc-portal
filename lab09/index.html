@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Labor, 9. hét: dinamikus tömbök II.</title>
+<meta property="og:title" content="TEST InfoC :: Labor, 9. hét: dinamikus tömbök II.">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Dinamikus tömbök kezelése, sztringek dinamikus tömbökben.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Dinamikus tömbök kezelése, sztringek dinamikus tömbökben.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Labor, 9. hét: dinamikus tömbök II.">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Labor, 9. hét: dinamikus tömbök II.</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Pohl László · <i class="ido"></i> 2019.08.24.</p>
+<p class="kivonat">Dinamikus tömbök kezelése, sztringek dinamikus tömbökben.</p>
+</div>
+
+
+<p>Felkészülés a laborra:</p>
+<ul>
+    <li>A <a href="../ea04/index.html#eapointer">pointerekről és sztringekről szóló előadás</a> átismétlése.
+    <li>A <a href="../ea07/index.html#eadinamikustomb">dinamikus memóriakezelésről szóló előadás</a> anyagának megértése.
+</ul>
+
+
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Debugmalloc</a>
+              <li><a href="index.html#2" class="">Sztring dinamikus másolata</a>
+              <li><a href="index.html#3" class="">Dinamikus sztring nyújtása</a>
+              <li><a href="index.html#4" class="">Részsztring előállítása</a>
+              <li><a href="index.html#5" class="">Sztring darabjának elhagyása</a>
+              <li><a href="index.html#6" class="">Sztring beszúrása</a>
+              <li><a href="index.html#7" class="">További feladatok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Debugmalloc">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Debugmalloc<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A nagy házihoz adunk segédletként egy <em>Debugmalloc</em> nevű programot, amely a memóriakezelési hibák <em>egy
+részét</em> képes felfedezni. Erről bővebb leírást a Segédlet/Nagy házi menüpont alatt találsz: <a href="../debugmalloc/index.html">Debugmalloc</a>. A mostani laborfeladat ennek az eszköznek a kipróbálása.</p>
+
+<ul>
+    <li>Hozz létre egy projektet a szokásos módon a Code::Blocksban (File, New project stb.)</li>
+    <li>Töltsd le a következő fájlt: <a download href="../debugmalloc/debugmalloc.h">debugmalloc.h</a>.
+        Másold be <em>a projekted mappájába,</em> a main.c fájl mellé:
+        <img src="dm_files.png" class="kozep arnyek">
+        </li>
+    <li>Add hozzá a fájlt a projektedhez. Ehhez előbb kattints jobb gombbal a projekt nevére
+        a management ablakban:
+        <img src="dm_add_files.png" class="kozep arnyek">
+    <li>Aztán válaszd ki a fájlt, és kattints az okéra! Ellenőrizd, hogy tényleg be fog-e
+        kerülni a programba (Debug és Release be van-e jelölve):
+        <img src="dm_target.png" class="kozep arnyek">
+    <li>Végül ehhez kell jutnod:
+        <img src="dm_project.png" class="kozep arnyek">
+        </li>
+</ul>
+
+<p>Ha kész vagy, a helló világ programod írd felül az alábbi forráskóddal! Ez kettő memóriakezelési
+hibát tartalmaz. Látod, melyek ezek? Ha igen, <em>akkor se javítsd még ki</em> őket egyelőre!</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+#include &quot;debugmalloc.h&quot;
+
+int main(void) {
+    char txt[] = &quot;hello&quot;;
+
+    char *p = malloc(strlen(txt) * sizeof(char));
+    strcpy(p, txt);
+    printf(&quot;TXT: %s\n&quot;, p);
+
+    return 0;
+}</code></pre>
+
+<p>Futtasd le a programot, és figyeld meg a <strong>Debugmalloc</strong> hibaüzeneteit! Javítsd ki a hibákat!</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Sztring dinamikus másolata">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Sztring dinamikus másolata<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Gyakran látni nagyobb programokban az <code>strdup()</code> nevű függvényt. Ez <em>nem</em> szabványos, de szinte
+mindenki megírja magának, mert nagyon hasznos. A feladata az, hogy a paraméterként kapott sztringről készítsen egy
+másolatot, amelyiket dinamikusan foglalt területre tesz. A másolat helyét, azaz a dinamikusan foglalt karaktertömb
+címét visszatérési értékként adja, és természetesen később fel kell szabadítani azt.</p>
+
+<ul>
+    <li>Írj <code>masolat()</code> nevű függvényt, amelyik ugyanígy működik! Például az <code>str = masolat("alma")</code>
+    sor hatására jöjjön létre a kért másolat, és kerüljön be annak címe az <code>str</code> pointerbe.
+
+    <li>Írj megjegyzést a függvény fölé, amelyben pár mondatban leírod, hogyan kell azt használni! (A nagy házi feladatban
+    is minden függvényt dokumentálnod kell majd.)</p>
+
+    <li>Mutass példát a függvény használatára! Ne feledkezz meg benne a tömb felszabadításáról!</li>
+</ul>
+
+<details >
+<summary>Tipp</summary>
+<div>
+
+<p>Figyeld meg jól a feladatkiírás <code>str = masolat("alma")</code> kifejezését! Ebben a függvényhívás után egy
+értékadás történik: az <code>str = ...</code> kifejezésrészlet egy pointert tárol el. Ez az a pointer, amelyik
+a függvény által lefoglalt területre mutat. Fontos, hogy itt nem sztring értékadás történik, azaz nem tömbök
+közötti értékadás; egyszerűen csak egy pointert ráállítunk a létrejött tömbre.</p>
+
+</div>
+</details>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+/* Dinamikusan foglalt területre másolja a paraméterként kapott
+ * sztringet. A másolat címével tér vissza. A kapott területet
+ * a hívónak fel kell szabadítania a free() függvénnyel. */
+char *masolat(char const *str) {
+    /* milyen hosszú a sztring? */
+    int hossz = strlen(str);
+    
+    /* dinamikus tömb foglalása, +1 a lezáró nullának */
+    char *uj = (char*) malloc((hossz + 1) * sizeof(char));
+    if (uj == NULL)
+        return NULL;    /* :( */
+    
+    /* sztring másolása, biztosan elfér a tömbbe */
+    strcpy(uj, str);
+    return uj;
+}
+
+
+int main(void) {
+    char *x = masolat(&quot;hello, dinamikus vilag!&quot;);
+    if (x != NULL) {
+        printf(&quot;%s\n&quot;, x);
+        free(x);
+    }
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Dinamikus sztring nyújtása">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Dinamikus sztring nyújtása<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A <code>string.h</code> fájl <code>strcat()</code> függvénye sztringek összefűzésére való: az <code>strcat(x, y)</code> hívás
+az <code>x</code> pointer által mutatott sztring végéhez fűzi az <code>y</code> sztringet. Ehhez az <code>x</code> által
+mutatott tömbben elegendő helynek kell lennie, különben a függvény túlindexel. A helyet a hívónak kell biztosítania, ami
+azért is kényelmetlen, mert neki is bajlódnia kell a sztringek hosszával, karaktertömbök méretével.</p>
+
+<p>A mostani feladatod egy okosabb függvényt írni. Ezt <code>x = hozzafuz(x, y)</code> formában kell majd
+használni. A dolga az, hogy egy meglévő, dinamikusan foglalt <code>x</code> sztringet nyújtsa meg akkorára, hogy
+az <code>y</code> is hozzáfűzhető legyen, és tegye is meg a hozzáfűzést. Például:</p>
+
+<pre   ><code class="language-cbub">char *x = masolat(&quot;alma&quot;);  /* az előző feladatból */
+
+x = hozzafuz(x, &quot;fa&quot;);
+printf(&quot;%s\n&quot;, x);    // almafa
+
+free(x);</code></pre>
+
+
+<p>Írd meg a függvényt! Tegyél megjegyzést fölé, amelyben leírod, mire való, és hogyan kell használni!
+Ügyel arra, hogy ez a függvény első paramétereként csak dinamikusan foglalt sztringet kaphat – ezt megemlítheted
+a megjegyzésben is.</p>
+
+<details >
+<summary>Tipp</summary>
+<div>
+
+<p>Vajon miért kell a függvénynek visszatérnie a dinamikusan terület címével? Azért, mert az átméretezés során
+megváltozhat a memóriaterület helye a memóriában. Lehet, hogy az eredeti helyen nem fér el a nagyobb tömb, és
+új jön létre, nagyobb mérettel. Az eredeti tömb pedig eltűnik, felszabadítja azt a függvény! Az előadáson már
+találkoztál ezzel a <a href="../ea07/index.html#realloc"><code>realloc()</code></a> függvény
+kapcsán.</p>
+
+</div>
+</details>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+/* az előző feladatból */
+char *masolat(char const *str) {
+    char *uj = (char*) malloc((strlen(str) + 1) * sizeof(char));
+    strcpy(uj, str);
+    return uj;
+}
+
+
+/*
+ * Hozzáfűzi a 'mihez' pointer által mutatott
+ * dinamikusan foglalt sztringhez a 'mit' sztringet.
+ * Visszatér a dinamikusan foglalt terület címével,
+ * ami megváltozhatott, ezért a hívó be kell másolja
+ * azt az eredeti változóba: x = hozzafuz(x, ...).
+ * A hívó feladata a free()-t hívni a kapott tömbre.
+ */
+char *hozzafuz(char *mihez, char const *mit) {
+    int ujhossz = strlen(mihez) + strlen(mit);
+    
+    char *uj = (char*) malloc((ujhossz + 1) * sizeof(char));
+    if (uj == NULL) return NULL;
+    
+    strcpy(uj, mihez);
+    strcat(uj, mit);
+    
+    free(mihez);
+    return uj;
+}
+
+int main(void) {
+    char *x;
+    x = masolat(&quot;korte&quot;);
+    x = hozzafuz(x, &quot;fa&quot;);
+    if (x != NULL) {
+        printf(&quot;%s\n&quot;, x);    // kortefa
+        free(x);
+    }
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Részsztring előállítása">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+  <a id="labreszsztring" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Részsztring előállítása<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írj függvényt, amely egy sztringet kap, és kivágja abból a paraméterként kapott két index közötti
+részt! Az első index az első olyan karakterre mutat, ami már kell, a második index pedig az első olyanra,
+ami már nem. Tehát balról zárt, jobbról nyílt intervallumról van szó. Ha az első index kisebb 0-nál, akkor
+vegye a függvény 0-nak azt; ha a második nagyobb a sztring hosszánál, akkor pedig azzal megegyezőnek. Térjen
+vissza a függvény egy dinamikusan foglalt sztringgel, amelyik a kivágott részt tartalmazza!</p>
+
+<p>Írj teszt programrészt is – próbáld ki a függvényt különböző bemenetekre! Pl. így:</p>
+
+<table class="tomb">
+   <tr>
+      <td>0
+      <td>1
+      <td>2
+      <td class="piros">3
+      <td>4
+      <td>5
+      <td>6
+      <td>7
+      <td>8
+      <td class="piros">9
+      <td>10
+      <td>11
+   
+   <tr>
+      <td class="athuzott">h
+      <td class="athuzott">e
+      <td class="athuzott">l
+      <td class="piros">l
+      <td class="piros">o
+      <td class="piros">,
+      <td class="piros">&nbsp;
+      <td class="piros">v
+      <td class="piros">i
+      <td class="athuzott">l
+      <td class="athuzott">a
+      <td class="athuzott">g
+</table>
+
+<p>Ne feledkezz meg a függvény fölé, megjegyzésben írt dokumentációról!
+Mire jó a függvény? Milyen paraméterei vannak? Milyen kötelezettségei vannak a hívónak?</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Az alábbi megoldás a <code>memcpy()</code> függvényt használja az egyszerűség kedvéért.
+Ez tetszőleges adatot másol, <code>memcpy(hova, honnan, hány bájtot)</code>. Azért volt rá
+szükség, mert a kivágandó sztringrészlet végén nincs lezáró nulla, tehát a <code>strcpy</code>
+nem lett volna alkalmas erre a feladatra. Ezért kell a lezáró nullát is az új sztringbe külön
+betenni.</p>
+<p>Ciklussal elvégezve a másolást, <em>ugyanolyan jó</em> megoldáshoz lehet jutni.</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+/*
+ * Előállít egy új sztringet, amely az 'eredeti' nevű sztring
+ * közepéből van kivágva, [mettol, meddig) balról zárt, jobbról
+ * nyílt intervallumban. A hívó a free() függvénnyel fel kell
+ * szabadítsa a kapott tömböt.
+ */
+char *reszsztring(char const *eredeti, int mettol, int meddig) {
+    int regihossz = strlen(eredeti);
+    if (mettol &lt; 0)
+        mettol = 0;
+    if (meddig &gt; regihossz)
+        meddig = regihossz;
+    
+    int ujhossz = meddig - mettol;
+    char *ujsztring = (char*) malloc((ujhossz + 1) * sizeof(char));
+    if (ujsztring == NULL)
+        return NULL;
+    
+    memcpy(ujsztring, eredeti + mettol, ujhossz * sizeof(char));
+    ujsztring[ujhossz] = '\0';
+    return ujsztring;
+}
+
+int main(void) {
+    char *uj = reszsztring(&quot;hello reszsztring&quot;, 3, 9);
+    if (uj != NULL) {
+        printf(&quot;[%s]\n&quot;, uj);
+        free(uj);
+    }
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Sztring darabjának elhagyása">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+  <a id="labsztringelhagyas" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Sztring darabjának elhagyása<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írd meg az előző feladat függvényét fordítva: az indexekkel jelzett részt a függvény
+hagyja el, csak a többi maradjon! Az eredeti sztring itt is legyen változatlan, a függvénynek
+egy új sztringet kell előállítania.</p>
+
+<p>A visszatérési érték ugyanúgy legyen egy dinamikusan foglalt sztring. Mutass példát
+a függvény használatára! Ne felejtsd el a kapott dinamikus tömböt felszabadítani!</p>
+
+<table class="tomb">
+   <tr>
+      <td>0
+      <td>1
+      <td>2
+      <td>3
+      <td class="piros">4
+      <td>5
+      <td>6
+      <td>7
+      <td class="piros">8
+      <td>9
+      <td>10
+      <td>11
+   
+   <tr>
+      <td class="piros">h
+      <td class="piros">e
+      <td class="piros">l
+      <td class="piros">l
+      <td class="athuzott">o
+      <td class="athuzott">,
+      <td class="athuzott">&nbsp;
+      <td class="athuzott">v
+      <td class="piros">i
+      <td class="piros">l
+      <td class="piros">a
+      <td class="piros">g
+   
+</table>
+
+<p>Írd meg a szokásos megjegyzést a függvény fölé! Mire való? Hogyan
+kell paraméterezni? Kell a hívónak is emlékeznie valamire?</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A <code>memcpy()</code> függvénnyel kapcsolatban lásd az előző feladat mintamegoldását.</p>
+<p>Itt a működés a következő:</p>
+<ul>
+    <li>Átmásoljuk az új helyre a sztring elejét a <code>memcpy()</code>
+        függvénnyel. Ennek a végén egyelőre <em>nincs</em> lezáró nulla.</li>
+    <li>Ezek után folytatólagosan (<code>mettol</code> karakterrel arrébb kezdődően)
+        átmásoljuk az eredeti sztring végét. Az eredetinek a végén van lezáró nulla,
+        és odáig kell menni, ezért ehhez a <code>strcpy()</code> is jó. Sőt ez lezáró
+        nullát is tesz, úgyhogy készen is vagyunk.</li>
+</ul>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+/*
+ * Előállít egy új sztringet, amely az 'eredeti' nevű sztring
+ * eleje és vége kerül bele; a közepén lévő részt, a [mettol, meddig)
+ * tartó karaktersorozatot elhagyva belőle. A hívó a kapott
+ * dinamikus tömbre meg kell majd hívja a free() függvényt.
+ */
+char *kivag(char const *eredeti, int mettol, int meddig) {
+    int regihossz = strlen(eredeti);
+    if (mettol &lt; 0)
+        mettol = 0;
+    if (meddig &gt; regihossz)
+        meddig = regihossz;
+    
+    int ujhossz = regihossz - (meddig - mettol);
+    char *ujsztring = (char*) malloc((ujhossz + 1) * sizeof(char));
+    if (ujsztring == NULL)
+        return NULL;
+    
+    memcpy(ujsztring, eredeti, mettol * sizeof(char));
+    strcpy(ujsztring + mettol, eredeti + meddig);
+    return ujsztring;
+}
+
+int main(void) {
+    char *uj = kivag(&quot;hello vilag kivagott sztring&quot;, 4, 8);
+    if (uj != NULL) {
+        printf(&quot;[%s]\n&quot;, uj);
+        free(uj);
+    }
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Sztring beszúrása">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+  <a id="labsztringbeszuras" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Sztring beszúrása<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A feladat az eddigiekhez hasonló: a függvény sztringeket kap, és egy új sztringet kell előállítania.</p>
+
+<p>Most azonban nem kivágni kell egy darabot a sztringből, hanem beszúrni valahova egy új részletet.
+Például a <code>beszur("hello!", 5, ", vilag")</code> hívás eredménye a <code>hello<u>, vilag</u>!</code>
+sztring kell legyen: az o betű és a felkiáltójel közé lett beszúrva a másik sztring.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Itt is lehetne a <code>memcpy()</code>-t használni; lásd az előző feladatokat.</p>
+<p>Ez a mintamegoldás egy másik ötletet mutat. A <code>strncat(mihez, mit, n)</code> függvény
+a <code>mihez</code> sztringhez fűzi a <code>mit</code> sztring elején lévő, legfeljebb <code>n</code>
+darab karaktert. Utána pedig mindig tesz lezáró nullát. A lépések ezzel a következők:</p>
+<ul>
+    <li>A karaktertömb elejére lezáró nullát teszünk, így az üres sztringgé válik.</li>
+    <li>Az <code>strncat()</code> függvénnyel átmásoljuk az eredeti sztring elejét, abból
+        <code>hova</code> darab karaktert. Utána lezáró nulla kerül, mert az <code>strncat</code>
+        mindig tesz olyat.</li>
+    <li>Az így kapott sztringhez fűzzük a <code>mit</code> sztringet; lezáró nulla itt is lesz.</li>
+    <li>Az utolsó <code>strcat()</code> hívás az eredeti sztring végét fűzi az új sztringhez,
+        megint lezárva azt a szükséges <code>'\0'</code>-val.</li>
+</ul>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+/*
+ * Beszúrja az 'eredeti' sztring belsejébe, a 'hova'
+ * pozícióba, a 'mit' sztringet. Az így kapott,
+ * dinamikusan foglalt sztringgel tér vissza, amelyre
+ * a hívónak a free() függvényt meg kell majd hívnia.
+ */
+char *beszur(char const *eredeti, int hova, char const *mit) {
+    int ujhossz = strlen(eredeti) + strlen(mit);
+    
+    char *ujsztring = (char*) malloc((ujhossz + 1) * sizeof(char));
+    if (ujsztring == NULL)
+        return NULL;
+    
+    ujsztring[0] = '\0';
+    strncat(ujsztring, eredeti, hova);
+    strcat(ujsztring, mit);
+    strcat(ujsztring, eredeti + hova);
+    return ujsztring;
+}
+
+int main(void) {
+    char *uj = beszur(&quot;hello!&quot;, 5, &quot;, world&quot;);
+    if (uj != NULL) {
+        printf(&quot;[%s]\n&quot;, uj);
+        free(uj);
+    }
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="További feladatok">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    További feladatok<a class="hlink" href="index.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Ha elkészültél, folytasd a feladatgyűjtemény kapcsolódó <a href="../f07/index.html#feladatdinamikus">feladataival</a>!</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

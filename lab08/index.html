@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Labor, 8. hét: dinamikus tömbök I.</title>
+<meta property="og:title" content="TEST InfoC :: Labor, 8. hét: dinamikus tömbök I.">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Dinamikus tömbök létrehozása és kezelése.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Dinamikus tömbök létrehozása és kezelése.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Labor, 8. hét: dinamikus tömbök I.">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Labor, 8. hét: dinamikus tömbök I.</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Pohl László, Czirkos Zoltán · <i class="ido"></i> 2019.08.24.</p>
+<p class="kivonat">Dinamikus tömbök létrehozása és kezelése.</p>
+</div>
+
+
+<p>A mai óra célja kettős. Egyrészről a dinamikus memóriakezeléssel foglalkozunk.
+Másrészről újra elővesszük kicsit a sztringeket (karaktertömböket).</p>
+
+<p>Felkészülés a laborra:</p>
+<ul>
+    <li>Az <a href="../ea07/index.html#eadinamikustomb">dinamikus memóriakezelésről szóló előadás</a> anyagának megértése.
+    <li>A <a href="../gy07/index.html#gyakpointerek">pointerekről és cím szerinti paraméterátadásról szóló gyakorlat</a> átismétlése.
+</ul>
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Számok visszafelé</a>
+              <li><a href="index.html#2" class="">Számok visszafelé – újra</a>
+              <li><a href="index.html#3" class="">Nagyon hosszú sor beolvasása</a>
+              <li><a href="index.html#4" class="">hosszu_sort_olvas()</a>
+              <li><a href="index.html#5" class="">További feladatok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Számok visszafelé">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Számok visszafelé<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írj programot, amely megkérdezi a felhasználótól, hány darab valós számot olvasson be; aztán elvégzi
+a számok beolvasását is egy <em>dinamikusan foglalt tömbbe,</em> és végül kiírja őket fordított sorrendben!</p>
+
+<details >
+<summary>Tipp</summary>
+<div>
+<p>Ahhoz, hogy ez bárhány darab számra működjön – ne korlátozza a beolvasható számok darabszámát
+se egy tömb mérete, se a verem mérete –, dinamikus memóriakezelést kell használni. Emlékezz vissza
+az előadásra: dinamikus memória a <code>malloc()</code> függvénnyel foglalható, amely visszaadja
+a lefoglalt terület kezdőcímét. Ez tetszőleges típusú pointerré konvertálható, amilyen tömbelemeket
+szeretnénk. Ha már nincs a memóriaterületre szükségünk, akkor a <code>free()</code> függvénnyel
+kell felszabadítani azt. A foglalást nyilván azután tudjuk megtenni, hogy a felhasználó megmondta,
+hány darab számot szeretne megadni.</p>
+</div>
+</details>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void) {
+    int db;
+    printf(&quot;Hany szam lesz?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;db);
+
+    double *szamok = (double*) malloc(sizeof(double) * db); // !
+    if (szamok == NULL) {
+        printf(&quot;Nem sikerult a memoria foglalasa.\n&quot;);
+        return 1;
+    }
+
+    printf(&quot;Ird be a(z) %d szamot:\n&quot;, db);
+    for (int i = 0; i &lt; db; ++i) {
+        scanf(&quot;%lf&quot;, &amp;szamok[i]);                           // !
+    }
+
+    for (int i = db-1; i &gt;= 0; --i) {
+        printf(&quot;%g\n&quot;, szamok[i]);
+    }
+
+    free(szamok);                                           // !
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Számok visszafelé – újra">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Számok visszafelé – újra<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Hogy nézne ki az előző program, ha nem lehetne előre tudni, hány darab szám lesz? Vagyis
+ha nem előre adott hosszúságú sorozatot, hanem végjeles sorozatot (pl. utolsó szám után -1)
+kellene beolvasni? Írd meg így is a programot, minden új számnál megnyújtva a tömböt!</p>
+
+<details >
+<summary>Tipp</summary>
+<div>
+<p>Ha nem tudjuk előre, hány elem lesz, nem tudjuk előre lefoglalni nekik a memóriaterületet.
+Ezért jobb híján, <em>legalábbis jelenlegi tudásunk szerint,</em> kénytelenek vagyunk minden szám
+beolvasása után megnyújtani a tömböt. Ennek lépései:</p>
+<ol>
+    <li>Új tömb foglalása.
+    <li>Meglévő számok átmásolása.
+    <li>Régi tömb felszabadítása.
+    <li>Új szám sor végéhez fűzése.
+</ol>
+<p>Ne feledd, a pointerek tetszőlegesen beállíthatók bármelyik dinamikusan foglalt tömbre!
+A lényeg, hogy egy foglalt terület címét sose veszítsük el – ha elveszítjük, sehogy nem fogjuk
+többé elérni az ott tárolt adatokat, és felszabadítani sem tudjuk már.</p>
+</div>
+</details>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Csak a beolvasó rész módosul; természetesen összeolvad a memóriafoglalós résszel.
+A fent említett lépések az alábbi kódban meg vannak jelölve.</p>
+<p>Kezdetben, amíg még nincs szám, tömbnek sem kell lennie; ekkor a pointer
+lehet <code>NULL</code>. Lehetne egyébként <code>malloc(0*sizeof(double))</code> is
+– <code>malloc(0)</code> szabályos, ahogyan <code>free(NULL)</code> is, éppen
+az ehhez hasonló algoritmusok miatt.</p>
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void) {
+    /* számok beolvasása */
+    printf(&quot;Ird be a szamokat, vegen -1!\n&quot;);
+    int db = 0;
+    double *szamok = NULL;
+    double ujszam;
+    while (scanf(&quot;%lf&quot;, &amp;ujszam) == 1 &amp;&amp; ujszam != -1) {
+        /* itt a tömb nyújtása */
+        double *ujtomb = (double*) malloc(sizeof(double) * (db+1)); // 1
+        for (int i = 0; i &lt; db; ++i)
+            ujtomb[i] = szamok[i]; // 2
+        free(szamok); // 3
+        szamok = ujtomb; // 4
+        szamok[db] = ujszam;
+        ++db;
+    }
+
+    for (int i = db-1; i &gt;= 0; --i) {
+        printf(&quot;%f\n&quot;, szamok[i]);
+    }
+
+    free(szamok);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Nagyon hosszú sor beolvasása">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Nagyon hosszú sor beolvasása<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A <code>gets()</code> kapcsán említettük az előadáson, hogy egy teljes sornyi szöveg beolvasása egy
+„tyúk vagy tojás” probléma elé állít minket. Amíg nem foglaltuk le a tömböt, nem tudjuk beolvasni a szöveget;
+viszont amíg nem olvastuk be a szöveget, nem tudjuk, milyen hosszú lesz, és így nem tudjuk lefoglalni a tömböt.</p>
+
+<p>Hasonlóképp oldható meg ez a probléma, mint ahogyan azt az előbb, a végjeles sor beolvasásánál láttuk:
+a tömb most nem számokat, hanem karaktereket tartalmaz, a végjel pedig nem a -1, hanem az újsor karakter.
+Egy dologra kell csak figyelni: vajon mit tartalmaz a tömb, ha a sztring teljesen üres? Hány elemű ilyenkor a tömb?</p>
+
+<p>Olvass be egy tetszőlegesen hosszú sort, és írd ki azt újra!</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A könnyű kezelhetőség miatt, érdemes a tömb végére mindig lezáró nullát tenni – elvégre is, sztringről van szó,
+amit előbb-utóbb egy <code>printf()</code>-nek, vagy hasonló függvénynek oda szeretnénk adni. Emiatt
+az üres tömb is már 1 elemű, hogy a lezáró nulla beleférjen. A nyújtásnál <code>db+1+1</code>-es elemszámot kell
+megadni, <code>db</code> karakter volt addig, <code>+1</code> az új karakternek, <code>+1</code> a lezáró nullának.</p>
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void) {
+    printf(&quot;Irj be egy tetszolegesen hosszu sort!\n&quot;);
+    int db = 0;
+    char *sor = (char*) malloc(sizeof(char) * 1);
+    sor[0] = '\0';
+    char ujkar;
+    while (scanf(&quot;%c&quot;, &amp;ujkar) == 1 &amp;&amp; ujkar != '\n') {
+        /* itt a tömb nyújtása */
+        char *ujtomb = (char*) malloc(sizeof(char) * (db+1+1));
+        for (int i = 0; i &lt; db; ++i)
+            ujtomb[i] = sor[i];
+        free(sor);
+        sor = ujtomb;
+        ujtomb[db] = ujkar;
+        ujtomb[db+1] = '\0';
+        ++db;
+    }
+
+    printf(&quot;[%s]\n&quot;, sor);
+
+    free(sor);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="hosszu_sort_olvas()">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    hosszu_sort_olvas()<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Alakítsd át úgy az előző programot, hogy a beolvasást egy függvénybe teszed át! A függvénynek legyen visszatérési értéke
+a sztringet tartalmazó memóriaterület címe!</p>
+
+<p>Mutasd be, hogyan kell használni ezt a függvényt!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A felszabadítás <code>free()</code>-je marad a főprogramban! Az nem költözhet a függvénybe, mert ha
+a függvény visszatérés előtt felszabadítaná a tömböt, elvesznének az adatok.</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+char *hosszu_sort_olvas() {
+    int db = 0;
+    char *sor = (char*) malloc(sizeof(char) * 1);
+    sor[0] = '\0';
+    char ujkar;
+    while (scanf(&quot;%c&quot;, &amp;ujkar) == 1 &amp;&amp; ujkar != '\n') {
+        /* itt a tömb nyújtása */
+        char *ujtomb = (char*) malloc(sizeof(char) * (db+1+1));
+        for (int i = 0; i &lt; db; ++i)
+            ujtomb[i] = sor[i];
+        free(sor);
+        sor = ujtomb;
+        ujtomb[db] = ujkar;
+        ujtomb[db+1] = '\0';
+        ++db;
+    }
+
+    return sor;
+}
+
+int main(void) {
+    printf(&quot;Irj be egy tetszolegesen hosszu sort!\n&quot;);
+    char *sor = hosszu_sort_olvas();
+    printf(&quot;[%s]\n&quot;, sor);
+    free(sor);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="További feladatok">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    További feladatok<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Ha elkészültél, folytasd a feladatgyűjtemény ehhez a témakörhöz kapcsolódó
+<a href="../f07/index.html#feladatdinamikus">feladataival</a>!</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

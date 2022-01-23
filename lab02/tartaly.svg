@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="352.49" width="554.44" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="327 99 298.28368 192">
+ <metadata id="metadata70">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="g4" transform="translate(-3.8582)">
+  <path id="polygon6" fill="#fff" d="m630 290h-300l60-80h180z"/>
+  <path id="polygon8" d="m630 290h-300l60-80h180z" stroke="#bfbfbf" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g10" transform="translate(-3.8582)">
+  <path id="ellipse12" fill="#fff" d="m500 230c0 5.5228-22.386 10-50 10s-50-4.4772-50-10 22.386-10 50-10 50 4.4772 50 10z"/>
+  <path id="ellipse14" d="m500 230c0 5.5228-22.386 10-50 10s-50-4.4772-50-10 22.386-10 50-10 50 4.4772 50 10z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g16" transform="translate(-3.8582)">
+  <path id="rect18" fill="#fff" d="m400 110h100v118h-100z"/>
+  <path id="rect20" d="m400 110h100v118h-100z" stroke="#fff" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g22" transform="translate(-3.8582)">
+  <path id="ellipse24" fill="#fff" d="m500 110c0 5.5228-22.386 10-50 10s-50-4.4772-50-10 22.386-10 50-10 50 4.4772 50 10z"/>
+  <path id="ellipse26" d="m500 110c0 5.5228-22.386 10-50 10s-50-4.4772-50-10 22.386-10 50-10 50 4.4772 50 10z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <path id="line28" d="m396.14 110v120" stroke="#000" stroke-width="2" fill="none"/>
+ <path id="line30" d="m496.14 110v120" stroke="#000" stroke-width="2" fill="none"/>
+ <g id="g32" transform="translate(-3.8582)">
+  <g id="g34">
+   <path id="ellipse36" fill="#fff" d="m562 186c0 8.8366-7.1634 16-16 16s-16-7.1634-16-16 7.1634-16 16-16 16 7.1634 16 16z"/>
+   <path id="ellipse38" d="m562 186c0 8.8366-7.1634 16-16 16s-16-7.1634-16-16 7.1634-16 16-16 16 7.1634 16 16z" stroke="#000" stroke-width="2" fill="none"/>
+  </g>
+  <path id="line40" d="m546 202v8" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="line42" d="m546 210-20 8" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="line44" d="m546 210 20 8" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="line46" d="m546 210v24" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="line48" d="m546 234-16 20" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="line50" d="m546 234 16 20" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <path id="line52" d="m410.79 237.07-2.65 22.93" stroke="#000" stroke-width="2" fill="none"/>
+ <path id="line54" d="m481.5 237.07 2.64 22.93" stroke="#000" stroke-width="2" fill="none"/>
+ <path id="line56" d="m446.14 240v24" stroke="#000" stroke-width="2" fill="none"/>
+ <g id="g58" transform="translate(-3.8582)">
+  <path id="line60" d="m528 224-8.793-17.586" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="polygon62" d="m520.47 208.94-6.71-2.23 2.24-6.71l6.708 2.236z"/>
+  <path id="polygon64" d="m520.47 208.94-6.71-2.23 2.24-6.71l6.708 2.236z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+</svg>

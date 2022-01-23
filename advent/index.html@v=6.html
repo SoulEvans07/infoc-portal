@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Adventi naptár</title>
+<meta property="og:title" content="TEST InfoC :: Adventi naptár">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="TEST InfoC :: Adventi naptár">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="TEST InfoC :: Adventi naptár">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Adventi naptár">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <div class="float" style="margin-top: 0.25em; margin-bottom: 0;"><button type="button" class="vissza" onclick="history.back();">Vissza</button></div>
+<h1 class="eloadascim">Adventi naptár</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.02.27.</p>
+<p class="kivonat"></p>
+</div>
+<p>
+Feladat: írjunk függvényt, amelyik egy paraméterként kapott
+sztringből eltávolítja a szóközöket. A sztring módosítását
+a függvény helyben végezze, vagyis nem kell új tömböt foglalni,
+se az eredményt egy, a forrástól eltérő tömbben tárolni.
+Írjuk meg a függvényt úgy, hogy a C nyelvű kódja karakterek
+számában a lehető legrövidebb legyen!
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html@v=6.html#1" class="">Egy megoldás</a>
+              <li><a href="index.html@v=6.html#2" class="">További megoldások</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egy megoldás">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Egy megoldás<a class="hlink" href="index.html@v=6.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>
+Alább látható a jelenleg ismert legrövidebb megoldás,
+amely 43 karakteres. Hogy hogyan jutottunk el ide, az szép
+sorban a függvényeken látszik. Az operátoros bűvészkedés ötletekért
+köszönet jár Kovács Dávidnak is.
+
+<h3>a()</h3>
+
+<p>Az első (a) megoldás tömbként kezeli a sztringeket.
+Ez a triviális megoldás &ndash; for ciklussal végigmegyünk a sztring
+karakterein, és ha nem szóközt találunk, akkor azt másoljuk.
+A szóközök kihagyásával a forrás és cél indexek elcsúsznak,
+ezért két változóra van szükség (<code>i</code> a forrás és <code>j</code> a cél).
+Mivel <code>i&gt;=j</code> minden pillanatban, ezért segédtömbre nincs szükség;
+<code>mit[j]</code>-vel csak olyan helyre írunk, amit a <code>mit[i]</code>-vel már
+vizsgáltunk és feldolgoztunk. A sztringben előrefelé haladunk,
+és pont a másik irányba tömörödik.
+(Az <code>int</code> visszatérési érték a későbbiek miatt van,
+amúgy <code>void</code> lenne a logikus.)
+
+<pre   ><code class="language-c">int a(char *mit) {
+    int j=0;
+    for (int i=0; mit[i]!=0; ++i) {
+        if (mit[i]!=' ') {
+            mit[j]=mit[i];
+            j++;
+        }
+    }
+    mit[j]=0;
+
+    return 0;
+}</code></pre>
+
+<h3>b()</h3>
+<p>
+Kezdjük el rövidíteni a kódot. Az intuíció azt súgja, hogy
+érdemes pointerekre áttérni; a <code>*mit</code> rövidebb, mint a <code>mit[i]</code>.
+A paraméterként kapott „mit” pointert úgyis megváltoztathatjuk,
+hiszen az egy lokális változó &ndash; legyen ez a forrás pointer,
+és egy új változó a cél pointer. Ha nem szóközt találunk, azt
+a <code>*cel++=*mit</code>-tel másoljuk át; ez a precedencia szabályai és
+a postfix increment operátor működése miatt azt jelenti, hogy
+<code>{ *cel=*mit; cel++; }</code> &ndash; vagyis pont jó.
+
+<pre   ><code class="language-c">int b(char *mit) {
+    char *cel=mit;
+    while (*mit!=0) {
+        if (*mit!=' ')
+            *cel++=*mit;
+        mit++;
+    }
+    *cel=0;
+
+    return 0;
+}</code></pre>
+
+<h3>c()</h3>
+<p>
+Az elöltesztelő ciklus addig megy, amíg 0-t nem talál, és akkor
+kilép. Ezért a lezáró nullát külön kell odatennünk. Ha
+kicseréljük egy hátultesztelőre, akkor automatikusan a lezáró
+0 is át fog másolódni. (Hiszen az nem szóköz!)
+Itt a „mit” pointer növelését is elrejtettem a ciklus feltételében.
+
+<pre   ><code class="language-c">int c(char *mit) {
+    char *cel=mit;
+    do {
+        if (*mit!=' ')
+            *cel++=*mit;
+    } while (*mit++);
+
+    return 0;
+}</code></pre>
+
+<h3>d()</h3>
+<p>
+Mit lehetne még rövidíteni? Először is, minden változónevet
+cseréljünk ki egy betűsre. Az aposztrófok közötti szóközt pedig
+cseréljük ki 32-re, hiszen az ugyanazt jelenti, de rövidebb egy
+karakterrel. Ha void lenne a függvény, akkor a <code>return 0</code> is
+elhagyható lenne, de azzal továbbra is tervek vannak, úgyhogy
+egyelőre marad.
+<p>
+Az <code>if (*m-32)</code> kis magyarázatot igényel. Az előbbi <code>*mit!='&nbsp;'</code>
+feltételből lett, ami <code>*mit!=32</code>-t jelent. Ha a <code>*mit</code>-ből kivonunk
+32-t, akkor 0-t fogunk kapni, ha <code>*mit</code> eredetileg szóköz volt,
+és a feltétel nem teljesül; ha eredetileg nem szóköz, akkor
+pedig nem 0 lesz az eredmény, amely a C szerint igazra értékelődik
+ki. Ezért jelenti ugyanazt a <code>*mit!='&nbsp;'</code> és a <code>*mit-32</code>.
+
+<pre   ><code class="language-c">int d(char *m) {
+    char *c=m;
+    do {
+        if (*m-32)
+            *c++=*m;
+    } while (*m++);
+
+    return 0;
+}</code></pre>
+
+<h3>e()</h3>
+<p>
+A fent említett terv pedig az, hogy az int szót elhagyjuk, mivel a C szabvány történelmi okokból
+megengedi, hogy a függvénynek ne adjuk meg a visszatérési típusát.
+Ilyenkor az intre defaultol. A <code>return 0</code>-t is nagyvonalúan
+elhagytam &ndash; innentől jönnek a warningok a fordítótól, de működni ettől még
+működik. A szóközöket is elhagytam. Jelen állapotban a függvény
+53 karakterből áll.
+
+<pre   ><code class="language-c">e(char*m){char*c=m;do{if(*m-32)*c++=*m;}while(*m++);}</code></pre>
+
+<h3>f()</h3>
+<p>
+Jó a hátultesztelő ciklus, de van benne egy fölösleges do szó,
+és ott vannak a blokkot jelző <code>{}</code> karakterek.
+Térjünk vissza elöltesztelőre, 4 karaktert próbálva spórolni ezzel.
+A karaktert a ciklus fejlécében mindig átmásolom, és ha rájövök
+(<code>if</code>), hogy egy szóközt másoltam, akkor a már megnövelt pointert
+csökkentem eggyel, hogy legközelebb felülírjam. A <code>c-1</code>-re azért
+van szükség, mert a másoláskor <code>c</code> már megnövekedett (<code>c++</code>). Mire
+az <code>if</code>-hez jut a végrehajtás, a <code>c++</code> hatása már biztos megtörténik,
+mert a <code>while</code> után szekvenciapont van.
+Egyelőre ez nőtt egy karakterrel, de idővel...
+
+<pre   ><code class="language-c">f(char*m){char*c=m;while(*c++=*m++)if(*(c-1)==32)c--;}</code></pre>
+
+<h3>g()</h3>
+<p>
+Ha a <code>*(c-1)</code> helyett <code>*--c</code>-t írunk, akkor megspóroljuk a zárójelet
+a nekünk kedvező precedenciaszabályok miatt. Ilyenkor viszont
+ész nélkül mindig csökkentjük a feltételben a pointert, vagyis
+nem szóköz esetén kell majd csökkenteni, hanem minden más esetben
+visszanövelni. Itt is a feltétel után szekvenciapont van, vagyis
+biztos csökken a <code>c</code> az összehasonlítás előtt (amúgy is prefixes),
+a <code>c++</code> pedig a lecsökkentettet növeli vissza.
+52 karakter.
+
+<pre   ><code class="language-c">g(char*m){char*c=m;while(*c++=*m++)if(*--c!=32)c++;}</code></pre>
+
+<h3>h()</h3>
+<p>
+Nem nagy különbség; a <code>!=32</code>-t újra visszaírom <code>-32</code>-re, ami kevésbé
+olvasható, de rövidebb. 51 karakter.
+<pre   ><code class="language-c">h(char*m){char*c=m;while(*c++=*m++)if(*--c-32)c++;}</code></pre>
+
+<h3>i()</h3>
+<p>
+Az <code>if</code> is minimum két fölösleges karaktert behoz,
+a zárójeleket a feltétel körül. Ha kicserélem egy <code>&amp;&amp;</code> operátorra,
+akkor ezeket meg tudom spórolni. Az <code>&amp;&amp;</code> operátor rövidzár
+* tulajdonsága miatt a jobb oldali kifejezés nem értékelődik ki, ha a
+bal oldali hamis, vagyis pont az <code>if</code> működését kapom meg.
+Így a <code>c</code> növelésének eldöntése egyetlen egy kifejezéssé rövidült,
+<code>*--c-32&amp;&amp;c++</code>. Szerencsére az <code>&amp;&amp;</code> operátor alacsony precedenciájú,
+zárójelekre nincs szükség.
+<p>
+Érdekes itt amúgy a gcc „value computed not used” hibaüzenete.
+A <code>*--c-32&amp;&amp;c++</code> kifejezés miatt szól, arra utalva, hogy
+az és kapcsolat értékét (0 vagy 1) nem használjuk semmire. Nekünk viszont most
+ez nem célunk. Úgy látszik, ez a fordító szerint is idióta
+használata a <code>&amp;&amp;</code> operátornak. Ugyanígy, a ciklus fejlécében lévő
+feltételre is figyelmeztetést küld, mivel általában ott kulturált
+kódban nem szerepelne olyan kifejezés, aminek mellékhatása van.
+49 karakter.
+<pre   ><code class="language-c">i(char*m){char*c=m;while(*c++=*m++)*--c-32&amp;&amp;c++;}</code></pre>
+
+<h3>j()</h3>
+<p>Túl sok a <code>++</code> és <code>--</code>, ezért átrendezzük őket. A ciklus
+fejlécében, a másolásnál a cél pointert még nem növeljük meg,
+hanem majd csak akkor, ha nem spacet másoltunk. Ezzel egy
+increment és egy decrement operátort is megspórolunk &ndash;
+visszakaptuk az első változat <code>if</code>-jét, csak menet
+közben a sok increment/decrement logikusabbnak tűnt.
+<pre   ><code class="language-c">j(char*m){char*c=m;while(*c=*m++)*c-32&amp;&amp;c++;}</code></pre>
+
+<h3>k()</h3>
+<p>A <code>while</code> is elég hosszú kulcsszó, lecseréljük <code>for</code>-ra. Ez azért
+előnyös, mert a fornál külön hely van, ahol elhelyezhetünk egy
+utasítást, amelyik a ciklus előtt csak egyszer fut le, és külön
+hely van a feltételnek (ahova a másolást rejtjük). Az első helyre
+a változódeklarációt berakva még egy pontosvesszőt spórolhatunk.
+Ezt a C++-nak kinéző dolgot a C99 megengedi. Ha már mindent ide
+rakunk, akkor a szóközök ellenőrzését is berakjuk a <code>for</code> ciklus
+fejlécének a harmadik boxába. Ettől rövidebb nem lesz, viszont
+úgy néz ki, mintha üres ciklus lenne &ndash; az összes művelet a
+fejlécbe van rejtve.
+44 karakter.
+<pre   ><code class="language-c">k(char*m){for(char*c=m;*c=*m++;*c-32&amp;&amp;c++);}</code></pre>
+
+<h3>l()</h3>
+
+<p>
+Még egy karaktert lehet tömöríteni a fenti programrészleten.
+A <code>for(;;)</code> ciklus harmadik ficakjában lévő kifejezést, a
+32-set ugyanis másképp is meg lehet fogalmazni. Ennek célja az,
+hogy a <code>c</code> pointer értékét növelje akkor eggyel, ha nem
+szóköz volt a másolt karakter. Ezt meg lehet fogalmazni így is:
+<code>c+=*c!=32</code>. Ha a másolt karakter (<code>*c</code>)
+szóköz, akkor 32 a karakterkódja, vagyis a kifejezés hamisra,
+nullára értékelődik ki. Ha nem szóköz, akkor viszont igazra,
+vagyis egyre. Ezt a nullát vagy egyet adjuk hozzá a pointerhez,
+ezáltal léptetve azt a következő karakterre, vagy meghagyva
+az aktuálison (Marosi Gergely ötlete nyomán). 43 karakter.
+
+<pre   ><code class="language-c">l(char*m){for(char*c=m;*c=*m++;c+=*c!=32);}</code></pre>
+
+<p>
+Ez tűnik a legrövidebb változatnak. A dolog érdekessége, hogy
+egyébként maga a kód sem tartalmaz szóközöket &ndash; ha már az a
+feladata, hogy kiszedje azokat egy sztringből. :)  A szóköz az
+úgyis felesleges karakter
+lenne, ami a függvény hosszát növeli. Amiatt tudjuk az összeset megspórolni, hogy a pointereket
+jelző <code>*</code>-ok elválasztják a <code>char</code> szót a változó nevétől.
+A másolást és a space vizsgálatát nem tűnik úgy, hogy szét lehet
+szedni egy kifejezésbe, mert a másolás eredményét külön ki kell
+értékelni (hogy nulla-e, mert az a sztring vége).
+
+<p>
+A lenti <code>main()</code> itt arra jó, hogy kipróbálja az összes
+függvényt. Azért <code>int</code> az első, <code>a()</code> függvények visszatérési típusa is,
+hogy mind kompatibilisek legyenek. Remélem, tetszik mindenkinek
+a függvénypointerekből álló tömb deklarációja. :)
+Ennek értelmezése: ha megindexeljük
+a <code>fuggvenyek</code> tömböt <code>[]</code>, akkor kapunk valamit, ami
+egy pointer <code>(*)</code>. Ez a pointer egy
+függvényre mutat <code>()</code>, amelyet ha meghívunk egy <code>char *</code>
+paraméterrel, akkor egy <code>int</code>-et ad vissza.
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+    char eredeti[]=&quot; Ez egy   proba  szoveg. &quot;, szoveg[30];
+    int (*fuggvenyek[])(char *)={a, b, c, d, e, f, g, h, i, j, k, l, NULL};
+    
+    printf (&quot;Eredeti: [%s]\n&quot;, eredeti);
+    
+    for (int i=0; fuggvenyek[i]!=NULL; ++i) {
+        strcpy(szoveg, eredeti);
+        fuggvenyek[i](szoveg);
+        printf(&quot;%c. [%s]\n&quot;, 'a'+i, szoveg);
+    }
+
+    return 0;
+}</code></pre>
+
+<p>
+A program teljes forráskódja: <a href="advent6-spacetelenito.c">advent6-spacetelenito.c</a>.
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="További megoldások">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    További megoldások<a class="hlink" href="index.html@v=6.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Rekurzió &ndash; Nagy Gergely megoldása</h3>
+<p>
+A ciklus rekurzióra cserélhető. Ilyenkor a <code>for</code> szó helyett egy
+egybetűs függvénynév szerepelhet.
+A következő rekurzív megoldással az a baj, hogy két paramétert vár.
+Emiatt sajnos nem teljesíti a specifikációt.
+Úgy lehet egyébként indítani, hogy kétszer kell megadni ugyanazt a sztringet
+paraméternek. A két paraméter tölti be a két lokális változó szerepét is.
+
+<pre   ><code class="language-c">m(char*e,char*c){*e&amp;&amp;m((*e=*c)-32?e+1:e,c+1);}</code></pre>
+
+<h3>Rekurzió II. &ndash; Andrika Dávid megoldása</h3>
+
+<p>A fentihez hasonlóan ez sem tartalmaz a <code>char</code>-on kívül
+más C kulcsszót. Egy kicsit rövidebb a fentinél. <code>a+=*b!=32</code> –
+ha a <code>b</code> pointer által mutatott karakter nem szóköz (32), akkor a
+kifejezés jobb oldala igazra, azaz 1-re értékelődik ki. Vagyis akkor az <code>a</code>
+pointer ugrik a következő karakterre.
+
+<pre   ><code class="language-c">n(char*a,char*b){(*a=*b)&amp;&amp;n(a+=*b!=32,b+1);}</code></pre>
+
+<h3>Rekurzió III. – Garami Bence megoldása</h3>
+
+<p>Ennek nincs két paramétere, mint az eddigieknek, viszont hosszabb. Kihasznája az implicit <code>int</code> visszatérési típust, 
+sőt konkrétan egy karakterkóddal tér vissza. A kapott stringen kívül más segédváltozót nem használ. Ez úgy lehetséges, hogy 
+szóközökkel fenntartja a távolságot (az előfordult szóközszámot) a következő karaktertől, így ezt a távolságot nem kell külön 
+eltárolni, mindig elsétál odáig majd visszamásolja.</p>
+
+<pre   ><code class="language-c">t(char*s){return*s-32||(*s=t(s+1),s[1]=32),*s&amp;&amp;t(s+1),*s;}</code></pre>
+
+<h3>Kohári Zsolt megoldása – hátrafelé indexelés</h3>
+<p>
+A lenti függvény a következőképpen működik. <code>s</code> a spacetelenítendő
+sztring, <code>d</code> pedig egy integer. A ciklus feltételében egy
+összetett kifejezés van. A <code>32==*s++</code> kifejezésben <code>*s</code>
+a karakter; ha ez space, akkor igazra értékelődik ki a kifejezés (1), hanem,
+hamisra (0). Vagyis space esetén a <code>d</code> változó értéke eggyel csökken.
+(Közben az <code>s</code> pointer ugrik a következő karakterre.) Az <code>s</code>
+tömböt ezzel a <code>d</code> változóval indexeli; <code>d</code> értéke egészen
+addig 0, amíg az első space elő nem kerül, utána pedig spacenként egyre csökken
+az értéke. Vagyis az <code>s</code> pointer minden karakter megvizsgálása után
+nő, de a <code>d</code> változóval hátrafelé, negatív irányba indexelődik (ezt
+szabad!); mindig annyival, ahány space karaktert ki kellett hagyni. A megfelelő
+helyre pedig a következő karakter (<code>*s</code>) átmásolódik.
+
+<p>
+A megoldás sajnos nem működik minden fordítóval. Az <code>s</code> pointert
+három helyen is kiértékeli; és van benne egy mellékhatással járó kifejezés,
+<code>s++</code>. Ez a szabvány szerint nem definiált működés, mivel a hatása
+nem lehet tudni, hogy mikor jelenik meg.
+Azt sem lehet tudni (ezt sem köti meg a szabvány), hogy az értékadás bal vagy
+jobb oldala értékelődik ki először. Vagyis sajnos ez nem helyes megoldás, de
+jó kis ötleteket tartalmaz!
+
+<pre   ><code class="language-c">o(char*s){for(int d=0;s[d-=32==*s++]=*s;);}</code></pre>
+
+<h3>Holló Norbert megoldása – <code>?:</code> operátor</h3>
+<p>
+A lenti függvényben két változóval indexelődik az <code>s</code>
+karaktertömb.
+A ciklus fejlécében a kifejezés először veszi a tömb <code>n</code>-edik
+karakterét. Ha az nem space, akkor a <code>?:</code> operátorban a <code>?</code>
+utáni kifejezés fog kiértékelődni; ha space, akkor pedig a <code>:</code> utáni.
+A karakter megvizsgálása után <code>n</code> biztosan megnövekszik, mert
+a <code>?:</code> operátorban a kérdőjel egyben szekvenciapont is.
+Ha nem space volt, akkor az <code>s[v++]</code> helyre másolódik a
+vizsgált karakter (a <code>-1</code> miatt még azt a karaktert látni, amelyiket
+a feltétel is vizsgált). Ha space volt, akkor nem történik semmi; az <code>1</code>
+kifejezésnek nincs hatása. Az <code>1</code>-es csak azért kell, mert valaminek
+muszáj a <code>:</code> után lennie (különben szintaktikailag hibás lenne a kifejezés),
+de azért is, mert igazra kell kiértékelődnie az egész kifejezésnek. Lévén, ez
+még mindig a ciklus feltétele! Vagyis ha az <code>s[n]</code> karakter space volt,
+akkor biztosan fut tovább a ciklus (<code>1</code>). Ha nem space volt, akkor a
+másolás, mint kifejezés eredményétől függ; ha a másolt karakter 0, akkor
+a ciklus leáll (ez a sztring vége), egyébként pedig fut tovább.
+
+
+
+<pre   ><code class="language-c">p(char*s){int n=0,v=0;while(s[n++]!=32?s[v++]=s[n-1]:1);}</code></pre>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

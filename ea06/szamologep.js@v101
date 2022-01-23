@@ -1,0 +1,22 @@
+"use strict";infoc.onloads.push(function(){var pre10=$('szam10');var pre8=$('szam8');var pre2=$('szam2');setInterval(function(){var szam=+pre10.innerHTML+1;pre10.innerHTML=szam.toString(10);pre8.innerHTML=szam.toString(8);pre2.innerHTML=szam.toString(2)},500)});infoc.onloads.push(function(){function kettesbe(){var t=parseInt($('kettesbe').value);var szam=isNaN(t)?0:(t%128);var er='';for(var i=6;i>=0;--i){$('maradek'+i).innerHTML=szam%(2<<i);var szj=Math.floor(szam/(1<<i));$('hanyados'+i).innerHTML=szj;er=er+szj;szam=szam%(1<<i)}
+while(er.length>1&&er[0]=='0')
+er=er.substr(1);$('kettes').value=er}
+addEvent($('kettesbegomb'),'click',kettesbe)});infoc.onloads.push(function(){function kettesbol(){var t=parseInt($('kettesbol').value);var szam=isNaN(t)?'0':''+t;while(szam.length<7)
+szam='0'+szam;var osszeg=0;for(var i=6;i>=0;--i){var szj=szam[6-i]=='1'?1:0;var valodi=szj<<i;osszeg+=valodi;$('szamjegy'+i).innerHTML=szj;$('szorzat'+i).innerHTML=valodi}
+$('tizes').value=osszeg}
+addEvent($('kettesbolgomb'),'click',kettesbol)});infoc.onloads.push(function(){function setclass(elem){var bit=elem.innerHTML=='1'?1:0;if(bit)
+elem.classList.add('egy');else elem.classList.remove('egy')}
+function bitget(table,melyik,idx){var elem=table.getElementsByClassName(melyik+'-'+idx)[0];var bit=elem.innerHTML=='1'?1:0;return bit}
+function bitset(table,melyik,idx,bit){var elem=table.getElementsByClassName(melyik+'-'+idx)[0];elem.innerHTML=bit;setclass(elem)}
+function toggle(elem){var newbit=elem.innerHTML=='1'?0:1;elem.innerHTML=newbit;setclass(elem)}
+function attachclicktoall(table,cls,func){var nodelist=table.getElementsByClassName(cls);for(var i=0;i<nodelist.length;++i){setclass(nodelist[i]);addEvent(nodelist[i],'click',func)}}
+function szamologepinit(table,muveletfunc){attachclicktoall(table,'bea',function(){toggle(this);muveletfunc(table)});attachclicktoall(table,'beb',function(){toggle(this);muveletfunc(table)});muveletfunc(table)}
+function vagymuvelet(table){for(var i=0;i<8;++i)
+bitset(table,'ki',i,bitget(table,'bea',i)|bitget(table,'beb',i));}
+function esmuvelet(table){for(var i=0;i<8;++i)
+bitset(table,'ki',i,bitget(table,'bea',i)&bitget(table,'beb',i));}
+function xormuvelet(table){for(var i=0;i<8;++i)
+bitset(table,'ki',i,bitget(table,'bea',i)^bitget(table,'beb',i));}
+function notmuvelet(table){for(var i=0;i<8;++i)
+bitset(table,'ki',i,1^bitget(table,'bea',i));}
+szamologepinit($('vagy'),vagymuvelet);szamologepinit($('es'),esmuvelet);szamologepinit($('es2'),esmuvelet);szamologepinit($('xor'),xormuvelet);szamologepinit($('not'),notmuvelet)})

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Gyakorlat, 2. hét: tanult algoritmusok</title>
+<meta property="og:title" content="TEST InfoC :: Gyakorlat, 2. hét: tanult algoritmusok">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Bevezető a programozás és az algoritmusok világába. Hétköznapi és tanult algoritmusok leírása, ábrázolása.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Bevezető a programozás és az algoritmusok világába. Hétköznapi és tanult algoritmusok leírása, ábrázolása.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Gyakorlat, 2. hét: tanult algoritmusok">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+  <a id="gyakalgoritmus" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Gyakorlat, 2. hét: tanult algoritmusok</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.09.22.</p>
+<p class="kivonat">Bevezető a programozás és az algoritmusok világába. Hétköznapi és tanult algoritmusok leírása, ábrázolása.</p>
+</div>
+
+
+
+
+<p>
+Az órán „hétköznapi” algoritmusokról lesz szó, amelyek közül sok 
+általános iskolából is ismert. A feladat ezeket pontosan leírni, jól 
+meghatározott utasítások formájában.</p>
+
+<p>A leírást magyar nyelven tesszük, <em>pszeudokóddal.</em> Ebben az egyes lépéseket 
+beszámozzuk. Ezzel megteremtjük egy műveletsor ismétlésének a lehetőségét is, mert tudunk írni a 
+programjainkban akár ilyet is: „ugorj az n-edik lépésre”. A program leírása lehetséges
+<em>folyamatábrával</em> is, amelyben nyilak mutatják, milyen sorrendben kell végrehajtani a 
+lépéseket.</p>
+
+<p>Előadáson már tanultunk <a href="../ea02/index.html#eatetelek">programozási tételekről</a>, most ne azokból induljunk ki, hanem épp fordítva!
+Logikus gondolkodás eredményeként jussunk el az algoritmushoz, és csak utólag próbáljuk esetleg megmondani,
+hogy melyik programozási tételt valósítottuk meg. </p>
+
+
+
+
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Számok sorban</a>
+              <li><a href="index.html#2" class="">Számok összeadása</a>
+              <li><a href="index.html#3" class="">Prímtényezős felbontás</a>
+              <li><a href="index.html#4" class="">Folyamatábrák</a>
+              <li><a href="index.html#5" class="">További feladatok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Számok sorban">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Számok sorban<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az első feladat fontos, ugyanakkor nagyon egyszerű. Adjunk instrukciókat ahhoz,
+hogyan kell leírni a számokat egymás alá, egytől tízig! A megoldás legyen pontos, tartalmazzon minden szükséges lépést!</p>
+
+<p>Hogy tudjuk jelezni az ismétlést? Hogy tudjuk a leírást általánosítani?</p>
+
+<p>Jelöljük a pszeudokódon nyilakkal is a lépések végrehajtásának sorrendjét!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Ehhez a recept a következő:</p>
+
+<pre>
+Leírom, hogy 1.
+Leírom, hogy 2.
+Leírom, hogy 3.
+…
+Leírom, hogy 10.
+</pre>
+
+<p>Megfigyelhető, hogy ez még nem túl pontos leírás. Van egy apró lépés, ami annyira magától 
+értetődőnek tűnik, hogy nem szerepel. Pedig a feladat szövegében is benne volt:
+<em>egymás alá</em> kell írni a számokat. A kiegészített „program” így néz ki:</p>
+
+<pre>
+Leírom, hogy 1. Ebbe a sorba már nem írok többet.
+Leírom, hogy 2. Ebbe a sorba sem írok már.
+…
+Leírom, hogy 10. (És ide sem írok már többet, de ez mindegy.)
+</pre>
+
+<p>Egyszerű, egymás után végrehajtandó lépésekről van itt szó, amiket végrehajtva elvégezhető a 
+feladat. Észrevehetjük, hogy minden sor egyforma, csak a szám változik. Így általánosítható:</p>
+
+<pre>
+Az 1-es számra gondolok.
+Leírom, a számot, amire gondolok. Új sort kezdek.
+Megnövelem a gondolt számot.
+Leírom, a számot, amire gondolok. Új sort kezdek.
+Megnövelem a gondolt számot.
+Leírom, a számot, amire gondolok. Új sort kezdek.
+Megnövelem a gondolt számot.
+…
+</pre>
+
+<p>És innen továbbvihető:</p>
+
+<pre>
+   1. Az 1-es számra gondolok.
+   ↓
+┌&gt; 2. Leírom, a számot, amire gondolok. Új sort kezdek.
+│  ↓
+│  3. Megnövelem a gondolt számot.
+│  ↓
+└─ 4. Ha a gondolt szám &le; 10, akkor visszaugrok a 2. lépésre.
+   ↓
+   5. Kész.
+</pre>
+
+</div>
+</details>
+
+<p>Alakítsuk a megoldást strukturált ciklussá, dobjuk el a sorszámokat!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+   Az 1-es számra gondolok.
+   ↓
+┌&gt; <em>Ismétlem a következő műveleteket:</em>
+│    ↓
+│    Leírom, a számot, amire gondolok. Új sort kezdek.
+│    ↓
+│    Megnövelem a gondolt számot.
+│    ↓
+└─── <em>Újra, ha</em> a gondolt szám &le; 10, amúgy megyek tovább.
+   ↓
+   Kész.
+</pre>
+</div>
+</details>
+
+<p>Vezessünk be változónevet, és alakítsuk elöltesztelő ciklussá a programot!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+   X = 1
+   ↓
+┌&gt; <em>Amíg</em> X &le; 10, <em>addig ismétlés:</em>
+│    ↓
+│    Leírom X-et. Új sort kezdek.
+│    ↓
+│    X = X+1
+│    ↓
+└─── <em>Ismétlés vége.</em>
+   ↓
+   Kész.
+</pre>
+</div>
+</details>
+
+<p>Írjunk programot, amely 10-ig csak a páros számokat írja ki! Kell ehhez
+oszthatóságot ellenőriznünk, mint a prímszámos feladat esetében? Hogyan lehet
+megoldani ezt oszthatóság vizsgálatával, és hogyan anélkül?</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Nem kell, csak 2-től indítjuk a ciklust, és kettesével növeljük a változót, mert „szabályos” sorban jönnek
+egymás után a kiírandó értékek.</p>
+</div>
+</details>
+
+<p>Írjunk programot, amelyik kiírja 1-től 100-ig a 3-mal és 5-tel sem osztható számokat!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Ehhez muszáj egyesével mennünk, mert a kiírt és nem kiírt számok között nem szabályos a lépésköz.
+Bevezetünk egy elágazást:</p>
+<pre>
+   X = 1
+   ↓
+┌&gt; <em>Amíg</em> X &lt; 100, <em>addig ismétlés:</em>
+│    ↓
+│    <strong>Ha</strong> X 3-mal és 5-tel sem osztható, <strong>akkor:</strong>
+│        ↓
+│        Leírom X-et. Új sort kezdek.
+│    ↓
+│    X = X+1
+│    ↓
+└─── <em>Ismétlés vége.</em>
+   ↓
+   Kész.
+</pre>
+</div>
+</details>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Számok összeadása">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Számok összeadása<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre class="float" style="line-height: 0.7">
+ 239
+ 
++124
+────
+ 363
+</pre>
+
+<p>Két szám összeadása írásban: általános iskolából mindenki számára ismert feladat. Egy 
+összetett dolgot, a sok számjegyű számok összeadását vezetjük itt vissza egy egyszerűbb 
+feladatra, a tíznél kisebb számok összeadására. Vagyis a probléma megoldását kisebb lépésekre 
+bontjuk. Az egy számjegyű számok összeadását elemi lépésnek tekintjük, azt tovább már nem 
+bontjuk, hiszen azok összegeit fejből tudjuk.</p>
+
+<p>Írjuk meg ezt az algoritmust! Jelöljük a pszeudokódon nyilakkal is a lépések végrehajtásának sorrendjét!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Mi itt a teendő? A legkisebb helyiértéktől (az egyesektől) indulunk. Összeadjuk a két 
+számjegyet, és leírjuk a tíznél kisebb részt. Ha az eredmény nagyobb lett 9-nél (10, vagy annál 
+több), akkor az átvitelt feljegyezzük, mert azt majd hozzá kell adni a következő helyiértéknél. 
+Itt 9+4 az 13, vagyis a 3-at írjuk le, az 1-est pedig majd a következő körben a 3+2-höz kell 
+hozzáadni (így lesz ott az összeg 3+2+1=6). Ezt addig kell folytatni, amíg el nem fogynak a 
+számjegyek.</p>
+
+<p>Az összeg soron következő számjegyének előállításához, és az átvitel képzésekor 
+használhatjuk a 10-zel osztást és annak maradékát. Ezzel matematikailag precízen is meg tudjuk 
+fogalmazni a tíz feletti és alatti részt. Például ahol az összeg 13 volt, ott 13/10 lefelé 
+kerekítve 1 (az az átvitel), az osztás maradéka pedig 3 (azt kell leírnunk az egyesek 
+oszlopába). Ezt a program megírásakor kihasználjuk. Írhatnánk azt is az 5. lépésben, hogy „ha 
+összeg≥10, akkor van átvitel”, de a nullás érték, mint az átvitel lehetséges értéke ugyanúgy 
+megfelelő.</p>
+
+<pre>
+   1. Indulunk az egyesektől.
+   ↓
+┌&gt; 2. Összeadjuk a két egymás alatti számjegyet.
+│  ↓
+│  3. <em>Ha van</em>, hozzáadjuk az előző körből hozott átvitelt is.
+│  ↓
+│  4. Elosztjuk tízzel, a maradékot leírjuk alájuk.
+│  ↓
+│  5. Megjegyezzük az átvitelt, ha van (az osztás eredménye, lefelé kerekítve).
+│  ↓
+└─ 6. <em>Ha</em> van még további helyiérték (tízes, százas…), <em>ugrás vissza</em> a 2. lépésre.
+</pre>
+</div>
+</details>
+
+
+
+<h3>Számok összeadása – javítás</h3>
+
+<p>A fenti program még hiányos. Hol, milyen esetben hibázik?</p>
+
+<pre class="float" style="line-height: 0.7">
+ 999
+ 
++  1
+────
+   ?
+</pre>
+
+<p>Gondoljuk végig, mi történik akkor, ha az előzőleg leírt program utasításait követve 
+megpróbáljuk elvégezni a 999+1 összeadást. Szigorúan pontosan azt, és csak azt szabad csinálni, 
+ami a fenti programban van.</p>
+
+<p>Hogyan kell kiegészíteni a programot, hogy helyesen működjön ebben az esetben is?</p>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Prímtényezős felbontás">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Prímtényezős felbontás<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írjunk egy programot, amelyik egy szám prímtényezős felbontását határozza meg!</p>
+
+<p>Adjunk meg az előzőekhez hasonlóan pszeudokódot, és jelöljük be azon a lépések
+végrehajtásának sorrendjét!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Ennek a feladatnak a megoldására általános iskolában is tanítanak már egy módszert. Új 
+dolgot most sem fogunk kitalálni, csak tisztázzuk az eddigieket.</p>
+
+<p>Vegyük példának a 120-et. Mit is csinálunk itt? Van egy számunk, az a 120. Ezt kell 
+osztogatnunk az egyre nagyobb prímszámokkal. 2-től indulunk, mert az a legkisebb prímszám. Ha 
+sikerül elosztani vele (maradék nélkül osztható), akkor leírjuk, hogy osztottunk (<code>120|2
+</code>), és el is osztjuk a számot. Ha nem sikerül, akkor viszont a következő prímszámra van 
+szükségünk, és azzal kell próbálkoznunk. Mindezt addig ismételgetjük, amíg el nem jutunk az 
+1-ig, mert akkor készen vagyunk.</p>
+
+<p>Két apróság, mielőtt leírjuk a programot. Egyrészt fontos tisztázni, hogy a következő 
+prímszámra csak akkor van szükségünk, ha <em>nem</em> sikerült az osztás; egy adott 
+prímtényezővel lehet, hogy többször is oszthatunk (jelen esetben a 2 ilyen). Másrészt igazából 
+mindig vehetjük az eggyel nagyobb számokat is osztónként, nem kell a következő nagyobb 
+prímszámot megkeresni. (Jelen példában 2-vel, 3-mal osztunk; 4-gyel nem baj, ha megpróbáljuk, 
+úgysem fog sikerülni, mivel annyiszor már leosztottuk 2-vel a számot, ahányszor csak lehetett.) 
+Ez az utóbbi gondolat jelentősen leegyszerűsíti a megoldást, mivel tudjuk, hogy nincsen 
+szükségünk a prímszámok listájára.</p>
+
+<pre>
+   1. Megkérdezzük, melyik számot kell felbontani.
+   ↓
+   2. A legkisebb szám, amivel osztani próbálunk, a 2.
+   ↓
+┌&gt; 3. Megvizsgáljuk, hogy a szám osztható-e a vizsgált osztóval.
+│     ├─&gt; <em>Ha igen,</em> akkor leírjuk: szám | osztó; és el is osztjuk.
+│     └─&gt; <em>Ha nem, </em> akkor a következő, eggyel nagyobb osztóra gondolunk.
+│  ↓
+└─ 4. <em>Amíg</em> nem érjük el így az 1-et, <em>csináljuk újra</em> a 3. sortól.
+   ↓
+   5. Leírjuk, hogy 1|.
+</pre>
+
+<pre class="float">
+120│2
+ 60│2
+ 30│2
+ 15│3
+  5│5
+  1│
+</pre>
+
+<p>A megoldást egy kicsit másképpen is meg lehet adni. Hogy miért, az is jól látszik a 120 
+példáján. Először 2-vel osztunk, és utána pedig megint 2-vel osztunk. Sőt, egészen addig osztunk 
+újra és újra 2-vel, amíg lehet. Ha nem lehet, akkor pedig az osztót gondolkodás nélkül 
+megnövelhetjük 1-gyel (3 lesz), és ezt folytathatjuk 1-ig.</p>
+
+<p>Ez a megoldás elviekben különbözik az elsőtől, viszont végeredményben teljesen ugyanazt 
+adja. A programozásban nagyon gyakran előfordul, hogy többféle, különböző elvű megoldást lehet adni még 
+a legegyszerűbb problémákra is.</p>
+
+<pre>
+      1. Megkérdezzük, melyik számot kell felbontani.
+      ↓
+      2. A legkisebb szám, amivel osztani próbálunk, a 2.
+      ↓
+┌&gt; ┌&gt; 3. <em>Ha</em> a szám osztható, akkor leírjuk: szám | osztó; és el is osztjuk.
+│  └──── <em>Újra próbáljuk,</em> vagyis ha osztható volt, ismételjük meg a 3. sort.
+│     ↓
+│     4. Eggyel nagyobb osztóra gondolunk.
+│     ↓
+└──── 5. <em>Amíg</em> nem érjük el így az 1-et, <em>csináljuk újra</em> a 3. sortól.
+      ↓
+      6. Leírjuk, hogy 1|.
+</pre>
+
+
+</div>
+</details>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Folyamatábrák">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Folyamatábrák<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A folyamatábrákon az egyes műveleteket téglalapokkal és más formákkal jelöljük, a lent
+látható módon.</p>
+
+<img src="folyamatabra.svg" style="width: 40em;" class="kozep">
+
+<p>Rajzoljuk meg a két prímtényezős program folyamatábráját!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<div class="columns kozep">
+    <div>
+    <img src="prim.svg" style="height: 35em;">
+    </div>
+    <div>
+    <img src="prim2.svg" style="height: 35em;">
+    </div>
+</div>
+
+</div>
+</details>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="További feladatok">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    További feladatok<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<ul>
+    
+<li>Döntsük el egy számról, hogy prímszám-e!
+
+<li>Döntsük el egy sorozatról, hogy szigorúan monoton növekvő-e!
+
+<li>Adjuk meg két szám írásbeli szorzásának programját:
+<pre style="line-height: 0.7">
+  123×24
+  ──────
+  492
+  
++246
+─────
+ 2952
+</pre>
+
+</ul>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

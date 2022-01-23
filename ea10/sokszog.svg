@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="272.79" width="311.21" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="178 157 161.99999 139.54066">
+ <metadata id="metadata44">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="g4" transform="translate(-1 -3.2297)">
+  <path id="polygon6" fill="#7babe3" d="m220 160 20 80-60-20z"/>
+  <path id="polygon8" d="m220 160 20 80-60-20z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g10" transform="translate(-1 -3.2297)">
+  <path id="polygon12" fill="#7babe3" d="m300 180-60 60-20-80z"/>
+  <path id="polygon14" d="m300 180-60 60-20-80z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g16" transform="translate(-1 -3.2297)">
+  <path id="polygon18" fill="#7babe3" d="m200 280 40-40-60-20z"/>
+  <path id="polygon20" d="m200 280 40-40-60-20z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g22" transform="translate(-1 -3.2297)">
+  <path id="polygon24" fill="#fdfd04" d="m240 240v60l-40-20z"/>
+  <path id="polygon26" d="m240 240v60l-40-20z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g28" transform="translate(-1 -3.2297)">
+  <path id="polygon30" fill="#7babe3" d="m240 240 100 20-100 40z"/>
+  <path id="polygon32" d="m240 240 100 20-100 40z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g34" transform="translate(-1 -3.2297)">
+  <path id="polygon36" fill="#7babe3" d="m340 260-40-80-60 60z"/>
+  <path id="polygon38" d="m340 260-40-80-60 60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+</svg>

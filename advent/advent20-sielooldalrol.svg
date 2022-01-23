@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="240.19" width="635.2" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="273 87 342.59962 129.7639">
+ <metadata id="metadata92">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="g4" stroke="#7f7f7f" stroke-width="2" fill="none" transform="translate(-.28458 -4.2361)">
+  <path id="line6" d="m300 200h305.53"/>
+  <path id="polyline8" d="m597.76 205 10-5-10-5"/>
+ </g>
+ <path id="line10" d="m333.72 171.76-16 20" stroke="#00f" stroke-width="2" fill="none"/>
+ <path id="line12" d="m323.72 161.76 10 12" stroke="#000" stroke-width="4" fill="none"/>
+ <path id="line14" d="m335.72 167.76-8 24" stroke="#00f" stroke-width="2" fill="none"/>
+ <g id="text16" fill="#7f7f7f">
+  <path id="path3030" style="" d="m610.42 198.76h5.4625v1.05l-4.325 5.0312h4.325v0.91875h-5.6188v-1.05l4.325-5.0312h-4.1688v-0.91875"/>
+ </g>
+ <g id="g20" stroke="#7f7f7f" stroke-width="2" fill="none" transform="translate(-.28458 -4.2361)">
+  <path id="line22" d="m324 220v-125.53"/>
+  <path id="polyline24" d="m329 102.24-5-9.9999-5 9.9999"/>
+ </g>
+ <g id="text26" fill="#7f7f7f">
+  <path id="path3035" style="" d="m335.83 100.41c-0.325 0.83333-0.64167 1.3771-0.95 1.6312-0.30833 0.25416-0.72083 0.38125-1.2375 0.38125h-0.91875v-0.9625h0.675c0.31667 0 0.5625-0.075 0.7375-0.225s0.36875-0.50417 0.58125-1.0625l0.20625-0.525-2.8312-6.8875h1.2188l2.1875 5.475 2.1875-5.475h1.2188l-3.075 7.65"/>
+ </g>
+ <g id="g30" transform="translate(-.28458 -4.2361)">
+  <path id="ellipse32" fill="#f00" d="m336 153c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7z"/>
+  <path id="ellipse34" d="m336 153c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <path id="polyline36" d="m326.1 160.41-6.1 15.59l6 8-5.783 13.494" transform="translate(-.28458 -4.2361)" stroke="#000" stroke-width="6" fill="none"/>
+ <path id="line38" d="m323.72 161.76 12 8" stroke="#000" stroke-width="4" fill="none"/>
+ <path id="line40" d="m313.72 149.76h-26" stroke="#000" stroke-width="2" fill="none"/>
+ <path id="line42" d="m299.72 165.76h-26" stroke="#000" stroke-width="2" fill="none"/>
+ <path id="line44" d="m309.72 181.76h-28" stroke="#000" stroke-width="2" fill="none"/>
+ <g id="g46" transform="translate(-.28458 -4.2361)">
+  <path id="rect48" fill="#8b6914" d="m500 190h7.4909v10h-7.49z"/>
+  <path id="rect50" d="m500 190h7.4909v10h-7.49z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g52" transform="translate(-.28458 -4.2361)">
+  <path id="polygon54" fill="#008000" d="m524 190-20-80-20 80z"/>
+  <path id="polygon56" d="m524 190-20-80-20 80z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g58" transform="translate(-.28458 -4.2361)">
+  <path id="polygon60" fill="#00f" d="m338 198h-38v2h38l2-2v-2z"/>
+  <path id="polygon62" d="m338 198h-38v2h38l2-2v-2z" stroke="#000" fill="none"/>
+ </g>
+ <g id="g64" transform="translate(-.28458 -4.2361)">
+  <path id="rect66" fill="#a020f0" d="m416 152h4v48h-4z"/>
+  <path id="rect68" d="m416 152h4v48h-4z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g70" transform="translate(-.28458 -4.2361)">
+  <path id="polygon72" fill="#a020f0" d="m416 150 22.472 8-22.472 8z"/>
+  <path id="polygon74" d="m416 150 22.472 8-22.472 8z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g76" transform="translate(-.28458 -4.2361)">
+  <path id="rect78" fill="#a020f0" d="m568 152h4v48h-4z"/>
+  <path id="rect80" d="m568 152h4v48h-4z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g82" transform="translate(-.28458 -4.2361)">
+  <path id="polygon84" fill="#a020f0" d="m568 150 22.472 8-22.472 8z"/>
+  <path id="polygon86" d="m568 150 22.472 8-22.472 8z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+</svg>

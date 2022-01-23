@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Gyakorlat, 9. hét: dinamikus tömbök</title>
+<meta property="og:title" content="TEST InfoC :: Gyakorlat, 9. hét: dinamikus tömbök">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Dinamikus memóriakezelés. Dinamikusan foglalt tömbök.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Dinamikus memóriakezelés. Dinamikusan foglalt tömbök.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Gyakorlat, 9. hét: dinamikus tömbök">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+  <a id="gyakdinamikustomb" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Gyakorlat, 9. hét: dinamikus tömbök</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Kohári Zsolt · <i class="ido"></i> 2019.09.03.</p>
+<p class="kivonat">Dinamikus memóriakezelés. Dinamikusan foglalt tömbök.</p>
+</div>
+
+
+<p>Felkészülés a gyakorlatra:</p>
+<ul>
+    <li>Az <a href="../ea07/index.html#eadinamikusmemoria">dinamikus memóriakezelésről szóló előadás</a> anyagának megértése.
+    <li>A <a href="../gy07/index.html#gyakpointerek">pointerekről és cím szerinti paraméterátadásról szóló gyakorlat</a> átismétlése.
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Hol a hiba?</a>
+              <li><a href="index.html#2" class="">Az átlagnál kisebbek</a>
+              <li><a href="index.html#3" class="">Verem (stack) típus</a>
+              <li><a href="index.html#4" class="">Mindentegybevéve</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Hol a hiba?">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Hol a hiba?<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az alábbi kódrészletek mindegyike legalább egy, de lehet hogy több helyen is, hibás. Miért?
+Ne csak a hibára mutassunk rá, hanem magyarázzuk meg a hibát! Miért nem lehetséges, hogy működjenek
+a programkódok? Mi az elvi akadály? Vagy működnek, csak más baj van? Hogyan lenne javítható?</p>
+
+<div class="sticky"><img src="../modulz/halalfej.png" style="display: block"></div>
+<pre   ><code class="language-c">int *fv(void) {
+    int i = 2;
+    return &amp;i;
+}</code></pre>
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A változó meg fog szűnni a függvényből visszatérés után. Hiába adjuk vissza a címét, a hívó már
+nem használhatja azt semmire – <em>dangling pointer</em>. Ha csak a változó értékére vagyunk kíváncsiak,
+adjuk vissza azt: <code>int</code>, és <code>return i</code>.</p>
+</div>
+</details>
+
+
+
+
+
+<div class="sticky"><img src="../modulz/halalfej.png" style="display: block"></div>
+<pre   ><code class="language-c">int *fv(void) {
+    int tomb[100];
+    tomb[0] = 2;
+    return tomb;
+}</code></pre>
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Ugyanaz a hiba, mint az előbb. Nem a tömböt adjuk vissza, csak a tömb kezdőcímét – a visszatérés
+pillanatában azonban a tömb kitörlődik a memóriából, a helye felszabadul. Ezért a hívó használhatatlan
+pointer kapna. Javítani kétféleképpen lehet. A hívó is lefoglalhatja a tömböt:</p>
+<pre   ><code class="language-c">void fv(int *tomb) {
+    tomb[0] = 2;
+}
+
+int tomb[100];
+fv(tomb);</code></pre>
+<p>Vagy dinamikus memóriakezeléssel, ilyenkor a meghívott függvény foglalja a tömböt:</p>
+<pre   ><code class="language-c">int *fv(void) {
+    int *tomb;
+    tomb = (int*) malloc(sizeof(int) * 100);
+    tomb[0] = 2;
+    return tomb;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az átlagnál kisebbek">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Az átlagnál kisebbek<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írjunk függvényt, amelyik egy paraméterben kapott <code>double</code> tömbből kiválogatja az átlagnál kisebb elemeket, és egy 
+újonnan lefoglalt dinamikus tömbbe rakja azokat!</p>
+
+<p>Honnan fogja tudni a hívó, hogy milyen hosszú lett a kapott tömb? Oldjuk meg ezt a következőképp: az új tömb címével és 
+méretével térjen vissza a függvény cím szerint átadott paraméterben! A visszatérési értéke legyen IGAZ, ha sikerült a művelet, és 
+HAMIS, ha nem.</p>
+
+<p>Mutassunk példát a függvény használatára! Készítsünk ábrát a főprogram és a függvény lokális változóiról, illetve a
+dinamikusan foglalt memóriaterületekről abban a pillanatban, amikor épp visszatérni készül a függvény!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A gondolatmenet: <code>double</code> tömböt kell foglalnunk, és abba az elsőből válogatnunk. De mekkorát? Azt a foglalás előtt 
+még meg kell számolni, mint a sztringes feladatban! Vagyis:</p>
+<ol>
+    <li>átlag számítása,
+    <li>keresett elemek számlálása (mert most már tudjuk az átlagot),
+    <li>foglalás (mert most már tudjuk a méretet),
+    <li>keresett elemek másolása (mert most már van hova másolni).
+</ol>
+
+<p>Koncentráljunk a nyelvi elemekre! A <code>double **ujtomb</code> ijesztőnek tűnhet. De nincs itt semmi újdonság: a tömböt 
+pointerével és méretével vesszük át, az új tömböt pointerével és méretével adjuk vissza. Mivel a függvény által módosított 
+<code>double*</code> változót cím szerint kell átvenni, az <code>ujtomb</code> paraméter <code>double**</code> típusú.
+Lásd a hívás helyét a főprogramban.</p>
+
+<img src="atlagnal_memoriakep.svg" class="kozep" style="width: 32em;">
+
+<p>A memóriaképen sárgával az alsó sorban a <code>main()</code> függvény lokális változói láthatóak. A középső sorban kékkel a 
+<code>valogat()</code> függvény lényeges lokális változói sorakoznak. Legfelül zöld szín a dinamikusan foglalt területet 
+jelöli.</p>
+
+<p>A <code>main()</code> függvény <code>uj</code> nevű változója egy pointer. Erre mutat rá a <code>valogat()</code> függvény 
+<code>ujtomb</code> nevű változója. Ezért is lett annak <code>double **</code> a típusa, ahogy arról fentebb már szó esett. 
+Mindkettő <code>uj</code> nevű változó a dinamikus tömbre mutat; a <code>main()</code> függvény <code>uj</code> és <code>db</code> 
+nevű változójának is a <code>valogat()</code> ad értéket.</p>
+
+<pre   ><code class="language-c">#include &lt;stdbool.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+bool valogat(double *eredeti, int meret, double **ujtomb, int *ujmeret) {
+    /* átlag meghatározása */
+    double sum = 0;
+    for (int i = 0; i &lt; meret; ++i)
+        sum += eredeti[i];
+    double atlag = sum/meret; 
+
+    /* darabszám (tömbméret) meghatározása */
+    int db = 0;
+    for (int i = 0; i &lt; meret; ++i)
+        if (eredeti[i] &lt; atlag)
+            ++db;            
+
+    double *uj = (double *) malloc(sizeof(double) * db);
+    if (uj == NULL)
+        return false;
+
+    int ide = 0;
+    for (int i = 0; i &lt; meret; ++i)
+        if (eredeti[i] &lt; atlag)
+            uj[ide++] = eredeti[i];
+
+    *ujtomb = uj;
+    *ujmeret = db;
+    return true;
+}
+
+
+int main(void) {
+    double szamok[5] = {3.4, 8.5, 4.6, 9.1, 1.2};
+
+    double *uj;
+    int db;
+    valogat(szamok, 5, &amp;uj, &amp;db);
+    /* itt ellenőrizni kellene, sikerült-e a foglalás... */
+    for (int i = 0; i &lt; db; ++i)
+        printf(&quot;%g &quot;, uj[i]);
+    free(uj);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Verem (stack) típus">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+  <a id="gyakhalmaz" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Verem (stack) típus<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A verem fogalmával megismerkedtünk a függvényhívások kapcsán: Last In First Out tároló. A legutoljára berakott elemet vehetjük ki legelőször.</p>
+<p>Írjunk egy programot, amelyik egy <em>valós számokat tároló verem típust</em> hoz létre. A veremben lévő elemek száma lehessen
+tetszőlegesen nagy, és a tároló memóriafoglalása mindig a szükséges legkisebb legyen! A verem a következőket kell tudja (ezek a megírandó függvények):</p>
+
+<ul>
+   <li>Le lehessen kérdezni, hogy üres-e a verem.
+   <li>Be lehessen tenni egy elemet a verembe.
+   <li>Ki lehessen venni egy elemet a veremből, adja is vissza ezt az értéket. (Üres veremnél 0-t.)
+</ul>
+
+<p>Tesztelő: hozzunk létre egy vermet néhány adattal, majd vegyük ki és írjuk is ki az összes tárolt adatot.</p>
+<p>Készítsünk ábrát, amelyik a verem memóriaképét mutatja!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Az „elemek száma lehessen tetszőlegesen nagy” mondatrész miatt dinamikus memóriát használunk. A veremben tárolt adatokat egy nyújtózkodó 
+tömbben jegyezzük meg, amelyre pointer mutat. Emellett az éppen aktuális méretet is nyilvántartjuk. Egy adott 
+veremhez egy lefoglalt memóriaszakasz, és egy konkrét darabszám tartozik; a két elválaszthatatlan adat természetesen egy struktúrába kerül:</p>
+
+<pre   ><code class="language-c">typedef struct Verem {
+    int db;
+    double *adat;
+} Valmaz;</code></pre>
+
+<p>Ha létrehozunk egy verem struktúrát, akkor az memóriaszemetet fog tartalmazni, mind a <code>db</code>, mind az 
+<code>adat</code> mezőben. Ezért egy vermet az első használat előtt inicializálni kell. Hogy ne szivárogjon a memória, az utolsó 
+használat után a dinamikusan foglalt területet fel is kell szabadítani. Ezért a feladat által kért három függvényen kívül még két 
+további függvényt írunk, egy inicializáló és egy felszabadító függvényt.</p>
+
+<p>A veremmel dolgozó függvények általában megváltoztathatják a struktúra tartalmát. Pl. a memóriaterület más helyre kerülhet, 
+vagy a darabszám nőhet. Ezért a függvényeknek nem a struktúrát, vagyis annak másolatát, hanem <em>a struktúrára</em> mutató 
+pointert kell átvenniük. A <code>betesz</code> és <code>kivesz</code> függvényeknél ez mindenképpen így van, de a kényelem kedvéért 
+érdemes az összeset így megírni. Akkor nem kell majd fejben tartani, melyik függvény vár értéket és melyik pointert. Azok a 
+függvények, amelyek pedig nem változtatják meg a struktúrát (pl. egy verem nem változik meg azáltal, hogy ellenőrizzük, 
+üres-e), konstans veremre mutató pointert vesznek át. Így a fordító ellenőrizni tudja, nem írtunk-e 
+azokba véletlenül olyan kódot, amely módosítaná az adattagokat.</p>
+
+<p>A verembe új számot betenni és számot abból kivenni sajnos költséges művelet. A dinamikusan foglalt tömböt átméretezni nem 
+mindig lehet, mivel lehet hogy a memóriában előtte vagy mögötte más adat van. Ezért átméretezés esetén új memóriaterületet kell 
+foglalni, és az elemeket átmásolni. A másolás után pedig a régi memóriaterület felszabadítható, végül pedig a verem struktúrában 
+található pointer az új területre állítható át. (A szabványos <code>realloc()</code> függvény egyébként ugyanezt csinálja.)</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdbool.h&gt;
+
+typedef struct Verem {
+    int db;
+    double *adat;
+} Verem;
+
+/* inicializalatlan strukturat hoz alapallapotba */
+void verem_init(Verem *v) {
+    v-&gt;db = 0;
+    v-&gt;adat = NULL;
+}
+
+/* vermet felszabadit az utolso hasznalat utan */
+void verem_felszabadit(Verem *v) {
+    free(v-&gt;adat); 
+    /* esetleg verem_init(v), ha újrafelhasználás várható */
+}
+
+/* igazzal ter vissza, ha ures */
+bool verem_ures_e(Verem const *v) {
+    return v-&gt;db==0;
+}
+
+void verem_betesz(Verem *v, double mit) {
+    /* atmasoljuk a regi adatokat eggyel nagyobb helyre */
+    double *uj = (double*) malloc((v-&gt;db + 1) * sizeof(double));
+    for (int i = 0; i &lt; v-&gt;db; ++i)
+        uj[i] = v-&gt;adat[i];
+
+    uj[v-&gt;db] = mit;  /* vegere az uj */
+    free(v-&gt;adat);    /* a regi mar nem kell */
+    v-&gt;adat = uj;     /* atallitjuk a pointert az ujra */
+    v-&gt;db++;          /* eggyel nott a darabszam */
+}
+
+double verem_kivesz(Verem *v) {
+    /* ha üres, nincs dolgunk */
+    if (verem_ures_e(v))
+        return 0; /* nem túl szerencsés, de majd C++ félévben... */
+
+    double vissza = v-&gt;adat[v-&gt;db-1]; /* ezt kell visszaadni */
+    /* uj memoriaterulet, eggyel kisebb */
+    double *uj = (double*) malloc((v-&gt;db - 1) * sizeof(double));
+    for (int i = 0; i &lt; v-&gt;db-1; ++i)
+        uj[i] = v-&gt;adat[i];
+    free(v-&gt;adat);
+    v-&gt;adat = uj;
+    v-&gt;db--;         /* eggyel csokken a darabszam */
+    return vissza;
+}
+
+/* kilistazza egy verem tartalmat; feladat nem kerte */
+void verem_lista(Verem const *v) {
+    for (int i = 0; i &lt; v-&gt;db; ++i)
+        printf(&quot;%g &quot;, v-&gt;adat[i]);
+    printf(&quot;\n&quot;);
+}
+
+int main(void) {
+    Verem v;
+
+    verem_init(&amp;v);
+    verem_betesz(&amp;v, 3.14);
+    verem_betesz(&amp;v, 2.0);
+    verem_betesz(&amp;v, 6.1);
+    verem_lista(&amp;v);
+    while(!verem_ures_e(&amp;v))
+        printf(&quot;%g &quot;, verem_kivesz(&amp;v));
+    verem_felszabadit(&amp;v); /* Ures veremre is kell malloc(0) miatt */
+
+    return 0;
+}</code></pre>
+
+<p>A fenti megoldásban kihasználjuk, hogy <code>free(NULL)</code> a szabvány szerint elfogadott. Azonban egyes régebbi fordítók 
+esetén ebből gond lehet. Ilyenkor az <code>if (ptr!=NULL) free(ptr);</code> formát érdemes használni.</p>
+
+<p>Miután a <code>main()</code> függvény a 6.1-es számot betette a verembe,
+így néz ki a program memóriaképe:</p>
+
+<img src="memoriakep_verem.svg" class="kozep" style="width: 22em;">
+
+<p>A C program vermében a <code>v</code> struktúra van, amely az egész számot és a pointert
+tartalmazza; a pointer pedig a dinamikusan foglalható területre mutat, oda, ahol
+a <code>malloc()</code> hívás helyet talált a három <code>double</code> méretű
+memóriaterületnek.</p>
+
+</div>
+</details>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mindentegybevéve">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Mindentegybevéve<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A feladat ismert lehet egy régebbi gyakorlatról: adott egy sztring, amelyből ki kell szűrni a szóközöket.
+Az előállított sztringben „mindenegybeleszírva”. Oldjuk ezt meg úgy, hogy a függvény visszatérési értéke az
+új sztring! (Tehát se a meglévő karaktertömb módosításáról, se egy meglévő karaktertömbbe írásról
+most nem lehet szó.)</p>
+
+<p>Honnan fogja tudni a hívó, hogy milyen hosszú lett a kapott karaktertömb?</p>
+
+<p>Mutassunk példát a függvény használatára!</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A dinamikus memóriakezelésnek itt két előnye is jól jön számunkra. Egyik, hogy a függvényből vissza tudunk
+adni olyan tömböt, amelyet annak belsejében foglaltunk le. Ennek dinamikusnak kell lennie, különben megszűnne
+visszatéréskor. A másik, hogy a tetszőlegesen nagy tömb méretét futási időben megadhatjuk.</p>
+
+<p>Kétszer megyünk végig a tömbön: egyszer azért, hogy megszámoljuk, hány nem szóköz karakter van, másodszor
+pedig azért, hogy az addigra lefoglalt tömbbe a karaktereket átmásoljuk.</p>
+
+<p>A szóköztelenítő függvény <code>NULL</code> értéke jelezheti a hibát, a <code>malloc()</code>-hoz hasonlóan.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+char *szokoztelenit(char const *mit) {
+    int nemszokoz = 0;
+    for (int i = 0; mit[i] != '\0'; ++i)
+        if (mit[i] != ' ')
+            nemszokoz += 1;
+    
+    char *str = (char*) malloc(sizeof(char) * (nemszokoz+1));
+    if (str == NULL)
+        return NULL;    /* :( */
+    
+    int j = 0;
+    for (int i = 0; mit[i] != '\0'; ++i)
+        if (mit[i] != ' ')
+            str[j++] = mit[i];
+    str[j] = '\0';
+    
+    return str;
+}
+
+int main(void) {
+    char *egybeirva = szokoztelenit(&quot;hello vilag alma korte&quot;);
+    if (egybeirva == NULL) {
+        printf(&quot;hiba történt, nincs szóköztelenített sztring&quot;);
+    } else {
+        printf(&quot;%s&quot;, egybeirva);
+        free(egybeirva);
+    }
+    
+    return 0;
+}</code></pre>
+
+
+</div>
+</details>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Gyakorlat, 1. hét: adatmodellezés, algoritmusok</title>
+<meta property="og:title" content="TEST InfoC :: Gyakorlat, 1. hét: adatmodellezés, algoritmusok">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Bevezető a programozás, az adatmodellezés és az algoritmusok világába.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Bevezető a programozás, az adatmodellezés és az algoritmusok világába.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Gyakorlat, 1. hét: adatmodellezés, algoritmusok">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+  <a id="gyakbevezeto" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Gyakorlat, 1. hét: adatmodellezés, algoritmusok</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.09.07.</p>
+<p class="kivonat">Bevezető a programozás, az adatmodellezés és az algoritmusok világába.</p>
+</div>
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Mi és hogyan?</a>
+              <li><a href="index.html#2" class="">Futóverseny</a>
+              <li><a href="index.html#3" class="">Dolgozatok</a>
+              <li><a href="index.html#4" class="">Fogadó</a>
+              <li><a href="index.html#5" class="">Térkép</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mi és hogyan?">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Mi és hogyan?<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Rajzolnunk kell egy háromszöget, amelynek oldalai 5, 3 és 4 egység hosszúak.</p>
+
+<p>A feladatot <em>kétféleképpen</em> közelíthetjük meg. Az egyik az alábbi. Adott egy háromszög, és ellenőrizni kell, hogy ez
+pont olyan-e, mint amilyet a feladat kért. A rajz egyébként pont ilyet mutat; az oldalhosszak vonalzóval ellenőrizhetőek is.</p>
+
+<img src="haromszog-345.svg" class="kozep" style="width: 6em;" alt="Háromszög, 5, 3 és 4 hosszúságú oldalakkal">
+
+<p>A másik megoldás pedig az alábbi. Ez egy szerkesztési utasítás: ha követjük, akkor meg tudjuk rajzolni azt
+a háromszöget, amit a feladat kért.</p>
+
+<img src="haromszog-szerkeszt.svg" class="kozep" style="width: 40em;" alt="Háromszög szerkesztése">
+
+<ol>
+    <li>Felveszünk egy félegyenest, amelynek a kezdőpontja A.</li>
+    <li>Körívet szerkesztünk r=5 sugárral az A pontból. A félegyenest ez B pontban metszi, így egy szakaszt kaptunk.</li>
+    <li>Körívet szerkesztünk r=3 sugárral, szintén az A pontból.</li>
+    <li>Körívet szerkesztünk r=4 sugárral a B pontból. A kapott metszéspontot C-nek nevezzük (ha nincs, akkor nem szerkeszthető a háromszög).</li>
+    <li>Összekötjük A és C pontokat.</li>
+    <li>Összekötjük B és C pontokat – a háromszög kész.</li>
+</ol>
+
+<p>A két megoldás nagyon eltérő szemléletű. Az első puszta <em>tényközlés</em>: „így néz ki a háromszög”. A második viszont egy 
+módszert ad: azt írja le, <em>hogyan</em> szerkesztjük meg a semmiből.</p>
+
+<p>Az alábbi feladatoknál mindig a <em>hogyan</em> lesz a kérdésünk. A feladatoknál ne az eredményt közöljük, hanem <em>módszert, 
+algoritmust</em> adjunk a feladat megoldására! Eközben pedig arra is figyelünk, hogy <em>milyen adatokra</em> van szükségünk, és 
+hogyan használjuk fel azokat. Például megkérdezhetjük valakitől, hogy hány éves, de adhatunk az életkor meghatározására egy 
+módszert is: ki kell vonni a jelenlegi évszámból a születési évszámot. Megkérdezhetjük, hány kilométerre van egymástól Budapest és 
+Szeged. A válasz 175, de most az a lényeg, hogy ezt hogyan határozzuk meg: össze kell adni azoknak az útszakaszoknak a hosszát, 
+amin végigutazunk.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Futóverseny">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Futóverseny<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az itt látható táblázat egy futóverseny eredményeit tartalmazza.</p>
+
+<table>
+    <thead>
+        <tr><th>Rajtszám<th>Név<th>Születésnap<th>Idő
+    </thead>
+    <tbody>
+        <tr><th>1<td>Break Elek<td>1982. 09. 30.<td>13:10
+        <tr><th>2<td>Am Erika<td>1984. 05. 06.<td>12:35
+        <tr><th>3<td>Kasza Blanka<td>1979. 06. 10.<td>13:37
+        <tr><th>4<td>Dil Emma<td>1988. 08. 25.<td>12:37
+        <tr><th>5<td>Koax K. Ábel<td>1991. 03. 19.<td>nem jött el
+        <tr><th>6<td>Lin Yutang<td>1987. 03. 30.<td>12:51
+        <tr><th>7<td>Reset Elek<td>1992. 04. 05.<td>13:37
+        <tr><th>8<td>Andrea Rossi<td>1986. 07. 08.<td>13:05
+    </tbody>
+</table>
+
+<p>Adjuk meg, <em>hogyan</em> kell megválaszolni az alábbi kérdéseket!</p>
+
+<ol>
+    <li>Ki nyerte meg a versenyt?</li>
+    <li>... Mi kellene ahhoz, hogy gyorsan meg lehessen válaszolni ezt a kérdést?</li>
+    <li>Milyen gyors volt a legfiatalabb nevező?</li>
+    <li>... Mikor tudnánk gyorsabban megválaszolni ezt a kérdést?</li>
+    <li>Hányan vettek részt a versenyen?</li>
+    <li>Mi a nemek aránya a nevezők közt?</li>
+    <li>Volt-e holtverseny?</li>
+    <li>... Mikor lenne könnyebb megválaszolni ezt a kérdést?</li>
+</ol>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<ol>
+    <li>Meg kell keresni a legrövidebb időt. A válasz az ahhoz a sorhoz tartozó név.</li>
+    <li>... A táblázat jelenleg a rajtszámok (nevezések sorrendje) alapján van rendezve. Ezért az
+        idők össze-vissza vannak. Ha a táblázatot a mért idő alapján rendeznénk sorba,
+        az előző kérdést könnyebb lenne megválaszolni: a táblázat első sorában található név.
+        Lásd a lenti első táblázatot és a kiemelést.</li>
+    <li>A fentihez hasonlóan végig kell néznünk a táblázatot, keresve a legnagyobb év–hónap–napot.
+        A válasz a megtalált sorban találhatő idő (de előfordulhat, hogy nem indult).</li>
+    <li>... A dátum szerinti rendezéssel. A legalsó sor lenne a válasz. Lásd a lenti második táblázatot és a kiemelést.</li>
+    <li>Meg kell számolni, hány sorban szerepel idő megadva. Ki kell hagyni azokat, akiknél „nem jött el” jelölést látunk.</li>
+    <li>Első körben erre azt válaszoljuk, hogy meg kell számolni a nőket és a férfiakat; nők / összes nevező, és
+        férfiak / összes nevező a válasz. Valójában nem ilyen egyszerű a dolog: a külföldi neveket nem ismerjük, vagy
+        esetleg azt sem tudjuk, melyik a vezetéknév és melyik a keresztnév. Andrea a magyartól eltérően olaszul
+        férfinév, és ott a keresztnevet veszik előre.</li>
+    <li>Azt kell megvizsgálnunk, találunk-e két egyforma időt. Ha legalább egy ilyen párt találunk, akkor volt.</li>
+    <li>... Jelenleg minden sort mindegyik másikkal össze kell hasonlítani. Ha a versenyen mért idő alapján
+        lenne rendezve a táblázat, a holtversenyben befutó versenyzők egymás alatt lennének. Vagyis elég lenne
+        az egymás alatti számokat összehasonlítani. Lásd a lenti első táblázatot.</li>
+</ol>
+
+<div class="columns kicsinyit">
+<div>
+    <table>
+        <thead>
+            <tr><th>Rajtszám<th>Név<th>Születésnap<th>Idő
+        </thead>
+        <tbody>
+            <tr><th>2<td class="piros">Am Erika<td>1984. 05. 06.<td class="piros">12:35
+            <tr><th>4<td>Dil Emma<td>1988. 08. 25.<td>12:37
+            <tr><th>6<td>Lin Yutang<td>1987. 03. 30.<td>12:51
+            <tr><th>8<td>Andrea Rossi<td>1986. 07. 08.<td>13:05
+            <tr><th>1<td>Break Elek<td>1982. 09. 30.<td>13:10
+            <tr><th>7<td>Reset Elek<td>1992. 04. 05.<td class="zold">13:37
+            <tr><th>3<td>Kasza Blanka<td>1979. 06. 10.<td class="zold">13:37
+            <tr><th>5<td>Koaksz K. Ábel<td>1991. 03. 19.<td>nem jött el
+        </tbody>
+        <caption>Elért idő szerint rendezve</caption>
+    </table>
+</div>
+<div>
+    <table>
+        <thead>
+            <tr><th>Rajtszám<th>Név<th>Születésnap<th>Idő
+        </thead>
+        <tbody>
+            <tr><th>3<td>Kasza Blanka<td>1979. 06. 10.<td>13:37
+            <tr><th>1<td>Break Elek<td>1982. 09. 30.<td>13:10
+            <tr><th>2<td>Am Erika<td>1984. 05. 06.<td>12:35
+            <tr><th>8<td>Andrea Rossi<td>1986. 07. 08.<td>13:05
+            <tr><th>6<td>Lin Yutang<td>1987. 03. 30.<td>12:51
+            <tr><th>4<td>Dil Emma<td>1988. 08. 25.<td>12:37
+            <tr><th>5<td>Koaksz K. Ábel<td>1991. 03. 19.<td>nem jött el
+            <tr><th>7<td class="piros">Reset Elek<td class="piros">1992. 04. 05.<td>13:37
+        </tbody>
+        <caption>Születési idő szerint rendezve</caption>
+    </table>
+</div>
+</div>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Dolgozatok">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Dolgozatok<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Egy évfolyam dolgozatot írt. A dolgozatok maximum 10 pontosak lehetnek. Az alábbi pontszámok születtek:</p>
+
+<blockquote>
+<p>
+9, 8, 9, 6, 10, 3, 5, 1, 3, 9, 3, 7, 10, 5, 7, 4, 7, 4, 3, 9, 4, 2, 9, 9, 10, 5, 2, 7, 7, 7, 6, 9, 7, 7, 10, 10, 9, 7, 7, 2, 3, 6, 7, 7, 7, 5, 8, 8, 5, 5, 9, 8, 7, 7, 4, 7, 6, 7, 10, 10, 7, 8, 3, 10, 6, 7, 10, 9, 2, 10, 8, 2, 10, 3, 6, 10, 10, 6, 6, 7, 10, 7, 4, 1, 7, 9, 9, 4, 5, 10, 8, 0, 7, 10, 6, 2, 10, 9, 7, 2, 7, 10, 3, 7, 7, 5, 7, 7, 10, 10, 9, 10, 9, 10, 3, 10, 7, 6, 2, 9, 3, 2, 6, 8, 6, 7, 2, 7, 10, 5, 8, 9, 1, 9, 3, 7, 7, 4, 4, 5, 10, 10, 7, 8, 10, 5, 5, 10, 7, 7, 6, 4, 7, 7, 8, 10, 7, 6, 7
+</p>
+</blockquote>
+
+<p>Adjunk módszert az alábbi feladatok megoldására!</p>
+
+<ol>
+    <li>Lett hibátlan dolgozat? Lett nulla pontos dolgozat?</li>
+    <li>Hány 7 pontos dolgozat született?</li>
+    <li>Az előző feladatra adott megoldást felhasználva, hogyan készítünk táblázatot arról, hogy milyen pontszámból, hány darab lett?</li>
+    <li>Képzeljük el azt, hogy csak egyszer szaladhatunk végig a pontszámok listáján. Sőt: meg sem kapjuk papíron, hanem valaki
+        lediktálja nekünk, egyetlen egyszer. Hogyan tudunk ilyenkor táblázatot készíteni arról, hogy milyen pontszámból, hány darab lett?</li>
+    <li>Ha megvan a pontszámok eloszlása, akkor hogyan válaszoljuk meg az első kérdést: lett-e hibátlan dolgozat?</li>
+    <li>Melyik volt a leggyakoribb pontszám?</li>
+</ol>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<ol>
+    <li>(Tegyük fel, hogy a hibátlan 10 pontosat jelent.) Elindulunk a lista elejéről. Amint találunk egy 10 pontost, azt mondhatjuk,
+        hogy igen, lett ilyen. Ha végignéztük a számsort, és sehol nem találtunk, akkor viszont nincs.
+        Vegyük észre, hogy a szemünk nagyon könnyen megtalálja a 10 pontosokat, de a 0-sakat nem. 0-sból amúgy egyetlen egy darab van.
+        Ha szisztematikus módszert akarunk adni, az viszont a 0 és a 10 pontosok keresésére is ugyanaz: egyesével végigmegyünk a számsoron.</li>
+    <li>Végig kell nézni a teljes számsort, és az ujjunkon / strigulákkal / bárhogy máshogy számlálni a 7-eseket.</li>
+    <li>Felírjuk a pontokat 0-tól 10-ig. Mindegyik számra alkalmazzuk az előző módszert: megszámláljuk a 0-kat, az 1-eket, és így tovább.
+<pre>
+ 0 pont:  1 db
+ 1 pont:  3 db
+ 2 pont: 10 db
+ 3 pont: 11 db
+ 4 pont:  9 db
+ 5 pont: 12 db
+ 6 pont: 14 db
+ 7 pont: 41 db
+ 8 pont: 11 db
+ 9 pont: 18 db
+10 pont: 29 db
+</pre>
+    </li>
+    <li>Felírjuk a pontokat 0-tól 10-ig. Hallgatjuk a diktált számsort; amilyen számot hallunk, amellé húzzuk a strigulát. Ahány pontról
+        van szó, a táblázatnak annyiadik soráról beszélünk. Mire végzünk, előállt a táblázat, amit szerettünk volna.
+<pre>
+ 0 pont:  1 db, |
+ 1 pont:  3 db, |||
+ 2 pont: 10 db, ||||| ||||| 
+ 3 pont: 11 db, ||||| ||||| |
+ 4 pont:  9 db, ||||| ||||
+ 5 pont: 12 db, ||||| ||||| ||
+ 6 pont: 14 db, ||||| ||||| ||||
+ 7 pont: 41 db, ||||| ||||| ||||| ||||| ||||| ||||| ||||| ||||| |
+ 8 pont: 11 db, ||||| ||||| |
+ 9 pont: 18 db, ||||| ||||| ||||| |||
+10 pont: 29 db, ||||| ||||| ||||| ||||| ||||| ||||
+</pre>
+        </li>
+    <li>Csak meg kell nézni a táblázat legalsó sorát. Az eredeti pontszámokra már nincs is szükségünk.</li>
+    <li>Az előző táblázatban keressük azt a sort, ahol a legnagyobb szám van. Ne feledjük: grafikusan ez könnyű,
+        de ha számokról van szó, akkor meg kell keresnünk a legnagyobbat. Lásd a futóversenyes feladatot.</li>
+</ol>
+</div>
+</details>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Fogadó">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Fogadó<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<blockquote>
+<p>Ez a feladat a <a href="https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok_2017tavasz_emelt/e_infoism_17maj_fl.pdf">2017-es informatika érettségi</a> adaptációja.</p>
+</blockquote>
+
+<p>Egy fogadó az alábbi adatokról vezet nyilvántartást:</p>
+
+<ul>
+    <li>Szobák a fogadóban (sorszám, név, ágyak száma, pótágyak száma)</li>
+    <li>Vendégek (azonosító, név, irányítószám)</li>
+    <li>Foglalások (foglalás sorszáma, vendég sorszáma, szoba sorszáma, érkezés, távozás, személyek száma).</li>
+</ul>
+
+<div class="columns">
+<div>
+    <table>
+        <thead>
+            <tr><th>Sorszám<th>Név<th>Ágy<th>Pótágy
+        </thead>
+        <tbody>
+            <tr><td>1<td>Szende<td>4<td>3
+            <tr><td>2<td>Szundi<td>4<td>2
+            <tr><td colspan="4">...
+        </tbody>
+        <caption>Szobák</caption>
+    </table>
+</div>
+<div>
+    <table>
+        <thead>
+            <tr><th>Azonosító<th>Név<th>Irsz
+        </thead>
+        <tbody>
+            <tr><td>1<td>Gulyás Klaudia<td>2074
+            <tr><td>2<td>Barta Andrea<td>8943
+            <tr><td colspan="3">...
+        </tbody>
+        <caption>Vendégek</caption>
+    </table>
+</div>
+</div>
+
+<table>
+    <thead>
+        <tr><th>Foglalás<th>Vendég<th>Szoba<th>Érkezés<th>Távozás<th>Személyek
+    </thead>
+    <tbody>
+        <tr><td>1<td>1<td>3<td>2016-01-04<td>2016-01-07<td>4
+        <tr><td>2<td>2<td>4<td>2016-01-04<td>2016-01-06<td>3
+        <tr><td colspan="6">...
+    </tbody>
+    <caption>Foglalások</caption>
+</table>
+
+<p>Válaszoljuk meg a kérdéseket, illetve adjunk módszert az alábbi kérdések megválaszolására!</p>
+
+<ol>
+    <li>Minden táblázat sorait beszámoztuk. Szükséges ez, vagy van, ahol elhagyható lenne a sorszám?</li>
+    <li>Hány fő szállásolható el a fogadóban?</li>
+    <li>Hány vendég érkezett Borsod-Abaúj-Zemplén megyéből? (Az irányítószámok: 3400–3999.)</li>
+    <li>Hány foglalás található a Szende nevű szobához?</li>
+    <li>Szabad-e a Szende nevű szoba 2020.12.30-tól 2021.01.02-ig?</li>
+    <li>Melyik a legnépszerűbb szoba, vagyis ahova a legtöbbször foglaltak a vendégek?</li>
+    <li>Kik a visszatérő vendégek?</li>
+
+    <li>Van-e szabad szoba 3 fő részére, 2020.12.30-tól 2021.01.02-ig?</li>
+    <li>A fogadó adatvédelmi nyilatkozata szerint a vendégek adatait 1 évig őrzik meg. Soroljuk
+        fel azokat a foglalásokat és vendégeket, amiket / akiket törölni kell az adatbázisból!</li>
+    <li>Van-e olyan foglalás az adatbázisban, ahol véletlenül túl kicsi szobát adtak?</li>
+    <li>Vannak-e ütköző foglalások az adatbázisban, amikor ugyanarra az időszakra két
+        vendégnek kiadták ugyanazt a szobát?</li>
+    <li>Javítható-e a hiba, azaz van-e üres szoba nekik?</li>
+</ol>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<ol>
+    <li>A szobákat nem feltétlenül kellene sorszámozni, ha figyelünk rá, hogy mindegyik szoba neve eltérő legyen.
+        A vendégeknél viszont ez feltétlenül szükséges, mert lehetnek ugyanolyan nevű vendégek.</li>
+    <li>Ehhez össze kell adnunk az összes szoba ágyainak és pótágyainak számát.</li>
+    <li>A vendégek táblázatát kell csak nézni, szűrni irányítószámok szerint.</li>
+    <li>Meg kell keresni a szoba sorszámát. Utána a foglalások közül azokat kell megszámolni,
+        amikhez ez a sorszám tartozik.</li>
+    <li>Megkeressük a szoba sorszámát. Ezután pedig végignézzük a foglalások közül azokat, ahol
+        ezt a sorszámot látjuk. Ha a megadott időintervallum nem fed át semelyik foglalással, akkor igen.
+        (A régi vendég távozása, és az új vendég érkezése eshet egy napra. Ha az előbbi reggel elutazik,
+        akkor az utóbbi délután már megkaphatja a szobát.)</li>
+    <li>Érdemes egy segédtáblázatot készíteni: szoba sorszáma, foglalások száma. A foglalások táblázatát
+        vizsgálva ezt ki tudjuk tölteni (lásd a fenti, dolgozatos feladatot). Ha megvan, megkeressük
+        a maximumot: a szoba sorszáma alapján pedig a neve meghatározható a szobák táblázatából.</li>
+    <li>Ehhez is segédtáblázatot készítünk: vendég sorszáma, foglalások száma. Ha elkészült, akkor
+        azokat válogatjuk ki, akiknél a foglalások száma &ge; 2. Így kapunk néhány vendégazonosítót,
+        amikhez kikeressük a neveket.</li>
+    <li>Segédtáblázatot készítünk a szobákból. Kihúzzuk azokat, amik 3 fősnél kisebbek.
+        Végignézzük a foglalásokat, csak azokat figyelembe véve, amik átfednek a megadott időintervallummal.
+        Amik igen, az ahhoz tartozó szobákat is kihúzzuk. A megmaradt szobákat adhatjuk ki; ha legalább
+        egyet találtunk, a válaszunk: van szabad szoba.
+        Sokat segítene a megoldásban, ha naptárszerűen látnánk a foglalásokat. Tehát megoldási módszer
+        lehet az is, hogy az összes foglalást felvezetjük egy naptárba, amiben utána már könnyű az
+        adott időszakot vizsgálni.</li>
+    <li>Töröljük az egy évnél régebbi foglalásokat. Utána pedig töröljük azokat a vendégeket, akikhez
+        nincs foglalás rögzítve (vagy épp most lett törölve). Vigyázat: egy foglalás törlése nem jelenti
+        azt, hogy a vendéget is törölni kell; lehetett egy évnél frissebb foglalása is.</li>
+    <li>Végignézzük a foglalásokat. Mindegyiknél a szoba sorszáma alapján megkeressük a szobát is.
+        Ha ágyak + pótágyak &lt; személyek száma, akkor hibát találtunk.</li>
+    <li>Minden foglalást megvizsgálunk, hogy van-e olyan <em>másik</em> foglalás, amelyik ugyanarra a szobára,
+        átfedő időszakra vonatkozik.</li>
+    <li>Ha találunk ütközést, akkor <em>valamelyik</em> foglaláshoz másik szobát kell keresni (lásd a fenti
+        feladatot). Vigyázat: ha A foglalás ütközik B-vel, akkor előfordulhat, hogy csak A-t, vagy csak B-t
+        tudjuk máshova költöztetni (mert eltérő időszak, eltérő vendégszám lehet.) És vigyázat: lehet, hogy kettőnél több
+        foglalás ütközik!</li>
+</ol>
+</div>
+</details>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Térkép">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Térkép<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az alábbi elnagyolt térkép néhány várost és azok GPS koordinátáit mutatja.
+Jelöli a köztük vezető utakat is, azok neveivel és hosszaival együtt:</p>
+
+<img src="terkep.svg" class="kozep" style="width: 32em;" alt="térkép">
+
+<p>A térkép adatait a gépi feldolgozáshoz táblázatban rögzítjük. Kézenfekvő megoldás a városoknak és az utaknak
+két külön táblázatot csinálni, hiszen</p>
+
+<ul>
+    <li>A számuk különböző (egymástól függetlenül változhat).</li>
+    <li>A városokhoz (név, gps) és az utakhoz (név, hossz) eltérő adatokat rögzítünk.</li>
+</ul>
+
+<p>Építsük fel a táblázatokat, feltüntetve az <em>összes</em> várost és utat!</p>
+
+<div class="columns">
+<div>
+    <table>
+        <thead>
+            <tr><th>Sorszám<th>Név<th>GPS
+        </thead>
+        <tbody>
+            <tr><th>1<td>Budapest<td>47.49, 19.04
+            <tr><th>2<td>Székesfehérvár<td>47.19, 18.41
+            <tr><td colspan="3">...
+        </tbody>
+        <caption>Városok</caption>
+    </table>
+</div>
+<div>
+    <table>
+        <thead>
+            <tr><th>Honnan<th>Hova<th>Név<th>Hossz
+        </thead>
+        <tbody>
+            <tr><td>1<td>2<td>M7<td>65
+            <tr><td colspan="4">...
+        </tbody>
+        <caption>Utak</caption>
+    </table>
+</div>
+</div>
+
+<h3>Az adatmodell</h3>
+
+<p>Válaszoljuk meg az alábbi kérdéseket!</p>
+
+<ol>
+    <li>Miért kellett beszámozni a városokat? Azonosíthatna egy várost a neve is?</li>
+    <li>Az utakhoz nem rendeltünk hasraütésszerű sorszámokat. Be kellene számozni ezeket is?</li>
+    <li>A táblázatban szereplő első út Budapestről Székesfehérvárra megy a sorszámok szerint. Nem Székesfehérvárról megy Budapestre?
+        Miért? Lenne értelme ennek a megkülönböztetésnek?</li>
+</ol>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<ol>
+    <li>A várost nem tudja a neve azonosítani. Különböző országokban (esetleg egyes országokban különböző tartományokban)
+        lehet ugyanolyan nevű város.</li>
+    <li>Nem szükséges. Lehetnek ugyan párhuzamosan futó utak (pl. Budapest–Székesfehérvár között nem csak az M7-esen, hanem
+        a 7-esen is mehetünk). Ugyan egy útnak lehetnek különböző szakaszai (pl. a térképen az M5 és az M6), de ha két város
+        közt két út is van, azok eltérő nevet kapnak.</li>
+    <li>Ebben a példában nincs értelme a megkülönböztetésnek. Ha tárolnánk egyirányú utcákat, akkor lehetne.</li>
+</ol>
+</div>
+</details>
+
+<h3>Keresések</h3>
+
+<p>Hogyan lehet a táblázatok alapján válaszolni az alábbi kérdésekre?</p>
+
+<ol>
+    <li>Mi Veszprém sorszáma? Mi Debrecen sorszáma?</li>
+    <li>... Mit tehetünk annak érdekében, hogy erre a kérdésre gyorsabban lehessen válaszolni?</li>
+    <li>Megy közvetlen út Kecskemétről Pécsre?</li>
+    <li>... Mit tehetünk annak érdekében, hogy erre a kérdésre könnyebben (kevesebb keresgéléssel) lehessen válaszolni?</li>
+    <li>Milyen hosszú a közvetlen út Bátaszék és Szeged között?</li>
+    <li>Mennyi idő alatt lehet a Kecskemétről Dunaújvárosra tartó úton végigautózni?</li>
+    <li>Milyen hosszú az M6-os út?</li>
+    <li>... Mit tehetünk annak érdekében, hogy erre a kérdésre könnyebb legyen válaszolni?</li>
+    <li>... Biztosan tudunk válaszolni erre a kérdésre?</li>
+    <li>Mely városokat érinti az M5-ös?</li>
+    <li>Soroljuk fel útirány szerint, mely városokat érinti az M5-ös!</li>
+    <li>Vegyük sorra az eddigi megoldásainkat! Képzeljük el, hogy a városok táblázata 1) sorszám szerint, 2) ábécé rendbe van rendezve!
+    Képzeljük el, hogy az utak táblázata 1) név szerint, 2) város sorszámok szerint, 3) hossz szerint van rendezve. Melyik eset,
+    melyik feladat megoldását gyorsítja vagy lassítja?</li>
+    <li>Igaz-e, hogy minden út Rómába vezet?</li>
+</ol>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<ol>
+    <li>Ezekhez végig kell néznünk a városok táblázatát. Ha megvan a város, a sorszám kiolvaható.</li>
+    <li>... Ha ábécébe rendezzük a városokat, akkor könnyebb megtalálni valamelyiket.</li>
+    <li>Kikeressük Kecskemét sorszámát és Pécs sorszámát, mint az előző feladatban. Ha megvan mindkettő (pl. 3 és 5 a sorszámok),
+        akkor megnézzük, hogy szerepel-e ilyen út a második táblázatban. Vigyázat: lehet, hogy 3&rarr;5, de az is lehet, hogy
+        5&rarr;3 formában találjuk meg.</li>
+    <li>... Ha a városok ábécében vannak, akkor könnyebb a sorszámokat megtalálni. Az utaknál figyelhetünk arra, hogy
+        a „honnan” sorszám mindig a kisebb, a „hova” mindig a nagyobb legyen; tehát pl. 3&rarr;5-öt nem visszük fel a táblázatba
+        5&rarr;3 formában. Ezen felül, rendezhetjük az utakat is, a „honnan” város sorszáma, azon belül pedig a „hova” város
+        sorszáma alapján, ezzel is segítve a keresést.</li>
+    <li>Hasonlóan, mint az előző feladat, de egy másik oszlopban van a válasz.</li>
+    <li>Nem tudjuk megmondani. Nem ismerjük a táblázatból a sebességkorlátozásokat.</li>
+    <li>Ehhez végig kell néznünk az utak táblázatát, hogy hol szerepel „M6” a névnél. A kapott sorokban található hosszakat
+        kell összegezni.</li>
+    <li>... Ha az utak táblázata rendezve van az út neve szerint, könnyebben megtaláljuk a keresett utat. A felette és az alatta
+        lévő sorokat kell vizsgálni.</li>
+    <li>... Valójban nem. Az M7-es például továbbmegy a Balaton felé, de a térkép csak az első szakaszát jelöli,
+        és ezáltal a táblázat is.</li>
+    <li>Ehhez előbb meg kell keresnünk az M5-ös szakaszait az utak táblázatából, „honnan–hova” párokat kapva. A kapott
+        számok közül kiválogatjuk a különbözőeket. (Lesznek egyformák, pl. Kecskemét&rarr;Budapest és Kecskemét&rarr;Szeged miatt.)
+        A kapott sorszámokhoz tartozó városokat pedig kikeressük a városok táblázatából.</li>
+    <li>A fentihez hasonlóan megkeressük az M5 szakaszait. De utána sorba is kell rakni azokat. Ezért keresünk ezek
+        közül egy olyan sorszámot, amelyik csak egyszer szerepel – mert ez az út eleje vagy vége. (Elméletben pontosan kettő
+        ilyen kell legyen, különben nem ismerjük az út összes szakaszát, vagy körbe-körbe megy az út.) Ettől kiindulva fel
+        tudjuk sorolni az útvonalba eső városokat, mintha dominókként tennénk egymás után a számpárokat, pl. 5–8, 8–7, 7–11.
+        Ezekből a kiinduló sorszámokra van szükségünk, és az utolsó párból az érkezőre is, pl. 5, 8, 7, 11. A sorszámok alapján
+        pedig megkeressük a városokat, hogy a nevük is meglegyen.</li>
+    <li>Mindig azt figyeljük, hogy amikor keresnünk kell valamit, akkor a táblázat aszerint van-e rendezve! Például ha fel
+        kell sorolnunk azokat az utakat, amelyek egy bizonyos városból kiindulnak, akkor 1) jó, ha a városok táblázata ábécében
+        van, mert akkor a várost hamar meg fogjuk találni, 2) jó, ha az utak táblázata sorszámok szerint, mert akkor az utakat
+        hamar megtaláljuk, 3) ugyanakkor ez az utak megkeresésében nem segít, mert az a táblázat nem lehet egyszerre
+        a „honnan” és a „hova” oszlop szerint is rendezve.</li>
+    <li>A kérdés elég zavaros... De vegyük úgy, hogy azt kérdezi, van-e olyan város, ahonnan nem lehet eljutni Rómába.
+        Valójában ezt könnyebb fordított irányba haladva megválaszolni. Keressük meg Róma sorszámát. Ezután keressük meg
+        azokat az utakat, amik érintik ezt a várost („honnan” vagy „hova” sorszámuk megegyezik Rómáéval). Jegyezzük fel az
+        így kapott városokat, jelöljük meg őket, hogy oda el lehet jutni. Keressük meg az ezekhez tartozó utakat is. Folytassuk
+        addig, amíg találunk új várost – ha valamelyikben jártunk, azt hagyjuk figyelmen kívül. Amint végeztünk, már csak meg kell
+        vizsgálni, van-e olyan város, amit nem jelöltünk be. Feltételezve, hogy az utak kétirányúak, ha Rómából nem lehet oda eljutni,
+        akkor onnan sem lehet Rómába.</li>
+</ol>
+</div>
+</details>
+
+<h3>Módosítások</h3>
+
+<p>Hogyan kell módosítani a táblázatokat ezekkel az adatokkal? Mire kell figyelni?</p>
+
+<ol>
+    <li>Új várost rögzítünk a táblázatban: Tatabánya. Mi a teendő?</li>
+    <li>Szeretnénk felvinni az M1-es első szakaszát: Budapest–Tatabánya. Mi a teendő?</li>
+</ol>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<ol>
+    <li>Meg kell keresni, hogy szerepel-e már a város, mert nem lehet bent többször a táblázatban.
+        Ha nincs, egyedi sorszámot hozzárendelve kell felvinni. Az egyedi sorszám lehet például a legnagyobb ismert sorszám + 1.</li>
+    <li>Meg kell keresni a városok sorszámait. Amelyik város nem szerepel a táblázatban, fel kell vinni. Ha megvan
+        mind a két sorszám, akkor már az utat is beírhatjuk a másik táblázatba – ha még nem szerepel.</li>
+</ol>
+</div>
+</details>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+"use strict";infoc.onloads.push(function(){function get_tds(tableelem){var table=[];Array.prototype.forEach.call(tableelem.querySelectorAll('tr'),function(trelem){var row=[];Array.prototype.forEach.call(trelem.querySelectorAll('td'),function(tdelem){row.push(tdelem)});table.push(row)});return table}
+function clickonoff(id){var tableelem=document.getElementById(id);var table=get_tds(tableelem);var queen=tableelem.getAttribute('data-char');for(var y=0;y<table.length;++y){for(var x=0;x<table[y].length;++x){addEvent(table[y][x],'click',function(){var van=this.innerText!="";if(van)
+this.innerText="";else this.innerText=queen})}}}
+function highlight(id){var tableelem=document.getElementById(id);var tds=get_tds(tableelem);var max=tds.length;function enter(y,x){if(tds[y][x].innerText=="")
+return;for(var yy=0;yy<max;++yy)
+for(var xx=0;xx<max;++xx)
+if(yy==y||xx==x||Math.abs(yy-y)==Math.abs(xx-x))
+tds[yy][xx].classList.add('sakk-hover');}
+function leave(y,x){for(var yy=0;yy<max;++yy)
+for(var xx=0;xx<max;++xx)
+if(yy==y||xx==x||Math.abs(yy-y)==Math.abs(xx-x))
+tds[yy][xx].classList.remove('sakk-hover');}
+for(var y=0;y<max;++y){for(var x=0;x<max;++x){tds[y][x].onmouseenter=enter.bind(null,y,x);tds[y][x].onmouseleave=leave.bind(null,y,x)}}}
+function solver(idprefix){var tableelem=document.getElementById(idprefix);var startgomb=document.getElementById(idprefix+'start');var kovetkezogomb=document.getElementById(idprefix+'kovetkezo');var folyamatosgomb=document.getElementById(idprefix+'folyamatos');var queen=tableelem.getAttribute('data-char');var tds=get_tds(tableelem);var interval=null;var max=tds.length;var stack=[];var n=0;var i=0;function kiir(){for(var j=0;j<max;++j){for(var k=0;k<max;++k){var text=k==stack[j]?queen:"";if(tds[j][k].innerText!=text)
+tds[j][k].innerText=text}}}
+function megfelele(){for(var j=0;j<n;++j){if(stack[j]===i||Math.abs(i-stack[j])===Math.abs(n-j))return!1}
+return!0}
+function kovetkezo(){if(n===max)
+return!0;stack.push(i);kiir();if(megfelele()){++n;if(n===max){return!0}
+i=0}else{stack.pop();++i;while(i===max){i=stack.pop()+1;--n}}
+return!1}
+function folyamatos(){if(interval)return;if(n===max)return;interval=setInterval(function(){if(kovetkezo()){clearInterval(interval);interval=null}},50)}
+function start(){if(interval){clearTimeout(interval);interval=null}
+stack=[];n=0;i=0;kiir()}
+if(startgomb)addEvent(startgomb,'click',start);if(kovetkezogomb)addEvent(kovetkezogomb,'click',kovetkezo);if(folyamatosgomb)addEvent(folyamatosgomb,'click',folyamatos);start()}
+highlight('sakk-problema');clickonoff('sakktablaclick');clickonoff('sakk-feleslegesen');solver('sakktablaclick')})

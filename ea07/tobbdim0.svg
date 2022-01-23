@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg43" width="21cm" height="2.194cm" version="1.1" viewBox="99 98 402 31.448" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata id="metadata47">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="Háttér" transform="translate(0 -6.2761)" stroke="#000" stroke-width="2">
+  <path id="rect4" d="m100 100h40v40h-40z" fill="#7babe3"/>
+  <g id="g10">
+   <path id="line6" d="m140 120h110.26" fill="none"/>
+   <path id="polygon8" d="m250.26 120-2.5-5 10 5-10 5z" fill-rule="evenodd"/>
+  </g>
+  <g id="g20" fill="#ffff04">
+   <path id="rect12" d="m260 100h20v40h-20z"/>
+   <path id="rect14" d="m280 100h20v40h-20z"/>
+   <path id="rect16" d="m300 100h20v40h-20z"/>
+   <path id="rect18" d="m320 100h20v40h-20z"/>
+  </g>
+  <g id="g30" fill="#cccc7a">
+   <path id="rect22" d="m360 100h20v40h-20z"/>
+   <path id="rect24" d="m340 100h20v40h-20z"/>
+   <path id="rect26" d="m380 100h20v40h-20z"/>
+   <path id="rect28" d="m400 100h20v40h-20z"/>
+  </g>
+  <g id="g40" fill="#ffff04">
+   <path id="rect32" d="m420 100h20v40h-20z"/>
+   <path id="rect34" d="m440 100h20v40h-20z"/>
+   <path id="rect36" d="m460 100h20v40h-20z"/>
+   <path id="rect38" d="m480 100h20v40h-20z"/>
+  </g>
+ </g>
+</svg>

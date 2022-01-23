@@ -1,0 +1,43 @@
+"use strict";function fabejar(idprefix,hogyan){hogyan=hogyan||"bgj";var div=$(idprefix);var capt=$(idprefix+"capt");var meret=1.5;var anim=250;var elemek;var tgyoker;var holtart=0;var bejartomb=[];var startgomb=$(idprefix+"start");var kovetkezogomb=$(idprefix+"kovetkezo");var vegiggomb=$(idprefix+"vegig");var reszfaszinesgomb=$(idprefix+"reszfaszines");var gyokerszinesgomb=$(idprefix+"gyokerszines");var szulogyerekszinesgomb=$(idprefix+"szulogyerekszines");var szuloleszarmazottszinesgomb=$(idprefix+"szuloleszarmazottszines");var levelszinesgomb=$(idprefix+"levelszines");var baljobbszomszedszinesgomb=$(idprefix+"baljobbszomszedszines");if(startgomb)addEvent(startgomb,'click',start);if(kovetkezogomb)addEvent(kovetkezogomb,'click',kovetkezo);if(vegiggomb)addEvent(vegiggomb,'click',vegig);if(reszfaszinesgomb)addEvent(reszfaszinesgomb,'click',reszfaszines);if(gyokerszinesgomb)addEvent(gyokerszinesgomb,'click',gyokerszines);if(szulogyerekszinesgomb)addEvent(szulogyerekszinesgomb,'click',szulogyerekszines);if(szuloleszarmazottszinesgomb)addEvent(szuloleszarmazottszinesgomb,'click',szuloleszarmazottszines);if(levelszinesgomb)addEvent(levelszinesgomb,'click',levelszines);if(baljobbszomszedszinesgomb)addEvent(baljobbszomszedszinesgomb,'click',baljobbszomszedszines);start();function ujcsomo(szam){var ujszam=document.createElement("div");ujszam.innerHTML=szam;div.appendChild(ujszam);elemek.push(ujszam);return ujszam}
+function elhelyez(gyoker,x,y,dx,dy){if(gyoker==null)
+return;gyoker.style.left=x+"em";gyoker.style.top=y+"em";if(gyoker.bal){var vonal=document.createElement("div");vonal.className="bal";div.appendChild(vonal);vonal.style.left=x-dx+meret/2+0.1+"em";vonal.style.top=y+(meret+(dy-meret)/2)+"em";vonal.style.width=dx-0.2+"em";gyoker.balvonal=vonal}
+if(gyoker.jobb){var vonal=document.createElement("div");vonal.className="jobb";div.appendChild(vonal);vonal.style.left=x+meret/2+0.1+"em";vonal.style.top=y+(meret+(dy-meret)/2)+"em";vonal.style.width=dx-0.2+"em";gyoker.jobbvonal=vonal}
+var magas=y+meret;var magas1=elhelyez(gyoker.bal,x-dx,y+dy,dx/1.8,dy/1.13);var magas2=elhelyez(gyoker.jobb,x+dx,y+dy,dx/1.8,dy/1.13);if(magas2>magas1&&magas2>magas)return magas2;if(magas1>magas)return magas1;return magas}
+function start(){elemek=[];if(capt!=null)
+capt.innerHTML="&nbsp;";while(div.firstChild!=null)
+div.removeChild(div.firstChild);tgyoker=ujcsomo(5);tgyoker.bal=ujcsomo(3);tgyoker.bal.bal=ujcsomo(1);tgyoker.bal.bal.bal=ujcsomo(0);tgyoker.bal.bal.jobb=ujcsomo(2);tgyoker.bal.jobb=ujcsomo(4);tgyoker.jobb=ujcsomo(7);tgyoker.jobb.bal=ujcsomo(6);tgyoker.jobb.jobb=ujcsomo(9);tgyoker.jobb.jobb.bal=ujcsomo(8);var magassag=elhelyez(tgyoker,10,0,4.5,2.5);div.style.width=20+"em";div.style.height=magassag+"em"}
+function szinez(elem,szin,duma){if(szin=="jelolt")
+elem.className+=" jelolt";else if(szin=="-jelolt")
+elem.className=elem.className.replace("jelolt","");else{if(elem.className.search("jelolt")==-1){elem.className=szin}else{elem.className=szin+" jelolt";if(elem.balvonal!=null)
+elem.balvonal.className="bal kesz";if(elem.jobbvonal!=null)
+elem.jobbvonal.className="jobb kesz"}}
+if(duma!=""&&capt!=null)
+capt.innerHTML=capt.innerHTML+" "+duma}
+function kovetkezo(){function szinezszam(x){szinez(bejartomb[x][0],bejartomb[x][1],bejartomb[x][1]=="kesz"?bejartomb[x][0].innerHTML:"")}
+if(holtart>=bejartomb.length)
+bejar();szinezszam(holtart);holtart++;return holtart<bejartomb.length}
+function vegig(){if(kovetkezo())
+setTimeout(vegig,anim)}
+function mindetszinez(gyoker,milyenre){if(gyoker==null)return;gyoker.className=milyenre;mindetszinez(gyoker.bal,milyenre);mindetszinez(gyoker.jobb,milyenre)}
+function alapszin(milyen){for(var x=0;x<elemek.length;++x){var elem=elemek[x];elem.className="";if(elem.balvonal!=null)elem.balvonal.className="bal";if(elem.jobbvonal!=null)elem.jobbvonal.className="jobb"}}
+function bejar(){function bejarfunc(gyoker){if(gyoker==null)
+return;bejartomb.push([gyoker,"jelolt"]);for(var x=0;x<hogyan.length;++x)
+switch(hogyan[x]){case 'b':bejarfunc(gyoker.bal);break;case 'g':bejartomb.push([gyoker,"kesz"]);break;case 'j':bejarfunc(gyoker.jobb);break}
+bejartomb.push([gyoker,"-jelolt"])}
+if(capt!=null)
+capt.innerHTML="&nbsp;";alapszin();bejartomb=[];bejarfunc(tgyoker);holtart=0}
+function gyokerszines(){alapszin();tgyoker.className="kesz";if(capt!=null)
+capt.innerHTML=this.getAttribute('data-title')}
+function levelszines(){function levelszinesfunc(gyoker){if(gyoker==null)return;levelszinesfunc(gyoker.bal);levelszinesfunc(gyoker.jobb);if(gyoker.bal==null&&gyoker.jobb==null)
+gyoker.className="kesz"}
+alapszin();levelszinesfunc(tgyoker);if(capt!=null)
+capt.innerHTML=this.getAttribute('data-title')}
+function szulogyerekszines(){mindetszinez(tgyoker,"");mindetszinez(tgyoker.bal,"torolt");mindetszinez(tgyoker.jobb,"torolt");tgyoker.className="";tgyoker.bal.className="kesz";tgyoker.jobb.className="kesz";if(capt!=null)
+capt.innerHTML=this.getAttribute('data-title')}
+function szuloleszarmazottszines(){mindetszinez(tgyoker,"kesz");tgyoker.className="";if(capt!=null)
+capt.innerHTML=this.getAttribute('data-title')}
+function reszfaszines(){tgyoker.className="kesz";mindetszinez(tgyoker.bal,"kek");mindetszinez(tgyoker.jobb,"piros");if(capt!=null)
+capt.innerHTML=this.getAttribute('data-title')}
+function baljobbszomszedszines(){mindetszinez(tgyoker,"torolt");tgyoker.className="kesz";tgyoker.bal.className="";tgyoker.bal.bal.className="kek";tgyoker.bal.jobb.className="piros";if(capt!=null)
+capt.innerHTML=this.getAttribute('data-title')}}
+infoc.onloads.push(function(){fabejar("fabemutat");fabejar("fabejarrekurzio");fabejar("fabgj","bgj");fabejar("fajgb","jgb");fabejar("fabjg","bjg");fabejar("fagbj","gbj")})

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: XOR csere</title>
+<meta property="og:title" content="TEST InfoC :: XOR csere">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Egy rémálom kivesézve: az XOR csere helyességéről, hasznosságáról.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Egy rémálom kivesézve: az XOR csere helyességéről, hasznosságáról.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="XOR csere">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">XOR csere</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.02.27.</p>
+<p class="kivonat">Egy rémálom kivesézve: az XOR csere helyességéről, hasznosságáról.</p>
+</div>
+
+<p>„Premature optimization is the root of all evil”, mondta egykor Donald Knuth. Igaza is volt; a programozók sokszor unalomból,
+tudatlanságból, szakmai hiúságból teljesen fölöslegesen optimalizálgatnak olyan kódrészleteket, amelyek ritkán futnak, esetleg
+eleve elég gyorsak voltak. Az optimalizálásnak általában ára van: bonyolódik tőle a kód, csökken az olvashatósága. Mi több,
+sokszor el is rontják ilyenkor a kódot.</p>
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Mi az az XOR csere?</a>
+              <li><a href="index.html#2" class="">Helyes egyáltalán a kód?</a>
+              <li><a href="index.html#3" class="">Gyorsabb-e az XOR csere?</a>
+              <li><a href="index.html#4" class="">*a = 1; *b = 2; után mennyi *a értéke?</a>
+              <li><a href="index.html#5" class="">Egyéb szörnyűségek</a>
+              <li><a href="index.html#6" class="">Konklúzió</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mi az az XOR csere?">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Mi az az XOR csere?<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<p>Annak idején, amikor még mindenki Assembly nyelvű programokat írt, rengeteg apró optimalizálást kézzel végeztek el a
+programozók. Például egy regiszter nullázása helyett: <code>movl $0, eax</code> (C-ben: <code>eax = 0</code>), inkább saját
+magával XOR kapcsolatba hozták azt: <code>xorl eax, eax</code> (<code>eax ^= eax</code>). Mert ez kevesebb bájtot foglalt, nem
+kellett a 0 számot eltárolni hozzá a memóriában. Akkoriban jöttek rá arra is, hogy két regiszter értékét szintén meg lehet
+cserélni az <code>xor</code> gépi utasítással:</p>
+
+<pre class="screenshot">
+xorl eax, ebx
+xorl ebx, eax
+xorl eax, ebx
+</pre>
+
+<p>A módszer előnye, hogy nincsen hozzá szükség segédregiszterre. Eddig minden rendben is lenne. A baj csak az, hogy a '70-es
+években kitalált, az akkori szemléletet tükröző módszer annyira beszivárgott a köztudatba, hogy egyesek manapság is használják,
+magas szintű programozási nyelveken. A XXI. században, amikor a fordítóprogramok legtöbbje gyorsabb kódot tud generálni,
+mint amilyen Assembly kódot az emberek írnának.</p>
+
+<p>Mi a gond igazából az XOR cserével? Leginkább az, hogy nem fejezi ki a szándékot. Ha leírjuk ezt, mondjuk C-ben:</p>
+
+<pre   ><code class="language-c">a = a^b;
+b = b^a;
+a = a^b;</code></pre>
+
+<p>akkor nem csak a többi programozó nem fogja tudni, mit akarunk itt csinálni (hacsak nem ismerik a trükköt), hanem a
+fordítóprogram sem. Ellenben ha ezt írnánk:</p>
+
+<pre   ><code class="language-c">temp = a;
+a = b;
+b = temp;</code></pre>
+
+<p>akkor azt minden programozó felismeré, és mint az kiderül, a fordítóprogramok is gyorsabb kódot generálnának.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Helyes egyáltalán a kód?">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Helyes egyáltalán a kód?<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Induljunk a legfontosabb kérdéssel! Helyes-e a kód egyáltalán? A fenti kódrészlet sok programban megtalálható ilyen formában:</p>
+
+<pre   ><code class="language-c">void xorSwap(unsigned *a, unsigned *b) {
+    *a ^= *b;
+    *b ^= *a;
+    *a ^= *b;
+}</code></pre>
+
+<p>A probléma csak az vele, hogy helytelen. Ha <code>a == b</code>, azaz
+a két pointer ugyanarra a változóra mutat, akkor a változó értéke lenullázódik már az első sorban, mivel <code>x^x</code> nulla, bármilyen <code>x-re</code>:</p>
+
+<pre   ><code class="language-cbub">int main(void) {
+    unsigned a = 5;
+    xorSwap(&amp;a, &amp;a);
+    printf(&quot;%u&quot;, a);    // 0
+}</code></pre>
+
+<p>De hát ki írna <code>swap(&amp;a, &amp;a)</code>-t? Pont ilyet nyilván senki, de más, kevésbé triviális helyen mégis
+könnyen előfordulhat ehhez hasonló. Gondoljunk például egy rendezésre, amelyben egy tömb két elemét cseréljük. Ha a csere előtt nem
+végeztünk <code>i != j</code> ellenőrzést, akkor a fenti függvény pointerei meg fognak egyezni egymással, a tömb néhány eleme
+pedig lenullázódik rendezés közben:</p>
+
+<pre   ><code class="language-cbub">unsigned arr[100];
+
+for (/* ... */) {
+    /* ... */
+    xorSwap(&amp;arr[i], &amp;arr[j]);  // Ha i==j, akkor &amp;arr[i]==&amp;arr[j]
+}</code></pre>
+
+<p>Ezen már nem látszik ránézésre, hogy esetleg saját magával próbál egy változót megcserélni. Pedig ilyen esetben is 
+elvárhatnánk a függvénytől a helyes működést. Ne is folytassuk a gondolatmenetet: a fenti <code>xorSwap()</code> függvény 
+<em>helytelen</em>. Javítható egy <code>if (a==b) return;</code> sorral, de az meg lassítani fogja a működését. Minden egyes 
+hívásnál, márpedig legtöbbször <code>a != b</code>, az <code>a == b</code> csak ritkán fordul elő. Megérte? Nem. Ha általában 
+ezerből csak egy <code>a == b</code> esetünk van, akkor amiatt az egy miatt nem kellene a másik 999 cserét lassítanunk.</p>
+
+<p>A segédváltozós cserének nem lett volna ilyen problémája.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Gyorsabb-e az XOR csere?">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Gyorsabb-e az XOR csere?<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Nézzük meg a generált kódot is! Hogy értsük az Assembly kódrészleteket, vizsgáljuk meg előbb egy nagyon egyszerű függvény
+lefordított változatát:</p>
+
+<pre   ><code class="language-c">void set(unsigned *a, unsigned *b) {
+    *a = 1;
+    *b = 2;
+}</code></pre>
+
+<pre class="screenshot">
+movl    $1, (%rdi)
+movl    $2, (%rsi)
+ret
+</pre>
+
+<p>A függvény az <code>a</code> pointer által mutatott változóba 1-et tesz. Ezt a műveletet végzi el az első
+<code>movl</code> utasítás; az <code>rdi</code> regiszter, <code>%</code> karakterrel jelölve, tartalmazza a pointert, és az Assembly kódban
+a <code>()</code> kerek zárójel jelenti az indirekciót. Tehát <code>(%rdi)</code> az <code>rdi</code> regiszter által mutatott memóriaterület.
+Hasonló a következő sor: a <code>movl</code> adatot mozgat, a 2-es értéket másolja az <code>rsi</code> nevű regiszter által mutatott
+helyre. A <code>ret</code> végül visszatér a függvényből.</p>
+
+<p>Következzen a mezei, segédváltozós csere függvény kódja! Ezzel kell majd az XOR cserének versenyeznie:</p>
+
+<pre   ><code class="language-c">void swap(unsigned *a, unsigned *b) {
+    unsigned temp = *a;
+    *a = *b;
+    *b = temp;
+}</code></pre>
+
+<pre class="screenshot">
+movl    (%rdi), %eax
+movl    (%rsi), %edx
+movl    %edx, (%rdi)
+movl    %eax, (%rsi)
+ret
+</pre>
+
+<p>Mi is történik itt? A segédváltozó eltűnt, helyette a fordító nem egy, hanem kettő regisztert használt! (Furcsa, ugye? Az XOR
+cserével spórolni akartunk, ehelyett a generált kód épp ellenkezőképp, bőkezűen bánik a regiszterekkel!) Az <code>rdi</code>
+által mutatott adat az <code>eax</code> regiszterbe, az <code>rsi</code> által mutatott adat az <code>edx</code>-be kerül. Utána
+pedig visszaíródnak a memóriába, csak fordítva: <code>(rdi)</code>→<code>eax</code>→<code>(rsi)</code>, illetve
+<code>(rsi)</code>→<code>edx</code>→<code>(rdi)</code> a trükk.</p>
+
+<p>Észre kell vennünk, hogy ez a két olvasási és két írási művelet az elvi minimum, ami lehetséges. Mindkét változót ki kell 
+olvasnunk, és mindkét változó értéke módosul. Tehát ennél kellene az XOR csere okosabb legyen, az elviekben lehetséges 
+legjobbnál. (Innen szép nyerni!) Vizsgáljuk meg az XOR cserés változat kódját:</p>
+
+<pre class="screenshot">
+movl    (%rdi), %eax
+xorl    (%rsi), %eax
+movl    %eax, (%rdi)
+xorl    (%rsi), %eax
+movl    %eax, (%rsi)
+xorl    %eax, (%rdi)
+ret
+</pre>
+
+<p>Ez ránézésre rosszul kezdődik... Hat utasítás van benne, az előbbiben csak négy volt. Sőt, ezek közül az összes a memóriához is
+fordul! Tehát hat utasítás, amiből három olvasás és három írás, kettő+kettő helyett. Sokkal rosszabb a helyzet, mint az előbb, ez a kód kb.
+<em>másfélszer lassabb!</em> Ráadásul még helytelen is, hiszen emlékszünk az előbbről, hogy <code>a == b</code>, azaz
+<code>rsi == rdi</code> esetben még le is nullázza a változót. Ha ezt kiegészítenénk az <code>a != b</code> vizsgálattal, még hosszabb kódot
+kapnánk.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="*a = 1; *b = 2; után mennyi *a értéke?">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    *a = 1; *b = 2; után mennyi *a értéke?<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Nézzük meg kicsit tüzetesebben a fenti Assembly kódot! Az egyes utasítások melletti kommentek C kód formájában magyarázzák,
+mi történik, az eredeti pointerek neveit és a regiszterek neveit használva:</p>
+
+<pre class="screenshot">
+movl    (%rdi), %eax        ; eax = *a
+xorl    (%rsi), %eax        ; eax ^= *b  <span class="bubble">!</span>
+movl    %eax, (%rdi)        ; *a = eax
+xorl    (%rsi), %eax        ; eax ^= *b  <span class="bubble">?</span>
+movl    %eax, (%rsi)        ; *b = eax
+xorl    %eax, (%rdi)        ; *a ^= eax
+</pre>
+
+<p>A processzornak rengeteg regisztere van, amivel dolgozni tud: <code>eax</code>, <code>ebx</code>, <code>ecx</code>, <code>edx</code> stb. A
+segédváltozós cserében ezeket használta is a fordító, itt viszont <em>mindent</em> az <code>eax</code> regiszterrel csinál. Sőt a második
+és a negyedik sor ugyanaz, mindkettő a <code>*b</code> változó értékét olvassa ki. De mi célból generál ilyen kódot a fordító, miért fordul a memóriához kétszer? Miért nem olvassa be inkább a <code>*b</code> értékét egyszer, mondjuk az
+<code>edx</code>-be, mint az előbb, és utána dolgozik azzal – ahelyett, hogy megint a processzornál sokkal lassabb memóriára kellene várni?</p>
+
+<p>Tekintsünk egy egyszerűbb példát, amelyen jobban látszik, mit vesz figyelembe a fordító! Egészítsük ki az előbbi 
+<code>set()</code> függvényt egy sorral! Vajon mennyi az alábbi függvény visszatérési értéke?</p>
+
+<pre   ><code class="language-c">unsigned set(unsigned *a, unsigned *b) {
+    *a = 1;
+    *b = 2;
+    return *a;
+}</code></pre>
+
+<p>Ránézésre azt mondanánk, természetesen 1. De ez egyáltalán nem biztos! Ha a
+függvényt úgy hívjuk meg, hogy <code>a == b</code>, azaz a két pointer ugyanarra az <code>unsigned</code> változóra mutat: <code>set(&amp;x, &amp;x)</code>, akkor bár
+az első értékadással az <code>x</code>-be 1-et teszünk, de a másodikkal felülírjuk, és 2 lesz a tárolt érték. Emiatt a <code>return *a</code>
+sorhoz a fordítónak egy olyan utasítást kell generálnia, amelyik <em>kiolvassa a <code>*a</code> értékét,</em> mert nem lehet
+tudni, hogy a <code>*b = 2</code> nem volt-e rá hatással. A generált kódrészlet emiatt az alábbi:</p>
+
+<pre class="screenshot">
+movl    $1, (%rdi)
+movl    $2, (%rsi)
+movl    (%rdi), %eax
+ret
+</pre>
+
+<p>Ez egy buta példa, de mégis megmutatja: a fordító <em>fel van készítve erre a lehetőségre;</em> olyan kódot
+generál, amelyik az <code>a == b</code> esetben is helyesen működik.</p>
+
+<p>Ha <code>a != b</code>, akkor viszont a visszatérési érték biztosan 1 lesz, mert a <code>*b = 2</code> hatására 
+<code>*a</code> nem módosul. Tegyük fel, hogy mindig így hívjuk meg a függvényt! Ha ez teljesen biztos, akkor a fordító a 
+<code>return *a</code> sort <code>return 1</code>-nek vehetné. De ehhez valahogyan mondani kellene neki, hogy garantáljuk, a két 
+pointer nem ugyanoda mutat, hogy biztosan senki nem fogja <code>set(&amp;x, &amp;x)</code> formában meghívni a függvényt. Erre 
+vezették be a C99-ben a <code>restrict</code> kulcsszót (főként tömbműveletek gyorsítására): a programozó által 
+<code>restrict</code>-tel megjelölt pointerről feltételezheti a fordító, hogy nincs más olyan pointer az adott látókörben, 
+amelyik ugyanarra a változóra mutatna:</p>
+
+<pre   ><code class="language-c">unsigned set(unsigned * restrict a, unsigned * restrict b) {
+    *a = 1;
+    *b = 2;
+    return *a;
+}</code></pre>
+
+<p>Ilyenkor a generált kódrészletben tényleg egy memóriaművelettel kevesebb van, nem olvassa már vissza a <code>*a</code> értékét:</p>
+
+<pre class="screenshot">
+movl    $1, (%rdi)
+movl    $2, (%rsi)
+movl    $1, %eax
+ret
+</pre>
+
+<p>Miért lényeges ez az XOR csere szempontjából? Arról tudjuk, hogy úgysem működik helyesen, ha egyforma pointereket
+kap. A sebesség vizsgálatakor ezért adjunk neki még egy esélyt (halottnak a csók), vizsgáljuk meg a generált kódot <code>restrict</code>
+kulcsszóval együtt is – hátha azzal együtt gyorsabb tud lenni. De ne felejtsük, ez már eleve rosszabb program: a segédváltozós
+csere gond nélkül működött <code>a == b</code> esetben is. Az XOR-os cserénél az <code>a != b</code> korlátozás eleve többlet teher
+a függvény használóinak.</p>
+
+<p>Szóval írjunk <code>restrict</code> kulcsszót a két pointerhez, és fussuk végig így a generált kódot:</p>
+
+<pre class="screenshot">
+movl    (%rsi), %edx
+movl    (%rdi), %eax
+xorl    %edx, %eax
+xorl    %eax, %edx
+xorl    %edx, %eax
+movl    %edx, (%rsi)
+movl    %eax, (%rdi)
+ret
+</pre>
+
+<p>Még ez is sokkal hosszabbnak tűnik, mint a segédváltozóval megfogalmazott kód, három utasítással több. Viszont látszik,
+hogy legalább már használ két regisztert a fordító: beolvassa a két számot az <code>eax</code>, <code>edx</code> regiszterekbe, aztán
+azokon végrehajtja az <code>XOR</code> cserét (<code>eax</code>↔<code>edx</code>), végül visszaírja őket a pointerek által
+mutatott helyre.</p>
+
+<p>Hogy micsoda?! Két regisztert használunk, beolvasunk két számot, megcseréljük a regisztereket, és kiírjuk az értéküket
+ugyanazokra a helyekre? Miért nem írjuk vissza őket fordítva a memóriába? Nézzük csak meg a kódot még közelebbről! A négy
+<code>mov</code> utasítás majdnem ugyanaz, mint ami a segédváltozós cserénél is generálódott!
+Csak míg ott a fordító fölismerte, hogy a beolvasott adatokat keresztbe visszaírva a memóriába, meg is van oldva a feladat, itt
+ezt nem történt meg. <em>Nem értette,</em> mit akarunk csinálni az XOR operátorokkal. Négy ugyanolyan <code>mov</code> utasítást
+kaptunk, mint az előbb, de mellé még három <code>xor</code>-t is.</p>
+
+<p>Az XOR csere <em>lassabb.</em></p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egyéb szörnyűségek">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Egyéb szörnyűségek<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az XOR cseréhez hasonló trükk lehetséges más műveletekkel is, például összeadással és kivonással. Egy ilyet használó kód:</p>
+
+<pre   ><code class="language-c">void doubleAddSwap(double *a, double *b) {
+    *a = *a + *b;
+    *b = *a - *b;
+    *a = *a - *b;
+}</code></pre>
+
+<p>Persze amellett, hogy ez a szokásos <code>a == b</code> esetben hibás (ez is lenullázza a változót), egy további gond is van
+vele. A lebegőpontos számokról tudjuk, hogy a velük végzett műveletek sosem adnak pontos eredményt. <code>double</code>-ök
+esetében általában 16-17 tizedesjegynyi a pontosság. Mi történik, ha két olyan számot szeretnénk megcserélni, amelyek
+nagyságrendje nagyon eltér, pl. 10<sup>40</sup> és 10<sup>-40</sup>?</p>
+
+<pre   ><code class="language-c">int main(void) {
+    double a = 1e40, b = 1e-40;
+    printf(&quot;%g %g\n&quot;, a, b);
+    doubleAddSwap(&amp;a, &amp;b);
+    printf(&quot;%g %g\n&quot;, a, b);
+}</code></pre>
+
+<pre class="screenshot">
+1e+40 1e-40
+0 1e+40
+</pre>
+
+<p>Az eredmény hibás, az egyik változó lenullázódott. Kell folytatni?</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Konklúzió">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Konklúzió<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az XOR csere ártalmas:</p>
+<ul>
+    <li>helytelen működésű lehet,
+    <li>lassabb,
+    <li>és nehezebb megérteni az így megírt kódot a többi programozó számára.
+</ul>
+<p>Egyéb szempontok pedig nincsenek, amelyek szerint egy magas szintű programozási nyelven megírt programkódot vizsgálni lehetne.</p>
+
+<p>Emiatt értelmetlen a fentihez hasonló apró mikrooptimalizálásokkal elrontani a programunkat. Az alábbi két függvény
+hatására mindkét esetben ugyanaz a kódrészlet keletkezik:</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">bool paros_e(int a) {
+    return a % 2 == 0;
+}</code></pre>
+<pre class="screenshot">
+movl    %edi, %eax
+andl    $1, %eax
+xorl    $1, %eax
+ret
+</pre>
+</div>
+<div>
+<pre   ><code class="language-c">bool paros_e_omg(int a) {
+    return !(a&amp;1);
+}</code></pre>
+<pre class="screenshot">
+movl    %edi, %eax
+andl    $1, %eax
+xorl    $1, %eax
+ret
+</pre>
+</div>
+</div>
+
+<p>Aki nem hiszi, próbálja ki! A mai fordítókba bele vannak építve ezek az apróságok: tudja, hogy a
+2-vel osztás maradéka az alsó bit, és azt is tudja, hogy a 0-val összehasonlítás ezek után
+a bit invertálásával elvégezhető. Ha ezeket a csavarokat mi építjuk be a programba, csak a kódunk
+minőségét rontjuk vele, az eredmény semennyivel nem lesz jobb. Ugyanígy, ha el kell osztatnunk egy számot
+néggyel, akkor írjunk a kódba is <code>a/4</code>-et! Majd ha a fordító jobbnak látja, léptetésre
+cseréli...</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">unsigned negyede(unsigned a) {
+    return a/4;
+}</code></pre>
+</div>
+<div>
+<pre class="screenshot">
+movl    %edi, %eax
+shrl    $2, %eax
+ret
+</pre>
+</div>
+</div>
+
+<p>És tényleg.</p>
+
+<p class="megjegyzes">A fordításokat a Code::Blocks-ban is használt GCC fordítóval végeztem, annak mostanság legelterjedtebb
+4.8.4-es verziójával; legmagasabb optimalizálási szint, <code>-O3</code> mellett. A használt ABI: Linux x86_64.</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

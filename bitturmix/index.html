@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Bitturmixolás: véletlenszámok, titkosítás és hash függvények</title>
+<meta property="og:title" content="TEST InfoC :: Bitturmixolás: véletlenszámok, titkosítás és hash függvények">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Bitműveletek használata: véletlenszámok, titkosítás, hash függvények és jelszavak világa.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Bitműveletek használata: véletlenszámok, titkosítás, hash függvények és jelszavak világa.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Bitturmixolás: véletlenszámok, titkosítás és hash függvények">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Bitturmixolás: véletlenszámok, titkosítás és hash függvények</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.02.27.</p>
+<p class="kivonat">Bitműveletek használata: véletlenszámok, titkosítás, hash függvények és jelszavak világa.</p>
+</div>
+
+<p>Tudjuk, hogy a számítógép a programokban adott műveleteket determinisztikusan végzi el. Azaz 
+ugyanazoknál a bemenő adatoknál ugyanaz a program ugyanazt a kimenő adatot állítja elő. Kérdés 
+az, hogy akkor hogyan tudunk véletlenszámokat gyártani? Mert ilyesmire rendszeresen szükségünk 
+van. Például ha kártyajátékot írunk, a programnak tudnia kell véletlenszerű leosztásokat 
+kitalálni.</p>
+
+<p>Két lehetőségünk van. Az egyik út az, hogy valamilyen <em>fizikai folyamat</em> alapján 
+állítunk elő véletlenszámot. Mondjuk az elektronok véletlenszerű, ide-oda mozgása okozta zajt 
+érzékeljük. (Ilyen zajt hallhatunk, ha a rádiót két csatorna közé állítjuk, ahol nincs semmilyen 
+adó.) Ehhez azonban célhardver szükséges. (A mai számítógépek tartalmaznak hasonlót.) Azt is 
+csinálhatjuk, hogy megkérjük a felhasználót, hogy gépeljen be egy mondatot – és közben nem a 
+beírt betűket figyeljük, hanem a billentyűlenyomások között eltelt időt. Az is elég 
+véletlenszerű, csak hát nem állíthatjuk meg mindig a programot, ha épp véletlenszámokra van 
+szükségünk.</p>
+
+<p>A másik út, hogy imitáljuk a véletlenszámokat. Fogunk egy kiindulási számértéket, 
+osztjuk, szorozzuk, hozzáadunk valamennyit, megcseréljük néhány bitjét, invertáljuk másikakat – 
+az így kapott számot pedig kikiáltjuk véletlenszerűnek. Bár biztosan nem az, ha ügyesek vagyunk, 
+mégis úgy tűnhet, hogy az. Ezek az <em> álvéletlenszámok,</em> vagy más néven 
+pszeudo-véletlenszámok. Ha elindulunk ezen a gondolatmeneten, kiderül, hogy az ilyen bitmágiából 
+érdekes és hasznos dolgokat lehet kihozni.</p>
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Egy egyszerű véletlenszám-generátor</a>
+              <li><a href="index.html#2" class="">Titkosítás az XOR függvénnyel</a>
+              <li><a href="index.html#3" class="">Egy profi véletlenszám-generátor: a Mersenne Twister</a>
+              <li><a href="index.html#4" class="">A hash függvények</a>
+              <li><a href="index.html#5" class="">Egy konkrét hash függvény: az SHA-1</a>
+              <li><a href="index.html#6" class="">A kivonatok használata</a>
+              <li><a href="index.html#7" class="">Jelszavak feltörése és a hash függvények bukása</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egy egyszerű véletlenszám-generátor">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Egy egyszerű véletlenszám-generátor<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A legtöbb C függvénykönyvtár szabványos <code>rand()</code> függvénye egy ún. 
+lineáris kongruencia generátor. Ezek a véletlenszámokat egy szorzással, egy 
+összeadással és egy maradékképzéssel imitálják. A Microsoft C függvénykönyvtára 
+például ezt a megvalósítást tartalmazza:</p>
+
+<img src="kocka.png" class="float" style="width: 10em; margin: 0.5em;">
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+ 
+int main(void) {
+    uint32_t allapot = 1;                       /* kiindulás */
+ 
+    for (int x = 0; x &lt; 10; x += 1) {  /* 10 véletlenszám */
+        allapot = allapot * 214013 + 2531011;
+        uint32_t szam = (allapot &gt;&gt; 16) &amp; 32767;
+        printf(&quot;%d\n&quot;, szam);
+    }
+    
+    return 0;
+}</code></pre>
+
+<p>Mit csinál ez? Fog egy <code>allapot</code> nevű változót, amelyet az 1-es kezdeti értékről 
+indít. Megszorozza egy számmal, hozzáad egy másikat – ez lesz az <code>allapot</code> következő 
+értéke. Ezután kivágja ennek a változónak a 31-16. bitjeit, és az így kapott számot nevezi 
+véletlenszámnak. A számítás részletei nem is lényegesek annyira, de egy biztos: ez minden, csak 
+nem véletlenszám. Ha elindítjuk a programot, a kiírt számok mégis eléggé annak tűnnek. Többször 
+indítva viszont azt látjuk, hogy mindig ugyanazt a számsort kapjuk. Ezen úgy segíthetünk, 
+hogy az <code>allapot</code> változó tartalmát, a kiindulási értéket (angolul: seed) más számról indítjuk:
+éppen ezt teszi az előadáson is említett <code>seed()</code> függvény.</p>
+
+<p>A reprodukálhatóság hasznos tulajdonság tud lenni! Kisorsolhatjuk ugyanazt a kártyaleosztást 
+vagy ugyanazokat a kockadobásokat. Ha egy számítógépes hálózat forgalmát szimuláljuk 
+programunkban, akkor elő tudjuk állítani ugyanazt a forgalomeloszlást. Ha a játékunkban 
+véletlenszerű események történnek, akkor is tudunk könnyedén visszajátszást mutatni a játékosnak 
+arról, hogyan teljesítette a pályát: ehhez elég rögzíteni a lépéseit, a véletlenszerű 
+időpontokban bekövetkezett eseményeket pedig újra kisorsoljuk ugyanattól a számtól indítva a 
+generátort.</p>
+
+<p>Az ilyen, szorzunk-hozzáadunk elven működő véletlenszám-generátorokat lineáris 
+kongruencia generátornak nevezzük a maradékos osztás miatt, ami itt 
+túlcsordulásba van elrejtve (az <code>allapot</code> nevű változó 32 bites). A 
+kódban szereplő konstansok megválasztásának számelméleti alapjai vannak: pl. a 
+hozzáadott szám és a moduló osztója relatív prím kell legyen.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Titkosítás az XOR függvénnyel">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Titkosítás az XOR függvénnyel<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<table class="float">
+    <thead>
+    <tr><th>A B<th>A^B
+    </thead>
+    <tr><th>0 0<td>0
+    <tr><th>0 1<td>1
+    <tr><th>1 0<td>1
+    <tr><th>1 1<td>0
+</table>
+
+<p>Ha van egy csomó véletlenszerű bitünk, akkor könnyű egy <em> adattitkosító</em> algoritmust 
+csinálni. Az XOR (kizáró VAGY) függvény egy érdekes tulajdonsággal rendelkezik, amit ehhez 
+felhasználhatunk: ugyanis ez a függvény önmaga inverze. Ha egy tetszőleges A számot bármilyen B 
+számmal kizáró VAGY kapcsolatba hozunk kétszer egymás után, akkor visszakapjuk A-t. Ez azért 
+van, mert az XOR függvény az adott biteket invertálja, és a kétszeri invertálás visszaadja az 
+eredetit. Ezt könnyű bizonyítani is:</p>
+
+<div class="kozep">
+    <code>A^B^B = A^(B^B) = A^0 = A</code>
+</div>
+
+<p>A titkosítás egyszerű: a titkosítandó szövegben véletlenszerűen invertáljuk a biteket. Fogjuk 
+az üzenetünket, és elkezdünk mellé véletlenszámokat generálni. Az üzenet <code>n</code>-edik 
+bitjét XOR kapcsolatba hozzuk a véletlen bitsorozat <code>n</code>-edik bitjével: így kapjuk a 
+titkosított adatfolyamot. A visszaalakítás ugyanígy történik. A titkosított üzenet <code>n</code>
+-edik bitjét XOR-oljuk ugyanazon véletlen bitsorozat <code>n</code>-edik bitjével, 
+visszaforgatva az invertált biteket eredeti állapotukba.
+
+<p>A titkosításnak – nagy örömünkre – kulcsa is van, a véletlenszám generátor kiindulási értéke. 
+Ha nem ismerjük a kulcsot, akkor nem leszünk képesek ugyanazt a bitsorozatot előállítani, és 
+ezért a titkosított üzenetet visszafejteni sem, mert nem tudjuk, melyik biteket kell invertálni. 
+Mivel a véletlen bitsorozatban elvileg 50% a valószínűsége mind a 0-k, mind az 1-ek 
+megjelenésének, a titkosított bitsorozatra ugyanez lesz igaz, és egyáltalán nem fog rajta 
+látszani az eredeti bemenetből semmi.</p>
+
+<p>Ezt az algoritmust az alábbi programmal lehet megvalósítani C-ben, az egyszerűség kedvéért a 
+beépített <code>rand()</code> függvényt használva:</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main(void) {
+    char uzenet[] = &quot;Hello, vilag!&quot;;
+
+    /* ez megmondja a szöveg hosszát: string-length. */
+    int hossz = strlen(uzenet);
+
+    /* eredeti üzenet */
+    printf(&quot;Eredeti üzenet: &quot;);
+    for (int i = 0; i &lt; hossz; i++)
+        printf(&quot;%c&quot;, uzenet[i]);
+    printf(&quot;\n&quot;);
+
+    /* titkosított üzenet */
+    srand(12345);                           /* ez a kulcs */
+    for (int i = 0; i &lt; hossz; i++)
+        uzenet[i] ^= rand() &amp; 0xff;         /* 8 random bit */
+    printf(&quot;Titkosítva: &quot;);
+    for (int i = 0; i &lt; hossz; i++)
+        printf(&quot;%c&quot;, uzenet[i]);
+    printf(&quot;\n&quot;);
+
+    /* újra az eredeti */
+    srand(12345);                           /* ugyanaz a kiindulás megint */
+    for (int i = 0; i &lt; hossz; i++)
+        uzenet[i] ^= rand() &amp; 0xff;         /* 8 random bit */
+    printf(&quot;Megint az eredeti: &quot;);
+    for (int i = 0; i &lt; hossz; i++)
+        printf(&quot;%c&quot;, uzenet[i]);
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre>
+
+<p>Fontos megjegyezni, hogy az egyes C implementációk között a <code>rand()</code>
+függvény működése eltérő lehet. A szabvány nem írja elő a beépített 
+álvéletlenszám-generátor konkrét működési elvét. Az egyes fordítók által használt 
+<code>rand()</code> függvények legtöbbje egy lineáris kongruencia generátor, de 
+más konstansokat használnak. Ezért ha egy konkrét géptípuson, bizonyos fordító 
+által készített programmal kódolunk egy szöveget, másik gépen vagy másik 
+fordítóval esetleg nem tudjuk dekódolni azt, mert az ottani <code>rand()</code> 
+eltérő számokat generál! Ha szükségünk van pontosan ugyanarra a véletlen 
+számsorra, jobban tesszük, ha beépítünk a programba egy saját generátort.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egy profi véletlenszám-generátor: a Mersenne Twister">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Egy profi véletlenszám-generátor: a Mersenne Twister<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Egy profibb véletlenszám-generátor beépítésének további indítékai is lehetnek. Ugyanis az 
+egyszerű generátorok bár gyorsak, rendelkeznek néhány nem kívánatos tulajdonsággal. Például ha 
+szabályosság van a kimenetében, akkor a fenti módszerrel titkosított üzenetünkben is lesz 
+szabályosság.</p>
+
+<p>Az írás elején bemutatott algoritmus például a 30546-odik véletlenszámnak ugyanúgy a 41-et 
+hozza ki, mint az elsőnek, és onnantól kezdve a sorozat ismétlődik. Ez nem csak azt jelenti, 
+hogy a periódusa túl rövid: a szemfülesek észrevehetik, hogy a 30546 kevesebb, mint a 32767 (a 
+legnagyobb szám, amit kisorsol). Szóval kell lennie olyan számnak a 0 és a 32767 között, amelyet 
+ez a generátor soha nem állít elő! Sőt azt sem mondhatjuk, hogy egyenletes a generátor kimenete. 
+Ha az előállított számok legalsó bitjét használjuk „fej vagy írás” pénzfeldobásnak&hellip;</p>
+
+<img src="coin_toss.png" class="float" style="margin: 0.75em;">
+
+<pre   ><code class="language-c">#include &lt;stdint.h&gt;
+#include &lt;stdio.h&gt;
+ 
+int main(void) {
+    uint32_t allapot = 1;
+
+    int fej = 0;
+    int iras = 0;
+    for (int x = 0; x &lt; 30545; x += 1) {
+        allapot = allapot * 214013 + 2531011;
+        uint32_t szam = (allapot &gt;&gt; 16) &amp; 32767;
+        if ((szam &amp; 1) == 0)    /* a legalsó bit */
+            fej += 1;
+        else
+            iras += 1;
+    }
+    
+    printf(&quot;%d fej, %d iras.\n&quot;, fej, iras); 
+    
+    return 0;
+}</code></pre>
+
+<p>Az eredmény: 15188 fej, 15357 írás. Ez nem pénzfeldobás, hanem inkább egy 
+vajaskenyér: szeret a vajas oldalára esni.</p>
+
+<p>A lineáris kongruencia generátoroknál sokkal jobb eredményt érhetünk el pl. a 
+<a href= "http://en.wikipedia.org/wiki/Mersenne_twister">Mersenne Twister</a> 
+nevű algoritmussal. Ez igen meggyőző tulajdonságokkal rendelkezik: pl. a 
+periódusa <code>2<sup>19937</sup>-1</code>. Ez egy 6000 számjegyből álló szám! Ha 
+másodpercenként egymilliárd számot generálunk, akkor is 5985 évig tart, mire 
+elölről kezdődik a számsor. Talán a világ összes számítógépén futó összes 
+Mersenne Twister függvényét összesen nem hívták még meg ennyiszer 1997 óta, 
+amikor kitalálták ezt az algoritmust.</p>
+
+<p>A lenti C nyelvű kód ennek megvalósítása. A programban egy 624 elemű, 32 bites számokból álló 
+tömb van, ez tárolja a generátor állapotát. Minden 624-edik véletlenszám kérés után megkeveri 
+ezt a tömböt, egymással invertálva, léptetve, összeadva a benne lévő értékeket. Az előállított 
+számok ebből a tömbből származnak, további léptetésekkel és invertálásokkal „utókezelve”.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+
+int main(void) {
+    uint32_t mt[624];
+
+    mt[0] = 0;            /* itt lehet állítani a kiindulási értéket */
+    for (int i = 1; i &lt; 624; i += 1)
+        mt[i] = 0x6c078965 * (mt[i-1] ^ (mt[i-1] &gt;&gt; 30)) + i;
+
+    unsigned index = 0;
+    for (int j = 0; j &lt; 10; j += 1) {
+        /* 624 kérésenként egy új tömböt keverünk ki*/
+        if (index == 0) {
+            for (int i = 0; i &lt; 624; i += 1) {
+                uint32_t y = (mt[i] &amp; (1 &lt;&lt; 31)) | (mt[(i+1) % 624] &amp; ~(1 &lt;&lt; 31));
+                mt[i] = mt[(i + 397) % 624] ^ (y &gt;&gt; 1);
+                if ((y % 2) != 0)
+                    mt[i] = mt[i] ^ 0x9908b0df;
+            }
+        }
+
+        /* a tömbből kivett számokat még tovább kavarjuk */
+        uint32_t y = mt[index];
+        y ^= (y &gt;&gt; 11);
+        y ^= (y &lt;&lt; 7) &amp; 0x9d2c5680;
+        y ^= (y &lt;&lt; 15) &amp; 0xefc60000;
+        y ^= (y &gt;&gt; 18);
+        index = (index + 1) % 624;
+
+        /* az előállt véletlenszám, 0..(1&lt;&lt;32)-1 */
+        printf(&quot;%08x\n&quot;, (unsigned) y);
+    }
+
+    return 0;
+}</code></pre>
+
+<p>Látható, hogy ez is álvéletlenszámokat generál csak. Nem csinál mást, csak turmixolja 
+ide-oda a biteket: a cél csak annyi, hogy a kimenet minél véletlenszerűbbnek tűnjön. A műveletek 
+persze úgy vannak megkonstruálva, hogy a szabályosság minél kisebb legyen. Az algoritmus több 
+dimenzióban biztosítja a számok egyenletes eloszlását. Vagyis nem csak az egyes számok eloszlása 
+egyenletes nagyjából, hanem ha az egymás melletti számokat <code>(x;y)</code> koordinátáknak 
+használjuk a síkon, akkor az így kapott pontok is közel egyenletesen fedik le a négyzetet, ahova 
+esnek. (Tehát kockadobásnál nem lesznek olyasmi szabályosságok, mintha pl. 6-os után gyakrabban jönne 3-as.)
+Sőt ha az egymás melletti számhármasokat <code>(x;y;z)</code> koordinátáknak használjuk, 
+akkor a pontok a kocka alakú teret egyenletesen töltik ki, és így tovább, bizonyíthatóan 
+legalább 624 dimenzióig.</p>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A hash függvények">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    A hash függvények<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Ha egy, a fenti véletlenszám-generátorhoz hasonló algoritmust úgy módosítunk, hogy az egyes 
+számok előállítása közben folyton újabb számokkal „zavarjuk fel benne a vizet”, akkor egy ún. 
+hash függvényt kapunk.</p>
+
+<p>A Wikipedia a következőket írja a hash függvényekről. A kriptográfiában (titkosításban) 
+használt <em>hash függvények</em> bemenetét általában <em>üzenetnek</em> (message), a kimenetét 
+pedig <em>kivonatnak</em> (digest) nevezzük. Az üzenet tetszőleges hosszúságú adat lehet, a 
+kivonat viszont egy fix hosszúságú bitsorozat. És itt jön a lényeg: a függvény biztosítja azt, 
+hogy az üzenet megváltoztatása nagyon nagy valószínűséggel megváltoztatja a kivonatot is.</p>
+
+<p>Egy ideális hash függvény az alábbi tulajdonságokkal rendelkezik:</p>
+
+<ul>
+    <li>bármilyen bemenetre könnyű meghatározni a kimenetet,
+    <li>nagyon nehéz olyan üzenetet alkotni, aminek a kivonata előre adott,
+    <li>nagyon nehéz úgy módosítani az üzenetet, hogy a kivonata ne változzon,
+    <li>nagyon nehéz két különböző üzenetet találni, amelyek kivonata megegyezik.
+</ul>
+
+<p>Röviden: odafelé nagyon könnyű, visszafelé nagyon nehéz. A „nagyon nehéz” azt 
+jelenti, hogy beláthatatlanul sok időbe, például évtizedekbe vagy évszázadokba 
+telik elvégezni a feladatot még akkor is, ha száz vagy ezer számítógépet 
+állítunk rá a feladatra.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egy konkrét hash függvény: az SHA-1">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Egy konkrét hash függvény: az SHA-1<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Egy ismert hash függvény, az
+<a href="http://en.wikipedia.org/wiki/Sha1">SHA-1</a> sémája látható a lenti ábrán.
+Itt a <code>&lt;&lt;&lt;</code> körbeforduló bitenkénti
+eltolást jelent (vagyis azt, hogy az egyik oldalon kitolt bitek
+a másik oldalon bejönnek), <code>W<sub>t</sub></code> az üzenet
+bitjeit, <code>K<sub>t</sub></code> a konstansokat, a piros
+<code>+</code> a 32 biten túlcsorduló összeadást, az <code>F</code> függvény
+pedig egy olyan bitművelet-sorozatot, amely minden huszadik lépés után változik.
+Az algoritmus egy körben a bemenetből 512 bitet dolgoz fel, ezért a bemenet
+bitjeinek száma 512-vel osztható kell legyen. Ha ennél rövidebb, akkor
+nullákkal töltik fel a művelet előtt, és a végére az üzenet hosszát is hozzáveszik
+(hogy a  csupa nullákból álló, de különböző hosszúságú üzenetek kellően különbözzenek
+egymástól). Egy kör legbelső ciklusa valahogy így néz ki:</p>
+
+<img src="sha-1.svg" style="width: 20em; margin: 0.75em;" class="float">
+
+<pre   ><code class="language-c">for (int i = 0; i &lt; 80; i += 1) {
+    if (0 &lt;= i &amp;&amp; i &lt;= 19) {
+        F = (B &amp; C) ^ (~B &amp; D);
+        K = 0x5A827999;
+    } else if (20 &lt;= i &amp;&amp; i &lt;= 39) {
+        F = B ^ C ^ D;
+        K = 0x6ED9EBA1;
+    } else if (40 &lt;= i &amp;&amp; i &lt;= 59) {
+        F = (B &amp; C) ^ (B &amp; D) ^ (C &amp; D);
+        K = 0x8F1BBCDC;
+    } else if (60 &lt;= i &amp;&amp; i &lt;= 79) {
+        F = B ^ C ^ D;
+        K = 0xCA62C1D6;
+    }
+
+    temp = E + F + forgat(A, 5) + W[i] + K;
+    E = D;
+    D = C;
+    C = forgat(B, 30);
+    B = A;
+    A = temp;
+}</code></pre>
+
+<p>Ez hasonló az előző algoritmushoz: a felismerhetetlenségig kavarja a bemeneti biteket és a 
+beépített konstansokat. A hash függvényeknél ezeket a konstansokat egészen máshogy határozzák 
+meg, mint a véletlenszám-generátoroknál. Mivel ezekkel digitális aláírásokat gyártanak, és 
+jelszavakat tárolnak segítségükkel, fontos az, hogy biztosan ne legyen a konstansokban semmi 
+elrejtve. Az algoritmusok megtervezői ezt úgy szokták biztosítani, hogy ún. „nothing up my 
+sleeve”, azaz „semmi sincs az ingujjamban” számokat választanak. Például a &pi; 2-es 
+számrendszerbeli ábrázolásának első 128 bitjét, hiszen az tőlük biztosan független, nem ők 
+találták ki. Az SHA-1 fent látható négy konstansa a 2, 3, 5 és 10 számok négyzetgyökeiből 
+keletkezett.</p>
+
+<p>A <code>forgat()</code> függvény által jelképezett körforgó léptetésre a 
+processzoroknak szokott lenni beépített utasítása. A C-nek nincs beépített 
+operátora erre a feladatra. Viszont meg lehet írni egy ilyet két szokásos léptetés
+segítségével is, amelyeknél nullák jönnek be. 32 bites számok esetén:</p>
+
+<table>
+    <thead>
+
+    </thead>
+    <tbody class="mono">
+        <tr><th>szám             <td><em>01001</em><strong>011001010101011111010101011</strong>
+        <tr><th>szám&lt;&lt;5<td><strong>011001010101011111010101011</strong>00000
+        <tr><th>szám&gt;&gt;27<td>000000000000000000000000000<em>01001</em>
+        <tr><th>szám&lt;&lt;&lt;5 = szám&lt;&lt;5 | szám&gt;&gt;27<td><strong>011001010101011111010101011</strong><em>01001</em>
+    </tbody>
+</table>
+
+<p>Vagyis a körforgó balra léptetésre az alábbi C függvényt írhatjuk. Az ilyesmit a 
+legtöbb fordító felismeri, és a megfelelő gépi utasítást építi be helyette a 
+lefordított kódba.</p>
+
+<pre   ><code class="language-c">uint32_t forgat(uint32_t mit, int hanyszor) {
+    return (mit &lt;&lt; hanyszor) | (mit &gt;&gt; (32-hanyszor));
+}</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A kivonatok használata">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    A kivonatok használata<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az alábbi táblázat néhány rövid szöveget, és azoknak SHA-256 kivonatát tartalmazza. A kivonat 
+az SHA-256-nál 256 bites, amely itt 16-os számrendszerben látható. Ez éppen <code>256/4=64</code> 
+hexadecimális számjegyet jelent. Látszik, hogy mind a négy üzenetnek nagyon különbözik a 
+kivonata. Azoké is, amelyek maguk is nagyon különböznek, hosszban és tartalomban is, mint a 
+„hello, vilag!” a „jelszo001”-től. De azoké is, amelyek csak egyetlen bitben, h&rarr;H és
+0&rarr;1. (A h és a H betű karakterkódja csak az 5. biten, a 0 és az 1 karakterkódja pedig csak a 0. 
+biten tér el egymástól.)</p>
+
+<table>
+    <thead>
+        <tr><th>jelszó<th>SHA256(jelszó)
+    </thead>
+    <tbody class="mono">
+        <tr><td><strong>h</strong>ello, vilag!<td>d8359dfc78841bb16904e080409ca4f61a718a38db0fd601ba9865f08013bc56        <tr><td><strong>H</strong>ello, vilag!<td>ceb8246de2e4ab115d99da4704898f70c5a1b47f7e716e0937bdf78565b1aa13        <tr><td>jelszo00<strong>0</strong><td>3763e5668d1fc0b3c724a2f52e6bbc6c40fb5d932e55e7ddcd0b03fe2bbb1034        <tr><td>jelszo00<strong>1</strong><td>d9d7bbdbac752e79bf65cff88ed26f58d5d11d9e43bd8498930b19568e69f746    </tbody>
+</table>
+
+<p>Amikor <em>jelszavakat tárolunk,</em> az „üzenet” a jelszó maga. A felhasználók adatait 
+tároló adatbázisban nem ez, hanem csak ezek kivonata szerepel. A hash függvények fentebb 
+említett tulajdonságai adják a lehetőséget a biztonságos tárolásra:
+
+<ul>
+
+    <li>„Könnyen kiszámolható a bemenetből a kimenet”: egy feljogosított
+    felhasználó könnyen azonosítani tudja magát. Ha megmondja a
+    jelszót, azt csak meg kell etetni a hash függvénnyel, és ha a kivonat
+    megegyezik az eltárolttal, hihetünk neki.
+    
+    <li>„Nehéz két különböző
+    üzenetet találni, amelyek kivonata megegyezik”: vagyis nehéz olyan
+    karaktersorozatot alkotni, amely nem azonos az eredetivel, de mégis
+    ugyanazt a kivonatot adja. Ezért van az, hogy bár az eredeti jelszó
+    nem tárolódik, mégis valószínűtlen, hogy helyette egy teljesen más
+    jelszót elfogadna a rendszer.
+    
+    <li>„Lehetetlen olyan üzenetet kitalálni, amelynek a kivonata előre
+    adott”: ez azt jelenti, hogy hiába tudja meg valaki az adatbázisban
+    tárolt hash értéket, nem fogja tudni (épeszű időn belül) kitalálni
+    a hozzá tartozó jelszót. Még az adatbázist közvetlenül
+    látó adminisztrátornak sem mehet ez, hiába látja a kivonatokat.
+</ul>
+ 
+<p>Ezért van az, hogy „rendes helyeken” nem tudják megmondani a jelszót, ha a felhasználó 
+elfelejtette azt. Legfeljebb egy másikat tudnak beállítani. Az InfoC admin portál például egy 
+ilyen rendes hely, a jelszavakat mi is hashelve tároljuk. Ha valaki elfelejti, mi sem tudjuk
+megmondani, csak újat állítani neki.</p>
+
+<p>Egy jó hash függvény használható <em>ellenőrzőösszegek</em> előállítására is. Ha egy hosszú 
+üzenetet (pl. fél megabájtot) etetünk meg a függvénnyel, kidob egy viszonylag rövid számsort, 
+amelyet küldésnél az üzenet mellé tehetünk. Ez olyan, mint egy ujjlenyomat: bár vannak olyan 
+üzenetek (fájlok), amelyek kivonata egyforma, nagyon nehéz ilyeneket találni. Ha a címzett 
+előállítja a fogadott üzenet kivonatát, ellenőrizheti az üzenet integritását. Ha a két kivonat 
+egyezik, az üzenet szinte biztosan ép.</p>
+
+<p>A <em>digitális aláírásként</em> történő használat egyszerűsített 
+gondolatmenete a következő. Van egy üzenet, amit a megalkotója alá szeretne írni. 
+Kitalál ehhez egy jeligét, hozzácsapja az üzenethez, és a kettőt együtt adja a 
+hash függvénynek. Ezáltal keletkezik egy kivonat, amely a bizonyíték. Ezt 
+titokban tartja. Ha bárki azt kéri tőle, hogy igazolja, tényleg ő írta az 
+üzenetet, nincs más dolga, mint elárulni a jeligét. Az ellenőrzéshez fogni kell az 
+üzenetet, hozzátenni a jeligét, és újra meghatározni a kivonatot. Ha az üzenet 
+tartalma nem változott, és a jelige is helyes, ugyanazt a kivonatot kell kapni. 
+Így nem csak az aláíró személye ellenőrizhető, hanem az üzenet tartalma is: hogy 
+tényleg pontosan az volt-e az üzenet, amit ő aláírt.</p>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Jelszavak feltörése és a hash függvények bukása">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    Jelszavak feltörése és a hash függvények bukása<a class="hlink" href="index.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Bár egy ismert kivonathoz „nagyon nehéz” üzenetet találni, ez nem jelenti azt, hogy 
+lehetetlen, csak azt, hogy belátható időn belül nem lehetséges. A mai számítógépek elég gyorsak 
+már ahhoz, hogy a néhány karakterből álló jelszavakat kitalálják. Egyszerűen próbálgatással: 
+indulunk a rövid szavaktól a hosszabbak felé, és kipróbáljuk az összes betűkombinációt. Ha csak 
+az angol ábécé kisbetűit használjuk, és pontosan hat betűs jelszavakat feltételezünk, nincs is 
+olyan sok lehetőség: <code>26<sup>6</sup></code> = 308&nbsp;millió jelszót kell végigpróbálni. Pár 
+perc.
+
+<p>Ezért szörnyen nagy hülyeség az, hogy „komoly helyek” azt várják a felhasználóktól, hogy 
+tegyen írásjeleket is a jelszavába. 6 karakter, kisbetű, nagybetű és számjegyek: ez 62-féle 
+írásjel, vagyis <code>62<sup>6</sup></code> = 56&nbsp;milliárd kombináció. Ha az előbbi egy percig 
+tartott, akkor ez 180 percig fog tartani. Három óra. Kivárható. Viszont ha mondjuk négy darab 
+ötbetűs szót választunk, csak kisbetűket használva, az
+<div class="kozep"><code>26<sup>20</sup></code> = 19928148895209409152340197376 = 1,9×10<sup>28</sup></div>
+<p>lehetőség. Erről meg 
+is emlékezett az <a href="http://xkcd.com/936/">xkcd</a>, de hiába, valószínűleg még éveket kell 
+várnunk, mire nem megjegyezhetetlen, hanem erős jelszót fog várni tőlünk a netbankunk.</p>
+
+
+
+<p>A legtöbb hash függvénynek egyébként idővel az a sorsa, hogy találnak a kimenetében valami 
+szabályosságot. Ilyenkor annak használata már nem ad elfogadható biztonságot, mert ez azt 
+jelenti, hogy a lehetőségek végigpróbálása nélkül, vagy inkább: jóval kevesebb lehetőség 
+végigpróbálásával válik lehetségessé egy adott kivonathoz tartozó üzenetet kitalálni.</p>
+
+<p>Így jártak a manapság már nem nagyon használt <a 
+href="http://en.wikipedia.org/wiki/MD4">MD4</a> és <a 
+href="http://en.wikipedia.org/wiki/MD5">MD5</a> függvények is. Ezek 
+kimenetében lévő szabályosságok miatt már olyan algoritmust is 
+találtak, amely néhány másodperc alatt képes ütközéseket (azaz két 
+különböző üzenetet ugyanazzal a kivonattal) találni.</p>
+
+<p>Az SHA-1 algoritmust
+éveken keresztül használták jelszavakhoz, de manapság már ezt sem szabad:
+2017 tavaszán az Amszterdami Egyetem és a Google kutatócsoportjai közösen,
+elő tudtak állítani két különböző PDF fájlt, amelyek SHA-1 ellenőrzőösszege
+megegyezett, a tartalmuk viszont eltért: <a href="https://shattered.it/">SHAttered</a>.</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

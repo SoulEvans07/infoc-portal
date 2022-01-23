@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg67" width="21cm" height="6.3731cm" version="1.1" viewBox="199 98 402 111.99" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata id="metadata71">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="Háttér" transform="translate(0 -6.0075)" stroke="#000" stroke-width="2">
+  <path id="rect4" d="m200 100h40v40h-40z" fill="#7babe3"/>
+  <g id="g10">
+   <path id="line6" d="m240 120h30.264" fill="none"/>
+   <path id="polygon8" d="m270.26 120-2.5-5 10 5-10 5z" fill-rule="evenodd"/>
+  </g>
+  <path id="rect12" d="m280 100h40v40h-40z" fill="#ffff04"/>
+  <path id="rect14" d="m280 140h40v40h-40z" fill="#ffff04"/>
+  <path id="rect16" d="m280 180h40v40h-40z" fill="#ffff04"/>
+  <g id="g22">
+   <path id="path18" d="m320 120c26.56 0 50 60 50 29.736" fill="none"/>
+   <path id="polygon20" d="m370 149.74-5 2.5 5-10 5 10z" fill-rule="evenodd"/>
+  </g>
+  <g id="g28">
+   <path id="path24" d="m320 160c40 0 130 40 130-10.264" fill="none"/>
+   <path id="polygon26" d="m450 149.74-5 2.5 5-10 5 10z" fill-rule="evenodd"/>
+  </g>
+  <g id="g38" fill="#ffff04">
+   <path id="rect30" d="m360 100h20v40h-20z"/>
+   <path id="rect32" d="m380 100h20v40h-20z"/>
+   <path id="rect34" d="m400 100h20v40h-20z"/>
+   <path id="rect36" d="m420 100h20v40h-20z"/>
+  </g>
+  <g id="g48" fill="#cccc7a">
+   <path id="rect40" d="m460 100h20v40h-20z"/>
+   <path id="rect42" d="m440 100h20v40h-20z"/>
+   <path id="rect44" d="m480 100h20v40h-20z"/>
+   <path id="rect46" d="m500 100h20v40h-20z"/>
+  </g>
+  <g id="g58" fill="#ffff04">
+   <path id="rect50" d="m520 100h20v40h-20z"/>
+   <path id="rect52" d="m540 100h20v40h-20z"/>
+   <path id="rect54" d="m560 100h20v40h-20z"/>
+   <path id="rect56" d="m580 100h20v40h-20z"/>
+  </g>
+  <g id="g64">
+   <path id="path60" d="m320 200c40 0 210 0 210-50.264" fill="none"/>
+   <path id="polygon62" d="m530 149.74-5 2.5 5-10 5 10z" fill-rule="evenodd"/>
+  </g>
+ </g>
+</svg>

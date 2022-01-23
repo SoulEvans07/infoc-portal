@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: 6. hét: számábrázolás, bitek</title>
+<meta property="og:title" content="TEST InfoC :: 6. hét: számábrázolás, bitek">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum h3toid" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="6. hét: számábrázolás, bitek">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">6. hét: számábrázolás, bitek</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Nagy Gergely, Pohl László · <i class="ido"></i> 2019.10.08.</p>
+<p class="kivonat">Gyakorlófeladatok az előadás anyagához kapcsolódóan.</p>
+</div>
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Számrendszerek, bitműveletek</a>
+              <li><a href="index.html#2" class="">Számábrázolási problémák</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Számrendszerek, bitműveletek">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="feladatbit" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Számrendszerek, bitműveletek<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Mennyi?</h3>
+
+<div class="sticky">Kis ZH-ban voltak</div>
+
+<p>Mennyi 27|13? Írd le mindkét számot, valamint az eredményt is kettes
+számrendszerben! Az eredményt tízes számrendszerben is add meg!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+  27 = 11011
+ |13 = 01101
+------------
+  31 = 11111
+</pre>
+</div>
+</details>
+
+<p>Mennyi 45&amp;57? Írd le mindkét számot, valamint az eredményt is kettes
+ számrendszerben! Az eredményt tízes számrendszerben is add meg!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+ 45 = 101101
+&amp;57 = 111001
+------------
+ 41 = 101001
+</pre>
+</div>
+</details>
+
+<p>Mennyi 27^13? Írd le mindkét számot, valamint az eredményt is kettes számrendszerben! Az
+eredményt tízes számrendszerben is add meg!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+ 27 = 11011
+^13 = 01101
+-----------
+ 22 = 10110
+</pre>
+</div>
+</details>
+
+<p>Mennyi (~20) &amp; 13? Írd le mindkét számot, valamint az eredményt is kettes
+számrendszerben! Az eredményt tízes számrendszerben is add meg!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+ 20  = 00010100
+~20  = 11101011
+&amp;13  = 00001101
+---------------
+   9 = 00001001
+</pre>
+</div>
+</details>
+
+<p>Mennyi 0x2A | 0x82? Írd le mindkét számot, valamint az eredményt is kettes
+számrendszerben! Az eredményt tizenhatos számrendszerben is add meg!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+ 0x2A = 00101010
+|0x82 = 10000010
+----------------
+ 0xAA = 10101010
+</pre>
+</div>
+</details>
+
+<p>Mennyi 20|13? Írd le mindkét számot, valamint az eredményt is kettes számrendszerben! Az
+eredményt tízes számrendszerben is add meg!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+ 20 = 10100
+|13 = 01101
+-----------
+ 29 = 11101
+</pre>
+</div>
+</details>
+
+<p>Mennyi 42&amp;54? Írd le mindkét számot, valamint az eredményt is kettes számrendszerben! Az
+eredményt tízes számrendszerben is add meg!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+ 42 = 101010
+&amp;54 = 110110
+------------
+ 34 = 100010
+</pre>
+</div>
+</details>
+
+
+<p>Mennyi 0x2A ^ 0x36? Írd le mindkét számot, valamint az eredményt is kettes számrendszerben!
+Az eredményt tizenhatos számrendszerben is add meg!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+ 0x2A = 101010
+^0x36 = 110110
+--------------
+ 0x1C = 011100
+</pre>
+</div>
+</details>
+
+
+<p>Mennyi (~22) &amp; 10? Írd le 22-t, ~22-t és 10-et, valamint az eredményt is kettes
+számrendszerben!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre>
+ 22 = 010110
+~22 = 101001
+ 10 = 001010
+------------
+  8 = 001000
+</pre>
+</div>
+</details>
+
+
+<h3>Műveletek kettes számrendszerben</h3>
+
+<p>Végezzük el az alábbi műveleteket kettes számrendszerben!
+Tízesben tudjuk, hogy kell... De megy kettesben is? Mennyiben más?</p>
+
+<div class="columns">
+<div>
+<pre class="sorsurit1">
+ 101101
++110111
+–––––––
+</pre>
+</div>
+<div>
+<pre class="sorsurit1">
+ 101101×1011
+ ––––––
+ 
+</pre>
+</div>
+</div>
+
+
+<h3>Hexadecimális</h3>
+<p>Készíts programot, mely a felhasználó által megadott decimális (poz.
+egész) számot átváltja 16-os számrendszerbe (hexadecimális), és az eredményt
+kiírja a képernyőre.
+<br>(Ehhez a <code>printf()</code>-fel is lehet ügyeskedni.)</p>
+
+
+
+
+<h3 id="igazsagtabla2">Igazságtábla – kevés bitre</h3>
+<p>Készíts programot, mely elkészíti az alábbi logikai függvények igazságtáblázatát, és kiírja a képernyőre:
+a.) ÉS
+b.) VAGY
+c.) NOT
+d.) NOR
+e.) XOR.</p>
+
+
+
+<h3 id="igazsagtablan">Igazságtábla – sok bitre</h3>
+
+<pre class="screenshot float sorsurit1">
+ABC|Q
+---+-
+000|0
+001|0
+010|0
+011|0
+100|0
+101|0
+110|0
+111|1
+</pre>
+
+<p>Készítsünk programot, amelyik az ÉS, VAGY, KIZÁRÓ VAGY függvény
+igazságtábláját készíti el, a felhasználó által megadott bemenetszámra!</p>
+
+<p>Például 3 bites ÉS igazságtábla esetén a jobb oldali legyen a kimenet.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A feladat érdekes része a ciklus megírása: nem ágyazhatunk egymásba a programkódban
+annyi ciklust, ahány bitünk lesz, hiszen a számuk csak a megoldás közben derül ki.</p>
+<p>Viszont tudjuk, hogy pl. 4 bit esetén 0000-tól 1111-ig megyünk; az 1111 értéke
+(vagy éppen 10000 értéke) meghatározható bitműveletekkel.</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int bitek;
+    printf(&quot;Bitek száma?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;bitek);
+
+    /* táblázat fejléc */
+    for (int i = 0; i &lt; bitek; ++i)
+        printf(&quot;%c&quot;, 'A'+i);
+    printf(&quot;|Q\n&quot;);
+    for (int i = 0; i &lt; bitek; ++i)
+        printf(&quot;-&quot;);
+    printf(&quot;+-\n&quot;);
+
+    /* 0-tól 1&lt;&lt;bitek-ig megyünk, azaz pl. 0000-tól 1111-ig */
+    for (int x = 0; x &lt; 1&lt;&lt;bitek; ++x) {
+        for (int i = bitek-1; i &gt;= 0; --i)
+            printf(&quot;%c&quot;, (x &gt;&gt; i) &amp; 1 ? '1' : '0');
+        /* akkumuláció; kezdeti érték = első bit */
+        unsigned acc = x &amp; 1;
+        for (int i = 1; i &lt; bitek; ++i)
+            acc = acc &amp; ((x &gt;&gt; i) &amp; 1);
+        printf(&quot;|%c\n&quot;, acc ? '1' : '0');
+    }
+}</code></pre>
+</div>
+</details>
+
+
+<h3>Bináris szám megadása</h3>
+<p>Írj programot, mely bekér egy max 16 hosszú bitsorozatot karakterlánc
+formában karakterenként úgy, hogy csak 0-ás és 1-es karakterek bevitelét
+engedélyezi. A bevitel végét az enter megnyomása jelzi. Ezután írja ki az
+ilyen módon kettes számrendszerben megadott szám tízes számrendszerbeli
+alakját! (Elsőleg legnagyobb helyiértéket adja meg a felhasználó.)</p>
+
+
+
+
+<h3>Egyszerű bitműveletek</h3>
+
+<p>Írjunk programot, amelyik kér egy nemnegatív számot. Írja ki ezt a számot binárisan. Utána
+állítsa 1-be a 7.&nbsp;bitjét; állítsa 0-ba a 6.&nbsp;bitjét, és végül negálja a 0.&nbsp;bitjét.
+Írja ki az így megváltoztatott számot!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+/* A kiirast megvalosito fuggveny */
+void kiir(unsigned a) {
+    for (int n = 7; n &gt;= 0; n--)    /* 7-tol nullaig a fejlec */
+        printf(&quot;%d&quot;, n);
+    printf(&quot;\n&quot;);
+    for (int n = 7; n &gt;= 0; n--)    /* a kapott szam bitjei */
+        printf(&quot;%d&quot;, (a &amp; 1 &lt;&lt; n) ? 1 : 0);
+    printf(&quot;\n&quot;);
+}
+
+int main(void) {
+    unsigned x;
+
+    printf(&quot;Kerem a szamot! &quot;);
+    scanf(&quot;%u&quot;, &amp;x);
+    printf(&quot;Eredeti:\n&quot;);
+    kiir(x);
+
+    /* a feladat altal eloirt muveletek */
+    x = x | (1 &lt;&lt; 7);     /* 1-be billentjuk a 7-es bitet */
+    x = x &amp; ~(1 &lt;&lt; 6);    /* 0-ba billentjuk a 6-os bitet */
+    x = x ^ 1 &lt;&lt; 0;       /* negaljuk a 0-s bitet */
+    printf(&quot;1-be a 7-es, 0-ba a 6-os, negalva a 0-s:\n&quot;);
+    kiir(x);
+    if (x &amp; 1 &lt;&lt; 5)
+        printf(&quot;Az 5. bit egyes.\n&quot;);
+    else
+        printf(&quot;Az 5. bit nullas.\n&quot;);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Bitek cseréje – adott sorszámú bitek</h3>
+<p>Írj egy programrészt, amelyik egy nemnegatív egész számban
+megcseréli két adott sorszámú bitjét! Az
+így keletkező számot kell előállítani. A 0. bit a legkisebb
+helyiértékű.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A lenti megoldás gondolatmenete a következő. Az <code>a_bit</code> és <code>b_bit</code>
+változókba elmentjük az a. és b. helyiértéken álló számot. Ezután az eredményben mindkét helyen
+kinullázuk a biteket, aztán ha az egyik helyen 1-es volt, akkor a másik helyen billentjük be
+1-esbe utólag, és fordítva. Az <code>a_bit</code> és <code>b_bit</code> változókat logikai
+értéknek használjuk.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+void kiir(unsigned a) {
+    for (int n = 7; n &gt;= 0; n--)
+        printf(&quot;%d&quot;, n);
+    printf(&quot;\n&quot;);
+    for (int n = 7; n &gt;= 0; n--)
+        printf(&quot;%d&quot;, (a &amp; 1 &lt;&lt; n) ? 1 : 0);
+    printf(&quot;\n&quot;);
+}
+
+// a. es b. bitet csereli - ez a feladat megoldasa
+unsigned csere(unsigned be, int a, int b) {
+    /* ezeket a maszkokat vegig hasznaljuk */
+    unsigned a_mask = 1 &lt;&lt; a;
+    unsigned b_mask = 1 &lt;&lt; b;
+    /* kivesszuk az adott bitet */
+    unsigned a_bit = be &amp; a_mask;
+    unsigned b_bit = be &amp; b_mask;
+    unsigned eredmeny;
+
+    /* kinullazzuk mindket helyen a biteket */
+    /* a_mask|b_mask egy olyan szam, amely mindket helyen
+     * 1-est tartalmaz */
+    eredmeny = be &amp; ~(a_mask | b_mask);
+    /* tulajdonkepp itt tortenik meg a csere.
+     * ha a_bit 1-es, akkor a b helyere rakunk
+     * be 1-est, es forditva. */
+    if (a_bit)
+        eredmeny |= b_mask;
+    if (b_bit)
+        eredmeny |= a_mask;
+    return eredmeny;
+}
+
+int main(void) {
+    kiir(23);
+    kiir(csere(23, 1, 3));
+
+    return 0;
+}</code></pre>
+
+<p>Másik megoldás: kiveszem a biteket, és egyből eltolom őket a 0. helyiértékre (így az
+<code>a_bit</code> és <code>b_bit</code> változók 0-t vagy 1-et tartalmaznak). Ezek után
+kinullázhatom őket az eredeti számban; és az így keletkező számhoz hozzávagyolom a biteket újra,
+de mindig a másik helyre tolva az elmentett bitet. Még elég sok különböző megoldást ki lehetne
+találni.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+void kiir(unsigned a) {
+    for (int n = 7; n &gt;= 0; n--)
+        printf(&quot;%d&quot;, n);
+    printf(&quot;\n&quot;);
+    for (int n = 7; n &gt;= 0; n--)
+        printf(&quot;%d&quot;, (a &amp; 1 &lt;&lt; n) ? 1 : 0);
+    printf(&quot;\n&quot;);
+}
+
+int main(void) {
+    unsigned szam = 23;
+
+    int a = 1, b = 3;   /* ezek lesznek megcserélve */
+    /* ezeket a maszkokat vegig hasznaljuk */
+    unsigned a_mask = 1 &lt;&lt; a;
+    unsigned b_mask = 1 &lt;&lt; b;
+    /* kivesszuk az adott bitet */
+    unsigned a_bit = szam &amp; a_mask;
+    unsigned b_bit = szam &amp; b_mask;
+
+    /* kinullazzuk mindket helyen a biteket */
+    /* a_mask|b_mask egy olyan szam, amely mindket helyen
+     * 1-est tartalmaz */
+    unsigned eredmeny = szam &amp; ~(a_mask | b_mask);
+    /* tulajdonkepp itt tortenik meg a csere.
+     * ha a_bit 1-es, akkor a b helyere rakunk
+     * be 1-est, es forditva. */
+    if (a_bit)
+        eredmeny |= b_mask;
+    if (b_bit)
+        eredmeny |= a_mask;
+
+    kiir(szam);
+    kiir(eredmeny);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+<h3>Tükrözve</h3>
+<p>Készíts programot, mely egy unsigned char típusú változóban tükrözi a
+biteket, vagyis a legnagyobb helyiértékű bit helyet cserél a legkisebbel (0↔7),
+a második legnagyobb a második legkisebbel (1↔6) stb.</p>
+
+
+<h3>Adott bitek invertálása</h3>
+<p>Írj olyan programrészt,
+amely egy előjel nélküli x számban p pozíciótól kezve n bitet invertál! Például bemenet: x=10110 (binárisan), p=2,
+n=3-ra a kimenet x=01010.</p>
+
+
+
+
+<h3 id="bitsorozatkivagasa">Bitsorozat kivágása</h3>
+
+<p>Írj programrészt, amely paraméterként kap három egész számot (szam,
+honnan, db)! A programrész vegye ki a szam jobbról honnan sorszámú, db
+számú bitet tartalmazó tartományát, és ezt adja meg! Pl. Be: 471, 3, 5 &rarr; 471=11<strong>10101</strong>11 &rarr; 10101, tehát a kimenet: 21.</p>
+
+<p>Hány eltérő megoldást lehet találni?</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<pre   ><code class="language-c">unsigned szam = ..., honnan = ..., db = ...;
+
+unsigned eredmeny = 0, tolt = szam &gt;&gt; (honnan - 1);
+for (int i = 0; i &lt; db; i++)
+    eredmeny |= tolt &amp; (1 &lt;&lt; i);</code></pre>
+
+<p>Pohl László trükkös megoldása az alábbi. (A temp az alsó helyiértékein már a kivágandó biteket
+tartalmazza. Ebből eldobva az alsó db darabot, invertálva saját magával, az összes
+többi 1-es eltűnik.)</p>
+
+<pre   ><code class="language-c">unsigned temp = szam &gt;&gt; (honnan-1);
+unsigned eredmeny = temp ^ (temp &gt;&gt; db &lt;&lt; db);</code></pre>
+
+<p>Benedek Zsófia ötlete. (Balra csúsztatva a felső bitek dobhatóak el (aztán vissza), jobbra csúsztatva
+az alsók. Ez 32 bitesen működik. A két jobbra shift egyébként összevonható.)</p>
+
+<pre   ><code class="language-c">unsigned eredmeny = (szam&lt;&lt;(32-(honnan-1)-db)&gt;&gt;(32-(honnan-1)-db))) &gt;&gt; (honnan-1);</code></pre>
+
+<p>Estók Dániel megoldása. (0 = csupa 0, ~0 = csupa 1, ~0&lt;&lt;db = csupa 1, de alul
+db darab 0, ~(~0&lt;&lt;db) = csupa 0, de alul db darab 1-es, és ez pont a maszk, ami kell.)</p>
+
+<pre   ><code class="language-c">unsigned eredmeny = (szam&gt;&gt;(honnan-1)) &amp; ~(~0 &lt;&lt; db);</code></pre>
+
+<p>Abonyi József megoldása. (1&lt;&lt;db a fenti maszknál pont eggyel nagyobb szám, ami ráadásul
+pont kettő hatványa. Ezzel modulózva kivághatók az alsó bitek.)</p>
+
+<pre   ><code class="language-c">unsigned eredmeny = (szam&gt;&gt;(honnan-1)) % (1&lt;&lt;db);</code></pre>
+
+</div>
+</details>
+
+
+<h3>Páros számú 1-es bit</h3>
+<div class="sticky">Kis ZH-ban volt</div>
+<p>Írj programrészt, amely bemenetként kap egy pozitív egész számot, és logikai igazat állít elő,
+ha a szám páros számú 1-es bitet tartalmaz!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">int db = 0;
+for (; szam != 0; szam &gt;&gt;= 1)
+    db += szam &amp; 1;
+bool paros = db % 2 == 0;</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Mind a 32 bit cseréje</h3>
+<p>Írj programrészt, amely bemenetként kap egy előjel nélküli egész számot, melyről
+feltételezzük, hogy 32 bites. Cserélje fel a szám összes szomszédos bitpárját (0. az
+1.-vel, 2. a 3.-kal, … 30. a 31.-kel)!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Egy egyszerű megoldás:</p>
+<pre   ><code class="language-c">unsigned long int miben = 123;   /* bemenet */
+
+unsigned long int eredmeny = 0;
+for (int i = 0; i &lt; 32; i += 2) {
+    if (miben &amp; 1 &lt;&lt; i)
+        eredmeny |= 1 &lt;&lt; (i + 1);
+    if (miben &amp; 1 &lt;&lt; (i + 1))
+        eredmeny |= 1 &lt;&lt; i;
+}</code></pre>
+
+<p>Egy nagyon trükkös megoldás:</p>
+<pre   ><code class="language-c">unsigned long int miben = 123;   /* bemenet */
+
+unsigned long int eredmeny = ((szam &amp; 0xaaaaaaaa)&gt;&gt;1) | ((szam &amp; 0x55555555)&lt;&lt;1);</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+<h3>Bitek cseréje – bármekkora változóra</h3>
+<div class="sticky">Vizsga volt</div>
+<p>Írj egy olyan programrészt, amely bemenetként kap egy előjel nélküli
+egész számot, és kimenetként szintén egy előjel nélküli egész számot állít elő! Az utóbbi szám úgy
+keletkezik, hogy a paraméterként átvett számban megcseréli a szomszédos bitpárokat. Nem tudjuk,
+hogy az adott gépen hány bites az egész, de biztosan páros bitszámú. Pl. be:
+25&nbsp;→&nbsp;011001, ki: 100110&nbsp;→&nbsp;38.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Itt a 0. bittől érdemes haladni. Két dologra kell figyelni:</p>
+<ul>
+    <li>Mindig az i. és az i+1. bitet cseréljük; utána i-t 2-vel növeljük.
+    <li>És ezt addig csináljuk, amíg a számból ha levágjuk az utolsó i bitet, akkor az eredmény nem 0.
+    Mert ha 0, akkor ott már nincs több 1-es, amit cserélgetni kellene – akármekkora is az int.
+</ul>
+<p>Az alábbi minta egy függvényként tartalmazza a megoldást.</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+unsigned long int bitcsere(unsigned long int szam) {
+    unsigned long int eredmeny = 0;
+
+    int i = 0;
+    while ((szam &gt;&gt; i) &gt; 0) {
+        /* megjegyezzuk... */
+        int egyik = (szam &gt;&gt; i) &amp; 1;
+        int masik = (szam &gt;&gt; (i + 1)) &amp; 1;
+        /* es rakjuk be oket forditva.
+         * fent egyik&lt;-&gt;i es masik&lt;-&gt;i+1,
+         * itt egyik&lt;-&gt;i+1 es masik&lt;-&gt;i! */
+        eredmeny = eredmeny | egyik &lt;&lt; (i + 1) | masik &lt;&lt; i;
+        /* kettesevel tovabb */
+        i += 2;
+    }
+    return eredmeny;
+}
+
+int main(void) {
+    printf(&quot;%lu\n&quot;, bitcsere(25));
+    printf(&quot;%lu\n&quot;, bitcsere(38));
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+
+<h3>Hány 0 értékű bit?</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj programrészt, amely paraméterként kap egy előjel nélküli egész számot, és megadja, hogy a szám hány 0 értékű bitet
+tartalmaz! A számról feltételezhető, hogy 32 bites.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">unsigned long int szam = 123;
+
+int db = 0;
+for (int i = 0; i &lt; 32; szam &gt;&gt;= 1, i++)
+    if ((szam &amp; 1) == 0)
+        ++db;</code></pre>
+</div>
+</details>
+
+
+
+
+
+<h3>Egyesek egymás mellett</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj programrészt, amely bemenetként kap egy egész számot, melyről
+feltételezzük, hogy 16 bites. Adjon meg ez egy logikai értéket,
+amely akkor legyen igaz, ha a számban bárhol található egymás mellett két 1-es értékű
+bit, amúgy hamis! Pl. 138=10001010 esetén hamis a válasz,
+154=100<em>11</em>010 esetén pedig igaz.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">unsigned int szam = 138;
+
+bool talalat = false;
+for (int i = 0; i &lt; 15; i++)
+    if (((szam &gt;&gt; i) &amp; 3) == 3)
+        talalat = true;</code></pre>
+
+<p>Egy trükkös megoldás. (Ha egymás mellett két egyes van, eggyel léptetve
+azok át fogják fedni egymást. Az így kapott számot az eredetivel bitenkénti ÉS-elve
+ezért nem nullát adnak.)</p>
+
+<pre   ><code class="language-c">unsigned int szam = 138;
+bool talalat = (szam &amp; (szam &lt;&lt; 1)) != 0;</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+<h3>Mindkét oldalról 0</h3>
+<div class="sticky">Kis ZH-ban volt</div>
+<p>Írj programrészt, amely bemenetként kap egy előjel nélküli egész számot, és megadja, hogy hány olyan 1-es
+bit van a számban, amelyet mindkét oldalról 0 bit határol! (Értelemszerűen a legalsó és
+legfelső bit nem lehet ilyen.) Pl. ha a bemenő bitminta 1011101000010101011001010011111,
+akkor az eredmény 6. A bemeneti számról feltételezhető, hogy 32 bites.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Az alábbi nem a triviális, hanem egy trükkös megoldás. Ha egymás melletti három bitet vizsgálunk, akkor ehhez <code>010</code>-t kell lássunk.
+A <code>szam&amp;7</code> kivág három bitet (mert 7 = 111), ahol ez a 010 (értéke: 2) kell legyen.</p>
+<pre   ><code class="language-c">unsigned long int szam = ...;
+
+int db = 0;
+for (int i = 0; i &lt; 30; i++, szam &gt;&gt;= 1)
+    if ((szam &amp; 7) == 2)
+        db++;</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Pontosan hat darab 1-es</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj programrészt, amely bemenetként kap egy pozitív egész számot,
+és logikai igazat ad meg, ha a szám pontosan 6 db 1-es bitet
+tartalmaz!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">unsigned int szam = 123;
+
+int db = 0;
+for (; szam != 0; szam &gt;&gt;= 1)
+    db += szam &amp; 1;
+
+bool eredmeny = db == 6;</code></pre>
+</div>
+</details>
+
+
+<h3>Rotálás</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj programrészt, amely bemenetként kap két előjel nélküli
+egész számot (mit, db), és mit-et db számú bittel forgatja el jobbra,
+és ezt az értéket adja meg (az előjel nélküli egészeket 32
+bitesnek feltételezzük)! A jobbra forgatás azt jelenti, hogy mit
+bitjei db számú bittel jobbra tolódnak, és a „kieső” bitek a szám
+elejére kerülnek vissza. Pl. be:
+<br>0000000011111111111110101010<strong>1010</strong> és db = 4, ki:
+<br><strong>1010</strong>0000000011111111111110101010.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">/* a naív megoldás, függvényként */
+unsigned rotr1(unsigned mit, int db) {
+    unsigned eredmeny = 0, i;
+    for (int i = 0; i &lt; 32; i++)
+        if (mit &amp; (1 &lt;&lt; ((i + db) % 32)))
+            eredmeny |= 1 &lt;&lt; i;
+    return eredmeny;
+}
+
+/* a trükkös megoldás, függvényként */
+unsigned rotr2(unsigned mit, int db) {
+    return (mit &gt;&gt; db) | (mit &lt;&lt; (32-db));
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Bájtsorrend</h3>
+<p>Készíts programrészt, amelyik egy 32 bites előjel nélküli szám bájtsorrendjét megfordítja.
+Például, ha a bemenet 0x11223344, a kimenet legyen 0x44332211. Tételezd fel, hogy az
+unsigned int a futtató gépen 32 bites!</p>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Számábrázolási problémák">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Számábrázolási problémák<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<h3>Lottó 5-ös</h3>
+
+<p>Hányféleképpen lehet n valamiből kiválasztani k valamit? Ezt a
+kombinatorikában kombinációnak nevezik („<code>n</code> alatt a <code>k</code>”). A lottóban 90 szám
+van, és 5-öt kell választani; a biztos 5-ös találathoz
+majdnem 44 millió szelvényt kell kitölteni:
+
+</p>
+<pre style="line-height: 0.7">
+90·89·88·87·86
+────────────── = 43 949 268
+   1·2·3·4·5
+</pre>
+
+<p>Feladat: írd meg a programot, amely kéri a felhasználótól <code>n</code>
+és <code>k</code> értékét. (A lottóban <code>n=90</code> és <code>k=5</code>.)
+Ellenőrizd a program által adott eredményt! Vajon hibás a programod?
+Kövesd a változók értékét a nyomkövetőben (különösen a számláló kiszámításánál),
+és hasonlítsd össze azt a Számológép alkalmazásban kapottal!
+</p>
+
+<pre   ><code class="language-c">/* A nem igazán működő megoldás */
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n, k;
+    printf(&quot;n=&quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    printf(&quot;k=&quot;);
+    scanf(&quot;%d&quot;, &amp;k);
+
+    /* 1, hogy ezt szorozgassuk tovabb */
+    int komb = 1;
+    for (int i = n; i &gt; n - k; i--)
+        komb = komb * i;
+    /* es utana osztjuk a faktorialissal */
+    for (int i = 1; i &lt;= k; i++)
+        komb = komb / i;
+
+    printf(&quot;Cnk=%d&quot;, komb);
+
+    return 0;
+}</code></pre>
+
+<p>Miért helytelen az eredmény? Ellenőrizd
+a nyomkövető segítségével a gép által végzett számítást. Miért ott
+téveszti el, ahol? Az egyik fentebbi alapján, az <code>unsigned</code> típus bitjei számának
+ismeretében magyarázd meg az eredményt!</p>
+
+<p>Hogyan lehetne javítani? Megoldható úgy is, ha maradunk az egész számoknál.
+Figyeld meg: <code>k=1</code> esetén a számláló csak <code>90</code>,
+a nevező <code>1</code>. <code>k=2</code> esetén a számláló <code>90·89</code>,
+a nevező <code>1·2</code>. A nevező miatt osztunk kettővel, de a számlálóban
+a két tényező közül az egyik biztosan páros, mert <code>n·(n-1)</code> alakú.
+Ugyanígy <code>k=3</code>-nál a számlálóban van egy szám, amely biztosan
+osztható 3-mal. Ha a ciklusban minden szorzás után rögtön az osztást is
+elvégezzük, akkor nem kell tárolnunk a <code>90·89·88·87·86</code> művelet
+eredményét, hanem végig csak kisebb számokat. Írd így meg a programot!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">/* A fenti ötlettel javított megoldás */
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n, k;
+    printf(&quot;n=&quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    printf(&quot;k=&quot;);
+    scanf(&quot;%d&quot;, &amp;k);
+
+    int komb = 1;
+    /* szorzunk es osztunk - lasd a magyarazatot */
+    for (int i = 1; i &lt;= k; i++) {
+        komb = komb * (n + 1 - i);
+        komb = komb / i;
+    }
+
+    printf(&quot;Cnk=%d&quot;, komb);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Gyök kettő – számábrázolási kérdések</h3>
+
+<p>A √<span class="felulhuzott">2</span> számjegyei <a href="../gy03/index.html#gyokketto">egyesével meghatározhatóak</a>.
+A számítás elvégzése közben azonban könnyű számábrázolási problémákba botlani.</p>
+
+<ul>
+    <li>Írj programot, amely a fenti algoritmussal 10<sup>&minus;10</sup> pontossággal meghatározza √<span class="felulhuzott">2</span> értékét!
+    <li>Milyen típust kell ehhez használni? Meg tudod határozni a gyököt 10<sup>&minus;20</sup> pontossággal? Mi
+        történik, ha megpróbálod, és miért?
+    <li>Hasonlítsd össze ezt az algoritmust Hérón módszerével. Vajon melyik gyorsabb? Melyik ad kevesebb lépésből
+        pontosabb megoldást?
+</ul>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+double gyok(double szam) {
+    double tipp, novekmeny;
+    unsigned lepesszam;
+
+    tipp = 1;
+    novekmeny = 1;
+    lepesszam = 0;
+
+    do {
+        do {
+            tipp += novekmeny;
+            ++lepesszam;
+        } while (szam &gt; (tipp * tipp));
+
+        tipp -= novekmeny;
+        novekmeny /= 10;
+    } while (novekmeny &gt; 1e-10);
+
+    /* printf(&quot;Lepesszam: %d\n&quot;, lepesszam); */
+
+    return tipp;
+}
+
+int main(void) {
+    printf(&quot;2 gyoke: %.10f\n&quot;, gyok(2));
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+<h3>Végtelen ciklus?</h3>
+
+<p>Az alábbi program egy olyan ciklust tartalmaz, mely addig fut, amíg egy
+szám és egy nála eggyel nagyobb szám nem egyenlő egymással. Ha a
+lebegőpontos típusaink végtelenül pontosak lennének, ez végtelen ciklust
+eredményezne. Mi a helyzet a gyakorlatban? Próbáld ki <code>float</code> és
+<code>double</code> típussal is!</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+   float e = 0.0, f = 1.0;
+
+   while (e != f) {
+      f *= 2.0;
+      e = f+1;
+   }
+   printf(&quot;%f\n%f\n&quot;, e, f);
+
+   return 0;
+}</code></pre>
+
+
+
+
+
+<h3>Gyökkeresés</h3>
+
+<p>Tudjuk, hogy az x<sup>3</sup>-9x<sup>2</sup>+23x-15=0 egyenlet egy gyöke 2.2 és 4.5 között található. Írj programot, amely intervallumfelezéses módszerrel kiszámítja az egyenlet gyökét!</p>
+
+<details >
+<summary>Tipp</summary>
+<div>
+<p>Az intervallumfelezés módszere egy x_also és egy x_felso értékből indul ki, az ezekhez tartozó függvényértékekről tudjuk, hogy ellentétes előjelűek.
+Kiszámítjuk az x_kozepe=(x_also+x_felso)/2 értéket: ha az ehhez tartozó függvényérték előjele az x_also-hoz tartozó függvényérték előjelével egyezik meg, akkor x_also=x_kozepe, egyébként x_felso=x_kozepe.
+(Vagyis az x_also és x_felso távolságát felére csökkentjük úgy, hogy a gyök továbbra is a két határ között legyen.) Az eljárást addig folytatjuk, míg x_also és x_felső „elég közel” nem kerül egymáshoz (pl. epszilon=10<sup>-6</sup>). Ekkor a gyöknek x_also-t, x_felso-t, vagy az átlagukat tekinthetjük.</p>
+</div>
+</details>
+
+<p>Ha sikerült kiszámítanod a gyököt, írd át a programot <code>float</code> típusra (ha eddig nem az volt), és epszilont csökkentsd 10<sup>-8</sup>-ra (C nyelven 1e-8). Mit tapasztalsz?</p>
+
+
+
+
+<h3>(x-1)(x-10<sup>n</sup>)=0</h3>
+
+<p>Írj függvényt, amely megoldja az (x-1)(x-10<sup>n</sup>)=0 egyenletet!
+Ehhez alakítsd át az egyenletet x<sup>2</sup>-(1+10<sup>n</sup>)x+10<sup>n</sup>=0
+alakba és az együtthatókat helyettesítsd be a megoldóképletbe. A függvény bemeneti paramétere n legyen.
+Próbáld ki a függvényt n = 1, 2, 4, 8 esetekre és <code>float</code> valamint <code>double</code> típusokkal is! Figyeld meg, hogy mi történik és adj rá magyarázatot!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+void megold(int n) {
+    float b, c;     /* vagy double: érdemes kipróbálni */
+    /* a 10 hatványának kiszámolása */
+    c = 1;
+    for (int i = 0; i &lt; n; i++)
+        c *= 10;
+    b = -(c + 1);
+    /* Megoldások kiszámolása/kiírása */
+    printf(&quot;x1=%f x2=%f\n&quot;, (-b + sqrt(b * b - 4 * c)) / 2, (-b - sqrt(b * b - 4 * c)) / 2);
+}
+
+int main(void) {
+    /* Próba... */
+    megold(1);
+    megold(2);
+    megold(4);
+    megold(8);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>A nagy átverés</h3>
+<p>Hány olyan x egész szám van, amelyre x = -x?</p>
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre class="float" style="line-height: 0.7">
+    bitek      érték
+
+  876543210
+
+
+  <strong>1</strong><em>0</em>0000000        0
+
+ - <em>1</em>0000000     -128
+ ──────────
+   <em>1</em>0000000     -128
+</pre>
+
+<p>Matematikában egy (a nulla), a számítógépen a kettes komplemens számábrázolás
+miatt kettő (a nulla és a legnegatívabb szám).
+Ugyanis a legnegatívabb ábrázolható szám a kettes komplemens esetén nem ugyanakkora, mint
+a legpozitívabb. 8 biten például -128 és +127, és a -128 bitenkénti ábrázolása pont az,
+mint ami a +128-é lenne (ha beleférne). Ezért ha 8 biten a -128-at kivonjuk 0-ból, vagyis
+az ellentettjét vesszük, túlcsordulást kapunk, és saját maga az eredmény.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    signed char c;
+
+    c = -128;
+    printf(&quot;%d\n&quot;, c);
+
+    c = -c;
+    printf(&quot;%d\n&quot;, c);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

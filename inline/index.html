@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: inline</title>
+<meta property="og:title" content="TEST InfoC :: inline">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Az inlining optimalizációs technika és használata. Hogyan működik, miért gyorsítja a programunkat, és hogyan kell használni?">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Az inlining optimalizációs technika és használata. Hogyan működik, miért gyorsítja a programunkat, és hogyan kell használni?">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="inline">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">inline</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.08.24.</p>
+<p class="kivonat">Az inlining optimalizációs technika és használata. Hogyan működik, miért gyorsítja a programunkat, és hogyan kell használni?</p>
+</div>
+
+<p>Néha nagyon rövid függvényeket írunk – olyan kicsiket, hogy úgy érezzük, fölöslegesek, lassítják a programunkat. Főleg ha a függvényhívással töltött idő (paraméterek átadása, ugrás, visszaugrás stb.) összemérhető a függvény feladatának végrehajtási idejével. Úgy tűnik emiatt, hogy nem lesz hatékony a program. Például ebben a kódban:</p>
+
+<pre   ><code class="language-c">struct Teglalap {
+    int a, b;
+};
+
+double kerulet(Teglalap t) {
+    return 2 * (t.a + t.b);
+}
+
+double terulet(Teglalap t) {
+    return t.a * t.b;
+}</code></pre>
+
+<p>Egy területszámítás vagy egy kerületszámítás, azaz egy-két szorzás vagy összeadás miatt függvényt hívunk? Nincs kárunkra ez az absztrakció? Megéri ez így számunkra? Az <em>inlining</em>-nak nevezett optimalizációs technika miatt bőven. Nem kell attól tartanunk, hogy ez lassítja a programot. Egy függvény <em>inline</em>-olása azt jelenti, hogy a függvény törzsét a fordító a lefordított programban <em>beilleszti a hívás helyére,</em> megspórolva ezzel a függvényhívás költségét.</p>
+
+<p>A C programkódokba írt <code>inline</code> kulcsszó is ezzel kapcsolatos. De egy függvény neve elé írt <code>inline</code> kulcsszó nem azt jelenti, hogy az a függvény <em>inline</em>-olva lesz. Akkor hogy is van ez?</p>
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Az inlining működése</a>
+              <li><a href="index.html#2" class="">Az inline kulcsszó használata</a>
+              <li><a href="index.html#3" class="">A függvények példányosítása</a>
+              <li><a href="index.html#4" class="">Recept</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az inlining működése">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Az inlining működése<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Tekintsük az alábbi kis programocskát:</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int szorzat(int x, int y) {
+    return x * y;
+}
+
+int main() {
+    int a, b;
+    scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
+    int s = szorzat(a, b);
+    printf(&quot;%d&quot;, s);
+}</code></pre>
+
+<p>Vizsgáljuk meg a lefordított program Assembly kódját! Erre kiválóan alkalmas a <a href="https://godbolt.org/">Compiler Explorer</a> oldal, ahol egy online felületen tehetjük meg ezt. De parancssorból is könnyen megy, <code>gcc -S</code> hatására fájlba írja a fordító az Assembly kódot.</p>
+
+<p>A két függvényünk így fest – kivágva csak a releváns részeket:</p>
+
+<pre class="screenshot">
+szorzat(int, int):
+        push    rbp
+        mov     rbp, rsp
+        mov     DWORD PTR [rbp-4], edi
+        mov     DWORD PTR [rbp-8], esi
+        mov     eax, DWORD PTR [rbp-4]
+        imul    eax, DWORD PTR [rbp-8]  ; (2)
+        pop     rbp
+        ret
+
+main:
+        ...
+        call    scanf
+        mov     edx, DWORD PTR [rbp-12]
+        mov     eax, DWORD PTR [rbp-8]
+        mov     esi, edx
+        mov     edi, eax
+        call    szorzat(int, int)       ; (1)
+        ...
+        call    printf
+        ...
+</pre>
+
+<p>A legfontosabb két sort a számok jelölik. Az (1)-essel jelzett helyről ugrunk a főprogramból a <code>szorzat()</code> függvény belsejébe, itt történik meg a függvényhívás (<code>call</code>). Az előtte lévő néhány sor valósítja meg a paraméterátadást. A (2)-essel jelzett hely pedig maga a szorzás: <code>imul</code>, mint <em>multiplication,</em> szorozza össze a megadott számokat. Az összes többi utasítás a függvényhívás adminisztrációja; a <code>ret</code>, azaz <em>return</em> utasítás tér vissza a függvényből.</p>
+
+<p>Lényegében ez az, amit el szeretnénk kerülni. Látszik, hogy mennyi többlet teendő volt ahhoz képest, hogy az érdemi munka a függvényben egyetlen egy gépi utasítást jelent, az <code>imul</code>-t.</p>
+
+<p>Nézzük most meg ugyanezt a kódot <code>gcc -O2</code> paraméterrel fordítva, tehát optimalizálva! A releváns részek:</p>
+
+<pre class="screenshot">
+szorzat(int, int):
+        mov     eax, edi
+        imul    eax, esi                    ; (2)
+        ret
+
+main:
+        ...
+        call    scanf
+        mov     esi, DWORD PTR [rsp+12]
+        mov     edi, OFFSET FLAT:.LC0
+        xor     eax, eax
+        imul    esi, DWORD PTR [rsp+8]      ; (1)
+        call    printf
+        ...
+</pre>
+
+<p>Először is, látszik hogy a kód optimalizált. A (2)-essel jelzett helyen továbbra is ott a szorzást végző <code>imul</code> utasítás, de a <code>szorzat</code> függvény sokkal rövidebb lett, a fordító okosabban oldotta meg a paraméterátadást.A főprogramból viszont <em>teljesen eltűnt</em> a <code>call szorzat</code> függvényhívás! Helyette a szorzó utasítás bekerült a főprogramba az (1)-es helyre. A függvény <em>inline</em>-olódott, körülbelül nyolc utasítást megspóroltunk így.</p>
+
+<p>Végezzünk el még egy kísérletet! Tegyünk egy <code>static</code> kulcsszót a <code>szorzat()</code> függvény elé. Mint tudjuk, ez azt jelenti, hogy több forrásfájlból álló program esetén más forrásfájlból nem is szeretnénk elérni ezt a függvényt. Csak ebből az egy <code>szorzat.c</code> fájlból lesz meghívható, a többiben nem is látszik:</p>
+
+<pre   ><code class="language-c">static int szorzat(int x, int y) {
+    return x * y;
+}</code></pre>
+
+<p>Ebben az esetben a <em>teljes</em> lefordított program így néz ki:</p>
+
+<pre class="screenshot">
+.LC0:
+        .string "%d %d"
+.LC1:
+        .string "%d"
+main:
+        sub     rsp, 24
+        mov     edi, OFFSET FLAT:.LC0
+        xor     eax, eax
+        lea     rdx, [rsp+12]
+        lea     rsi, [rsp+8]
+        call    scanf
+        mov     esi, DWORD PTR [rsp+12]
+        mov     edi, OFFSET FLAT:.LC1
+        xor     eax, eax
+        imul    esi, DWORD PTR [rsp+8]  ; (1)
+        call    printf
+        xor     eax, eax
+        add     rsp, 24
+        ret
+</pre>
+
+<p>Ebben az (1)-essel jelölt helyen látjuk a szorzást. A <code>szorzat()</code> függvény pedig <em>teljesen eltűnt (!)</em> a programból. Önálló függvényként már nem is létezik, csak a főprogramba beépítve látjuk azt a műveletet, ami a forráskódban még külön függvényként létezett. A fordító teljesen kihagyhatja a függvényt a lefordított programból! Ahol használtuk, oda beépítette a törzsét. Máshonnan pedig nem hívhatjuk, tehát biztos lehet benne, hogy a lefordított programba fölösleges betenni.</p>
+
+<p>Vegyük észre, hogy ehhez az optimalizációhoz nem volt szükség az <code>inline</code> kulcsszóra! A fordító magától döntött úgy, hogy a függvénytörzset beépíti a főprogramba. Ahhoz viszont, hogy ez megtörténhessen, ismernie kellett a törzset. Látnia kellett, mi van a függvény belsejében. Ha a függvény egy másik forrásfájlban lenne definiálva, és itt csak a fejlécét ismerné, akkor erre nem lett volna lehetősége. Egyszerűen azért, mert nem tudja, mi van benne:</p>
+
+<div class="sticky">szorzas.h</div>
+<pre   ><code class="language-c">#ifndef SZORZAS_H_INCLUDED
+#define SZORZAS_H_INCLUDED
+
+int szorzat(int x, int y);
+
+#endif</code></pre>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az inline kulcsszó használata">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Az inline kulcsszó használata<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Mégis, mire kell az <code>inline</code> kulcsszó, ha a fordító anélkül is alkalmazza a fent vázolt optimalizációt?</p>
+
+<p>Ennek megértéséhez azt kell elfogadni, hogy az <code>inline</code> szó nem az optimalizációt engedélyezi vagy javasolja a fordító számára. Hanem a létezése a C programok <a href="../ea08/index.html#forditasimodell">fordítási modelljének</a> egyfajta mellékterméke: <em>ahhoz kell, hogy a függvény törzsét is a fejlécfájlba tehessük.</em> Nem csinál mást, nem való másra, csak tárolási osztályt (linkage) ad meg a függvény számára.</p>
+
+<p>Térjünk vissza az előző, szorzós függvényhez. Tegyük fel, hogy ezt a függvényt szeretnénk <em>inline</em>-olni. Ezért kénytelenek vagyunk a függvény törzsét is a <code>szorzas.h</code> fejlécfájlba tenni, mert különben a használat helyén nem fogja látni azt a fordító. Tehát a projekt fájljai így néznek ki:</p>
+
+<div class="sticky">szorzas.h</div>
+<pre   ><code class="language-c">#ifndef SZORZAS_H_INCLUDED
+#define SZORZAS_H_INCLUDED
+
+int szorzat(int x, int y) {
+    return x * y;
+}
+
+#endif</code></pre>
+
+<div class="columns">
+<div>
+<div class="sticky">szorzas.c</div>
+<pre   ><code class="language-c">#include &quot;szorzas.h&quot;
+
+
+/* szorzat() függvény
+ * itt most nincs */
+
+
+/* de további
+ * függvények lehetnek */</code></pre>
+</div>
+<div>
+<div class="sticky">main.c</div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &quot;szorzas.h&quot;
+
+int main() {
+    int a, b;
+    scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
+    int s = szorzat(a, b);
+    printf(&quot;%d&quot;, s);
+}</code></pre>
+</div>
+</div>
+
+<p>Mi történik, ha megpróbáljuk így lefordítani ezt a projektet? A helyzet az, hogy nem fog működni. A fordítás során ugyanis a <code>szorzat.c</code>-ből keletkező <code>szorzat.o</code>-ba is, és a <code>main.c</code>-ből fordított <code>main.o</code>-ba is bekerül a <code>szorzat()</code> függvény. Az előfordított <code>szorzas.c</code> és <code>main.c</code> ugyanis a lent látható formát öltik. Bemásolódott mindkettőbe a <code>szorzas()</code> függvény törzse, mert az <code>#include</code>-dal mintha <em>copypaste</em>-eltünk volna a fejlécfájlt mindkettőbe:</p>
+
+<div class="sticky">szorzas.c<br>előfordítva</div>
+<pre   ><code class="language-c">int szorzat(int x, int y) {
+    return x * y;
+}</code></pre>
+<div class="sticky">main.c<br>előfordítva</div>
+<pre   ><code class="language-c">int szorzat(int x, int y) {
+    return x * y;
+}
+
+int main() {
+    int a, b;
+    scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
+    int s = szorzat(a, b);
+    printf(&quot;%d&quot;, s);
+}</code></pre>
+
+<p>A linker számára tehát úgy fog tűnni, hogy a függvény kétszer van definiálva, és leáll:</p>
+
+<pre>
+$ gcc szorzas.o main.o -o prg
+main.o: In function `szorzat':
+main.c:(.text+0x0): multiple definition of `szorzat'
+szorzas.o:szorzas.c:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+</pre>
+
+<p>Megvizsgálva a keletkezett <em>object</em> fájlokat, látjuk, hogy igaza is van; a <code>szorzat()</code> függvényből tényleg kettő lett az <code>#include</code>-ok miatt. Jogosan kiabál tehát a linker:</p>
+
+<pre>
+$ nm szorzas.o
+0000000000000000 T szorzat
+
+$ nm main.o
+0000000000000013 T main
+0000000000000000 T szorzat
+</pre>
+
+<p>Hova is jutottunk így? Ha szeretnénk, hogy a fordító <em>inline</em>-oljon, akkor a fejlécfájlba kell tennünk a függvénytörzset is. Ha viszont a fejlécfájlba tesszük, akkor viszont nem fordítható le a programunk, mert látszólag többször van definiálva a függvény.</p>
+
+<p><em>Ennek az ellentmondásnak a feloldására való</em> az <code>inline</code> kulcsszó. Ha ezt a fejlécfájlban a kifejtett függvény elé írjuk, akkor a fordító tudomására hozzuk, hogy emiatt látja többször a függvény törzsét:</p>
+
+<div class="sticky">szorzas.h</div>
+<pre   ><code class="language-c">#ifndef SZORZAS_H_INCLUDED
+#define SZORZAS_H_INCLUDED
+
+inline int szorzat(int x, int y) {
+    return x * y;
+}
+
+#endif</code></pre>
+
+<p>Tehát ezzel nem azt kérjük a fordítótól, hogy <em>inline</em>-olja a függvényt, hanem csak azt jelezzük neki, hogy ennek a függvénynek a definíciójával (törzsével) valószínű többször is fog találkozni, de ez <em>nem hiba.</em> Szándékos részünkről, hogy az optimalizáció megtörténhessen.</p>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A függvények példányosítása">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    A függvények példányosítása<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>C-ben a programozó felel azért, hogy megjelölje valamelyik fordítási egységet, tehát valamelyik <code>.c</code> fájlt, amelybe a fordító <em>bele fogja tenni a függvény szokásos, nem <em>inline</em> módon lefordított változatát.</em> Ne feledjük: a függvény <em>inline</em>-olása optimalizációs kérdés, a fordító bármikor dönthet úgy, hogy nem teszi meg! Arról nem is beszélve, hogy <em>inline</em> függvényre is hivatkozhatunk pointerrel, márpedig akkor szokásos, önálló függvényként is szerepelnie kell valahol a memóriában.</p>
+
+<p>A megjelölés az <code>extern inline</code> kulcsszavakkal történik:</p>
+
+<div class="sticky">szorzas.h</div>
+<pre   ><code class="language-c">#ifndef SZORZAS_H_INCLUDED
+#define SZORZAS_H_INCLUDED
+
+inline int szorzat(int x, int y) {
+    return x * y;
+}
+
+#endif</code></pre>
+
+<div class="sticky">szorzas.c</div>
+<pre   ><code class="language-c">#include &quot;szorzas.h&quot;
+
+extern inline int szorzat(int x, int y);</code></pre>
+
+<p>A tárgykód fájlok ilyen esetben így néznek ki:</p>
+
+<pre>
+$ nm szorzas.o
+0000000000000000 T szorzat
+
+$ nm main.o
+0000000000000000 T main
+                 U szorzat
+</pre>
+
+<p>A <code>szorzas.o</code>-ban tehát a szokásos módon szerepel a lefordított függvény. A többi helyen pedig, ahol nem <em>inline</em>-olódott, <code>U</code>, azaz <em>undefined</em> szimbólumként jelenik meg a függvény; ezt a hivatkozást majd feloldja a linker.</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Recept">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Recept<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A recept tehát:</p>
+<ul>
+    <li>Ha <em>inline</em>-olni szeretnénk a függvényt, akkor tegyük át azt törzzsel együtt a fejlécfájlba.</li>
+    <li>A fejlécfájlban tegyük elé az <code>inline</code> kulcsszót.</li>
+    <li>Valamelyik forrásfájlban – tipikusan ott, ahol eredetileg a függvény volt – kérjük meg a fordítót a függvény szokásos lefordítására az <code>extern inline</code> kulcsszavakkal.</li>
+</ul>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

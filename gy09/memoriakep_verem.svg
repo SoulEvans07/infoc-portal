@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="18cm" height="12cm" viewBox="198 77 343 225" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Background">
+    <g>
+      <rect style="fill: #7babe3; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="200" y="240" width="140" height="60" rx="0" ry="0"/>
+      <text font-size="13.5467" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="270" y="257.174">
+        <tspan x="270" y="257.174">v: struct Verem</tspan>
+        <tspan x="270" y="274.108">int db</tspan>
+        <tspan x="270" y="291.041">double *adat</tspan>
+      </text>
+    </g>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="200" y1="240" x2="200" y2="100"/>
+    <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="340" y1="240" x2="340" y2="100"/>
+    <polygon style="fill: #fdfd04; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="400,110 410,120 420,110 440,120 460,100 470,110 480,100 490,110 510,100 530,120 540,110 540,150 400,150 "/>
+    <polygon style="fill: #fdfd04; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="400,290 410,300 420,290 440,300 460,280 470,290 480,280 490,300 510,280 520,300 540,290 540,230 400,230 "/>
+    <g>
+      <rect style="fill: #fdfd04; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="400" y="150" width="140" height="80" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="470" y="169.881">
+        <tspan x="470" y="169.881">double[3]</tspan>
+        <tspan x="470" y="185.881">3.14</tspan>
+        <tspan x="470" y="201.881">2.0</tspan>
+        <tspan x="470" y="217.881">6.1</tspan>
+      </text>
+    </g>
+    <g>
+      <path style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" d="M 340 290 C 400,290 340,160 395.528,160"/>
+      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="387.764,165 397.764,160 387.764,155 "/>
+    </g>
+    <text font-size="13.5467" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="270" y="90">
+      <tspan x="270" y="90">VEREM (PROGRAM)</tspan>
+    </text>
+    <text font-size="13.5467" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="470" y="90">
+      <tspan x="470" y="90">KUPAC</tspan>
+    </text>
+  </g>
+</svg>

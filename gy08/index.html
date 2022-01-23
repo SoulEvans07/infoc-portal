@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Gyakorlat, 8. hét: rekurzió</title>
+<meta property="og:title" content="TEST InfoC :: Gyakorlat, 8. hét: rekurzió">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Rekurzív algoritmusok: rekurzió tervezése, triviális esetek és visszavezetések.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Rekurzív algoritmusok: rekurzió tervezése, triviális esetek és visszavezetések.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Gyakorlat, 8. hét: rekurzió">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Gyakorlat, 8. hét: rekurzió</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.10.26.</p>
+<p class="kivonat">Rekurzív algoritmusok: rekurzió tervezése, triviális esetek és visszavezetések.</p>
+</div>
+
+
+<h3>A rekurzióhoz</h3>
+
+<p>Rekurzív algoritmusoknál két dolgot kell meggondolnunk:</p>
+<ul>
+    <li>A triviális eseteket, amelyeknél a megoldás magától értetődik.
+        (Pl. üres sztring hossza nulla.)
+    <li>Nem triviális esetben azt, hogy hogyan tudjuk a kapott problémát
+        visszavezetni egyszerűbb problémákra.
+        (Pl. nem üres sztring hossza 1 + a sztring hossza a második
+        betűtől kezdve.)
+</ul>
+
+<p>Az előbbi a báziskritérium, az utóbbi pedig az egyszerűsítési lépés a rekurzióban, amellyel minden rekurzív függvényhívásnál a 
+báziskritérium felé haladunk. Keressük meg ezeket az alábbi problémáknál!</p>
+
+
+<p>Felkészülés a gyakorlatra:</p>
+<ul>
+    <li>A <a href="../ea05/index.html#earekurzio">rekurzióról szóló előadás</a> anyagának megértése.
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Gyors hatványozás</a>
+              <li><a href="index.html#2" class="">Járda kövezése</a>
+              <li><a href="index.html#3" class="">Permutáció</a>
+              <li><a href="index.html#4" class="">Pénzváltás</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Gyors hatványozás">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Gyors hatványozás<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A hatványozás elvégezhető annál gyorsabban is, mintha a kitevőnek megfelelő számú szorzást csinálnánk. Pl. 
+<code>a<sup>8</sup> = a<sup>4</sup>·a<sup>4</sup></code>, továbbá <code>a<sup>4</sup> = a<sup>2</sup>·a<sup>2</sup></code>, és végül
+<code>a<sup>2</sup> = a·a</code> miatt a nyolcadikra hatványozáshoz mindössze három szorzásra van szükség. A következő megfigyelést 
+tehetjük:</p>
+
+<ul>
+<li><code>a<sup>k</sup> = </code> <code style="color: gray">a<sup>k/2</sup>·a<sup>k/2</sup></code> = <code>(a·a)<sup>k/2</sup></code>, ha <code>k</code> páros, és
+<li><code>a<sup>k</sup> = a·a<sup>k-1</sup></code>, ha <code>k</code> páratlan.
+</ul>
+
+<p>Írjunk rekurzív függvényt, amely a fentiek alapján végzi el a hatványozást! Paraméterei legyenek 
+az alap és a kitevő, visszatérési értéke pedig a keresett hatvány!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A matematikában <code>a<sup>k</sup></code> formában jelölt hatványozást a programunkban egy függvénnyel implementáljuk: 
+<code>hatvany(a, k)</code>.</p>
+
+<p>Észrevehetjük, hogy a feladat szövegében felírt esetszétválasztás éppen a rekurzióban használt egyszerűsítési lépéseket adja 
+meg. Mindkét esetben haladunk a kisebb hatványkitevők felé, vagy eggyel kisebb kitevőt használva, vagy felezve azt. Így van 
+szükségük egy <code>hatvany(alap * alap, kitevo / 2)</code> vagy <code>hatvany(alap, kitevo - 1)</code> függvényhívásra.</p>
+
+<p>Még egy báziskritériumot meg kell találnunk, amiről a feladat nem beszél: minden számnak a nulladik hatványa 1.</p>
+
+<pre   ><code class="language-c">#include&lt;stdio.h&gt;
+
+double hatvany(double alap, unsigned kitevo) {
+    /* barminek a nulladik hatvanya 1 */
+    if (kitevo == 0)
+        return 1;
+
+    if (kitevo % 2 == 0)
+        /* ha paros, akkor alap negyzetre, kitevo felezve */
+        return hatvany(alap * alap, kitevo / 2);
+    else
+        /* amugy alap * alap a k-1-ediken */
+        return alap * hatvany(alap, kitevo - 1);
+}
+
+int main(void) {
+    for (int i = 0; i &lt; 16; ++i)
+        printf(&quot;%d %g\n&quot;, i, hatvany(2, i));
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Járda kövezése">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+  <a id="jardakovezese" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Járda kövezése<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<img src="jarda.svg" class="float" style="width: 6em;">
+
+<p>Hányféleképpen lehet egy adott hosszúságú járdát kikövezni 1 és 2 méter hosszúságú járdalapokkal?
+Például ha 3 méteres a járda, a lehetőségek: 1+1+1, 1+2, 2+1, tehát összesen 3.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A megoldás alapötlete a következő. Kétféle járdalapunk van (az 1 és a 2 méter hosszú), ami azt
+jelenti, hogy induláskor két lehetőségünk van: vagy egy 1 méteressel, vagy egy 2 méteressel kezdünk.
+Ha összesen 10 métert kell haladni, az első esetben már csak 9, a második esetben pedig már csak
+8 métert kell majd haladnunk.</p>
+<p>A 9 méteres és a 8 méteres szakasz kövezése is megoldható valahányféleképpen. A 10 méter hosszú
+járdához a megoldások számát a kettő összege fogja adni.</p>
+<p>A rekurzióban az egyszerűsítési lépést így ez a kódrészlet adja:</p>
+<pre   ><code class="language-c">int jarda(int hossz) {
+    /* ... */
+    return jarda(hossz - 1) + jarda(hossz - 2);
+}</code></pre>
+<p>Már csak alkalmas báziskritériumok kellenek. A függvény egyre kisebb számokkal fogja
+meghívni magát (a <code>hossz - 1</code> és a <code>hossz - 2</code>). Írjuk fel báziskritériumként
+azokat az eseteket, amelyeket már nem lehetne tovább egyszerűsíteni, mivel nulla vagy negatív hossz
+keletkezne a hívásban! Ezek:</p>
+<ul>
+    <li>1 hosszúságú járdát egyféleképpen tudunk kirakni (1 méteres lappal), illetve
+    <li>2 hosszúságú járdát pedig kétféleképpen (2 méteres és 1+1 méteres lapokkal).
+</ul>
+<p>A megoldás:</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+/**
+ * Visszaadja, hányféleképpen lehet lekövezni egy
+ * &lt;hossz&gt; méret hosszú járdát 1 és 2 méteres kövekkel.
+ */
+int jarda(int hossz) {
+    if (hossz == 1)
+        return 1;   /* 1 */
+    if (hossz == 2)
+        return 2;   /* 1+1 és 2 */
+
+    return jarda(hossz - 1) + jarda(hossz - 2);
+}
+
+int main() {
+    int h;
+    printf(&quot;Hossz?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;h);
+
+    printf(&quot;%d lehetőség.\n&quot;, jarda(h));
+}</code></pre>
+<p>A báziskritériumok meghatározásakor másképp is gondolkodhatunk. A jelenlegi megoldás nem túl általános,
+mivel ezek a báziskritériumok függenek az egyszerűsítési lépésektől is (a lapok hosszától). Helyettük vehetjük
+báziskritériumnak azokat az eseteket, amikor az egyszerűsítés ténylegesen 0 értékű, vagy akár negatív hosszhoz
+jut:</p>
+<ul>
+    <li>Ha 0 hosszúságú járdánk van, az egy (vigyázat, nem nulla!) módon kövezhető csak: úgy,
+        hogy nem csinálunk semmit.
+    <li>A fenti függvény láthatóan meghívja magát negatív hosszakra is, negatív hosszúságú
+        járda viszont nem létezhet, ezért olyankor 0 megoldás van.
+</ul>
+<p>A feladatnak ez is jó megoldása:</p>
+<pre   ><code class="language-c">int jarda(int hossz) {
+    if (hossz &lt; 0)
+        return 0;   /* lehetetlen */
+    if (hossz == 0)
+        return 1;   /* nem csinálunk semmit */
+
+    return jarda(hossz - 1) + jarda(hossz - 2);
+}</code></pre>
+<p>Ez azért is jobb, mert a lapok hosszai most csak az egyszerűsítési lépésben szerepelnek. Így akár vehetnénk
+azokat tömbből is, vagy megadhatná azt akár a felhasználó is, futási időben.</p>
+</div>
+</details>
+
+<p>Hogyan kell módosítani a programot, ha 3 egység hosszú lapunk is van?</p>
+
+<p>Hogyan, ha paraméterként kapjuk, hogy hányféle lap van? (Pl. 5 &rarr; 1, 2, 3, 4, 5 hosszú lapok vannak.)</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A lényeg: mindig összegezni kell a lehetséges megoldásokat. A báziskritériumok változatlanok, ha negatívra és nullára
+építettük őket:</p>
+
+<pre   ><code class="language-c">int jarda(int hossz, int hanyfele) {
+    if (hossz &lt; 0)
+        return 0;
+    if (hossz == 0)
+        return 1;
+    
+    int osszeg = 0;
+    for (int i = 1; i &lt;= hanyfele; ++i)
+        osszeg += jarda(hossz - i, hanyfele);
+    return osszeg;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Permutáció">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+  <a id="gyakpermutacio" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Permutáció<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írjuk ki egy tömbnek (számsornak) az összes permutációját, azaz lehetséges sorrendezését! Pl. 123 permutációi: 123, 132, 213, 231, 
+312, 321.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Az olvashatóság kedvéért az alábbi magyarázatban minden számsort egybe fogunk írni. De az 1234 alatt valójában egy négyelemű
+tömböt értünk: <code>{1, 2, 3, 4}</code>.</p>
+
+<p>Tegyük fel, hogy kezdetben a számsor 1234. Ennek a permutációi kezdődhetnek 1-gyel, 2-vel, 3-mal és 4-gyel. Az 1-gyel kezdődőek: 
+1234, 1243, 1324, … ezek végülis egy fix 1-esből, és utána a 234 számsor permutációiból épülnek fel. A 2-vel kezdődőek: 2134, 2143, 
+2314, …, vagyis a 2-es szám, és az 134 számsor permutációi. Itt van ebben a rekurzió! Az 1234 számsor permutációi a mindig számsor 
+valamely elemével kezdődnek, és utána fennmaradó tömbrészlet permutációival kell azokat kiegészíteni.</p>
+
+<p>A permutáló függvény az összes sorrend előállítását úgy valósítja meg, hogy a kapott tömb mindegyik elemét berakja az első 
+helyre (vagyis mindegyik elemet megcseréli az elsővel), és utána képezi a fennmaradó rész permutációit. Ha nincs fennmaradó rész, 
+akkor pedig kiírja az <em>addigra már összekevert</em> sztringet. Pl. a kiindulási sztring 123, akkor:</p>
+
+<ul>
+<li>először az 1[234]-eket írja ki (csere nélkül)
+<li>utána pedig cserékkel: 2[134] (i=1), 3[214] (i=2), 4[231] (i=3), és mindenhol a szögletes zárójellel jelzett részre rekurzívan hívódik.
+</ul>
+
+<p>A rekurzió itt azért is jó, mert miután visszajöttünk a fennmaradó rész permutációinak képzéséből, akkor emlékezzünk rá, hogy 
+melyik elemeket kell visszacserélni (ez lokális változó, eltárolódik a veremben).</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+/* megcsereli az adott indexu elemeket */
+void cserel(int *tomb, int a, int b) {
+    char t = tomb[a];
+    tomb[a] = tomb[b];
+    tomb[b] = t;
+}
+
+/* kiirja a tomb szamait egy sorba */
+void kiir(int *tomb, int hossz) {
+    for (int i = 0; i &lt; hossz; ++i)
+        printf(&quot;%d &quot;, tomb[i]);
+    printf(&quot;\n&quot;);
+}
+
+void permutal(int *tomb, int hossz, int start) {
+    if (start == hossz-1) {
+        /* ha mar nincs mit permutalni */
+        kiir(tomb, hossz);
+    } else {
+        /* permutaljuk a tombing hatralevo reszet, tovabba minden
+         * karaktert megcserelunk a startadikkal, es ugy is
+         * permutalunk. az elso esetet, amikor i=start lenne,
+         * kulon is lehet enni, mivel olyankor nem kell csere. */
+        permutal(tomb, hossz, start+1);
+
+        for (int i = start+1; i &lt; hossz; ++i) {
+            cserel(tomb, start, i);    /* csere */
+            permutal(tomb, hossz, start+1);
+            cserel(tomb, start, i);    /* visszacsere */
+        }
+    }
+}
+
+int main(void) {
+    int szamok[] = {1, 2, 3, 4};
+    permutal(szamok, 4, 0);
+    return 0;
+}</code></pre>
+
+<p>A fenti megoldás nem veszi figyelembe azt, ha egyforma elemek vannak a tömbben, és azokat is cseréli. Pl. az 1221 számsornak
+többször is megjelennek ugyanazon permutációi. Ehhez a cserék előtt meg kell vizsgálnunk azt, hogy a cserélendő szám 
+szerepelt-e már a cserések között. Mert ha igen, akkor azt a lépést nem kell újra elvégezni, hanem ki kell hagyni:</p>
+
+<pre   ><code class="language-c">permutal(szam, hossz, start + 1);
+
+for (int i = start + 1; i &lt; hossz; ++i) {
+    /* volt mar ez a betu? */
+    bool volt_mar = false;
+    for (int k = start; k &lt; i; ++k)
+        if (szam[k] == szam[i])
+            volt_mar = true;
+    /* akkor kihagyjuk */
+    if (volt_mar)
+        continue;
+    
+    /* amugy pedig, ahogy eddig */
+    cserel(szam, start, i);    /* csere */
+    permutal(szam, hossz, start + 1);
+    cserel(szam, start, i);    /* visszacsere */
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Pénzváltás">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Pénzváltás<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Adott egy zsák 5, 10, 20 és 50 forintos érménk. Hányféleképpen lehet ezekkel kifizetni 100 forintot?</p>
+
+<p>(A feladat nehezített változata megtalálható a <a href="../f05/index.html#feladatrekurzio">feladatgyűjteményben</a>.)</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A probléma könnyen megoldható rekurzívan. Tekintsünk pl. egy 20 forintost! Két lehetőségünk van: ha a 20 forintos része a 
+megoldásnak (vagyis adunk egy 20-ast), akkor a maradék 100-20=80 forintot még valahányféleképpen (x) ki lehet fizetni. A másik 
+lehetőség, ha azt mondjuk, hogy nem adunk 20-ast, és a 100 forint kifizetését a többi érmével oldjuk meg (y lehetőség). A megoldás 
+ezek összege: x+y.</p>
+
+<p>Így közeledünk a rekurzióban a báziskritérium felé: vagy az összeg csökken, vagy a felhasználható érmefajtákat csökkentjük. 
+Figyelembe kell még vennünk három extrém esetet. Ezek lesznek a báziskritériumok:</p>
+
+<ol>
+    <li>Ha 0 forintot kell kifizetnünk, azt egyféleképpen tehetjük:
+        nem adunk pénzt.
+    <li>Ha 0-nál többet kell fizetnünk, de nincs semmilyen fajta
+        érménk, akkor nulla lehetőség.
+    <li>Ha negatív összeget kell fizetnünk, azt sem tudjuk megtenni:
+        nulla lehetőség.
+</ol>
+
+<p>Az utóbbi feltételt az algoritmus egyszerűségéhez használjuk ki.
+Jelentése: ha 5 forintot kell kifizetni, és megpróbáljuk egy 20-assal, akkor
+még -15 forintot kellene – de ez nem megoldás.</p>
+
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int penzvalto(int mennyit, int *fajtak, int hanyadiktol) {
+    /* báziskritérium */
+    if (mennyit == 0) // 1. pont
+        return 1;
+    if (fajtak[hanyadiktol] == -1 || mennyit &lt; 0) // 2, 3. pont
+        return 0;
+
+    /* egyszerűsítés */
+    return penzvalto(mennyit-fajtak[hanyadiktol], fajtak, hanyadiktol)
+           + penzvalto(mennyit, fajtak, hanyadiktol+1);
+}
+
+int main(void) {
+    int fajtak[] = {5, 10, 20, 50, -1};
+
+    printf(&quot;Összesen: %d lehetőség\n&quot;, penzvalto(100, fajtak, 0));
+
+    return 0;
+}</code></pre>
+
+<p>Az érmék névértékeit egy tömbbe tettük, amely egy lezáró -1-et is tartalmaz (a
+római számos példákhoz hasonlóan). A függvény ezt a tömböt kapja, és egy indexet,
+hogy hányadik elemtől kell a tömböt figyelembe vegye. Az utolsó sorában ezt
+növeli, és úgy hívja meg magát – így maradnak ki a tömb eleji érmék a rekurzív
+hívásban, és így fogy el végül a tömb, amikor
+<code>fajtak[hanyadiktol]==-1</code>. Ez megoldható lenne pointer aritmetikával
+is: <code>fajtak+1</code> a tömb belsejébe mutat (a hátsó részére), és így
+fogyhat el a tömb.</p>
+
+<p>Fontos figyelembe venni, hogy itt a pénzérmék sorrendje nem számít; pl.
+10+5+5 ugyanaz a megoldása 20 forint kifizetésének, mint az 5+5+10 vagy az 5+10+5.
+Az ilyen megoldásokat egynek számolja a program, mégpedig amiatt, hogy az egyszer
+már átlépett érmét (hányadiktól+1 értékű paraméter) nem próbálja meg felhasználni többször.
+Így például nem számolja bele a 10+5+5 megoldást (ahhoz a 10-estől visszafelé kellett
+volna indulni), és az 5+10+5-öset sem.</p>
+
+</div>
+</details>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

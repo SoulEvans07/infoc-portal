@@ -1,0 +1,45 @@
+.regex label {
+    cursor: pointer;
+}
+
+.regex-input {
+    letter-spacing: 0.1em;
+    min-width: 50%;
+    box-sizing: border-box;
+}
+.columns .regex-input {
+    min-width: 100%;
+}
+.regex-result {
+    line-height: 1.4;
+}
+
+.regex-syntaxerror {
+    color: red;
+}
+
+.regex-match {
+    background: rgba(32, 32, 208, 0.15);
+    box-shadow: 0 0 0 2px #22d;
+}
+
+i.regex-icon {
+    display: inline-block;
+    width: 1.44em;
+    text-align: center;
+}
+
+i.regex-capture {
+    margin-left: 1em;
+}
+i.regex-capture:before {
+    content: '\f064';
+    color: #22d;
+}
+
+
+table.regex-crossword td, table.regex-crossword th {
+    border-width: 1px;
+    border-style: solid;
+    text-align: center !important;
+}

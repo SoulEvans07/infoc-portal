@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Mi tud a számítógép? Mi az, amire képtelen?</title>
+<meta property="og:title" content="TEST InfoC :: Mi tud a számítógép? Mi az, amire képtelen?">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Mi az a feladat, ami nem oldható meg programból? Egy írás Alan Turing cikke nyomán.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Mi az a feladat, ami nem oldható meg programból? Egy írás Alan Turing cikke nyomán.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Mi tud a számítógép? Mi az, amire képtelen?">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Mi tud a számítógép? Mi az, amire képtelen?</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.02.27.</p>
+<p class="kivonat">Mi az a feladat, ami nem oldható meg programból? Egy írás Alan Turing cikke nyomán.</p>
+</div>
+
+<p>Vannak matematikai feladványok, amelyeknek a megoldása így kezdődik: „vegyük észre, hogy.” 
+Ezek legtöbbször jóval nehezebbek azoknál, mint amelyek megoldására általános eljárás,
+<em>algoritmus</em> adható: amely algoritmusnak a lépéseit bambán végrehajtva jutunk el a 
+megoldáshoz, nem kell közben semmilyen ötlet.</p>
+
+<p>1936-ban – jóval azelőtt, hogy az első igazi számítógépeket megépítették volna – egy angol 
+matematikus, Alan Turing a képzeletbeli számítógépéről írt cikkében (On Computable Numbers, with 
+an Application to the Entscheidungsproblem). Bebizonyította, hogy minden probléma, amely 
+mechanikus lépésekkel megoldható, az megoldható az ő képzeletbeli, amúgy meglepően egyszerű 
+felépítésű gépével is. Megmutatta azt is, hogy vannak olyan problémák is, amelyek nem oldhatóak 
+meg algoritmikusan. Ez nem változott azóta. A mai számítógépek lelkük mélyén Turing-gépek, 
+képességeiket tekintve egyenértékűek a cikkben bemutatott primitív géppel. Legfeljebb annyi a 
+különbség, hogy gyorsabbak és könnyebb őket programozni.</p>
+
+<p>Ez az írás az említett cikk keletkezésének előzményeiről, és ezen keresztül a programozásról 
+mesél. A diofantoszi egyenletektől indulva eljutunk oda, hogy kitalálunk egy feladatot, amely 
+bár teljesen korrektül van specifikálva, kiderül róla, hogy nem oldható meg programmal.</p>
+
+<p class="megjegyzes">Az írást Charles Petzold: The Annotated Turing című könyve 
+inspirálta, és az első részben szereplő példák, továbbá a nyomozós hasonlat is 
+onnan származnak. Az algoritmusokkal kapcsolatos gondolatmenet a könyvet és 
+természetesen Turing cikkét követi, csak C nyelvű programokra adaptáltam azt.</p>
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Das Entscheidungsproblem</a>
+              <li><a href="index.html#2" class="">Az egész vagy a tört számok vannak többen?</a>
+              <li><a href="index.html#3" class="">Hány C program van?</a>
+              <li><a href="index.html#4" class="">A lehetetlen feladat</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Das Entscheidungsproblem">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Das Entscheidungsproblem<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Diofantosz, az ókori görög matematikus az általa kitalált <em>feladatokról</em>
+lett híres. Ezeknek a feladatoknak az érdekessége az, hogy bár sokszor 
+megoldásuk közben kevesebb egyenletünk van, mint amennyi látszólag szükséges, 
+mégis mindig megoldhatóak valamilyen trükkel. Főleg mert a megoldásokat az egész 
+számok körében keressük. Egyik feladata így hangzik:</p>
+
+<p class="bentebb">„Osszunk egy számot két köb-részre úgy, hogy a kapott köbök 
+oldalhosszainak összege egy adott szám legyen. Legyen a felosztandó szám 370, és 
+az oldalhosszak összege 10.”</p>
+
+<img class="float" src="kocka.svg" style="width: 16em;">
+
+<p>A hatványozást akkoriban még nem ismerték külön műveletként. A köb-rész alatt Diofantosz
+olyan számot ért, amely egy egész szám harmadik hatványa, vagyis egy egész
+oldalhosszúságú kocka térfogata. Tehát tudjuk, hogy az oldalhosszak összege
+<code>x+y=10</code>, a térfogatoké meg <code>x<sup>3</sup>+y<sup>3</sup>=370</code>.
+Ezek az egyenletek viszonylag egyszerűnek tűnnek, Diofantosz azonban 
+mindig csak egy változót használt. Úgy már sokkal nehezebb megoldani a feladatot.
+Hogy ezt a hiányosságot pótolni tudja valami mással, minden 
+feladatnál előállt egy egyedi ötlettel. Itt azzal, hogy a kockák oldalhosszait
+<code>5+x</code>-szel és <code>5-x</code>-szel kell jelölni, mert akkor felírható az
+<code>(5+x)<sup>3</sup>+(5-x)<sup>3</sup>=370</code> egyenlet. Ebből szerencsére a köbök kiesnek,
+és <code>x<sup>2</sup>=4</code>-hez jutunk, amiből kijön az is, hogy a kockák oldalai
+7 és 3 egység hosszúak.</p>
+
+<img class="float" src="derekszogu.svg" style="width: 8em;">
+
+<p>Egy másik, amúgy talán a legismertebb feladata így hangzik: „osszunk egy négyzetet két másik 
+négyzetre.” Vagyis hogy keressük meg az <code>x<sup>2</sup>+y<sup>2</sup>=z<sup>2</sup></code> 
+egyenlet megoldásait az egész számok körében. Ennek is van geometriai értelme: Pitagorasz tétele 
+miatt ezek azok a derékszögű háromszögek, amelyeknek mindhárom oldala egész szám hosszúságú. Itt 
+végtelen sok megoldás lehet, mert ha a (3;4;5) számhármas megoldás, akkor a (6;8;10) is. 
+Ugyanaz a háromszög duplájára nagyítva. Egyébként végtelen számú, egészen más 
+oldalarányú megoldások is vannak.</p>
+
+<p>A sokféle probléma megoldására Diofantosz mind egyedi módszert adott. Felmerült a 
+matematikusokban a kérdés, hogy vajon létezik-e általános módszer ezeknek az egyenleteknek 
+megoldására. Ez annyira fontosnak tűnt, hogy egy német matematikus, David Hilbert az 1900-as 
+évek elején felvette ezt a problémát a matematika tíz legfontosabb, megoldatlan feladatát 
+tartalmazó listára. Az eredeti, német szöveg eleje így hangzott: „Entscheidung der Lösbarkeit 
+einer diophantischen Gleichung.” Emiatt szinte mindenki <em>Entscheidungsproblem</em> néven 
+említi ezt azóta is. A szöveg magyarul:</p>
+
+<p class="bentebb">Egy diofantoszi egyenlet megoldhatóságának eldöntése. Adott egy diofantoszi 
+egyenlet, tetszőlegesen sok ismeretlennel és racionális együtthatókkal. Adjunk meg egy eljárást, 
+amellyel eldönthető véges számú lépésben az, hogy az egyenlet megoldható-e a racionális számok 
+körében.</p>
+
+<p>Mondhatjuk, hogy ezzel nem kért olyan sokat: nem olyan módszert akart Hilbert, amellyel a 
+megoldások meghatározhatóak. Csupán egy olyat, amivel eldönthető, hogy egyáltalán létezik-e 
+megoldás vagy nem. Viszont a kérés nem is kevés: a kidolgozott módszernek általánosnak kell 
+lennie, és véges számú lépésben, mechanikusan végrehajthatónak kell lennie. Ma már úgy fogalmaznánk 
+ezt meg, hogy Hilbert egy <em>algoritmust</em> várt. Tehát a kérdés ez: létezik-e olyan 
+program, amely bármelyik diofantoszi egyenletet ki tudja elemezni megoldhatóság szempontjából. 
+<code>scanf(</code>egyenletek együtthatói<code>)</code>,
+<code>printf(</code>van-e megoldás<code>)</code>.</p>
+
+<p>Azóta már tudjuk, hogy nem létezik. A kérdést csak 1700 évvel Diofantosz művének megjelenése 
+után sikerült megoldania Alan Turingnek és Alonzo Churchnek. Eltérő gondolatmenettel, de 
+mindketten bebizonyították azt, hogy nem létezhet ilyen program, és hogy még van egy csomó másik 
+megoldhatatlan feladat is. A programozás szempontjából Turing megoldási módszere igen nagy 
+jelentőségű, mert képzeletbeli számítógépének leírásával megalapozta a programozást, a 
+programozói gondolkodást is. Furcsának is tűnik visszatekintve, hogy ez gondolatmenetének csak egy 
+mellékterméke volt.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az egész vagy a tört számok vannak többen?">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Az egész vagy a tört számok vannak többen?<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A bevezetőben említett lehetetlen feladat specifikálása előtt még elmélkedjünk kicsit a 
+számok természetén!</p>
+
+<p>Tudjuk azt, hogy a számok végtelen sokan vannak. Matematikailag a végtelen 
+nehezen kezelhető fogalom. Nemcsak azért, mert a végtelen egy tulajdonság, nem 
+pedig egy szám; hanem azért is, mert nem csak egyféle végtelen létezik. A pozitív 
+egész számokra például azt szoktuk mondani, hogy <em>megszámlálhatóan végtelen</em>
+sokan vannak. Azért végtelen sokan, mert bármelyiknél tudunk mondani egy 
+eggyel nagyobbat, és azért megszámlálhatóan, mert tudunk írni egy olyan 
+(képzeletbeli) listát, amelyen az összes pozitív egész szám szerepel.</p>
+
+<p>Ennek a listának az elemeit sorba tudjuk állítani és be tudjuk számozni. 
+Minden elem annyiadik sorszámot kapja, mint az értéke. Bár úgy tűnik, hogy ehhez 
+hozzávéve a nullát és a negatív számokat, egy sokkal hosszabb listát kell 
+kapjunk, ez nincs így. Ha indulunk a nullától, és utána felváltva veszünk 
+egy-egy pozitív és negatív számot, akkor a hiánytalan lista ebben az esetben is 
+felírható. Mivel ezek alapján egy oda-vissza megfeleltetést tudunk adni egy 
+pozitív egész szám és egy hozzá tartozó (nem feltétlenül pozitív) egész szám 
+között, kénytelenek vagyunk kijelenteni: a pozitív és negatív számok együtt
+„nincsenek többen”, mint a csak pozitív számok. Ugyanannyian vannak.</p>
+
+<div class="columns">
+<div>
+<table>
+    <thead>
+        <tr><th>sorszám<th>elem
+    </thead>
+    <tr><th>1.<td>1
+    <tr><th>2.<td>2
+    <tr><th>3.<td>3
+    <tr><th>4.<td>4
+    <tr><th>5.<td>5
+    <tr><th>&hellip;<td>&hellip;
+</table>
+</div>
+<div>
+<table>
+    <thead>
+        <tr><th>sorszám<th>elem
+    </thead>
+    <tr><th>1.<td>0
+    <tr><th>2.<td>1
+    <tr><th>3.<td>&minus;1
+    <tr><th>4.<td>2
+    <tr><th>5.<td>&minus;2
+    <tr><th>&hellip;<td>&hellip;
+</table>
+</div>
+</div>
+
+<img class="float" src="racionalis.svg" style="width: 18em;">
+
+<p>Elsőre azt hihetnénk, hogy <em>racionális törtből</em> sokkal többnek kell lennie, mégpedig 
+azért, mert bármely két szomszédos egész szám között végtelen sok törtet találunk. 0 és 1 között 
+például ott van az 1/2, 1/3, 1/4 stb. Ha minden egymás melletti számpár közé végtelen sok tört 
+kerül, akkor végtelenszer végtelen számú törtnek kell lennie. De ez sincs így! A racionális 
+törtek is megszámlálhatóan végtelen sokan vannak. Ha felírjuk őket egy táblázatban, amelyben az 
+oszlopok a számlálót, a sorok a nevezőt határozzák meg, és utána átlósan, oda-vissza megyünk 
+végig ezen, akkor meg tudjuk számozni az elemeket, és semelyik nem marad ki.</p>
+
+<p>Na jó. Akkor a valós számok aztán már tényleg többen vannak, mert azok nem diszkrét 
+helyeken vannak a számegyenesen, hanem folytonosan! Bár mintha ez igaz lehetne a racionális 
+számokra is, mert a számegyenes egy pontját tetszőleges pontossággal meg tudjuk közelíteni 
+racionális törttel is. Bizonyítsuk hát be a valósakról is, hogy 
+megszámlálhatóak!</p>
+
+<p>Fog menni? Nem. Ebbe most beletörik a bicskánk. Ez végülis jó hír, mert legalább kiderül, 
+hogy ez esetben helyes az intuíciónk. Meg lehet mutatni ugyanis, hogy nem lehet listát 
+csinálni a valós számokból. Ez egy <em>indirekt bizonyítás</em> lesz (reductio ad absurdum). Az 
+ilyennek a lényege az, hogy feltételezünk valamit, amit aztán tényként kezelünk. Kiindulunk 
+belőle egy levezetéssel, amely közben egyszer csak egy ellentmondáshoz jutunk. Olyan ez, mint 
+amikor egy nyomozó a gyanúsítottjától alibit kér. Megkérdezi, hogy hol volt a bűntény idején. Ha 
+bizonyítani tudja, hogy máshol, akkor ez ellentmondásban lesz azzal a feltételezéssel, hogy ő 
+követte el a bűntényt.</p>
+
+<p>Kövessük Georg Cantor, a német matematikus gondolatmenetét! Mit akarunk bebizonyítani? Hogy 
+nem lehet a valós számokból listát csinálni. Akkor tételezzük fel ennek az ellenkezőjét: azt, 
+hogy mégis csak lehet. A feltételezett listán szerepelnek az egész, a racionális és az 
+irracionális számok is. Rajta van a 2, rajta van az 1/7 és a √<span class= "felulhuzott">2</span>
+is, meg a &pi; is. Írjuk le ezeket tizedes törtként is a táblázatunk harmadik oszlopában!</p>
+
+<table>
+    <thead>
+        <tr><th>sorszám<th>név<th>tizedes
+    </thead>
+        <tr><th>1 (a)<td>2 egész<td>2,<strong>0</strong>0000000000000000000&hellip;
+        <tr><th>2 (b)<td>1/7<td>0,1<strong>4</strong>285714285714285714&hellip;
+        <tr><th>3 (c)<td>√<span class="felulhuzott">2</span><td>1,41<strong>4</strong>21356237309504880&hellip;
+        <tr><th>4 (d)<td>&pi;<td>3,141<strong>5</strong>9265358979323844&hellip;
+        <tr><th>5 (e)<td>egyre több egyes<td>0,1011<strong>0</strong>111011110111110&hellip;
+        <tr><th>&hellip;<td>&hellip;<td>&hellip;
+</table>
+
+<p>Ezek után pedig tekintsük azt a 0 és 1 közötti számot, amelyet a következőképpen kapunk. A 
+tizedesjegyeinek első számjegyének azt a számjegyet választjuk, ami a listán szereplő első szám 
+tizedesvessző utáni első tizedesjegye (<code>a<sub>1</sub></code>), de megnöveljük azt eggyel. 
+Ha ott 9 volt, akkor pedig 0-t veszünk helyette. A századok helyére a második szám második 
+jegyét (<code>b<sub>2</sub></code> plusz egy). A harmadik helyre a harmadik számjegyét,
+<code>c<sub>3</sub></code>-at növelve eggyel, és így tovább. Átlósan haladva a fenti táblázatban, és 
+minden jegyet növelve, ezt kapjuk: 0,15561&hellip;, és folyatódik valahogyan.
+
+<p>Namármost, a helyzet a kapott a számmal az, hogy nincs rajta a listánkon. Pedig azt mondtuk, 
+azon minden valós szám rajta van! Hogyhogy nincs rajta? Úgy, hogy ez nem lehet ugyanaz, mint a 
+lista első száma: attól eltér a tizedesvessző utáni első számjegyben. Nem lehet a második sem, 
+mert attól meg biztosan eltér a másodikban. Nem lehet a harmadik sem, és semelyik sem, mert az 
+n-edik elemtől mindig eltér az n-edik számjegyben. A nagy műgonddal összeállított listánk 
+hiányos! A valós számok ellenállnak a felsorolási kísérletünknek: <em>megszámlálhatatlanul 
+végtelen</em> sokan vannak.</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Hány C program van?">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Hány C program van?<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Programozzunk! A számokat megvizsgálva felmerülhet a kérdés, hogy vajon mi a 
+helyzet a C programokkal, azok hányan vannak. Azt tudjuk, hogy végtelen sokan 
+kell lenniük, mert ha egy forráskódba beírunk egy kommentet, akkor az egyből egy 
+másik forráskód lesz. Már egyetlen feladatra végtelen sok megoldás van, hát még 
+többre. Az igazi kérdés az, hogy vajon megszámlálhatóan vagy megszámlálhatatlanul 
+végtelen sokan vannak.</p>
+
+<p>A választ erre nagyon könnyű megadni. A C forráskódok fix, véges méretű jelkészletből álló 
+szövegek: lehetnek bennük kisbetűk, nagybetűk, számok, néhány írásjel (operátorok, pontosvessző 
+stb.) és szóköz jellegű karakterek (szóköz, tabulátor, újsor). Ha ezeket a jeleket, karaktereket 
+megszámozzuk, ahogyan a számítógépen amúgy is meg szoktuk számozni, akkor az ezekből álló 
+szövegeket növekvő sorba állíthatjuk. A rövidebbektől indulunk a hosszabbak felé; ha egyforma 
+hosszúak, akkor pedig amelyik előrébb van az „ábécében”, az kerül előre. Ahogyan az egész 
+számoknál is.</p>
+
+<p>A szövegek valahogy így néznek ki: a, b, c, &hellip; 0, 1, &hellip; +, #, 
+&hellip; aa, ab, ac &hellip; a+, a# &hellip; és így tovább. Ezekből aztán ki 
+tudjuk választani a helyes C programokat. Például úgy, hogy lefordítjuk őket. Ha 
+a fordító nem jelez szintaktikai hibát, akkor az egy szintaktikailag helyes 
+program. Ezeket tesszük a listára. Az első ilyen, amit meg fogunk így találni, az 
+a bal oldalon látható. Egy nagyon rövid program, amelyik már ki is ír valamit, a 
+jobb oldalon.</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">
+
+main(){}
+
+
+</code></pre>
+<div class="kozep">a legrövidebb C program</div>
+</div>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf(&quot;0&quot;);
+    return 0;
+}</code></pre>
+<div class="kozep">kiírja a nullát</div>
+</div>
+</div>
+
+
+<p>A fenti programok véges ideig futnak, azaz megállnak valamikor. Elképzelhető olyan is, amelyik sosem 
+áll le, és olyan is, amelyiknek a kimenete végtelen hosszú. A végtelen ideig futó programokat 
+nem szoktuk szeretni, de ha az a feladatunk, hogy írjuk ki az 1/7 tört tizedesjegyeit, akkor 
+ilyet kell írnunk. Ugyanilyen végtelen hosszú kimenetű program lehetne az, ami az első gyakorlat 
+utolsó feladatában is szerepelt, és a √<span class="felulhuzott">2</span> tizedesjegyeit 
+számolja ki.</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    for (;;) {  /* forever */ 
+
+    }
+    return 0;
+}</code></pre>
+<div class="kozep">végtelen ideig nem csinál semmit</div>
+
+</div>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf(&quot;0.&quot;);
+    for (;;)
+        printf(&quot;142857&quot;);
+    return 0;
+}</code></pre>
+<div class="kozep">„kiszámolja” az 1/7 értékét</div>
+</div>
+</div>
+
+<p>A lényeg tehát: látjuk azt, hogy a C programok egy listában felsorolhatók. Létezik első, második,
+harmadik, akárhányadik (szintaktikailag helyes) C program. Ez azt jelenti, hogy
+ezek is <em>megszámlálhatóan végtelen sokan</em> vannak.</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A lehetetlen feladat">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    A lehetetlen feladat<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A programok megírása előtt mindig specifikáljuk azt, hogy a programnak mit kell csinálnia. Ez 
+egyszerűen annyit jelent, hogy megadjuk, mi kell legyen a program kimenete. Lássunk most egy 
+furcsa, de mégis teljesen korrekt specifikációt.</p>
+
+<p>Írjunk egy olyan programot, amely végtelen sok karaktert ír ki a kimenetére, 
+mégpedig a következőképpen. Az első karakter legyen az előbb említett lista első 
+programja kimenetének első karaktere. A második pedig a második programé, a 
+harmadik a harmadiké és így tovább. Vagyis használjuk ugyanazt az átlós módszert, 
+amit a valós számoknál Cantor: legyen az új programunk kimenetének n-edik 
+karaktere a lista n-edik programja kimenetének n-edik karaktere. Hogy ez 
+működjön, ahhoz persze az is kell, hogy a listában csak olyan programok 
+szerepeljenek, amiknek mindig legalább a várt számú karakterből áll a kimenete. 
+Dobjuk el ezért a listából a véges ideig futó, vagy véges hosszú kimenetet 
+generáló programokat, és foglalkozzunk csak azokkal, amelyek végtelen hosszú 
+kimenetet generálnak.</p>
+
+<p>Az eljárás tehát a következő. Generáljuk sorban az egyre hosszabb szövegeket. Kiválasztjuk 
+ezek közül a szintaktikailag helyes C programokat. A szintaktikailag helyesek közül kiválasztjuk 
+azokat, amelyek végtelen ideig futnak, és végtelen hosszú kimenetet generálnak. Nekünk most csak 
+ezek kellenek. Minden ilyen programot lefuttatunk, amíg meg nem adja az n-edik karaktert, utána 
+pedig lelőjük. A kimenetéből kivesszük csak ezt az n-edik karaktert (a legutolsót, amit kíirt, mert pont 
+utána megállítottuk). Legyen ennek a programnak a neve „átlós karakterek”!
+A működése az alábbi pszeudokóddal adható meg.</p>
+
+<pre>
+PROGRAM: átlós karakterek
+
+    kód := " "
+    n := 0
+
+    CIKLUS örökké
+        kód := következő_szöveg(kód)
+        CIKLUS AMÍG nem helyes_e(kód) VAGY nem végtelen(kód)
+            kód := következő_szöveg(kód)
+        CIKLUS VÉGE
+
+        n := n+1
+        c := kontrollált_futtatás(kód, n)
+        KIÍR: c
+    CIKLUS VÉGE
+
+PROGRAM VÉGE
+</pre>
+
+<img class="float" src="lehetetlen.svg" style="width: 9.5em;">
+
+<p>Az egyre hosszabb szövegek generálása egyszerű feladat, mintha csak az egyre nagyobb számokat 
+kellene felsorolni. A szövegek ellenőrzését rábízzuk egy C fordítóra. Ilyet már láttunk, tudjuk, 
+hogy ez megoldható. Ha a fordítóprogram le tudja fordítani, akkor az a program szintaktikailag 
+helyes. A kontrollált futtatás is könnyedén megoldható, ha a szabványos <code>printf()</code>-et 
+kicsit megbuheráljuk: a mi változatunk a kiírás mellett számolja azt is, hogy hány karaktert írt 
+már ki, és ha megvan az n-edik, akkor megszakítja a program futását.</p>
+
+<p>Tulajdonképp három szűrést teszünk egymás után. A középső szűrőről, arról az 
+alprogramról, amely ellenőrzi egy C programnál, hogy végtelen hosszú kimenetet 
+generál-e, nem tudunk semmit. Tételezzük fel ezért, hogy van egy olyan algoritmus, 
+amely képes ilyesmire: megkapja egy C program forráskódját, és kielemezve azt 
+megmondja, hogy a program, nevezzük így: <em>megfelelő-e.</em> Sajnos ez nem megy 
+csak úgy, hogy lefuttatjuk a programot, és majd meglátjuk közben. Ugyanis ha egy 
+program már kiírt egymillió karaktert, az még nem jelenti azt, hogy nem fog 
+befejeződni vagy elnémulni később. Szóval itt valami bonyolultabb eljárásról van 
+szó. Mindenesetre tegyük fel, hogy van egy ilyen.</p>
+
+<p>Nézzük meg, hogy a fenti, pszeudokóddal adott „átlós karakterek” program eleget tesz-e a 
+megfelelőségi feltételnek. Az előállított C programszövegek szintaktikai ellenőrzése lefut véges 
+időn belül, ezért az nem fogja megakasztani a működést. Kiszűrjük benne azokat a programokat, 
+amelyek végtelen hosszú kimenetet generálnak. Erre szolgál a feltételezett algoritmus, amelyről 
+azt is feltételezzük, hogy véges időn belül képes elemezni a programokat. Ez kiszűri azokat a 
+programokat, amelyek beragadnának, vagyis amelyeknél hiába várnánk a valahányadik karakterre. A 
+szűrés után megmaradó programok futtatása is véges ideig tart, hiszen bár végtelen sok karaktert 
+írnak ki, egy adott számú kiírás után megállítjuk őket. Kijelenthetjük ezért, hogy a fenti 
+pszeudokód is egy <em>megfelelő</em> program, mert egyre hosszabb C forráskódokból végtelen sok 
+van, és mindig lesz egy újabb, amit elindíthat.</p>
+
+<p>A probléma csak az, hogy logikusan ki tudjuk következtetni azt is, hogy <em>nem 
+megfelelő.</em> Miért? Azért, mert ha ez is egy C program, akkor valahol ennek is kell 
+szerepelnie az összes C program listájában. (Ha nem C-ben íródott, akkor pedig van egy vele 
+ekvivalens, ugyanilyen működésű, C nyelvű változat.) Sokára ugyan, de előbb-utóbb meg fogja 
+találni a saját forráskódját. Legyen ennek a sorszáma N. Ez helyes szintaktikailag, továbbá a 
+„végtelen” nevű algoritmusunk azt fogja mondani rá, hogy a program megfelelő (az előző 
+bekezdésben következtettük ki, hogy az, tehát ez kell legyen a válasz). A program lefordítódik, 
+és elindul. Teker, teker, teker, megkeresi az első helyes és megfelelő programszöveget, 
+lefuttatja azt a programot, és kitalálja az első karaktert. Aztán kitalálja a másodikat, a 
+harmadikat stb. De addig kell futnia, amíg meg nem mondja az N-ediket. Szóval végül eljut az 
+N-edik sorszámú programhoz, ami megint saját maga. Ezért ő is csinál egy új példányt magából, 
+amelyik immár a harmadik iker, és amelyik kezdi elölről az egészet.</p>
+
+<img src="atlos.svg" style="width: 42em;" class="kozep">
+
+<p>Itt aztán beragad a folyamat, és soha nem fog tudni túljutni ezen a karakteren. Az első 
+program nem kapja meg az N-edik karaktert, mert arra vár, hogy a második előállítsa azt. A 
+második nem kapja meg, mert a harmadikra vár, és így tovább. Mindegyik ugyanazért képtelen 
+eljutni az N-edikig, amiért már a legelső is képtelen volt rá. Kiderül, hogy a programunk 
+<em>nem megfelelő:</em> nem képes végtelen hosszú kimenetet generálni.</p>
+
+<p>Felmerülhet ötletként, 
+hogy az N-edik programot egyszerűen hagyjuk ki a listáról. Vagy hogy úgy írjuk meg a programot, 
+hogy a saját maga kódját ismerje fel és hagyja ki. De láttuk, a legegyszerűbb feladat is 
+végtelen sokféleképpen megoldható. A program ki kellene hagyja a saját maga kódján kívül az 
+összes többi olyan változatot is, ami saját magával ekvivalens.</p>
+
+<p>Tehát van egy programunk, amiről be tudjuk bizonyítani, hogy végtelen hosszú kimenetet gyárt 
+(megfelelő). Be tudjuk azt is róla bizonyítani, hogy mégsem, mert egy bizonyos számú karakter után elakad 
+(nem megfelelő). Ezek egymásnak ellentmondanak! Hol a hiba?! Ott, hogy feltételeztük egy 
+olyan algoritmusnak a létezését, amelyik egy forráskód elemzésével, annak lefuttatása nélkül meg 
+tudja mondani, hogy végtelen kimenetet generál-e, vagy nem. Ha ilyet feltételezünk, 
+ellentmondásra jutunk. Ilyen algoritmus egyszerűen <em>nem létezhet.</em> Képtelenség megírni 
+ezt a programot.</p>
+
+<p>Ugyanígy lehetetlen azt is megmondani általában, hogy ki fog-e egy program valaha írni egy 
+bizonyos betűt, vagy nem. Azt is lehetetlen megmondani egy programkódról általánosságban, hogy 
+le fog-e állni valaha az általa vezérelt folyamat, vagy nem. Hasonló okok miatt lehetlen 
+általános módszert adni a diofantoszi egyenletek megoldására is. (Ennek bizonyításával 
+végződik Turing cikke.) Olyan programot sem lehet írni, amely kitalál egy adott specifikációt 
+megvalósító algoritmust. A programok soha nem fogják tudni helyettesíteni a programozókat, sőt 
+arra is örökké képtelenek lesznek, hogy megtalálják azokat a hibákat, amelyeket elkövetnek 
+algoritmizálás közben. Miért? Mert olyan algoritmust sem lehet csinálni, amely egy tetszőleges 
+programról megmondja, helyes-e szemantikailag, vagy nem.</p>
+
+<p>Fellélegezhetünk: a programozóknak a világ végezetéig lesz munkája!</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Labor, 4. hét: struktúrák és függvények</title>
+<meta property="og:title" content="TEST InfoC :: Labor, 4. hét: struktúrák és függvények">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Struktúrák és függvények kezelése. Néhány vezérlési szerkezet.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Struktúrák és függvények kezelése. Néhány vezérlési szerkezet.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Labor, 4. hét: struktúrák és függvények">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Labor, 4. hét: struktúrák és függvények</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Pohl László, Czirkos Zoltán · <i class="ido"></i> 2019.09.30.</p>
+<p class="kivonat">Struktúrák és függvények kezelése. Néhány vezérlési szerkezet.</p>
+</div>
+
+
+<p>Felkészülés a laborra:</p>
+<ul>
+    <li>A <a href="../ea03/index.html#easwitch">switch szerkezet</a> megértése.
+    <li>A <a href="../ea03/index.html#eastrukturak">struktúrákról tanultak</a> átismétlése.
+    <li>A <a href="../ea03/index.html#eafunkcionalis">függvényekről tanultak</a> átismétlése.
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Tömbök – frissítő</a>
+              <li><a href="index.html#2" class="">Függvények – alapok</a>
+              <li><a href="index.html#3" class="">Madárnyelv</a>
+              <li><a href="index.html#4" class="">Összetett adatszerkezet</a>
+              <li><a href="index.html#5" class="">Menüvezérelt program</a>
+              <li><a href="index.html#6" class="">További feladatok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Tömbök – frissítő">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="negativakindexei" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Tömbök – frissítő<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Adott egy valós számokat tartalmazó tömb, benne vegyesen mindenféle előjelű számokkal.</p>
+
+<p>Írj egy olyan programot, amelyik kilistázza a tömböt az elemek indexeivel! (Emlékezz
+vissza, ezt a feladatot egyszer már megoldottad laboron.) Valahogy így:</p>
+
+<pre class="screenshot">
+Összesen 10 szám van.
+[0]=2.5 [1]=-69 [2]=5.4 [3]=-8 [4]=-7.7 [5]=6 [6]=2.9 [7]=-10 [8]=-3 [9]=9.8 
+</pre>
+
+<p>A következő lépés kigyűjteni egy másik tömbbe a negatív tömbelemek <em>indexeit.</em>
+Listázd ki ezeket az indexeket is!</p>
+
+<pre class="screenshot">
+Ebből 5 szám negatív.
+Indexeik: 1 3 4 7 8
+</pre>
+
+<p>Ha ez is megvan, egy olyan programrészt kell írnod, amelyik az indexek ismeretében kiírja, hogy mik voltak a
+negatív számok. Fontos, hogy ne keresd meg újra a negatív számokat! Elvégre is, ha az indexeik megvannak,
+abból már lehet tudni, melyek voltak azok. A végleges eredmény valami ilyesmi legyen:</p>
+
+<pre class="screenshot">
+Összesen 10 szám van.
+[0]=2.5 [1]=-69 [2]=5.4 [3]=-8 [4]=-7.7 [5]=6 [6]=2.9 [7]=-10 [8]=-3 [9]=9.8 
+
+Ebből 5 szám negatív.
+[1]=-69 [3]=-8 [4]=-7.7 [7]=-10 [8]=-3 
+</pre>
+
+<p>Rajzolj ábrát, amely a tömböket, a tömbelemekben tárolt számokat, és az azok közötti
+összefüggéseket ábrázolja! Hány elemű kell legyen az a tömb, amelyik az indexeket tárolja?
+Honnan fogja tudni a negatív elemeket kiíró programrész, hogy hány negatív elem volt?</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Az adatszerkezetünk az alábbi:</p>
+
+<img src="negativak_indexei.svg" class="kozep" style="width: 32em;">
+
+<p>A <code>szamok[]</code> tömb tartalmazza a vizsgálandó valós számokat. Fölötte a tömb indexei láthatóak. A
+<code>neg_idx[]</code> tömb az, amelybe a negatív számok indexei kerültek. Hasonlítsuk össze a benne tárolt
+számokat a fent látható indexekkel! Látszik, hogy a kékkel jelölt elemek sorszámai kerültek az alsó tömbbe.</p>
+
+<p>A <code>neg_idx[]</code> tömb önmagában nem túl hasznos, a benne lévő indexek nem mondanak semmit. A
+<code>szamok[]</code> tömbbel együtt azonban az indexeknek jelentése van: minden index <em>hivatkozik</em> egy
+negatív számra a fenti tömbből. Az alsó tömb mondanivalója tehát: „a felső tömb 1., 3., 4., 7. és 8. indexű
+eleme kisebb nullánál”. Valóban, <code>szamok[1]</code>, <code>szamok[3]</code>, <code>szamok[4]</code>,
+<code>szamok[7]</code> és <code>szamok[8]</code> mind negatívak. Ezek pont a kék elemek.</p>
+
+<p>Az indexeket tároló tömb méretét felülről tudjuk becsülni: legfeljebb annyi index lesz benne, ahány szám az
+eredeti tömbben volt. Ilyen akkor fordulhat elő, ha az eredeti csak negatív számokat tartalmazott. Miközben
+vizsgáljuk az eredeti tömböt, szükség van egy számlálóra. Ez a számláló fogja tárolni azt, hogy hány negatívat
+találtunk. Ugyanezt a kiválogatás közben indexelésre is használhatjuk, ahogyan azt eddig is láttuk hasonló
+algoritmusoknál.</p>
+
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+
+int main(void) {
+    double szamok[10] = { 2.5, -69, 5.4, -8, -7.7, 6, 2.9, -10, -3, 9.8 };
+
+    /* Az eredeti tömb kiírása */
+    printf(&quot;Összesen %d szám van.\n&quot;, 10);
+    for (int i = 0; i &lt; 10; ++i)
+        printf(&quot;[%d]=%g &quot;, i, szamok[i]);   // 1
+    printf(&quot;\n\n&quot;);
+
+    /* Negatívak indexeinek kigyűjtése */
+    int neg_idx[10];
+    int neg_db = 0;
+    for (int i = 0; i &lt; 10; ++i) {
+        if (szamok[i] &lt; 0) {
+            neg_idx[neg_db] = i;
+            ++neg_db;
+        }
+    }
+
+    /* Negatívak kiírása */
+    printf(&quot;Ebből %d szám negatív.\n&quot;, neg_db);
+    for (int i = 0; i &lt; neg_db; ++i)
+        printf(&quot;[%d]=%g &quot;, neg_idx[i], szamok[neg_idx[i]]);   // 2
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre>
+
+<p>Érdemes összehasonlítani az 1-es és 2-es jelű sorokat. Mindkettő arra hivatott, hogy kiírjon egy tömbindexet
+és a tömbbeli elemet a program kimenetére. De míg az első esetben a teljes tömböt kiírjuk, a másodikban már
+csak a negatív számokat. Ilyenkor a kiírandó indexet (sorszámot) is a <code>neg_idx[]</code> tömbből vesszük,
+és a <code>szamok[]</code> tömböt is olyan sorszámmal indexeljük meg, amelyet a <code>neg_idx[]</code> tömbből
+vettünk ki.</p>
+
+<p>Fontos, hogy ezeken a pontokon nincs mit keresgélni a tömbökben. A <code>neg_idx[i]</code> kifejezéssel megkapjuk
+a szükséges indexet; ezek után a <code>szamok[]</code> tömbön <em>nem futtatunk semmiféle ciklust,</em> hanem csak
+megindexeljük és kész.</p>
+
+</div>
+</details>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Függvények – alapok">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Függvények – alapok<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írj függvényeket, amelyek valós számot vesznek át, és visszatérnek az:</p>
+<ul>
+    <li><code>kob()</code> – harmadik hatványával,
+    <li><code>abszolut()</code> – abszolút értékével (van <code>fabs()</code> függvény, de most ne használd)!
+</ul>
+<p>Írj programot, amelyik a = &minus;1-től +1-ig, tizedenként lépve, kiírja egymás mellé <code>a</code>, <code>a<sup>3</sup></code>, <code>|a|</code> és <code>sin(a)</code> értékét,
+mindig négy tizedesjegy pontossággal!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+double kob(double x) {
+    return x*x*x;
+    /* vagy: return pow(x, 3); */
+}
+
+double abszolut(double x) {
+    if (x &lt; 0)
+        return -x;
+    else
+        return x;
+    /* vagy: return x &lt; 0 ? -x : x; */
+}
+
+int main(void) {
+    for (double a = -1; a &lt;= +1; a += 0.1)
+        printf(&quot;%10.4f %10.4f %10.4f %10.4f\n&quot;, a, kob(a), abszolut(a), sin(a));
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+<blockquote>
+<h3>Hasonló feladatok</h3>
+
+<p>Ha ez a feladat nehezen ment, megoldhatsz pár 
+<a href="../f03/index.html#feladatfv">hasonló feladatot a példatárból</a>, 
+mielőtt a következő feladatra rátérsz.</p>
+
+<p>Vigyázz, a laborfeladatokat erősen ajánlott az utolsó feladatig megoldani, hogy a jövő hétre felkészült legyél. Ha nem sikerül, fejezd be őket otthon!</p>
+</blockquote>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Madárnyelv">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Madárnyelv<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Adott az alábbi program, amely madárnyelven (mavadávárnyevelveven) írja ki a beírt szöveget.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    char c;
+    while (scanf(&quot;%c&quot;, &amp;c) != EOF) {
+        if (c=='a' || c=='e' || c=='i' || c=='o' || c=='u')
+            printf(&quot;%cv%c&quot;, c, c);
+        else
+            printf(&quot;%c&quot;, c);
+    }
+
+    return 0;
+}</code></pre>
+
+<p>Írj függvényt, amelyik megmondja egy betűről, hogy magánhangzó-e! Alakítsd át úgy
+a programot, hogy a megírt függvényt használod a <code>main()</code>-ben!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+/* Igaz ertekkel ter vissza, ha a parametere egy maganhangzo. */
+bool maganhangzo(char c) {
+    return c=='a' || c=='e' || c=='i' || c=='o' || c=='u';
+}
+
+int main(void) {
+    char c;
+    while (scanf(&quot;%c&quot;, &amp;c) != EOF)
+        if (maganhangzo(c))
+            printf(&quot;%cv%c&quot;, c, c);
+        else
+            printf(&quot;%c&quot;, c);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+<p>Hogyan lehetne megoldani azt, hogy a nagybetűvel kezdődő szavakat is helyesen kezelje a program? Pl. az „Alma” szóra azt kell
+kiírnia, hogy „Av<u>a</u>lmav<u>a</u>”. Ehhez fel kell tudnia ismerni a nagybetűvel írt magánhangzókat is. Kiíráskor a
+<code>v</code> betű előtt az eredeti karaktert kell kiírni, utána pedig a kisbetűsítettet. Használhatod a meglévő
+<code>maganhangzo()</code> függvényt is, csak a beolvasott karaktert kisbetűsítve kell odaadnod neki.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Jól látszik a megoldásban a fenti magyarázat: a <code>maganhangzo</code> függvénynek a kisbetűsített
+karaktert adjuk: <code>maganhangzo(tolower(c))</code>. A kiírásnál az első karakter az eredeti: <code>c</code>,
+a második a kisbetűsített: <code>tolower(c)</code>. Használható a beépített <code>tolower()</code> függvény is
+(<code>#include &lt;ctype.h&gt;</code>), vagy egy saját változat.</p>
+
+<pre   ><code class="language-c">while (scanf(&quot;%c&quot;, &amp;c)==1)
+    if (maganhangzo(tolower(c)))
+        printf(&quot;%cv%c&quot;, c, tolower(c));
+    else
+        printf(&quot;%c&quot;, c);</code></pre>
+
+</div>
+</details>
+
+<blockquote>
+<h3>Hasonló feladatok</h3>
+
+<p>Ha ez a feladat nehezen ment, megoldhatsz pár 
+<a href="../f03/index.html#feladatfvtopdown">hasonló feladatot a példatárból</a>, 
+mielőtt a következő feladatra rátérsz.</p>
+
+<p>Vigyázz, a laborfeladatokat erősen ajánlott az utolsó feladatig megoldani, hogy a jövő hétre felkészült legyél. Ha nem sikerül, fejezd be őket otthon!</p>
+</blockquote>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Összetett adatszerkezet">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Összetett adatszerkezet<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az itt látható táblázat egy futóverseny eredményeit tartalmazza.</p>
+
+<table>
+    <thead>
+        <tr><th>Index<th>Név<th>Születés<th>Helyezés
+    </thead>
+    <tbody>
+        <tr><th>0<td>Am Erika<td>1984. 05. 06.<td>1
+        <tr><th>1<td>Break Elek<td>1982. 09. 30.<td>3
+        <tr><th>2<td>Dil Emma<td>1988. 08. 25.<td>2
+        <tr><th>3<td>Kasza Blanka<td>1979. 06. 10.<td>5
+        <tr><th>4<td>Reset Elek<td>1992. 04. 05.<td>4
+    </tbody>
+</table>
+
+<p>Alább egy elkezdett programot látsz, amelyben a megfelelő típusok már definiálva vannak,
+és az adatokat egy tömb tartalmazza. Egészítsd ki a programot, hogy kiírja a képernyőre
+a kommentekben megadott adatokat!</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct Datum {
+    int ev, ho, nap;
+} Datum;
+
+typedef struct Versenyzo {
+    char nev[31];
+    Datum szuletes;
+    int helyezes;
+} Versenyzo;
+
+void datum_kiir(Datum d);
+
+void versenyzo_kiir(Versenyzo v);
+
+int main() {
+    Versenyzo versenyzok[5] = {
+        { &quot;Am Erika&quot;, {1984, 5, 6}, 1 },
+        { &quot;Break Elek&quot;, {1982, 9, 30}, 3 },
+        { &quot;Dil Emma&quot;, {1988, 8, 25}, 2 },
+        { &quot;Kasza Blanka&quot;, {1979, 6, 10}, 5 },
+        { &quot;Reset Elek&quot;, {1992, 4, 5}, 4 },
+    };
+
+    /* 0-s versenyző neve - printf %s */
+    /* 2-es versenyző helyezése */
+    /* 4-es versenyző születési dátumát (írd meg a datum_kiir függvényt!) */
+    /* 1-es versenyző nevének kezdőbetűjét (ne feledd, a sztring karaktertömb) */
+    /* az 1-es versenyző dobogós-e? igen/nem, akár ?: operátorral, de egy printf-fel */
+    /* az 4-es versenyző gyorsabb-e, mint a 3-as versenyző? */
+    /* az 1-es versenyző ugyanabban az évben született-e, mint a 2-es? */
+    /* egészítsd ki a versenyzo_kiir() függvényt,
+     * aztán írd ki az 1-es versenyző összes adatát */
+    /* végül listázd ki az összes versenyzőt sorszámozva, összes adatukkal. */
+
+    return 0;
+}
+
+void datum_kiir(Datum d) {
+    /* dátum kiírása */
+}
+
+void versenyzo_kiir(Versenyzo v) {
+    /* a versenyző összes adatának kiírása */
+}</code></pre>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct Datum {
+    int ev, ho, nap;
+} Datum;
+
+typedef struct Versenyzo {
+    char nev[31];
+    Datum szuletes;
+    int helyezes;
+} Versenyzo;
+
+void datum_kiir(Datum d);
+
+void versenyzo_kiir(Versenyzo v);
+
+int main() {
+    Versenyzo versenyzok[5] = {
+        { &quot;Am Erika&quot;, {1984, 5, 6}, 1 },
+        { &quot;Break Elek&quot;, {1982, 9, 30}, 3 },
+        { &quot;Dil Emma&quot;, {1988, 8, 25}, 2 },
+        { &quot;Kasza Blanka&quot;, {1979, 6, 10}, 5 },
+        { &quot;Reset Elek&quot;, {1992, 4, 5}, 4 },
+    };
+
+    /* 0-s versenyző neve - printf %s */
+    printf(&quot;%s\n&quot;, versenyzok[0].nev);
+    /* 2-es versenyző helyezése */
+    printf(&quot;%d\n&quot;, versenyzok[2].helyezes);
+    /* 4-es versenyző születési dátumát a megadott függvénnyel */
+    datum_kiir(versenyzok[4].szuletes);
+    /* 1-es versenyző nevének kezdőbetűjét (ne feledd, a sztring karaktertömb) */
+    printf(&quot;%c\n&quot;, versenyzok[1].nev[0]);
+    /* az 1-es versenyző dobogós-e? igen/nem, akár ?: operátorral, de egy printf-fel */
+    printf(&quot;%s\n&quot;, versenyzok[1].helyezes &lt;= 3 ? &quot;igen&quot; : &quot;nem&quot;);
+    /* az 4-es versenyző gyorsabb-e, mint a 3-as versenyző? */
+    printf(&quot;%s\n&quot;, versenyzok[4].helyezes &lt; versenyzok[3].helyezes ? &quot;igen&quot; : &quot;nem&quot;);
+    /* az 1-es versenyző ugyanabban az évben született-e, mint a 2-es? */
+    printf(&quot;%s\n&quot;, versenyzok[1].szuletes.ev == versenyzok[2].szuletes.ev ? &quot;igen&quot; : &quot;nem&quot;);
+    /* egészítsd ki a versenyzo_kiir() függvényt,
+     * aztán írd ki az 1-es versenyző összes adatát */
+    versenyzo_kiir(versenyzok[1]);
+    /* végül listázd ki az összes versenyzőt sorszámozva, összes adatukkal. */
+    for (int i = 0; i &lt; 5; ++i) {
+        printf(&quot;%d. &quot;, i);
+        versenyzo_kiir(versenyzok[i]);
+    }
+
+    return 0;
+}
+
+void datum_kiir(Datum d) {
+    printf(&quot;%d.%d.%d.\n&quot;, d.ev, d.ho, d.nap);
+}
+
+void versenyzo_kiir(Versenyzo v) {
+    printf(&quot;%s, %d.%d.%d., %d\n&quot;, v.nev, v.szuletes.ev, v.szuletes.ho, v.szuletes.nap, v.helyezes);
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Menüvezérelt program">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+  <a id="menuvezerelt" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Menüvezérelt program<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Készíts egyszerű menüvezérelt programot! A program tároljon el egy számot, melynek kezdőértéke <code>a = 1</code>. Ezt
+követően a program jelenítse meg a képernyőn <code>a</code> értékét, és az alább látható menüt. A megfelelő menüpont számának megadása
+(<code>scanf()</code>-fel) után hajtsa végre <code>a</code>-n a kiválasztott műveletet, írja ki újból <code>a</code> új értékét és a menüt! A
+menüből mindaddig lehessen újból választani, míg a kilépést nem választja a felhasználó! Használj <code>switch</code>-et és
+<code>do ... while()</code>, azaz hátultesztelő ciklust!</p>
+
+<pre   ><code class="language-c">printf(&quot;0. Alapertek visszaallitasa (a = 1)\n&quot;
+       &quot;1. Hozzaad 1-et\n&quot;
+       &quot;2. Megforditja az elojelet\n&quot;
+       &quot;3. Szorozza 2-vel\n&quot;
+       &quot;9. Kilepes\n&quot;);</code></pre>
+
+<p>Minden egyes tevékenységet (műveletet) egy pici függvény valósítson meg, amelynek bemenő paramétere az <code>a</code> változó
+tartalma, visszatérési értéke pedig a megváltozott szám! A <code>main()</code> ezen függvények hívásával végezze el a
+feladatát!</p>
+
+<blockquote>
+<h3>Miért olyan lényeges ez a feladat?</h3>
+<p>Figyeld meg a kapott főprogramot! Ez irányítja a többi
+függvény működését: meghívja az egyes részfeladatokhoz tartozó alprogramokat, amelyek
+dolgukat végezve visszatérnek, újra a főprogram kezébe adva az irányítást. A főprogram
+és az alprogramok a paramétereken és a visszatérési értékeken keresztül kommunikálnak.</p>
+</blockquote>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A tevékenység kiválasztásához a <code>switch</code> szerkezetet érdemes használni; úgy egymás
+alatt, a választott szám szerint felsorolhatóak az értékadások. Figyelni kell, ne maradjon ki a <code>break</code>!
+A menürendszer keretét pedig egy ciklus adja. Ez azért lehet hátultesztelő, mert egyszer biztosan végre
+kell hajtani a törzsét: a menü kiírását, a szám beolvasását.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int alap() {
+    return 1;
+}
+
+int novel(int a) {
+    return a+1;
+}
+
+int megfordit(int a) {
+    return -a;
+}
+
+int duplaz(int a) {
+    return 2*a;
+}
+
+int main(void) {
+    int menupont;
+    int a = alap();
+    do {
+        printf(&quot;a = %d\n\n&quot;, a);
+        printf(
+            &quot;0. Alapérték visszaállítása (a = 1)\n&quot;
+            &quot;1. Hozzáad 1-et\n&quot;
+            &quot;2. Megfordítja az előjelét\n&quot;
+            &quot;3. Szorozza 2-vel\n&quot;
+            &quot;9. Kilépés\n&quot;
+            &quot;? &quot;);
+        scanf(&quot;%d&quot;, &amp;menupont);
+        switch (menupont) {
+            case 0: a = alap(); break;
+            case 1: a = novel(a); break;
+            case 2: a = megfordit(a); break;
+            case 3: a = duplaz(a); break;
+            case 9: /* semmi, majd kilepunk */ break;
+            default: printf(&quot;NA!\n&quot;); break;
+        }
+        printf(&quot;\n&quot;);          /* hogy ne folyjon ossze */
+    } while (menupont != 9);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="További feladatok">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    További feladatok<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Ha elkészültél, folytasd a feladatgyűjtemény ehhez a témakörhöz kapcsolódó
+<a href="../f03/index.html#feladatstruct">struktúrákkal kapcsolatos feladataival</a>!</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

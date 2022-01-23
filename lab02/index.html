@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Labor, 2. hét: egyszerű programok</title>
+<meta property="og:title" content="TEST InfoC :: Labor, 2. hét: egyszerű programok">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Egyszerű C programok lefordítása, futtatása. Bemenet és kimenet kezelése, egyszerű számítások és vezérlési szerkezetek.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Egyszerű C programok lefordítása, futtatása. Bemenet és kimenet kezelése, egyszerű számítások és vezérlési szerkezetek.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Labor, 2. hét: egyszerű programok">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+  <a id="labvezerles" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Labor, 2. hét: egyszerű programok</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Pohl László, Czirkos Zoltán · <i class="ido"></i> 2019.09.22.</p>
+<p class="kivonat">Egyszerű C programok lefordítása, futtatása. Bemenet és kimenet kezelése, egyszerű számítások és vezérlési szerkezetek.</p>
+</div>
+
+
+
+
+<p>Ezen az első laboron a Code::Blocks fejlesztőkörnyezet használatának alapjait ismerjük meg. Felkészülés a laborra:</p>
+<ul>
+    <li>A <a href="../ea01/index.html#eabevezeto">bevezető előadás</a> anyagának megértése.
+    <li>A <a href="../ea01/index.html#eavezerles">vezérlési szerkezetekről szóló előadásrész</a> átismétlése.
+</ul>
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">A Code::Blocks fejlesztőkörnyezet</a>
+              <li><a href="index.html#2" class="">Helló világ</a>
+              <li><a href="index.html#3" class="">A tartály</a>
+              <li><a href="index.html#4" class="">Másodfokú egyenlet diszkutálása</a>
+              <li><a href="index.html#5" class="">Számok kiírása</a>
+              <li><a href="index.html#6" class="">Adott hosszúságú vonal</a>
+              <li><a href="index.html#7" class="">Másodfokú egyenlet</a>
+              <li><a href="index.html#8" class="">További feladatok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A Code::Blocks fejlesztőkörnyezet">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="labfejlesztokornyezet" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    A Code::Blocks fejlesztőkörnyezet<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az integrált fejlesztőkörnyezetek (integrated development environment, IDE) a programok fejlesztését – készítését, tesztelését, 
+hibakeresését segítő programok. A C nyelv szabványos és elterjedt volta miatt rengeteg ilyen készült hozzá. A Prog1 tárgyban az 
+ajánlott fejlesztőkörnyezet a <a href="http://codeblocks.org/">Code::Blocks</a> nevű, ingyenesen letölthető szoftver, ami 
+megtalálható a HSzK gépein is.</p>
+
+<p>Indítsd el a Code::Blocks programot! Válaszd ki a File menü New/Project… menüpontját! Az alábbi ábrákon látható módon folytasd a 
+projekt létrehozását! Figyelj minden részletre!</p>
+
+<ul>
+<li>A projekt típusának válaszd ki a <code>Console application</code>-t. Nyomd meg a <code>Go</code> gombot.
+    <img src="fig1-console.png" class="kozep arnyek">
+
+<li>A következő oldalon a programozási nyelvet kell megadnod. Ez legyen a C.
+    <img src="fig2-c.png" class="kozep arnyek">
+
+<li>Ezután arról érdeklődik a Code::Blocks, hogy mi legyen a projekt neve. Írd be, hogy „elso”. Alatta kell beállítanod
+    azt a mappát, ahol a projekt fájlok tárolódnak. Ha ez üresen van hagyva, akkor válaszd ki a <code>...</code> gombot
+    megnyomva a Dokumentumok mappádat. (Jegyezd meg a mappa elérési útját!)
+    <strong>Fontos:</strong> a projekt mappa neve, se elérési útja ne tartalmazzon se ékezetes betűket, se szóközt!
+    <img src="fig3-nev.png" class="kozep arnyek">
+
+<li>A negyedik ablakban a fordítóprogramot lehet megadni. Ha nem a „GNU GCC Compiler” van kiválasztva, akkor
+válaszd azt, továbbá ha a „Create "Debug" configuration” nem lenne beikszelve, akkor azt javítsd ki. De ezek
+így szoktak lenni.
+    <img src="fig4-compiler.png" class="kozep arnyek">
+
+<li>Ezzel létre is jött a projekt. A bal oldalon, a „Management” résznél láthatóak a hozzá tartozó fájlok. A „Sources”
+    mappát kinyitva megtalálod a fő programmodult, a <code>main.c</code>-t. Ebben egy helló világ program van.
+    <strong>Fontos:</strong> a megadott mappanév ne tartalmazzon ékezetes betűket! Sok program ezeket nem szereti.
+    <img src="fig5-fajl.png" class="kozep arnyek">
+</ul>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Helló világ">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+  <a id="labhellovilag" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Helló világ<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A Code::Blocks eleve úgy hozta létre a projektet, hogy egy egyszerű helló világ programot tett bele. Ha másik 
+fejlesztőkörnyezetet használsz, akkor másold be ezt a C programot (kettőt kattintva a kódra kijelölheted az egészet):
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf(&quot;Hello world!\n&quot;);
+    return 0;
+}</code></pre>
+
+<h3>A futtatható program</h3>
+
+<p> A fejlesztőkörnyezet által létrehozott saját program ugyanúgy működik, mint a többi parancssori alkalmazás: tartozik hozzá
+egy <code>.exe</code> fájl, és fájlba irányítható ennek is a kimenete. A programodat a „Build and run” (zöld play gomb + sárga
+fogaskerék) gombra kattintva indíthatod el, vagy a Build/Build and run menüpontot választva. Ilyenkor előbb lefordítja a gép, és
+aztán el is indítja. Ennek eredménye így kell kinézzen.</p>
+
+<img src="fig6-fut.png" class="kozep arnyek">
+
+<p>Keresd meg a lefordított programot a számítógépen! Ez valahol abban a mappában lesz, amelyiket kiválasztottad a projekt 
+létrehozásánál. Keresd ezt meg a fájlkezelőben!</p>
+
+<div class="megjegyzes">
+<p>Tipp: ha nem emlékszel a mappa nevére, meg tudod keresni. A Code::Blocks az ablakának bal oldalán sorolja fel a projekthez 
+rendelt fájlokat, a „Management/Project” sávon. Itt van a <code>main.c</code> nevű is. Jobb klikk, „Properties…”: a „File name 
+(absolute)” résznél látod a fájl teljes elérési útját, mappákkal együtt:</p>
+<ul>
+    <li><code>C:\Documents and Settings\Név\Dokumentumok...</code> – Windows XP.
+    <li><code>C:\Users\Név\...</code> – Windows 7-től fölfelé. (Vigyázat: nem User, hanem Users!)
+    <li><code>/home/név/...</code> – Linux.
+</ul>
+</div>
+
+<p>Nyiss egy parancssori ablakot! Windows 10 esetén: a Start gombra jobb klikk, és Futtatás, vagy <kbd>Windows + R</kbd> után 
+<code>cmd.exe</code>. Navigálj el a projektedhez! Mappát váltani a <code>cd</code> paranccsal lehet, megadva neki a mappa nevét, 
+amit az előbb megkerestél:</p>  
+
+<pre class="screenshot">
+C:\&gt; <em>cd C:\Users\111111\projektem\</em>
+</pre>
+
+<p>Írd be itt a <code>dir</code> parancsot, hogy lásd a fájlokat! Ott kell legyen például a <code>main.c</code> fájl is.</p>
+
+<pre class="screenshot">
+C:\Users\111111\projektem\&gt; <em>dir</em>
+</pre>
+
+<p>Lépj be a <code>bin\Debug</code> mappába, és add ki újra a <code>dir</code> parancsot! Ott kell legyen a lefordított program, az 
+<code>elso.exe</code>.</p>
+
+<pre class="screenshot">
+C:\Users\111111\projektem\&gt; <em>cd bin\Debug</em>
+C:\Users\111111\projektem\bin\Debug&gt; <em>dir</em>
+</pre>
+
+<p>Indítsd el, a nevének beírásával:</p>
+
+<pre class="screenshot">
+C:\Users\111111\projektem\bin\Debug&gt; <em>elso.exe</em>
+</pre>
+
+    <img src="fig7-elsoexe.png" class="kozep arnyek">
+
+<p>A lefordított program egy fájl, amely tartalmazza azokat a számítógépnek szóló utasításokat,
+amelyek végül kiírják a kívánt szöveget; és még egy sor egyéb dolgot, amelyek az operációs
+rendszernek kellenek. Az ilyet futtathatónak szokás nevezni (vagy a szakzsargonban binárisnak,
+binary). Ilyen fájlokat tartalmaznak a programok telepítői is (installer). A lefordított program
+emberi fogyasztásra már alkalmatlan. Próbáld meg kiíratni a tartalmát a <code>type elso.exe</code>
+(Linuxon: <code>cat elso</code>) paranccsal, látni fogod.</p>
+
+<p>Későbbi laborokban is ezzel a fejlesztőkörnyezettel kell majd dolgozni, de már saját programokat írva.</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A tartály">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    A tartály<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<img class="float" src="tartaly.svg" style="width: 12em;" alt="Tartály">
+
+<p>Írj programot, amely segít kiszámítani a felhasználónak, hogy hány doboz festéket kell vennie a lábakon álló 
+tartály festéséhez! Ehhez használnod kell majd az első előadásokon tanultakat. Indulj ki az előadáson bemutatott <a href="../ea01/index.html#eakorkeruletterulet">kör kerülete és területe</a> programból!</p>
+
+<p>A tartálynak ismerjük a magasságát és az átmérőjét. Mindenhol le kell festeni, az oldalát, a tetejét és az alját is. Tudjuk
+azt is, hogy egy doboz festék 2&nbsp;m<sup>2</sup> felület lefestéséhez elegendő.</p>
+
+<pre class="screenshot">
+Tartaly festese
+
+Milyen magas? <em>2</em>
+Mennyi az atmeroje? <em>1.2</em>
+
+4.900885 doboz festek kell.
+</pre>
+
+<p>Figyelj arra, hogy a program kódjában tizedesvessző helyett tizedespontot kell használni (pl. <code>3.14</code>), ugyanígy a 
+bemenet megadásánál is. Ha nem jön ki a fenti eredmény, gondold át, helyes-e a képlet, amit használsz.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    double atmero, magas;
+    printf(&quot;Tartaly festese\n\n&quot;);
+    printf(&quot;Milyen magas? &quot;);
+    scanf(&quot;%lf&quot;, &amp;magas);
+    printf(&quot;Mennyi az atmeroje? &quot;);
+    scanf(&quot;%lf&quot;, &amp;atmero);
+
+    double sugar = atmero/2;
+    double doboz = (2*sugar*sugar*3.14159265 + magas*2*sugar*3.14159265) / 2;
+
+    printf(&quot;\n%f doboz festek kell.\n&quot;, doboz);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+<blockquote>
+<h3>Hasonló feladatok</h3>
+
+<p>Ha ez a feladat nehezen ment, megoldhatsz pár 
+<a href="../f01/index.html#feladategyszeru">hasonló feladatot a példatárból</a>, 
+mielőtt a következő feladatra rátérsz.</p>
+
+<p>Vigyázz, a laborfeladatokat erősen ajánlott az utolsó feladatig megoldani, hogy a jövő hétre felkészült legyél. 
+Ha nem sikerül, fejezd be őket otthon!</p>
+</blockquote>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Másodfokú egyenlet diszkutálása">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Másodfokú egyenlet diszkutálása<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írj programot, amely az <code>ax<sup>2</sup>+bx+c=0</code> másodfokú
+egyenlet együtthatóit kérdezi a felhasználótól, és kiírja, hogy az egyenletnek
+hány (valós) megoldása van! Ehhez használnod kell az elágazásról tanultakat: 
+lásd az <a href="../ea01/index.html#eaif">előadást</a>!
+A megoldóképlet:</p>
+
+<img src="masodfoku.png" class="kozep">
+
+<p>Próbáld ki az alább látható egyenletekre! Ezekkel ellenőrizni
+tudod a megoldásod. </p>
+
+<div class="columns">
+<div>
+<table>
+    <thead><tr><th>egyenlet<th>megoldás</thead>
+    <tr><td><code>2x<sup>2</sup>-x-6=0</code><td>x<sub>1</sub>=2, x<sub>2</sub>=-1.5
+    <tr><td><code>x<sup>2</sup>-12x+35=0</code><td>x<sub>1</sub>=5, x<sub>2</sub>=7
+</table>
+</div>
+<div>
+<table>
+    <thead><tr><th>egyenlet<th>megoldás</thead>
+    <tr><td>2<code>x<sup>2</sup>-4x+2=0</code><td>x=1
+    <tr><td><code>x<sup>2</sup>+2x+10=0</code><td> -
+</table>
+</div>
+</div>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A diszkrimináns vizsgálatával tudjuk megnézni, 
+hány valós megoldás lesz.</p>
+
+<p>Az <code>if (diszkr==0)</code> vizsgálat elméletben helyes, gyakorlatban azonban nem előnyös ilyet írni. A kerekítési hibák 
+miatt előfordulhat az, hogy 0-hoz olyan közeli szám adódik, amit már 0-ra kerekít a számítógép. Erről is később lesz szó 
+előadáson.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    double a, b, c;
+    printf(&quot;a=&quot;);
+    scanf(&quot;%lf&quot;, &amp;a);
+    printf(&quot;b=&quot;);
+    scanf(&quot;%lf&quot;, &amp;b);
+    printf(&quot;c=&quot;);
+    scanf(&quot;%lf&quot;, &amp;c);
+
+    /* a diszkriminans: b² - 4ac */
+    double diszkr;
+    diszkr = b * b - 4 * a * c;
+
+    /* ha &lt;0, 2 komplex gyok lenne */
+    if (diszkr &lt; 0) {
+        printf(&quot;Nincs valos gyok!\n&quot;);
+    }
+    /* ha pont 0, akkor 1 megoldas van */
+    if (diszkr == 0) {
+        printf(&quot;Egy valos gyok van.\n&quot;);
+    }
+    /* &gt;0, akkor 2 megoldas */
+    if (diszkr &gt; 0) {
+        printf(&quot;Ket valos gyok van.\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+<blockquote>
+<h3>Hasonló feladatok</h3>
+
+<p>Ha ez a feladat nehezen ment, megoldhatsz pár 
+<a href="../f01/index.html#feladatelagazas">hasonló feladatot a példatárból</a>, 
+mielőtt a következő feladatra rátérsz.</p>
+
+<p>Vigyázz, a laborfeladatokat erősen ajánlott az utolsó feladatig megoldani, hogy a jövő hétre felkészült legyél. Ha nem sikerül, fejezd be őket otthon!</p>
+</blockquote>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Számok kiírása">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Számok kiírása<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az ábrán egy program pszeudokódja látható, amely kiírja a számokat 1-től 20-ig.</p>
+
+<pre>
+Gondolok egy számra, legyen ez 1.
+<em>Ismétlés, amíg</em> a szám &le; 20
+    Leírom a számot.
+    Új sort kezdek.
+    Növelem a számot 1-gyel.
+<em>Ismétlés eddig</em>
+</pre>
+
+<p>Írd meg ezt a programot C-ben <a href="../ea01/index.html#eawhile">az előadáson tanult</a> <code>while</code> ciklussal!</p>
+
+<p>Figyeld meg: ahogy gépeled be a <code>while</code> utáni <code>{</code> kapcsos zárójelet, az <kbd>Enter</kbd> billentyű 
+hatására a gép egyből néhány szóközzel beljebb kezdi a sorokat. A bezáró <code>}</code> kapcsos után pedig újra kintebb. Használd 
+ezt ki! Így áttekinthetőbb lesz a programod, jobban látszik a ciklus belseje. Ha elrontottad a formázást, a Code::Blocks 
+automatikusan, utólag is képes rendbe tenni a kódot: ehhez kattints jobb gombbal a forráskódra, és válaszd az előugró menüből a 
+„Format use Astyle” menüpontot.</p>
+
+<p>Írd át a <code>while</code> ciklust <code>for</code> ciklusra!</p>
+
+<blockquote>
+<h3>Hasonló feladatok</h3>
+
+<p>Ha ez a feladat nehezen ment, megoldhatsz pár 
+<a href="../f01/index.html#feladatciklus">hasonló feladatot a példatárból</a>, 
+mielőtt a következő feladatra rátérsz.</p>
+</blockquote>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Adott hosszúságú vonal">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Adott hosszúságú vonal<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írj egy programot, amely kér a felhasználótól egy
+számot, és kirajzol egy <code>+</code> és <code>−</code> jelekből álló szakaszt. Pl.
+ha a szám 4, akkor a képernyőn a lenti ábra jelenjen meg,
+vagyis a belsejében 4 db <code>−</code> legyen:</p>
+
+<pre class="screenshot">
+Mekkora legyen a szakasz? <em>4</em>
++----+
+</pre>
+
+<p>Írd meg a program <em>pszeudokódját</em>, utána pedig gépen a <em>C forráskódot</em>!
+A pszeudokódot írhatod a fejlesztőkörnyezetbe megjegyzésként is, az egyes sorok alá
+odaírva a C nyelvű megfelelőjüket.</p>
+
+<p><em>Tipp:</em> ehhez a programhoz nem kell <code>if</code> elágazás. Ha 
+olyan változatot írtál, amiben van, akkor próbáld meg anélkül is! Gondolj arra, hogy a szakasz
+elején és végén biztosan van <code>+</code>.
+</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void){
+    int hossz;
+    printf(&quot;Mekkora legyen a szakasz?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;hossz);  /* Hossz beolvasása */
+
+    printf(&quot;+&quot;);  /* A vonal elejére kell egy + jel */
+    for (int i = 0; i &lt; hossz; i = i+1)  /* Ciklus, ami kiír adott - jelet */
+        printf(&quot;-&quot;);
+    printf(&quot;+&quot;);  /* A vonal végére is kell egy + jel */
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Másodfokú egyenlet">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    Másodfokú egyenlet<a class="hlink" href="index.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="kicsinyit">Ez a feladat túlmutat az első heti törzsanyagon. Akkor foglalkozz csak vele,
+ha jut még rá időd, és/vagy érdekel, hogy a te programod is helyesen kiszámolja-e a másodfokú egyenletek megoldását.</p>
+
+<p>Írj programot, amely az <code>ax<sup>2</sup>+bx+c=0</code> másodfokú
+egyenlet együtthatóit kérdezi a felhasználótól, és kiírja az egyenlet
+<code>x<sub>1</sub></code> és <code>x<sub>2</sub></code> megoldását!
+A megoldóképlet:</p>
+
+<img src="masodfoku.png" class="kozep">
+
+<p>Vedd elő a megoldást diszkutáló programot, és azt fejleszd tovább! Az alábbi egyenletekkel ellenőrizd, hogy helyes-e a megoldásod!</p>
+
+<div class="columns">
+<div>
+<table>
+    <thead><tr><th>egyenlet<th>megoldás</thead>
+    <tr><td><code>2x<sup>2</sup>-x-6=0</code><td>x<sub>1</sub>=2, x<sub>2</sub>=-1.5
+    <tr><td><code>x<sup>2</sup>-12x+35=0</code><td>x<sub>1</sub>=5, x<sub>2</sub>=7
+</table>
+</div>
+<div>
+<table>
+    <thead><tr><th>egyenlet<th>megoldás</thead>
+    <tr><td>2<code>x<sup>2</sup>-4x+2=0</code><td>x=1
+    <tr><td><code>x<sup>2</sup>+2x+10=0</code><td> -
+</table>
+</div>
+</div>
+
+<p>Gyökvonásra az <code>sqrt()</code> könyvtári függvény használható. Ehhez szükséges egy <code>#include "math.h"</code> sor is a kód elején. 
+(Linuxon parancssorból fordítva <code>-lm</code> kapcsoló szükséges.)</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Arra kell figyelni, hogy ne vonj negatív számból négyzetgyököt. A gyökvonás csak pozitív diszkrimináns esetén 
+lehetséges, de csak ott van rá szükség. </p>
+
+<p>Itt egy nagyobb C kifejezést kapsz, amiben többféle operátor (összeadás, kivonás, szorzás stb.) szerepel. Ezeknek a műveleteknek 
+C-ben ugyanúgy van <em>precedenciája,</em> mint a matematikában. A szorzás pl. magasabb rendű művelet, mint az összeadás. A C nyelv 
+precedencia szabályai összetettebbek; erről majd előadáson lesz szó.</p>
+
+
+<pre   ><code class="language-c">#include &lt;math.h &gt;
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    double a, b, c;
+    printf(&quot;a=&quot;);
+    scanf(&quot;%lf&quot;, &amp;a);
+    printf(&quot;b=&quot;);
+    scanf(&quot;%lf&quot;, &amp;b);
+    printf(&quot;c=&quot;);
+    scanf(&quot;%lf&quot;, &amp;c);
+
+    /* a diszkriminans: b² - 4ac */
+    double diszkr;
+    diszkr = b * b - 4 * a * c;
+
+    /* ha &lt;0, 2 komplex gyok lenne */
+    if (diszkr &lt; 0) {
+        printf(&quot;Nincs valos gyok!\n&quot;);
+    }
+    /* ha pont 0, akkor 1 megoldas van */
+    if (diszkr == 0) {
+        printf(&quot;Egy valos gyok: %f\n&quot;, -b / (2 * a));
+    }
+    /* &gt;0, akkor 2 megoldas */
+    if (diszkr &gt; 0) {
+        printf(&quot;Ket valos gyok: %f, %f\n&quot;,
+               (-b + sqrt(diszkr)) / (2 * a),
+               (-b - sqrt(diszkr)) / (2 * a));
+    }
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="További feladatok">
+<div class="slide" id="slide_8">
+
+<a id="8" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">8</span><span class="oldalszamafter">. </span>    További feladatok<a class="hlink" href="index.html#8"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Ha elkészültél, folytasd a feladatgyűjtemény ehhez a témakörhöz
+<a href="../f01/index.html#feladatrajzolos">kapcsolódó feladataival</a>!</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

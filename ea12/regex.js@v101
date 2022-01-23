@@ -1,0 +1,13 @@
+infoc.onloads.push(function(){function onChange(inputElem,strings,resultElem,matchicon,capture){var regexstr=inputElem.value;try{var reg=new RegExp(regexstr,'gm');inputElem.classList.remove('regex-syntaxerror')}catch(e){inputElem.classList.add('regex-syntaxerror');return}
+var results=[];for(var str of strings){reg.lastIndex=0;var matchpos=[];var captures=[];while((match=reg.exec(str))!==null){if(match.index==reg.lastIndex){inputElem.classList.add('regex-syntaxerror');break}
+matchpos.push({'from':match.index,'to':reg.lastIndex});if(capture){for(var i=1;i<match.length;++i){m=match[i];captures.push('<div><i class="regex-icon regex-capture"></i>'+m+'</div>')}}}
+var show=str;for(var i=matchpos.length-1;i>=0;--i){show=show.substr(0,matchpos[i].to)+'</span>'+show.substr(matchpos[i].to);show=show.substr(0,matchpos[i].from)+'<span class="regex-match">'+show.substr(matchpos[i].from)}
+if(matchicon){show=(matchpos.length>0?'<i class="regex-icon igen"></i>':'<i class="regex-icon nem"></i>')+show}
+results.push('<div>'+show+'</div>'+captures.join(''))}
+resultElem.innerHTML=results.join('')}
+function regex(inputElem,resultElem){var matchicon=!resultElem.hasAttribute("data-nomatchicon");var capture=!resultElem.hasAttribute("data-nocaptures");var strings;if(resultElem.tagName=='PRE'){strings=[resultElem.textContent]}else{var split=resultElem.textContent.toString().replace(/\\r/g,'').split("\n");strings=[];for(var i=0;i<split.length;++i)
+if(split[i]!="")
+strings.push(split[i]);}
+inputElem.addEventListener('input',function(event){onChange(inputElem,strings,resultElem,matchicon,capture)});onChange(inputElem,strings,resultElem,matchicon,capture)}
+var regexboxes=document.getElementsByClassName('regex');for(var i=0;i<regexboxes.length;++i){var regexbox=regexboxes[i];var resultElem=regexbox.getElementsByClassName('regex-result')[0];var inputElems=regexbox.getElementsByClassName('regex-input');for(var j=0;j<inputElems.length;++j)
+regex(inputElems[j],resultElem);}})

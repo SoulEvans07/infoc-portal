@@ -1,0 +1,80 @@
+div.fa {
+    position: relative;
+    font-size: 1.5em;
+
+    height: 8.5em;
+    margin: 0.5em auto;
+}
+div.fa>div {
+   text-align: center;
+   display: block;
+   margin: 0; padding: 0;
+   width: 1.5em;         /* ugyanannyi legyen mint a height */
+   height: 1.5em;
+
+   border: 0.05em solid black;
+   margin: -0.08em;
+   background: #7babe3;
+   color: black;
+   transition: all .25s;
+}
+div.fa>div { position: absolute; }
+div.fa>div.bal, div.fa>div.jobb {
+   content: "";
+   display: block;
+   height: 0.05em;
+   background: black;
+   outline: none;
+   border: none;
+   box-shadow: none;
+   margin: none;
+}
+div.fa>div.bal {
+    transform: rotate(-10deg);
+}
+div.fa>div.bal:before, div.fa>div.bal:after, div.fa>div.jobb:before, div.fa>div.jobb:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0.5em;
+  top: 0%; bottom: 0%;
+  background: black;
+}
+div.fa>div.bal:before, div.fa>div.bal:after {
+  left: 0;
+  transform-origin: 0% 50%;
+}
+div.fa>div.jobb:before, div.fa>div.jobb:after {
+  right: 0;
+  transform-origin: 100% 50%;
+}
+div.fa>div.bal:before { transform: rotate(-10deg); }
+div.fa>div.bal:after { transform: rotate(10deg); }
+div.fa>div.jobb:before { transform: rotate(-10deg); }
+div.fa>div.jobb:after { transform: rotate(10deg); }
+
+div.fa>div.jobb {
+    transform: rotate(10deg);
+}
+div.fa>.jelolt { box-shadow: 0px 0px 0px 0.15em red; }
+div.fa>.torolt { opacity: 0.2; }
+
+div.fa.torol>.kesz { opacity: 0.2; background: #7babe3; }
+div.fa.megjelenik>div { opacity: 0.2; }
+div.fa.megjelenik>.kesz { opacity: 1; }
+
+div.facaption {
+  margin: 0.5em 0;
+  margin-top: -0.5em;
+  text-align: center;
+}
+div.fa>.kesz { background-color: #fc0; }
+div.facaption>.kesz { color: #fc0; }
+div.fa>.kek { background-color: #44f; }
+div.facaption>.kek { color: #44f; }
+div.fa>.piros { background-color: #f44; }
+div.facaption>.piros { color: #f44; }
+
+div.forog { transition: all 1s; }
+div.forog:before { display: none; /* cellux */ }
+div.forog:hover { transform: rotate(185deg); }

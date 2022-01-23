@@ -1,0 +1,9 @@
+infoc.onloads.push(function(){function siblingclick(){for(var node=this.parentNode.firstChild;node!=null;node=node.nextSibling){if(node.className==null)
+continue;node.classList.remove("aktiv")}
+this.classList.add("aktiv")}
+function pluszegy(){item=$('szamlalo');item.innerHTML=+item.innerHTML+1}
+function nullaz(nev){item=$('szamlalo');item.innerHTML='0'}
+addEvent(document.getElementById('pluszegy'),'click',pluszegy)
+addEvent(document.getElementById('nullaz'),'click',nullaz)
+var rows=document.getElementsByClassName('siblingclick');for(var i=0;i<rows.length;++i)
+addEvent(rows[i],'click',siblingclick);})

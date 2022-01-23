@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Adventi naptár</title>
+<meta property="og:title" content="TEST InfoC :: Adventi naptár">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="TEST InfoC :: Adventi naptár">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="TEST InfoC :: Adventi naptár">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Adventi naptár">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <div class="float" style="margin-top: 0.25em; margin-bottom: 0;"><button type="button" class="vissza" onclick="history.back();">Vissza</button></div>
+<h1 class="eloadascim">Adventi naptár</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.02.27.</p>
+<p class="kivonat"></p>
+</div>
+<h2>Változó argumentumszámú függvények</h2>
+
+<p>A fordító számára mindig meg kell adnunk függvényeink prototípusát, mivel ismernie kell a 
+paraméterek pontos számát és típusát. Felmerül a kérdés azonban: ha ezeket mindig meg kell adni, 
+hogyan csinálja a <code>printf()</code>, hogy akárhány paramétere lehet?
+
+<p>Továbbmenve, különleges függvény-e a <code>printf()</code>, vagy olyan, mint a többi? 
+Speciálisan kezeli a fordító, vagy ugyanúgy, mint a többit? Ez azért fontos kérdés, mert ha csak 
+a <code>printf()</code> ilyen, akkor mi nem írhatunk így viselkedő függvényt. Azonban ha a <code>
+printf()</code> semmilyen szempontból nem különleges, akkor a saját függvényeink is lehetnek 
+ilyenek.
+
+<p>Ha megnézzük a <code>printf()</code> dokumentációját, a következő prototípust látjuk:
+
+<pre   ><code class="language-c">int printf(const char *format, ...);</code></pre>
+
+<p>A függvény első paramétere egy sztring, utána pedig a prototípusban egy pontpontpont
+<code>...</code> (ellipsis) szerepel. Ez azt jelenti, hogy ott akármennyi paraméter állhat. Ez egy C 
+nyelvi elem, és bármely saját függvénynél is használható.
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html@v=12.html#1" class="">A változó argumentumszámú függvények hívása</a>
+              <li><a href="index.html@v=12.html#2" class="">Változó számú és típusú argumentumok feldolgozása</a>
+              <li><a href="index.html@v=12.html#3" class="">Type promotion</a>
+              <li><a href="index.html@v=12.html#4" class="">Saját printf</a>
+              <li><a href="index.html@v=12.html#5" class="">Naplózás</a>
+              <li><a href="index.html@v=12.html#6" class="">Adjuk vissza dinamikusan!</a>
+              <li><a href="index.html@v=12.html#7" class="">fv(), fv(void), fv(...)</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A változó argumentumszámú függvények hívása">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    A változó argumentumszámú függvények hívása<a class="hlink" href="index.html@v=12.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A dolognak van egy rákfenéje, mégpedig az, hogy a változó argumentumszámú függvényeknél
+nincsen típusellenőrzés. Ez azt jelenti, hogy a fordító
+semmilyen ellenőrzést nem végez a paramétereket illetően, csak beteszi őket a verembe
+szép sorjában, és a függvénynek a feladata kitalálni valamilyen módon, hogy hány
+paramétert kapott, és hogy mi lehet azoknak a típusa. Ez is célja a <code>printf()</code>
+formátumsztringjének: az abban megadott <code>%d</code>, <code>%s</code> stb. kódokkal
+adjuk meg azt, hogy milyen paramétereket kapott, és hogyan kell értelmezni azokat:
+
+<pre   ><code class="language-c">char h[] = &quot;hello&quot;;
+char v[] = &quot;vilag&quot;;
+printf(&quot;%s %p %c %d&quot;, h, v, 'A', 'A');</code></pre>
+
+<pre class="screenshot">
+hello 0x40075c A 65
+</pre>
+
+<p>A fenti függvényhívás előbb kiírja a sztringet (hello), amelyre a <code>h</code>
+pointer mutat. Utána kiírja a pointer értékét, vagyis a <code>v</code> memóriacímet.
+Mindkettő típusa pointer, csak eltérőképpen értelmezzük! A harmadik kiírt dolog egy
+karakter, mégpedig az <code>A</code> betű. A negyedik pedig egy egész szám, az
+<code>A</code> karakter kódja. Itt is egyezik a típus: mindkettő egész szám, csak másképp
+értelmezzük kiíráskor.
+
+<p>Sajnos a típusellenőrzés hiánya azt is jelenti, hogy automatikus konverziók nem lehetségesek.
+Ha deklarálunk egy <code>f(double)</code> függvényt, akkor az meghívható <code>f(2)</code>
+módon, hiszen a fordító tudja, hogy a 2-es egész számot konvertálnia kell <code>2.0</code>
+értékre, amely <code>double</code> típusú. Nincs azonban ez így a <code>printf()</code>-nél
+a változó argumentumszám miatt:
+
+<pre   ><code class="language-cbub">printf(&quot;%f\n&quot;, 2);   // helytelen (nálam 0.000000-t ír ki)
+
+printf(&quot;%f\n&quot;, 2.0); // helyes, 2.000000-t ír ki</code></pre>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Változó számú és típusú argumentumok feldolgozása">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Változó számú és típusú argumentumok feldolgozása<a class="hlink" href="index.html@v=12.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Egy ilyen függvény hogyan éri el a paramétereit, ha még megnevezni
+sem tudja azokat?
+
+<p>Erre valók az <code>stdarg.h</code>-ban definiált makrók:
+
+<pre   ><code class="language-c">#include &lt;stdarg.h&gt;
+
+/* elindítja a változó számú argumentumok feldolgozását. */
+void va_start(va_list ap, utolsó);
+
+/* lekéri a következő paramétert, amelynek típusa „típus” */
+típus va_arg(va_list ap, típus);
+
+/* befejezi a feldolgozást */
+void va_end(va_list ap);</code></pre>
+
+<p>Ezeket a következőképpen kell használni:
+<ul>
+   <li>Definiálni kell egy <code>va_list</code> típusú változót. Ez lesz a paramétere
+      a makróknak.
+   <li>A feldolgozás előtt meg kell hívni a <code>va_start</code> makrót. Ennek meg kell
+      adni az utolsó olyan paramétert, amelynek még van neve, vagyis a <code>...</code> előttit. (Ebből az következik, hogy
+      legalább egy névvel rendelkező paraméternek lennie kell – a <code>printf()</code>-nél
+      ez a formátumsztring.)
+   <li>Az egyes paraméterek értékeit a <code>va_arg</code> makró adja meg, amelynek meg
+      kell adnunk mindig a következő paraméter típusát. (A <code>printf()</code> ezt
+      a formátumsztringből találja ki.)
+   <li>Ha befejeztük, akkor meg kell hívni a <code>va_end</code> makrót.
+</ul>
+
+<p>Egy példa függvény, amely kiírja a neki megadott tetszőleges számú
+sztringet a képernyőre:
+
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+void sztringek(char const *elso, ...) {
+    va_list ap;
+    char *kovetkezo;
+
+    if (elso != NULL)
+        printf(&quot;Elso: %s\n&quot;, elso);       // ezt még közvetlenül elérjük
+
+    va_start(ap, elso);
+
+    kovetkezo = va_arg(ap, char*);       // első a ...-ban
+    while (kovetkezo != NULL) {
+        printf(&quot;Tovabbi: %s\n&quot;, kovetkezo);
+        kovetkezo = va_arg(ap, char*);    // továbbiak a ...-ban
+    }
+
+    va_end(ap);
+}
+
+int main(void) {
+   sztringek(&quot;hello&quot;, &quot;vilag&quot;, NULL);
+   
+   return 0;
+}</code></pre>
+
+<p>Figyeljük meg: valahonnan a függvénynek tudnia kell, hogy
+hol van vége a paraméterlistának. Ezért a paraméterek után teszünk egy
+strázsát: egy NULL pointert, amely a sor végét jelzi. Ezt nem szabad
+elfelejteni, hiszen utána memóriaszemét van a veremben, és a függvény
+különben nem tudná, hol van vége a sorozatnak! (Azért jó itt a NULL pointert, hiszen az
+is pointer, mint a sztringek – vagyis típusban kompatibilis azokkal. Ha
+egész számokat összegezne a függvény, akkor például 0 vagy -1 lehetne
+a strázsa.)
+
+<p>
+A háttérben? Fekete mágia. A <code>va_start</code> ráállít egy pointert
+az első változóra, a <code>va_arg</code> pedig változtatja ennek a pointernek
+az értékét. Az általunk megadott típusból tudja azt, hogy hány bájttal kell
+léptetni, és hogy milyen típusúvá kell castolni azt az egyes hívásokkor.
+A helyzet azonban még ennél is bonyolultabb…
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Type promotion">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Type promotion<a class="hlink" href="index.html@v=12.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<table class="float">
+   <thead>
+   <tr><th>Miből<th>Mi lesz
+   </thead>
+   <tr><td>char <td>int
+   <tr><td>short<td>int
+   <tr><td>float<td>double
+</table>
+
+<p>A változó számú argumentumok esetén ugyanis történik konverzió, mégpedig az
+egyes „kicsi” típusok a nekik megfelelő „nagy” típussá konvertálódnak. A konverziók
+jobb oldalt láthatók.
+Ez azt jelenti, hogy ha változó számú argumentumlistán átadunk egy karakter
+típusú változót, akkor azt a függvény <code>int</code>-té konvertálva kapja meg. Természetesen
+nem gond, hiszen az <code>int</code> ábrázolási tartománya nagyobb, vagyis
+adat nem veszik el. Csak figyelni
+kell erre a <code>va_arg()</code> makró használatakor. Egyébként ez a konverzió
+előnyös, hiszen ezért képes működni egy ilyen programrész:
+
+<pre   ><code class="language-c">char c = 'A';
+printf(&quot;Karakter: %c, kod: %d&quot;, c, c);</code></pre>
+
+<p>A fordító ugyanis nem tudja azt, hogy a függvény karaktert vagy <code>int</code>-et
+vár, hiszen a típusok a <code>...</code> miatt ismeretlenek.
+Ezért inkább a karaktert is <code>int</code>-té konvertálja. (Ezzel kapcsolatban
+a <a href="index.html@v=12.html#labjegyzet">lábjegyzetet</a> lásd lent.)
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Saját printf">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Saját printf<a class="hlink" href="index.html@v=12.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A fentiek alapján elkészíthetjük a <code>printf()</code> egy saját, leegyszerűsített
+változatát. A lenti függvény ismeri a sztring, a karakter és az egész típust. A működése
+egyszerű: sorban írja ki a kapott formátumsztring karaktereit, és ha egy <code>%</code>
+jelbe botlik, akkor a formátumsztring következő karakterét megvizsgálva látja az ahelyett kiírandó
+paraméter típusát.
+
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+
+void egesz_kiir(int mi) {
+    if (mi / 10 &gt; 0)
+        egesz_kiir(mi / 10);
+    putchar(mi % 10 + '0');
+}
+
+void sajat_printf(const char *formatum, ...) {
+    va_list ap;
+    char *sztringptr;
+
+    va_start(ap, formatum);
+    for (int i = 0; formatum[i] != 0; i++) {
+        if (formatum[i] == '%') { /* ha %, akkor feldolgozás */
+            i++;
+            switch (formatum[i]) {
+            case 's':
+                sztringptr = va_arg(ap, char*); // következő: egy char*
+                while (*sztringptr != 0)
+                    putchar(*sztringptr++);
+                break;
+            case 'c':
+                putchar(va_arg(ap, int));     // char, de intként kapjuk!
+                break;
+            case 'd':
+                egesz_kiir(va_arg(ap, int));  // int, egész számot írunk ki
+                break;
+            case '%':
+                putchar('%');
+                break;
+            }
+        }
+        else
+            putchar(formatum[i]); /* ha nem %, simán kiírjuk */
+    }
+    va_end(ap);
+}
+
+int main(void) {
+    sajat_printf(&quot;[%s, %s%c %d fok van.]\n&quot;, &quot;Hello&quot;, &quot;Taz&quot;, '!', 15);
+    return 0;
+}</code></pre>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Naplózás">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Naplózás<a class="hlink" href="index.html@v=12.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Saját <code>printf()</code>-et persze nem érdemes írnunk, hiszen a beépített is jól működik.
+Viszont ha például naplózni szeretnénk, hogy mikor mi történik a programunkban,
+akkor érdemes lehet kiírni minden sor elejére a kiírás időpontját is. Ettől
+eltekintve pedig jó lenne, ha ugyanúgy lehetne a naplózó függvényt használni,
+hiszen a <code>printf()</code>-et mindenki ismeri.</p>
+
+<p>A naplózó függvény fejléce tehát nézzen ki így:</p>
+
+<pre   ><code class="language-c">void sajat_log(const char* formatum, ...);</code></pre>
+
+<p>A sor elejére írja ki a pontos dátumot és időt, utána pedig jöhet a formátumsztring
+és a többi paraméter, amit adjunk át a <code>printf()</code>-nek. De hogyan adjuk át neki a változó
+darabszámú paramétereket, ha nevük sincs?</p>
+
+<p>Ahhoz, hogy legyen neve a paramétereknek, el kell kezdenünk feldolgozni a paraméterlistát,
+erre való a <code>va_start()</code> makró. Utána viszont már nem tudjuk egészben odaadni a <code>printf()</code>-nek,
+hiszen már elkezdtük feldolgozni.</p>
+
+<p>Szerencsére a <code>printf()</code>-nek (és az összes hozzá hasonló függvénynek) van olyan változata,
+ami egy, már feldolgozás alatt álló paraméterlistát, egy <code>va_list</code>-et kap paraméterként,
+ez a <code>vprintf()</code>. Ezzel már egyszerű a dolgunk.</p>
+
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+#include &lt;time.h&gt;
+#include &lt;stdarg.h&gt;
+
+void sajat_log(const char* formatum, ...) {
+    time_t most = time(NULL); /* pontos idő másodpercben */
+    struct tm *most_tm = localtime(&amp;most); /* helyi időzónában, darabokra bontva */
+    char buffer[26];
+    strftime(buffer, 26, &quot;%Y-%m-%d %H:%M:%S&quot;, most_tm); /* sztringesítve */
+
+    printf(&quot;[%s] &quot;, buffer); // a sor elején legyen az idő
+
+    va_list ap;
+    va_start(ap, formatum);
+    vprintf(formatum, ap); // utána amit a hívó kért
+    va_end(ap);
+}
+
+int main() {
+    sajat_log(&quot;%s\n&quot;, &quot;Hello&quot;);
+    return 0;
+}</code></pre>
+
+<pre class="screenshot">
+[2015-10-21 07:28:00] Hello
+</pre>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Adjuk vissza dinamikusan!">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Adjuk vissza dinamikusan!<a class="hlink" href="index.html@v=12.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A helyzet kicsit bonyolultabb, ha nem kiírni akarjuk a paramétereket, hanem eltárolni
+egy sztringben. Ugyan létezik <code>sprintf()</code>, ami egy általunk megadott sztringbe 
+írja a kapott paramétereket (és a párja, a <code>vsprintf()</code> is), de mekkora sztringet
+adjunk neki, ha nem tudhatjuk, mennyi lesz elég?</p>
+
+<p>A jó hír, hogy (ellentétben sok más, hasonló szituációval) most le lehet mérni, hogy
+mekkora sztring kell, hiszen a hívás pillanatában már ott van minden információ
+a paraméterlistán. Létezik is rá függvény, amit erre találtak ki, az <code>snprintf()</code>
+és a <code>vsnprintf()</code>. A <code>printf()</code>-hez képest van két plusz paramétere:
+a sztring, amibe ír, és darabszám, ahány karaktert írhat, beleértve a lezáró 0-t. 
+A függvény két dolgot csinál:</p>
+
+<ul>
+   <li>Beleírja a karaktereket sztringbe, amennyi belefér.
+   <li>Visszaadja, hogy hány karaktert írt a sztringbe. Ha többet írna, mint szabad,
+       akkor megszámolja, mennyi hely kellene, és azt adja vissza. (Ha ez ≥, mint a
+       darabszám, amit kapott, abból tudhatjuk azt is, hogy a sztring vége le van vágva.)
+       Ebbe nem számolja bele a lezáró 0-t. (Miért? Rejtély.)
+</ul>
+
+<p>Tehát nincs más dolgunk, mint</p>
+
+<ul>
+   <li>meghívni az <code>vsnprintf()</code>-et 0 mérettel, hogy lemérjuk, 
+       mennyi memóriát kell foglalnunk,
+   <li><code>malloc()</code>,
+   <li>megint meghívni a <code>vsnprintf()</code>-et, hogy beleírjuk a karaktereket.
+</ul>
+
+<p>A rossz hír, hogy az első <code>vsnprintf()</code> hívás "elhasználja" a paraméterlistát, hiszen
+a <code>va_arg()</code> makró átállít belül egy pointert. Ezért a második <code>vsnprintf()</code>-et
+nem tudjuk ugyanazzal a <code>va_list</code>-tel meghívni. A <code>va_start()</code> makrót pedig
+nem hívhatjuk kétszer, mert csak egyszer kezdhetjük el a paraméterek feldolgozását.</p>
+
+<p>Ezért a három eddig bemutatott makrón kívül van még egy negyedik, a <code>va_copy()</code>:</p>
+
+<pre   ><code class="language-c">/* Átmásolja az összes, src-ben hátralévő paramétert dest-be.
+ * Végül dest-re is kell va_end()-et hívni. */
+void va_copy(va_list dest, va_list src);</code></pre>
+
+<p>Tehát még mielőtt a <code>vsnprintf()</code> elkezdené kiszedni a paramétereket, kell róluk
+készítenünk egy másolatot, amit a második <code>vsnprintf()</code> kap meg.</p>
+
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+#include &lt;stdarg.h&gt;
+#include &lt;stdlib.h&gt;
+
+char* printf_string(const char* formatum, ...) {
+    va_list ap1; /* ezt kapja az első vsnprintf */
+    va_start(ap1, formatum);
+
+    va_list ap2; /* ezt kapja a második vsnprintf */
+    va_copy(ap2, ap1);
+
+    int meret = vsnprintf(NULL, 0, formatum, ap1) + 1; /* lezáró 0 */
+    char* str = (char*) malloc(meret * sizeof(char));
+
+    vsnprintf(str, meret, formatum, ap2); /* ap2-be ír */
+
+    va_end(ap1);
+    va_end(ap2);
+    return str;
+}
+
+int main() {
+    char* str = printf_string(&quot;%s %d!\n&quot;, &quot;Hello&quot;, 5)
+    printf(&quot;%s&quot;, str);
+    free(str);
+    return 0;
+}</code></pre>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="fv(), fv(void), fv(...)">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    fv(), fv(void), fv(...)<a class="hlink" href="index.html@v=12.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A fentiek miatt, és tradicionális okokból is C-ben a
+<code>fv()</code> és az <code>fv(void)</code> függvény fejléc teljesen
+mást jelent:
+
+<dl>
+    <dt><code>fv(void)</code></dt>
+    <dd>Egy olyan függvény, amelynek nincs paramétere, és nem is kaphat.
+
+    <dt><code>fv(int x, ...)</code></dt>
+    <dd>Változó paraméterszámú függvény. A <code>...</code> előtt legalább
+    egy neves paraméter kell legyen, hogy a feldolgozást a fent bemutatott módon
+    el lehessen végezni.
+
+    <dt><code>fv()</code></dt>
+    <dd>Egy olyan függvény deklarációja, amely bármennyi és bármilyen típusú paramétert
+        kaphat. Mivel a paraméterek nincsenek megnevezve, ezért nem lehet
+        elérni őket. Ennek nagy szerepe a C szabványosítás előtti változatában
+        volt, amikor a függvényeket így kellett definiálni:
+        <pre   ><code class="language-c">int osszeg(a, b)
+int a;
+int b;
+{
+    return a+b;
+}</code></pre>
+        Ez működik a mostani fordítókkal is, de ellenjavalt.
+</dl>
+
+
+
+
+
+
+<div class="megjegyzes" id="labjegyzet">
+<h3>Lábjegyzet</h3>
+<p>Két megjegyzés a „fordító nem tudja azt”-tal kapcsolatban.
+<p>Az egyik, hogy a GCC a <code>printf()</code>
+stílusú függvényeknél összehasonlítja a formátumsztringet és a kapott
+paramétereket. Ha ezek nem stimmelnek, akkor <em>figyelmeztetést</em> küld:
+<pre   ><code class="language-c">printf(&quot;Hello, %s&quot;, 5);</code></pre>
+<pre class="screenshot">
+proba.c:50:4: warning: format ‘%s’ expects type ‘char *’, but argument 2 has type ‘int’
+</pre>
+<p>Ez igen hasznos dolog. Sajnos nem minden fordító tesz így. Viszont ez csak figyelmeztetés;
+a C nyelvtani szabályai szerint a fenti sor helyesnek számít. (Szintaktikailag helyes,
+szemantikailag helytelen.)
+<p>A másik, hogy ugyancsak a GCC figyelmeztetést küld akkor is, ha leírjuk a <code>va_arg(ap, char)</code>
+sort: mivel a karakter típusú argumentum <code>int</code>-té konvertálódik, ezért ez biztosan
+csak hibás lehet.
+<pre class="screenshot">
+proba.c:33:32: warning: ‘char’ is promoted to ‘int’ when passed through ‘...’
+proba.c:33:32: note: (so you should pass ‘int’ not ‘char’ to ‘va_arg’)
+proba.c:33:32: note: if this code is reached, the program will abort
+</pre>
+</div>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

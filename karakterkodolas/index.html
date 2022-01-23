@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Rémtörténet a karakterkódolásokról</title>
+<meta property="og:title" content="TEST InfoC :: Rémtörténet a karakterkódolásokról">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Ékezetes betűk, szövegek kódolása és megjelenítése a programokban. Javasolt olvasmány azoknak, akik szeretnék a nagy házijukban megoldani a magyar ékezetes szövegek helyes kezelését.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Ékezetes betűk, szövegek kódolása és megjelenítése a programokban. Javasolt olvasmány azoknak, akik szeretnék a nagy házijukban megoldani a magyar ékezetes szövegek helyes kezelését.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Rémtörténet a karakterkódolásokról">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Rémtörténet a karakterkódolásokról</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Dobra Gábor · <i class="ido"></i> 2019.08.24.</p>
+<p class="kivonat">Ékezetes betűk, szövegek kódolása és megjelenítése a programokban. Javasolt olvasmány azoknak, akik szeretnék a nagy házijukban megoldani a magyar ékezetes szövegek helyes kezelését.</p>
+</div>
+
+<img src="18.png" alt="18+" class="float">
+
+<p>Az ékezetes betűk kódolásával máig gondok vannak. Sokféle szabvány létezik arra, hogy mely ékezetes betűt milyen számkóddal
+jelölünk, ami azért nehéz ügy, mert ezek a kódtáblázatok általában egymással inkompatibilisek.</p>
+
+<p>A probléma ugyan elméletben megoldott, létezik olyan karakterkódolás a Unicode szabvány részeként, amely a világ (majdnem)
+összes nyelvének (majdnem) összes írásjeléhez karakterkódot rendel, mégis rendszeresen találkozunk árvíztûrõ tükörfúrógépekkel (meg
+ĂĄrvĂ­ztĹąrĹ tükörfúrógépekkel) még nyomtatott szövegekben is. Ennek oka sokszor a programozók figyelmetlensége. Sajnos a Windows
+is hírhedten <a href="https://stackoverflow.com/questions/48176431/reading-utf-8-characters-from-console">hibás</a> és hiányos
+ilyen téren.</p>
+
+<p>A karakterkódolási szabványok követésével és a programok helyes beállításával a problémák megszüntethetők. Legtöbbször csak
+egy-két függvényhívásról van szó. Ha a rémtörténet nem érdekel, szeretnél jól aludni, vagy csak azért vagy itt, mert az ékezetes
+szövegek nem látszanak jól a nagy házidban, akkor lapozz az oldal legaljára, a <a href="index.html#karakterrecept">receptekhez</a>.</p>
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Az egybájtos karakterkódolások</a>
+              <li><a href="index.html#2" class="">A Unicode által definiált kódolás</a>
+              <li><a href="index.html#3" class="">Az UTF-8 kódolás</a>
+              <li><a href="index.html#4" class="">Ékezetek: receptek</a>
+              <li><a href="index.html#5" class="">Konverziós függvények</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az egybájtos karakterkódolások">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Az egybájtos karakterkódolások<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az angol nyelvben használt, ékezet nélküli betűkhöz az ASCII kódolás terjedt el. Erről előadáson is volt szó. Egykor voltak más
+kódolások is, de a ASCII mára gyakorlatilag egyeduralkodóvá vált.</p>
+
+<p>A nyugat-európai nyelvekhez (pl. a franciához) használják ennek a Latin-1, vagy más néven ISO8859-1-es bővítését. Ez az ASCII
+kódolás 128 kódját újabb 96 karakterrel egészíti ki a 160-255 tartományban, így ez már 8 bites. Ebben sajnos nincsen benne a magyar
+ő és ű betű. A testvérében, a Latin-2-ben (ISO8859-2) benne van, így ezzel bármilyen magyar szöveg leírható. Ebben a magyar ű betű
+helyén a Latin-1-esben û van, az ő helyén pedig õ. Ezért találkozni néha ilyenekkel: árvíztûrõ tükörfúrógép, amikor egy Latin-2
+kódolással megadott sztringet Latin-1 kódolásúnak gondol egy program, vagy esetleg egy betűtípusban szerepel helytelenül, hogy
+melyik „alakzat” (graféma) melyik karaktert is jelenti.</p>
+
+<p>A Latin-2-höz hasonló kódolást használ a Windows a szövegfájloknál (Windows-1250). A konzol ablakban sajnos egy másikat
+(IBM-852), amely a Latin-1-2-re egyáltalán nem hasonlít. Ezek a kódolások a lenti képeken láthatóak.</p>
+
+<div class="columns">
+
+<div>
+<img class="kozep" src="latin1.png">
+<div class="kozep">ISO8859-1 (Latin-1)</div>
+</div>
+
+<div>
+<img class="kozep" src="latin2.png">
+<div class="kozep">ISO8859-2 (Latin-2)</div>
+</div>
+
+<div>
+<img class="kozep" src="ibm852.png">
+<div class="kozep">IBM-852</div>
+</div>
+</div>
+
+<p>A karakterkódolások közötti inkompatibilitás problémája akkor jelentkezik, amikor a programunkban ékezetes szöveget szeretnénk
+kiírni. Ha azt mondjuk a Code::Blocksban (Windowson), hogy <code>printf("ő")</code>, a keletkező sztring a <code>0xF5</code>,
+<code>0x00</code> bájtokból áll: az <code>ő</code> kódja és a lezáró nulla. De a konzolablakban a <code>0xF5</code> a paragrafus
+jel <code>§</code> karakterkódja! Ha kérünk egy sztringet, az viszont helyesen fog megjelenni kiíráskor, mivel a programunkban
+történő beolvasáskor már az IBM-852 szerinti kódok vannak:</p>
+
+<pre class="screenshot">
+═rd be, hogy teniszŘt§!
+teniszütő
+Ezt Ýrtad be: teniszütő
+</pre>
+
+<p>Ha a konzol ablakhoz kiválasztunk egy olyan betűtípust, amely tartalmazza a megfelelő ékezetes karaktereket (pl. a Consolas és a
+Lucida Console ilyen), és a parancssorban a program futtatása előtt átváltjuk a karakterkódolást arra, amelyik kódolással a
+forráskódot is elmentettük, helyesen jelenhet meg a szöveg. Ehhez a lenti <a href="index.html#karakterrecept">recepteknél</a> a konzolos programokhoz írt útmutatót kell használni.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A Unicode által definiált kódolás">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    A Unicode által definiált kódolás<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A többnyelvű szövegek nem írhatóak le a fenti kódolásokkal. Nem csak az a baj, hogy egy cirill vagy japán betűk nem szerepelnek
+bennük, hanem például még egy latin betűs útikönyvvel is gondban vagyunk! A Latin-1-ben nincs ő, a Latin-2-ben nincs ø, ezért ez a
+mondat nem írható le egyikkel sem: Dánia fővárosa København.</p>
+
+<img src="unicode.svg" class="float">
+
+<p> A '80-as évek vége táján felmerült, hogy létre kellene hozni egy olyan kódtáblát, amely a világ összes nyelvének összes
+karakterét tartalmazza, mert akkor nem lesz ilyen gond. Ez lett a Unicode szabvány része. Mivel azonban az összes létező írásjelek
+256-nál többen vannak, ebben egy karaktert már nem egy bájttal, hanem egy nagyobb számmal jelölnek. Aminek pedig az a
+következménye, hogy egy Unicode sztring közvetlenül nem jelenhet meg <code>char</code> tömbként a C programunkban, mert a
+<code>char</code> a C fogalmai szerint bájtot jelent.</p>
+
+<p>A Unicode szabványban a legtöbb karakter elfér 16 biten, de újabb verziókban akár még nagyobbak lehetnek. Míg pl. az ő betű vagy
+az € jel ábrázolható 16 bites számmal (karakterkódjuk 337 és 8364), addig más jelekhez, pl. emoji-khoz 2<sup>16</sup>, azaz 65536
+feleti szám tartozik (😺 kódja 128570, 🤡 pedig 129313).</p>
+
+<p>Az egybájtos karakterkódokról Unicode-ra átalakítani egy szöveget nagyon könnyű; egy 256 elemű tömbben eltárolhatjuk, melyik
+kódból mi lesz. Az egyes kódolásokhoz (Latin-1, Latin-2 stb.) azonban eltérő táblázatok tartoznak. A visszaalakítás nem ilyen
+egyszerű, mert bár technikailag könnyen megvalósítható, könnyen előfordulhat, hogy olyan karaktert kell átkódolni, ami a cél
+kódtáblában nem létezik. A halmazelméletben használt ∉ „nem eleme” szimbólum például semelyik fenti táblázatban nem létezik.</p>
+
+<p>Fölmerül még egy probléma az egy bájtnál nagyobb számok miatt. Egyes számítógéptípusok úgy tárolják a 16 bites számokat –
+amelyeket két 8 bites bájtként kell elhelyezni a memóriában –, hogy az alsó 8 bitet írják előbb, és utána a felső 8-at. Vagyis
+előbb a kicsit (little endian). Más gépek meg épp fordítva, előre veszi a felső 8 bitet, és utána, a következő memóriarekeszbe
+pedig az alsó 8 bitet (big endian). Ez egészen addig nem gond, amíg két, eltérő típusú számítógépnek nem kell kommunikálnia
+egymással. Viszont ha ezek az Interneten keresztül adatot küldenének egymásnak, vagy szeretnék olvasni az egymás által kiírt
+fájlokat, akkor már figyelni kell arra, hogy esetleg nem ugyanazt a bájtsorrendet használják – különben amit az egyik
+<code>0xFCE2</code>-nek mond, azt a másik <code>0xE2FC</code>-nek fogja értelmezni, és fordítva. Nagyobb számok (pl. 32 bites
+integerek) esetén hasonló a helyzet.</p>
+
+<p>Ezért a Unicode kódolású szövegekben el szoktak helyezni egy ún. BOM (byte order mark, bájtsorrend jele) karaktert, amelynek a
+kódja <code>0xFEFF</code>. Ha a szöveget olvasó számítógép egy <code>0xFEFF</code> kódot talál a szövegben, akkor tudja, hogy annak
+bájtsorrendje megegyezik a sajátjával. Ha azonban egy <code>0xFFFE</code> számot lát (amely szándékosan semmilyen karakternek nem
+kódja), akkor tudja, hogy minden számban meg kell cserélnie a felső és alsó nyolc bitet.</p>
+
+<p>A BOM-mal kiegészített, „HELLO” szöveget tároló fájlok bájtsorrendtől függően így nézhetnek ki (16 bites tömbelemeket
+feltételezve):</p>
+
+<div class="columns">
+<div><pre class="screenshot"><strong>FE FF</strong> 00 48 00 45 00 4C 00 4C 00 4F</pre></div>
+<div><pre class="screenshot"><strong>FF FE</strong> 48 00 45 00 4C 00 4C 00 4F 00</pre></div>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az UTF-8 kódolás">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Az UTF-8 kódolás<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A Unicode kódolás elméletben visszafelé kompatibilis az ASCII kódolással, ugyanis az első 128 karaktere ugyanabban a sorrendben
+van. Azonban a szövegfájlok a bájtsorrend miatt mégsem kompatibilisek egymással. Ezért találták ki az UTF-8 szövegkódolást. Az
+ilyen szövegekben a Unicode kódszámokat használják, azonban mindig 8 bites értékekből építik fel azt, átalakítva a nagyobb számokat
+több bájtos sorozatokká. Ha a leírandó kódszám elfér 7 biten (vagyis <code>0x00</code> és <code>0x7F</code> között van), akkor le
+kell vágni 8 bitre, és úgy tenni a fájlba. Ha ennél nagyobb, akkor kettő, három, sőt néha még több bájtos sorozattal írható le. A
+bájtok sorrendje azonban az ilyen sorozatokban kötött, tehát nem függ a számítógép típusától. Az átkódolás az alábbi módon helyezi
+el a biteket:</p>
+
+<table>
+    <thead>
+        <tr><th>Tartomány<th>Unicode<th>UTF-8
+    </thead>
+    <tr><td><code>&nbsp;&nbsp;&nbsp;00-&nbsp;&nbsp;7F</code><td><code>00000000 xxxxxx</code><td><code>xxxxxx</code>
+    <tr><td><code>&nbsp;&nbsp;&nbsp;80-07FF</code><td><code>00000yyy yyxxxxxx</code><td><code>110yyyyy 1xxxxx</code>
+    <tr><td><code>&nbsp;0800-FFFF</code><td><code>zzzzyyyy yyxxxxxx</code><td><code>1110zzzz 10yyyyyy 1xxxxx</code>
+    <tr><td><code>10000–</code><td>...</td><td>...</td>
+</table>
+
+<p>A Wikipedia az Euró jelét hozza példának, hogyan néz ki egy karakter UTF-8 kódolása:</p>
+
+<ul>
+    <li>Az € karakter kódszáma <code>0x20AC</code>.
+    <li>Ez binárisan <code><span style="color: red;">0010</span><span style="color: green;">000010</span><span style="color: blue;">101100</span></code>, ami a fenti
+        táblázat alapján a harmadik kategóriába esik. Vagyis három bájton lesz kódolható.
+    <li>Az első bájt viszi az első négy bitet: <code>1110<span style="color: red;">0010</span></code>.
+        A második a következő hatot: <code>10<span style="color: green;">000010</span></code>.
+        Az utolsó a maradékot: <code>10<span style="color: blue;">101100</span></code>.
+    <li>A kapott bájtok: <code><span style="color: red;">0xE2</span> <span style="color: green;">0x82</span> <span style="color: blue;">0xAC</span></code>.
+</ul>
+
+<p>Az UTF-8 kódolású sztringek, mivel bájtokból állnak, a C forráskódokban „újra” <code>char[]</code> tömbként jelenhetnek meg.
+Ezeknél azonban a beépített sztringkezelő függvényeket használva elég furcsa dolgokat tapasztalhatunk. Pl. az <code>strlen()</code>
+függvény szerint <code>"o"</code> hossza 1, viszont <code>"ő"</code> hossza 2, végül <code>"€"</code> esetében 3 a számított hossz.
+Az <code>ő</code> betűt két bájt kódolja, míg az <code>o</code> betűt csak egy, és ezt az <code>strlen()</code> nem tudja. Megkell
+szokni, a <code>char</code> sajnos ilyenkor nem karaktert, hanem bájtot jelent. Még jó, hogy a többi függvény, pl. a
+<code>strcpy()</code> és a <code>strcmp()</code> nagyjából helyesen működik. Végülis ez volt a célja az UTF-8 megalkotóinak.</p>
+
+<p>Egy Unicode kódolású szöveget UTF-8 bájtsorozattá alakítani könnyű, néhány bitműveletről van szó:</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#ifdef _WIN32
+    #include &lt;windows.h&gt;
+#endif
+
+/* Unicode sztringbol UTF-8 sztringet csinal.
+ * A bemenet es a kimenet is nullaval terminalt tomb.
+ * A kodolas csak 16 bites karakterekre mukodik. */
+void unicode_2_utf8(uint16_t const *be, uint8_t *ki) {
+    int pk = 0;
+    for (int pb = 0; be[pb] != 0; ++pb) {
+        if (be[pb] &lt;= 0x007F) {
+            // 00000000 0xxxxxxx, 0x0000-0x007F
+            // 0xxxxxxx
+            ki[pk++] = be[pb];
+        } else if (be[pb] &lt;= 0x07FF) {
+            // 00000yyy yyxxxxxx, 0x0080-0x07FF
+            // 110yyyyy 10xxxxxx
+            ki[pk++] = 0xC0 | be[pb] &gt;&gt; 6;      // 0xC0 = 11000000
+            ki[pk++] = 0x80 | (be[pb] &amp; 0x3F);  // 0x80 = 10000000, 0x3F = 00111111
+        } else {
+            // zzzzyyyy yyxxxxxx, 0x0800-0xFFFF
+            // 1110zzzz 10yyyyyy 10xxxxxx
+            ki[pk++] = 0xE0 | be[pb] &gt;&gt; 12;     // 0xE0 = 11100000
+            ki[pk++] = 0x80 | ((be[pb] &gt;&gt; 6) &amp; 0x3F);
+            ki[pk++] = 0x80 | (be[pb] &amp; 0x3F);
+        }
+    }
+
+    ki[pk] = 0;
+}
+
+int main(void) {
+#ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
+#endif
+
+    uint16_t arvizturo[] = { 0x00E1, 'r', 'v', 0x00ED, 'z', 't',
+                             0x0171, 'r', 0x0151, ' ', 0x263A, ' ', 0x20AC,
+                             0x0000 };
+    uint8_t arvizturo_utf8[30];
+
+    unicode_2_utf8(arvizturo, arvizturo_utf8);
+    printf(&quot;arvizturo szmajli, es euro: %s\n&quot;, arvizturo_utf8);
+}</code></pre>
+
+<p>A visszaalakítás ugyanilyen egyszerű. A programot elindítva ennek kell megjelennie: árvíztűrő ☺ €. Linuxon egyből ez fog 
+megjelenni (ez UTF-8 kódolást használ szinte mindenhol), a Windowsokon meg a kódlapot át kell állítani, a lentebbi <a href="index.html#karakterrecept">recepteknek</a> megfelelően.</p>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Ékezetek: receptek">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+  <a id="karakterrecept" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Ékezetek: receptek<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az alábbi kódrészletek a nagy házikban szabadon felhasználhatóak.</p>
+
+
+<h3>Linux konzol ablak és fájlok</h3>
+
+<p>Nincs különösebb teendő, minden működik magától. A legtöbb Linux UTF-8 kódolást használ a parancssori ablakokban és a fájlokban
+is, úgyhogy semmi extra teendő nincsen, rögtön működnek az ékezetes betűt használó programok. Egy dologra kell figyelni, hogy az
+UTF-8-ban karakter&ne;bájt! Mivel az ékezetes betűk kettő, egyéb karakterek akár több bájton lehetnek kódolva, a sztringek indexei
+elcsúsznak, és hosszaik nem egyeznek meg az <code>strlen()</code> által adottakkal. Például <code>strlen("teniszütő")</code> értéke
+11. Ez 9 karakter, 11 bájt hosszú sztring, 12 bájtnyi memóriafoglalás. (Az <code>utf8_strlen()</code> függvény megírása házi
+feladat.)</p>
+
+
+
+<h3>Windows konzol ablak – Windows-1250 kódolással</h3>
+
+<img src="terminal.png" class="float">
+
+<p>Bár a Windows már az XP verzió óta támogatja az 1993 óta létező UTF-8 szabványt, alapbeállítás esetén még mindig nem használja. A
+Windows 10-ben az UTF-8 támogatása <a
+href="https://stackoverflow.com/questions/48176431/reading-utf-8-characters-from-console">konkrétan hibás</a>, így kénytelenek
+vagyunk a múltat konzerválni, és Windows-1250 karakterkódolást használni.</p>
+
+<p>A teendők ehhez:</p>
+
+<ul>
+    <li>A parancssori ablakot úgy beállítani, hogy Consolas, vagy egy másik, Unicode-kompatibilis betűtípust használjon. Az
+    ablak ikonjára klikk, Alapértelmezések (Defaults), Betűtípus (Font). A következő ablak megnyitásakor jó lesz.</li>
+
+    <li>Figyelni kell arra, hogy a forráskódok Windows-1250 kódolással legyenek elmentve. Ehhez a Code::Blocks <em>Edit / File
+    encoding</em> menüpontja alatt a <em>System default</em> lehetőséget kell kiválasztani. Ha van olyan korábban létrehozott
+    fájlunk, amiben már vannak ékezetes karakterek, csak nem jól jelennek meg, át kellhet konvertálni a fájlt, annak megnyitásával
+    és újbóli elmentésével.
+
+    <li>Ha a program használ szöveges adatfájlokat, azokat a fentiekhez hasonlóan Windows-1250 kódolással kell elmenteni.
+
+    <li>A program elején kiválasztani ezt a kódolást a lenti kódrészlettel.
+</ul>
+
+<p>A konzol ablak kódlapjának beállítása megtehető két függvényhívással: <code>SetConsoleCP(1250)</code> és 
+<code>SetConsoleOutputCP(1250)</code>. Az egyik a bemeneti kódlapot állítja be, a másik pedig a kimeneti kódlapot. (Hogy miért tér 
+el a beolvasáskor és kiíráskor használt karakterkódolás a Windowsban, miért kell ezeket külön beállítani, egy örök rejtély a világ 
+számára.) Vigyázat, ezek nem szabványos függvényhívások! Illik őket <code>#ifdef</code>-ek közé tenni, hogy maradjanak 
+hatástalanok, ha más operációs rendszeren fordítja valaki a programot. A két függvényhívást elég a program elején egyszer megtenni 
+(praktikusan a <code>main()</code> elején valamikor), többször már nem.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#ifdef _WIN32
+    #include &lt;windows.h&gt;
+#endif
+
+
+int main(void) {
+#ifdef _WIN32
+    SetConsoleCP(1250);
+    SetConsoleOutputCP(1250);
+#endif
+
+    printf(&quot;Írd be, hogy teniszütő!\n&quot;);
+    char s[100];
+    scanf(&quot;%s&quot;, s);
+    printf(&quot;Ezt írtad be: %s.&quot;, s);
+
+    return 0;
+}</code></pre>
+
+<p>A Windows-1250 kódolással mentés könnyen ellenőrizhető. Csak meg kell vizsgálni, hogy egy adott betű karakterkódja egyezik-e az
+általunk elvárttal:</p>
+
+<pre   ><code class="language-c">#include &lt;assert.h&gt;
+
+int main(void) {
+    assert((unsigned char)'ő' == 245);
+}</code></pre>
+
+
+<p>Ügyelni kell arra, hogy bizonyos karakterek (pl. ☺) nem jeleníthetők meg ezzel a kódolással. Ilyenkor a Code::Blocks
+automatikusan átáll UTF-8-ra, különben el sem tudná menteni a fájlt! A Code::Blocks-nak néha az <code>ő</code> betűvel is gondja
+akad, pl. angol nyelvű Windowson. Ha mentés közben a lentebb látható figyelmeztető ablak ugrik fel, akkor a Windows nincs magyar
+nyelvűre állítva, vagy esetleg a program valamelyik sztringje olyan karaktert tartalmaz, ami nem elmenthető ilyen formában.
+A magyar nyelvűre állításhoz a vezérlőpult területi beállításai (Region) között kell kutakodni.</p>
+
+<div class="columns">
+<div>
+<img src="encoding_changed.png" class="kozep arnyek" alt="Figyelmeztető üzenet a hibás karakterkódolásról">
+</div>
+<div>
+<img src="region.png" class="kozep arnyek" style="width: 300px" alt="Vezérlőpult, területi beállítások">
+</div>
+</div>
+
+
+
+<h3>SDL – UTF-8 kódolással</h3>
+
+<img src="sdl.png" class="float">
+
+<p>Az <a href="../sdl/index.html">SDL-es</a> programoknál érdemes inkább UTF-8 karakterkódolást használni. Az SDL_TTF
+könyvtár <code>TTF_RenderUTF8_Blended</code> és hasonló függvényei közvetlenül is támogatják ezt a kódolást.</p>
+
+<p>Arra kell csak figyelni, hogy a program forráskódja és a szöveges adatfájljai is UTF-8 kódolással legyenek elmentve. Ehhez a
+Code::Blocks <em>Edit / File encoding</em> menüpontja alatt az <em>UTF-8</em> lehetőséget kell kiválasztani. Ha van olyan korábban
+létrehozott fájlunk, amiben már vannak ékezetes karakterek, csak nem jól jelennek meg, akkor át kellhet konvertálni a fájlt, annak
+megnyitásával és újbóli elmentésével.</p>
+
+<p>Az UTF-8 kódolással mentés könnyen ellenőrizhető:</p>
+
+<pre   ><code class="language-c">#include &lt;assert.h&gt;
+#include &lt;string.h&gt;
+
+int main(void) {
+    assert(strlen(&quot;ő&quot;) == 2);
+}</code></pre>
+
+
+
+<h3>UTF-8 BOM karakter a Windows szövegfájljaiban</h3>
+
+<p>Az UTF-8 kódolás gyakorlatilag a Unicode karakterek kódjait használja, azoknak egy kényelmesebb ábrázolási módja. Azt azonban
+nem köti meg az UTF-8 szabvány, hogy a Unicode fájlok elején lévő BOM-ot tartalmaznia kell-e egy UTF-8 fájlnak. Mivel a bájtok
+sorrendje kötött, teljesen felesleges jelezni a bájtsorrendet, így a legtöbb program nem használ UTF-8 kódolás esetén BOM-ot.</p>
+
+<p>Néhány windowsos program (pl. Notepad) ennek ellenére elhelyezi ezt a bájtot a fájlok elejére, ezzel számos problémát okozva.
+Sok program erre nincs felkészítve, hiszen logikátlan a dolog. Ironikus módon az Internet Exporer is ilyen, pedig az is a Windows
+része.</p>
+
+<p>A BOM kódja <code>0xFEFF</code>, ami a <code>0x0800-0xFFFF</code> tartományba esik, így UTF-8 reprezentációja három bájtos: <code>EF BB
+BF</code>. Pl. az „árvíztűrő” szöveg egy szövegfájlban:</p>
+
+<pre>
+C3 A1 72 76 C3 AD 7A 74 C5 B1 72 C5 91          (UTF-8)
+<strong>EF BB BF</strong> C3 A1 72 76 C3 AD 7A 74 C5 B1 72 C5 91 (UTF-8 + BOM)
+</pre>
+
+<p>Ha ilyet látunk a fájl elején, egyszerűen el kell dobni az első három bájtot.</p>
+
+<pre   ><code class="language-c">char buf[3];
+fscanf(fp, &quot;%3c&quot;, buf);
+if (memcmp(buf, &quot;\xEF\xBB\xBF&quot;, 3) != 0) /* ha nem bom-mal kezdődik a fájl */
+    fseek(fp, 0, SEEK_SET);              /* vissza az elejére */
+/* ... a fájl kezelése ... */</code></pre>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Konverziós függvények">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Konverziós függvények<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<h3>Konverzió: Latin-2-ből Unicodeba</h3>
+
+<p>Ha egy Windowson egy Latin-2 kódolású fájlból beolvasott szöveget kell megjeleníteni az SDL-lel, akkor ilyen irányú átalakítást
+kell csinálni. Az alábbi függvénnyel oldható meg:</p>
+
+<pre   ><code class="language-c">/* Latin2 -&gt; 16 bites Unicode atalakitas. Az SDL is ilyet
+ * hasznal, az uint16_t az SDL-beli Uint16-tal egyenerteku. */
+void latin2_2_unicode(char *be, uint16_t *ki) {
+    static uint16_t tabla[128] = {
+        /* A 0x80-0xFF karakterek Unicode megfeleloje */
+        0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89,
+        0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x8F, 0x90, 0x91, 0x92, 0x93,
+        0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9A, 0x9B, 0x9C, 0x9D,
+        0x9E, 0x9F, 0xA0, 0x104, 0x2D8, 0x141, 0xA4, 0x13D, 0x15A,
+        0xA7, 0xA8, 0x160, 0x15E, 0x164, 0x179, 0xAD, 0x17D, 0x17B,
+        0xB0, 0x105, 0x2DB, 0x142, 0xB4, 0x13E, 0x15B, 0x2C7, 0xB8,
+        0x161, 0x15F, 0x165, 0x17A, 0x2DD, 0x17E, 0x17C, 0x154,
+        0xC1, 0xC2, 0x102, 0xC4, 0x139, 0x106, 0xC7, 0x10C, 0xC9,
+        0x118, 0xCB, 0x11A, 0xCD, 0xCE, 0x10E, 0x110, 0x143, 0x147,
+        0xD3, 0xD4, 0x150, 0xD6, 0xD7, 0x158, 0x16E, 0xDA, 0x170,
+        0xDC, 0xDD, 0x162, 0xDF, 0x155, 0xE1, 0xE2, 0x103, 0xE4,
+        0x13A, 0x107, 0xE7, 0x10D, 0xE9, 0x119, 0xEB, 0x11B, 0xED,
+        0xEE, 0x10F, 0x111, 0x144, 0x148, 0xF3, 0xF4, 0x151, 0xF6,
+        0xF7, 0x159, 0x16F, 0xFA, 0x171, 0xFC, 0xFD, 0x163, 0x2D9
+    };
+
+    int j = 0;
+    for (int i = 0; be[i] != 0; ++i) {
+        if (be[i] &lt; 128) /* ascii? */
+            ki[j++] = be[i];
+        else
+            ki[j++] = tabla[be[i] - 128];
+    }
+    ki[j] = 0;
+}</code></pre>
+
+
+<h3>Konverzió: Unicode-ból UTF-8-ba</h3>
+
+<p>Ha egy SDL-en, billentyűzetről beolvasott sztringet
+kell fájlba írni, vagy más, meglévő UTF-8 sztringekbe beilleszteni:</p>
+
+<pre   ><code class="language-c">/** Unicode -&gt; UTF-8, legfeljebb 16 bitre. */
+void unicode_2_utf8(uint16_t const *be, uint8_t *ki) {
+    int pk = 0;
+    for (int pb = 0; be[pb] != 0; ++pb) {
+        if (be[pb] &lt;= 0x007F) {
+            // 00000000 0xxxxxxx, 0x0000-0x007F
+            // 0xxxxxxx
+            ki[pk++] = be[pb];
+        } else if (be[pb] &lt;= 0x07FF) {
+            // 00000yyy yyxxxxxx, 0x0080-0x07FF
+            // 110yyyyy 10xxxxxx
+            ki[pk++] = 0xC0 | be[pb] &gt;&gt; 6;      // 0xC0 = 11000000
+            ki[pk++] = 0x80 | (be[pb] &amp; 0x3F);  // 0x80 = 10000000, 0x3F = 00111111
+        } else {
+            // zzzzyyyy yyxxxxxx, 0x0800-0xFFFF
+            // 1110zzzz 10yyyyyy 10xxxxxx
+            ki[pk++] = 0xE0 | be[pb] &gt;&gt; 12;     // 0xE0 = 11100000
+            ki[pk++] = 0x80 | ((be[pb] &gt;&gt; 6) &amp; 0x3F);
+            ki[pk++] = 0x80 | (be[pb] &amp; 0x3F);
+        }
+    }
+    ki[pk] = 0;
+}</code></pre>
+
+
+<h3>Konverzió: UTF-8-ból Unicode-ba</h3>
+
+<p>Ha UTF-8 sztringek vagy fájlok karaktereit kellene egyesével látni:</p>
+
+<pre   ><code class="language-c">/* UTF-8 bajtsorozatbol allitja elo az Unicode sztringet.
+ * Mindketto nullaval terminalt.
+ * Nincs hibakezeles: a bemeneti bajtsorozatnak helyesnek kell lennie,
+ * es legfeljebb 3 bajtos szekvenciakat tartalmazhat! */
+void utf8_2_unicode(uint8_t const *be, uint16_t *ki) {
+    int pk = 0;
+    for (int pb = 0; be[pb] != 0; ++pb) {
+        if (be[pb] &lt; 0x80) {
+            // 00000000 0xxxxxxx, 0x0000-0x007F
+            // 0xxxxxxx
+            ki[pk++] = be[pb];
+        }
+        else if (be[pb] &gt;&gt; 5 == 6) { /* 0x6 = 110 bin */
+            // 00000yyy yyxxxxxx, 0x0080-0x07FF
+            // 110yyyyy 10xxxxxx
+            ki[pk++] = (be[pb] &amp; 0x1f) &lt;&lt; 6 | (be[pb + 1] &amp; 0x3f);
+            pb += 1;            /* ket bajtot hasznaltunk */
+        }
+        else {
+            // zzzzyyyy yyxxxxxx, 0x0800-0xFFFF
+            // 1110zzzz 10yyyyyy 10xxxxxx
+            ki[pk++] = (be[pb] &amp; 0x0f) &lt;&lt; 12
+                       | (be[pb + 1] &amp; 0x3f) &lt;&lt; 6
+                       | (be[pb + 2] &amp; 0x3f);
+            pb += 2;            /* harom bajtot hasznaltunk */
+        }
+    }
+    ki[pk] = 0;
+}</code></pre>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+table.allapotgep tbody tr.aktiv { background: rgba(0, 0, 255, 0.4); }
+table.allapotgep tbody tr.aktiv:hover { background: rgba(0, 0, 255, 0.45); }
+table.tomb tbody td.aktiv { background: rgba(0, 0, 255, 0.4); }

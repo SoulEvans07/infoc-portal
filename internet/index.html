@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Hogyan működik az Internet?</title>
+<meta property="og:title" content="TEST InfoC :: Hogyan működik az Internet?">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Az Internet működéséről röviden, és az SDL_net alapú hálózatprogramozásról.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Az Internet működéséről röviden, és az SDL_net alapú hálózatprogramozásról.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Hogyan működik az Internet?">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Hogyan működik az Internet?</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.02.27.</p>
+<p class="kivonat">Az Internet működéséről röviden, és az SDL_net alapú hálózatprogramozásról.</p>
+</div>
+
+<p>Ez az írás röviden elmagyarázza az Internet működését biztosító technológiákat
+– kiemelve közben néhány olyan dolgot, amely a Programozás alapjai I. tárgyban
+előkerült.</p>
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Az Internetre kötött számítógépek címei</a>
+              <li><a href="index.html#2" class="">Csomagok és protokollok</a>
+              <li><a href="index.html#3" class="">Csomagkapcsolt és vonalkapcsolt átvitel</a>
+              <li><a href="index.html#4" class="">A portok és kapcsolatok</a>
+              <li><a href="index.html#5" class="">Hálózatprogramozás</a>
+              <li><a href="index.html#6" class="">Útválasztás az Interneten</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az Internetre kötött számítógépek címei">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Az Internetre kötött számítógépek címei<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az Internet egy globális hálózat, ezért minden egyes számítógépnek egyedi <em>címmel</em> 
+kell rendelkeznie, ha a többivel kommunikálni szeretne. Az Interneten használt címek az <code>
+nnn.nnn.nnn.nnn</code> formát öltik, ahol minden <code>nnn</code> szám egy 8 bites, előjel 
+nélküli egész, azaz a 0&hellip;255 értéket veheti fel. Ezt IP címnek (IP address) nevezzük.</p>
+
+<p class="megjegyzes">Egészen pontosan ezek IPv4 címnek, az Internet Protocol 4-es verziója 
+szerinti azonosítók. Egyre több helyen használják már az IPv6-ot, amelynél a címek nem 32, 
+hanem 128 bitesek. A 32 bites címek egészen egyszerűen mostanra elfogytak, és már évek óta 
+különféle trükköket használnak, hogy több számítógép közösen használhasson egy címet.</p>
+
+<img src="ipcim.svg" style="width: 32em;" class="kozep" alt="IP címek">
+
+<p>Az Internethez csatlakozva a géped valószínűleg automatikusan kapott egy ideiglenes IP címet, 
+pl. a BME WiFi szolgáltatásán keresztül. Az <code>infoc.eet.bme.hu</code> szervernek pedig fix, 
+dedikált címe van (úgyis 24 órában be van kapcsolva). Az IP cím látható parancssorból, a 
+<code>ping</code> programmal, amely amúgy két gép közötti kapcsolat meglétét hivatott ellenőrizni:</p>
+
+<pre class="screenshot">
+rockford:~$ ping infoc.eet.bme.hu
+PING infoc.eet.bme.hu (152.66.72.38) 56(84) bytes of data.
+64 bytes from infoc.eet.bme.hu (152.66.72.38): icmp_req=1 ttl=55 time=38.0 ms
+</pre>
+
+<p>A <code>ping</code> program először feloldja (resolve) a szerver nevét (host name), hogy
+megkapja az IP címet (IP address). Ehhez a hálózaton elérhető DNS (Domain Name System) szolgáltatást
+használ. Így tudja meg, hogy az <code>infoc.eet.bme.hu</code> címhez a <code>152.66.72.38</code>
+cím tartozik. Ezután annak a gépnek egy <code>PING</code> üzenetet küld, amelyre a szerver
+válaszol is. A <code>ping 152.66.72.38</code> parancsnak ugyanez lenne
+az eredménye.</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Csomagok és protokollok">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Csomagok és protokollok<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Mi történik akkor, amikor egy számítógép „beszélni” szeretne egy másikkal; például a te 
+számítógéped, amelynek az IP címe
+127.0.0.1, a „hello” üzenetet 
+szeretné küldeni az <code>infoc</code>-nek, amelynek a címe 152.66.72.38?</p>
+
+<p>A szövegtől előbb el kellene jutni valahogy oda, hogy elektromos jelek jelenjenek meg a 
+vezetéken, vagy rádióhullámokat bocsájtson ki a géped antennája, amiket – haladjanak bármilyen 
+eszközökön keresztül – végül vissza kellene alakítani az üzenetté. Ebben segítenek az 
+üzenetküldési <em>protokollok,</em> egészen pontosan a protokoll felépítmények (protocol stack), ugyanis 
+nem csak egyről van szó. Ezek a protokollok határozzák meg, hogyan kell az üzenet betűit 
+kódolni, hogyan lesznek abból a hálózaton közlekedő adatcsomagok, és hogy azok hogyan válnak 
+végül elektromos jelekké. Ezeket minden számítógép operációs rendszere és hardvere tartalmazza. 
+Nyilvánvalóan a két számítógépnek közös nyelvet kell beszélnie. A használt protokollok azonban 
+eltérnek, attól függően, hogy milyen céljaink vannak az üzenetekkel.</p>
+
+<p>Tekintsünk most el a fizikai szinttől (vezetékek, rádióhullámok), és nézzük csak azokat a 
+protokollokat, amelyeknek jelentősége van a programjaink szempontjából. Nézzünk egy példát. Fogj 
+egy <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a>-ot: ez 
+nem csak arra jó, hogy más gépekre bejelentkezni, azokon dolgozni lehessen, hanem egy olyan 
+segédprogramnak is használható, amellyel egy tetszőleges hálózati kapcsolat létrehozható.</p>
+
+<img class="kozep arnyek" src="putty.png" alt="PuTTY">
+
+<p>A host name (or IP address) mezőbe írd be, hogy <code>infoc.eet.bme.hu</code>, a port számhoz 
+a <code>80</code>-at. (A portokra azért van szükség, hogy egy gépen egyszerre több hálózati kapcsolat is 
+létrejöhessen. Ha a cél gépen több szolgáltatás is fut (pl. web szerver és levelezés), akkor a 
+beérkező adatokról tudnia kell a gépnek, hogy azokat mely programoknak kell megkapniuk. A 80-as 
+számú porton a web szerver szokott lenni.) A connection type-nak add meg a „raw”-t. Az Open
+megnyomása után elvileg csatlakoztál a szerverhez – amely egyelőre szótlan. (Linuxosok: mindez 
+megoldható az <code>nc infoc.eet.bme.hu 80</code> parancssor begépelésével.) Írd be az alábbi sort, 
+és nyomj két entert! Erre letöltődik egy üzenet, amely a szervertől jön (és átirányít a titkosított
+oldalra).</p>
+
+<pre class="screenshot">
+GET / HTTP/1.0
+</pre>
+
+<p>Mi történt? Úgy csináltunk, mintha egy web böngésző lennénk, és arra kértük az <code>
+InfoC</code> szervert, hogy küldje el a főoldalt. Ehhez először <em>alkalmazási szinten</em> 
+(ami nézőként mint egy böngésző szintje) megfogalmaztuk a kérést, a HTTP (hypertext transfer 
+protocol) nyelvén. Ezt a szöveget a PuTTY odaadta az operácios rendszerbe beépített TCP-nek 
+(transmission control protocol), amely a két alkalmazás (a böngésző és a web szerver) közötti 
+<em>kapcsolat felépítéséért</em> felel. Ez csomagokra bontja az üzenet szövegét, és továbbadja az IP-nek 
+(internet protocol), amely a <em>csomagok továbbításáért</em> felel. Innen pedig a csomagok eljutnak a 
+hardver eszközhöz. A másik oldalon ugyanez történik, csak fordítva: a jeleket fogadó hardver 
+eszköz az érkező csomagokat az IP-nek adja, amely továbbadja azt a TCP-nek; a TCP előállítja 
+belőle az adatfolyamot, és végül az alkalmazás (amely a web szerver programja) értelmezi az 
+üzenetet: <code>GET / HTTP/1.0</code>.</p>
+
+<img src="stack.svg" style="width: 24em;" class="kozep" alt="Protokoll felépítmény">
+
+<p>Az egyes protokoll rétegek az üzenethez <em>járulékos információt</em> tesznek, például a 
+címzett IP címét vagy a portszámot. Mire az üzenet a web szerverhez jut, ezeket a fogadó oldalon 
+a protokollegyedek újra eltávolítják. Bár minden protokoll a felette és az alatta lévővel 
+kommunikál közvetlenül, mégis az egyes rétegek számára <em>úgy tűnik, mintha</em> a velük egy 
+szinten lévő <em>társukkal beszélnének:</em> a böngésző közvetlenül a web szerverrel. Amikor 
+telefonon beszélünk, akkor is ehhez hasonló dolog történik: a hangunkból elektromos jel lesz, 
+azokból adatcsomagok, amelyeket a telefon egy központba küld. Onnan a csomagok eljutnak a másik 
+telefonhoz, amely értelmezi azokat, és előállítja az eredetihez hasonló elektromos jelet, amiből 
+végül újra hang lesz. Nekünk mégis olyan, mintha közvetlenül a hívottal beszélnénk.</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Csomagkapcsolt és vonalkapcsolt átvitel">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Csomagkapcsolt és vonalkapcsolt átvitel<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az Interneten <em>minden kommunikáció adatcsomagokból</em> épül fel. Ezen csomagok mérete néhány tíz 
+bájttól néhány tíz kilobájtig terjedhet. A csomagok továbbításáért az IP (Internet Protocol) 
+felelős. A csomagban a tartalma mellett szerepel annak feladója és címzettje 
+is: a két IP cím.</p>
+
+<p>Fontos tudni azt, hogy az Internet kommunikációja <em>csomagkapcsolt.</em> Ez 
+azt jelenti, hogy az IP számára a csomagok teljesen függetlenek, és semmi információt az IP 
+protokollt kezelő eszközök nem jegyeznek meg a csomagokról. Beérkezik, fogadják, továbbküldik, 
+és el is van felejtve. A csomagok viselkedését leginkább úgy lehet elképzelni, mint egy borítékba
+tett levél életét: megcímezzük, feladjuk, és a címzett egyszercsak megkapja. Nem garantált sem
+az, hogy megérkezik, sem az, ha több levelet adunk fel, akkor azok a feladás sorrendjében
+fognak megérkezni. Nem létezik kapcsolat felépítése és kapcsolat bontása művelet sem:
+minden levél egymástól független.</p>
+
+<p>Egy fájl továbbításánál megengedhetetlen lenne a darabjainak elveszése vagy összekeveredése. 
+Ilyenkor a <em>vonalkapcsolt</em> átvitel kellene, ami leginkább a telefonáláshoz hasonlít: a 
+kapcsolatnak van <em>állapota,</em> mivel azt a kommunikáció előtt felépítjük, és a kommunikáció 
+után lebontjuk. Egy vonalkapcsolt csatornán a küldött adatok garantáltan eredeti sorrendjükben, 
+hiánytalanul érkeznek. Mivel az Internet természetét tekintve csomagkapcsolt, a vonalkapcsolt 
+(-nak tűnő) kommunikációt egy, az IP fölé helyezett újabb protokollréteggel szokták biztosítani: 
+éppen ez a TCP (transmission control protocol). A TCP a küldendő adatfolyamot csomagokra bontja, 
+a csomagokat megszámozza, és így adja át az IP-nek. Minden csomagra nyugtát vár a címzettől. A 
+címzett pedig a beérkező, számozott csomagokat sorba állítja, hogy abból az eredeti adatfolyamot 
+rekonstruálhassa. Szükség esetén az elvesző csomagok újraküldéséről gondoskodik a TCP. Mindezt
+a TCP felett kommunikáló alkalmazások számára láthatatlanul történik.</p>
+
+<p>Bizonyos feladatokhoz azonban ezek a szolgáltatások feleslegesek. Ha hangot továbbítunk, nem 
+baj, ha elveszik vagy összekeveredik egy-két csomag. Sokkal nagyobb gond, ha egy kimaradó 
+csomagra várni kezdünk, mert akkor megakad a hang. A TCP által biztosított megbízhatóságnak ára 
+van, ezért ha a programoknak gyors üzenetküldésre van szükségük, amelynél azonban <em>nem fontos a 
+100%-os megbízhatóság,</em> akkor UDP-t (user datagram protocol) szokás használni. Ez egy nagyon 
+egyszerű kis protokoll, amely alig biztosít többlet szolgáltatásokat az IP-hez képest: 
+lényegében csak annyit, hogy ellenőrző összeget tesz a csomagba (hogy legalább a hibás átvitelt 
+detektálni lehessen).</p>
+
+<p class="megjegyzes">Érdekesség: a mobiltelefonoknál a hang 4,6 ezredmásodperces darabokra van 
+bontva. Minden csomag egy ilyen hang darabkát tartalmaz. A fogadó oldal, ha azt érzékeli, hogy 
+egy csomag kimaradt, egyszerűen az előtte lévőt duplázza. Elsőre talán meglepő, de ezt az emberi 
+fül észre sem veszi, mert ennél sokkal lassabban változnak a beszédben képzett hangok. Ha a 
+kimaradó csomagok helyét a telefon csönddel helyettesítené, az sokkal zavaróbb lenne!</p>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A portok és kapcsolatok">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    A portok és kapcsolatok<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Azért, hogy egy számítógépen ne csak egy hálózati program vagy szolgáltatás futhasson,
+minden TCP és UDP csomagot egy ún. <em>port számmal</em> látnak el. Ez egy 16 bites, előjel nélküli
+egész szám (0&hellip;65535). Ilyen port szám tartozik az üzenet küldőjéhez és az üzenet
+címzettjéhez is.</p>
+
+<p>UDP-nél ennek a működése a következő. Ha egy program adatot szeretne fogadni UDP-n, akkor 
+választ egy port számot, pl. az <code>1234</code>-et. Ezt a választását jelzi az operációs rendszernek. 
+Ilyenkor a megfelelő IP címre ÉS port számra küldött UDP csomagokat az a program fogja megkapni. 
+A küldő oldal (másik gép) is választ egy port számot (vagy megkéri az operációs rendszert, hogy 
+válasszon találomra egy szabad portot), és úgy küldi el az üzenetet. Így kapcsolódik össze a két 
+program: IP<sub>1</sub>:port<sub>1</sub> és IP<sub>2</sub>:port<sub>2</sub> között mennek a
+csomagok. Az egyik irányban IP<sub>1</sub>:port<sub>1</sub> a feladó, 
+IP<sub>2</sub>:port<sub>2</sub> a címzett (ezek az adatok szerepelnek az UDP fejlécével ellátott csomagban), a másik 
+irányban pedig fordítva.</p>
+
+<img src="udp.svg" class="kozep" style="width: 36em;" alt="UDP">
+
+<p>TCP-nél egy kicsit bonyolultabb, hiszen ott minden kapcsolatot meg kell különböztetni a 
+vonalkapcsolt jelleg miatt. Ezért ott nem csak adatcsomagok vannak, hanem vezérlőcsomagok is. 
+Itt is először az egyik gép (nevezzük szervernek) nyit egy portot, ami azt jelenti, hogy azon a 
+porton fogadni tudja a bejövő kapcsolatokat. Ezután a hozzá csatlakozó (a kliens) elindítja a 
+kapcsolódási folyamatot egy olyan adatcsomaggal, amelyben a SYN jelzésű bit (ez a csomag 13. 
+bájtjának 6. bitje) 1-be van állítva: synchronize. Erre a szerver válaszol neki egy SYN-ACK 
+(synchronize+acknowledge) csomaggal, amelyben a 13. bájt 3. bitje is 1-be van állítva; mire a 
+kliens egy újabb ACK csomaggal válaszol. Amint ez a <em>3-way handshake</em> nevű folyamat megtörtént,
+a kapcsolat él, a kommunikáció 
+bármelyik irányban történhet. A kapcsolat lebontása hasonlóan történik, csak FIN (finish) 
+jelzésű csomagokkal. A TCP kapcsolatok vezérléséhez használt <em>állapotgép</em> állapotátmeneti 
+gráfja megtalálható az erről szóló <a href=
+"http://en.wikipedia.org/wiki/Transmission_Control_Protocol#Protocol_operation">Wikipedia</a> 
+oldalon is.</p>
+
+<div class="columns">
+    <div>
+        <img src="tcpopen.svg"  class="kozep" style="width: 16em;" alt="TCP kapcsolat megnyitása">
+        <div class="kozep">TCP kapcsolat megnyitása</div>
+    </div>
+    <div>
+        <img src="tcpclose.svg" class="kozep" style="width: 16em;" alt="TCP kapcsolat bezárása">
+        <div class="kozep">TCP kapcsolat bezárása</div>
+    </div>
+</div>
+
+<p>A programunkban ezekkel a vezérlő üzenetekkel nem kell foglalkozni, kezeli őket az operációs 
+rendszer. Egy kapcsolat felépítése szinte annyiból áll, mint egy fájl megnyitása. Egy <code>
+connect()</code> függvényhívás után, ha az sikerült, kapunk egy ún. socket-et, amelybe írhatunk, 
+és amelyből olvashatunk. Amint a kapcsolat létrejött, a kliens/szerver megkülönböztetésnek 
+sincsen már semmi jelentősége. A különbség a kettő között csak abban áll, hogy melyik fél 
+kezdeményezi a kapcsolatot. Azért szokás a két felet kliensnek és szervernek nevezni, mert 
+általában a kliens kapcsolódik a szerverhez azért, hogy annak valamilyen szolgáltatásait elérje, 
+például az ott tárolt fájlokat letöltse.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Hálózatprogramozás">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Hálózatprogramozás<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A hálózat programozását lehetővé tevő API (application programming interface) először
+a BSD operációs rendszerben jelent meg. Ezeket a függvényeket mindegyik Unix típusú
+rendszer tartalmazza, és a Windows is átvette. Bár a kétféle rendszer függvényeit
+szinte ugyanúgy kell használni, apró különbségek azért vannak: hogyan jelzik a hibát,
+hogyan kell lekérdezni, pontosan milyen hiba történt, melyik header fájlokat kell beilleszteni
+stb. Ha olyan programot szeretnénk írni, amelyik minden operációs rendszeren egyformán
+működik, érdemes a grafikához hasonlóan a hálózat programozásához is egy alkalmas
+függvénykönyvtárat használni, amely ezeket a különbségeket elfedi. Ilyen például az
+<a href="http://www.libsdl.org/projects/SDL_net/">SDL_net</a>, amelynek Code::Blocks-hoz
+lefordított változata letölthető innen: <a href="sdl_net-1.2.infoc.zip">SDL_net-1.2.infoc.zip</a>.</p>
+
+<div class="megjegyzes">
+<p>A telepítése hasonlóan történik, mint az SDL többi részéé, csak ehhez az SDL_net nevű
+könyvtárat kell a programhoz linkelni. Ubuntu Linuxon csomagból elérhető. A CodeBlocks-ban
+a Project menü Build Options menüpontja alatt kell beállítani, hogy az SDL_net függvénykönyvtár
+is a programhoz legyen linkelve. Ebben az ablakban kell az SDL_net-et is hozzáadni a többi mellé:</p>
+<img src="sdl-libek.png" class="kozep arnyek" alt="SDL_net linkelési beállítások">
+</div>
+
+<h3>Egy egyszerű szerver</h3>
+
+<p>Alább egy példaprogram látható egy szerver létrehozására. Ez a szerver egyetlen egy
+bejövő kapcsolatot fogad (többet nem), utána vár egy üzenetet, aminek a fogadása
+után küld is egyet. Ez kipróbálható a PuTTY programmal is: ha fut a lenti szerver,
+akkor a <code>localhost</code>-ra (127.0.0.1) kell csatlakozni, a 2000-es portra.</p>
+
+<p class="megjegyzes">Gyakran pongyolán egy gép IP címéről beszélünk. Igazából ez egy félreértés; 
+nem a számítógépnek van IP címe, hanem a hálózati eszköznek. Minden operációs rendszer szokott 
+egy 127.0.0.1 IP című, fiktív hálózati eszközt is biztosítani: ezen az ún. loopback eszközön a 
+számítógép saját magát látja. Ez nagyban megkönnyíti a hálózatos programok tesztelését is, 
+hiszen így nincs több számítógépre szükség.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;SDL_net.h&gt;
+
+int main(int argc, char *argv[]) {
+    /* ket socket; az egyik fogadja a bejovo kapcsolatot,
+     * a masikon meg lehet kommunikalni a klienssel, miutan megerkezett. */
+    TCPsocket szerver_socket, kliens_socket;
+    /* ip cimeket, port szamokat tarolo strukturak. */
+    IPaddress ip, *remoteIP;
+    
+    int olvasott, kuldendo;
+    enum { BUFSIZE = 512 };
+    char buffer[BUFSIZE+1];
+    char sendbuf[BUFSIZE];
+
+#ifdef __WIN32__
+    freopen(&quot;CON&quot;, &quot;w&quot;, stdout);
+    freopen(&quot;CON&quot;, &quot;w&quot;, stderr);
+#endif
+
+    /* az sdl_net inicializalasa. */
+    if (SDLNet_Init() &lt; 0) {
+        fprintf(stderr, &quot;SDLNet_Init: %s\n&quot;, SDLNet_GetError());
+        return 1;
+    }
+    /* nev feloldasa lenne; itt csak arra hasznaljuk, hogy az ip nevu
+     * strukturaba beirjuk, hogy a 2000-es porton fogjuk varni a bejovo
+     * kapcsolatokat. */
+    if (SDLNet_ResolveHost(&amp;ip, NULL, 2000) &lt; 0) {
+        fprintf(stderr, &quot;SDLNet_ResolveHost: %s\n&quot;, SDLNet_GetError());
+        return 1;
+    }
+    /* bejovo kapcsolatok fogadasanak inditasa a 2000-es porton. */
+    if ((szerver_socket = SDLNet_TCP_Open(&amp;ip)) == NULL) {
+        fprintf(stderr, &quot;SDLNet_TCP_Open: %s\n&quot;, SDLNet_GetError());
+        return 1;
+    }
+
+    printf(&quot;Szerver fut!\n&quot;);
+
+    /* varunk a bejovo kapcsolatra. ha van fogadhato kapcsolat, akkor
+     * fogadja a fuggveny; ha nincs, null pointerrel ter vissza. */
+    while ((kliens_socket = SDLNet_TCP_Accept(szerver_socket)) == NULL) {
+        printf(&quot;Varok a bejovo kapcsolatra...\n&quot;);
+        SDL_Delay(500);     /* fel masodperc varakozas */
+    }
+    /* sikerult: mostantol a kliens_socket nevu socketen keresztul
+     * erjuk el azt a klienst, akinek a kapcsolatat fogadtuk. */
+    /* bezarjuk a bejovo kapcsolatokat fogado portot. csak egyet fogadunk most. */
+    SDLNet_TCP_Close(szerver_socket);
+
+    /* nezzuk, mi a kliens ip cime es port szama. */
+    if ((remoteIP = SDLNet_TCP_GetPeerAddress(kliens_socket))) {
+        /* a host es a port valtozok taroljak a cimet es a portjat.
+         * de network byte orderben, azaz elobb a nagy, utana a kicsi
+         * helyierteku bajtokat. mivel a mi szamitogepunk lehet, hogy
+         * nem igy mukodik, ezert a ket fuggvennyel a sajat processzorunk
+         * altal hasznalt formatumra alakitjuk a ket szamot. az ip
+         * cim 4 bajtbol all, az 32 bit, a port szam meg 16 bites. */
+        Uint32 iphost = SDLNet_Read32(&amp;remoteIP-&gt;host);
+        Uint16 porthost = SDLNet_Read16(&amp;remoteIP-&gt;port);
+        printf(&quot;Kapcsolodo kliens, ip cime: %u.%u.%u.%u, port szama: %u\n&quot;,
+            iphost&gt;&gt;24 &amp; 0xff, iphost&gt;&gt;16 &amp; 0xff, iphost&gt;&gt;8 &amp; 0xff, iphost&gt;&gt;0 &amp; 0xff, porthost);
+    }
+
+    /* adatra varunk; az olvasott adatot az fread()-hez hasonloan ez a fuggveny
+     * a tombbe teszi. a harmadik valtozo adja meg, hogy maximum hany bajtot
+     * olvasson a fuggveny. ha barmennyi bajt jon, azt beirja a tombbe, es
+     * visszater egy pozitiv ertekkel. ez lehet kevesebb is, mint bufsize! */
+    if ((olvasott = SDLNet_TCP_Recv(kliens_socket, buffer, BUFSIZE)) &gt; 0) {
+        /* sztringet csinalunk belole: rakunk egy nullat a vegere */
+        buffer[olvasott] = '\0';
+        printf(&quot;Kliens mondja: %s\n&quot;, buffer);
+        
+        /* most osszerakunk egy uzenetet a kliens szamara */
+        sprintf(sendbuf, &quot;Az uzeneted %d bajtbol all.\n&quot;, olvasott);
+        printf(&quot;Kliensnek kuldom: %s\n&quot;, sendbuf);
+        kuldendo = strlen(sendbuf);
+        /* es elkuldjuk. ha a visszateresi ertek kevesebb, mint az elkuldendo
+         * bajtok szama, akkor valami hiba tortent */
+        if (SDLNet_TCP_Send(kliens_socket, sendbuf, kuldendo) &lt; kuldendo) {
+            fprintf(stderr, &quot;SDLNet_TCP_Send: %s\n&quot;, SDLNet_GetError());
+        }                               
+    } else {
+        /* ha az olvaso fuggveny 0-t jelez, az azt jelenti, a masik fel
+         * bezarta a kapcsolatot. ha negativ, akkor pedig megszakadt.
+         * ilyenkor be kell zarni, hogy az sdl_net is felszabaditsa a
+         * maga kis adatstrukturait; de ez ugyis mindjart megtortenik. */
+        fprintf(stderr, &quot;SDLNet_TCP_Recv: %s\n&quot;, SDLNet_GetError());
+    }
+
+    /* bezarjuk a kapcsolatot a kliens fele */
+    SDLNet_TCP_Close(kliens_socket);
+    SDLNet_Quit();
+
+    return 0;
+}</code></pre>
+
+
+<h3>Egyszerű kliens</h3>
+
+<p>Egy egyszerű kliens pedig valahogy így nézhet ki. Ez
+létrehoz egy kapcsolatot, utána kér egy sort a felhasználótól. Ezt
+elküldi a szervernek, aztán vár egy üzenetre, amit a szerver küld.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;SDL_net.h&gt;
+
+#define CONNECT_TO_ADDR &quot;localhost&quot;
+#define CONNECT_TO_PORT 2000
+ 
+int main(int argc, char **argv) {
+    IPaddress ip;
+    TCPsocket socket;
+    enum { BUFSIZE = 512 };
+    char kimeno[BUFSIZE];
+    char bejovo[BUFSIZE + 1];
+    int kuldendo, fogadott;
+
+#ifdef __WIN32__
+    freopen(&quot;CON&quot;, &quot;w&quot;, stdout);
+    freopen(&quot;CON&quot;, &quot;w&quot;, stderr);
+#endif
+ 
+    /* SDL_net inicializalasa */
+    if (SDLNet_Init() &lt; 0) {
+        fprintf(stderr, &quot;SDLNet_Init: %s\n&quot;, SDLNet_GetError());
+        return 1;
+    }
+    /* Nezzuk meg az IP cimet a gepnek, ahova csatlakozunk */
+    if (SDLNet_ResolveHost(&amp;ip, CONNECT_TO_ADDR, CONNECT_TO_PORT) &lt; 0) {
+        fprintf(stderr, &quot;SDLNet_ResolveHost: %s\n&quot;, SDLNet_GetError());
+        return 1;
+    }
+    /* Nyissunk egy TCP kapcsolatot */
+    if ((socket = SDLNet_TCP_Open(&amp;ip)) == NULL) {
+        fprintf(stderr, &quot;SDLNet_TCP_Open: %s\n&quot;, SDLNet_GetError());
+        return 1;
+    }
+ 
+    printf(&quot;Egyszeru kliensprogram\n\n&quot;);
+    printf(&quot;Irj be valamit, elkuldom a szervernek:\n&quot;);
+    fgets(kimeno, BUFSIZE, stdin);
+
+    /* meg kell adni, hany bajtot kuldunk */
+    kuldendo = strlen(kimeno);
+    if (SDLNet_TCP_Send(socket, kimeno, kuldendo) &lt; kuldendo) {
+        /* ha kevesebb bajt kuldodott, mint amennyit kertunk, az hiba -
+         * nem tudjuk folytatni innen */
+        fprintf(stderr, &quot;SDLNet_TCP_Send: %s\n&quot;, SDLNet_GetError());
+    } else {
+        /* az adatok rendben elkuldve, varjunk a valaszra. */
+        fogadott = SDLNet_TCP_Recv(socket, bejovo, BUFSIZE);
+        if (fogadott &gt; 0) {
+            /* lezarjuk 0-val, hogy sztring legyen belole, es ki
+             * tudjuk irni printf %s-sel */
+            bejovo[fogadott] = '\0';
+            printf(&quot;Valasz: %s\n&quot;,bejovo);
+        }
+        else if (fogadott == 0) {
+            /* nem sikerult adatot fogadni. ha 0 volt a visszateresi
+             * ertek, a masik oldal bezarta a kapcsolatot. */
+        } else {
+            /* ha negativ, hiba tortent! */
+            fprintf(stderr, &quot;SDLNet_TCP_Recv: %s\n&quot;, SDLNet_GetError());
+        }
+    }
+
+    /* bezarjuk a kapcsolatot */
+    SDLNet_TCP_Close(socket);
+    SDLNet_Quit();
+ 
+    return 0;
+}</code></pre>
+
+
+<h3>A TCP programozás buktatói</h3>
+
+<p>Van néhány buktató, amire érdemes figyelni a hálózatprogramozás során.</p>
+
+<p>UDP használata esetén nagyon kényelmes, hogy amit egy üzenetként küldünk: 
+<code>SDLNet_UDP_Send()</code>, az egy üzenetként is fog megérkezni: 
+<code>SDLNet_UDP_Recv()</code>. Viszont nem lehetnek túl nagyok a csomagjaink. Elvileg a 
+legnagyobb üzenet 65507 bájtos, azonban ez sem garantált, hogy mindenhol át fog jutni. Jobb egy 
+kilobájt alatt maradni.</p>
+
+<p>Nem így a TCP-nél. Egy nyitott kapcsolaton tetszőlegesen sok adatot küldhetünk. Azonban az 
+nem garantált, hogy amit egy <code>SDLNet_TCP_Send()</code> hívással küldtünk el az egyik 
+oldalon, azt a túlvégen egyetlen <code>SDLNet_TCP_Recv()</code> hívással kapjuk meg. Mivel a TCP 
+az adatfolyamot csomagokra bontja, előfordulhat, hogy egy nagy, egészben elküldött blokk kis 
+részletekben érkezik meg. Ha különálló üzeneteket kell küldeni, akkor az üzenetek elválasztását 
+nekünk kell megoldanunk – például úgy, hogy valamelyik karaktert, a <code>\0</code>-t vagy a 
+<code>\n</code>-t használjuk erre, esetleg bináris tartalmú üzenetek esetén előbb elküldjük az 
+üzenet hosszát, utána pedig magát az üzenetet. A függvények nem sztringekkel dolgoznak, hanem 
+bájtsorozatokkal, tehát az olvasott blokkok végén nem lesz lezáró nulla. A fenti programokban 
+ezért vannak külön lezárva nullával a karaktertömbök, ahova a beérkező üzenet került.</p>
+
+<p>Figyelni kell még arra is, hogy a fogadást kezdeményező, <code>_Recv()</code> függvények
+blokkolják a programot, ahogyan egy <code>scanf()</code>-nél is megáll a végrehajtás. Ha ez
+zavaró, akkor az SDL_net <a href="http://jcatki.no-ip.org:8080/SDL_net/SDL_net.html#SEC41">Socket Set</a>-jeit
+érdemes használni: ennél egy halmazba betehetjük a figyelendő, nyitott kapcsolatainkat, és
+az <a href="http://jcatki.no-ip.org:8080/SDL_net/SDL_net.html#SEC46"><code>SDLNet_CheckSockets()</code></a>
+függvénnyel várhatunk arra (egy meghatározott ideig maximum), hogy történjen valami. Ezután egyesével
+lekérdezhetjük mindegyik kapcsolatnál, hogy történt-e rajta valami; vagyis hogy szabad-e rá
+<code>SDLNet_TCP_Recv()</code> függvényt hívni anélkül, hogy az blokkolná a program további
+futását.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Útválasztás az Interneten">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Útválasztás az Interneten<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Láttuk, hogy az Interneten az összes kommunikáció csomagkapcsolt formában történik.
+Az egyes végpontok, számítógépek által elküldött csomagok hosszú utat tesznek meg a céljukig.
+Például a BME WiFi-n küldött csomag előbb eljut a WiFi hálózatot biztosító hozzáférési
+pontig (access point), onnan tovább különböző hálózati eszközökön válószínűleg eljut az
+R épületbe, ahol a BME net központja van. Innen továbbküldik az Internet gerinchálózatára
+(backbone), és így tovább. Ez könnyen látható a <code>tracert</code> (Unixokon: <code>traceroute</code>)
+programmal:</p>
+
+<pre class="screenshot">
+traceroute to infoc.eet.bme.hu (152.66.72.38), 30 hops max, 60 byte packets
+ 1  192.168.1.1 (192.168.1.1)  0.851 ms  0.887 ms  0.950 ms
+ 2  catv-80-98-191-254.catv.broadband.hu (80.98.191.254)  13.115 ms  26.418 ms  41.688 ms
+ 3  catv-89-135-217-158.catv.broadband.hu (89.135.217.158)  19.073 ms  19.263 ms  19.478 ms
+ 4  84.116.240.85 (84.116.240.85)  19.619 ms  19.613 ms  19.767 ms
+ 5  84.116.240.138 (84.116.240.138)  31.514 ms  31.767 ms  31.917 ms
+ 6  tg0-1-0-6.rtr1.vh.hbone.hu (195.111.97.101)  25.914 ms  14.588 ms  21.918 ms
+ 7  tg2-1.rtr.bme.hbone.hu (195.111.97.102)  21.796 ms  23.379 ms  23.403 ms
+ 8  xge10-1.taz.net.bme.hu (152.66.0.125)  33.358 ms  33.594 ms  33.661 ms
+ 9  xge5-4.ixion.net.bme.hu (152.66.0.122)  32.998 ms  33.029 ms  33.085 ms
+10  xge5-4.quark.net.bme.hu (152.66.0.71)  78.614 ms  85.568 ms  85.857 ms
+</pre>
+
+<p>Itt a látható címek nagy része egy hálózati útválasztó (router), amelynek az a dolga, hogy a 
+hozzá beérkező csomagokat valamilyen irányba továbbküldje. Ezek az útválasztók az IP címek 
+tartományaival dolgoznak, méghozzá prefixekkel: egy útválasztási táblázat (routing table) 
+alapján az adott bitekkel kezdődő című csomagokat a meghatározott irányba küldik. Ilyen 
+útválasztást maguk a végpontok, a számítógépek is végeznek, mivel minden számítógépnek akár több 
+hálózati eszköze lehet, és a csomagokról az operációs rendszernek is tudnia kell, hogy azokat 
+hova küldje tovább. A táblázatok minden sora tartalmaz egy cél tartományt, és egy hozzá tartozó 
+maszkot (netmask), amely egy 32 bites, 1-esekkel kezdődő szám:</p>
+
+<pre class="screenshot">
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+127.0.0.0       0.0.0.0         255.0.0.0       U     0      0        0 lo
+152.66.72.0     0.0.0.0         255.255.255.224 U     0      0        0 eth0
+</pre>
+
+<p>Egy adott irányba küldéshez az szükséges, hogy a csomag cél IP címe az 1-esek helyén 
+megegyezzen a táblázat sora által kiválasztott iránnyal. Vagyis a fenti táblázat
+szerint azokat a csomagokat, amelyek címe az első 27 bitben (255.255.255.224 = FFFFFFE0)
+megegyeznek a 152.66.72.0 címmel, az <code>eth0</code> eszköz felé kell küldeni.
+Ezt meg lehet fogalmazni C-ben is:</p>
+
+<pre   ><code class="language-c">if (csomag_celja &amp; netmask == cel_tartomany &amp; netmask) ...</code></pre>
+
+<p>Ezt a vizsgálatot kell elvégezni minden egyes csomagnál. A fenti táblázat egyébként 
+tartalmazza a fiktív loopback (lo) eszközt is: minden, aminek a címe 127-tel kezdődik 
+(maszk = FF000000, vagyis az első bájtban kell megegyezzen), az ehhez kerül. Ezért látja ezen 
+keresztül a számítógép saját magát.</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

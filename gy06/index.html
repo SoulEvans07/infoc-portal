@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Gyakorlat, 6. hét: karakterek, számrendszerek</title>
+<meta property="og:title" content="TEST InfoC :: Gyakorlat, 6. hét: karakterek, számrendszerek">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Karakterek kezelése, a karakterkódolás fogalma. Számrendszerek, számrendszerek közötti átalakítások.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Karakterek kezelése, a karakterkódolás fogalma. Számrendszerek, számrendszerek közötti átalakítások.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Gyakorlat, 6. hét: karakterek, számrendszerek">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Gyakorlat, 6. hét: karakterek, számrendszerek</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.09.03.</p>
+<p class="kivonat">Karakterek kezelése, a karakterkódolás fogalma. Számrendszerek, számrendszerek közötti átalakítások.</p>
+</div>
+
+
+<p>Felkészülés a gyakorlatra:</p>
+<ul>
+    <li>A <a href="../ea06/index.html#easzamrendszer">számrendszerekről szóló előadás</a> megértése.
+    <li>A <a href="../ea02/index.html#eakarakter">karakterekről szóló előadásrészlet</a> átolvasása.
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Nagybetű, kisbetű</a>
+              <li><a href="index.html#2" class="">Számrendszerek</a>
+              <li><a href="index.html#3" class="">Beolvasás adott számrendszerben</a>
+              <li><a href="index.html#4" class="">Kiírás adott számrendszerben</a>
+              <li><a href="index.html#5" class="">További feladatok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Nagybetű, kisbetű">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Nagybetű, kisbetű<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írjunk programot, amelyik beolvas egy szöveget, és csupa kisbetűsítve (vagy csupa nagybetűsítve) írja ki azt! Az összes többi 
+karakter maradjon változatlan a szövegben! Oldjuk meg a feladatot úgy is, hogy saját magunk kezeljük a karakterkódot, és
+úgy is, hogy az erre való beépített függvényt használjuk!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A betűk is csak számok a gép számára. Így aztán két karakter (karakterkód!) kivonása is értelmes művelet. Az általában használt ASCII
+kódtáblában egymás mellett vannak ábécé sorrendben a nagybetűk, és egy másik tartományban egymás mellett a kisbetűk. Emiatt a
+<code>'C'-'A'</code> kifejezés 2-t ad, mivel a C és az A betű között 2 a távolság. Ez az a gondolat, ami a megoldáshoz vezet: ha
+egy nagybetű kódjából levonjuk az <code>'A'</code> kódját, megkapjuk, hogy hányadik betű az ábécében; utána hozzáadva az <code>'a'</code>
+kódját, megkapjuk az annyiadik kisbetűt, és fordítva. Másképpp gondolkodva: az <code>'a'-'A'</code> kifejezés a két
+tartomány távolságát adja meg, ezt kell hozzáadni vagy kivonni egy kódhoz, hogy a nagybetűt kisbetűvé alakítsuk, és fordítva.
+Fontos, hogy ehhez <em>nem</em> kell tudnunk a karakterkódok konkrét számértékeit! A programba karakterkódokat írni barbár dolog.</p>
+
+<img class="kozep" src="szamegyenes.svg" style="width: 28em;">
+
+<p>Kisbetűből nagybetű:</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    char cbe, cki;
+    while (scanf(&quot;%c&quot;, &amp;cbe) == 1) {
+        if (cbe &gt;= 'a' &amp;&amp; cbe &lt;= 'z') {
+            cki = cbe - 'a' + 'A';
+        } else {
+            cki = cbe;
+        }
+        printf(&quot;%c&quot;, cki);
+    }
+
+    return 0;
+}</code></pre>
+
+<p>A program fájl vége jelig olvas, azaz <kbd>F6</kbd><kbd>Enter</kbd>-rel lehet kilépni belőle (Windows), vagy <kbd>Ctrl+D</kbd>-vel
+(Linux). Ugyanez a <code>ctype.h</code> <code>toupper()</code> függvényét használva:</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main(void) {
+    char cbe;
+    while (scanf(&quot;%c&quot;, &amp;cbe) == 1) {
+        printf(&quot;%c&quot;, toupper(cbe));
+    }
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Számrendszerek">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Számrendszerek<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<table class="float">
+  <thead>
+    <tr><th>hex<th>bin<th>dec
+  </thead>
+  <tr><td>0<td>0000<td>0
+  <tr><td>1<td>0001<td>1
+  <tr><td>2<td>0010<td>2
+  <tr><td>…<td>…<td>…
+  <tr><td>E<td>1110<td>14
+  <tr><td>F<td>1111<td>15
+</table>
+
+<p>Váltsuk át papíron a következő 2-es számrendszerbeli (bináris) számokat 10-esbe (decimális): 1011, 
+1101, 10000, 10101! Váltsuk át papíron a következő decimális számokat binárisba: 13, 27, 35.</p>
+
+<p>Váltsuk át a következő számokat hexadecimálisból binárisba: 0x1F, 0xFCE2, 0xABBA, 
+0xC0FFEE! Váltsuk át ezeket binárisból hexadecimálisba: 11111111, 1011100, 101, 10101! Ezeket
+a feladatokat úgy végezzük el, hogy közben nem használjuk a tízes számrendszert!</p>
+
+<details >
+<summary>Tipp</summary>
+<div>
+<p>2<sup>4</sup>=16, ezért minden hexadecimális (16-os számrendszerbeli) számjegynek pontosan 4 
+darab bináris számjegy felel meg, ahogyan az jobb oldalt is látható. Emiatt pl. a bináris 101011 
+hexadecimális értéke 0x2B, mivel alulról 4-es csoportokban 10'1011, és 10=0x2, illetve 1011=0xB. </p>
+</div>
+</details>
+
+<p>Végezzük el az alábbi műveleteket kettes számrendszerben, tízesbe átváltás nélkül!</p>
+<div class="columns">
+<div class="">
+<pre class="kozep sorsurit1">
+&nbsp;1001
++&nbsp;101
+─────
+</pre>
+</div>
+<div class="">
+<pre class="kozep sorsurit1">
+&nbsp;1111
++1000
+─────
+</pre>
+</div>
+<div class="">
+<pre class="kozep sorsurit1">
+&nbsp;1111
++&nbsp;&nbsp;&nbsp;1
+─────
+</pre>
+</div>
+</div>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Beolvasás adott számrendszerben">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Beolvasás adott számrendszerben<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Olvassunk be egy felhasználó által megadott számot, egy felhasználó által megadott számrendszerben!</p>
+
+<p>Először elég, ha tízes számrendszerig működik a program, csak utána írjuk át úgy, hogy működjön nagyobb
+alap esetén is!</p>
+
+<pre class="screenshot">
+Hányas számrendszerben fogsz írni?
+16
+Ird be a szamot!
+fce2
+A beolvasott szám 10-es számrendszerben: 64738
+</pre>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<h3>Megoldási terv, ötletek</h3>
+<ul>
+    <li>Beolvasunk egy számjegyet (karaktert), és kivonjuk belőle a <code>'0'</code>
+        karakterkódját. Így megkapjuk az értékét.</li>
+    <li>Hogy lesz egy számjegyből sok? Pl. 123 esetén, ha a 12-t már beolvastuk, és jön
+        még egy 3-as, akkor a 12 igazából a 120-at jelentette (megszorozzuk 10-zel), és ahhoz
+        adjuk a 3-at. Ha 123 esetén 4-es jön, akkor igazából 1230 volt, és ahhoz adjuk a 4-et.</li>
+    <li>Vagyis mindig az eddigi, szorozva 10-zel (a számrendszer alapjával), plusz az új számjegy.</li>
+</ul>
+
+<p>A megoldáshoz nem használhatjuk közvetlenül a <code>scanf()</code>-et, mert az csak a tízes (<code>%d</code>),
+a tizenhatos (<code>%x</code>) és a nyolcas (<code>%o</code>) számrendszert ismeri. Egyesével kell beolvasnunk
+a számjegyeket, és a helyiértékek kiszámításával meghatároznunk a számot.</p>
+<p>Az egyszerű számításhoz felhasználhatjuk a Horner-elrendezést. Vegyük példának ehhez 10-es számrendszerben
+a 234-et! Ezt az egyes számjegyekből <code>2×10<sup>2</sup>+3×10<sup>1</sup>+4×10<sup>0</sup></code> formában
+határozhatjuk meg. Ami pedig ugyanaz, mint <code>((2×10)+3)×10+4</code>, azaz <code>(((0×10+2)×10)+3)×10+4</code>,
+amiből már látszik, hogyan kell dolgoznunk: mindig a meglévő részeredményt megszoroznunk tízzel, és hozzáadni az
+új számjegy értékét. Ha eddig a 23-at láttuk, és megkapjuk a 4-est, akkor a szóban forgó lépés <code>23×10+4 = 230+4</code>
+lesz. Ezt kell folytatni egészen addig, amíg határoló karaktert nem kapunk, persze a tízzel szorzás helyett az
+adott számrendszer alapját tekintve.</p>
+<p>A számjegy beolvasásánál figyelembe kell venni, hogy bár számjegyről beszélünk, tízes számrendszer fölött
+ez lehet betű is. Ezért a beolvasott karaktert meg kell vizsgálni, számjegyről van-e szó (0...9) vagy betűről (a...z).
+Ha számjegyről, akkor a <code>'0'</code>-s számjegy karakterkódját kell kivonni belőle, hogy számértéket kapjunk, amúgy pedig az
+<code>'a'</code> betű karakterkódját, és hozzáadni 10-et, mert <code>A=10</code>, <code>B=11</code> stb. Itt kapóra
+jönnek a <code>ctype.h</code> függvényei: <code>isdigit(c)</code> = számjegy-e?, <code>isalpha(c)</code> = betű-e?,
+<code>toupper(c)</code> = a karakter nagybetűként (ha szépen szeretnénk csinálni).</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main(void) {
+    /* alap */
+    int alap;
+    printf(&quot;Hányas számrendszerben fogsz írni?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;alap);
+
+    /* szám beolvasása */
+    printf(&quot;Ird be a szamot!\n&quot;);
+    int szam = 0;
+    char c;
+    /* az alap beírása után nyomott enter eldobása.
+     * különben a ciklus scanf %c-je azt is visszaadná! */
+    scanf(&quot; &quot;);
+    while (scanf(&quot;%c&quot;, &amp;c) == 1 &amp;&amp; !isspace(c)) {
+        /* karakter (lehet betű és számjegy is) számértékké alakítása */
+        int ertek;
+        if (isdigit(c))
+            ertek = c - '0';
+        if (isalpha(c))
+            ertek = toupper(c) - 'A' + 10;
+        /* Horner-elrendezés */
+        szam = szam*alap + ertek;
+    }
+
+    printf(&quot;A beolvasott szám 10-es számrendszerben: %d\n&quot;, szam);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Kiírás adott számrendszerben">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Kiírás adott számrendszerben<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Írjunk programot, amelyik adott számot ír ki adott számrendszerben!</p>
+<p>Oldjuk meg a feladatot úgy is, hogy tömböt használunk, és úgy is, hogy nem!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<h3>Ötletek a megoldáshoz</h3>
+<ul>
+    <li>Ha a számot elosztjuk a számrendszer alapjával, és <em>a maradékot tekintjük,</em>
+        az a legutolsó számjegy. Például 1234 % 10 = 4, a szám 4-esre végződik.</li>
+    <li>Ha a hányadost, az a többi számjegyet adja meg: 1234 / 10 = 123.</li>
+    <li>Ezt folytatva megkapjuk az összes számjegyet, csak meg kell a sorrendet fordítani majd.</li>
+</ul>
+
+<h3>Első verzió</h3>
+
+<p>A számjegyeket meghatározni könnyű: ha a számot modulózzuk a számrendszer alapjával
+(tehát elosztjuk vele, és a maradékot vesszük, a <code>%</code> operátorral), akkor megkapjuk
+a legalsó számjegyet. Ha pedig elosztjuk vele, akkor az egész szám csúszik az egyesek felé
+– hogy után a következő számjegyet kapjuk meg a modulózás által. Ezt kell folytatni egészen
+addig, amíg el nem érünk a nulláig, mert a sok osztás után a szám előbb-utóbb nulla lesz:</p>
+
+<div class="sticky">Ez még hibás</div>
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int alap, szam;
+    
+    printf(&quot;Melyik számrendszerben?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;alap);
+    printf(&quot;Melyik szám (tízesben)?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;szam);
+
+    while (szam &gt; 0) {
+        printf(&quot;%c&quot;, (szam%alap) + '0');   // rossz sorrend :(
+        szam /= alap;
+    }
+    return 0;
+}</code></pre>
+
+<p>A gond ezzel „csak” az, hogy így előbb az egyeseket kapjuk meg, és csak utána az egyre nagyobb
+helyiértékeket... Miközben először a legnagyobb helyiérték kellene, és csak legutoljára az egyesekhez
+tartozó számjegy:</p>
+
+<pre class="screenshot">
+Melyik számrendszerben?
+10
+Melyik szám (tízesben)?
+123
+A szám az adott számrendszerben:
+321
+</pre>
+
+<h3>Második verzió</h3>
+
+<p>A legegyszerűbb a sorrend megfordítására, ha egy tömbben eltároljuk a kapott karaktereket, aztán a végén
+kiírjuk őket fordított sorrendben. Karaktereket kell eltárolni, tehát karakterek tömbjére van szükségünk:</p>
+
+<div class="sticky">Ez már jó,<br>a tömbös megoldás</div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int alap, szam;
+    
+    printf(&quot;Melyik számrendszerben?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;alap);
+    printf(&quot;Melyik szám (tízesben)?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;szam);
+
+    /* számjegyek előállítása, eltárolás */
+    char szamjegyek[32];
+    int db = 0;
+    while (szam &gt; 0) {
+        szamjegyek[db++] = szam%alap + '0';
+        szam /= alap;
+    }
+
+    /* kiírás fordított sorrendben */
+    for (int i = db-1; i &gt;= 0; --i)
+        printf(&quot;%c&quot;, szamjegyek[i]);
+    
+    return 0;
+}</code></pre>
+
+<p>Tömb nélkül kicsit másképp kell gondolkodunk. A legrövidebb megoldás azon alapul, hogy megkeressük a számrendszer
+legkisebb hatványát, amelyik már nagyobb az átalakítandó számnál, és attól indulva jövünk visszafelé. Pl. ha a kiírandó
+szám 1234 (tízes számrendszerben), akkor 1000-rel, 100-zal, 10-zel és 1-gyel osztva az eredeti számot, kapunk
+olyan számokat, amelyben a legalsó helyiértéken van a kiírandó számjegy (<em>1</em>, 1<em>2</em>, 12<em>3</em>, 123<em>4</em>).</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int alap, szam;
+    printf(&quot;Melyik számrendszerben?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;alap);
+    printf(&quot;Melyik szám (tízesben)?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;szam);
+
+    /* következő nagyobb hatvány megkeresése */
+    int kitevo = 1;
+    while (kitevo &lt;= szam)
+        kitevo *= alap;
+    
+    /* eggyel visszalépünk, és 1-ig jönnek az osztók */
+    kitevo /= alap;
+    while (kitevo &gt; 0) {
+        printf(&quot;%d&quot;, (szam/kitevo) % alap);
+        kitevo /= alap;
+    }
+    
+    return 0;
+}</code></pre>
+
+<p>A fenti megoldás hiányossága még, hogy 0-ra nem ír ki semmit, mivel az alsó ciklus egyszer sem
+fut le.</p>
+
+<p>A tömb nélküli megoldás előnye, hogy bármekkora számra tud működni. A tömbösnél meg kellett
+becsülnünk a tömb méretét (a mintamegoldás abból indult ki, hogy a kettes számrendszerhez
+kell a legtöbb számjegy, és hogy az <code>int</code> általában 32 bites).</p>
+
+</div>
+</details>
+
+<p>Módosítsuk úgy a programot, hogy 10-nél nagyobb alapú számrendszerben is (pl. 16-osban) 
+működjön! A 10-et, és annál nagyobb számjegyeket ilyenkor betűkkel szokás jelölni. Pl. 16-osban 
+a 0…15 számjegyek: 012…89ABCDEF.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Ehhez csak a kiírást kell módosítani, figyelembe véve, hogy 10-nél nagyobb-e a kapott számjegy.
+A vonatkozó programrész, kiegészítve az esetlegesen 0 értékű szám kiírásával is:</p>
+
+<pre   ><code class="language-c">if (szam == 0)
+    printf(&quot;0&quot;);
+else {
+    /* eggyel visszalépünk, és 1-ig jönnek az osztók */
+    kitevo /= alap;
+    while (kitevo &gt; 0) {
+        int ertek = (szam/kitevo) % alap;
+        printf(&quot;%c&quot;, ertek &gt;= 10 ? ertek-10+'A' : ertek+'0');
+        kitevo /= alap;
+    }
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="További feladatok">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    További feladatok<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Igazságtáblák</h3>
+
+<p>Készítsünk programokat, amelyek <a href="../f06/index.html#igazsagtabla2">2 bitre</a> vagy
+<a href="../f06/index.html#igazsagtablan">több bitre</a> készítik el
+a logikai függvények igazságtábláit!</p>
+
+<h3>Bitsorozat kivágása</h3>
+
+<p>Oldjuk meg a feladatgyűjtemény
+<a href="../f06/index.html#bitsorozatkivagasa">bitsorozat kivágása</a> című feladatát!</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

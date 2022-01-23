@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: 12. hét: állapotgépek</title>
+<meta property="og:title" content="TEST InfoC :: 12. hét: állapotgépek">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum h3toid" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="12. hét: állapotgépek">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">12. hét: állapotgépek</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Nagy Gergely, Pohl László · <i class="ido"></i> 2019.08.24.</p>
+<p class="kivonat">Gyakorlófeladatok az előadás anyagához kapcsolódóan.</p>
+</div>
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Állapotgépek</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Állapotgépek">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="feladatallapotgep" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Állapotgépek<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Kettős mássalhangzók</h3>
+<p>Készíts kettős mássalhangzó számláló programot!
+<p>a.) Írj programot, mely a billentyűzetről érkező karaktereket figyeli,
+és megszámolja a beírt szövegben található "ly" és "sz" kettős mássalhangzójú
+betűk számát. A szöveget nem tárolhatja el a program, csak a találatok számát.
+A szöveg beírása és a számlálás a fájl vége jellel véget ér,
+ekkor a program írja ki tételesen az összeszámlált mennyiségeket.
+<p>b.) Az előbbi programot egészítsd ki azzal, hogy a "zs" betűket is számolja,
+de vigyázz: egy leütött karaktert csak egyetlen kettős mássalhangzójú betűhöz számold,
+méghozzá az elsőhöz (pl. "egészség": 1 db "sz", 0 db "zs")!
+
+
+
+<h3>Mondatszámláló</h3>
+<p>Adja meg egy tetszőleges, standard bemenetről érkező szövegről, hogy
+hány mondat van benne. Mondatnak tekintünk minden olyan karaktersorozatot,
+amelyik nagybetűvel kezdődik, ponttal, kérdőjellel vagy felkiáltójellel
+végződik.</p>
+
+
+
+<h3>HTML formátum</h3>
+<p>Írj programot, amelyik HTML formátumú fájlból eltávolítja a szedés jelöléseit, vagyis a
+&lt;…&gt; szerű karaktersorozatokat, ezzel többé-kevésbé olvashatóvá téve azt normál szövegként.
+(Például &lt;br&gt;, &lt;title&gt;).</p>
+
+
+
+<h3>Szavak</h3>
+<p>Írj olyan programot, amely külön-külön sorokban nyomtatja ki a bemenetére érkező szavakat!</p>
+
+<h3>Szmájli számláló I.</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj állapotgépes programot, amely a szabványos bemenetről olvasott szövegben megszámolja a
+szomorú :( és a vidám :) szmájlikat. A számlálás után kiírja, hogy a szöveg vidám, szomorú vagy
+közömbös, azaz több, kevesebb vagy ugyanannyi :) volt, mint :(.</p>
+<p>Tervezd meg az állapotgépet állapot- és tevékenységtáblával, utána írd meg a programot! A
+programra csak akkor jár pont, ha állapotgépes és a leírt állapottáblát valósítja meg.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<table>
+<thead>
+<tr><th><th> : <th> (<th> ) <th> többi
+</thead>
+<tr><th>alap <td> &rarr;kp <td> - <td> - <td> -
+<tr><th>kp <td> - <td> szom++, &rarr;alap <td> vid++, &rarr;alap <td> &rarr;alap
+</table>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    enum Allapot { alap, kp } all;
+
+    all = alap;
+    int szom = 0, vid = 0;
+    int c;
+    while ((c = getchar()) != EOF) {
+        switch (all) {
+        case alap:
+            if (c == ':') all = kp;
+            break;
+        case kp:
+            if (c == ')')      vid++;
+            else if (c == '(') szom++;
+            if (c != ':') all = alap;
+            break;
+        }
+    }
+
+    if (vid &gt; szom) printf(&quot;vidam&quot;);
+    else if (szom &gt; vid) printf(&quot;szomoru&quot;);
+    else printf(&quot;kozombos&quot;);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+
+
+
+<h3>Szmájli számláló II.</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj állapotgépes programot, amely a szabványos bemenetről olvasott szövegben megszámolja a
+szomorú :( és a vidám :) szmájlikat. A számlálás után kiírja, hogy a szöveg vidám, szomorú vagy
+közömbös, azaz több, kevesebb vagy ugyanannyi :) volt, mint :(. A szmájlik zárójelenként egynek
+számítanak, vagyis :))) három vidámat, :(( két szomorút jelent.</p>
+<p>Tervezd meg az állapotgépet állapot- és tevékenységtáblával, utána írd meg a programot! A
+programra csak akkor jár pont, ha állapotgépes és a leírt állapottáblát valósítja meg.</p>
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<table>
+<thead>
+<tr><th><th> : <th> (<th> ) <th> többi
+</thead>
+<tr><th>alap <td> &rarr;kp <td> - <td> - <td> -
+<tr><th>kp <td> - <td> szom++ <td> vid++ <td> &rarr;alap
+</table>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    enum Allapot { alap, kp } all;
+
+    all = alap;
+    int szom = 0, vid = 0;
+    int c;
+    while ((c = getchar()) != EOF) {
+        switch (all) {
+        case alap:
+            if (c == ':') all = kp;
+            break;
+        case kp:
+            if (c == ')')   vid++;
+            else if (c == '(') szom++;
+            else if (c != ':') all = alap;
+            break;
+        }
+    }
+
+    if (vid &gt; szom) printf(&quot;vidam&quot;);
+    else if (szom &gt; vid) printf(&quot;szomoru&quot;);
+    else printf(&quot;kozombos&quot;);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+<h3>Sz és zs számláló</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj állapotgépes programot, amely a szabványos bemenetről olvasott szövegben megszámolja az
+„sz” és a „zs” betűket! (Hosszú ssz és zzs is egynek számítanak, azokkal külön nem kell
+foglalkozni.) A számlálás után írd ki a szabványos kimenetre mindkettő darabszámát!</p>
+<p>Tervezd meg az állapotgépet állapot- és tevékenységtáblával, utána írd meg a programot! A
+programra csak akkor jár pont, ha állapotgépes és a leírt állapottáblát valósítja meg.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<table>
+<thead>
+<tr> <th> <th> s <th> z <th> többi
+</thead>
+<tr> <th>alap <td> &rarr;svolt <td> &rarr;zvolt <td> -
+<tr> <th>svolt <td> - <td> sz++, &rarr;alap <td> &rarr;alap
+<tr> <th>zvolt <td> zs++, &rarr;alap <td> - <td> &rarr;alap
+</table>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    enum Allapot { alap, svolt, zvolt } all;
+    int c, sz, zs;
+
+    all = alap;
+    sz = zs = 0;
+
+    while ((c = getchar()) != EOF) {
+        switch (all) {
+        case alap:
+            if (c == 's') all = svolt;
+            else if (c == 'z') all = zvolt;
+            break;
+        case svolt:
+            if (c == 'z') sz++;
+            if (c != 's') all = alap;
+            break;
+        case zvolt:
+            if (c == 's') zs++;
+            if (c != 'z') all = alap;
+            break;
+        }
+    }
+
+    printf(&quot;sz: %d, zs: %d\n&quot;, sz, zs);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+<h3>Dzs számláló</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj állapotgépes programot, amely a szabványos bemenetről olvasott szövegben megszámolja a
+„dzs” betűket! (Hosszú ddzs egynek számít, nem kell külön foglalkozni vele.) A számlálás után
+írd ki a szabványos kimenetre a darabszámot!</p>
+<p>Tervezd meg az állapotgépet állapot- és tevékenységtáblával, utána írd meg a programot! A
+programra csak akkor jár pont, ha állapotgépes és a leírt állapottáblát valósítja meg.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<table>
+<thead>
+<tr><th> <th> d <th> z <th> s <th> többi
+</thead>
+<tr><th> alap <td> &rarr;dvolt <td> - <td> - <td> -
+<tr><th>dvolt <td> - <td> &rarr;dzvolt <td> &rarr;alap <td> &rarr;alap
+<tr><th> dzvolt <td> &rarr;dvolt <td> &rarr;alap <td> dzs++, &rarr;alap <td> &rarr;alap
+</table>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    enum Allapot { alap, dvolt, dzvolt } all;
+
+    all = alap;
+    int dzs = 0;
+    int c;
+    while ((c = getchar()) != EOF) {
+        switch (all) {
+        case alap:
+            if (c == 'd') all = dvolt;
+            break;
+        case dvolt:
+            if (c == 'd') ;
+            else if (c == 'z') all = dzvolt;
+            else all = alap;
+            break;
+        case dzvolt:
+            if (c == 's') dzs++;
+            if (c == 'd') all = dvolt;
+            else all = alap;
+            break;
+        }
+    }
+
+    printf(&quot;dzs: %d\n&quot;, dzs);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+<h3>Kommentszűrő</h3>
+<p>Írj programot, amelyik a szabványos bemenetéről egy C forráskódot olvas, amelyet a <code>/* kommentektől */</code>
+megszabadítva a szabványos kimenetére ír!</p>
+
+
+
+
+<h3>Sztringek belseje I.</h3>
+<p>A négy állapotos C kommentszűrő program (lásd a vonatkozó órai feladatot) nem működik tökéletesen.
+Ugyanis ez a kód nem tartalmaz kommentet:</p>
+<pre   ><code class="language-c">printf(&quot;/* ez nem komment. */\n&quot;);</code></pre>
+<p>Javítsd ki úgy az állapotgéped, hogy kezelje ezt is!</p>
+
+
+
+
+<h3>Sztringek belseje II.</h3>
+<p>Hol van vége egy sztringnek? Nem az indító idézőjel utáni következő idézőjel
+karakternél:</p>
+<pre   ><code class="language-c">printf(&quot;A program azt irja ki, hogy \&quot;Hello, /* nem komment */ vilag\&quot;.\n&quot;);</code></pre>
+<p>Fejleszd tovább az előző feladat állapotgépét eszerint!</p>
+
+
+
+<h3>Kommentben komment</h3>
+<p>A C szabvány tiltja a <code>/* */</code> kommentek egymásba ágyazását. (Tetszőleges
+mélységben egymásba ágyazott kommenteket nem lehetne állapotgéppel feldolgozni.)
+Éppen ezért, ha a fordítók kommentben kommentet látnak, figyelmeztető hibajelzést szoktak
+adni. Egészítsd úgy ki a kommentszűrő programodat, hogy írjon ki hibaüzenetet, ha
+komment belsejében <code>/*</code> karaktersorozatot talál!</p>
+
+
+
+
+<h3>Multifilter</h3>
+
+<p>Írd át a kommentszűró programot úgy, hogy ne csak a <code>/*</code> és <code>*/</code>
+karakterpárokra működjön, hanem tetszőleges karakterpárokra! Pl. a Pascal nyelvben a kommenteket
+<code>(*</code> és <code>*)</code> karakterekkel is lehetett jelölni. A kezdő- és végpárokat a
+felhasználó egy konfigurációs fájlban (multifilter.ini) adhassa meg a programnak! A program
+ellenőrizze, hogy létezik-e a fájl, és ha nem, adjon hibajelzést, majd lépjen ki! (Ha sikerült
+megnyitnia a fájlt, abban négy karakternek kell lennie; a nyitó kombinációnak, két karakter, és
+a záró kombinációnak, újabb két karakter. C-hez a fájlban <code>/**/</code> lenne, Pascalhoz
+<code>(**)</code>.)</p>
+
+
+
+
+
+
+<h3>C++ komment</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>A feladat a szabványos bemenetről érkező szövegben (fájl vége jelig) megszámolni, hogy hány
+C++ komment van benne, és a darabszámot kiírni. A C++ komment két / (per) jellel kezdődik, és a
+sor végéig tart, pl.:
+<pre>printf("Hello"); // Üdvözlet</pre>
+Ha C++ kommenten belül van „//” karakterpár, az nem növeli a kommentek számát. Készíts
+állapotgépes modellt állapottábla és tevékenységtábla megadásával, majd valósítsd meg C program
+formájában!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int c, szaml = 0;
+    enum Allapot { kod, pervolt, komment } all;
+    all = kod;
+    while ((c = getchar()) != EOF) {
+        switch (all) {
+            case kod:
+                if (c == '/')
+                    all = pervolt;
+                break;
+            case pervolt:
+                if (c == '/') {
+                    szaml++;
+                    all = komment;
+                } else
+                    all = kod;
+                break;
+            case komment:
+                if (c == '\n')
+                    all = kod;
+                break;
+        }
+    }
+    printf(&quot;%d darab komment&quot;, szaml);
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+<h3>Haskell komment</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>A feladat a szabványos bemenetről érkező Haskell nyelvű programkódban megszámolni, hogy hány
+komment van benne, és a darabszámot kiírni. A szöveg végét fájl vége jelzi. A Haskell komment
+két - (mínusz) jellel kezdődik, és a sor végéig tart, pl.:
+<pre>lesser = filter (&lt; p) xs -- kivalogatja a p-nel kisebbeket</pre>
+Ha a kommenten belül van „--” karakterpár, az nem növeli a kommentek számát. Készíts
+állapotgépes modellt állapottábla és tevékenységtábla megadásával, majd valósítsd meg C program
+formájában!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int c, szaml = 0;
+    enum Allapot { kod, minuszvolt, komment } all;
+    all = kod;
+    while ((c = getchar()) != EOF) {
+        switch (all) {
+            case kod:
+                if (c == '-')
+                    all = minuszvolt;
+                break;
+            case minuszvolt:
+                if (c == '-') {
+                    szaml++;
+                    all = komment;
+                } else
+                    all = kod;
+            case komment:
+                if (c == '\n')
+                    all = kod;
+                break;
+        }
+    }
+    printf(&quot;%d darab komment&quot;, szaml);
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Üres sorok száma</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>A feladat a szabványos bemenetről érkező szövegben (fájl vége jelig) megszámolni, hogy hány
+üres sor van benne. A szöveget a szabványos kimenetre ki is kell írni változatlanul, majd a
+szöveg után az üres sorok darabszámát. Üres sornak számít az, amiben nincs karakter, de az is,
+amiben csak szóközök vannak. Készíts állapotgépes modellt állapottábla és tevékenységtábla
+megadásával, majd valósítsd meg C program formájában!</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    enum Allapot { soreleje, sorbelseje } all = soreleje;
+    int c, szaml = 0;
+    while ((c = getchar()) != EOF) {
+        putchar(c);
+        switch (all) {
+            case soreleje:
+                if (c == '\n')
+                    szaml++;
+                else if (c != ' ')
+                    all = sorbelseje;
+                break;
+            case sorbelseje:
+                if (c == '\n')
+                    all = soreleje;
+                break;
+        }
+    }
+    printf(&quot;%d ures sor volt.&quot;, szaml);
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>C sztring feldolgozása</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>A feladat a szabványos bemenetről érkező C sztring feldolgozása: a szövegben szereplő \n, \t
+és \" karakterpárokat a megfelelő karakterrel (újsor, tabulátor, idézőjel) helyettesíteni, és úgy
+írni a szabványos kimenetre. (Egyéb \+karakter párok nem szerepelnek a sztringben, kezelésük
+tetszőleges.) Készíts állapotgépes modellt állapottábla és tevékenységtábla megadásával, majd
+valósítsd meg C program formájában! Pl. be:</p>
+<pre>
+hello \n    \"világ\"
+</pre>
+<p>ki:</p>
+<pre>
+hello
+    "világ"!
+</pre>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    enum Allapot { alap, visszaper } all = alap;
+    int c;
+    while ((c = getchar()) != EOF) {
+        switch (all) {
+            case alap:
+                if (c == '\\')
+                    all = visszaper;
+                else
+                    putchar(c);
+                break;
+            case visszaper:
+                switch (c) {
+                    case 'n':
+                        putchar('\n');
+                        break;
+                    case 't':
+                        putchar('\t');
+                        break;
+                    case '&quot;':
+                        putchar('&quot;');
+                        break;
+                }
+                all = alap;
+                break;
+        }
+    }
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>A1llapotge1p</h3>
+
+<p>A számítástechnika hőskorában nem lehetett magyar nyelvű
+billentyűzetet kapni.
+Magyar nyelvű, ékezetes szövegeket azonban akkor is kellett
+írni. Az egyik szövegfeldolgozó program úgy oldotta meg a problémát,
+hogy az adott, ékezet nélküli magánhangzó után tett 1-es, 2-es és
+3-as számjegyekkel jelezte a különféle ékezeteket. Az 1-es
+jelezte a hosszú magánhangzót (pl. á = a1), a 2-es a két pontot
+(pl. ö = o2), és a 3-as a csak a magyar nyelvben előforduló
+hosszú ő és ű betű jelölésére szolgált (pl. ő = o3).</p>
+
+<p>Írj állapotgépes programot, amely egy ilyen módon kódolt
+szöveget átalakít rendes, ékezetes szöveggé!</p>
+
+<p>Gondolkodtató részfeladatok:</p>
+
+<ul>
+    <li>Oldd meg, hogy hibás bemeneti kombinációkra hibajelzést
+        adjon a program! Pl. az a2 kombináció hibás, mivel az ä betűt
+        jelentené, amely viszont a magyar nyelvben nem használatos.
+    <li>Érdemes minden magánhangzónak külön állapotot létrehozni?
+        Ne felejtsd el, hogy összesen tíz állapotra vonatkozik ez a
+        kérdés, hiszen nem csak az a, e, i, o és u karakterek után
+        jelentenek mást az 1, 2 és 3 számjegyek, hanem az A, E, I, O és
+        U karakterek után is. Lehetne valahogy paraméterezni az állapotokat?
+</ul>
+
+
+
+
+
+
+<h3>C++ kommentszűrő</h3>
+
+<p>A C++ nyelvben a kommentek a <code>//</code> karakterekkel kezdődnek, és a sor végéig tartanak.
+(Természetesen az egy <code>/</code> továbbra is osztást jelent.) Ezt a fajta kommentet olyan
+kényelmesnek találta mindenki, hogy szép lassan a C-be is beépítették: a nyelv 1999-es, C99
+szabványa már ismeri azt.</p>
+
+<p>Írj programot, amelyik a szabványos bemenetén érkező, <code>//</code>-es kommenteket tartalmazó
+forráskódból kiszűri a kommenteket! Figyelj arra, hogy ettől a program tördelése ne változzon meg:
+ami eredetileg két sorba volt törve, az a kimeneten is így szerepeljen.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<table>
+    <thead>
+    <tr><th><th>/<th>\n<th>egyéb
+    </thead>
+    <tr><th>alap<td>&rarr;per<td>ki: c<td>ki: c
+    <tr><th>per<td>komment<td>ki: /, \n<br>&rarr;alap<td>ki: /, c<br>&rarr;alap
+    <tr><th>komment<td>-<td>ki: \n<br>&rarr;alap<td>-
+</table>
+</div>
+</details>
+
+
+
+
+
+<h3>C++ komment &rarr; C komment</h3>
+
+<p>Egy C99 szabvány szerinti, <code>//</code>-es kommenteket is tartalmazó forráskódot szeretnénk
+lefordítani egy nagyon régi C fordítóval, amely csak a <code>/*</code>-os kommenteket ismeri.
+Alakítsd át úgy az előző kommentszűrődet, hogy a kitörlés helyett tartsa meg a <code>//</code>-es
+kommenteket, de alakítsa át azokat <code>/*</code>-os formára!</p>
+
+<p>Pl. ha a bemenete ilyen:</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf(&quot;Helló világ!\n&quot;);   // Üdvözlet
+    return 0;
+}</code></pre>
+
+<p>Akkor a kimenete legyen ilyen:</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    printf(&quot;Helló világ!\n&quot;);   /* Üdvözlet */
+    return 0;
+}</code></pre>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A megtalált komment elejénél kiír egy <code>/*</code> karaktersorozatot. A komment belsejében minden
+karaktert kiír (ahogy máskor is). A komment végén, az újsor a karakternél pedig kiírja a bezáró
+<code>*/</code>-ot, és persze az újsort is (hogy a forráskód tördelése ne változzon).</p>
+
+<table>
+    <thead>
+    <tr><th><th>/<th>\n<th>egyéb
+    </thead>
+    <tr><th>alap<td>&rarr;per<td>ki: c<td>ki: c
+    <tr><th>per<td>ki: /*<br>&rarr;komment<td>ki: /, \n<br>&rarr;alap<td>ki: /, c<br>&rarr;alap
+    <tr><th>komment<td>ki: c<td>ki: */\n<br>&rarr;alap<td>ki: c
+</table>
+
+</div>
+</details>
+
+
+
+<h3>Kommentszűrő táblázattal</h3>
+
+<p>Dolgozd át a fenti kommentszűrő programot úgy, hogy a program kódjában
+is táblázatos állapotgép szerepeljen: <a href="../ea12/index.html#eaallapotgep">lásd az előadásanyagot</a>.</p>
+
+
+
+
+
+<h3>Rövidítések</h3>
+<p>Írjunk állapotgépes mondatot, amely a soronkért beírt tulajdonnevekből
+rövidítéseket csinál. Írja ez ki minden szó első betűjét. Pl.</p>
+<pre class="screenshot">
+Budapesti Muszaki Egyetem
+BME
+Elektronikus Eszkozok Tanszeke
+EET
+</pre>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A tervezés két állapotot ad: azt, amikor várunk a szó első
+betűjére (mert azt kell kiírni), és azt, amikor egy szó belsejében vagyunk.</p>
+
+<table>
+    <thead>
+    <tr><th><th>szóköz<th>\n<th>egyéb
+    </thead>
+    <tr><th>szóra vár<td>-<td>-<td>ki: c<br>&rarr;szóban
+    <tr><th>szóban<td>&rarr;szóra vár<td>ki: \n<br>&rarr;szóra vár<td>-
+</table>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main(void) {
+    enum Allapot { szora_var, szoban };
+    
+    int c;
+    enum Allapot all;
+    
+    all = szora_var;
+    while ((c = getchar()) != EOF) {
+        switch (all) {
+            case szora_var:
+                if (!isspace(c)) {
+                    putchar(c);
+                    all = szoban;
+                }
+                break;
+            case szoban:
+                if (c == '\n')
+                    putchar(c);
+                if (isspace(c))
+                    all = szora_var;
+                break;
+        }
+    }
+    
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+<h3>Mondat második szava</h3>
+
+<p>Tervezz állapotgépes programot, amelyik a szabványos bemeneten olvasott szövegből minden 
+mondat második szavát írja csak ki! Jelenjenek meg ezek a szavak külön sorban!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A tervezést az „új mondat” állapotnál kell kezdeni. Ide kell kerülnie egy bejövő pont, 
+felkiáltójel vagy kérdőjel karakter hatására a gépnek – de az induláskor is. Ettől meg kell 
+különböztetni az „első szó” állapotot, amelybe akkor kerülünk, amikor az első, szó betűjeként 
+értelmezhető karaktert megkapjuk. Innen a „második szóra vár” állapotba egy újabb szóköz (vagy 
+szóelválasztó) hatására kerülünk. Ez még nem a „második szó” állapot, ahol majd ki kell írni a 
+beolvasott betűket (és ahonnan tovább ugrunk egy újabb szóelválasztó hatására), hiszen itt még 
+sok szóelválasztó jöhet (pl. szóköz), ami még nem jelenti a második szó elkezdését. Ha betűt 
+kapunk, az viszont már igen, és az a második szó első betűje kell legyen, ezért ki is írjuk. 
+Azután egy újabb szóelválasztó hatására onnantól „mondat vége” állapotban működik tovább a gép, 
+és már nem figyel semmire, csak várja a következő mondatelválasztó karaktert, amely hatására 
+minden elölről kezdődik.</p>
+
+<table>
+    <thead>
+    <tr><th><th>. ! ?<th>szóköz \n , : ;<th>egyéb
+    </thead>
+    <tr><th>új mondat<td>-<td>-<td>&rarr;első szó
+    <tr><th>első szó<td>&rarr;új mondat<td>&rarr;második szóra vár<td>-
+    <tr><th>második szóra vár<td>&rarr;új mondat<td>-<td>kiír: c<br>&rarr;második szó
+    <tr><th>második szó<td>&rarr;új mondat<td>&rarr;mondat vége<br>kiír: \n<td>kiír: c
+    <tr><th>mondat vége<td>&rarr;új mondat<td>-<td>-
+</table>
+
+<p>Érdemes a mondatelválasztó és a szóelválasztó karakter felismeréséhez
+segédfüggvényeket írni.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+/* Igazzal tér vissza, ha a karakter mondat végét jelzi. */
+bool mondatvege_jel(int c) {
+    return c == '!' || c == '.' || c == '?';
+}
+
+/* Igaz, ha a karakter szó végét jelzi. Nem csak szóköz lehet,
+ * hanem pl. vessző, pontosvessző is. */
+bool szovege_jel(int c) {
+    return c == ' ' || c == '\n' || c == ':' || c == ',' || c == ';';
+}
+
+int main(void) {
+    enum Allapot { ujmondat, elsoszo, masodikszoravar, masodikszo, mondatvege };
+
+    int c;
+    enum Allapot all = ujmondat;
+
+    while ((c = getchar()) != EOF) {
+        switch (all) {
+        case ujmondat:
+            if (!mondatvege_jel(c) &amp;&amp; !szovege_jel(c))
+                all = elsoszo;
+            break;
+        case elsoszo:
+            if (mondatvege_jel(c))
+                all = ujmondat;
+            else if (szovege_jel(c))
+                all = masodikszoravar;
+            break;
+        case masodikszoravar:
+            if (mondatvege_jel(c))
+                all = ujmondat;
+            else if (!szovege_jel(c)) {
+                putchar(c);
+                all = masodikszo;
+            }
+            break;
+        case masodikszo:
+            if (mondatvege_jel(c))
+                all = ujmondat;
+            else if (szovege_jel(c)) {
+                putchar('\n');
+                all = mondatvege;
+            }
+            else
+                putchar(c);
+            break;
+        case mondatvege:
+            if (mondatvege_jel(c))
+                all = ujmondat;
+            break;
+        }
+    }
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Kódolási stílus – javaslatok</title>
+<meta property="og:title" content="TEST InfoC :: Kódolási stílus – javaslatok">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Megjegyzések és javaslatok a szépen írt, áttekinthető programokhoz.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Megjegyzések és javaslatok a szépen írt, áttekinthető programokhoz.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Kódolási stílus – javaslatok">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Kódolási stílus – javaslatok</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.11.13.</p>
+<p class="kivonat">Megjegyzések és javaslatok a szépen írt, áttekinthető programokhoz.</p>
+</div>
+
+<p>Érdemes szem előtt tartani a következő dolgokat.</p>
+
+
+<h3>Olvashatóság – alapok</h3>
+<ul>
+    <li>Írjunk jól olvasható kódot. Ennek a legegyszerűbb módja
+        azt írni, amit gondolunk. Ne trükközzünk a nyelvi elemekkel
+        a szép, egyszerű programok írása helyett!
+    <li>Ne optimalizáljunk feleslegesen. Csak akkor, ha kiderül, hogy
+        lassú a programunk.
+    <li>Különösen ne végezzünk olyan mikrooptimalizációkat kézzel, amelyekre
+        a fordító is képes. <code>%2</code> helyett <code>&amp;1</code>
+        rossz ötlet, <code>==0</code> helyett <code>!</code> rossz ötlet.
+    <li>Indentáljuk a kódot. Ez segít átlátni a program szerkezetét!
+    <li>Törekedjünk arra, hogy a programkódunk (a feladat megoldása) minél
+        jobban hasonlítson a feladat szövegére. Ne vigyünk bele a megoldásba
+        felesleges csavarokat! Pl. ha 1-től 100-ig ki
+        kell írni a számokat, a szép megoldás ez:
+        <pre   ><code class="language-c">for (i = 1; i &lt;= 100; ++i) printf(&quot;%d\n&quot;, i);</code></pre>
+        A működő, de nem annyira szerencsés megoldások pedig:
+        <pre   ><code class="language-cbub">for (i = 1; i &lt; 101; ++i) printf(&quot;%d\n&quot;, i);   // hol a „101” a feladat szövegében?
+
+for (i = 0; i &lt; 100; ++i) printf(&quot;%d\n&quot;, i+1); // hol a „+1” a feladat szövegében?</code></pre>
+        Vagy pl. „8 osztója van”:
+        <pre   ><code class="language-c">if (osztok_szama(x) == 8)</code></pre>
+        Nem annyira szerencsés:
+        <pre   ><code class="language-cbub">if (osztok_szama(x) - 8 == 0)  // miért?!</code></pre>
+    <li>Használjunk néven nevezett konstansokat és felsorolt típusokat mágikus
+        számok helyett! Nem szerencsés: <code>if (evszak == 2)</code>. Jobb ennél: <code>if (evszak == nyar)</code>.
+    <li>Használjunk beszédes változóneveket, és használjunk függvényeket a részfeladatokhoz!
+        Például, mit csinál a következő program?
+<pre   ><code class="language-c">int main(void) {
+    int a, b, c, d;
+    
+    d = 2;
+    a = 0;
+    while (a &lt; 20) {
+        b = 1;
+        for (c = 2; b &amp;&amp; c &lt;= d/2; c++)
+            if (d % c == 0)
+                b = 0;
+        if (b) {
+            printf(&quot;%d &quot;, d);
+            a++;
+        }
+        d++;
+    }
+    
+    return 0;
+}</code></pre>
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Ugyanazt, mint ez:</p>
+<pre   ><code class="language-c">bool prim_e(int szam) {
+    for (int oszto = 2; oszto &lt;= szam/2; oszto++)
+        if (szam % oszto == 0)
+            return false;
+    return true;
+}
+
+int main(void) {
+    int vizsgalt = 2;
+    int db = 0;
+    while (db &lt; 20) {
+        if (prim_e(vizsgalt)) {
+            printf(&quot;%d &quot;, vizsgalt);
+            db++;
+        }
+        vizsgalt++;
+    }
+    
+    return 0;
+}</code></pre>
+</div>
+</details>
+    <li>Érdemes a változókat ott definiálni, ahol használjuk először. A 80-as évek C nyelvében még szükség volt a változók
+        kigyűjtésére a kód tetejére, manapság ez már idejétmúlt dolog. Ósdi stílus:
+<pre   ><code class="language-c">int main(void) {
+    int n, sz, i;
+    
+    scanf(&quot;%d&quot;, &amp;n);
+    sz = 1;
+    for (i = 1; i &lt;= n; i += 1)
+        sz *= i;
+    printf(&quot;%d! = %d\n&quot;, n, sz);
+ 
+    return 0;
+}</code></pre>
+        Modernebb szemlélet:
+<pre   ><code class="language-c">int main(void) {
+    int n;
+    scanf(&quot;%d&quot;, &amp;n);
+    
+    int sz = 1;
+    for (int i = 1; i &lt;= n; i += 1)
+        sz *= i;
+        
+    printf(&quot;%d! = %d\n&quot;, n, sz);
+    
+    return 0;
+}</code></pre>
+</ul>
+
+
+
+<h3>Karbantarthatóság – a program struktúrája</h3>
+<ul>
+    <li>Soha, de soha ne copy-pasteljünk kódot! A copy-pastelt kód
+        helyett használjunk ciklust, tömböt vagy függvényt a feladattól függően.
+    <li>Függvény – hacsak nem ez a feladata – nem csinál I/O-t.
+        Azért lett függvény, hogy paraméterekben kapjon és visszatérési
+        értékben/paraméterben adjon vissza dolgokat. Az I/O a hívó
+        és a felhasználói felület dolga. Az esetleges diagnosztikai kiíratások
+        persze lehetnek kivételek, de az is inkább egy naplózó keretrendszer
+        használatával (vagy pl. <code>#ifdef DEBUG</code>-okkal védve) javasolt.
+    <li>Függvény megírásánál mindig, külön kérés nélkül feltételeznünk kell
+        azt, hogy többször is meg fogják hívni azt. Így a függvénynek nem lehet
+        felesleges mellékhatása. Például egy kártyapaklit keverő függvénynek
+        valószínűleg nem dolga <code>srand(time(NULL))</code>-t hívni.
+    <li>Szintén függvények: ne éljünk olyan előfeltételezésekkel, amelyekről
+        a feladat nem ír, vagy amelyek a hívótól nem várhatóak el. Például
+        ha a függvényünk dolga az, hogy megszámlálja egy szöveg magánhangzóit,
+        és azok darabszámait betegye egy tömbbe, akkor a megszámlálás előtt igenis
+        a függvény dolga a tömb elemeit nullázni.
+    <li>Függvény ne hívjon kilépéssel, hasonlókkal kapcsolatos dolgokat, mert a
+        felsőbb szintű kódot ez meglepetéssel fogja érinteni (fájlok lezárása,
+        takarítás elmarad). Ha szükséges, akkor legyen a programnak egy
+        <code>fatal_error()</code> függvénye, azt hívjuk.
+    <li>Haladóknak: mivel a C-ben nincsenek kivételek (exception), ezért sokszor bonyolult a hibakezelés.
+        Más lehetőségünk nem nagyon van, mint hibajelző visszatérési értékeke használata. De ekkor
+        is különítsük el a valós paramétereket a hibajelzésre használatos flag-ektől,
+        ha lehet.
+    <li>Alakítsunk ki értelmes adatszerkezeteket. Fogjuk össze struktúrákba
+        az összetartozó adatokat. Például <code>int szeles, magas; char **elem</code>
+        tipikusan egy <code>struct Palya</code> nevű típusba való. Gondoljunk arra,
+        hogy legjobb a feladatunkban megjelenő mindenféle entitáshoz
+        egy külön típust rendelnünk a programban.
+    <li>Legyen egyértelmű specifikáció arról, hogy mik a paraméterek és kinek a
+        felelősége ellenőrizni a bemenő paraméterek értelmességét.
+</ul>
+
+<h3>Nyelvi eszközök</h3>
+<ul>
+
+    <li>Ne sűrítsünk túl sok mellékhatást egy kifejezésbe, és ne tegyünk
+        mellékhatással járó kifejezést váratlan helyre.
+    <li>Ne használjuk a rövidzár tulajdonságokkal rendelkező operátorokat vezérlési szerkezetek helyett.
+        Helyes:
+<pre   ><code class="language-c">if (x &lt; 0)
+    printf(&quot;x negatív&quot;);
+if (y % 2 == 0)
+    printf(&quot;y páros&quot;);</code></pre>
+        Helytelen:
+<pre   ><code class="language-cbub">x &lt; 0 &amp;&amp; printf(&quot;x negatív&quot;);       // :(
+y % 2 == 0 ? printf(&quot;y páros&quot;) : 0;</code></pre>
+    <li>Ne írjunk a feltételekhez üres igaz ágat, inkább tagadjuk a feltételt! Tehát ehelyett:
+<pre   ><code class="language-cbub">if (x &lt; 0)
+    ;   // nem kellene ezt megfordítani?
+else
+    printf(&quot;nem negatív&quot;);</code></pre>
+        Inkább írjuk ezt:
+<pre   ><code class="language-c">if (x &gt;= 0)
+    printf(&quot;nem negatív&quot;);</code></pre>
+    <li>A <code>for</code> ciklus tipikusan a „valahonnan valahová el akarok jutni, valamilyen
+        lépésközzel” jellegű feladatokra való, a <code>while</code> ciklus a „tekerjünk addig,
+        amíg valami feltétel fennáll” jellegűekhez. Ezért ha valóban ilyen feladatot oldunk meg, akkor a ciklus
+        fejlécében ezek legyenek, a ciklus törzsében meg a tennivalók. Ne rakjuk
+        át az iterátor léptetését a ciklustörzsbe, ne rakjuk a ciklustörzset be a fejlécbe stb.
+    <li>Ne használjunk goto-t, break-et, continue-t feleslegesen. Egy-két
+        speciális esettől eltekintve szebb kódot lehet írni nélkülük.
+    <li>Lehetőleg ne legyen üres a ciklustörzs, vagy ha mégis, akkor a 
+        ciklustörzs helyére tegyünk kommentet, jelezzük benne, miért üres.
+    <li>Ne írjunk <em>loop-switch</em> szekvenciákat (loop-switch sequence, for-case paradigm). Így nevezzük azt,
+        amikor egymás után következő műveletek kerülnek <em>feleslegesen</em> ciklusba, hogy aztán azon belül esetszétválasztással
+        kelljen újra szétválasztani őket. Pl. a <code>+----+</code> karaktersorozat kiírásához, nem túl jó megoldás:
+<pre   ><code class="language-cbub">for (i = 0; i &lt;= n; i += 1) {
+    if (i == 0 || i == n)
+        printf(&quot;+&quot;);
+    else
+        printf(&quot;-&quot;);
+}</code></pre>
+        Érthetőbben ugyanaz:
+<pre   ><code class="language-c">printf(&quot;+&quot;);
+for (i = 1; i &lt; n; i += 1)
+    printf(&quot;-&quot;);
+printf(&quot;+&quot;);</code></pre>
+        
+        Az előbbi nem fejezi ki az egymásutániságot, az utóbbin viszont ránézésre látszik, hogy előbb plusz
+        van, utána mínuszok, végül megint egy plusz.
+    <li>Hiába van rá mód: ne keverjük a logikai és az aritmetikai kifejezéseket!
+        Például: egy szám akkor osztható egy másikkal, ha az osztás
+        maradéka nulla. Vagyis:
+            <ul>
+            <li>helyes: <code>if (szam % oszto == 0)</code>... osztás maradéka, egyenlő, nullával.
+            <li>(stilisztikailag) helytelen: <code>if (!(szam % oszto))</code>... a maradékot tagadom?! Kérdés:
+            igaz-e az a kijelentés, hogy „Öt.”? Ez így nyilván nem is kijelentés...
+            </ul>
+    <li>Ne használjunk logikai függvényt egész szám visszatérési értékűnek, és egész szám visszatérési
+        értékűt logikainak! Pl. ez így helyénvaló:
+        <pre   ><code class="language-cbub">if (!isalpha(ch)) // ok, logikai</code></pre>
+        Ez már kevésbé:
+        <pre   ><code class="language-cbub">if (isalpha(ch) == 0) // működik, de miééért?!</code></pre>
+        Ez így rendben van:
+        <pre   ><code class="language-cbub">if (strcmp(a, b) == 0) // 0-t ad, ha egyenlőek</code></pre>
+        Ez viszont kevésbé érthető:
+        <pre   ><code class="language-cbub">if (!strcmp(a, b)) // egyenlőségre lesz igaz, de nem erre utal a tagadás</code></pre>
+    <li>Használjuk a <code>bool</code> típust, ahol logikai értékekkel dolgozunk!
+        Nem szerencsés: <code>int keres(...)</code>. Szerencsésebb: <code>bool van_e(...)</code>
+        és <code>int hol_van(...)</code>. Az utóbbiaknál a név és a típus is jobban kifejezi
+        a függvényhívás eredményét.
+    <li>Ne bonyolítsuk a logikai függvényeket redundáns <code>if (...) return true; else return false;</code>
+        vezérlési szerkezettel. Helyes, rövid, egyszerű:
+<pre   ><code class="language-c">bool paros_e(int szam) {
+    return szam % 2 == 0;
+}</code></pre>
+        Nem nyújt többet, viszont sokkal hosszabb:
+<pre   ><code class="language-cbub">bool paros_e(int szam) {
+    if (szam % 2 == 0)  // „ha igaz, akkor igaz, ha hamis, akkor hamis”
+        return true;
+    else
+        return false;
+}</code></pre>
+    <li>Az inicializálatlan változó veszélyes hibaforrás,
+        de ez nem jelenti azt, hogy minden változónak kényszeresen kezdeti értéket kell adnunk
+        definiáláskor. Helyes:
+<pre   ><code class="language-c">double tomb[100];
+
+double szum = 0;
+for (int i = 0; i &lt; 100; ++i)
+    szum += tomb[i];</code></pre>
+        Működik ugyan, de nem szép stílus:
+<pre   ><code class="language-c">double tomb[100], szum = 0;
+
+/*
+ *
+ * Sok sornyi kód...
+ *
+ */
+
+/* Hova lett a szum = 0? Nem kéne ilyen az
+ * összegzés elejére? Vagy már egy meglévő
+ * részösszeghez adjuk hozzá ezeket is? */
+for (int i = 0; i &lt; 100; ++i)
+    szum += tomb[i];</code></pre>
+        Ha kicsit átírjuk a programot, és máshova másoljuk ezt a
+        részt, végképp ki fog maradni az értékadás...
+        Az erőltetett hamar-kezdeti-értékadás következménye szokott lenni az
+        ilyen jellegű kód is:
+<pre   ><code class="language-c">int oszto = 2;                /* Inicializált változó... de minek? */
+int szam;                     /* Ez meg mi? */
+
+for (int i = 2; i &lt;= 10; i++) {
+    printf(&quot;%d: &quot;, i);
+
+    /* Prímtényezős felbontás */
+    szam = i;
+    while (szam &gt; 1) {
+        while (szam % oszto == 0) {
+            printf(&quot;%d &quot;, oszto);
+            szam /= oszto;
+        }
+        oszto++;
+    }
+
+    oszto = 2;          /* Első ránézésre: ez meg mit keres itt?! */
+                        /* Hiszen már nem csinálunk vele semmit! */
+                        /* Most végeztünk a prímtényezőkkel! Minek */
+                        /* az osztónak újra értéket adni akkor? */
+
+    printf(&quot;\n&quot;);
+}</code></pre>
+        A lenti sokkal jobb, sőt így csak egyszer kell leírni:
+<pre   ><code class="language-cbub">for (int i = 2; i &lt;= 10; i++) {
+    printf(&quot;%d: &quot;, i);
+
+    /* Prímtényezős felbontás */
+    int oszto = 2;          // ennek itt a helye!
+    int szam = i;
+    while (szam &gt; 1) {
+        while (szam % oszto == 0) {
+            printf(&quot;%d &quot;, oszto);
+            szam /= oszto;
+        }
+        oszto++;
+    }
+
+    printf(&quot;\n&quot;);
+}</code></pre>
+
+        
+
+</ul>
+
+
+
+<h3>Pointerek, tömb átadása függvénynek, dinamikus memóriakezelés</h3>
+
+<ul>
+    <li>A pointer aritmetika sok feladatnál szép és hatékony, de ha az algoritmusunk nem arra
+        épül, kerüljük a használatát! A tömb az legyen tömb:
+            <ul>
+            <li>Helyes: <code>t[10]</code>, olvashatóság szempontjából helytelen: <code>*(t+10)</code>
+            <li>Ugyanez három dimenzióban: <code>t[2][5][7]</code> vs. <code>*(*(*(t+2)+5)+7)</code>.
+            </ul>
+    <li>C-ben egy tömböt függvénynek átadva a tömb kezdőcíme adódik át,
+        azaz egy pointer. Ezt a pointert formálisan nem lehet megkülönböztetni
+        az egyetlen változóra mutató pointertől:
+        <div class="columns">
+        <div>
+        <pre   ><code class="language-c">void intet_novel(int *i);
+int x = 3;
+intet_novel(&amp;x);</code></pre>
+        </div>
+        <div>
+        <pre   ><code class="language-c">void tombot_kiir(int *i, int meret);
+int tomb[10];
+tombot_kiir(tomb, 10);</code></pre>
+        </div>
+        </div>
+        Dokumentáljuk a függvényél azt, hogy egy változóra mutató pointert vagy tömböt kap!
+        
+    <li>Ha egy függvény pointerrel tér vissza, a dokumentációjába be kell írni,
+        hogy az dinamikusan foglalt memóriaterület vagy nem, továbbá hogy
+        kinek a dolga felszabadítani azt.
+    <li>A dinamikusan foglalt memóriaterületeket rendeljük hozzá gondolatban (és a dokumentációban)
+        valamihez. Ez egyértelművé teszi, melyik programrésznél van a felszabadítás helye.
+    <li>A dinamikusan foglalt memóriát akkor foglaljuk, amikor először szükség van rá (ne
+        előbb), és akkor szabadítsuk fel, amikor már nincs rá szükség (ne később)! Annyival
+        is nehezebb megfeledkezni bármelyikről.
+    <li>Kövessük a <code>malloc()</code>-<code>free()</code>, és az <code>fopen()</code>-<code>fclose()</code>
+        logikáját! Ezt ismeri mindenki.
+        <br>
+        Fájl megnyitása, fájlművelet, bezárás:
+        <pre   ><code class="language-c">FILE *fp;
+fp = fopen(&quot;fajl.txt&quot;, &quot;rt&quot;);
+fprintf(fp, &quot;Hello&quot;);
+fclose(fp);</code></pre>
+        Saját halmaz típus:
+        <div class="columns c4060">
+        <div>
+            <pre   ><code class="language-c">typedef struct Halmaz {
+   int elemszam;
+   int *dintomb;
+} Halmaz;</code></pre>
+        </div>
+        <div>
+            <pre   ><code class="language-c">Halmaz *h;
+h = uj_halmaz();
+halmaz_betesz(h, 5); halmaz_betesz(h, 9);
+halmaz_felszabadit(h);</code></pre>
+        </div>
+        </div>
+        Ebben az elemeket tároló tömb is dinamikus, és a struktúrák is dinamikusan foglalódhatnak. Mégis milyen
+        könnyű használni!
+        
+</ul>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

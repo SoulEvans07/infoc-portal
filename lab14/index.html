@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Labor, 14. hét: labirintus játék</title>
+<meta property="og:title" content="TEST InfoC :: Labor, 14. hét: labirintus játék">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Labirintus játék írása: a félév anyagát áttekintő gyakorlófeladat.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Labirintus játék írása: a félév anyagát áttekintő gyakorlófeladat.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Labor, 14. hét: labirintus játék">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Labor, 14. hét: labirintus játék</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Nagy Gergely, Pohl László · <i class="ido"></i> 2019.09.03.</p>
+<p class="kivonat">Labirintus játék írása: a félév anyagát áttekintő gyakorlófeladat.</p>
+</div>
+
+
+
+<p>A mai órán egy összetett programot készítünk el. Ez egy labirintus játék, amelyben egy
+játékos egy előre adott labirintusban mozoghat, kincseket gyűjtve. A labirintust, amely egy
+kétdimenziós pálya, kétdimenziós karaktertömbben, vagyis sztringek tömbjében tároljuk.</p>
+
+<p>A programot több forrásfájl, valamint fejlécfájl alkalmazásával valósítsd meg!</p>
+
+<p>Felkészülés a laborra:</p>
+<ul>
+    <li>A <a href="../ea08/index.html#eatobbmodul">többmodulos programokról szóló előadás</a> átismétlése.
+</ul>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A program teljes forráskódja letölthető innen: <a href="labirintus.c">labirintus.c</a>. (Csupasz 2D karaktertömbbel, nem sztringekkel.) </p>
+</div>
+</details>
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Labirintus játék</a>
+              <li><a href="index.html#2" class="">További feladatok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Labirintus játék">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Labirintus játék<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A labirintus egy fallal körülvett 10×10-es tábla. A labirintust körülvevő falon egy kijárat
+található. A labirintusban  több kincset rejtettek el. A játékos feladata, hogy összeszedje a
+kincseket és eljusson a kijáratig.</p>
+
+<p>A labirintust a következő formában kell megjeleníteni:</p>
+
+<pre class="screenshot" style="line-height: 1">
+###### ###
+#$   #   #
+#### ### #
+#        #
+# #### ###
+# #    #$#
+# ##$# # #
+#@ ### # #
+#   $#   #
+##########
+</pre>
+
+<p>Itt a falakat a # jelzi, a járható részeket szóköz, az elrejtett kincseket a $
+karakter, a játékost pedig a @. Ha a játékos felvette, a kincs helyére is szóköz kerül.</p>
+
+<p>Ebben a feladatban az alább látható részfeladatok mind egymásra épülnek, vagyis sorban kell
+megcsinálnod őket. Minden függvény megírásakor írj egy rövid programrészt a főprogramba, amely
+meghívja a függvényt – így lépésenként ellenőrizni tudod azt, hogy helyesen működik-e.</p>
+
+
+<h3>Tömb</h3>
+
+<p>Hozz létre egy tömböt a labirintus tárolására! A tömb tárolja a labirintus egyes sorait
+sztringként. Mivel a sztringek maguk is tömbök, ezért ennek a tömbnek két dimenziósnak kell
+lennie (tömbök tömbje). Figyelj arra, hogy a sztringként tárolt sorok miatt eggyel nagyobbra
+kell választanod a tömböt vízszintesen (vagyis szélesebbre), hogy a sztringet lezáró nulla is
+beleférjen.</p>
+
+<p>Inicializáld a tömböt úgy, hogy a fent látható labirintust tartalmazza. Ehhez azt át tudod
+másolni a forráskódba.</p>
+
+<details >
+<summary>Emlékeztető</summary>
+<div>
+<p>Kétdimenziós tömböt így lehet létrehozni:</p>
+<pre   ><code class="language-c">tipus nev[sorok_szama][oszlopok_szama];</code></pre>
+<p>Vajon melyik itt a sztringek mérete? Melyiket kell eggyel nagyobbra választani?</p>
+</div>
+</details>
+
+<p></p>
+
+<h3>Kirajzolás</h3>
+
+<p>Írj függvényt, amely paraméterként veszi a labirintust tároló tömböt és kirajzolja a
+labirintust a képernyőre!</p>
+
+
+<h3>A játékos koordinátái</h3>
+
+<p>Hozz létre alkalmas struktúratípust a labirintusbeli koordináták tárolására! Írj függvényt,
+amely paraméterként veszi át a labrintust tároló tömböt, és visszaadja a játékos koordinátáit.
+Ennek visszatérési típusa a korábban definiált struktúra legyen. A függvény keresse meg a
+játékost a tömbben, és állítsa be a struktúrában a megfelelő  pozíciót!</p>
+
+<details >
+<summary>Emlékeztető</summary>
+<div>
+
+<p>Struktúratípust a következőképpen lehet létrehozni:</p>
+
+<pre   ><code class="language-c">typedef struct opcionalis_struct_nev {
+   tipus mezo_1;
+   tipus mezo_2;
+   …
+} struktura_nev;</code></pre>
+</div>
+</details>
+
+<h3>Kincsek száma</h3>
+
+<p>Írj függvényt, amely paraméterként veszi át a labirintust tároló tömböt, és visszaadja a benne található kincsek számát!</p>
+
+<details >
+<summary>Emlékeztető</summary>
+<div>
+<p>Kétdimenziós tömb függvény-paramétert így kell definiálni:</p>
+<pre   ><code class="language-c">visszateresi_tipus fuggveny_nev(tipus nev[][oszlopok_szama], unsigned sorok_szama);</code></pre>
+
+<p>Vagyis ebben a speciális esetben a szögletes zárójelek közt <em>meg kell adni</em>
+méretinformációt, de csak az oszlopok számát. Enélkül ugyanis nem tudna működni az összetett
+indexelő operátor, hiszen a C-ben a kétdimenziós tömbök sorfolytonosan vannak tárolva, tehát a
+fordítónak tudnia kell, hogy milyen hosszú egy sor, vagyis hány elemet kell ugrani indexeléskor.
+A képlet, ami egy elem pozícióját megadja ugyanis a következő:<br />
+elem_index = sor_index * oszlopok_szama + oszlop_index</p>
+</div>
+</details>
+
+<h3>Irányok</h3>
+
+<p>Definiálj felsorolt típust, amely alkalmas az irányok (le, fel, jobbra, balra) tárolására!</p>
+
+<details >
+<summary>Emlékeztető</summary>
+<div>
+<p>Felsorolt típust így kell definiálni (ez is <code>typedef</code>-elhető):</p>
+<pre   ><code class="language-c">enum nev { azonosito_1, azonosito_2, … };</code></pre>
+</div>
+</details>
+
+
+<h3>Mehet-e arra?</h3>
+
+<p>Írj függvényt, amely paraméterként veszi át a labirintust tároló tömböt valamint egy irányt!
+A visszatérési típusa logikai legyen, ami  akkor vegye fel az IGAZ értéket, ha a játékos
+elmozdulhat az adott irányba. A játékos akkor nem mehet egy irányba, ha ott fal van.</p>
+
+<p>Gondolj arra, hogy ennek a függvénynek nem kell paraméterként átvennie a játékos helyzetét,
+hanem azt az egyik előbb megírt függvénnyel meg tudja határozni.</p>
+
+
+
+
+<h3>Léptetés</h3>
+
+<p>Írj függvényt, amely paraméterként átveszi a labirintust tároló tömböt és egy adott irányt,
+és lépteti a játékost, ha ez lehetséges! Azt, hogy az  adott irányba léphet-e a játékos, az
+előző pontban elkészített függvény   segítségével ellenőrizd! A léptetés azt jelenti, hogy a
+játékos aktuális pozíciójára egy szóköz, az új pozíciójára pedig egy @ kerül.</p>
+
+<p>A függvény a visszatérési értékében jelezze, ha</p>
+<ul>
+  <li>az irány rossz, mert ott fal van!
+  <li>a játékos a kijáratba lépett!
+  <li>a játékos kincset talált!
+  <li>a játékos üres mezőre lépett!
+</ul>
+
+<details >
+<summary>Tippek</summary>
+<div>
+<p>A visszatéréshez érdemes létrehozni egy újabb felsorolt típust, amely a fenti négy
+lehetőséget jelöli egy-egy  konstanssal. Így a főprogramban a lépés eredményének ellenőrzése egy
+nagyon jól olvasható <code>switch</code> segítségével valósítható meg.</p>
+
+<p>Azt, hogy a játékos kijáratra lépett, úgy döntheti el, hogy a lépést ellenőrző függvény
+visszatérése IGAZ és a játékos új  koordinátáinak valamelyike 0 vagy 9.</p>
+</div>
+</details>
+
+
+
+<h3>Főprogram</h3>
+
+<p>A main függvényben írj egy ciklust, amely bekéri a felhasználótól a mozgás irányát és ennek
+megfelelően lépteti a játékost!</p>
+
+<ul>
+  <li>Tartsd számon, hogy a játékos hány kincset talált!
+  <li>Ha a játékos a kijáraton kiment, akkor nézd meg, hogy megtalált-e   minden kincset 
+  (a 4. részfeladatban megírt függvény segítségével)! Ha  már nincs több kincs a labirintusban, 
+  akkor nyert, ha van, akkor   veszített. Írd ki a végeredményt a képernyőre!
+  <li>Ha nem mehet a kívánt irányba a játékos, akkor ezt írd ki a képernyőre!
+  <li>Rajzold ki lépésről-lépésre az új táblát!
+</ul>
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="További feladatok">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    További feladatok<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Iránysorozat</h3>
+
+<p>Írd át a labirintus programot úgy, hogy a játékos egyszerre több irányt is megadhasson!
+Például ha az irányokat a következő betűk segítségével  kell bevinni: 'w', 'a', 's', 'd', akkor
+a &quot;wddsa&quot; jelentse azt, hogy a játékos egy öt lépésből álló sorozatot kíván
+megtenni: fel-jobbra-jobbra-le-balra.</p>
+
+<h3>Útkereső</h3>
+
+<p>Írj függvényt, ami paraméterként kapja a labirintust tartalmazó tömböt és a játékos indulási
+koordinátáit, a visszatérési értéke  pedig egy logikai érték legyen, ami akkor IGAZ, ha a
+játékos ki tud jutni a labirintusból, tehát ha létezik út a két pont között!</p>
+
+<details >
+<summary>Tipp</summary>
+<div>
+<p>Keresd meg a labirintusban a játékost, és „színezd ki” a mellette lévő üres helyeket. Ezután
+fésüld végig újra a labirintust, és a „kiszínezett” cellák melletti üres helyeket is színezd.
+Folytasd ezt addig, amíg van színezés. Ha nincs már több, végeztél – ha a kijárat ki lett
+színezve, akkor a játékos ki tud jutni.</p>
+</div>
+</details>
+
+<h3>Fájlból olvasva</h3>
+
+<p>Egészítsd ki úgy a programot, hogy a labirintust fájlból olvassa be!</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

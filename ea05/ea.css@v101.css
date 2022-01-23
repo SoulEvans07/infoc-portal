@@ -1,0 +1,59 @@
+div.pixel {
+   position: relative;
+}
+   div.pixel span {
+      position: absolute;
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      border: 1px solid black;
+   }
+   div.pixel span.fekete { background: #000; }
+   div.pixel span.feher { background: #fff; }
+   div.pixel span.naci { background: #d10041; }
+   div.pixel span.fej { background: #F2D7B5; }
+   div.pixel span.cipo { background: #7b9bb2; }
+   div.pixel span.polo { background: #fff120; }
+   div.pixel span.hatter { background: #80b27b; }
+   div.pixel span.fal { background: url('tegla.png'); border-color: #800; }
+   div.pixel span.jarat { background: #000; border-color: #111; }
+   @media print {
+      /* inverz */
+      div.pixel span.jarat { background: #222; border-color: #333; }
+      div.pixel span.fal { background: #fff; border-color: #ccc;}
+   }
+   div.pixel span:hover {
+        box-shadow: 0px 0px 0px 1px blue inset;
+        z-index: 1;
+   }
+div.hanoi {
+    position: relative;
+    width: 100%;
+}
+    div.hanoi>div.korong { /* korong */
+        position: absolute;
+        z-index: 1;
+        border: 0.1em solid black;
+        border-radius: 1em/1.5em;
+        -webkit-transition: all ease-in-out 0.48s;
+        -moz-transition: all ease-in-out 0.48s;
+        -o-transition: all ease-in-out 0.48s;
+    }
+    div.hanoi>div.oszlop {
+       position: absolute;
+       bottom: 0;
+       top: 2em;
+       background: #840;
+       border: 0.1em solid black;
+       border-bottom: none;
+    }
+    div.hanoialja {
+       background: #840;
+       border: 0.1em solid black;
+       height: 1em;
+       margin: 0em 1em;
+       margin-bottom: 0.5em;
+    }

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2"
+   viewBox="293 97 404.4797 297.3432"
+   height="15.59833cm"
+   width="20.717253cm"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="4szin.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="650"
+     inkscape:window-height="480"
+     id="namedview29"
+     showgrid="false"
+     inkscape:zoom="0.41627778"
+     inkscape:cx="361.15806"
+     inkscape:cy="277.18282"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <metadata
+     id="metadata56">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs54" />
+  <g
+     id="g4"
+     transform="translate(-6,-4.3808452)">
+    <path
+       style="fill:#ff0000"
+       d="m 300,100 400,0 0,300 -400,0 z"
+       id="rect6" />
+    <path
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:2"
+       d="m 300,100 400,0 0,300 -400,0 z"
+       id="rect8" />
+  </g>
+  <g
+     id="g10"
+     transform="translate(-6,-4.3808452)">
+    <path
+       style="fill:#ffff00"
+       d="m 300,100 120,0 -120,200 z"
+       id="polygon12" />
+    <path
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:2"
+       d="m 300,100 120,0 -120,200 z"
+       id="polygon14" />
+  </g>
+  <g
+     id="g16"
+     transform="translate(-6,-4.3808452)">
+    <path
+       style="fill:#00ff00"
+       d="M 360,200 500,100 460,340 Z"
+       id="polygon18" />
+    <path
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:2"
+       d="M 360,200 500,100 460,340 Z"
+       id="polygon20" />
+  </g>
+  <g
+     id="g22"
+     transform="translate(-6,-4.3808452)">
+    <path
+       style="fill:#0000ff"
+       d="M 700,260 600,100 500,100 480,220 Z"
+       id="polygon24" />
+    <path
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:2"
+       d="M 700,260 600,100 500,100 480,220 Z"
+       id="polygon26" />
+  </g>
+  <g
+     id="g28"
+     transform="translate(-6,-4.3808452)">
+    <path
+       style="fill:#0000ff"
+       d="m 300,360 188,40 -28,-60 z"
+       id="polygon30" />
+    <path
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:2"
+       d="m 300,360 188,40 -28,-60 z"
+       id="polygon32" />
+  </g>
+  <g
+     id="g34"
+     transform="translate(-6,-4.3808452)">
+    <path
+       style="fill:#ffff00"
+       d="m 460,340 28,60 80,-164 z"
+       id="polygon36" />
+    <path
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:2"
+       d="m 460,340 28,60 80,-164 z"
+       id="polygon38" />
+  </g>
+  <g
+     id="g40"
+     transform="translate(-6,-4.3808452)">
+    <path
+       style="fill:#0000ff"
+       d="m 520,336 100,64 80,-140 z"
+       id="polygon42" />
+    <path
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:2"
+       d="m 520,336 100,64 80,-140 z"
+       id="polygon44" />
+  </g>
+  <g
+     id="g46"
+     transform="translate(-6,-4.3808452)">
+    <path
+       style="fill:#00ff00"
+       d="m 520,336 48,-100 132,24 z"
+       id="polygon48" />
+    <path
+       style="fill:none;fill-opacity:0;stroke:#000000;stroke-width:2"
+       d="m 520,336 48,-100 132,24 z"
+       id="polygon50" />
+  </g>
+</svg>

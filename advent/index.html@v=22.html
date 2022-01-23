@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Adventi naptár</title>
+<meta property="og:title" content="TEST InfoC :: Adventi naptár">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="TEST InfoC :: Adventi naptár">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="TEST InfoC :: Adventi naptár">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Adventi naptár">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <div class="float" style="margin-top: 0.25em; margin-bottom: 0;"><button type="button" class="vissza" onclick="history.back();">Vissza</button></div>
+<h1 class="eloadascim">Adventi naptár</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.02.27.</p>
+<p class="kivonat"></p>
+</div>
+<h2>InfoC szintetizátor</h2>
+
+
+<p>A tegnapi adventi naptár bejegyzésben egy hangot szintetizáló program szerepelt:
+ez a szinusz függvényt használva különböző magasságú hangokat keltett. Röviden megnéztük,
+hogyan viszonyulnak egymáshoz a zenei hangok, hogy mik azok a hangközök, és hogy hogyan
+tudjuk elküldeni a generált hangot a hangkártyának az SDL segítségével.
+
+<p>A Boci, boci tarkát ezzel a programmal el lehetett játszani (q, e, q, e, t, t), meg néhány
+akkordot is lehetett kelteni (pl. q, e, t egyszerre), azonban a programnak a hangja inkább egy
+hallásvizsgálatra hasonlított, mintsem zenei volt:</p>
+
+<p class="kozep">
+<audio controls>
+    <source src="advent22-szinusz.ogg" type="audio/ogg">
+    <source src="advent22-szinusz.mp3" type="audio/mpeg">
+    <source src="advent22-szinusz.wav" type="audio/x-wav">
+</audio>
+</p>
+
+
+<p>Akik megnézték a program forráskódját is (és remélem, ezt sokan megtették, 
+különben semmi értelme a naptárnak ☺), megtalálták azokat a részeket, amelyekkel 
+a szinusz függvény helyett más függvényeket lehetett használni: a fűrészfog alakú 
+jel egy elég szúrós hangot hoz létre, a négyszögjel pedig leginkább a '80-as évek 
+videójátékaira emlékeztet. (Ez nem véletlen, hiszen ezt a legegyszerűbb 
+előállítani elektronikusan: digitális áramkörrel, amelyből csak 0 és 1 jön ki! Ha 
+ezt rákötjük egy hangszóróra, épp ilyet hallunk.)
+
+<div class="columns">
+    <div>
+        <p class="kozep">
+<audio controls>
+    <source src="advent22-furesz.ogg" type="audio/ogg">
+    <source src="advent22-furesz.mp3" type="audio/mpeg">
+    <source src="advent22-furesz.wav" type="audio/x-wav">
+</audio>
+</p>
+        <p class="kozep">fűrészfog</p>
+    </div>
+    <div>
+        <p class="kozep">
+<audio controls>
+    <source src="advent22-negyszog.ogg" type="audio/ogg">
+    <source src="advent22-negyszog.mp3" type="audio/mpeg">
+    <source src="advent22-negyszog.wav" type="audio/x-wav">
+</audio>
+</p>
+        <p class="kozep">négyszög</p>
+    </div>
+</div>
+
+<p>A kérdés tehát ez: mitől más a hangszerek hangja? Miben más egy zongora A=440 Hz-es hangja
+és egy gitár A=440 Hz-es hangja?
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html@v=22.html#1" class="">Egy kis fizika, egy kis analízis</a>
+              <li><a href="index.html@v=22.html#2" class="">ADSR: attack, decay, sustain, release</a>
+              <li><a href="index.html@v=22.html#3" class="">Moduláció</a>
+              <li><a href="index.html@v=22.html#4" class="">A programról</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egy kis fizika, egy kis analízis">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Egy kis fizika, egy kis analízis<a class="hlink" href="index.html@v=22.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Fogjunk egy húrt, mondjuk egy gitárnak a húrját. Rögzítsük ezt két végén (mint mondjuk egy
+gitár húrját), és pengessük meg (mint mondjuk egy gitár húrját). A húr elkezd rezegni. A rezgés
+frekvenciája a húr hosszától, vastagságától és a feszítő erőtől függ, ezek változhatnak. De egy
+biztos: a két vége, mivel azokat befogtuk, mozdulatlan marad. Ha megoldjuk a húr rezgését
+leíró egyenletet, olyan megoldást kell kapnunk, amelynél a húr két vége teljesen mozdulatlan,
+a kitérésük minden pillanatban nulla. Ilyet:
+
+<img src="advent22-hur1.gif" class="kozep">
+
+<p>Biztos, hogy így rezeg? Korántsem. Másféle rezgések is kialakulhatnak. Ha a 
+fenti rajzon a húr egyes pontjai kitérésének mértékét a <code>sin(x)</code> 
+függvény írja le, akkor lent, a bal oldali <code>sin(2x)</code> kell legyen. Ennél
+a megoldásnál is mozdulatlan a két végpont. Kiderül, hogy a rezgést leíró 
+egyenletnek nem egy, hanem végtelen sok megoldása van.
+Megoldás az alapfrekvencia összes egész számú többszöröse, pl. a
+<code>sin(3x)</code> is, amely a jobb oldalt látható:
+
+<div class="columns">
+<div>
+<img src="advent22-hur2.gif" class="kozep">
+</div>
+<div>
+<img src="advent22-hur3.gif" class="kozep">
+</div>
+</div>
+
+<p>Sőt az így kapott rezgések összege
+is megoldás: ha <code>sin(x)</code> a húr két végén fixen nulla, és <code>sin(2x)</code> is, akkor a <code>sin(x)+sin(2x)</code>
+által megadott rezgésnél sem lesz ez másképp. És a <code>sin(x)+sin(3x)+sin(10x)</code>
+sem, amely így néz ki:
+
+<img src="advent22-hur4.gif" class="kozep">
+
+<p>Ezek a magasabb frekvenciájú rezgések a felharmonikusok. Ha megpengetünk egy húrt, akkor az nem egy, hanem sokféle
+felharmonikus frekvenciával egyszerre jön rezgésbe, amelyek az alap frekvenciának (f) egész számú
+többszörösei:
+
+<pre class="kozep">
+rezgés = &sum; A<sub>n</sub> × sin(n2&pi;f × t)
+</pre>
+
+<p>Ezeket a rezgéseket, bár eltérő frekvenciájúak, nem halljuk külön hangnak. Az
+összegüket a fülünk egyetlen hangnak érzékeli – a frekvenciák aránya pedig az érzékelt hang
+hangszínét határozza meg. Ez az egyik dolog, ami megkülönbözteti a hangszereket: a keltett hang
+spektruma, azaz a felharmonikusok aránya. Minél több felharmonikus van egy hangban, annál teltebb,
+gazdagabb a hangzása.
+
+<p>Az Analízis és a Jelek tárgyból sokat fog szerepelni Joseph Fourier neve, aki rezgések matematikai
+leírásával is foglalkozott. Tudjuk azt, hogy minden periodikus függvény leírható megfelelően megválasztott
+amplitúdójú és fázisú szinusz függvények összegeként. Egy ilyen összegben az egyes összegzett szinuszos
+tagok összegei éppen a rezgés alapperiódusának egész számú többszörösei. Például egy négyszögjelet
+a <code>sin(nx)/n</code> tagok összegével közelíthetünk, ahol <code>n</code> a páratlan értékeket veszi
+fel. Minél több tagot használunk, annál pontosabb
+lesz a közelítés:
+
+<img src="advent22-negyszog.gif" class="kozep" style="width: 36em;">
+
+<p>Egy fűrészfog alakú jel pedig a <code>(-1)<sup>n-1</sup>sin(nx)/n</code> tagok összegzésével, az összes
+pozitív egész <code>n</code> számra (párosakra is):
+
+<img src="advent22-fureszfog.gif" class="kozep" style="width: 36em;">
+
+<p>Fourier arra jött rá, hogyan kell ezeket az arányokat, azaz a szorzókat 
+meghatározni egy ismert függvény esetén. Mi a programban visszafelé csináljuk
+majd: be lehet majd állítani az egyes szorzókat, aztán meglátjuk, milyen hangja van. 
+Valahogy így:
+
+<pre   ><code class="language-c">typedef struct Harmonikus {
+    char *nev;              /* a neve */
+    double frekszorzo;      /* hanyszoros frekvencia az alaphanghoz kepest */
+    double arany;           /* mekkora hangerovel: amplitudo */
+} Harmonikus;
+
+typedef struct HangSzin {
+    Harmonikus felharm[10]; /* felharmonikusok. 0-dik nem hasznalt, 1-es az alap. */
+}
+
+/* felharmonikusok osszegzese: itt hsz egy HangSzin-re mutat */
+s_ez = 0;
+for (felh = 0; hsz-&gt;felharm[felh].frekszorzo != 0; ++felh)
+    if (hsz-&gt;felharm[felh].arany != 0)
+        s_ez += hsz-&gt;felharm[felh].arany
+                * sin(hsz-&gt;felharm[felh].frekszorzo * h-&gt;frek * 2 * PI * t);</code></pre>
+
+<p>A harmonikus neve azért kell, mert a program olyan néven fog rájuk hivatkozni, ahogyan a
+Hammond orgonára is voltak írva.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="ADSR: attack, decay, sustain, release">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    ADSR: attack, decay, sustain, release<a class="hlink" href="index.html@v=22.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A hangok nem csak egyszerűen periodikus jelek: időben is változnak. Egy orgona képes tetszőlegesen
+hosszan ugyanazt a hangot kiadni, míg egy zongora billentyűjének megnyomása után szép lassan el fog
+halkulni a hang. Fontos tehát a hangerő időbeli változása. Ennek az időbeli változásnak a
+jelleggörbéje is nagyon jellemző az egyes hangszerekre. A zongoránál egy húr megszólaltatásakor
+a hang nagyon hirtelen felerősödik, utána pedig szép lassan halkul el. Az orgonánál ez a kiugró
+hangerő a megszólaltatáskor nem feltétlenül jellemző.
+
+<div class="kozep">
+    <img src="advent22-adsr_mod.svg">
+</div>
+
+<p>Az első generációs szintetizátorok ezt a két dolgot próbálták meg leutánozni. Az előállított
+periodikus rezgést egy ún. ADSR görbével modulálták. Ezt a görbét burkológörbének nevezik (envelope),
+mivel a hang tényleges értéke mindig ezen belül van. Az egyes szakaszok jelentése a következő:
+
+<dl>
+    <dt>Attack</dt>
+    <dd>Felfutás. A hang megszólalásakor hirtelen erősödik a maximális
+        ideig. A hangkeltés innen indul a hang megszólaltatásakor.</dd>
+    <dt>Decay</dt>
+    <dd>Lecsengés. A maximális hangerő elérése után a hang gyorsan halkul.</dd>
+    <dt>Sustain level</dt>
+    <dd>Tartás. A lecsengés után, a tartási szakaszban a hang gyengébb, mint
+        a maximális hangerő. Ez egészen addig tart, amíg a hang „kikapcsolását”
+        el nem indítjuk.</dd>
+    <dt>Release</dt>
+    <dd>Elengedés. Végül a hang teljesen elhalkul.</dd>
+</dl>
+
+<p>A felfutás, lecsengés és elengedés az ADSR görbénél fix ideig tart; a tartást pedig a zenész
+határozza meg. Az orgonánál például egészen addig tartás szakaszban van a hang, amíg az orgonista
+az adott billentyűt nyomva tartja, utána pedig viszonylag gyorsan megszűnik. (A fenti rajznak
+van egy kis szépséghibája. Az emberi fül érzékenysége a hangok intenzitására nézve is
+logaritmikus. Ezért egy lineárisan erősödő hangnyomás nem lineárisan erősődő hang érzetét kelti.
+Ezt is kicsit érezni a program által keltett hangokon is.)
+
+<img src="advent22-allapotgep.svg" style="width: 20em;" class="float">
+
+<p>Mindezt egy egyszerű szorzással lehet megvalósítani a programban, az előállított hullámformát
+szorozva a hangerővel. Persze kell egy állapotgép is. Az állapotátmeneti gráf a jobb oldalon látható.
+Csend állapotban a hang nem szól. „Bekapcsolásakor” a felfutás állapotba megy át, ahonnan szép
+lassan, az idő hatására (amikor elérte a felfutás során a maximum hangerőt, a lecsengés során
+a tartás hangerejét) a tartás állapotba jut. A kikapcsoláskor pedig elengedés fázisba kerül, ahonnan
+előbb-utóbb újra csend fázisba jut. Az aktuális állapot határozza meg azt, hogy a hangerőt épp
+növelni vagy csökkenteni kell, és hogy melyik időállandó szerint.
+
+<p>Az állapotgép lényeges részei:
+
+<pre   ><code class="language-c">typedef enum HangAllapot {
+    csend, felfutas, lecsenges, tartas, elengedes
+} HangAllapot;
+
+
+typedef struct Hang {
+    SDL_Keycode sym;         /* billentyuje - a tegnapi programbol orokolt */
+    double frek;        /* a frekvenciaja */
+
+    double hangero;     /* a hangero, 0-&gt;1 és 1-&gt;0 valtoztatva, hogy ne pattogjon */
+    bool szol;          /* billentyu lenyomva? - tegnapi programbol */
+    HangAllapot all;    /* aktualis allapot a burkologorbehez */
+} Hang;
+
+
+/* itt is h a Hang-ra, hsz pedig a HangSzin-re mutatnak. egy kulso
+ * programresz a h-&gt;szolt igazra allitja a gomb megnyomasakor, 0-ba az
+ * elengedesekor; az allapotgep ennek megfeleloen valt allapotot. */
+switch (h-&gt;all) {
+    case csend:
+        if (h-&gt;szol)
+            h-&gt;all = felfutas;
+        break;
+    case felfutas:
+        h-&gt;hangero += 1.0 / hsz-&gt;felfutas_ido * dt;
+        if (h-&gt;hangero &gt; 1)
+            h-&gt;all = lecsenges;
+        if (!h-&gt;szol)
+            h-&gt;all = elengedes;
+        break;
+    case lecsenges:
+        h-&gt;hangero -= 1.0 / hsz-&gt;lecsenges_ido * dt;
+        if (h-&gt;hangero &lt; hsz-&gt;tartas_hangero)
+            h-&gt;all = tartas;
+        if (!h-&gt;szol)
+            h-&gt;all = elengedes;
+        break;
+    ...</code></pre>
+
+<p>Ez a programrész az adott hang, <code>h</code> hangerejét változtatja az adott állapot
+szerint. A változás sebessége például a felfutásnál <code>1.0/felfutas_ido</code>, mivel a megadott idő
+alatt kell a 0, minimális hangerőtől eljutni az 1-ig, a maximális hangerőig. A lecsengés és az
+elengedés fázisban elvileg ennél kisebb változásnak kellene történnie az adott idő alatt, mert
+nem 1-től 0-ig változik a hangerő ilyenkor, hanem csak 1-től a tartás hangerejéig, és utána onnantól
+nulláig. Itt mindegyiknél 1.0/idő szerepel az egzakt képletek helyett – így egy kicsit intuitívabb
+a program a felhasználó számára, hogy mindhárom beállítás egyformán viselkedik. Nem a hangerőváltozás
+idejét, hanem annak sebességét lehet majd egyformán vezérelni.
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Moduláció">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Moduláció<a class="hlink" href="index.html@v=22.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az így keltett hangok még mindig nagyon statikusak, gépiesek lennének. Ha a hang erejét
+periodikusan változtatjuk, akkor egy tremolószerű hangot kapunk. Ehhez nem kell mást tenni, mint
+az előállított hangot megszorozni egy újabb szinusszal, ami 1 körül lengedezik:
+
+<pre class="kozep">
+h'(t) = h(t) <em>× (1 + A<sub>am</sub> × sin(2&pi;f<sub>am</sub>×t))</em>
+</pre>
+
+<img src="advent22-am.svg" class="kozep">
+
+<p>Ezt amplitúdómodulációnak is nevezik. A programban szabályozható ennek a modulációnak
+az erőssége (A<sub>am</sub>, a fenti ábrán ez az érték 0,2), és a frekvenciája (f<sub>am</sub>) is.</p>
+
+<p>A hang frekvenciája az amplitúdó változtatásától kicsit eltolódik. Ez elsőre furcsának
+hangzik, de annyira nem nehéz elképzelni. A szemléletes magyarázat a következő. Ha egy szinusz
+függvényt, amely egy adott időpillanatban valamilyen tempóval épp csökken (pl. a nulla felé
+tart), megszorzunk egy másik függvénnyel, ami szintén épp csökken, akkor az így kapott függvény
+gyorsabban, azaz meredekebben fog csökkenni. Meredekebb változáshoz pedig nagyobb frekvencia
+kell. Ha a két változás egy másik pillanatban egymás ellen dolgozik (egyik függvény csökken,
+másik nő), akkor pedig lankásabb az eredő függvény: kisebb a frekvencia. De ez a változás
+minimális, füllel nem lesz érzékelhető. Inkább a hangerő vibrálását halljuk:
+
+<div class="columns">
+    <div>
+        <p class="kozep">
+<audio controls>
+    <source src="advent22-normalc.ogg" type="audio/ogg">
+    <source src="advent22-normalc.mp3" type="audio/mpeg">
+    <source src="advent22-normalc.wav" type="audio/x-wav">
+</audio>
+</p>
+        <p class="kozep">eredeti</p>
+    </div>
+    <div>
+        <p class="kozep">
+<audio controls>
+    <source src="advent22-amc.ogg" type="audio/ogg">
+    <source src="advent22-amc.mp3" type="audio/mpeg">
+    <source src="advent22-amc.wav" type="audio/x-wav">
+</audio>
+</p>
+        <p class="kozep">amplitúdómodulált</p>
+    </div>
+</div>
+
+<p>A frekvenciák eltolódását a képletből is le tudjuk vezetni. Ehhez elég felírni a két szinusz
+(az eredeti hang és a moduláció) szorzatát:</p>
+
+<pre class="papir mono kozep" style="line-height: 0.7;">
+                  cos x+y   cos x-y
+sin x * sin y = - ------- + -------
+                     2         2   
+</pre>
+
+<p>(A negatív előjel és a szinusz helyett koszinusz függvény itt nem lényeges különbségek. Azok csak a fázist
+módosítják: <code>sin x = cos (x-90°)</code> – arra pedig az emberi fül érzéketlen.)</p>
+
+
+<p>Hogy ahhoz hasonló remegő hangot kapjunk, mint amilyet egy forgó hangszóró kiad, nem csak az
+amplitúdót kell modulálni, hanem a frekvenciát is. A frekvencia változása a forgó hangszóróknál
+a Doppler-hatás miatt keletkezik: ugyanamiatt, amiért magasabbnak halljuk a mentőautó szirénáját,
+amikor közeledik, és alacsonyabbnak, amikor távolodik. Ha épp felénk tart a hangszóró, akkor
+sűrűbbek lesznek az általa a levegőben keltett hullámok (mert a hanggal együtt mozog felénk).
+Ha távolodik, a hangja akkor is felénk tart, és emiatt pedig ritkábbak lesznek a hullámok:</p>
+
+<img src="advent22-fm.svg" class="kozep">
+
+<p>A szinusz hullámok keltésénél ehhez a fázist kell módosítani periodikusan:</p>
+
+<pre class="kozep">
+h(t) = sin(2&pi;f×t + <em>A<sub>fm</sub>×sin(2&pi;f<sub>fm</sub>×t)</em>)
+</pre>
+
+<p>Ahogy a hozzáadott tag, a belső szinusz időben nő, úgy kezd el a külső szinusz kicsit sietni tehát
+nagyobb frekvenciájú lesz. A belső szinusz csökkenésekor pedig a külső elkezd késni, tehát kisebb
+frekvenciájú a kimenet. Ennek mértékével is csínján kell bánni, mert ha túlzásba visszük, inkább egy
+ufós filmbe való hangot kapunk. A fenti képen szándékosan erős a moduláció, hogy jól látszódjon – egy
+teljes oktávnyi. Ez a fülünknek szörnyűséges hang.</p>
+
+<div class="columns">
+    <div>
+        <p class="kozep">
+<audio controls>
+    <source src="advent22-fmc.ogg" type="audio/ogg">
+    <source src="advent22-fmc.mp3" type="audio/mpeg">
+    <source src="advent22-fmc.wav" type="audio/x-wav">
+</audio>
+</p>
+        <p class="kozep">fázismodulált</p>
+    </div>
+    <div>
+        <p class="kozep">
+<audio controls>
+    <source src="advent22-ufo.ogg" type="audio/ogg">
+    <source src="advent22-ufo.mp3" type="audio/mpeg">
+    <source src="advent22-ufo.wav" type="audio/x-wav">
+</audio>
+</p>
+        <p class="kozep">durván fázismodulált (ufó)</p>
+    </div>
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A programról">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    A programról<a class="hlink" href="index.html@v=22.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<img class="float" src="advent22-screenshot.png">
+
+<p>A program most a szokásosnál egy nagyobb darab, kb. 600 soros. De nem kell megijedni, az újdonság
+nem annyira sok benne: bele van építve az a függvénykönyvtár is, amely egy régebbi adventi bejegyzésben
+szerepelt, és amellyel felhasználói felületeket lehet létrehozni.</p>
+
+<p>Három modulból áll – a három modul egymástól annyira eltérő feladatot lát el, hogy merénylet
+lett volna a Prog1 tárgy ellen, nem szedni modulokra. Az egyes modulok feladatai a következők:</p>
+<ul>
+    <li><code>widget.c</code> – ez adja a felhasználói felületet. Szinte változtatás nélkül
+        a múltkori változat: lehet benne gombokat és csúszkákat definiálni, és egy eseményvezérelt
+        ciklusban kezeli az egérműveleteket.
+    <li><code>synth.c</code> – a szintetizátor. Ez generálja a hangot, amihez adni kell neki egy
+        <code>Szinti</code> típusú struktúrát. Ahogy az abban lévő adatokat változtatjuk, úgy
+        fog automatikusan változni a hang.
+    <li><code>main.c</code> – a főprogram, amely létrehozza a <code>Szinti</code> struktúrát,
+        megépíti a felhasználói felületet, és utána rábízza a működést az eseményvezérelt ciklusra.
+</ul>
+
+<p>A <code>widget.c</code>-n történt változtatások tényleg nem nagyok. (A működésével 
+kapcsolatban lásd a régebbi írást!) Egy nagy elvi változtatás van, hogy a 
+<code>billentyuzet_cb_megad()</code> nevű függvény meghívásával meg lehet neki adni egy függvényt, 
+amelyet billentyű lenyomása és elengedése esetén meghív. Erre azért volt szükség, hogy a 
+hangokhoz tartozó gombokat a főprogram tudja kezelni. A mechanizmus teljesen azonos azzal, 
+ahogyan az egérkattintásokat is kezelni kell: egy callback függvényt kap ez, amit majd visszahív 
+szükség esetén.</p>
+
+<p>A <code>main.c</code> létrehoz magának egy speciális csúszkát (<code>uj_double_csuszka()</code>), amely
+a simától abban különbözik, hogy ennek van egy felhasználói callback függvénye is. Amikor változik az
+értéke, akkor az új értékét egyből beírja egy megadott <code>double</code> típusú változóba. Ehhez
+nagyon jól használható az, hogy a generikus callback függvénynek lehet egy paramétere, mert az a
+<code>void*</code> mutató az írandó <code>double</code> változóra mutathat. Valahogy így:</p>
+
+<pre   ><code class="language-c">static void set_double(Widget *widget, int x, int y, void *param) {
+    double *cel = (double *) param;
+    *cel = widget-&gt;adat.csuszka.jelenlegi;
+}
+
+
+static Widget *uj_double_csuszka(int x, int y, int szel, int mag, double *pd) {
+    Widget *w = uj_csuszka(x, y, szel, mag, *pd);
+    w-&gt;felhasznaloi_cb = set_double;
+    w-&gt;felhasznaloi_cb_param = (void *) pd;
+    return w;
+}</code></pre>
+
+<p>A zongorához lett egy általános típusú widget, aminek a főprogram a rajzoló függvényét
+lecseréli a zongorát rajzoló <code>zongorat_rajzol()</code> függvényre.</p>
+
+<p>A <code>synth.c</code> forrásfájl matekja a fentiek alapján adja magát. Programozási szempontból
+annyiban különbözik a tegnapitól, hogy az SDL által meghívott, hangot generáló callback függvény
+itt egy paramétert is kap. Azt a pointert kapja meg, amely a <code>main()</code> függvényben definiált
+szintetizátor struktúrára mutat, így aztán látja az összes szükséges adatot, hogy miféle hangot
+kell előállítania. A billentyűk megnyomásakor-elengedésekor a főprogram ebbe a struktúrába írja
+bele azok állapotát, így arról is értesül.</p>
+
+<p>Kicsit furcsa talán a program, hogy nem olyan lineáris a felépítése már, mint az eddig
+megszokottaknak: nincs meg az a megszokott fentről lefelé haladás a kódban, hanem ide-oda
+ugrál a végrehajtás az eseményvezérelt hurok, a callback függvények és a hanggeneráló között.
+Ezt szokni kell – ilyesmiről sok tárgyból lesz szó a későbbiekben.</p>
+
+<p>A forráskód: <a href="advent22-infoc_szintetizator.zip">advent22-infoc_szintetizator.zip</a>.
+Linuxosoknak van benne egy Makefile. Akik Code::Blocksolnak, be kell tenniük egy SDL projectbe
+(Project / Add files). Az alap SDL project main.c-jét pedig ki kell venni. Ha akadozna a hang, akkor
+a <code>hang_init()</code> függvényben 48000-ra kell állítani a frekvenciát – nem mindegyik hangkártya
+szereti manapság a 44100 Hz-et.</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

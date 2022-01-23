@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Tripla indirekció</title>
+<meta property="og:title" content="TEST InfoC :: Tripla indirekció">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="X*** – tripla indirekció egy olyan feladatban, amelyben szó nem esik tömbről!">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="X*** – tripla indirekció egy olyan feladatban, amelyben szó nem esik tömbről!">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Tripla indirekció">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Tripla indirekció</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.02.27.</p>
+<p class="kivonat">X*** – tripla indirekció egy olyan feladatban, amelyben szó nem esik tömbről!</p>
+</div>
+
+<p>Feladat a következő: adott egy bináris keresőfa, amely egész számokat tartalmaz. Minden bal 
+oldali részfában a gyökérnél kisebb elemek, jobb oldali részfákban pedig a gyökérnél nagyobb 
+elemek vannak. A feladat az, hogy építsünk egy egész számokból álló listát, amely ugyanazokat a 
+számokat tartalmazza, mint a fa – természetesen növekvő sorrendben.</p>
+
+<div class="columns">
+    <div>
+        <img class="kozep" src="fa.svg" style="width: 16em;">
+    </div>
+    <div>
+        <img class="kozep" src="lista.svg" style="width: 16em;">
+    </div>
+</div>
+<div class="columns">
+    <div>
+<pre   ><code class="language-c">typedef struct Fa {
+    int adat;
+    struct Fa *bal, *jobb;
+} Fa;</code></pre>
+    </div>
+    <div>
+<pre   ><code class="language-c">typedef struct Lista {
+    int adat;
+    struct Lista *kov;
+} Lista;</code></pre>
+    </div>
+</div>
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">A triviális megoldás</a>
+              <li><a href="index.html#2" class="">Megoldás Θ(n) lépésben</a>
+              <li><a href="index.html#3" class="">A rávezető gyakorlat</a>
+              <li><a href="index.html#4" class="">A tripla indirekció</a>
+              <li><a href="index.html#5" class="">Utolsó simítások</a>
+              <li><a href="index.html#6" class="">A tanulság</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A triviális megoldás">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    A triviális megoldás<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A feladat megoldása tulajdonképpen két részből áll. Először is, be kell járnunk a fát úgy, 
+hogy növekvő sorrendben megkapjuk az elemeket. Eközben minden számot a keletkező lista végére 
+kell fűznünk:</p>
+
+<pre   ><code class="language-c">void fat_bejar(Fa *gyoker, Lista **peleje) {
+    if (gyoker == NULL)
+        return;
+    fat_bejar(gyoker-&gt;bal, peleje);
+    listaba(peleje, gyoker-&gt;adat);
+    fat_bejar(gyoker-&gt;jobb, peleje);
+}</code></pre>
+
+<p>Ez egyszerű, a szokásos bal&rarr;gyökér&rarr;jobb bejárás, az előadás kiírás (printf) példája 
+lecserélve egy lista végére fűzésre. A lista építése is a szokásos, lista eleje mutató, 
+megváltozik, kettős indirekció, utolsó elem megkeresése stb.:</p>
+
+<pre   ><code class="language-c">void listaba(Lista **peleje, int adat) {
+    Lista *uj = (Lista*) malloc(sizeof(Lista));
+    uj-&gt;adat = adat;
+    uj-&gt;kov = NULL;
+    if (*peleje == NULL)
+        *peleje = uj;
+    else {
+        Lista *iter;
+        for (iter = *peleje; iter-&gt;kov != NULL; iter = iter-&gt;kov)
+            ;
+        iter-&gt;kov = uj;
+    }
+}</code></pre>
+
+<p>A feladatot már meg is oldottuk. A függvény használatához a hívónak rendelkeznie kell egy 
+fával, és egy üres listával. A listának azért kell üresnek lennie (vagyis a pointernek, amit 
+átad a hívó a fát bejáró függvénynek, <code>NULL</code> pointernek), mivel a fenti <code>
+listaba()</code> függvény mindig egy már meglévő listához fűz hozzá. A fa bal szélső elemét 
+pedig egy üres listához kell hozzáfűzni. Hogy még ilyen elvárásunk se legyen a hívóval szemben, 
+azaz ezzel se neki kelljen törődnie, írhatunk egy csomagoló (wrapper) függvény erre:</p>
+
+<pre   ><code class="language-cbub">Lista *fabol_lista(Fa *gyoker) {
+    Lista *ujlista = NULL;       // üres listával indulunk
+    fat_bejar(gyoker, &amp;ujlista);
+    return ujlista;
+}</code></pre>
+
+<p>Példa ennek használatára:</p>
+
+<pre   ><code class="language-c">Fa *fa = valahonnan_van_egy_fa();
+
+Lista *szamok;
+szamok = fabol_lista(fa);</code></pre>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Megoldás Θ(n) lépésben">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Megoldás Θ(n) lépésben<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Észrevehetjük, hogy a létrehozott algoritmusunk Θ(n<sup>2</sup>) időben fut, mivel a fa 
+minden elemére (n darab) újra megkeressük a lista végét (újabb n-es szorzó). Ha kicsit 
+gondolkodunk, akkor rájöhetünk, két lehetőség is kínálkozik arra, hogy sokkal gyorsabb, Θ(n) 
+időben futó algoritmust adjunk:</p>
+
+<ol>
+    <li>Megjegyezhetjük, hogy hol van a lista vége, és akkor nem kell minden lépésben
+        újra megkeresni.
+    <li>Vagy trükközünk: nem a lista végére, hanem a lista elejére szúrjuk be az elemeket,
+        hiszen az sokkal egyszerűbb, Θ(1) lépésben megtehető. Ettől ugyan a sorrendjük
+        megfordul, de nem gond, járjuk be a fát is fordítva, jobb&rarr;gyökér&rarr;bal
+        sorrendben.
+</ol>
+
+<p>A fordított bejárás az igazán trükkös, hiszen nem csak gyorsabb, hanem még rövidebb is, mint 
+az előbb adott. A másik, listavéget nyilvántartó módszernek viszont elvi és nyelvi érdekességei 
+is vannak. Nézzük meg azt!</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A rávezető gyakorlat">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    A rávezető gyakorlat<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>De előtte nézzünk meg egy egyszerűbb feladatot. Tegyük fel, nem listát, hanem tömböt kell 
+építeni egy fából, pontosan ugyanilyen módszerrel. Hogyan tesszük azt? Először is, megszámoljuk, 
+hány eleme van a fának, és foglalunk egy akkora tömböt. Aztán pedig, a fát bejáró függvénynek 
+tudnia kell a tömb helyét (ez egy pointer a tömb elejére), és egyben kapnia kell egy tömbindexet 
+is, hogy a tömbben hova kell tenni a következő elemet. Azonban ezt a tömbindexet módosítania is 
+kell tudni, hogy később a további elemek is jó helyre kerüljenek. Ezért azt cím szerint adjuk át 
+neki.</p>
+
+<p>Miért? A lényeg az, hogy ez az <code>int n</code> nem lehet a bejáró függvénynek lokális 
+változója, mert akkor annyi példány lenne belőle, amilyen mély a rekurzió – viszont csak egy 
+kell legyen belőle. Tehát a függvényen kívül kell léteznie. Ezt úgy oldhatjuk meg, ha valahol 
+máshol létrehozzuk azt a változót, és csak egy pointert kap rá a függvény. Ugyan a rá mutató 
+pointerből (<code>pn</code>) sok másolat képződik a rekurzív hívások során, de azok mind 
+ugyanarra az egyetlen egy <code>int</code>-re mutatnak: mindig ugyanaz az <code>int</code> 
+indexel és az növelődik:</p>
+
+<pre   ><code class="language-c">void fat_bejar_tombbemasol(Fa *gyoker, int *tomb, int *pn) {
+    if (gyoker == NULL)
+        return;
+
+    fat_bejar_tombbemasol(gyoker-&gt;bal, tomb, pn);
+
+    tomb[*pn] = gyoker-&gt;adat;
+    ++*pn;
+
+    fat_bejar_tombbemasol(gyoker-&gt;jobb, tomb, pn);
+}</code></pre>
+
+<p>Bár ennek az <code>n</code> számank a bejáró függvényen kívül kell lennie, ez nem jelenti 
+azt, hogy globális kell legyen. Elég, ha van egy másik függvény, amely létrehozza azt a bejárás 
+idejére. Tehát kell legyen egy másik függvény is, amely létrehozza ezt az egész számot és 
+nullára inicializálja (első tömbindex), és ad egy pointert a bejáró függvénynek erre a számra. 
+Azért is kell neki pointert adni, mivel a bejáró függvénynek ezt módosítania kell tudni.</p>
+
+<pre   ><code class="language-c">int *fabol_tomb(Fa *gyoker) {
+    int *tomb = (int*) malloc(sizeof(int) * elemszam(gyoker));
+    int n;
+
+    n = 0;
+    fat_bejar_tombbemasol(gyoker, tomb, &amp;n);
+
+    return tomb; /* meg a méretét is vissza kellene adni */
+}</code></pre>
+
+<p>Mire a bejáró végez, éppen annyi elem kerül bele a tömbbe, ahány csomópontja a fának van. 
+Vagyis annyiszor növelődik meg <code>*pn</code>.
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A tripla indirekció">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    A tripla indirekció<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Ott tartottunk a listás verzió kapcsán, hogy jegyezzük meg, hol van a lista vége. Jó ötletnek 
+tűnik az utolsó listaelemet nyilvántartani, de ez a gondolat mégsem vezet messzire, ugyanis üres 
+listánál az még nem is létezik. Ehelyett azt kell tudnunk mindig, hova kell tennünk az újonnan 
+létrejött elem pointerét: ez lehet a lista eleje pointer, de lehet valamelyik listaelemnek a 
+<code>kov</code> pointere is.</p>
+
+
+<p>Egy új elem hozzáfűzése a következőképpen néz ki. Adott egy beszúrandó adat,
+és egy <code>*phova</code> pointer, ahova a beszúrt elem címe kell kerüljön.</p>
+
+<ol>
+    <li>Lefoglaljuk a memóriát a csillaggal jelölt új elem számára, amire az <code>uj</code> pointer
+        mutat.
+    <li>Belemásoljuk az adatot.
+    <li><code>NULL</code> pointert teszünk a <code>kov</code> pointerébe (hiszen lista végi
+        elem lesz).
+    <li>Beállítjuk a pointert, amelynek erre az elemre kell mutatnia: <code>*phova</code>.
+        (Ha ez a legelső elem, akkor ez különálló a lista eleje pointer; ha egy későbbi,
+        akkor pedig egy listaelem által tartalmazott.)
+    <li>A <code>phova</code> pointert végül átállítjuk az új elem <code>kov</code> pointerére,
+        mert a következő elem <code>uj</code> pointerét (ha lesz még olyan) ide kell majd másolni.
+</ol>
+
+<img src="lista_uj.svg" class="kozep" style="width: 24em;">
+
+<p>C nyelven a kódkezdeményünk:</p>
+
+<pre   ><code class="language-c">void fat_bejar_hozzafuz(Fa *gyoker, Lista **phova???) {
+    Lista *uj;
+    
+    if (gyoker == NULL)
+        return;
+    
+    fat_bejar_hozzafuz(gyoker-&gt;bal, phova???);
+
+    uj = (Lista*) malloc(sizeof(Lista)); /* 1 */
+    uj-&gt;adat = gyoker-&gt;adat;             /* 2 */
+    uj-&gt;kov = NULL;                      /* 3 */
+    *phova = uj;                         /* 4 */
+    phova??? = &amp;uj-&gt;kov;                 /* 5 */
+
+    fat_bejar_hozzafuz(gyoker-&gt;jobb, phova???);
+}</code></pre>
+
+<p>A ??? jelű részeknél látszik, hogy ez egyelőre még sántít. Miért? Elvileg a <code>phova</code>
+munkaváltozóból, amely pointerként azt mutatja, hogy hova kell majd tenni a következőleg 
+létrehozott listaelem pointerét, az egész listaépítés során egy darabnak kell lennie. Akármilyen 
+mélyre is megyünk a rekurzióban, ebből nem jöhet létre több, és mindegyik rekurzív 
+függvénypéldának ugyanarról a <code>phova</code> pointerről kell beszélnie. Emiatt ez lokális 
+változója nem lehet a <code>fat_bejar_hozzafuz</code> függvénynek, és így érték szerint átvett 
+paramétere sem, mert akkor hívásonként több lenne belőle.</p>
+
+<img src="lista_uj2.svg" class="float" style="width: 24em;">
+
+<p>Vagyis ezt a változót a függvényen kívül kell létrehoznunk. Ugyanakkor e függvény képes kell 
+legyen arra is, hogy megváltoztassa ennek a pointernek az értékét, hiszen mindig más helyre 
+(mindig egy új listaelemben lévő <code>kov</code> pointerre) kell mutasson. Mi következik ebből? 
+(Ha kizárjuk a globális változót, amit természetesen elvből megteszünk, hiszen nem arról van 
+szó, hogy sok függvény és sok modul kell lássa ezt a pointert, hanem csak ez az egyetlen egy!) 
+Az, hogy kell legyen egy hívó függvény, amely létrehozza a <code>phova</code> változót, és a fát 
+bejáró függvény ezt cím szerint kapja! Na és mi a típusa annak a pointernek, amely egy 
+<code>Lista**</code> típusú változóra mutat? Természetesen <code>Lista***</code>!</p>
+
+<p>A fát bejáró függvény, és a bejárást elindító, <code>phova</code> változót létrehozó függvény:</p>
+
+<pre   ><code class="language-cbub">void fat_bejar_hozzafuz(Fa *gyoker, Lista ***pphova) { // OMG 3× indirekció
+    Lista *uj;
+
+    if (gyoker == NULL)
+        return;
+
+    fat_bejar_hozzafuz(gyoker-&gt;bal, pphova);
+
+    uj = (Lista*) malloc(sizeof(Lista));
+    uj-&gt;adat = gyoker-&gt;adat;
+    uj-&gt;kov = NULL;
+    **pphova = uj;
+    *pphova = &amp;uj-&gt;kov;
+
+    fat_bejar_hozzafuz(gyoker-&gt;jobb, pphova);
+}
+
+Lista *fabol_lista(Fa *gyoker) {
+    Lista *eleje = NULL;       /* a keletkező lista */
+    Lista **phova = &amp;eleje;    /* a lépegető pointer */
+
+    fat_bejar_hozzafuz(gyoker, &amp;phova);
+
+    return eleje;
+}</code></pre>
+
+<p>A <code>phova</code> változó természetesen lehet lokális, de a bejárást indító függvény 
+lokálisa kell legyen. A bejárás előtt létrejön, és a bejárás alatt van rá csak szükség, tehát a 
+bejárás után megszűnhet.</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Utolsó simítások">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Utolsó simítások<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Egy dolgot érdemes még megfigyelni. A fát bejáró függvény, amikor az újonnan létrejött 
+listaelemet beilleszti a listába, nem figyeli, hogy mi van az adott pointerben. Csak simán 
+felülírja azt: <code>**pphova=uj</code>. Emiatt az indító függvényben felesleges <code>NULL
+</code> pointerrel inicializálni a lista eleje pointert. Mindegy, mi van ott, mert úgyis felül 
+lesz írva.</p>
+
+<p>Sőt ez az összes többi pointerre is igaz! Bár a fenti kódban minden létrejövő listaelem 
+<code>kov</code> pointerét <code>NULL</code>-ra állítjuk, ezt az utolsó elem kivételével 
+mindegyiknél feleslegesen tesszük, mert azok is felül lesznek írva a következő elem létrehozása 
+után. Így azokat sem kell <code>NULL</code>-ra állítani, hanem ott lehet hagyni őket 
+inicializálatlanul, mert a következő listaelemnél felülíródnak majd. Csak a legutolsóba kell 
+<code>NULL</code>-t tenni. Ezt a bejárás után könnyedén meg tudjuk tenni a 
+<code>fabol_lista()</code> csomagoló függvényben is, kérdés csak, hogy hol is van az a pointer, amit most 
+<code>NULL</code>-ra kéne állítani?! Elvileg a lista végén, de ezt nem kell megkeresni. 
+Észrevehetjük, hogy ez pont az a pointer, ahova a következő listaelem pointere is került volna… 
+Azt pedig tudjuk, hol van, hiszen a <code>fat_bejar_hozzafuz()</code> függvény mindvégig kezelte 
+a <code>phova</code> változót, és az most pont oda mutat, ahova kell! Tehát egy
+<code>*phova = NULL</code> megoldja a dolgot.</p>
+
+<p>A függvények teljes pompájukban:</p>
+
+<pre   ><code class="language-cbub">void fat_bejar_hozzafuz(Fa *gyoker, Lista ***pphova) {
+    Lista *uj;
+
+    if (gyoker == NULL)
+        return;
+
+    fat_bejar_hozzafuz(gyoker-&gt;bal, pphova);
+
+    uj = (Lista*) malloc(sizeof(Lista));
+    uj-&gt;adat = gyoker-&gt;adat;
+    **pphova = uj;
+    *pphova = &amp;uj-&gt;kov;
+
+    fat_bejar_hozzafuz(gyoker-&gt;jobb, pphova);
+}
+
+Lista *fabol_lista(Fa *gyoker) {
+    Lista *eleje;
+    Lista **phova = &amp;eleje;
+
+    fat_bejar_hozzafuz(gyoker, &amp;phova);
+    *phova = NULL;
+
+    return eleje;
+}</code></pre>
+
+<p>Vegyük észre: ha a fa üres, a bejáró függvény nem csinál semmit. Ilyenkor a <code>phova</code>
+pointer az <code>eleje</code> változóra mutat, amit rajta keresztül <code>NULL</code>-ra 
+állítunk… És visszatérünk egy üres listával.</p>
+
+<p>A program letölthető innen: <a href="fabol_lista.c">fabol_lista.c</a>.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A tanulság">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    A tanulság<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A tanulság ebből az is, hogy a kettős indirekció segítségével is könnyedén építhetünk
+Θ(n) időben nem megfordított listát. Az alábbi program számokat olvas be -1-ig, és
+a beolvasás sorrendjében teszi őket egy listába:</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct Lista {
+    int szam;
+    struct Lista *kov;
+} Lista;
+
+int main(void) {
+    Lista *eleje;
+
+    /* beolvasás */
+    {
+        int i;
+        Lista **pmozgo = &amp;eleje;
+        while (scanf(&quot;%d&quot;, &amp;i) == 1 &amp;&amp; i != -1) {
+            Lista *uj = (Lista *) malloc(sizeof(Lista));
+            uj-&gt;szam = i;
+            *pmozgo = uj;
+            pmozgo = &amp;uj-&gt;kov;
+        }
+        *pmozgo = NULL;
+    }
+
+    /* csak teszt: kiírás és felszabadítás */
+    {
+        for (Lista *iter = eleje; iter != NULL; iter = iter-&gt;kov)
+            printf(&quot;%d &quot;, iter-&gt;szam);
+        while (eleje != NULL) {
+            Lista *temp = eleje-&gt;kov;
+            free(eleje);
+            eleje = temp;
+        }
+    }
+
+    return 0;
+}</code></pre>
+
+<p>A <code>*pmozgo = uj</code> kifejezés mindig azt a pointert írja felül,
+ahova a következő listaelem kerül; vagy a lista elejét mutató pointert,
+vagy a legutóbbi listaelem következő pointerét. Az új elemek <code>kov</code>
+pointerét a cikluson belül nem is kell <code>NULL</code>-ra állítani, mert
+úgyis lesz következő elem; vagy ha nem volt, akkor a ciklus utáni
+<code>*pmozgo = NULL</code> fogja ezt megtenni. Az <code>eleje</code> pointer
+sem kap értéket a program legelején, hiszen úgyis felül lesz írva, vagy az
+első listaelemmel, vagy ha egyáltalán nincs, a <code>NULL</code> pointerrel.</p>
+
+<p class="megjegyzes">Az Θ(n) idejű „előrefelé” listaépítésre jó megoldás
+a visszafelé építés és utólagos megfordítás (az is Θ(n) idejű). Jó az is,
+ha külön esetként kezeljük az üres listát, illetve azt, ha már volt beszúrt
+elem (és az utóbbi pointerét tartjuk nyilván). Az utóbbiak is szép megoldások,
+sőt könnyebben megérthetőek, mint a fenti. Csak az a buta megoldás,
+ha minden beszúrásnál megkeressük a legutolsó elemet, hiszen az nem Θ(n),
+hanem Θ(n²) ideig tart – nagyobb listáknál vészesen belassul.</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

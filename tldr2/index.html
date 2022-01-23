@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: tl;dr</title>
+<meta property="og:title" content="TEST InfoC :: tl;dr">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Összefoglalók néhány témakörhöz: bitműveletek, állapotgépek, dinamikus memóriakezelés, láncolt listák, bináris fák, függvényre mutató pointer.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Összefoglalók néhány témakörhöz: bitműveletek, állapotgépek, dinamikus memóriakezelés, láncolt listák, bináris fák, függvényre mutató pointer.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="tl;dr">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">tl;dr</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Csendes Dávid · <i class="ido"></i> 2019.10.08.</p>
+<p class="kivonat">Összefoglalók néhány témakörhöz: bitműveletek, állapotgépek, dinamikus memóriakezelés, láncolt listák, bináris fák, függvényre mutató pointer.</p>
+</div>
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">A bitműveletek</a>
+              <li><a href="index.html#2" class="">Állapotgépek</a>
+              <li><a href="index.html#3" class="">Dinamikus memóriakezelés – futás közben megválasztott méret</a>
+              <li><a href="index.html#4" class="">Dinamikus memóriakezelés – élettartam</a>
+              <li><a href="index.html#5" class="">A láncolt listákról</a>
+              <li><a href="index.html#6" class="">A fákról</a>
+              <li><a href="index.html#7" class="">Fák bejárása – alapfeladatok</a>
+              <li><a href="index.html#8" class="">„Függvény, mint paraméter” – függvényre mutató pointerek</a>
+              <li><a href="index.html#9" class="">A qsort() használata</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A bitműveletek">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    A bitműveletek<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  <p>
+Egy szám bites ábrázolása gyakorlatilag a szám kettes számrendszerbeli
+ábrázolását jelenti. Az egyes biteket a legalacsonyabb helyiértékről
+kezdjük számozni, onnan haladva a magasabb helyiértékek felé (kettő
+hatványai). Az alacsony helyiértékű biteket gyakran alsó, a magasabbakat
+pedig felső helyiértékeknek is nevezzük.
+Beszédben gyakran össze-vissza szokás használni a bitek számozását; a
+legkisebb helyiértékű bitre néha elsőként, néha nulladikként hivatkozva.
+A nulladik a precíz.
+</p>
+<p>A bites feladatok kulcsa mindig, hogy előállítunk egy
+maszkot, amelyikkel egy adott bitre „hivatkozni” tudunk a számon
+belül. Ezt legegyszerűbben a balra léptető operátorral tudjuk megtenni.
+Ha vesszük az 1-et, amely binárisan csupa nulla, és a végén (a legkisebb
+helyiértéken) egy 1-es, és azt toljuk el balra, akkor egy olyan számot
+kapunk, amelyik mindenhol nulla, csak az adott helyiértéken tartalmaz
+egyetlen 1-est:</p>
+<pre class="papir mono">
+76543210
+--------
+0000000<span class="piros">1</span>   ez az 1 binárisan
+000000<span class="piros">1</span>0   1&lt;&lt;1 (1-gyel balra tolva)
+00000<span class="piros">1</span>00   1&lt;&lt;2
+0000<span class="piros">1</span>000   1&lt;&lt;3
+000<span class="piros">1</span>0000   1&lt;&lt;4
+00<span class="piros">1</span>00000   1&lt;&lt;5
+</pre>
+Ezt a maszkot tudjuk pl. binárisan „hozzávagyolni” egy számhoz, ha
+azt szeretnénk, hogy a számnak az adott bitjét 1-be állítsuk. Az adott
+helyiértéken a művelet után biztosan 1-es lesz, mert „bármi” VAGY „igaz” az „igaz”.
+Például:
+<pre class="papir mono">
+ 10<span class="piros">0</span>11101   a szám
+|00100000   1&lt;&lt;5
+---------
+ 10<span class="piros">1</span>11101
+</pre>
+Ha egy bitet meg szeretnénk vizsgálni, akkor bitenként „hozzáéselve” a számhoz
+ezt a maszkot nullát fogunk kapni, vagy a maszkot kapjuk meg – attól függően,
+hogy eredetileg a számban az adott helyen 0 vagy 1 volt. (Az így keletkező szám
+egyébként C-ben logikai értéknek is használható, hiszen
+ha az adott helyen 1-es bit volt, akkor az eredmény nem nulla.)
+Ilyenkor nem
+a maszk 1-es bitje, hanem a többi 0 a fontos nekünk, mert azok biztosítják azt,
+hogy a vizsgált biten kívül mindenhol máshol 0 legyen:
+<pre class="papir mono">
+ 100<span class="piros">1</span>1101   a szám
+&amp;00010000   1&lt;&lt;4
+---------
+ 000<span class="piros">1</span>0000
+</pre>
+0-ba állítani egy bitet ugyancsak a bitenkénti és operátorral tudunk. Ehhez
+viszont a maszk minden egyes bitjét negálnunk kell, előállítva egy olyan számot,
+amely csupa 1-es, és az adott helyen 0. Ha ezt hozzáéseljük egy számhoz, akkor
+annak a megadott helyen lévő bitje 0-ra változik, az összes többi megmarad:
+<pre class="papir mono">
+ 100<span class="piros">1</span>1101   a szám
+&amp;11101111   ~(1&lt;&lt;4)
+---------
+ 100<span class="piros">0</span>1101
+</pre>
+Bitet negálni a kizáró vagy operátorral <code>^</code> lehet.
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Állapotgépek">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Állapotgépek<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  <p>
+Az állapotgép lényege, hogy a program a bemenet feldolgozása közben tárol egy
+belső állapotot, amelyet az addigi bemenet alapján alakított ki;
+az új bemenet függvényében pedig megváltoztatja az állapotát és/vagy
+kimenetet is produkál. Leggyakrabban szövegfeldolgozásra használják;
+de bármilyen feladatnál alkalmas lehet, ahol egy adott bemenetre
+az előző bemenetektől függően máshogy kell reagálni.
+</p>
+<p>
+Az állapotgépet állapotátmeneti gráffal vagy táblázattal adhatjuk meg.
+Egy egyszerű példa az ly-számláló. Ennek az automatának két
+állapota van: egy alapállapot (amikor is az előző karakter nem l betű
+volt), és egy l betűs állapot (amikor igen). Ha a bemenetről érkezik
+egy l betű, akkor abba az állapotba ugrunk; felkészülve ezzel arra
+az esetre, ha az azutáni y lesz. Ha bármi más, akkor alapállapotban
+maradunk.
+</p>
+<p>
+Az állapotgép megtervezése egyszerű. A táblázat oszlopaiba felvesszük
+azokat a bejövő karaktereket, amelyek számunkra valamilyen különleges
+jelentőséggel bírnak. A táblázat első sorába pedig felvesszük az
+alapállapotot. Kitöltjük a hozzá tartozó oszlopokat; ha ehhez új
+állapotokat kell felvenni, akkor a táblázatnak új sorai lesznek.
+Később azokat is kitöltjük, és ezt egészen addig folytatjuk, amíg el
+nem fogynak az üres sorok.
+</p>
+<table>
+    <thead>
+        <tr><th><th>l<th>y<th>egyéb
+    </thead>
+
+    <tr><th>alap<td>lbetű<td>-<td>-
+    <tr><th>lbetű<td>-<td>szám++<br>alap<td>alap
+</table>
+
+<p>
+Az állapotgépeknél egy jel (pl. egy karakter, ha szöveg a bemenet)
+beolvasása után az az épp aktuális állapot szerint más-más módon kezelendő.
+Ezt egyszerűbb feladatoknál a <code>switch&nbsp;()</code> utasítással szokás megoldani,
+mivel az adja a legáttekinthetőbb kódot; az egyes állapotokhoz
+pedig érdemes egy felsorolt típus (enum) elemeit rendelni.
+Gyakran egy állapothoz tartozó kódrészleten belül is egy <code>switch&nbsp;()</code> van,
+amely pedig a bejövő jel (karakter) alapján választja szét az eseteket. Jól használható
+a <code>default</code> kulcsszó az „összes többi” karakterhez
+való programrész megadásához.
+</p>
+
+<p>
+Az állapotgépes feladatoknál alapvető, hogy beolvasás csak egyetlen
+egy helyen történik a ciklusban! Ezen kívül a
+<code>getchar()</code> függvénynél figyelni kell annak visszatérési típusára, ami <code>int</code>.
+A sima char nem tudja tárolni az <code>EOF</code> értéket.
+</p>
+<p>
+A beolvasást és a fájl vége jel keresését a C-ben egy kifejezésbe lehet tömöríteni,
+ez a <code>while</code> ciklusok fejlécében a <code>(c=getchar())!=EOF</code> rész. Ezt úgy kell
+értelmezni, hogy előbb kiértékelődik a <code>c=getchar()</code> <em>értékadás</em>,
+aminek a hatására a beolvasott karakter <code>c</code>-be kerül. Utána ennek az értékadás
+kifejezésnek az értéke (ami megegyezik a beolvasott karakterrel) hasonlítódik össze
+<code>EOF</code>-fal. Azért kell bezárójelezni az értékadást, mert különben a <code>getchar()!=EOF</code>
+kifejezés értéke kerülne a <code>c</code> váltózóba, ami meg nem a beolvasott karakter, hanem
+az összehasonlítás eredménye.
+</p>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Dinamikus memóriakezelés – futás közben megválasztott méret">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Dinamikus memóriakezelés – futás közben megválasztott méret<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Nem tudjuk a program írásakor, mekkora tömb kell… Foglaljuk le futás közben!</p>
+
+<p>Ennek módja:
+a <code>malloc()</code> függvénnyel a program futása közben memóriaterületet tudunk foglalni,
+amely visszatér a lefoglalt terület kezdőcímével (pointerével).
+A mallocnak a méretet bájtokban kell
+megadni. Ha nincs elég memória, <code>NULL</code>-lal tér vissza.
+A lefoglalt memóriaterületet <code>free()</code>-vel kell
+felszabadítani. Az utóbbinak a méretet már nem szükséges megadni,
+csak azt a pointert, amit a malloctól kaptunk.
+A séma a következő, ahol a <code>Valami</code> azonosító
+helyére bármilyen típus nevét beírhatjuk:</p>
+
+<pre>
+<strong>Valami</strong> *ptr;
+ptr=(<strong>Valami</strong>*) malloc(<strong>darab</strong>*sizeof(<strong>Valami</strong>));
+...
+free(ptr);
+</pre>
+
+<p>Érdemes a foglalást a lehető legkésőbb elvégezni,
+a felszabadítást pedig a lehető leghamarabb.
+Így talán kisebb a valószínűsége, hogy elfelejtődik.
+Tipikus memóriakezelési hibák:
+inicializálatlan pointer, fel nem szabadított memória, elveszett
+pointer, többször felszabadított memória.</p>
+
+<p>A <code>malloc()</code> visszatérési típusa <code>void&nbsp;*</code>.
+A <code>(Valami*)</code> cast elvileg elhagyható, mivel ez
+automatikusan konvertálódik <code>Valami*</code>-ra.
+A C++ (következő félév, prog2) szigorúbb, ezt nem engedi, ezért
+ki szokás írni.</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Dinamikus memóriakezelés – élettartam">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Dinamikus memóriakezelés – élettartam<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>
+A lenti függvény összefűz két sztringet, és az új, ezáltal keletkező
+sztringet egy újonnan foglalt dinamikus memóriaterületen adja. Mivel
+a két bemenő sztring hosszának vizsgálatával meg tudja mondani, hogy
+mekkora lesz az összefűzött sztring (a két hossz és +1 a lezáró nulla miatt),
+ezért a foglalás után biztonságosan el tudja végezni a másolásokat.
+Persze itt nem feltétlenül szükséges megjegyezni a méretet
+is, hiszen azt éppen a lezáró nullából meg tudjuk határozni bármikor.
+</p>
+
+<pre   ><code class="language-cbub">char *osszefuz(char *egyik, char *masik) {
+    int hossz = strlen(egyik)+strlen(masik)+1;
+    char *eredmeny = (char*) malloc(hossz*sizeof(char)); // foglal
+    if (eredmeny==NULL)
+        return NULL;
+    
+    strcpy(eredmeny, egyik);
+    strcat(eredmeny, masik);
+    return eredmeny;
+}</code></pre>
+
+<pre   ><code class="language-cbub">char *almafa;
+almafa = osszefuz(&quot;alma&quot;, &quot;fa&quot;);
+printf(&quot;%s&quot;, almafa);
+free(almafa);                               // felszabadít</code></pre>
+
+<p>
+Látható, hogy ez megoldja az élettartam problémáját is. Bár
+a keletkező sztring a függvényben jön létre,
+visszatérve az új sztringet tároló memóriaterület
+nem szabadul fel automatikusan, hanem a hívó döntheti el, hogy
+mikor nincsen már a továbbiakban szüksége arra. Vissza
+ez a függvény nem a sztringet adja, hanem csak egy pointert a lefoglalt
+memóriaterületre. A lokális <code>char*&nbsp;eredmeny</code> változó
+megszűnik, de azt a visszaadáskor lemásoljuk!
+</p>
+
+<p>
+Fontos figyelni arra, hogy fel is szabadítsuk a memóriaterületet,
+ha már nincsen rá szükség. Mivel a függvény ezt nem tudja megtenni
+(épp az a feladata, hogy foglalja le a sztringet, de <em>ne</em>
+szabadítsa fel), ez csakis a hívó feladata és felelőssége lehet.
+</p>
+
+<p>
+Emiatt a visszakapott pointert el <em>kell</em> menteni egy változóba,
+hiszen ha elfelejtjük, akkor semmi mód nem lesz már arra, hogy
+felszabadítsuk azt a memóriaterületet. Természetesen az
+<code>almafa=osszefuz(…</code> értékadás ilyenkor nem sztring másolás,
+hanem csak egy pointer értékadás. <code>almafa</code> típusa
+pointer, a visszaadott érték is pointer, és ezt másoljuk az értékadással.
+</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A láncolt listákról">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    A láncolt listákról<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>
+A láncolt lista lényege a következő. Minden egyes dinamikusan foglalt
+struktúra tartalmaz egy segédadatot is: a listában következő elem
+memóriacímét. A lista legelejére egy pointerrel hivatkozunk; ezzel természetesen
+az egész listát megadjuk, mivel az összes többi elemre mutat az őt megelőző
+elem pointere. A legutolsó elem NULL pointert tartalmaz, jelezve ezzel, hogy
+ott a lista vége.
+</p>
+<pre   ><code class="language-cbub">typedef struct Esemeny { // a struktúra
+    char leiras[101];    
+    int ev, honap, nap;  /* adatok, amiket tarol egy elem */
+    int ora, perc;
+
+    struct Esemeny *kov; // pointer ugyanilyen típusú struktúrára
+} Esemeny;</code></pre>
+<div class="kozep"><img src="slist.svg" style="width: 36em;" alt="Egyszeresen láncolt lista"></div>
+<p>
+A lista előnye a tömbhöz képest, hogy egyesével tudunk új elemeket hozzátenni és
+törölni. Hátránya, hogy nem tudunk közvetlenül, véletlenszerűen, össze-vissza
+hivatkozni bármelyik elemére. Ha kell egy lista negyedik eleme, akkor az elejétől
+el kell indulnunk, a pointereket követve, amíg el nem jutunk az negyedikig. Ha
+az <code>elso</code> pointer mutat a lista első elemére, akkor <code>elso-&gt;kov</code>
+a másodikra, <code>elso-&gt;kov-&gt;kov</code> a harmadikra stb.
+Az ilyesmire persze ciklust írunk.</p>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A fákról">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    A fákról<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>
+A fák dinamikus adatszerkezetek; amelyek az adatokat csomópontjaikban és/vagy éleiken
+tárolják; az egyes csomópontokból pedig további csomópontok származnak le. A
+leszármazott csomópontokat gyerekeknek nevezzük; szülő csomópontnak pedig azokat,
+amelyekből azok kiindulnak. A legfelső csomópont a gyökér. A gyerek nélküli
+csomópontok a levelek.
+</p>
+<p>
+Egy adott csomópont valamely gyermeke önmaga is csomópont,
+amelynek további gyermekei lehetnek. Másképpen, a fa egyik részfája önmagában is fa.
+Ahogy egy igazi fának az ágaiból további ágak indulnak ki, amelyek önmaguk is ágak,
+ugyanilyen tulajdonsággal. <em>Ez az adatszerkezet rekurzív.</em>
+A fa nagysága elvileg tetszőlegesen nagy lehet. Hogy az őt tároló struktúra ne
+legyen akármilyen nagy (meg változó hosszúságú), továbbá hogy lehessen jelezni,
+egy adott helyen egyáltalán van-e leszármazott vagy nincs, egy csomópont gyermekeit
+dinamikusan foglaljuk, és pointerével tároljuk.
+</p>
+<img class="kozep" style="width: 22em;" src="szavak.svg" alt="Szavak előfordulásai egy bináris fában">
+<p>
+A csomópontok közötti leszármazási viszony többféle dolgot
+jelenthet. Leggyakoribbak a bináris fák, amelyekben minden csomópontnak
+maximum két gyermeke van. Ezek neve rendszerint bal és jobb.
+A bináris fákat általában keresőfákként alkalmazzák; például egy szavakat tároló fa
+esetén egy adott csomópontban az ABC-ben tőle előrébb lévő szavak a bal oldali
+részfában, a tőle hátrébb lévőek pedig a jobb oldali részfában vannak (és a leszármazottak
+ugyanígy). Egy adott szót megtalálni így könnyű; nem kell például egy egész listát
+egyesével végigjárnunk, hanem mindig egy, a „nincs meg”-nél konkrétabb információnk is van:
+balra vagy jobbra menjünk tovább a fában az adott szó megtalálásához.
+</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Fák bejárása – alapfeladatok">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    Fák bejárása – alapfeladatok<a class="hlink" href="index.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A legfontosabb gondolat: <em>mivel a fa, mint adatstruktúra
+rekurzív, az azt feldolgozó programkód is rekurzív</em>.</p>
+
+<p>Ha meg akarjuk számolni egy fa összes csomópontját,
+azt a feladatot önmagára tudjuk visszavezetni: megszámoljuk,
+hogy a részfáiban hány csomópont van (azok is fák!), és még
+hozzáadunk egyet, az pedig a jelenlegi csomópont, amiről beszélünk.
+</p>
+<p>
+Ha meg akarjuk számolni, hogy egy fának hány levele van (ahonnan
+már részfák nem indulnak ki), akkor ugyanez a gondolatmenet. Ha egy
+csomópontnak nincs leszármazottja, a válaszunk 1. Ha van, akkor viszont
+annyi levele van az adott részfának, ahány levél van a bal oldali részfában,
+plusz ahány levél van a jobboldali részfában (most épp bináris fát feltételezve).
+</p>
+<p>
+Ha azt akarjuk megszámolni, hogy egy adott fának egy adott szinten (emeleten)
+hány csomópontja van, az is könnyű: annyi ilyen csomópontja van, ahány
+ilyen van a bal részfában, plusz ahány ilyen van a jobb részfában. Csak
+arra kell figyelni, ha egy adott szinttől lefelé az 5. szinten keressük
+a csomópontokat, akkor a gyerekeik szemszögéből nézve az a 4. szintet
+jelenti.
+</p>
+<p>
+Ha egy fát szeretnénk törölni a memóriából, akkor előbb törölni kell a részfáit,
+és a hozzá tartozó memóriaterületet utána lehet felszabadítani.
+</p>
+
+<img class="kozep" src="fa.svg" alt="Példa bináris fa" style="width: 16em">
+
+<p>
+Feladat: implementáljuk az algoritmusokat. Próbáljuk ki őket a jobb oldali
+képen látható fán.
+</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+ 
+typedef struct Fa {
+    int adat;
+ 
+    struct Fa *bal, *jobb;
+} Fa;
+ 
+/* 1. feladat megoldasa: egy fa csomopontjait szamolja meg. */
+int csomopontok(Fa *gyoker) {
+    /* ha egyaltalan nincs, akkor nyilvan 0 */
+    if (gyoker==NULL)
+        return 0;
+    /* aktualis + bal oldaliban + jobb oldaliban */
+    return 1+csomopontok(gyoker-&gt;bal)+csomopontok(gyoker-&gt;jobb);
+}
+ 
+/* 2. feladat megoldasa: a leveleket szamolja meg. */
+int levelek_szama(Fa *gyoker) {
+    /* 0 levél van, ha nincs is fa */
+    if (gyoker==NULL)
+        return 0;
+    /* ha ennek nincs leszarmazottja, ez egy, azaz 1 level. */
+    if (gyoker-&gt;bal==NULL &amp;&amp; gyoker-&gt;jobb==NULL)
+        return 1;
+    /* ha ez nem level, akkor viszont nezzuk, hogy az innen
+       kiindulo reszfakban hany level van. */
+    return levelek_szama(gyoker-&gt;bal)+levelek_szama(gyoker-&gt;jobb);
+}
+ 
+/* 3. feladat megoldasa: adott szinten levo csomopontokat szamol meg. */
+int adott_szinten(Fa *gyoker, int szint) {
+    /* ha nincs is fa, akkor nyilvan 0 */
+    if (gyoker==NULL)
+        return 0;
+    /* ha pont ezt a szintet nezzuk, akkor 1 a valaszunk,
+       es a lejjebb levoket folosleges megnezni */
+    if (szint==0)
+        return 1;
+    /* ha lentebbit keresunk, akkor bal+jobb; de az o
+       szemszogukbol nezve eggyel kevesebbedik szint */
+    return adott_szinten(gyoker-&gt;bal, szint-1)+
+           adott_szinten(gyoker-&gt;jobb, szint-1);
+}
+ 
+/* 4. feladat: egy fa torlese. */
+void torol(Fa *fa) {
+    if (fa-&gt;bal!=NULL)
+        torol(fa-&gt;bal);
+    if (fa-&gt;jobb!=NULL)
+        torol(fa-&gt;jobb);
+    free(fa);
+}
+ 
+/* ez a fuggveny arra kepes, hogy kirajzolja
+ * a fat - tobbe-kevesbe kovetheto modon.
+ * a kirajzolt fa 90 fokkal el van forgatva;
+ * bal oldalon van a gyoker, tole jobbra indulnak
+ * a leszarmazottak. nem kerte a feladat. */
+void kirajzol_eltolva(Fa *gyoker, int szint) {
+    if (gyoker==NULL)
+        return;
+    kirajzol_eltolva(gyoker-&gt;jobb, szint+1);
+    /* %*d: a * miatt a szelesseget a kov. parameterbol olvassa */
+    printf(&quot;%*d\n&quot;, szint*5, gyoker-&gt;adat);
+    kirajzol_eltolva(gyoker-&gt;bal, szint+1);
+}
+ 
+/* ez a fuggveny csak azert van, hogy az igazi
+ * kirajzolo fuggvenynek megadja a kezdeti 0-s
+ * parametert. nem kerte a feladatkiiras! */
+void kirajzol(Fa *gyoker) {
+    kirajzol_eltolva(gyoker, 0);
+}
+ 
+/* letrehoz egy leszarmazottak nelkuli csomopontot,
+ * amelyik a parameterbeli adatot tarolja.
+ * ez a tiszta megoldas! egybol nullazzuk
+ * a pointereket, max kesobb bekerul mas.
+ * nem kerte ezt a fuggvenyt a feladatkiiras, de
+ * jo szokas igy csinalni. */
+Fa *uj(int adat) {
+    Fa *uj=(Fa *) malloc(sizeof(Fa));
+    uj-&gt;bal=uj-&gt;jobb=NULL;
+    uj-&gt;adat=adat;
+    
+    return uj;
+}
+ 
+int main(void) {
+    Fa *gyoker=NULL;
+    int i;
+ 
+    /* varazsolok nehany leszarmazottat. ez az a
+       fa lesz, mint ami a rajzon is van fent! */
+    gyoker=uj(2);
+    gyoker-&gt;bal=uj(5);
+    gyoker-&gt;jobb=uj(9);
+    gyoker-&gt;jobb-&gt;bal=uj(10);
+    gyoker-&gt;jobb-&gt;jobb=uj(11);
+ 
+    printf(&quot;Rajz:\n&quot;);
+    kirajzol(gyoker);
+ 
+    printf(&quot;Csomopontok: %d\n&quot;, csomopontok(gyoker));
+    printf(&quot;Levelek: %d\n&quot;, levelek_szama(gyoker));
+    for (i=0; i&lt;=2; ++i)
+        printf(&quot;%d. szinten: %d\n&quot;, i, adott_szinten(gyoker, i));
+ 
+    torol(gyoker);
+ 
+    return 0;
+}</code></pre>
+
+<p>A fa mérete véges, mindig ott van vége, ahol NULL pointert találunk
+(egy adott csomópontnak valamelyik, vagy mindkét irányba már nincs több
+leszármazottja). Többféle megoldás is lehetséges a bejárásra;
+tipikusan annak függvényében, hogy a <code>fa_mutató==NULL</code>
+esetet hol ellenőrizzük, a függvény meghívása előtt vagy után (vagyis a függvény
+első sora ez, vagy a meghívás előtt ellenőrizzük már).</p>
+<p>Ezt az ellenőrzést egyébként a függvény <em>elején</em> érdemes megtenni.
+Egyrészt mivel akkor a megoldás robusztusabb (nincs gondja a NULL pointerrel),
+másrészt mivel a NULL pointer is egy fa! Az az üres fa.</p>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="„Függvény, mint paraméter” – függvényre mutató pointerek">
+<div class="slide" id="slide_8">
+
+<a id="8" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">8</span><span class="oldalszamafter">. </span>    „Függvény, mint paraméter” – függvényre mutató pointerek<a class="hlink" href="index.html#8"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  <p>
+Írjunk C függvényt, amelyik tetszőleges, valós „matematikai” függvényt
+képes integrálni. A függvény bemenő adatai legyenek az integrálandó
+tartomány két vége és a lépésköz; kimeneti adat a közelítő integrál.
+</p>
+
+<p>
+A numerikus integrálás algoritmusa független az integrálandó függvénytől.
+</p>
+
+<p>
+A feladat függvény pointerekkel oldható meg. A függvény pointer egy
+adott kódrészletre mutat a memóriában, egy függvényre. A függvény
+pointer típusához hozzá tartoznak a fv. visszatérésének típusa és a
+paraméterek típusai is; eltérő bemenő paraméterekkel rendelkező, vagy
+eltérő visszatérési típussal rendelkező függvények természetesen
+nem kompatibilisek egymással. A függvényre mutató pointer deklarációjának
+módja:
+</p>
+<pre   ><code class="language-c">vissza_tip    fv (parameter_tip_1, stb);    /* ez a fuggveny */
+vissza_tip (*ptr)(parameter_tip_1, stb);    /* ilyen a ra mutato ptr */</code></pre>
+<p>
+mint a függvény prototípusa, csak a neve helyett a változó neve, elé csillag (mert pointer),
+be zárójelbe
+(hogy ne vissza_tip pointerrel visszatérő ptr nevű függvényt deklaráljunk).
+Meghívni ugyanúgy lehet, mint a függvényeket;
+ahogy a dinamikus tömböknél is a pointer tömbként volt használható. A
+függvény neve pedig, () nélkül, a függvényre mutató pointer maga.
+Ebben a feladatban:
+</p>
+<pre   ><code class="language-c">double fuggveny(double);    /* egyvaltozos matematikai fv, neve &quot;fuggveny&quot; */
+double   (*ptr)(double);    /* egyvaltozos matematikai fv poitnere, neve &quot;ptr&quot; */
+
+ptr=fuggveny;               /* beallitjuk ra a pointert */
+printf(&quot;%g&quot;, ptr(5));       /* meghivjuk a fv-t a pointeren keresztul */</code></pre>
+
+<pre   ><code class="language-c">#include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+
+double konstans(double x) {
+    return 1.0;
+}
+
+double iksznegyzetpluszketikszplusz7(double x) {
+    return x*x+2*x+7;
+}
+
+/* A feladat megoldasa ez a fuggveny. */
+/* Az fv parameter tipusa: 1db double parameteru, double
+      visszateresi erteku fuggvenyre mutato pointer. */
+double integral(double min, double max,
+                double step, double (*fv)(double))
+{
+    double sum, x;
+
+    sum=0;
+    for (x=min; x&lt;max; x+=step)
+        sum+=fv(x)*step;
+
+    return sum;
+}
+
+int main(void) {
+    printf(&quot;%f\n&quot;, integral(0, 1, 0.01, konstans));
+    printf(&quot;%f\n&quot;, integral(0, 1, 0.01, iksznegyzetpluszketikszplusz7));
+    printf(&quot;%f\n&quot;, integral(0, 1, 0.01, sqrt));  /* math.h */
+    printf(&quot;%f\n&quot;, integral(0, 1, 0.01, sin));  /* math.h */
+
+    return 0;
+}</code></pre>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A qsort() használata">
+<div class="slide" id="slide_9">
+
+<a id="9" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">9</span><span class="oldalszamafter">. </span>    A qsort() használata<a class="hlink" href="index.html#9"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  <p>
+Egy tömb rendezések algoritmusa független attól, hogy mik azok az
+elemek, amiket rendezni kell, és hogyan kell őket összehasonlítani. Meg tudjuk
+fogalmazni általánosságban is, és ugyanúgy működik számokra, mint mondjuk szavakra.
+</p>
+<p>A C tartalmaz egy könyvtári függvényt, a <code>qsort()</code>-ot, amelyik képes
+bármilyen elemekből álló, bármekkora tömböt rendezni a gyorsrendezés néven ismert
+algoritmussal.
+Ezt a következőképpen valósítja meg. A függvény fejléce így néz ki:
+</p>
+<pre   ><code class="language-c">void qsort(void *base,
+           size_t nmemb, size_t size,
+           int(*compar)(const void *, const void *));</code></pre>
+<p>
+A függvény első paramétere a rendezendő tömb kezdőcíme. A második a tömb elemszáma.
+A harmadik egy elem mérete. Erre azért van szükség, mert a <code>qsort()</code> számára
+ismeretlen az általunk megadott tömb elemeinek a típusa; viszont ha tudja, hogy egy elem
+hány bájtos, akkor meg tudja cserélni őket (annyi bájtos részeket kell megcserélnie
+a memóriában).
+Innen fogja tudni azt is, hogy egy adott elem a memóriában hol kezdődik (a tömb elejét
+is csak <code>void&nbsp;*</code> mutatóval tudtuk megadni).
+</p>
+<p>
+A negyedik paraméter az összehasonlító függvényre mutató pointer; ezt a függvényt nekünk
+kell megírnunk. A függvény két memóriacímet kell átvegyen (a két <code>const void&nbsp;*</code>),
+hogy mely elemeket kell összehasonlítania. <code>void</code>, mert a típusokat a
+<code>qsort()</code> nem nézi (különben nem lenne általános), és <code>const</code>, mert
+ez a függvény nem változtatja meg az elemeket. A visszatérési értéke pedig a következőképpen
+kell kinézzen:
+</p>
+<ul>
+<li>Egy tetszőleges negatív szám, ha az első elem kisebb, mint a második.
+<li>Nulla, ha a két elem egyenlő.
+<li>Egy tetszőleges pozitív szám, ha az első elem a nagyobb.
+</ul>
+<p>
+Így a <code>qsort()</code> növekvő sorrendbe rendez. Ha csökkenő sorrendet szeretnénk,
+akkor egyszerűen a negatív-pozitív dolgot meg kell fordítani. Egyébként az <code>strcmp()</code>
+függvény pont ugyanilyen visszatérési értéket ad, ezért sztringek rendezésénél az pont jó
+összehasonlító függvénynek!
+</p>
+
+<p>A megírandó összehasonlító függvény ezek szerint így néz ki általánosságban:</p>
+<pre>
+int osszehasonlito(const void *pelso, const void *pmasodik) {
+    const <span class="piros">SajatTipus</span> *elso=(const <span class="piros">SajatTipus</span> *)pelso;
+    const <span class="piros">SajatTipus</span> *masodik=(const <span class="piros">SajatTipus</span> *)pmasodik;
+
+    if (<span class="piros">*elso kisebb mint *masodik</span>)
+        return -1;
+    if (<span class="piros">*elso nagyobb mint *masodik</span>)
+        return 1;
+    return 0;
+}
+</pre>
+<p>
+A két összehasonlítandó elemet <code>void&nbsp;*</code> pointerrel kell átvenni, amit belül
+át kell alakítani (castolni) a saját típus pointerére. 
+Az összehasonlítás módja pedig nyilván az adott
+típustól és feladattól függ. A <code>qsort()</code> függvény hívása így néz ki:
+</p>
+<pre>
+qsort(<span class="piros">tomb</span>, <span class="piros">meret</span>, sizeof(<span class="piros">tomb</span>[0]), <span class="piros">osszehasonlito</span>);
+</pre>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

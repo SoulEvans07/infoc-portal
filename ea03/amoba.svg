@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="139.68" width="139.68" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="399 199 67.999999 67.999999">
+ <metadata id="metadata104">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="g4">
+  <path id="rect6" fill="#fff" d="m400 200h22v22h-22z"/>
+  <path id="rect8" d="m400 200h22v22h-22z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g10">
+  <path id="rect12" fill="#fff" d="m422 200h22v22h-22z"/>
+  <path id="rect14" d="m422 200h22v22h-22z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g16">
+  <path id="rect18" fill="#fff" d="m444 200h22v22h-22z"/>
+  <path id="rect20" d="m444 200h22v22h-22z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g22">
+  <path id="rect24" fill="#fff" d="m400 222h22v22h-22z"/>
+  <path id="rect26" d="m400 222h22v22h-22z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g28">
+  <path id="rect30" fill="#fff" d="m422 222h22v22h-22z"/>
+  <path id="rect32" d="m422 222h22v22h-22z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g34">
+  <path id="rect36" fill="#fff" d="m444 222h22v22h-22z"/>
+  <path id="rect38" d="m444 222h22v22h-22z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g40">
+  <path id="rect42" fill="#fff" d="m400 244h22v22h-22z"/>
+  <path id="rect44" d="m400 244h22v22h-22z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g46">
+  <path id="rect48" fill="#fff" d="m422 244h22v22h-22z"/>
+  <path id="rect50" d="m422 244h22v22h-22z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g52">
+  <path id="rect54" fill="#fff" d="m444 244h22v22h-22z"/>
+  <path id="rect56" d="m444 244h22v22h-22z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g58">
+  <path id="ellipse60" fill="#fff" d="m440 233c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7z"/>
+  <path id="ellipse62" d="m440 233c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7z" stroke="#00f" stroke-width="3" fill="none"/>
+ </g>
+ <g id="g64">
+  <path id="ellipse66" fill="#fff" d="m440 211c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7z"/>
+  <path id="ellipse68" d="m440 211c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7z" stroke="#00f" stroke-width="3" fill="none"/>
+ </g>
+ <g id="g70">
+  <path id="ellipse72" fill="#fff" d="m462 211c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7z"/>
+  <path id="ellipse74" d="m462 211c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7z" stroke="#00f" stroke-width="3" fill="none"/>
+ </g>
+ <g id="g76">
+  <path id="ellipse78" fill="#fff" d="m418 211c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7z"/>
+  <path id="ellipse80" d="m418 211c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7z" stroke="#00f" stroke-width="3" fill="none"/>
+ </g>
+ <g id="g82" stroke="#f00" stroke-width="3" fill="none">
+  <path id="line84" d="m404 226 14 14"/>
+  <path id="line86" d="m404 240 14-14"/>
+ </g>
+ <g id="g88" stroke="#f00" stroke-width="3" fill="none">
+  <path id="line90" d="m404 248 14 14"/>
+  <path id="line92" d="m404 262 14-14"/>
+ </g>
+ <g id="g94" stroke="#f00" stroke-width="3" fill="none">
+  <path id="line96" d="m426 248 14 14"/>
+  <path id="line98" d="m426 262 14-14"/>
+ </g>
+</svg>

@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: 8. hét: parancssor, fájlkezelés, modulok</title>
+<meta property="og:title" content="TEST InfoC :: 8. hét: parancssor, fájlkezelés, modulok">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum h3toid" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="8. hét: parancssor, fájlkezelés, modulok">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">8. hét: parancssor, fájlkezelés, modulok</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Nagy Gergely, Pohl László · <i class="ido"></i> 2019.08.24.</p>
+<p class="kivonat">Gyakorlófeladatok az előadás anyagához kapcsolódóan.</p>
+</div>
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Parancssori argumentumok</a>
+              <li><a href="index.html#2" class="">Szöveges fájlok</a>
+              <li><a href="index.html#3" class="">Bináris fájlok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Parancssori argumentumok">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Parancssori argumentumok<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Argumentumok kiírása</h3>
+<div class="sticky">NZH-n volt</div>
+<p>Írj programot, amely számozva kiírja a parancssori argumentumait a képernyőre!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+    /* argv[0] a program neve, és argv[argc]=NULL.
+     * ezért 1-től argc-1-ig kell mennie a ciklusnak. */
+    for (int i = 1; i &lt; argc; ++i)
+        printf(&quot;%d. %s\n&quot;, i, argv[i]);
+    
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Az argumentumok száma</h3>
+<div class="sticky">NZH-n volt</div>
+<p>Tegyük fel, hogy írni kell egy programot, amely két parancssori argumentumot vár:
+egy bemeneti és egy kimeneti fájl nevét. Írj rövid programot, amely ellenőrzi, hogy
+pontosan két parancssori argumentumot kapott-e! Írjon a program hibaüzenetet
+a képernyőre, ha nem!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[]) {
+    /* a buktato: argv[0], vagyis a nulladik parancssori argumentum
+     * a program neve. ez beleszamit a kapott argumentumok szamaba,
+     * ezert pontosan 2 argumentum eseten argc erteke 3 lesz! */
+    if (argc == 3)
+        printf(&quot;Ket parancssori argumentumot kaptam.\n&quot;);
+    else
+        printf(&quot;Hiba: nem pontosan ket argumentumot kaptam!\n&quot;);
+    
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Mini számológép</h3>
+<p>Írj programot, amely parancssori argumentumként három valamit vár:
+az első és a harmadik egy szám, a középső pedig a +, -, *, / műveleti
+jelek egyike! Írja ki a program a képernyőre az elvégzett művelet
+eredményét, vagy egy hibaüzenetet, ha az argumentumok bármilyen szempontból
+nem elfogadhatóak!</p>
+
+<pre class="screenshot">
+frank@hal9000:~$ szamologep 1 / 2
+Az eredmeny: 0.5
+
+frank@hal9000:~$ szamologep b + 2
+Az elso es a harmadik argumentum legyen szam!
+
+frank@hal9000:~$ szamologep 1 +xyz 2
+A masodik argumentum egy muveleti jel legyen!
+</pre>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main(int argc, char *argv[]) {
+    double a, b, e;
+    
+    if (argc != 4) {
+        printf(&quot;Harom argumentum kell: ket szam, es kozte egy muveleti jel!\n&quot;);
+        return 1;
+    }
+    
+    /* az argumentumokat sztringkent (!) kapjuk, ezekbol
+     * az sscanf-fel kiolvashato a szamertek. */
+    if (sscanf(argv[1], &quot;%lf&quot;, &amp;a) != 1
+        || sscanf(argv[3], &quot;%lf&quot;, &amp;b) != 1) {
+        printf(&quot;Az elso es a harmadik argumentum legyen szam!\n&quot;);
+        return 1;
+    }
+    
+    if (strlen(argv[2]) != 1) {
+        printf(&quot;A masodik argumentum egy muveleti jel legyen!\n&quot;);
+        return 1;
+    }
+    /* argv[2] a masodik parameter, argv[2][0] annak legelso karaktere. */
+    if (argv[2][0] != '+' &amp;&amp; argv[2][0] != '-'
+        &amp;&amp; argv[2][0] != '*' &amp;&amp; argv[2][0] != '/') {
+        printf(&quot;A masodik argumentum egy muveleti jel legyen!\n&quot;);
+        return 1;
+    }
+    
+    switch (argv[2][0]) {
+        case '+': e = a+b; break;
+        case '-': e = a-b; break;
+        case '*': e = a*b; break;
+        case '/': e = a/b; break;
+        default: /* lehetetlen */ break;
+    }
+    
+    printf(&quot;Az eredmeny: %g\n&quot;, e);
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+<h3>Mátrix négyzetre emelése</h3>
+
+<p>Írj egy programot, amelyik a parancssori paramétereiben vesz át egy négyzet alakú 
+mátrixot, és megszorozza azt saját magával! Az eredményt mátrix formában jelenítse meg!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A következő dolgokra kell figyelni:</p>
+<ul>
+    <li>A <code>main</code> két paramétere <code>int argc</code> és <code>char *argv[]</code>.
+    Az utóbbi a paramétereket tartalmazza sztring formájában, az előbbi pedig a paraméterek
+    száma +1. <code>argv[0]</code> a program neve, innen adódik a +1 – erre figyelni
+    kell, amikor indexeljük a tömböt, illetve <code>argc</code>-t vizsgáljuk. Ha 1 paraméter
+    van, <code>argc</code> értéke 2 lesz!
+    <li>Mivel <code>char *argv[]</code> sztringeket tartalmaz, konvertálni kell azokat szám
+    formába. Lent nem teszem, de az <code>sscanf</code> függvény visszatérési értéke
+    lehetővé tenné ennek ellenőrzését.
+</ul>
+
+<p>A memória foglalásoknál meg kell nézni, hogy sikeresek-e. A foglaláshoz lent egy külön 
+függvény van, ahol ez jól látszik. A feladat megoldása egyébként elég egyszerű; inkább a lexikai 
+tudásból igényel sokat, parancssori argumentumok kezelése stb.</p>
+
+<pre   ><code class="language-c">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+double **foglal(int meret) {
+    double **tomb;
+    tomb = (double **) malloc(meret * sizeof(double *));
+    if (!tomb) {
+        fprintf(stderr, &quot;Memoriafoglalasi hiba\n&quot;);
+        exit(1);        /* jobb hijan kiugrunk a programbol */
+    }
+    for (int y = 0; y &lt; meret; ++y) {
+        tomb[y] = (double *) malloc(meret * sizeof(double));
+        if (!tomb[y]) {
+            fprintf(stderr, &quot;Memoriafoglalasi hiba\n&quot;);
+            exit(1);
+        }
+    }
+
+    return tomb;
+}
+
+void felszabadit(double **tomb, int meret) {
+    for (int y = 0; y &lt; meret; ++y)
+        free(tomb[y]);
+    free(tomb);
+}
+
+int main(int argc, char *argv[]) {
+    int meret = sqrt(argc - 1);
+    /* nezzuk, hogy negyzetszam-e */
+    if (meret * meret != argc - 1) {
+        fprintf(stderr, &quot;Nem negyzetszam a parameterek szama!\n&quot;);
+        exit(1);
+    }
+
+    double **be = foglal(meret);
+    double **ki = foglal(meret);
+
+    /* beolvasas */
+    for (int y = 0; y &lt; meret; ++y)
+        for (int x = 0; x &lt; meret; ++x)
+            sscanf(argv[y * meret + x + 1], &quot;%lf&quot;, &amp;be[y][x]);
+
+    // negyzet kiszamitasa - ez a feladat lenyege
+    for (int y = 0; y &lt; meret; ++y)
+        for (int x = 0; x &lt; meret; ++x) {
+            double osszeg = 0;
+            int i;
+            for (int i = 0; i &lt; meret; ++i)
+                osszeg += be[y][i] * be[i][x];
+
+            ki[y][x] = osszeg;
+        }
+
+    /* kiiras */
+    for (int y = 0; y &lt; meret; ++y) {
+        for (int x = 0; x &lt; meret; ++x)
+            printf(&quot;%8.4lf &quot;, ki[y][x]);
+        printf(&quot;\n&quot;);
+    }
+
+    felszabadit(be, meret);
+    felszabadit(ki, meret);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Szöveges fájlok">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+  <a id="feladatfajlkezeles" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Szöveges fájlok<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Fájl beolvasása</h3>
+<p>Készíts programot, mely az „adat1.txt” fájl tartalmát beolvassa és kiírja a képernyőre!</p>
+
+<h3>Fájl írása</h3>
+<p>Készíts programot, mely bekéri a felhasználó nevét, és azt az „adat1.txt” fájlba eltárolja! 
+(Ha már létezett a file korábban, írja felül.)</p>
+
+<h3>Hányszor indult?</h3>
+<p>Készíts programot, mely induláskor írja ki a képernyőre, hogy hanyadszorra indítják. Az 
+indítások számát tárolja az "indit.ini" fájlban. (Ha a file még nem létezik, akkor ez az első 
+indítás, ha már létezik, akkor olvassa ki belőle az eddigi indítások számát, adjon hozzá egyet, 
+azt írja ki a képernyőre, és tárolja vissza a fájlba.)</p>
+
+<h3>Kisbetűk</h3>
+<p>Készíts programot, amely egy megadott fájlt átolvasva kiírja, hogy az angol ABC kisbetűi 
+közül melyik hányszor szerepel benne.</p>
+
+<h3>Köbméter</h3>
+<p>Egy tóra négyzetrácsot fektetünk, a négyzetrács egyes pontjaiban a tó mélységét tároljuk. 
+0-val jelöljük a szárazföldet, negatív számmal a mélységet méterben. Készíts programot, amelyik 
+egy ilyen, fájlban adott „térkép” alapján téglatest módszerrel becsli a tó térfogatát. Az egyes 
+mérési pontok távolságát kérdezze meg a program a felhasználótól. A fájl első sorában a táblázat 
+szélessége és magassága (egész számok), a többi sorokban a táblázat egyes sorai; valós számok 
+szóközzel elválasztva.</p>
+
+<h3>Szövegfájl titkosítása</h3>
+<p>Készítsünk egy programot, amelyik egy szövegfájlt titkosít. A titkosítás egyszerű: minden 
+betű helyett az ABC-ben következőt használjuk, 'z' helyett pedig 'a'-t.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Ez szinte ugyanaz, mint a félév eleji változat, amelyik a billentyűzetről olvasott. Fájlból 
+olvasni, fájlba írni semmivel nem nehezebb: minden függvény neve elé még egy f betű kerül (<code>
+printf-fprintf</code>, <code>scanf-fscanf</code>), és első paraméter a fájl, amin dolgozni 
+kell.</p>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+char kodol(char c) {
+    /* ez a ketto specialis, mert &quot;tulpordul&quot; */
+    if (c=='z') return 'a';
+    if (c=='Z') return 'A';
+    /* tobbi kodolando */
+    if ((c&gt;='a' &amp;&amp; c&lt;'z') || (c&gt;='A' &amp;&amp; c&lt;'Z'))
+        return c+1;
+    /* ha nem ezek, marad valtozatlanul */
+    return c;
+}
+
+int main(void) {
+    FILE *be = fopen(&quot;eredeti.txt&quot;, &quot;rt&quot;);
+    if (be == NULL) {
+        perror(&quot;eredeti.txt megnyitása&quot;);
+        return 1;
+    }
+    FILE *ki = fopen(&quot;kodolt.txt&quot;, &quot;wt&quot;);
+    if (ki == NULL) {
+        perror(&quot;kodolt.txt megnyitása&quot;);
+        return 2;
+    }
+
+    /* egyesevel a karakterek */
+    int c;
+    while ((c = fgetc(be)) != EOF)
+        fputc(kodol(c), ki);
+
+    fclose(be);
+    fclose(ki);
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Minimumkeresés fájlból, formátumsztringek</h3>
+<p>Egy meteorológiai állomás által rögzített hőmérsékleti értékeket fájlban kapjuk. A fájl első 
+sorában a mérés napja van, <code>év, szóköz, hónap, szóköz, nap</code> formátumban. A fájl többi 
+sora <code>óra, kettőspont, perc, szóköz, hőmérséklet</code> (valós szám) formátumban. Olvassuk 
+be a fájlt, és keressük meg, mikor volt a legmelegebb aznap. Írjuk ki az ehhez tartozó órát és 
+percet, illetve a hőmérsékletet, <code>2009.09.17.&nbsp;12:08&nbsp;+14.1</code> formátumban.</p>
+
+<p>Példa bemenet:</p>
+<pre>
+2009 09 17
+12:45 11.1
+12:59 14.3
+04:34 -5
+</pre>
+
+<p>Példa kimenet, amely a fenti bemenetre generálódik:</p>
+<pre>
+2009.09.17. 12:59 +14.3
+</pre>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+int main(void) {
+    typedef struct Datum {
+        int ev, honap, nap;
+    } Datum;
+    typedef struct Meres {
+        int ora, perc;
+        double fok;
+    } Meres;
+
+    /* fussunk neki */
+    FILE *fbe = fopen(&quot;eredmenyek.txt&quot;, &quot;rt&quot;);
+    if (!fbe) {
+        perror(&quot;eredmenyek.txt: nem sikerult megnyitni a fajlt&quot;);
+        return 1;
+    }
+
+    Datum d;
+    Meres beolv, max;
+    fscanf(fbe, &quot;%d %d %d&quot;, &amp;d.ev, &amp;d.honap, &amp;d.nap);
+    /* a maximumkeresesnel az elso megkulonbozteteset
+       itt segedvaltozoval oldottam meg */
+    bool elso = true;
+    while (fscanf(fbe, &quot;%d:%d %lf&quot;, &amp;beolv.ora, &amp;beolv.perc, &amp;beolv.fok) == 3) {
+        if (elso || beolv.fok &gt; max.fok)
+            max = beolv;
+        elso = false;
+    }
+    /* ennyi */
+    fclose(fbe);
+
+    /* eredmeny kiirasa, formatumsztring */
+    printf(&quot;%d.%02d.%02d. %02d:%02d %+g\n&quot;,
+           d.ev, d.honap, d.nap,
+           max.ora, max.perc, max.fok);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+<h3>Névsor</h3>
+<p>Egy fájl hallgatók vizsgajegyeit tartalmazza, Neptun-kód, szóköz, jegy, szóköz, név 
+formátumban soronként. Ha a hallgató nem kapott aláírást, a jegy helyén egy mínusz szerepel. 
+Készíts programot, amely statisztikát ír ki a vizsgáról. Például:</p>
+
+<pre>
+AABB12 5 Tehetséges Béla
+CC43EF 4 Pedál Tibi
+BBCC34 - Lógós Feri
+XYYXY1 4 Ezoterikus János
+</pre>
+
+<p>Kimenet:</p>
+
+<pre>
+Jeles: 1 fő
+Jó: 2 fő
+Nem kapott aláírást: 1 fő
+</pre>
+
+
+
+
+
+<h3>Egyszerű preprocesszor</h3>
+
+<p>Írj programot, amely egy egyszerű C preprocesszorként működik. Beolvas egy C forráskódú 
+programot, és a <code>#define</code> sorokat értelmezi, illetve a megadott szavakat cseréli. 
+(Paraméteres makrókat nem kell felismernie.) Példa bemenet:
+
+<pre>
+#define YES 1
+#define NO 0
+fuggveny(a, YES);
+</pre>
+<p>Kimenet:</p>
+<pre>
+fuggveny(b, 1);
+</pre>
+
+<p>Az alábbi egyszerűsítésekkel élhetsz. Elegendő, ha a program maximum 100 makrót tud 
+megtanulni. A makrók neve legfeljebb 30 betűs, a tartalmuk legfeljebb 200 betűs lehet. A sorok 
+maximális hossza 1000 lehet, viszont egy sorban egy makró szerepelhet többször is! 
+Feltételezheted, hogy a forráskódban nincsenek sztringek.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Bináris fájlok">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Bináris fájlok<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Bináris fájlból C forráskód</h3>
+<p>Gyakran praktikus, ha a programjaink bizonyos adatokat nem fájlból olvasnak, hanem a 
+lefordított program eleve tartalmazza azokat. Készíts programot, amely bináris fájlt beolvasva 
+C-s tömböt készít abból. Például ha egy 8 bájtos bináris fájl a 98, 21, 17, 58, 255, 0, 7, 1 
+bájtokat tartalmazza, a program által létrehozott szövegfájl így néz ki:</p>
+<pre>
+unsigned char adat[] = {
+  98, 21, 17, 58, 255, 0, 7, 1,
+};
+const int adat_len=8;
+</pre>
+<p>Figyelj arra, hogy a kimeneti fájl tartalmazzon sortöréseket is, vagyis a vesszővel 
+elválasztott számok ne nyúljanak túl a 80 karakteres képernyőn! (A C a tömbök kezdeti értékének 
+megadásakor megengedi, hogy az utolsó adat után is szerepeljen vessző. A fenti példa is 
+ilyen.)</p>
+
+
+
+
+<h3>Fájlok összehasonlítása</h3>
+<p>Írj olyan programot, amely két bináris fájlt hasonlít össze, és kiírja az eltérések helyét, 
+továbbá az első és második fájlban található különböző bájtokat! Például:
+<pre>
+poz.  f1 f2
+0456  00 12
+0ef3  fe fb
+</pre>
+<p>A nem egyforma méretű fájlokat el se kezdje összehasonlítani!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>Az <code>fread()</code> függvénnyel tudunk a fájlból olvasni, és figyelni kell a 
+<code>"b"</code> betűre a fájl megnyitásánál.</p>
+
+<p>A fájl méretét megadó függvény a C-ben nincs. Helyette azt csinálhatjuk, hogy a végére 
+ugrunk (<code>fseek()</code>), és lekérdezzük a pozíciót (<code>ftell()</code>).</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+/* kulturalt fuggveny: a fajlbol elugrik mashova,
+   de vissza is ugrik oda, ahol eredetileg volt */
+long meret(FILE *fp) {
+    long pos, meret;
+
+    pos = ftell(fp);
+    /* 0 bajt a vegehez kepest, az pont a vege */
+    fseek(fp, 0, SEEK_END);
+    meret = ftell(fp);
+    fseek(fp, pos, SEEK_SET);
+    return meret;
+}
+
+int main(int argc, char *argv[]) {
+    if (argc != 3) {
+        fprintf(stderr, &quot;Ket fajlnevet kerek!\n&quot;);
+        return -1;
+    }
+
+    FILE* f1 = fopen(argv[1], &quot;rb&quot;);
+    if (f1 == NULL) {
+        perror(argv[1]);
+        return 1;
+    }
+    FILE* f2 = fopen(argv[2], &quot;rb&quot;);
+    if (f2 == NULL) {
+        perror(argv[2]);
+        fclose(f1);     /* nagyon kis rendesek vagyunk */
+        return 2;
+    }
+
+    if (meret(f1) != meret(f2)) {
+        fprintf(stderr, &quot;Nem egyforma meretuek!\n&quot;);
+        fclose(f1);
+        fclose(f2);
+        return 3;
+    }
+
+    /* amig sikerul az elso fajlbol olvasni */
+    unsigned char buf1[512], buf2[512];
+    size_t beolv, pos;
+    pos = 0;
+    while ((beolv = fread(buf1, 1, sizeof(buf1), f1)) &gt; 0) {
+        /* ennek is mennie kell */
+        fread(buf2, 1, sizeof(buf2), f2);
+
+        /* csak annyit hasonlitunk, amennyit beolvastunk! */
+        for (int i = 0; i &lt; beolv; i++) {
+            if (buf1[i] != buf2[i])
+                /* pos: eddig feldolgozott bajtok,
+                   +i: a most vizsgalt bajt */
+                printf(&quot;%08x %02x %02x\n&quot;, pos + i, buf1[i], buf2[i]);
+        }
+
+        pos += beolv;
+    }
+
+    fclose(f1);
+    fclose(f2);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+<h3>RLE betömörítés</h3>
+
+<p>Az RLE (run length encoding) az egyik legegyszerűbb tömörítési algoritmus. Lényege, hogy az 
+egymás után következő egyforma bájtokat elég csak egyszer eltárolni, és megjelölni, hogy hányszor
+szerepeltek. Ha pedig nem egyforma bájtok követik egymást, azokat simán átmásolja az RLE.</p>
+
+<p> A tömörített adatunkban 0xbf karakterrel jelöljük az ilyen többszörözést. A 0xbf utáni első 
+karakter az ismétlendő bájt, az azutáni pedig az ismétlések száma!</p>
+
+<p>Írj programot, amelyik egy megadott fájlt betömörítve egy másik fájlba ír! Figyelj arra, 
+hogy ha az eredeti fájlban 0xbf szerepel, azt nem szabad egyszerűen átmásolni, mert akkor a 
+kitömörítő algoritmus ismétlés megjelölésének próbálná értelmezni.</p>
+
+
+
+
+<h3>RLE kitömörítés</h3>
+
+<p>Írd meg a fenti program kitömörítő párját.</p>
+
+
+
+
+<h3>RLE tömörítő</h3>
+
+<p>Dolgozd össze az előző két feladat megoldását egy komplett parancssori alkalmazássá! Az 
+alkalmazással lehessen betömöríteni és kitömöríteni is fájlokat! Az elvégzendő műveletet az első 
+parancssori paraméter, a két fájlnevet (bemenet és kimenet) pedig a második parancssori paraméter
+adja meg!</p>
+
+<pre class="screenshot">
+C:\> rle betomorit input.dat output.rle
+
+C:\> rle kitomorit output.rle input.dat
+</pre>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

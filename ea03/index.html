@@ -1,0 +1,2981 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Függvények, struktúrák</title>
+<meta property="og:title" content="TEST InfoC :: Függvények, struktúrák">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="A switch, continue és break vezérlési utasítások. Program és adat abszrakciója: függvények és struktúrák. Top-down tervezés.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="A switch, continue és break vezérlési utasítások. Program és adat abszrakciója: függvények és struktúrák. Top-down tervezés.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+<script src="fuggveny.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Függvények, struktúrák">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Függvények, struktúrák</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Pohl László, Kohári Zsolt, Nagy Gergely · <i class="ido"></i> 2019.10.07.</p>
+<p class="kivonat">A switch, continue és break vezérlési utasítások. Program és adat abszrakciója: függvények és struktúrák. Top-down tervezés.</p>
+</div>
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="fontos">Újabb vezérlési szerkezetek</a>
+              <li><a href="index.html#2" class="">Hátultesztelő ciklus</a>
+              <li><a href="index.html#3" class="">Spagetti ciklus? break és continue</a>
+              <li><a href="index.html#4" class="">Esetszétválasztás: switch()</a>
+              <li><a href="index.html#5" class="fontos">Függvények</a>
+              <li><a href="index.html#6" class="">Prímszámok 2-től 1000-ig</a>
+              <li><a href="index.html#7" class="">Alprogramok = szubrutinok = függvények</a>
+              <li><a href="index.html#8" class="">Függvény példa: prímek 2-től 1000-ig</a>
+              <li><a href="index.html#9" class="">A függvényhívás menete</a>
+              <li><a href="index.html#10" class="">Függvények egy sorban</a>
+              <li><a href="index.html#11" class="">Függvények paraméterei</a>
+              <li><a href="index.html#12" class="">Paraméterek – a klasszikus hiba</a>
+              <li><a href="index.html#13" class="">Nagyobb program: deklarációk, definíciók</a>
+              <li><a href="index.html#14" class="">A void típus: „semmilyen”</a>
+              <li><a href="index.html#15" class="">Érték és mellékhatás</a>
+              <li><a href="index.html#16" class="">Procedurális/hierarchikus programozás</a>
+              <li><a href="index.html#17" class="">Dekompozíció példa: Cesàro és a π</a>
+              <li><a href="index.html#18" class="fontos">Struktúrák</a>
+              <li><a href="index.html#19" class="">Emlékeztető: típusok</a>
+              <li><a href="index.html#20" class="">Hogyan tároljunk törteket?</a>
+              <li><a href="index.html#21" class="">Összetett típus: struktúrák</a>
+              <li><a href="index.html#22" class="">Struktúrák: típus és változók létrehozása</a>
+              <li><a href="index.html#23" class="">A typedef kulcsszó</a>
+              <li><a href="index.html#24" class="">Struktúrák kezdeti értéke</a>
+              <li><a href="index.html#25" class="">Használhatom, ahogy egy „sima” változót?</a>
+              <li><a href="index.html#26" class="">Típusok láthatósága: lokális és globális</a>
+              <li><a href="index.html#27" class="">Törtes példa: összetett feladat</a>
+              <li><a href="index.html#28" class="fontos">(Többszörösen) összetett adatok</a>
+              <li><a href="index.html#29" class="">Struktúrák vs. tömbök I.</a>
+              <li><a href="index.html#30" class="">Struktúrák vs. tömbök II.</a>
+              <li><a href="index.html#31" class="">Többszörös összetétel: definíciók sorrendje</a>
+              <li><a href="index.html#32" class="">Sztringek és kétdimenziós tömbök</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Újabb vezérlési szerkezetek">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Újabb vezérlési szerkezetek</h1>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Hátultesztelő ciklus">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Hátultesztelő ciklus<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakeloadas">A ciklusmagot egyszer biztosan le kell futtatni?</p>
+
+<p class="csakdoksi">Előfordul, hogy egy ciklus törzsét legalább egyszer biztosan
+le akarunk futtatni, vagy hogy a ciklus feltételének nincs értelme, amíg legalább
+egyszer a törzse le nem futott. A <em>hátultesztelő ciklusban</em> a ciklusfeltétel ellenőrzése a
+ciklusmag <em>után</em> történik. Emiatt a ciklusmag <em>legalább egyszer</em>
+végrehajtódik, tehát az első végrehajtás a <em>feltételtől függetlenül</em>
+megtörténik. A forráskódban is a feltétel alul van. Ez emlékeztet arra, hogy
+csak a ciklusmag után ellenőrzi:</p>
+
+
+<div class="csakdoksi">
+<div class="columns">
+<div>
+    <img class="kozep" src="folyamathatultesztelo.svg" style="height: 12em;" alt="Hátultesztelő ciklus a folyamatábrán">
+</div>
+<div>
+    <img class="kozep" src="struktogramhatultesztelo.svg" style="height: 12em;" alt="Hátultesztelő ciklus struktogramon">
+</div>
+</div>
+</div>
+
+<div class="columns">
+
+<div>
+<pre   ><code class="language-c">do
+   utasítás;
+while (feltétel);</code></pre>
+</div>
+
+<div>
+<pre   ><code class="language-c">do {
+   utasítások…
+} while (feltétel);</code></pre>
+</div>
+
+</div>
+
+<p class="csakdoksi">Példa: 5 darab lottószám – amikor kitalálunk egy újat, megnézzük,
+volt-e már. Ha igen, újra megpróbáljuk. Persze ilyenkor kiadódhat megint
+ugyanaz a szám, de előbb-utóbb a véletlenszámgenerátor dob majd egy különbözőt:</p>
+
+<pre class="eloadassorsurit115"  ><code class="language-cbub">int szamok[5];
+
+for (i = 0; i &lt; 5; i += 1) {
+   do {
+      uj_szam = rand()%90 + 1;
+      van_ilyen = false;        // van már ilyen?
+      for (j = 0; j &lt; i; j += 1)
+         if (szamok[j] == uj_szam)
+            van_ilyen = true;
+   } while (van_ilyen);         // ha van, újra!
+
+   szamok[i] = uj_szam;
+}</code></pre>
+
+<div class="csakdoksi">
+
+<p>Természetesen a fenti programot egy pillanat
+alatt át lehetne írni elöltesztelő ciklusra. Ha elöl
+lenne a <code>van_ilyen</code> tesztelése, csak annyit kellene
+tenni, hogy azt a ciklusba belépés előtt IGAZ-ra állítjuk;
+mert akkor először biztosan bemegyünk a ciklus belsejébe:</p>
+
+<pre   ><code class="language-c">van_ilyen = true;
+while (van_ilyen) {
+    uj_szam = rand()%90+1;
+
+    van_ilyen = false;
+    for (j = 0; j &lt; i; j += 1)
+        if (szamok[j] == uj_szam)
+            van_ilyen = true;
+}</code></pre>
+
+<p>Mi a különbség a kettő között? Az, hogy itt praktikusabb a hátultesztelő, mert egy számot
+biztosan kell sorsolnunk. Még egy különbség van: az elöltesztelőnél kvázi trükközni kell, hogy
+először bemenjünk a ciklusba, és emiatt tartalmaz egy furcsa kódsort. Az oda nem illő sor a
+ciklus előtti <code>van_ilyen = true</code> – ez valami olyasmit állít, ami nem igaz. Hogy állíthatjuk
+azt, hogy <em>már</em> van olyan szám, ha <em>még</em> nem is sorsoltunk?</p>
+
+<p>
+A teljes program a lottószámok generálására letölthető innen: <a href="lotto.c">lotto.c</a>.
+</p>
+
+</div>
+
+<div class="csakdoksi megjegyzes">
+<p><em>Megjegyzés</em> a fenti „előbb-utóbb a véletlenszámgenerátor dob majd egy különbözőt” gondolathoz.
+Valóban, elviekben lehetséges, hogy ez a program soha nem áll le, mert lehetséges az, hogy a véletlenszámgenerátor
+soha nem ad olyan számot, ami jó lenne. De ez nagyon valószínűtlen – valószínűségszámítással meg is lehetne határozni,
+mennyire. Itt most ezzel nem foglalkozunk. Létezik a lottószámok generálására egy teljesen más elvű megoldás is,
+amely garantálhatóan rövid ideig fut: feltöltünk egy tömböt a számokkal 1&hellip;90-ig, aztán megkeverjük a tömböt, és
+vesszük az így kapott tömb első 5 elemét.</p>
+</div>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Spagetti ciklus? break és continue">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Spagetti ciklus? break és continue<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Ciklus megszakítása: <code>break</code></h3>
+<div class="sticky"><code>break</code></div>
+<pre class="sorsurit115"  ><code class="language-c"> while (keresés…) {
+     …
+     if (megvan)
+┌───   break;
+│    …
+│}
+└─▸</code></pre>
+
+
+<h3>Ciklus folytatása, ciklustörzs kihagyása: <code>continue</code></h3>
+<div class="sticky"><code>continue</code></div>
+<pre class="sorsurit115"  ><code class="language-c">┌─▸ while (vannak feldolgozandó elemek…) {
+│     if (a mostani elem nem kell)
+└───     continue;
+
+      …
+    }</code></pre>
+
+<p class="csakdoksi">Ezek az utasítások nem strukturált vezérlési szerkezeteket
+eredményeznek. Csak nagyon indokolt esetben használjuk őket! A <code>break</code>
+és <code>continue</code> használatára egész félévben gyakorlatilag nem fogunk más
+példát mutatni. Legyen az egész félév összes programja példa inkább arra, hogy
+nagyon jól meg lehet lenni <code>break</code> és <code>continue</code> nélkül is.
+(És főleg <code>goto</code> nélkül!)</p>
+
+<p class="csakdoksi">A <code>break</code> és a <code>continue</code> amúgy használhatóak <code>for</code> ciklussal
+is. Vigyázat, a <code>continue</code> utasítás következő iterációra ugrása a <code>for</code> ciklus esetében azt jelenti,
+hogy a ciklus fejlécében megadott műveletet, az utótevékenységet még végrehajtja!</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Esetszétválasztás: switch()">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+  <a id="easwitch" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Esetszétválasztás: switch()<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="columns">
+<div>
+<pre class="screenshot">
+1. Adatbevitel
+2. Módosítás
+3. Kimutatás
+…
+0. Kilépés
+
+Választás: <span class="blink">_</span>
+</pre>
+<pre   ><code class="language-c">if (valasz == 1) {
+    …
+} else if (valasz == 2) {
+    …
+} else {
+    …
+}</code></pre>
+</div>
+<div>
+<img src="folyamatswitch.svg" style="width: 14em;" class="kozep">
+</div>
+</div>
+
+<div class="kozep"><button data-diapopup="switchid">C-ben: <code>switch</code></button></div>
+
+<p class="csakdoksi">A sorozatos <code>if …; else if …</code> kiváltására használható a <code>switch</code>.
+Az <code>if</code> <em>igazságértékre alapozott választás</em> helyett ezzel ún. <em>többszörös választás</em>
+vezérlési szerkezetet lehet megadni a programkódban.</p>
+
+<p class="csakdoksi">Például amikor megkérdezzük a felhasználót, szeretne-e törölni egy fájlt, ötféle választ
+adhat: kicsi és nagy I betű, kicsi és nagy N betű, vagy valami más:</p>
+
+<pre   id="switchid"><code class="language-cbub">printf(&quot;Töröljem a fájlt? (I)gen vagy (n)em? &quot;);
+scanf(&quot; %c&quot;, &amp;valasz);
+
+switch (valasz) {
+    case 'I': /* kis- és nagybetű is jó */
+    case 'i':
+        printf(&quot;Igent válaszoltál, törlöm!\n&quot;);
+        break; // kiugrás
+
+    case 'N':
+    case 'n':
+        printf(&quot;Nemet válaszoltál, meghagyom.\n&quot;);
+        break;
+
+    default:
+        printf(&quot;Érvénytelen válasz!\n&quot;);
+        break;
+}</code></pre>
+
+<div class="csakdoksi">
+
+<p class="megjegyzes">A fenti <code>scanf()</code>-ben a <code>%c</code> előtti
+szóköz szándékos. Ez annyit tesz, hogy a karakter beolvasása előtt kapott összes
+szóköz, újsor és tabulátor (whitespace) karaktert eldobja. Ezekkel az apróságokkal
+az előadásban nem foglalkozunk, csak <a href="../scanf/index.html">külön írásban</a>.</p>
+
+<p>A <code>switch</code> szerkezeten belül az egyes értékekhez tartozó, több
+utasításból álló kódot nem kell utasításblokkba tenni. Az egész egyetlen egy,
+nagy utasítás blokk, amelynek belépési és kilépési pontjait a <code>case</code>-ek
+és a <code>break</code>-ek adják meg. Fogalmazhatunk így is: a <code>
+case</code> kulcsszavakkal jelölt helyek a <code>switch</code> utasításon
+belüli utasításszekvenciába <em>belépési pontok.</em> Amelyiknek megfelel a
+kifejezés értéke, oda ugrik a végrehajtás. Ha nem teszünk <code>break</code>-et
+az utasítások után, akkor a végrehajtás továbbmegy a következő belépési pontnál
+található utasításokra, és végrehajtódnak azok is! (Ennek az angol neve:
+fall-through.) Ezt használjuk ki akkor, amikor több <code>case</code>-t írunk
+egymás után: fent a <code>case 'I'</code> után nincs utasítás, de
+<code>break</code> sincs.</p>
+
+<p>Emiatt szokás az esetek 99%-ában így használni a <code>switch</code> szerkezetet.
+Minden csoportban előbb a <code>case</code>-ek segítségével felsorolt
+lehetőségek, utána az utasítások, végül a <code>break</code>:
+
+<pre   ><code class="language-cbub">switch (kifejezés) {
+    case érték1:      // ha érték1 vagy érték2, kezdd itt
+    case érték2:
+        …
+        break;        // ugorj ki itt
+
+    case érték4:      // ha érték 4, akkor itt kezdd
+        …
+        …
+        …
+        break;        // és itt ugorj ki
+
+    default:          // ha egyik sem (opcionális)
+        …
+        break;
+}</code></pre>
+
+<p>A <code>switch</code> lehetőségei korlátozottabbak annál, mint ami egy
+<code>if – else</code> sorozattal kifejezhető. A legfontosabb megkötés az, hogy
+a <code>case</code> kulcsszavaknál megadott értékek csak egész típusúak lehetnek
+(ide értve természetesen a karaktereket is, mert azok is egész számok). Ráadásul
+konstansoknak, azaz fordítás közben már ismert értékűeknek kell lenniük. A
+<code>switch</code> fejlécében használt kifejezésnek is egész számra kell
+kiértékelődnie, ez a C nyelvben kötelező. A <code>default</code> ág elhagyható.</p>
+
+<p>A <code>switch</code> szerkezettel egy egyszerűbb menürendszert is elkészíthetünk a programunkban.
+Erről <a href="../lab04/index.html#menuvezerelt">egy laborfeladatban</a> lesz szó.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Függvények">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+  <a id="eafunkcionalis" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Függvények</h1>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Prímszámok 2-től 1000-ig">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Prímszámok 2-től 1000-ig<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Számoljuk meg, hány prímszám van 2 és 1000 között!</p>
+
+<div class="columns">
+<div>
+Számlálás tétele
+<pre class="color-red eloadaskicsinyit eloadasbetusurit">
+int db = 0;
+int sz;
+for (sz = 2; sz &lt;= 1000; sz += 1)
+   if (<span class="color-blue">… sz egy prím …</span>)  <span class="bubble">!</span>
+      db += 1;
+</pre>
+
+Eldöntés tétele
+
+<pre class="color-blue eloadaskicsinyit eloadasbetusurit">
+bool van = false;
+int oszt = 2;
+while (oszt &lt; sz &amp;&amp; !van) {
+   if (sz % oszt == 0)
+      van = true;
+   oszt += 1;
+}
+
+</pre>
+</div>
+
+<div>
+Teljes megoldás
+<pre class="eloadaskicsinyit eloadasbetusurit eloadaskisebbpadding">
+<span class="color-red">int sz, db;</span>
+
+<span class="color-red">db = 0;
+for (sz = 2; sz &lt;= 1000; sz += 1){</span>
+   <span class="color-blue">bool van = false;
+   int oszt = 2;
+   while (oszt &lt; sz &amp;&amp; !van) {
+      if (sz % oszt == 0)
+         van = true;
+      oszt += 1;
+   }</span>
+   <span class="color-red">if (!van)
+      db += 1;
+}</span>
+
+printf("%d prím.\n", db);
+</pre>
+</div>
+</div>
+
+<p class="csakdoksi">
+A két egymástól független programrész összedolgozása által egy nehezen értelmezhető program 
+keletkezett. Figyeljük meg: nagyban rontotta az áttekinthetőségét az, hogy az egyik algoritmust bele kellett 
+építenünk a másikba, kettévágva azt. Megírni is nehezebb egy ilyet, hiszen egyszerre több dolgon 
+kell gondolkozni.</p>
+
+<p class="csakdoksi">Figyeljünk meg a fenti kódrészleten még egy dolgot. A vizsgált szám
+prím voltát ellenőrző, kék színű programrész tulajdonképpen önállóan is megállná a helyét:
+van bemenete (a vizsgált <code>sz</code> szám) és kimenete (prím-e vagy nem). Ez emlékeztethet
+minket a matematikai függvényekre: egy <code>f(x) = x²</code> függvény is értelmes önmagában,
+akár egy másik képlet részeként, és ennek is van bemenete (az <code>x</code> szám) és kimenete
+(annak négyzete, szorzata önmagával).</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Alprogramok = szubrutinok = függvények">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    Alprogramok = szubrutinok = függvények<a class="hlink" href="index.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Függvények (function) a C nyelvben</h3>
+
+<p class="csakdoksi">Hasonlóak a matematikai függvényekhez:</p>
+
+<div class="sticky">y = f(x)<br>y = x²</div>
+<pre   ><code class="language-cbub">double negyzet(double x) {
+   return x * x;
+}
+
+int main(void) {
+    printf(&quot;%f&quot;, negyzet(2.3));
+}</code></pre>
+
+<br class="smallskip">
+
+<p class="csakdoksi">Tegyük fel, hogy van egy programrész, amely megmondja egy adott számról, hogy prím-e, vagy nem. A fenti 
+<code>f(x) = x²</code> mintájára képzeljünk el egy <code>prim_e(x)</code> függvényt! Ez a kapott számnak nem a négyzetét fogja 
+visszaadni (pl. <code>negyzet(1.5)</code> &rarr; <code>2.25</code>), hanem a kapott számról megadja majd, hogy prímszám-e vagy nem 
+(pl. <code>prim_e(37)</code> &rarr; <code>true</code> és <code>prim_e(25)</code> &rarr; <code>false</code>). Ha van egy ilyen 
+függvényünk, akkor a prímek számlálása feladat nagyon egyszerűvé válik: a kékkel jelölt „… sz egy prím …” programrész helyére csak 
+annyit kell írnunk, hogy <code>prim_e(sz)</code>.</p>
+
+<div class="columns">
+<div>
+<pre class="color-red">
+if (<span class="color-blue">… sz egy prím …</span>)
+   db += 1;
+</pre>
+</div>
+<div>
+<pre   ><code class="language-cbub">if (prim_e(sz))
+   db += 1;</code></pre>
+</div>
+</div>
+
+<p>Az egész programunk így együttműködő <em>alprogramokból</em> épülhet fel!
+Ezekhez is tartozik <em>specifikáció:</em> bemenet &rarr; kimenet összefüggése.</p>
+
+<p class="csakdoksi">Vegyük észre: azáltal, hogy a függvénynek neve van, a programban akár több 
+helyen is hivatkozhatunk rá: több helyről indulva elvégezhetjük ugyanazt a 
+részfeladatot. Egy bonyolult részfeladat így elemi lépésként is kezelhető. Ha 
+megvan a <code>prim_e()</code> függvényünk, onnantól kezdve ugyanolyan könnyen 
+tudjuk ellenőrizni egy szám prím/nem prím voltát egy <code>if (prim_e(i))</code> 
+sorral, mintha csak annyit kellene ellenőrizni, hogy nulla vagy nem nulla! 
+Azáltal pedig, hogy a függvényeknek paraméterei is lehetnek, ezeket a 
+részfeladatokat tudjuk „konfigurálni”. A <code>printf()</code> függvényt is 
+egyszer megírta valaki, és mindenhol használhatjuk.</p>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Függvény példa: prímek 2-től 1000-ig">
+<div class="slide" id="slide_8">
+
+<a id="8" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">8</span><span class="oldalszamafter">. </span>    Függvény példa: prímek 2-től 1000-ig<a class="hlink" href="index.html#8"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A részfeladatokat külön függvényben írhatjuk meg. Így egy 
+nagyobb program áttekinthetőbb, kezelhetőbb lehet. Sőt a <em>gyakran ismétlődő
+</em> programrészeket is így csak egyszer kell majd megírnunk. A programok így 
+kisebbek, hatékonyabbak lehetnek.</p>
+
+
+
+<div class="columns">
+
+<div>
+<h3>Főprogram</h3>
+<pre class="eloadaskicsinyit eloadaskisebbpadding"  ><code class="language-cbub">int main(void) {
+  int db = 0;
+  for (int s=2; s&lt;=1000; s+=1)
+    if (prim_e(s))
+      db += 1;
+
+  printf(&quot;%d db.\n&quot;, db);
+
+  return 0;
+}</code></pre>
+</div>
+
+<div>
+<h3>Alprogram</h3>
+<pre class="eloadaskicsinyit eloadaskisebbpadding"  ><code class="language-cbub">bool prim_e(int szam) {
+  bool van = false;
+  int o = 2;
+  while (o &lt; szam &amp;&amp; !van) {
+    if (szam % o == 0)
+      van = true;
+    o += 1;
+  }
+  return !van;
+}</code></pre>
+</div>
+
+</div>
+
+<div class="csakeloadas">
+<br class="smallskip">
+<p>Elnevezések: fejléc, függvénytörzs, paraméter, visszatérési érték, hívás, visszatérés, 
+lokális változó, láthatóság, élettartam.</p>
+<p>Dokumentálandó: bemenet, kimenet, feladat, hibalehetőségek.</p>
+</div>
+
+<div class="csakdoksi">
+
+<p>A <code>prim_e()</code> függvény olyan, mint a teljes programunk: van bemenete és kimenete is. Csak ezek 
+nem a képernyő és a billentyűzet, hanem a főprogrammal történő kommunikáció által valósulnak meg:</p>
+
+<img src="alprogram.svg" class="kozep" style="width: 24em;" alt="Főprogram és alprogram kommunikációja">
+
+<h3>Függvények definiálása: szintaktika</h3>
+<pre class="mono">
+<em>visszatérési_típus</em> függvénynév(<em>paraméterlista</em>) {
+   … függvénytörzs …
+
+   return <em>visszatérési_érték</em>;
+}
+</pre>
+
+<p>A <em>fejléc</em> (header) meghatározza a függvény <em>nevét,</em> a <em>paraméterei</em> (parameter)
+és a <em>visszatérési értéke</em> (return value) típusát. A <em>függvénytörzs</em> (function body)
+tartalmazza azt a programrészt, amely a függvény feladatát elvégzi.</p>
+
+<h3>Visszatérés a függvényből</h3>
+
+<p>A függvény <em>törzsében</em> elhelyezett <code>return</code> utasítással
+<em>visszatérhetünk</em> (return) a függvény <em>hívásának</em> (call) helyére.
+Ezzel egyben megadjuk a <em>visszatérési értéket</em> is, amelyet
+egyébként a függvény értékének (function value) is nevezünk. Fontos, hogy a <code>return</code>
+utasítás ezt a két szerepet elválaszthatatlanul összeköti! Ami a <code>return</code>
+után van, az már nem hajtódik végre. (Viszont egy függvényben lehet több helyen
+is <code>return</code> utasítás.)</p>
+
+<h3>Lokális változók</h3>
+
+<ul>
+    <li>A <em>függvényen belül</em> vannak definiálva
+    <li>Függvénybe belépéskor jönnek létre
+    <li><em>Végén megszűnnek</em> &rarr; értékük elveszik
+    <li>Minden függvény csak a sajátjait látja! (láthatóság, scope)
+</ul>
+
+<p>Mi az előnyük? Például az, hogy minden függvénynek
+lehetnek saját lokális változói, amelyekben olyan értékeket tárolnak, amelyekre
+csak a futásuk idején van szükség. A fenti példában az <code>osztó</code>
+változóra nincsen már szükség, amint meghatároztuk, hogy a szám prím-e.
+(A <code>van</code> változó is lokális, és az is megszűnik, azonban az
+értéke lemásolódik, és átadódik a hívónak.) Ezek a változók csak a függvényen
+belül látszanak (a láthatóságuk (scope) csak a függvényen belülre terjed ki),
+és így a nevük csak azon belül értelmezett. Másik függvényeknek
+lehetnek ugyanolyan nevű lokális változóik, a nevek mégsem
+fognak ütközni. További előny, hogy a változó nem foglal memóriát, csak akkor,
+ha az azt definiáló függvény belsejében vagyunk. Vagyis a változó élettartama
+(storage duration, lifetime és extent szavak is használatosak az angol
+szakirodalomban) is csak arra az időre terjed ki, amíg a
+függvény végrehajtása tart.</p>
+
+<h3>A <code>main()</code> függvény</h3>
+<p>Most már tudjuk, hogy a <code>main()</code> is egy függvény. Egy egész 
+számmal kell visszatérjen, amelynek hibajelző szerepe van. Egyelőre mindig 0-ra 
+állítjuk, ami azt jelenti, hogy nincs hiba. Hogy a paraméterei mik, azt a 
+kérdést egyelőre hagyjuk nyitva!</p>
+
+<h3>Függvények dokumentációja</h3>
+
+<p>A függvények olyan kis programrészek, amelyek egy jól elhatárolt részfeladatot 
+hajtanak végre. Ezért egy függvény dokumentálásakor pontosan meg kell határozni, 
+hogy <em>mire való,</em> milyen feladatot hajt végre. A programokhoz hasonlóan 
+rögzíteni kell azt is, hogy <em>milyen bemenetet vár</em> és <em>milyen kimenetet 
+állít elő</em> a futása során. A bemenet dokumentálásához hozzá tartozik a
+<em>bemeneti tartomány</em> leírása is (pl. a négyzetgyököt vonó függvény nem kaphat 
+negatív számot paraméterként). A működés leírásához pedig a <em>hibalehetőségek
+</em> rögzítése. Mindezeket a függvények előtt, a forráskódban, megjegyzés 
+(comment) formájában is meg kell tenni, hogy ezáltal a kód kezelhetővé, 
+karbantarthatóvá váljon. Ahol van hely, ezt meg fogjuk tenni (sajnos az előadás 
+diákra nem mindenhol fér oda ez).</p> </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A függvényhívás menete">
+<div class="slide" id="slide_9">
+
+<a id="9" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">9</span><span class="oldalszamafter">. </span>    A függvényhívás menete<a class="hlink" href="index.html#9"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A lenti animáció a függvényhívás menetét és lokális változók élettartamát mutatja be.</p>
+
+<div class="columns c7030">
+<div>
+<pre class="syntaxhighlighter c">
+<button id="fuggvkovetkezo" class="float">léptet</button><span class="c preprocessor">#include &lt;stdio.h&gt;</span>
+    
+<span class="c color1">int</span> faktorialis(<span class="c color1">int</span> mie) {
+<span class="sor" id="fuggv3">   <span class="c color1">int</span> szorzat = <span class="c number">1</span>;    </span>
+<span class="sor" id="fuggv4">   <span class="c keyword">for</span> (<span class="c keyword">int</span> i = <span class="c number">2</span>; i &lt;= mie; i += <span class="c number">1</span>)    </span>
+<span class="sor" id="fuggv5">      szorzat *= i;    </span>
+<span class="sor" id="fuggv6">   <span class="c keyword">return</span> szorzat;    </span>
+<span>}</span>
+&nbsp;
+<span class="c color1">int</span> main(<span class="c color1">void</span>) {
+   <span class="c color1">int</span> sz;
+   <span class="c color1">int</span> eredm;
+
+<span class="sor" id="fuggv1">   <span class="c function">printf</span>(<span class="c string">&quot;sz = &quot;</span>); <span class="c function">scanf</span>(<span class="c string">&quot;<span>%d</span>&quot;</span><span>,</span> <span>&amp;</span>sz);    </span>
+<span class="sor" id="fuggv2"><span class="sor" id="fuggv7">   eredm = faktorialis(sz);</span>    </span>
+<span class="sor" id="fuggv8">   <span class="c function">printf</span>(<span class="c string">&quot;<span>%d</span>! = <span>%d</span><span>\n</span>&quot;</span><span>,</span> sz<span>,</span> eredm);    </span>
+<span class="sor" id="fuggv9">   <span class="c keyword">return</span> <span class="c number">0</span>;    </span>
+<span>}</span>
+</pre>
+</div>
+
+<div>
+<pre class="screenshot" id="fuggvscreenshot">
+
+
+</pre>
+<pre id="fuggvmainstack" class="stack">
+<em>main()</em>
+
+sz:    <span id="fuggvszam"></span>
+eredm: <span id="fuggveredm"></span>
+</pre>
+
+<pre id="fuggvfaktstack" class="stack hidden">
+<em>faktorialis(<span id="fuggvparam"></span>)</em>
+
+mie: <span id="fuggvmie"></span>
+szorzat: <span id="fuggvszorzat"></span>
+i: <span id="fuggvi"></span>
+
+(vissza): <span id="fuggvvissza"></span>
+</pre>
+</div>
+
+</div>
+
+<div class="csakdoksi">
+
+<p>A függvényhívás a következőképpen történik. Amikor <code>main()</code> függvény meghívja a
+<code>faktorialis()</code> függvényt, létrejönnek az utóbbi lokális változói. Ezek közül
+egyik a függvénynek a paramétere: a <code>mie</code> változó kívülről inicializálva lesz,
+méghozzá azzal az értékkel, amelyet a hívás helyén adunk neki (tehát amelyet a felhasználó
+adott meg). Így a három lokális változó közül az egyik, a paraméter <code>mie</code>
+inicializálva van, a másik kettő pedig – <code>szorzat</code> és <code>i</code> – nem. De
+azok később kapnak értéket a számítás elvégzése közben.</p>
+
+<p>A függvényhívás a <code>return szorzat</code> utasítás hatására fejeződik be. 
+Ekkor a függvény lokális változói <code>mie</code>, <code>szorzat</code> és
+<code>i</code> megszűnnek – de a <code>return</code> utasításnál megadott kifejezés 
+értéke (ami most a <code>szorzat</code>-ba került szám) visszaadódik a hívónak.
+Ez az <code>int</code> típusú érték lesz a <code>main()</code> kódrészletben
+a <code>faktorialis(sz)</code> részkifejezés értéke. Innen folytatódik a <code>main()</code>
+végrehajtása.</p>
+
+<p>A függvény paraméterét és visszatérési értékét a C nyelvben tetszőleges kifejezés
+értékével inicializálhatjuk. Tehát a fenti függvény hívható lenne akár így is: <code>faktorialis(5)</code>,
+vagy így is: <code>faktorialis(sz+6)</code>, amikor is az <code>5!</code> és az <code>(sz+6)!</code>
+értékeket számolná ki. Továbbá egy függvény visszatérését kiváltó <code>return</code> utasítás
+után is tetszőlegesen bonyolult kifejezés állhat: egy függvény befejeződhet akár egy <code>return x</code>,
+akár egy <code>return 5</code>, de akár egy <code>return sin(x)*3 + 1.2</code> utasítással is.
+(Lásd a fentebbi és a lentebbi példákat is!)</p>
+    
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Függvények egy sorban">
+<div class="slide" id="slide_10">
+
+<a id="10" class="namer"></a>
+  <a id="fvegysor" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">10</span><span class="oldalszamafter">. </span>    Függvények egy sorban<a class="hlink" href="index.html#10"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Néha egy függvény olyan rövid, hogy egy sorban leírható.</p>
+
+<p>Ha csak egyszer írjuk és olvassuk a változót:</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">int teglalap(int a, int b) {
+    int t = a * b;
+    return t;
+}</code></pre>
+</div>
+<div>
+<pre   ><code class="language-c">int teglalap(int a, int b) {
+    return a * b;
+}
+</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi">Ebben a példában azt vehetjük észre, hogy egy egyszer írt, egyszer olvasott változónk van. Az első, hosszabb
+változatban a <code>t</code> változóba előbb beírjuk <code>a * b</code> értékét, aztán kiolvassuk onnan. A kiolvasott szám
+mi más lenne, mint <code>a * b</code> – ugyanezt akár a <code>return</code> utasításhoz is írhatjuk, elhagyva a szükségtelen lokális
+változót.</p>
+
+<br class="smallskip">
+
+<p>Ha logikai kifejezés értékével térünk vissza:</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">bool paros_e(int x) {
+    if (x % 2 == 0)
+        return true;
+    else
+        return false;
+}</code></pre>
+</div>
+<div>
+<pre   ><code class="language-c">bool paros_e(int x) {
+    return x % 2 == 0;
+}
+
+
+</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi">Itt azt vehetjük észre, hogy az első változatban a vizsgálat eredménye (nulla-e a maradék vagy más: igaz vagy 
+hamis) éppen a visszatérési értéket adja. Amikor a maradék nulla, akkor az <code>x % 2 == 0</code> kifejezés értéke igaz, és 
+ilyenkor a <code>return true</code>-hoz visz a vezérlési szerkezet. Ha a maradék nem nulla, akkor az <code>x % 2 == 0</code> értéke 
+hamis, és a <code>return false</code>-hoz. Vagyis a kifejezés értéke pont ugyanaz mindkét esetben, mint ami a <code>return</code> 
+utasítások után van, így az esetszétválasztás felesleges.</p>
+
+<p class="csakdoksi">Egyik esetben sem hiba a hosszabb megoldást használni. Egyszerűen csak felesleges és hosszabb.</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Függvények paraméterei">
+<div class="slide" id="slide_11">
+
+<a id="11" class="namer"></a>
+  <a id="eafvparam" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">11</span><span class="oldalszamafter">. </span>    Függvények paraméterei<a class="hlink" href="index.html#11"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre   ><code class="language-cbub">double teglalap_kerulet(double a, double b) {
+   return 2 * (a+b);
+}</code></pre>
+
+<pre   ><code class="language-cbub">printf(&quot;%f&quot;, teglalap_kerulet(2, 3.4)); // a=2, b=3.4</code></pre>
+
+<br class="smallskip">
+
+<p><em>Formális paraméter</em> (parameter): a neveik a függvény fejlécében.</p>
+    <ul>
+    <li class="csakdoksi">Szimbolikus paraméternek is nevezik (symbolic parameter)
+    <li>A függvényen belüli szerep szerint kell elnevezni
+    <li>Automatikusan inicializált lokális változók. <em>Ugyanúgy megszűnnek!</em>
+    </ul>
+
+<p><em>Aktuális paraméter</em> (argument): a hívás helyén adott érték.</p>
+    <ul>
+    <li>Híváskor a megadás sorrendje számít
+    <li class="csakdoksi">Nem csak változó lehet, hanem konstans is
+    </ul>
+
+<p class="csakdoksi">Fontos, hogy a függvény deklarációja helyén a paraméterlista megadásánál <em>minden egyes paraméter
+elé oda kell írni annak típusát.</em> Akkor is, ha azok egyformák.
+Ezért van a fenti függvény fejlécében <code>double a, double b</code>, és
+nem pedig <code class="athuzott">double a,b</code>, ami helytelen szintaktikailag.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Paraméterek – a klasszikus hiba">
+<div class="slide" id="slide_12">
+
+<a id="12" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">12</span><span class="oldalszamafter">. </span>    Paraméterek – a klasszikus hiba<a class="hlink" href="index.html#12"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Mivel a paraméter is lokális változó, a függvényből visszatérve megszűnik 
+létezni. Emiatt a <em>paraméteren keresztül közvetlenül nem lehet visszaadni értéket!</em> A 
+lenti programban is a függvény nem a <code>szum</code> változót, hanem a <code>szum</code> 
+változó <em>tartalmának másolatát kapja csak meg,</em> vagyis 0-t. A <code>szamol()</code>
+függvény <code>szum</code> nevű  lokális változóba tényleg bekerül az összeg, de megszűnik
+a <code>szamol()</code>-ból visszatérés után!</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+void osszeg(int a, int b, int szum) {
+    szum = a + b;  /* ??! */
+}
+
+int main(void) {
+    int szum;
+    
+    szum = 0;
+    printf(&quot;előtte: %d\n&quot;, szum);
+    
+    osszeg(5, 6, szum);
+    printf(&quot;utána: %d\n&quot;, szum);
+    
+    return 0;
+}</code></pre>
+
+<p class="csakdoksi">A probléma megoldására egy <a href="../ea04/index.html#eapointer">későbbi előadáson</a> fogunk visszatérni.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Nagyobb program: deklarációk, definíciók">
+<div class="slide" id="slide_13">
+
+<a id="13" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">13</span><span class="oldalszamafter">. </span>    Nagyobb program: deklarációk, definíciók<a class="hlink" href="index.html#13"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+
+double kerulet(double a, double b); // deklaráció/prototípus
+
+int main(void) {
+   printf(&quot;%f&quot;, kerulet(2, 3.4));
+   return 0;
+}
+
+double kerulet(double a, double b) { // definíció
+   return 2 * (a + b);
+}</code></pre>
+
+<br class="smallskip">
+
+<ul>
+    <li>A fordítónak a <code>main()</code>-nél tudnia kell, mit jelent a <code>kerulet</code>
+    <li class="csakdoksi">Nevét, paraméterek számát és típusát, visszatérés típusát
+    <li>Vagyis <em>deklarálni</em> kell használat előtt; <em>definiálni</em> ráér később is
+    <li>A deklaráció kihagyása <em>hiba!</em>
+</ul>
+
+
+<div class="csakdoksi">
+    
+<p>A fenti példa azt is kiemeli, miért olyan fontos ez. A fordító minden függvényhívás helyén 
+elvégzi a paraméterek ellenőrzését: a függvénynek csak olyan típusú paraméterek adhatóak, 
+amelyeket a fejléce alapján vár. A <code>main()</code>-ben itt a hívás helyén egy érdekes dolog 
+történik. A <code>2</code> konstans egy egész, ezért a típusa <code>int</code> – viszont a 
+fordító tudja, hogy a <code>kerulet()</code> valós paramétert vár, ezért előbb elvégzi a
+2&rarr;2.0 átalakítást. Fordított esetben, pl. egészet váró függvénynek <code>3.14</code>-et adva 
+először egy lefelé kerekítés történne, és a függvény végülis a 3-as számot kapná meg. Az ilyesmit 
+általában figyelmeztető üzenettel jelzik is a fordítók, ugyanis a törtrészt 
+ilyenkor elveszítjük, amit lehet, hogy nem szeretnénk.</p>
+
+<div class="megjegyzes">
+<p>A függvényt egyébként nem szükséges a <code>main()</code> függvény után definiálni, előtte 
+pedig csak deklarálni. Az egész definíció áthelyezhető a <code>main()</code> függvény elé is. 
+Ilyenkor külön deklarációra nincsen szükség, mert a definíció is tartalmazza a nevet és a 
+típusokat. A lényeg az, hogy a függvényhívás helyén a függvény típusának már ismertnek kell 
+lennie:</p>
+
+<pre   ><code class="language-cbub">/* kiszámítja egy a,b oldalú téglalap kerületét */
+double kerulet(double a, double b) { // definíció
+   return 2*(a+b);
+}
+
+int main(void) {
+   printf(&quot;%f&quot;, kerulet(2, 3.4));
+   return 0;
+}</code></pre>
+
+<p>Nagyobb programok esetén azonban nem ez a preferált.</p>
+</div>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A void típus: „semmilyen”">
+<div class="slide" id="slide_14">
+
+<a id="14" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">14</span><span class="oldalszamafter">. </span>    A void típus: „semmilyen”<a class="hlink" href="index.html#14"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="columns">
+<div>
+<pre   ><code class="language-cbub">int beolvas_szam(void) {
+    int sz;
+    scanf(&quot;%d&quot;, &amp;sz);
+    return sz;
+}</code></pre>
+</div>
+<div>
+<pre   ><code class="language-cbub">void kiir_szam(int szam) {
+    printf(&quot;%d&quot;, szam);
+
+    return;
+}</code></pre>
+</div>
+</div>
+
+<pre   ><code class="language-cbub">x = beolvas_szam(); // A híváshoz ilyenkor is kell a ( )
+kiir_szam(x);</code></pre>
+
+<br class="smallskip">
+
+<ul>
+    <li>Ha a függvénynek <em>nincs paramétere</em>, azt a <code>void</code> szóval jelöljük
+    <li>Ha nincs <em>visszatérési értéke</em>, azt is
+       <ul class="csakdoksi">
+       <li>Ilyenkor a <code>return</code> önmagában áll: <code>return;</code>, vagy el is hagyható
+       </ul>
+    
+</ul>
+
+<p class="csakdoksi megjegyzes">Történelmi okokból egy függvény definíciójánál a <code>void</code>
+szó elmaradhat a paraméterlista zárójelei közül, pl. <code>int main()</code>. Ez kicsit mást
+jelent, így jobb, ha a <code>void</code> szót mindig kiírjuk.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Érték és mellékhatás">
+<div class="slide" id="slide_15">
+
+<a id="15" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">15</span><span class="oldalszamafter">. </span>    Érték és mellékhatás<a class="hlink" href="index.html#15"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="columns">
+<div>
+<pre   ><code class="language-c">printf(&quot;%d\n&quot;, fakt(6));
+printf(&quot;%d\n&quot;, fakt(6));
+printf(&quot;%d\n&quot;, fakt(6));</code></pre>
+
+<pre class="screenshot">
+720
+720
+720
+</pre>
+<p><em>Érték:</em> a kifejezés értéke. <span class="csakdoksi">A függvény <em>kiértékelése:</em> a függvény lefut, és a hívás
+helyén lévő kifejezésbe a visszatérési értéke behelyettesíthető.</span></p>
+</div>
+<div>
+<pre   ><code class="language-c">printf(&quot;%d\n&quot;, rand());
+printf(&quot;%d\n&quot;, rand());
+printf(&quot;%d\n&quot;, rand());</code></pre>
+<pre class="screenshot">
+8311623
+2141262
+16641798
+</pre>
+<p><em>Mellékhatás:</em> a függvény valahol változást okoz.
+<span class="csakdoksi">(Ezt mellékhatásnak nevezzük még akkor is, ha kifejezetten ez a célja a függvénynek!)</span></p>
+</div>
+</div>
+
+<br class="smallskip">
+
+<p class="csakdoksi">Általában igyekszünk olyan függvényeket írni, amelyeknek csak értéke 
+vagy csak mellékhatása van. Ennek az elvnek neve is van: <em>command-query separation.</em> 
+Eszerint kétféle függvény van. Az egyik fajta a parancsfüggvény (command), amelyet azért 
+használunk, hogy hatása legyen. A másik fajtának kérdéseket teszünk fel (query), amely kiszámol 
+valamit, de mellékhatása nincs. Ha ez a kettő keveredik, az könnyen összevisszasághoz, 
+átláthatatlan programfelépítéshez és nehezen megtalálható hibákhoz vezet.</p>
+
+<p class="csakdoksi">Ha a függvény értéke csak a paramétereitől függ, mindig ugyanaz kell legyen 
+az eredmény. Ha van mellékhatása, ez nem biztos! Valahol valaminek történnie kell, hogy a 
+<code>rand()</code> mindig mást ad… Ez a függvény például kell rendelkezzen valamiféle belső állapottal. 
+Láthatóan a kimenete nem a bemenő paraméter függvénye, hiszen nincs is neki! Általában sem lenne 
+sok értelme a <code>void</code> paraméterű vagy visszatérési értékű függvényeknek, ha nem lenne 
+mellékhatásuk. Az ilyenek matematikai értelemben véve nem függvények már, de ennek ellenére C-ben 
+így hívjuk őket.</p>
+
+<div class="sticky"><img src="../modulz/halalfej.png" style="display: block"></div>
+
+<p>Fontos: ha a specifikáció <em>nem kéri a kiírást,</em> akkor kifejezetten <em>
+hibának számít,</em> ha a függvény mégis ilyet tesz! <span class="csakdoksi">Például kiírja a 
+képernyőre az eredményt ahelyett, hogy visszatérne vele. Hadd döntse el a hívó, mit szeretne 
+csinálni az eredménnyel!</span></p>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Procedurális/hierarchikus programozás">
+<div class="slide" id="slide_16">
+
+<a id="16" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">16</span><span class="oldalszamafter">. </span>    Procedurális/hierarchikus programozás<a class="hlink" href="index.html#16"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Felülről lefelé tervezés (top-down design)</h3>
+
+<ul>
+   <li>Tervezés <em>egyszerűsítése:</em> „oszd meg és uralkodj”
+   <li>A programrészek közötti <em>csatolások</em> csökkentése
+</ul>
+
+<p class="csakdoksi">A funkcionális dekompozíció (functional decomposition) egy tervezési elv. A 
+másik neve a felülről lefelé (top-down) elv. Lényege, hogy a problémát részfeladatokra bontjuk. 
+Az egész rendszert, programot úgy tervezzük meg, hogy közben a részfeladatokat megoldottnak 
+tekintjük. Az egyes részfeladatok megoldása közben így nem kell a többi részleteivel bajlódni. A 
+részfeladatok ugyanúgy specifikálhatóak, mintha egy teljes programról lenne szó.</p>
+
+<img src="alprogram.svg" style="width: 24em;" class="kozep">
+
+<br class="smallskip">
+
+<blockquote>
+„Az egyik dolog, amit a programozásban meg kell tanulnunk, az az, hogyan hagyjuk <em>figyelmen kívül</em>
+a részleteket.”
+<br>– Gerald J. Sussman
+</blockquote>
+
+<div class="megjegyzes csakdoksi">
+<p>Érdekesség: <a href="http://en.wikipedia.org/wiki/Gerald_Sussman">Gerald Jay Sussman</a> 
+amerikai programozó, matematikus, aki legtöbbet a mesterséges intelligenciával foglalkozik. Az ő 
+nevéhez is fűződik a <a 
+href="http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs">Structure 
+and Interpretation of Computer Programs</a> című könyv megírása is, amelyhez egy programozás 
+alapjait bemutató tárgy is tartozott az MIT egyetemen. A fenti idézet az egyik előadásáról 
+származik. A tárgyat egyébként a saját maguk által kifejlesztett programozási nyelvvel 
+tanították, amelynek a neve <a 
+href="http://en.wikipedia.org/wiki/Scheme_%28programming_language%29">Scheme</a>.</p>
+<p>A top-down tervezést „wishful thinking” néven mutatta be (kb. ábrándozó gondolkodás). Hiszen 
+éppen ez a lényege: „Bárcsak lenne egy olyan függvény, amelyik megmondja egy számról, hogy 
+prímszám-e… Mert ha igen, akkor milyen egyszerű lenne a feladatunk!” Sokszor ezzel a 
+gondolkodásmóddal tudjuk szétválasztani a részfeladatokat.</p>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Dekompozíció példa: Cesàro és a π">
+<div class="slide" id="slide_17">
+
+<a id="17" class="namer"></a>
+  <a id="dekompozicio" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">17</span><span class="oldalszamafter">. </span>    Dekompozíció példa: Cesàro és a π<a class="hlink" href="index.html#17"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A következő feladat a felülről lefelé (top-down) tervezést 
+szemlélteti. Azt kell látni, hogy minden lépésben csak egy kicsit lépünk a 
+megoldás felé; a következő lépést pedig mindig megoldottnak tekintjük.</p>
+
+<div class="sticky">A megoldás<br>egyben:<br><a href="cesaro.c">cesaro.c</a></div>
+
+<p>Ernesto Cesàro (olasz matematikus): válasszunk ki véletlenszerűen két egész 
+számot. Annak a valószínűsége, hogy ezek relatív prímek, 6/&pi;².</p>
+
+<br class="smallskip">
+
+<p>Feladat: írjunk programot, amely megbecsüli a &pi; értékét!</p>
+
+<br class="smallskip">
+
+<div class="kozep">
+    <button data-diapopup="cesaromainid">Főprogram</button>
+    <button data-diapopup="montecarloid">Monte-Carlo</button>
+    <button data-diapopup="lnkoid">LNKO</button>
+</div>
+
+<div id="cesaromainid">
+
+<p class="csakdoksi">Ez a következőképpen nézhet ki. Először is, rendezzük az 
+egyenletet! Tegyük fel, hogy a keresett valószínűséget majd a később
+megírandó <code>cesaro_valoszinuseg()</code> függvény megmondja. Akkor
+a főprogram csak ennyi:</p>
+
+<pre   ><code class="language-cbub">int main(void) {
+    double pi;
+    
+    pi = sqrt(6.0 / cesaro_valoszinuseg());
+    printf(&quot;pi = %f&quot;, pi);
+
+    return 0;
+}</code></pre>
+
+</div>
+
+<div id="montecarloid">
+<p class="csakdoksi">Hogyan írjuk meg ezt a függvényt? Kérdés, hogyan számoljuk ki a valószínűséget.
+Tegyük fel, hogy adott egy <code>cesaro_kiserlet()</code> függvényünk, amely elvégzi a kísérletet
+(két véletlenszerűen választott&hellip;) A részleteivel ne foglalkozzunk, csak ennyit mondjunk egyelőre: 
+térjen ez a függvény vissza igazzal, ha a kísérlet sikerült. Végezzük el ezerszer! A sikeres 
+kísérletek számát 1000-rel osztva megkapjuk a becsült valószínűséget:</p>
+
+<div class="sticky">Monte-Carlo<br>módszer</div>
+
+<pre   ><code class="language-cbub">/* P meghatározása kísérletezéssel */
+double cesaro_valoszinuseg(void) {
+    int db = 0;
+    for (int i = 1; i &lt;= 1000; i += 1)
+        if (cesaro_kiserlet())     // elvégzi a kísérletet
+            db += 1;
+    return db / 1000.0;   /* egész osztás elkerülése! */
+}</code></pre>
+
+<br class="smallskip">
+
+<p class="csakdoksi">Mi a kísérlet? Az, hogy két véletlenszám relatív prím.
+Gyártsunk ehhez 1 és 1000 között véletlenszámokat, és hasonlítsuk a legnagyobb
+közös osztójukat 1-hez. Mert ha 1, akkor ezek relatív prímek, tehát sikerült
+a kísérlet, és ezért igazzal kell visszatérnünk:</p>
+
+<pre   ><code class="language-c">/* A kísérlet: a legnagyobb közös osztójuk 1? */
+bool cesaro_kiserlet(void) {
+    return lnko(rand()%1000 + 1, rand()%1000 + 1)==1;
+}</code></pre>
+
+<div class="csakdoksi megjegyzes">Részletkérdés csak: ezen a ponton a főprogramot
+ki kell egészítenünk egy <code>srand(time(0))</code> függvényhívással, mert
+tudjuk, hogy a véletlenszám-generátort a program indulásakor inicializálni
+kell egyszer.</div>
+
+</div>
+
+
+<div id="lnkoid">
+
+<p class="csakdoksi">Már csak annyi a dolgunk, hogy két szám
+legnagyobb közös osztóját meghatározzuk. Ehhez
+<a href="http://en.wikipedia.org/wiki/Euclidean_algorithm#Implementations">Euklidész módszerét</a>
+megnézhetjük a Wikipédián is. A pszeudokódot csak át kell írni C-be:</p>
+
+<div class="sticky csakdoksi" style="width: 35%;">
+„Az euklidészi algoritmus minden algoritmusok nagyapja. Ez a legrégebbi nemtriviális algoritmus, amelyet mindmáig használunk.”<br>– Donald Knuth
+</div>
+
+<pre   ><code class="language-cbub">/* visszatér a két szám legnagyobb közös osztójával. */
+int lnko(int a, int b) {
+    while (b != 0) {
+        int t = b;
+        b = a%b;
+        a = t;
+    }
+    return a;
+}</code></pre>
+
+<p class="csakdoksi megjegyzes">Érdekesség: <a 
+href="http://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a> amerikai programozó. 
+Leghíresebb műve a „Számítógépprogramozás művészete” (<a 
+href="http://en.wikipedia.org/wiki/The_Art_of_Computer_Programming">The Art of Computer 
+Programming</a>) című többkötetes könyv. Az ő nevéhez fűződik a <a 
+href="http://en.wikipedia.org/wiki/TeX">TeX</a> nevű szövegszedő program kifejlesztése is, 
+amelynek különféle változatait most is használják könyvek, folyóiratok szerkesztéséhez, 
+szedéséhez. Az elterjedt irodai programcsomagokkal készített dokumentumok külleme meg sem 
+közelíti azt, ami a TeX segítségével elérhető!</p>
+
+<h3>Az eredmény</h3>
+
+<p>... és kész. A programot lefuttatva megkapjuk a &pi; közelítő értékét.</p>
+
+<pre class="screenshot">
+3.131121
+<span class="blink">_</span>
+</pre>
+
+</div>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Struktúrák">
+<div class="slide" id="slide_18">
+
+<a id="18" class="namer"></a>
+  <a id="eastrukturak" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Struktúrák</h1>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Emlékeztető: típusok">
+<div class="slide" id="slide_19">
+
+<a id="19" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">19</span><span class="oldalszamafter">. </span>    Emlékeztető: típusok<a class="hlink" href="index.html#19"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="sticky">Ismétlés<br>(1. előadás)</div>
+
+<blockquote>
+<p><em>Típus:</em> értékkészlet és hozzá tartozó műveletek.</p>
+</blockquote>
+
+<br class="smallskip">
+
+<p>Egyszerű, beépített típusok:</p>
+<ul>
+   <li>Egész számok: <code>int</code>, <code>long int</code> stb.
+   <li>Lebegőpontos számok: <code>float</code>, <code>double</code>
+   <li>Karakterek: <code>char</code>
+   <li>Logikai: <code>bool</code>
+</ul>
+
+<br class="smallskip">
+
+<p>Összetett, származtatott típusok:</p>
+<ul>
+   <li><em>Tömb:</em> egyforma típusú elemek sorszámozott tárolója
+   <li><em>Struktúra:</em> összetartozó adatok – erről lesz most szó.
+</ul>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Hogyan tároljunk törteket?">
+<div class="slide" id="slide_20">
+
+<a id="20" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">20</span><span class="oldalszamafter">. </span>    Hogyan tároljunk törteket?<a class="hlink" href="index.html#20"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  <h3>Racionális számok</h3>
+
+<p class="csakdoksi">Tegyük fel, hogy egy olyan programot kell készítenünk, amely
+racionális számokkal dolgozik. Hogy ezeket pontosan tudjuk tárolni, a lebegőpontos
+tárolás ötletét elvetjük: mindig külön tároljuk a számlálót és a nevezőt, két
+egész típusú változóban. Ahogy írjuk a programot, azonban egyre bonyolultabb
+kifejezéseink lesznek; egyre nehezebb lesz követni, hogy melyik törtes
+műveletet mely változókon kell elvégezni. Pl. az alábbi művelet:</p>
+
+<pre style="line-height: 0.75;">
+┌ a   c ┐   ┌ e   g ┐   ad+cb   eh+gf   (ad+cb)(eh+gf)
+│ ─ + ─ │ · │ ─ + ─ │ = ───── · ───── = ──────────────
+└ b   d ┘   └ f   h ┘     bd     fh          bdfh
+</pre>
+
+<div class="sticky">Mi tartozik<br>össze?!</div>
+
+<p class="csakdoksi">Kódban ez így nézne ki:</p>
+
+<pre   ><code class="language-cbub">i = (a*d+c*b)*(e*h+g*f);
+j = b*d*f*h;</code></pre>
+
+<br class="smallskip">
+
+<p><span class="csakdoksi">Még ha be is vezetünk valami konvenciót a jelölésre (pl. <code>asz</code> és <code>an</code>
+az <code>a</code> tört számlálója és nevezője), akkor is elég reménytelennek tűnik a helyzet.</span>
+Két tört számlálója és nevezője – ez se sokkal jobb: </p>
+
+<pre   ><code class="language-cbub">int asz, an, bsz, bn; // a és b tört, számlálók és nevezők</code></pre>
+
+
+<p>Mi hiányzik nekünk? Az adat absztrakciója! <span class="csakdoksi">
+Az hiányzik, hogy az adattípusokból ugyanúgy tudjunk építkezni,
+ahogyan az algoritmusoknál a függvényekkel is tettük. Legyen olyan
+nyelvi elem, amely segítségével több összetartozó adatot egységként
+kezelhetünk, és néven is nevezhetjük az így kialakult adatcsomagot.</span></p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Összetett típus: struktúrák">
+<div class="slide" id="slide_21">
+
+<a id="21" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">21</span><span class="oldalszamafter">. </span>    Összetett típus: struktúrák<a class="hlink" href="index.html#21"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>A struktúrák fogalma</h3>
+
+<div class="sticky" style="line-height: 0.65">szaml<br>─────<br> nev </div>
+
+<p class="csakdoksi">A struktúrák arra jók, hogy egy új típust hozzunk vele létre. Ez a típus egyedi lesz, saját névvel fog 
+rendelkezni a programban. A struktúrák segítségével összetett dolgokat (pl. racionális számokat) tudunk egyszerűbb, meglévő 
+típusokkal (két egész szám, számláló és nevező) reprezentálni. A strukturák által <em>összetartozó adatokat</em> tudunk egységként 
+kezelni.</p>
+
+<ul class="csakeloadas">
+    <li>Összetartozó adatok egységként
+    <li>Új típus létrehozása
+    <li>Absztrakt fogalom reprezentációja egyszerűbb típusokkal
+</ul>
+
+<br class="smallskip">
+
+<p>A törteket <em>egységként</em> kezelve, struktúrával:
+<pre   ><code class="language-cbub">typedef struct Tort {
+    int szaml, nev; // tört: számláló és nevező
+} Tort;
+
+Tort a, b, c, d, x; // mindegyiknél számláló, nevező
+
+x = szorzat(osszeg(a, b), osszeg(c, d));  // (a+b)*(c+d)</code></pre>
+
+<p class="csakdoksi">A változók és típusok elnevezésénél érdemes figyelni a következetességre,
+mert az megkönnyíti a programok írását és megértését. Sok helyen
+szabályokat is alkotnak erre, amelyeket egy adott cégnél vagy programozói
+közösségnél szigorúan betartanak. Egyik ilyen elterjedt szokás az, hogy a saját típusok
+neveit nagybetűvel kezdik, a változókat pedig kicsivel. Ezért lett a tört
+struktúra neve a fenti példákban a nagybetűs <code>Tort</code>, az egyes példányok neve
+pedig a kisbetűs <code>a</code> és <code>b</code>.</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Struktúrák: típus és változók létrehozása">
+<div class="slide" id="slide_22">
+
+<a id="22" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">22</span><span class="oldalszamafter">. </span>    Struktúrák: típus és változók létrehozása<a class="hlink" href="index.html#22"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="columns">
+<div>
+<h3>Definíció szintaxisa</h3>
+<pre class="c">
+struct <strong>név</strong> { <span class="bubble">definíció</span>
+   <strong>T1</strong> mező1, mező2, …;
+   <strong>T2</strong> mező3;
+   …
+};           <span class="bubble">pontosvessző!</span>
+</pre>
+</div>
+<div>
+<h3>Definíció és példányosítás</h3>
+<pre   ><code class="language-cbub">struct Tort {
+    int szaml, nev;
+};
+
+struct Tort t1, t2;</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi">Az egyes mezők deklarációjának szintaktikája megegyezik a változók deklarációinak szintaktikájával: 
+<code>Típus&nbsp;név;</code>. Csak itt nem változó lesz belőlük, hanem egy struktúra adattagjai lesznek. T1, T2… bármilyen, már 
+létező típusok lehetnek. A struktúra neve is bármi lehet, ami még nem foglalt. Hasonlóan, a mezők különböző nevűek kell legyenek – 
+azonban az megengedett, hogy különböző struktúrák ugyanolyan mezőneveket tartalmazzanak. Pl. a Pont2D struktúra mezői lehetnek x és 
+y, a Pont3D struktúra mezői pedig x, y és z.</p>
+
+<br class="smallskip">
+
+<h3>Mezőkre (adattagokra) hivatkozás</h3>
+
+<pre class="screenshot float">
+t1 tört: 3/4
+</pre>
+
+<pre   ><code class="language-cbub">struct Tort t1;
+
+t1.szaml = 3;  // a számlálója legyen 3
+t1.nev = 4;
+
+printf(&quot;t1 tört: %d/%d&quot;, t1.szaml, t1.nev);</code></pre>
+
+<p class="csakdoksi">A struktúra <strong>mezőkből</strong> áll, más néven: <em>tagok</em> vagy adattagok (member). Adott mezőre 
+ponttal hivatkozunk: változó.mezőnév. Pl. <strong><code>t1.szaml</code> jelentése: a <code>t1</code> tört számlálója.</strong> 
+Ebben <code>t1</code> típusa <code>struct Tort</code>, <code>t1.szaml</code> típusa pedig <code>int</code>. Egy adattag teljesen 
+ugyanúgy tud viselkedni, mint bármelyik másik változó: érték adható neki, kifejezésekben szerepelhet, <code>printf()</code> kiírja, 
+<code>scanf()</code> beolvassa. Sajnos ez utóbbi függvények a struktúrát egészében nem tudják kezelni, csak az egyes beépített
+típusú adattagokat.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A typedef kulcsszó">
+<div class="slide" id="slide_23">
+
+<a id="23" class="namer"></a>
+  <a id="eatypedef" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">23</span><span class="oldalszamafter">. </span>    A typedef kulcsszó<a class="hlink" href="index.html#23"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A <code>typedef</code> kulcsszóval egy típusnak adhatunk új nevet:</p>
+
+<pre   ><code class="language-cbub">typedef int Egesz; // meglévő név és új név
+typedef char Betu;
+
+Egesz x;           // x egész, vagyis int
+Betu b;</code></pre>
+
+<p class="csakdoksi">A <code>typedef</code> kulcsszóval egy meglévő típusnak
+adhatunk egy új nevet. Olyan nevet érdemes adni, amelyik számunkra beszédesebb és
+jobban kifejezi az adott típus szerepét. Itt is hasonló a szintaktika, mint a
+változó deklarációjánál. Csak a névből nem változó
+neve lesz, hanem a típusnak egy másik neve.</p>
+
+<br class="smallskip">
+
+<p>Struktúráknál gyakran használjuk. Lássuk egy másik példán:</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-cbub">struct Pont {
+    double x, y;
+};
+typedef struct Pont Pont;
+
+Pont p;</code></pre>
+</div>
+<div>
+<pre   ><code class="language-cbub">/* röviden, egyszerre: */
+typedef struct Pont {
+    double x, y;
+} Pont;
+
+Pont p;</code></pre>
+</div>
+</div>
+
+<p>Mindkét forma ugyanazt jelenti.</p>
+
+<div class="csakdoksi">
+
+<p>A struktúrák esetén leginkább arra használjuk, hogy spórolni lehessen a gépeléssel: <code>typedef struct Pont Pont</code> után 
+nem kell mindig kiírni, hogy <code>struct Pont</code>, elég annyit, hogy <code>Pont</code>. Lustaság, fél egészség. A jobb oldalt 
+látható szintaktikával a struktúra definíciója és az új név megadása összevonható. Ilyenkor a struktúrának nem is lenne kötelező 
+nevet adni, vagyis az első <code>Pont</code> szó elhagyható lenne. Ilyennel is gyakran találkozni C programokban. A struktúra maga 
+ilyenkor névtelen (anonymous structure):</p>
+
+<pre   ><code class="language-c">typedef struct {
+    double x, y;
+} Pont;</code></pre>
+
+<p>A struktúra neve (Pont), és a <code>typedef</code> segítségével adott név nem kötelezően egyforma. De ha nem így teszünk, csak 
+összevisszaságot okozunk vele, úgyhogy érdemes úgy megadni, hogy egyformák legyenek.</p>
+
+</div>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Struktúrák kezdeti értéke">
+<div class="slide" id="slide_24">
+
+<a id="24" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">24</span><span class="oldalszamafter">. </span>    Struktúrák kezdeti értéke<a class="hlink" href="index.html#24"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Struktúrák inicializálása</h3>
+
+<pre   ><code class="language-cbub">typedef struct Pont {
+    double x, y;
+} Pont;
+
+Pont p1 = { 2, 5 };   // p.x = 2 és p.y = 5 lesz</code></pre>
+
+<p class="csakdoksi">Az egyes értékek a <em>definíció sorrendje</em> szerint meghatározott
+módon kerülnek a mezőkbe. Vigyázni kell, ha megváltoztatjuk a sorrendet!</p>
+
+<p class="csakdoksi">Nagyon fontos megérteni az értékadás és az inicializálás
+közötti különbséget. Az inicializálás azt jelenti, hogy egy éppen definiálás
+alatt lévő változónak megadjuk a kezdeti értékét; az értékadás pedig az, hogy
+egy már létező, régebben létrejött változónak adunk valami új értéket.
+A kettő nem ugyanaz, csak mindkettőt szintaktikailag az egyenlőségjellel
+kell jelezni.</p>
+
+<br class="smallskip">
+
+<h3>Struktúra típusú literális</h3>
+<pre   ><code class="language-cbub">Pont p2 = { .x = 2, .y = 5 };    // inicializálás
+
+p2 = (Pont) { 2, 5 };            // értékadások
+p2 = (Pont) { .x = 2, .y = 5 };</code></pre>
+
+<p class="csakdoksi">A C nyelv újabb (C99 szabvány utáni) változataiban ilyet is lehet írni.
+A fenti inicializálás egyébként kiváltható a <code>.x</code> és <code>.y</code> nélküli formával,
+ahol a definíció sorrendjét használjuk; a lentebbi értékadások pedig a mezőknek
+egyesével értékadással:</p>
+
+<pre class="csakdoksi"  ><code class="language-c">p2.x = 2;
+p2.y = 5;</code></pre>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Használhatom, ahogy egy „sima” változót?">
+<div class="slide" id="slide_25">
+
+<a id="25" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">25</span><span class="oldalszamafter">. </span>    Használhatom, ahogy egy „sima” változót?<a class="hlink" href="index.html#25"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  <h3>Értékadás</h3>
+<pre   ><code class="language-cbub">Pont p1, p2;
+p1 = p2;</code></pre>
+
+<p class="csakdoksi">A struktúra értékadás minden mezőt másol: a fenti példában <code>p1.x=p2.x; p1.y=p2.y;</code>.</p>
+
+<h3>Függvény paramétere, visszatérési értéke</h3>
+<pre   ><code class="language-cbub">/* megadja a pont origótól mért távolságát */
+double origo_tavolsag(Pont p) {
+    return sqrt(p.x*p.x + p.y*p.y);
+}
+
+/* megadja a szakaszfelezőt */
+Pont szakaszfelezo(Pont p1, Pont p2);</code></pre>
+
+<pre   ><code class="language-cbub">Pont a, b, c;
+a = szakaszfelezo(b, c);
+printf(&quot;%f&quot;, origo_tavolsag(a));</code></pre>
+
+<p class="csakdoksi">Struktúra lehet függvény paramétere és visszatérési
+értéke is. A paraméterátadás szabályai ugyanazok, mint az egyszerű típusoknál:
+ha változót adunk át, akkor a függvény csak a változó értékét fogja látni,
+az eredeti változót nem. Tehát nem tudja megváltoztatni azt.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Típusok láthatósága: lokális és globális">
+<div class="slide" id="slide_26">
+
+<a id="26" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">26</span><span class="oldalszamafter">. </span>    Típusok láthatósága: lokális és globális<a class="hlink" href="index.html#26"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A típusokat általában <em>globálisan</em> adjuk meg: mindenhol látszódjanak.</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-cbub">/* globálisan */
+typedef struct Pont {
+    double x, y;
+} Pont;
+
+
+int fuggveny(void) {
+    Pont p1, p2; // látható
+}
+
+int masik_fuggveny(void) {
+    Pont p;      // itt is
+}</code></pre>
+</div>
+
+<div>
+<pre   ><code class="language-cbub">/* lokálisan */
+int fuggveny(void) {
+    typedef struct Pont {
+        double x, y;
+    } Pont;
+
+    Pont p1, p2; // látható
+}
+
+/* Ez így HIBÁS! */
+int masik_fuggveny(void) {
+    Pont p;     // ismeretlen!
+}</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi"> A saját típusainkat definiálhatjuk <em>lokálisan</em> és <em>globálisan</em>. A típusok általában azért 
+globálisak, mert a programunk adatai azokon belül több helyen is előkerülnek. Vagyis több függvényben is. Ennek ellenére 
+természetesen lehetséges az, hogy egy adott típus csak egy függvényen belül létezik. Ha csak ott használjuk, akkor érdemes 
+lokálisan megadni, mert akkor követhetőbb a program mások számára.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Törtes példa: összetett feladat">
+<div class="slide" id="slide_27">
+
+<a id="27" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">27</span><span class="oldalszamafter">. </span>    Törtes példa: összetett feladat<a class="hlink" href="index.html#27"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Racionális számok</h3>
+
+<div class="sticky">A teljes<br>megoldás:<br><a href="tort.c">tort.c</a></div>
+
+<p>Feladat: a C nyelv nem tartalmaz <em>racionális szám</em> típust. Hozzunk létre egyet! Írjuk meg
+az ezeket összeadni, szorozni, kiírni tudó programrészeket!</p>
+
+<br class="smallskip">
+
+<h3 class="csakdoksi">Megoldás</h3>
+<ul class="csakdoksi">
+   <li><strong>Ez új típus!</strong> Saját értékkészlet és műveletek!
+   <li>Összetartozó adatok is. Ezért ez egy <em>struktúra</em> lesz!<br>
+   <li>A műveletek pedig <em>függvények.</em>
+</ul>
+
+<br class="smallskip">
+
+<div class="kozep">
+    <button data-diapopup="strukturadivid">Struktúra</button>
+    <button data-diapopup="kiirasdivid">Kiírás</button>
+    <button data-diapopup="valosertekdivid">Valós érték</button>
+    <button data-diapopup="osszeadasdivid">Összeadás</button>
+    <br>
+    <br>
+    <button data-diapopup="tesztdivid">Teszt</button>
+    <button data-diapopup="egyszerusitesdivid">Egyszerűsítés</button>
+    <button data-diapopup="muveletekdivid">Műveletek</button>
+    <button data-diapopup="beolvasasdivid">Beolvasás</button>
+</div>
+
+<div id="strukturadivid">
+<h3>A törtek struktúrája</h3>
+
+<pre   ><code class="language-cbub">typedef struct Tort { // függvényen kívül: globális
+    int szaml, nev;
+} Tort;
+
+int main(void) {
+    Tort t1;           // a typedef miatt elég annyi, hogy Tort
+
+    t1.szaml = 1;      // 1/2
+    t1.nev = 2;
+
+    return 0;
+}</code></pre>
+<p>Mivel a struktúrát több függvény is használja, globálisan definiáljuk.</p>
+</div>
+
+
+
+<div id="kiirasdivid">
+<h3>Tört kiírása</h3>
+
+<p>A <code>printf()</code> nem ismeri a tört típust, ezért
+a kiírást nekünk kell megoldanunk. Ezt szeretnénk:</p>
+
+<pre   ><code class="language-cbub">Tort t1;
+
+t1.szaml = 2;
+t1.nev = 3;
+tort_kiir(t1); // 2/3 jelenjen meg</code></pre>
+
+<p>A függvény <em>nem tér vissza semmivel,</em> csak kiírja a törtet.</p>
+
+<pre   ><code class="language-cbub">/* Kiírja a törtet számláló/nevező alakban */
+void tort_kiir(Tort t) {
+    printf(&quot;%d/%d&quot;, t.szaml, t.nev);
+}</code></pre>
+</div>
+
+
+
+
+
+
+<div id="valosertekdivid">
+<h3>Tört valós értéke</h3>
+
+<p>Szükségünk lehet a tizedes törtre is:</p>
+<pre   ><code class="language-cbub">Tort x = {2, 3};
+
+printf(&quot;%f\n&quot;, tort_valos(x)); // 0.666667</code></pre>
+
+<p>A függvény egy törtből csinál <code>double</code> típusú lebegőpontos számot.</p>
+
+<br class="smallskip">
+
+<pre   ><code class="language-cbub">/* Visszatér a tört lebegőpontos értékével */
+double tort_valos(Tort t) {
+    return (double)t.szaml / t.nev;
+}</code></pre>
+
+<p>Vigyázni: ne egész osztást végezzünk! Különben 2/3 = 0.</p>
+</div>
+
+
+
+
+
+
+
+
+<div id="osszeadasdivid">
+<h3>Törtek összeadása</h3>
+
+<pre   ><code class="language-cbub">osszeg = tort_osszead(a, b);</code></pre>
+
+<br class="smallskip">
+
+
+<p>A szorzat lehet közös nevező. Két törtet összegző függvény:</p>
+
+<pre class="sticky" style="line-height: 0.7; text-align: left;">
+a   c   ad+cb
+─ + ─ = ─────
+b   d     bd
+</pre>
+
+<pre   ><code class="language-cbub">/* visszatér a két tört összegével */
+Tort tort_osszead(Tort t1, Tort t2) {
+    Tort uj;
+
+    uj.szaml = t1.szaml*t2.nev + t2.szaml*t1.nev;
+    uj.nev = t1.nev*t2.nev;
+
+    return uj;
+}</code></pre>
+
+</div>
+
+
+
+
+
+<h3 class="csakdoksi">Törtek összeadása – eredmény?!</h3>
+
+<p class="csakdoksi">Itt tartunk most:</p>
+
+<div id="tesztdivid">
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct Tort {
+    int szaml, nev;
+} Tort;
+
+void tort_kiir(Tort t);
+Tort tort_osszead(Tort t1, Tort t2);
+
+int main(void) {
+    Tort x = {1, 2}, y = {1, 4};
+
+    tort_kiir(tort_osszead(x, y));
+
+    return 0;
+}
+
+void tort_kiir(Tort t) {
+    printf(&quot;%d/%d&quot;, t.szaml, t.nev);
+}
+
+Tort tort_osszead(Tort t1, Tort t2) {
+    Tort uj;
+
+    uj.szaml = t1.szaml*t2.nev
+             + t2.szaml*t1.nev;
+    uj.nev = t1.nev*t2.nev;
+
+    return uj;
+}</code></pre>
+
+<div class="csakdoksi">
+<p>A program futási eredménye:</p>
+<pre class="screenshot">
+6/8
+</pre>
+<p>Ez helyes is, és nem is. Helyes, mert 6/8 az 3/4, és az összeg tényleg annyi.
+De lehetne jobb is, ha a program egyszerűsíteni is tudna.</p>
+</div>
+
+</div>
+
+
+
+<div id="egyszerusitesdivid">
+<h3>Tört létrehozása – egyszerűsítve!</h3>
+
+<pre   ><code class="language-cbub">x = tort_letrehoz(50, 100); // 1/2</code></pre>
+
+<p class="csakdoksi">Nagyon fontos itt a függvény filozófiája. A két egész szám összerakva nem
+csak egyszerűen két egész szám együtt, hanem egy tört. Speciálisabb, mint egy sima számpár.
+Ezért amikor egy törtet „építünk”, azaz létrehozunk két egész számból, akkor el kell végeznünk
+egy egyszerűsítést rajta. Az egyszerűsített tört egyenértékű az összes bővített változatával.
+Innentől kezdve, hogy ez a függvényünk megvan, mindig ezt fogjuk használni akkor, amikor egy
+számlálóból és egy nevezőből létrehozunk egy törtet. Így minden törtünk egyszerűsítve lesz! Sőt
+aki a törtes függvényeinket használja, annak is azt javasoljuk, hogy minden törtet ezzel a
+függvénnyel hozzon létre, ne pedig struktúra inicializálással vagy pedig „kézi” értékadással
+külön a számlálónak és a nevezőnek. Így neki sem kell törődnie majd az egyszerűsítéssel.</p>
+
+<br class="smallskip">
+
+<pre   ><code class="language-cbub">/* Törtet hoz létre, egyszerűsítve */
+Tort tort_letrehoz(int szaml, int nev) {
+    Tort uj;
+    int a = szaml, b = nev;
+    while (b != 0) {    // Euklidész
+        int t = b;
+        b = a%b;
+        a = t;
+    }
+    uj.szaml = szaml/a;
+    uj.nev = nev/a;   // legnagyobb közös osztó = a
+    return uj;
+}</code></pre>
+
+<p class="csakdoksi">Az euklidészi algoritmus megkeresi két szám
+legnagyobb közös osztóját. Ezzel osztva a számlálót és a nevezőt
+megkapjuk az egyszerűsített törtet.</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="csakdoksi">
+<h3>Törtek összeadása és szorzása – most már helyesen</h3>
+
+</div>
+
+
+
+<div id="muveletekdivid">
+
+<pre   ><code class="language-cbub">/* műveletek törtekkel */
+osszeg = tort_osszead(a, b);
+szorzat = tort_szoroz(a, b);</code></pre>
+
+<p class="csakdoksi">Az összeadást és a szorzást megvalósító függvények:</p>
+<pre   ><code class="language-cbub">/* Visszatér a törtek összegével. */
+Tort tort_osszead(Tort t1, Tort t2) {
+   return tort_letrehoz(t1.szaml*t2.nev + t2.szaml*t1.nev,
+                        t1.nev*t2.nev);
+}</code></pre>
+
+<pre class="sticky mono" style="line-height: 0.7">
+a c   ac
+─·─ = ──
+b d   bd
+</pre>
+
+<pre   ><code class="language-cbub">/* Visszatér a törtek szorzatával. */
+Tort tort_szoroz(Tort t1, Tort t2) {
+    return tort_letrehoz(t1.szaml*t2.szaml,
+                         t1.nev*t2.nev);
+}</code></pre>
+
+<p class="csakdoksi">Az összeadás most már elvégzi az egyszerűsítést
+is, hiszen a törtet létrehozó függvény tartalmazza azt is. Egyszerűbb
+lett a függvény, hiszen a lokális változóra sincsen már szükség. Amit
+a <code>tort_letrehoz()</code> visszaad, azt passzolja is tovább a
+hívónak. A szorzás ugyanígy működik programozásilag, és a többi művelet:
+kivonás, osztás sem különböző.</p>
+
+</div>
+
+
+
+
+<div id="beolvasasdivid">
+<h3>Tört beolvasása</h3>
+
+<p>Olvassunk be egy törtet a billentyűzetről:</p>
+<pre class="screenshot float">
+Írd be a törtet:
+6/8<span class="blink">_</span>
+</pre>
+<pre   ><code class="language-c">Tort t;
+
+t = tort_beolvas();</code></pre>
+
+<br class="smallskip">
+
+<pre   ><code class="language-c">/* beolvas egy törtet a billentyűzetről, és visszaadja */
+Tort tort_beolvas(void) {
+    int szam, nev;
+    scanf(&quot;%d / %d&quot;, &amp;szam, &amp;nev);
+    return tort_letrehoz(szam, nev);
+}</code></pre>
+
+<p>Mi történik, ha nem számot ír be? Ha 0 nevezőt ad?</p>
+
+</div>
+
+
+
+<div class="csakdoksi">
+<p>
+Kérdés, mit csináljunk akkor, ha a billentyűzetről nem érvényes adat érkezik.
+Akár nincs a két szám között törtvonal, akár a felhasználó nem számot ír be,
+akár nullát ad meg nevezőnek – sok okból lehet helytelen az adat.
+Ha a függvényt a fenti formában írjuk meg, akkor mindenképpen vissza kell térnünk
+egy törttel (hiszen ez a függvény visszatérési értéke). Na de mi legyen ez a tört
+hiba esetén? 1/1? 0/0?
+Valamilyen módon a hibát jó lenne jelezni. 1/1 nem lehet a visszatérési érték,
+mert az egy helyes tört. A 0/0 talán jobb ötlet lenne.
+</p>
+<p>
+A probléma igazából onnan
+gyökerezik, hogy a függvénynek nem egy, hanem két eredményt kell előállítania.
+Egy hibakódot (sikerült vagy nem sikerült), és magát a törtet. A fenti függvénynek pedig csak egy
+visszatérési értéke van.
+A következő előadáson bemutatott módszerrel lehetségessé válik majd több visszatérési
+érték adása egy függvényből.
+</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="(Többszörösen) összetett adatok">
+<div class="slide" id="slide_28">
+
+<a id="28" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">(Többszörösen) összetett adatok</h1>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Struktúrák vs. tömbök I.">
+<div class="slide" id="slide_29">
+
+<a id="29" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">29</span><span class="oldalszamafter">. </span>    Struktúrák vs. tömbök I.<a class="hlink" href="index.html#29"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<img class="float" src="konyv.svg" style="width: 8em;" alt="Könyv: struktúra">
+
+<p><strong>Struktúrába</strong> <em>egy dolog összetartozó adatait</em> tesszük.
+  <ul>
+     <li>Különálló, új típus, saját műveletekkel
+     <li>Pl. egy könyv adatai: cím, szerző, oldalszám
+  </ul>
+
+<br class="smallskip">
+
+<img class="float" src="konyvek.svg" style="width: 8em;" alt="Könyvek: tömb">
+
+<p><strong>Tömbben</strong> <em>több egyforma dolog</em> adatait tároljuk.
+  <ul>
+     <li>Ez csak egy tároló azonos szerepű dolgok számára.
+     <li>Pl. könyvek katalógusa
+  </ul>
+
+<br class="smallskip">
+
+<p class="csakdoksi">Elfajulások lehetségesek: létezhet egy elemű struktúra vagy tömb is. Az,&nbsp;alma, a,&nbsp;körte: ezek
+szavak, még az „a” névelő is, hiába egy betűs!</p>
+
+<div class="csakdoksi">
+
+<p>Ne feledjük: a típus egy értékkészlet és műveletek együttese. Egy dátum struktúra
+létrehozásával egy új típust hozunk létre, amelyen új műveletek értelmezhetőek. Pl. ki lehet
+számolni két dátum között a különbséget napokban. Ez kizárólag csak a dátumokon értelmezett
+művelet (év, hónap, nap), nem pedig az összes háromelemű, egészekből álló tömbön!</p>
+
+<p>Ha az összetartozó adatok különböző típusúak (pl. a név karaktersor, a dátum pedig egész
+számokból áll), akkor biztonsan struktúráról van szó. Ha egyformák a típusok, gyakran akkor is.
+Balgaság a tört számlálóját és nevezőjét nem struktúrával, hanem egy kételemű tömbbel megadni.
+Úgyszint egy év, hónap, napból álló dátum is inkább struktúra, bár mindegyik eleme egész szám. A
+tömb választása azt is éreztetné, hogy az év, hónap, nap felcserélhetőek, ami nem igaz. Egy
+névsor elemei, amelyet tömbben tárolunk, viszont igen: sorba rendezhetőek az emberek név,
+születési évszám, magasság stb. szerint is.</p>
+
+<p>És még egy dolog, amit ne felejtsünk el: nem azért használunk tömböt vagy struktúrát, mert
+sok adattal dolgozunk, hanem azért, mert <em>az adatoknak közük van egymáshoz!</em> A tört
+számlálóját és nevezőjét is betettük egy struktúrába, pedig csak két elemről van szó. Ugyanígy,
+egy három betűből álló szó is tömb a programozás szempontjából. Sőt ha egyszer eldöntjük, hogy a
+szavakat karaktertömbökben tároljuk, akkor még az „a” névelő is egy tömb, az is egy szó! Mondhatjuk, hogy ha
+valamilyen adatoknak a tömbbe vagy struktúrába tevése által megszűnik a programkódban a
+„sorminta” (pl. <code>a1=b1; a2=b2; a3=b3;</code> helyett <code>a=b</code> lesz a struktúra
+értékadás által), akkor jó úton járunk. Ha „sorminta” van a programunkban, akkor pedig
+valószínűleg rossz úton. Az összetett típusokban az adataink közötti összefüggéseket rögzítjük,
+és ez kihatással van a programkód felépítésére is: annak áttekinthetőségére, egyszerűségére és
+legfőképp minőségére.</p>
+
+<div class="megjegyzes">
+<p>Néha van olyan eset, amikor nem teljesen egyértelmű, hogy struktúráról vagy tömbről van szó,
+ilyen a sok dimenziós tér esete is. Ha mindegyik komponenst kiírjuk, akkor rengeteg mezőnév
+keletkezik, amelyeket meg kell jegyeznünk. Ha tömböt használunk helyette, akkor az egyes
+komponenseket ciklussal dolgozhatjuk fel.</p>
+
+<pre   ><code class="language-cbub">struct Pont10D {
+   int x, y, z, a, b, c, d, e, f, g; // struktúra ennyi névvel?
+};
+
+int koord[10];                       // vagy inkább tömb?</code></pre>
+
+<p>A problémára talán a legjobb megoldás ez:</p>
+
+<pre   ><code class="language-cbub">struct Pont10D {
+   int koord[10];
+};</code></pre>
+
+<p>Így ciklussal is fel lehet dolgozni a komponenseket, ugyanakkor egy
+<code>Pont10D</code> struktúrát lehet értékül adni, és függvénynek paraméterként
+is.</p>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Struktúrák vs. tömbök II.">
+<div class="slide" id="slide_30">
+
+<a id="30" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">30</span><span class="oldalszamafter">. </span>    Struktúrák vs. tömbök II.<a class="hlink" href="index.html#30"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Értékadás</h3>
+<div class="columns">
+<div>
+<pre   ><code class="language-cbub">typedef struct Pont {
+   double x, y;
+} Pont;
+
+Pont a, b;
+a = b;           // OK!</code></pre>
+</div>
+<div>
+<pre   ><code class="language-cbub">int t1[100];
+int t2[100];
+
+
+
+t1 = t2;   // Hibás!</code></pre>
+</div>
+</div>
+
+<br class="smallskip">
+
+<h3>Függvény visszatérési értéke</h3>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-cbub">Pont origo(void) {
+    Pont pont = {0, 0};
+
+    return pont;  // OK!
+}</code></pre>
+</div>
+
+<div>
+<pre   ><code class="language-cbub">????? nullatomb(void) {
+    int t[100] = {0};
+    
+    return t;   // Hibás!
+}</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi">Az értékadás a struktúrák között működik C-ben, a tömbök között nem.
+A függvényből visszatérés struktúrával működik C-ben, a tömbbel nem. Mindez azért van, mert
+a C nyelv szabályai szerint struktúrát lehet értékadással másolni, tömböt viszont nem.</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Többszörös összetétel: definíciók sorrendje">
+<div class="slide" id="slide_31">
+
+<a id="31" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">31</span><span class="oldalszamafter">. </span>    Többszörös összetétel: definíciók sorrendje<a class="hlink" href="index.html#31"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Többszörösen összetett adatok esetén a definíciók sorrendjére
+figyelni kell: csak a már definiált típusokból lehet építkezni.</p>
+
+<br class="smallskip">
+
+<pre   ><code class="language-cbub">typedef struct Datum {
+    int ev, honap, nap;
+} Datum;
+
+typedef struct Ember {
+   char nev[100];
+   char lakcim[150];
+   Datum szuletesnap;
+} Ember;
+
+Ember e1, e2;
+e1 = e2;           /* Így jó, a tömbök is másolódnak! */</code></pre>
+
+
+
+<div class="csakdoksi">
+<p>Vagy egy geometriai programban, típusok:</p>
+<pre   ><code class="language-cbub">typedef struct Pont {      // egy pont a síkban
+   double x, y;
+} Pont;
+
+typedef struct Szakasz {
+   Pont eleje, vege;       // szakasz két pont között
+} Szakasz;
+
+typedef struct Kor {       // középpont és sugár
+   Pont kozeppont;
+   double sugar;
+} Kor;</code></pre>
+
+<p>Művelet példa:</p>
+<pre   ><code class="language-cbub">/* igazzal tér vissza, ha egy pontban metszik egymást */
+int metszi_e(Szakasz sz1, Szakasz sz2);</code></pre>
+
+</div>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Sztringek és kétdimenziós tömbök">
+<div class="slide" id="slide_32">
+
+<a id="32" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">32</span><span class="oldalszamafter">. </span>    Sztringek és kétdimenziós tömbök<a class="hlink" href="index.html#32"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Szövegek reprezentálása: karaktertömb</h3>
+
+<pre   ><code class="language-cbub">char str[100] = &quot;hello&quot;;
+printf(&quot;A szöveg: [%s].&quot;, str); // A szöveg: [hello].</code></pre>
+
+<p class="csakdoksi"> A szöveg karakterek sorozata: <em>sztring</em> (string),
+más néven karakterlánc. C-ben nincs külön típus, hanem <em>karakterek
+tömbjeként</em> adjuk meg. Mivel tömbről van szó, a méretét meg kell mondanunk
+előre. Az <code>=</code> értékadás operátor sem használható rajta. Következő
+előadáson részletesen szerepelni fog. </p>
+
+<br class="smallskip">
+
+<h3>Kétdimenziós tömb: tömbök tömbje</h3>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-cbub">double matrix[5][6];
+matrix[sor][oszlop] = 3.14;</code></pre>
+<img class="kozep" src="matrix.svg" style="height: 7em;" alt="2D tömb: mátrix">
+<p class="csakdoksi">Itt egy 5×6-os táblázatot adunk meg: 5 sor × 6 oszlop.</p>
+</div>
+
+<div>
+<pre   ><code class="language-cbub">char tictactoe[3][3];
+tictactoe[0][2] = 'o';</code></pre>
+<img class="kozep" src="amoba.svg" style="height: 7em;" alt="2D tömb: tic-tac-toe játék">
+<p class="csakdoksi">A tic-tac-toe játékhoz 3×3-as játéktér kell.</p>
+</div>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

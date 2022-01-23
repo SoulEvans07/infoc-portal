@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Matematikai kifejezések deriválása</title>
+<meta property="og:title" content="TEST InfoC :: Matematikai kifejezések deriválása">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="A bemutatott program összegeket és szorzatokat tartalmazó kifejezéseket, egyváltozós matematikai függvényeket képes szimbolikusan deriválni.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="A bemutatott program összegeket és szorzatokat tartalmazó kifejezéseket, egyváltozós matematikai függvényeket képes szimbolikusan deriválni.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Matematikai kifejezések deriválása">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Matematikai kifejezések deriválása</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.09.03.</p>
+<p class="kivonat">A bemutatott program összegeket és szorzatokat tartalmazó kifejezéseket, egyváltozós matematikai függvényeket képes szimbolikusan deriválni.</p>
+</div>
+
+<img src="muveletekx.svg" style="width: 15em" class="float">
+
+<p>Az előadáson szerepelt egy ötlet, amelyben bináris fában tároltunk műveleteket: összegeket, 
+szorzatokat. Egy ilyen fának a felépítése, és a benne tárolt kifejezés kiértékelésének módja az 
+<a href="../kifejezesek/index.html">előző írásban</a> szerepelt.</p>
+
+<p>A bináris fás tárolás előnye az volt, hogy a fában tárolt hierarchia, vagyis a fa felépítése 
+meghatározza a műveletek sorrendjét. A fa csomópontjai pedig meghatározzák a típust: az 
+elvégzendő műveletet. Észrevehetjük azt is, hogy a deriválás tulajdonképpen nagyon is
+egyszerű, hiszen minden típusnál ismerjük a képzési szabályt.</p>
+
+<p>A deriválás alatt jelen esetben nem a differenciálhányados közelítését értjük, hanem 
+szimbolikus deriválást, tehát a deriváltfüggvény meghatározását.
+Vagyis pl. az <code>x<sup>2</sup></code> függvényből a <code>2x</code> előállítását.
+A program letölthető innen: <a href="deriv.c">deriv.c</a>.</p>
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Deriválás</a>
+              <li><a href="index.html#2" class="">Az egyszerűsítés</a>
+              <li><a href="index.html#3" class="">Tanulság és továbbfejlesztés</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Deriválás">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Deriválás<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A deriválás meglepően egyszerű: konstansokat, változókat, összegeket, szorzatokat tárolunk, amelyekre 
+vonatkozó deriválási szabályokat ismerjük:</p>
+
+<table>
+    <thead>
+        <tr><th>Kifejezés<th>Derivált
+    </thead>
+    <tr><td>c<td>0
+    <tr><td>x<td>1
+    <tr><td>a+b<td>a'+b'
+    <tr><td>ab<td>a'b+ab'
+</table>
+
+<p>A deriválásnál a teendőt a függvény értékének kiszámolásához hasonlóan a csomópont típusa dönti el:</p>
+
+<pre   ><code class="language-cbub">Kifejezes *derival(Kifejezes *m) {
+    switch (m-&gt;tipus) {
+    case Konstans: /* c -&gt; 0 */
+        return uj_konstans(0);
+    case Valtozo:  /* x -&gt; 1 */
+        return uj_konstans(1);
+    case Osszeg:   /* a+b -&gt; a'+b' */
+        return uj_osszeg(derival(m-&gt;bal), derival(m-&gt;jobb));
+    case Szorzat:  /* ab -&gt; a'b + ab' */
+        return uj_osszeg(
+                   uj_szorzat(derival(m-&gt;bal), masol(m-&gt;jobb)),  // !
+                   uj_szorzat(masol(m-&gt;bal), derival(m-&gt;jobb)));
+    }
+
+    abort();
+}</code></pre>
+
+<p>És már készen is vagyunk, ennyi volt.</p>
+
+<p>Egy nagyon fontos dolgot viszont végig kell gondolni. Minden deriválásnál egy újonnan foglalt 
+fával térünk vissza: egy új, frissen <code>malloc()</code>-olt konstanssal vagy összeggel. Az 
+összeg esetén a rekurzió miatt a keletkező <code>a'+b'</code> kifejezés egyes részfái 
+értelemszerűen ugyanígy fognak viselkedni. Szorzat esetén azonban erre külön figyelnünk kell: az 
+<code>a'b+ab'</code> kifejezésben szerepel deriválatlanul az <code>a</code> és a <code>b</code> 
+kifejezés is. A két szorzatba ezek pointereit <em>nem tehetjük be,</em> mivel azoknak ugyanúgy 
+kell viselkedniük a memóriakezelés szempontjából, mint a deriváltaknak. Vagyis függetlennek kell 
+lenniük azoktól. A <em>sekély másolat</em>, a pointer másolása nem elegendő,
+ezekről <em>mély másolatot</em> kell készíteni!</p>
+
+<p>Egy kifejezés másolása a gyakorlaton bemutatott, rekurzív famásoló függvényhez hasonlóan 
+történhet. Egy fa másolata a gyökér csomópont másolata, és a részfák másolata. Vagy másképpen: 
+konstans másolata egy új konstans, összeg másolata egy új összeg (amelynek tagjai úgyszint másolatok)
+stb.</p>
+
+<pre   ><code class="language-c">Kifejezes *masol(Kifejezes *m) {
+    switch (m-&gt;tipus) {
+      case Konstans:
+        return uj_konstans(m-&gt;szam);
+      case Valtozo:
+        return uj_valtozo();
+      case Osszeg:
+        return uj_osszeg(masol(m-&gt;bal), masol(m-&gt;jobb));
+      case Szorzat:
+        return uj_szorzat(masol(m-&gt;bal), masol(m-&gt;jobb));
+    }
+
+    abort();
+}</code></pre>
+
+<p>Így a deriváló függvényünk már helyesen működik. Nagyjából. Nézzük meg,
+a <code>2*3*x*x+3*x</code> kifejezést hogyan írja ki, és hogyan
+deriválja le a program:</p>
+
+<pre class="screenshot">
+f(x)=2*3*x*x + 3*x
+f'(x)=(0*3 + 2*0)*x*x + 2*3*(1*x + x*1) + 0*x + 3*1
+</pre>
+
+<p>A deriváltnál valami szörnyűséget kaptunk. Azonban ha megnézzük közelebbről, ez
+tele van 0-val és 1-gyel szorzással. Nézzük csak meg jobban! Egyszerűsítsük:</p>
+
+<pre class="screenshot">
+f'(x)=(0*3 + 2*0)*x*x + 2*3*(1*x + x*1) + 0*x + 3*1
+f'(x)=(0 + 0)*x*x + 6*(x + x) + 0 + 3
+f'(x)=(0)*x*x + 6*2*x + 3
+f'(x)=12*x + 3
+</pre>
+
+<p>Ez helyes, mert <code>6x<sup>2</sup>+3x</code> (<code>2*3*x*x+3*x</code>) deriváltja tényleg 
+<code>12x+3</code>. A deriváló program helyes, csak egyszerűsíteni kellene a kapott 
+eredményt.</p>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az egyszerűsítés">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Az egyszerűsítés<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az egyszerűsítés a deriválásból és a kiírásból ellesett ötletek alapján történhet.
+Például egy összeg esetén megnézhetjük, hogy az összeg valamelyik tagja konstans nulla-e, mert
+ha igen, akkor a másik tagot kell csak figyelembe venni. Ha mindkét tagja konstans, akkor
+pedig felesleges az összeget tárolni (ez három csomópontot jelent a fában:
+az összeget és a két konstanst), hanem
+elég lenne csak az elvégzett művelet eredményét, azaz egyetlen konstanst megjegyezni.
+
+
+<p>Az egyszerűsítéshez hasonló szabályokat írhatunk fel, mint a deriváláshoz.
+Alább <code>a</code> egy tetszőleges kifejezés, <code>c</code> pedig egy tetszőleges konstans:</p>
+
+<div class="columns">
+<div>
+<table>
+    <caption>Összeg egyszerűsítése</caption>
+    <thead>
+        <tr><th>Kifejezés<th>Egyszerűsített
+    </thead>
+    <tr><td>a+0<td>a
+    <tr><td>0+a<td>a
+    <tr><td>c<sub>1</sub>+c<sub>2</sub><td>c (az összegük)
+</table>
+</div>
+
+<div>
+<table>
+    <caption>Szorzat egyszerűsítése</caption>
+    <thead>
+        <tr><th>Kifejezés<th>Egyszerűsített
+    </thead>
+    <tr><td>a*0<td>0
+    <tr><td>0*a<td>0
+    <tr><td>a*1<td>a
+    <tr><td>1*a<td>a
+    <tr><td>c<sub>1</sub>*c<sub>2</sub><td>c (a szorzatuk)
+</table>
+</div>
+</div>
+
+<p>Ezeket a mintákat kell felismernünk. Ha egyik sem illik rá az egyszerűsítendő
+kifejezésre, akkor úgy hagyjuk, ahogy van. Az egyszerűsítés természetesen
+rekurzív, pl. egy összeg egyszerűsítése a csomópontok egyszerűsítése után történik:</p>
+
+<pre   ><code class="language-c">Kifejezes *egyszerusit(Kifejezes *m) {
+    Kifejezes *bale, *jobbe;
+
+    switch (m-&gt;tipus) {
+        …
+        …
+      case Osszeg:
+        bale = egyszerusit(m-&gt;bal);
+        jobbe = egyszerusit(m-&gt;jobb);
+        if (bale-&gt;tipus == Konstans &amp;&amp; jobbe-&gt;tipus == Konstans) { /* szam+szam */
+            double o = bale-&gt;szam + jobbe-&gt;szam;
+            torol(bale);
+            torol(jobbe);
+            return uj_konstans(o);
+        }
+        if (bale-&gt;tipus == Konstans &amp;&amp; bale-&gt;szam == 0) { /* 0+valami */
+            torol(bale);
+            return jobbe;
+        }
+        if (jobbe-&gt;tipus == Konstans &amp;&amp; jobbe-&gt;szam == 0) { /* valami+0 */
+            torol(jobbe);
+            return bale;
+        }
+        return uj_osszeg(bale, jobbe);
+        …
+        …
+    }
+
+    abort();
+}</code></pre>
+
+<p>Az automatikusan egyszerűsített derivált így a következő:</p>
+
+<pre class="screenshot">
+f(x)=2*3*x*x + 3*x
+f'(x)=(0*3 + 2*0)*x*x + 2*3*(1*x + x*1) + 0*x + 3*1
+egysz f'(x)=6*(x + x) + 3
+</pre>
+
+<p>Így már sokkal jobb a helyzet. Az <code>x+x</code>-ből ugyan így sem lett <code>2*x</code>, 
+hiszen olyan egyszerűsítési szabályunk nem volt… Az igazi, mindent figyelembe vevő 
+egyszerűsítéshez ennél sokkal többet kellene írni. Azonban meg sem határoztuk, hogy mit jelent 
+egy kifejezés „egyszerűsítése”. Ez nem is egyértelmű, hiszen amelyik forma egyszerű lehet egy 
+adott művelethez (pl. kifejezések összeadásához a polinom alak), az haszonatlan lehet egy 
+másikhoz (pl. zérushelyek meghatározásához, mert ahhoz a gyöktényezős alak alkalmasabb). 
+Az „egyszerűség” fogalma relatív, az adott feladattól függ.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Tanulság és továbbfejlesztés">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Tanulság és továbbfejlesztés<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>(Az innentől szereplő ötletek már nincsenek implementálva a letölthető
+programban.)</p>
+
+<p>A program kódjában felismerhetünk egy mintát – a <code>switch</code> használatát. Minden 
+művelet (deriválás, másolás,&nbsp;…) esetén a teendőket a típus határozza meg, vagyis minden 
+függvényben egy ilyen <code>switch</code>-nek kell lennie. Ez nem túl előnyös. Ha bevezetünk 
+egy új csomóponttípust (pl. kivonás vagy hatványozás), akkor az összes programrészt át kell 
+néznünk, hogy hol kell módosítani. Segítséget csak az jelent, hogy a rendes fordítók 
+figyelmeztetnek akkor, ha egy felsorolt típus alapján <code>switch</code>-elünk, és valamelyik 
+lehetséges érték kimaradt.</p>
+
+<p>Jobb megoldás lenne az, ami a függvénypointeres előadáson szerepelt – hogy minden csomópontba 
+betesszük a függvényekre mutató pointereket, amelyek az adott csomópontot feldolgozzák. Így lesz 
+pl. külön <code>konstans_derival()</code>, <code>osszeg_derival()</code> stb. függvény, és 
+minden csomópontban lesz egy pointer, amely a sajátjára mutat. A <code>switch</code>-es 
+problémát problémát ezzel az indirekcióval meg tudjuk oldani:</p>
+
+<pre   ><code class="language-cbub">typedef struct Kifejezes {
+    KifejezesTipus tipus;
+    double szam;                     /* csak konstanshoz */
+    struct Kifejezes *bal, *jobb;    /* csak muvelethez */
+
+    struct Kifejezes (*derival_fv)(struct Kifejezes*);
+} Kifejezes;
+
+Kifejezes *konstans_derival(Kifejezes *) {
+    /* konstans derivaltja 0 */
+    return uj_konstans(0);
+}
+
+Kifejezes *osszeg_derival(Kifejezes *kif) {
+    /* osszeg derivaltja a tagok derivaltjanak osszege */
+    return uj_osszeg(kif-&gt;bal-&gt;derival_fv(kif-&gt;bal), kif-&gt;jobb-&gt;derival_fv(kif-&gt;jobb));
+}
+
+Kifejezes *uj_konstans(double szam) {
+    Kifejezes *uj = (Kifejezes *) malloc(sizeof(Kifejezes));
+    uj-&gt;derival_fv = konstans_derival; // !
+    uj-&gt;tipus = Konstans;
+    uj-&gt;szam = szam;
+    return uj;
+}
+
+Kifejezes *uj_osszeg(Kifejezes *bal, Kifejezes *jobb) {
+    Kifejezes *uj = (Kifejezes *) malloc(sizeof(Kifejezes));
+    uj-&gt;derival_fv = osszeg_derival; // !
+    uj-&gt;tipus = Osszeg;
+    uj-&gt;bal = bal;
+    uj-&gt;jobb = jobb;
+    return uj;
+}</code></pre>
+
+<p>Ez a gondolat odáig elvihető, hogy a típust jelző <code>enum</code>-ra egyáltalán nem lesz 
+szükségünk. (Elvileg.) Problémát jelent azonban az, hogy mivel rengeteg műveletünk van egy 
+csomópontra (kiértékelés, deriválás, törlés, másolás, …), ezért minden csomópontban sok pointer 
+lesz, amelyek a helyet feleslegesen foglalják. Észrevehetjük azonban azt, hogy a csomópont 
+típusától függő függvények mindig csoportban, együtt szerepelnek: 
+<code>szorzat_kiertekel()</code>, <code>szorzat_derival()</code>, <code>szorzat_torol()</code>, 
+<code>szorzat_masol()</code> stb. Ezeket betehetjük egy táblázatba (egy struktúrába), és 
+csinálhatjuk azt is, hogy minden csomópontban csak erre a táblázatra mutató pointert tárolunk. 
+Vagyis hozzáadunk egy újabb indirekciót. Van is egy ilyen mottó a programozásban: szinte minden 
+probléma megoldható plusz egy indirekció bevezetésével. :) Szóval így két indirekciónk lesz. Az 
+első pointer a táblázatra mutat, a táblázatban lévő pointer pedig a függvényre:</p>
+
+<pre   ><code class="language-cbub">typedef struct Kifejezes Kifejezes;
+typedef struct Fuggvenyek Fuggvenyek;
+
+struct Fuggvenyek { // függvények táblázata
+   Kifejezes* (*kiertekel)(Kifejezes*, double);
+   Kifejezes* (*derival)  (Kifejezes*);
+   void       (*torol)    (Kifejezes*);
+   Kifejezes* (*masol)    (Kifejezes*);
+};
+
+struct Kifejezes {
+   KifejezesTipus tipus;
+   double szam;
+   struct Kifejezes *bal, *jobb;
+
+   Fuggvenyek *fuggvenyei; // pointer a táblázatra
+};
+
+…
+
+Fuggvenyek osszeg_fuggvenyek = {  // összeghez tartozó táblázat
+   osszeg_kiertekel, osszeg_derival, osszeg_torol, osszeg_masol
+};
+
+Fuggvenyek szorzat_fuggvenyek = { // szorzathoz tartozó táblázat
+   szorzat_kiertekel, szorzat_derival, szorzat_torol, szorzat_masol
+};
+
+…
+
+Kifejezes *uj_osszeg(Kifejezes *bal, Kifejezes *jobb) {
+   …
+   uj-&gt;fuggvenyei = &amp;osszeg_fuggvenyek; // mutató az összeget kezelő fv-ek táblázatára
+   …
+   return uj;
+}</code></pre>
+
+<p>Az összes függvényhívásnál mindig először kiválasztjuk a táblázatot, utána pedig a 
+táblázatból a függvényt. Vagyis egy kifejezés deriválása:</p>
+
+<pre   ><code class="language-c">Kifejezes *kif = …, *derivalt;
+
+derivalt = kif-&gt;fuggvenyei-&gt;derival(kif);</code></pre>
+
+<p>Így működik ez C++-ban (Programozás alapjai 2.) az ún. virtuális függvényeknél, csak a 
+mechanizmus rejtve van. Az egyszerűsítés és a kiírás problémáját egyébként nem ilyen egyszerű a 
+függvényre mutató pointerekkel kezelni. Ha kivennénk a struktúrából a típust jelző 
+<code>enum</code>-ot, akkor azok megvalósításánál problémába ütközünk: honnan tudja egy szorzat, 
+hogy a kiírandó két tagja közül melyiket kell zárójelezni? Vagyis hogy melyik tagja összeg – ha 
+nincs semmi, ami azok típusát mutatja?</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

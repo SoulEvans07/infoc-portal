@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg23" width="27.956cm" height="7.9173cm" version="1.1" viewBox="317 154 556.12 156.37" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata id="metadata27">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="Háttér" transform="translate(-.6011 -.5758)" stroke-width="2">
+  <path id="path4" d="m320 240c-11 61 44.82 60.772 96.82 68.772s21.636-12.32 64.636-49.32 110.23 8.43 42.364-71.679c-67.868-80.11-88.896 9.79-118.23 26.291-29.334 16.5-74.592-35.064-85.592 25.936z" fill="#7babe3" fill-rule="evenodd" stroke="#000"/>
+  <path id="path6" d="m360 280c23.344 15.562 58.4 4.986 78.502-2.148 20.1-7.132 19.104-30.938-14.956-42.592-34.062-11.656-86.89 29.178-63.546 44.74z" fill="#ffff04" fill-rule="evenodd" stroke="#ffff04"/>
+  <path id="path8" d="m458.11 183.59c26.584-14.914 54.466 46.038 25.288 47.982-29.18 1.946-16.21-11.67-18.804-23.99-2.594-12.321-33.07-9.079-6.484-23.992z" fill="#90ee90" fill-rule="evenodd" stroke="#90ee90"/>
+  <path id="path10" d="m640 240c-11 61 44.82 60.772 96.82 68.772s21.636-12.32 64.636-49.32 110.23 8.43 42.364-71.679c-67.868-80.11-88.896 9.79-118.23 26.291-29.334 16.5-74.592-35.064-85.592 25.936z" fill="#7babe3" fill-rule="evenodd" stroke="#000"/>
+  <path id="path12" d="m778.11 183.59c26.584-14.914 54.466 46.038 25.288 47.982-29.18 1.946-16.21-11.67-18.804-23.99-2.594-12.321-33.07-9.079-6.484-23.992z" fill="#90ee90" fill-rule="evenodd" stroke="#90ee90"/>
+  <g id="g18" fill="none" stroke="#000">
+   <path id="line14" d="m400 260 20 20"/>
+   <path id="line16" d="m420 260-20 20"/>
+  </g>
+  <path id="path20" d="m680 280c23.344 15.562 58.4 4.986 78.502-2.148 20.1-7.132 19.104-30.938-14.956-42.592-34.062-11.656-86.89 29.178-63.546 44.74z" fill="#f00" fill-rule="evenodd" stroke="#f00"/>
+ </g>
+</svg>

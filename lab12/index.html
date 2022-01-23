@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Labor, 12. hét: gyakorlás NZH-ra</title>
+<meta property="og:title" content="TEST InfoC :: Labor, 12. hét: gyakorlás NZH-ra">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Láncolt listákkal és fájlkezeléssel kapcsolatos gyakorlófeladatok régebbi ZH-kból.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Láncolt listákkal és fájlkezeléssel kapcsolatos gyakorlófeladatok régebbi ZH-kból.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Labor, 12. hét: gyakorlás NZH-ra">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Labor, 12. hét: gyakorlás NZH-ra</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Pohl László · <i class="ido"></i> 2020.11.10.</p>
+<p class="kivonat">Láncolt listákkal és fájlkezeléssel kapcsolatos gyakorlófeladatok régebbi ZH-kból.</p>
+</div>
+
+
+<p>Ez a labor új anyagot nem mutat be. A feladatok régebbi ZH-kból származnak. Hasonlók az idei második NZH-ban is lehetnek. Ha úgy 
+érzed, ez már jól megy, helyette dolgozhatsz a nagy házidon is.</p>
+
+<p>Felkészülés a laborra:</p>
+<ul>
+    <li>A <a href="../ea10/index.html#ealista">listákról szóló előadás</a> átismétlése.
+    <li>A <a href="../ea08/index.html#eafajl">fájlkezelésről szóló előadásrészlet</a> átismétlése.
+</ul>
+
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Átszállások</a>
+              <li><a href="index.html#2" class="">Szállóvendégek</a>
+              <li><a href="index.html#3" class="">További feladatok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Átszállások">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Átszállások<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Szöveges fájlokban metrójáratok megállóinak neveit tároljuk, soronként egyet. A nevek maximum 50 betűsek. A programod feladata, 
+hogy láncolt listákba beolvassa a járatok adatait, és megmondja két adott járatról, hogy át lehet-e szállni egyikről a másikra, 
+vagy nem; ha igen, akkor az is kérdés, hogy hol.</p>
+
+<ul>
+    <li>Írj függvényt, amely paraméterként egy fájlnevet kap, visszatérési értéke pedig
+    egy járat megállóinak listája – a fájlban szereplő sorrendben.</li>
+
+    <li>Írj függvényt, amely megvizsgál két, paraméterként kapott megállólistát, hogy van-e
+    átszállási lehetőség (azonos megállónév). A függvény visszatérési értéke egy sztring legyen,
+    amely a megálló neve. (Mivel kell visszatérnie a függvénynek, ha nem lehet átszállni?)</li>
+
+    <li>Egészítsd ki mindezt teljes programmá, amelyben beolvasod az m2.txt és az m3.txt nevű
+    fájlokat! Ha át lehet szállni, írd ki a megálló nevét, ha nem, akkor pedig írd ki azt!
+    Ne felejtsd el felszabadítani a memóriát, amit foglaltál!</li>
+</ul>
+
+<p>Adatok a teszteléshez: <a href="m1.txt">m1.txt</a>, <a href="m2.txt">m2.txt</a>,
+<a href="m3.txt">m3.txt</a> és <a href="m4.txt">m4.txt</a>.</p>
+
+<img src="metro.png" class="kozep">
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Szállóvendégek">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Szállóvendégek<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Egy hétemeletes szállodában a szobafoglalásokat egy olyan struktúrában tárolják, amely egy egészként tartalmazza a szobaszámot
+és egy maximum 50 karakteres sztringben a vendég nevét.  A szobák a szokásos módon vannak számozva, a százasok helyiértéke adja meg
+az emeletet, a tízesek és egyesek pedig az adott szinten lévő szoba sorszámát (pl. 712 = 7. emelet, 12. szoba). A földszint a 0.
+szint.</p>
+
+<ul>
+<li>Írj függvényt, amely a paramétereként megadott nevű szöveges fájlból beolvassa a vendégek listáját egy láncolt listába, és
+visszatér a lista címével! A fájlban az egyes foglalások külön sorban helyezkednek el, a sor elején a szobaszám áll, utána a
+név. (Hozz létre ilyen szövegfájlt néhány adattal, hogy tesztelni tudj!)</li>
+
+<li>Írj függvényt, amely paraméterként kapja a vendégek listáját és a szintek tömbjét; az utóbbi, emelet sorszámával indexelt
+tömbbe pedig beírja, hogy az egyes emeleteken hány vendég lakik!</li>
+
+<li>Írj függvényt, amely megkapja az így keletkezett szintek tömbjét, és visszatér a legzsúfoltabb emelet sorszámával, tehát azzal,
+ahol a legtöbb vendég van éppen!</li>
+</ul>
+
+<p>Egészítsd ki ezeket teljes programmá, amely a felhasználótól beolvas egy nevet és megmondja, hogy az illető megszállt-e a
+szállóban a foglalasok.txt szerint, és ha igen, akkor a legzsúfoltabb emeleten van-e a szobája!</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct vendeg {
+    int szoba;
+    char nev[51];
+    struct vendeg *kov;
+} vendeg;
+
+vendeg *beolvas(char const *fajlnev) {
+    vendeg *lista = NULL, *uj, tmp;
+    FILE *fajl;
+
+    fajl = fopen(fajlnev, &quot;rt&quot;);
+    while (fscanf(fajl, &quot;%d %[^\n]&quot;, &amp;tmp.szoba, tmp.nev) == 2) {
+        uj = (vendeg *) malloc(sizeof(vendeg));
+        uj-&gt;szoba = tmp.szoba;
+        strcpy(uj-&gt;nev, tmp.nev);       /* v. *uj = tmp */
+        uj-&gt;kov = lista;
+        lista = uj;
+    }
+    fclose(fajl);
+
+    return lista;
+}
+
+void betoltottseg(vendeg *lista, int *szintek) {
+    vendeg *iter;
+    int i;
+    for (i = 0; i &lt; 8; ++i)
+        szintek[i] = 0;
+    for (iter = lista; iter != NULL; iter = iter-&gt;kov)
+        szintek[iter-&gt;szoba / 100] += 1;
+}
+
+int legtobb_vendeg(int *szintek) {
+    int i, max = 0;
+    for (i = 1; i &lt; 8; ++i)
+        if (szintek[i] &gt; szintek[max])
+            max = i;
+    return max;
+}
+
+vendeg *keres(vendeg *lista, char const *nev) {
+    vendeg *iter;
+    for (iter = lista; iter != NULL; iter = iter-&gt;kov)
+        if (strcmp(iter-&gt;nev, nev) == 0)
+            break;
+    return iter;
+}
+
+int main(void) {
+    char vendegnev[51];
+    vendeg *lista = beolvas(&quot;foglalasok.txt&quot;);
+
+    scanf(&quot;%[^\n]&quot;, vendegnev);
+    vendeg *talalat = keres(lista, vendegnev);
+
+    if (talalat == NULL)
+        printf(&quot;A vendég nincs a szállóban.\n&quot;);
+    else {
+        int szintek[8];
+        betoltottseg(lista, szintek);
+        int legzsufoltabb = legtobb_vendeg(szintek);
+        if (legzsufoltabb == talalat-&gt;szoba / 100)
+            printf(&quot;A vendég a legzsúfoltabb szinten lakik.\n&quot;);
+        else
+            printf(&quot;A vendég nem a legzsúfoltabb szinten lakik.\n&quot;);
+    }
+
+    while (lista != NULL) {
+        vendeg *temp = lista-&gt;kov;
+        free(lista);
+        lista = temp;
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="További feladatok">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    További feladatok<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Ha elkészültél, folytasd a feladatgyűjtemény kapcsolódó <a href="../f10/index.html#feladatlancoltlista">feladataival</a>!</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

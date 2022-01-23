@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" viewBox="208 28 269.80251 330.63243" height="16.879cm" width="13.836cm" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <metadata id="metadata34">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <path id="ellipse4" d="m417.71 168.32a70 70 0 0 1 -70 70 70 70 0 0 1 -70 -70 70 70 0 0 1 70 -70 70 70 0 0 1 70 70z" stroke="#000" stroke-width="2" fill="none"/>
+ <path id="line6" d="m267.71 28.316 110 330" stroke="#000" stroke-width="2" fill="none"/>
+ <path id="line8" d="m207.71 88.316 270 90" stroke="#000" stroke-width="2" fill="none"/>
+ <path id="line10" d="m247.71 328.32 230-230" stroke="#000" stroke-width="2" fill="none"/>
+ <g id="g12" transform="translate(-2.2942 -1.6838)">
+  <path id="ellipse14" fill="#7babe3" d="m306 120a6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6 6 6 0 0 1 6 6z"/>
+  <path id="ellipse16" d="m306 120a6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6 6 6 0 0 1 6 6z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g18" transform="translate(-2.2942 -1.6838)">
+  <path id="ellipse20" fill="#7babe3" d="m426 160a6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6 6 6 0 0 1 6 6z"/>
+  <path id="ellipse22" d="m426 160a6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6 6 6 0 0 1 6 6z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g24" transform="translate(-2.2942 -1.6838)">
+  <path id="ellipse26" fill="#7babe3" d="m346 240a6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6 6 6 0 0 1 6 6z"/>
+  <path id="ellipse28" d="m346 240a6 6 0 0 1 -6 6 6 6 0 0 1 -6 -6 6 6 0 0 1 6 -6 6 6 0 0 1 6 6z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+</svg>

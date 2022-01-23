@@ -1,0 +1,28 @@
+table.bit {
+    user-select: none;
+}
+
+table.bit td,
+table.bit th {
+    padding: 0.25em;
+    text-align: center;
+}
+table.bit tbody tr { background: none; }
+table.bit td span {
+    margin: 0;
+    display: inline-block;
+    font-size: 1.25em;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #f44;
+}
+table.bit span.egy {
+    background-color: #6f6;
+}
+.doksi table.bit span.bea,
+.doksi table.bit span.beb {
+    cursor: pointer;
+}

@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: 7. hét: dinamikus memóriakezelés</title>
+<meta property="og:title" content="TEST InfoC :: 7. hét: dinamikus memóriakezelés">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum h3toid" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="7. hét: dinamikus memóriakezelés">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">7. hét: dinamikus memóriakezelés</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Nagy Gergely, Pohl László · <i class="ido"></i> 2020.09.04.</p>
+<p class="kivonat">Gyakorlófeladatok az előadás anyagához kapcsolódóan.</p>
+</div>
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Dinamikusan foglalt tömbök</a>
+              <li><a href="index.html#2" class="">Több dimenziós tömbök</a>
+              <li><a href="index.html#3" class="">Dinamikusan foglalt struktúrák</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Dinamikusan foglalt tömbök">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="feladatdinamikus" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Dinamikusan foglalt tömbök<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Miért hibás?</h3>
+
+<p>Miért nem írhatunk ilyet C-ben? Mondj legalább két okot, ami miatt ez lehetetlen!</p>
+
+<pre   ><code class="language-cbub">struct Hibas {
+    int db;
+    double szamok[db];  // HIBÁS
+};</code></pre>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<ul>
+    <li>Egy struktúra mérete fordítási idejű konstans kell legyen. Ezért nem lehet a struktúrában
+        olyan tömb, amelynek méretét változóval adjuk meg.
+    <li>Ha megadhatnánk változóval, még akkor is memóriaszemét lenne a <code>db</code>, amikor
+        egy <code>struct Hibas</code> típusú változót hozunk létre – tehát akkor mekkora lenne a tömb?
+</ul>
+</div>
+</details>
+
+
+
+
+
+
+<h3>Sokszög</h3>
+
+<p>Írjunk programot, amelyik bekéri, egy eltárolandó sokszögnek hány csúcsa van; utána pedig 
+tárolja el a begépelt csúcsok koordinátáit!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct Pont {
+    double x, y;
+} Pont;
+
+int main(void) {
+    int n;
+    printf(&quot;n=&quot;);  scanf(&quot;%d&quot;, &amp;n);
+    
+    Pont *poligon = (Pont*) malloc(n*sizeof(Pont));
+    if (poligon == NULL) {
+        printf(&quot;Memoriafoglalasi hiba.\n&quot;);
+        return 1;
+    }
+
+    for (int i = 0; i &lt; n; ++i) {
+        printf(&quot;%d. x=&quot;, i+1);  scanf(&quot;%lf&quot;, &amp;poligon[i].x);
+        printf(&quot;%d. y=&quot;, i+1);  scanf(&quot;%lf&quot;, &amp;poligon[i].y);
+    }
+
+    /* itt csinálhatnánk valami hasznosat a tömbbel. például
+    ha a sokszög konvex, akkor a súlypontját (belső pont) véve
+    háromszögekre bonthatjuk azt, és kiszámolhatjuk a területét. */
+
+    free(poligon);
+
+    return 0;
+}</code></pre>
+
+<p>Egy <code>Pont</code> struktúra méretét a <code>sizeof(Pont)</code> kifejezés adja meg. Ezt a 
+fordító kiszámolja, nem nekünk kell vele foglalkozni. Mivel a tömb elemei pedig közvetlenül 
+egymás után vannak, ezt a mérettel szorozva kapjuk a tömb méretét bájtokban.</p>
+
+</div>
+</details>
+
+
+
+
+
+
+
+
+<h3>Sztringek összefűzése</h3>
+
+<p>Írj függvényt, amely paraméterként vesz át két sztringet, amelyeket nem módosít. A
+visszatérési értéke legyen egy új sztring, amelyet dinamikusan foglalt le, és a két sztringet
+tartalmazza összefűzve! A függvény pontosan annyi bájt memóriát foglaljon le dinamikusan,
+amennyire szükség van! A <code>string.h</code> függvényeit használd minden részfeladathoz!</p>
+
+<p>Írj egyszerű főprogramot, amely meghívja a függvényt, és kiír egy összefűzött sztringet a
+képernyőre. Figyelj arra, hogy ne legyen memóriaszivárgás – azaz a lefoglalt memóriát szabadítsd
+is fel.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+char* osszefuz(char const* s1,char const *s2) {
+    /* Megmérjük mindkét sztring hosszát */
+    int len = strlen(s1) + strlen(s2);
+
+    /* Területfoglalás (+1 hely a lezáró 0 miatt) */
+    char *uj = (char*) malloc((len+1) * sizeof(char));
+    /* Ha nem sikerül :( */
+    if (uj == NULL) return NULL;
+    
+    /* Különben másolunk */
+    strcpy(uj, s1);
+    strcat(uj, s2);
+
+    return uj;
+}
+
+int main(void) {
+    char *egyben;
+    egyben = osszefuz(&quot;Hello &quot;, &quot;world!&quot;);
+    if (egyben != NULL)
+        printf(&quot;%s&quot;, egyben);
+    free(egyben);  /* Fontos hogy felszabadítsuk amit lefoglaltunk!!! */
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Dinamikusan foglalt sztring</h3>
+<p>Készíts függvényt, amely megkap egy stringre mutató pointert és 
+visszatér egy újonnan foglalt string címével, amely a paraméter string 
+kisbetűs elemeit tartalmazza az eredeti sorrendben. Az új string számára 
+pontosan annyi helyet foglaljon, amennyire szükség van!</p>
+
+
+
+
+<h3>Dinamikus sztring nyújtása</h3>
+
+<p>A <code>string.h</code> fájl <code>strcat()</code> függvénye sztringek összefűzésére való: az <code>strcat(x, y)</code> hívás
+az <code>x</code> pointer által mutatott sztring végéhez fűzi az <code>y</code> sztringet. Ehhez az <code>x</code> által
+mutatott tömbben elegendő helynek kell lennie, különben a függvény túlindexel. A helyet a hívónak kell biztosítania, ami
+azért is kényelmetlen, mert neki is bajlódnia kell a sztringek hosszával, karaktertömbök méretével.</p>
+
+<p>A mostani feladatod egy okosabb összefűzést írni. A függvényedet <code>x = hozzafuz(x, y)</code> formában kell majd
+használni. A dolga az, hogy egy meglévő, dinamikusan foglalt <code>x</code> sztringet nyújtsa meg akkorára, hogy
+az <code>y</code> is hozzáfűzhető legyen, és tegye is meg a hozzáfűzést. Például:</p>
+
+<pre   ><code class="language-cbub">char *x;
+x = (char*) malloc((4+1) * sizeof(char));
+strcpy(x, &quot;alma&quot;);
+
+x = hozzafuz(x, &quot;fa&quot;);
+printf(&quot;%s\n&quot;, x);    // almafa
+
+free(x);</code></pre>
+
+
+
+
+<h3>Tetszőlegesen hosszú sor beolvasása</h3>
+
+<p>Az <code>fgets(str, 50, stdin)</code> függvény a szabványos bemenetről (<code>stdin</code>) olvas be egy sort
+a <code>50</code> elemű, <code>str</code> nevű karaktertömbbe. Eközben figyelembe veszi a karaktertömb méretét,
+tehát azt, hogy abba <code>50-1 = 49</code> karakterből álló sztring kerülhet csak. Persze előfordulhat, hogy
+a beolvasni kívánt sor ennél is hosszabb. Az <code>fgets()</code> ezt is tudja jelezni, méghozzá oly módon,
+hogy a beolvasott sztring végére <code>\n</code> karaktert tesz, ha teljes sort olvasott. Tehát:</p>
+
+<ul>
+    <li>Ha van <code>\n</code> a sztring végén, akkor végére értünk a sornak.
+    <li>Ha nincs, akkor viszont nem fért a tömbbe, és egy újabb <code>fgets()</code> hívás fogja megadni
+        a folytatást.
+</ul>
+
+<p>Írj programot, amely tetszőlegesen hosszú sort tud beolvasni egy dinamikusan foglalt sztringbe! Végezd el
+a sor beolvasását az <code>fgets()</code> segítségével egy ideiglenes tömbbe, 50 karakterenként; nyújtsd
+a dinamikus sztringet folyamatosan, amíg meg nem érkezik a <code>\n</code>!</p>
+
+<details >
+<summary>Tipp</summary>
+<div>
+<p>Használd fel ehhez az előző feladat megoldását!</p>
+<p>Teszteléshez válaszd kicsire az ideiglenes tömböt (pl. 10 karakteresre), akkor fogod látni, hogy az egymás
+utáni összefűzések jól működtek-e. Valójában azt a tömböt egyébként nagyra érdemes választani, mert úgy
+hatékonyabb a program: kisebb az összefűzések, másolások száma.</p>
+</div>
+</details>
+
+
+
+
+
+<h3>Minden ötödik után</h3>
+<p>Írj C függvényt, amely egy nullával terminált sztringben, amely
+egyes karaktereket ('1') és nullákat ('0') tartalmaz, minden egymást követő
+ötödik egyes után beír egy nullát! Az eredmény számára a függvény
+foglaljon helyet.</p>
+<p>Pl: 111101110<em>1111111</em>0011 &rarr; 111101110<em>11111011</em>0011</p>
+
+
+<h3>Dinamikus squeeze</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amelyik két sztringet vár paraméterként. Az első sztring egy feldolgozandó 
+szöveget tartalmaz, a második pedig mindenféle karaktereket. A függvény feladata, hogy 
+visszatérjen egy olyan dinamikusan foglalt sztringgel, amely úgy keletkezik, hogy az elsőből 
+kihagy minden olyan karaktert, amelyik a másodikban szerepel. Pl. ha a bemenet <code>"almale"
+</code> és <code>"aeoiu"</code>, a kimenet <code>"lml"</code> (elhagyta a magánhangzókat). 
+Pontosan annyi memóriát foglalj, amennyire szükség van! Írj programrészt, amelyben bemutatod a 
+függvény használatát. A <code>string.h</code> függvényei használhatóak.</p>
+
+<details >
+<summary>Tipp</summary>
+<div>
+<p>Forgasd ki az <code>strchr</code>-t: mintha a <code>karakterek</code> tömb egy halmaz lenne,
+megpróbálsz megkeresni egy karaktert. Ha meglesz, nem <code>NULL</code> pointerrel tér vissza.
+Persze nem muszáj így csinálni, egy „van-e benne” ciklus megteszi.</p>
+</div>
+</details>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<pre   ><code class="language-c">#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+char *szur(char *be, char *karakterek) {
+    int ujhossz = 0;
+    /* vegigmegyunk az eredetin */
+    for (int i = 0; be[i] != 0; i++)
+        /* ha NEM talalhato...
+         * azt strchr NULL-t ad, ha nincs benne az a karakter. */
+        if (strchr(karakterek, be[i]) == NULL)
+            ujhossz++;
+
+    char *uj = (char *) malloc(ujhossz + 1);
+    int cel = 0;
+    for (int i = 0; be[i] != 0; i++)
+        /* ha NEM talalhato...
+         * azt strchr NULL-t ad, ha nincs benne az a karakter. */
+        if (strchr(karakterek, be[i]) == NULL)
+            uj[cel++] = be[i];
+    /* 0 a sztring vegere */
+    uj[cel] = 0;
+    return uj;
+}
+
+int main(void) {
+    char *szurt = szur(&quot;kortefa&quot;, &quot;aeiou&quot;);
+    printf(&quot;[%s]\n&quot;, szurt);
+    free(szurt);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+<h3>Dinamikus trim()</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>
+Írj függvényt, amelyik egy paraméterként kapott sztring
+elejéről és végéről eltávolítja a szóköz karaktereket
+(a többi maradjon)! A bemeneti, paraméterben kapott sztringet
+ne változtassa meg; a visszatérési értéke legyen egy dinamikusan
+foglalt tömb, amelyik az új sztringet tartalmazza.
+Egy bájttal se foglalj több dinamikus memóriát, mint amennyi
+szükséges! Pl. ha a bemenet <code>"&nbsp;&nbsp;helló, mizu?&nbsp;&nbsp;"</code>,
+akkor a kimenet <code>"helló, mizu?"</code> legyen. Írj
+programrészt, amelyben bemutatod a függvény használatát.
+A <code>string.h</code> függvényei használhatóak.
+</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<img src="kzh-strtrim.svg" alt="A szóközök eltávolítása a sztring elejéről és végéről" class="kozep" style="width: 24em;">
+<p>Ennek az szokott lenni a neve, hogy <code>strstrip</code> vagy <code>trim</code>.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+char *strtrim(const char *forras) {
+    /* az elejen atugorjuk a spaceket, az elso nem
+     * space karakterig. ami amugy 0 is lehet. */
+    int eleje = 0;
+    while (forras[eleje] == ' ')
+        eleje++;
+
+    /* ezzel pedig eloszor tenyleg elmegyunk a vegeig */
+    int vege = 0;
+    while (forras[vege] != 0)
+        vege++;
+    vege--; /* ez az utolso karakter indexe */
+    /* aztan visszajovunk a spaceknel is. */
+    while (vege &gt; 0 &amp;&amp; forras[vege] == ' ')
+        vege--;
+    /* a kovetkezo vege++-szal a veget beallitom az utolso
+     * utani karakterre. ezt igy szokas csinalni: eleje
+     * az elso karakterre mutat, vege az utolso UTANIRA.
+     * a tomboknel ugyanez van: 100 elemu tomb, 0 az eleje,
+     * 99 a vege, vagyis a 100-as indexu az utolso utani.
+     * &quot;  hello, mizu?  &quot;
+     *    ^eleje      ^vege
+     */
+    vege++;
+
+    /* vege&lt;eleje akkor tortenhet, ha a sztring csak spaceket
+     * tartalmazott. mert akkor az eleje indexszel a vegen
+     * allunk (strlen(forras)-1), es a vege indexszel az elejen (0). */
+    if (vege &lt; eleje)
+        vege = eleje;
+
+    /* ennyi karakter kell; +1, a lezaro 0 miatt */
+    /* itt pl jol jon, hogy vege az utolso utani karakter, mert
+     * vege-eleje a masolando sztring hosszat adja, nem eggyel
+     * kevesebbet. */
+    char *uj = (char *) malloc(vege - eleje + 1);
+
+    /* masolom a karaktereket. egyutt futo ciklusvaltozok!
+     * itt is jo, hogy a vege az utolso utanira mutat, mert a
+     * szokasos &lt; osszehasonlitast hasznalom. */
+    int c = 0;
+    for (int f = eleje; f &lt; vege; f++)
+        uj[c++] = forras[f];
+    uj[c] = '\0';
+
+    return uj;
+}
+
+int main(void) {
+    char *uj = strtrim(&quot;  hello, mizu?  &quot;);
+    printf(&quot;[%s]\n&quot;, uj);
+    free(uj);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Dinamikus strjoinv()</h3>
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj egy függvényt, amelyik paraméterként kapott sztringeket fűz össze, közéjük a megadott 
+karaktert téve elválasztónak! A függvény első paramétere a bemenő sztringek tömbje, amelynek 
+legutolsó tagja egy null pointer (az jelzi a végét), a második paraméter pedig az elválasztó 
+karakter. Visszatérési értéke legyen egy dinamikusan foglalt sztring, amelyik éppen akkora, hogy 
+belefér az eredmény. Pl. bemenetek: <code>{ "alma", "korte", "narancs", NULL }</code> és
+<code>';'</code>, kimenet: <code>"alma;korte;narancs"</code>. Írj programrészt, amelyben bemutatod a 
+függvény használatát. A <code>string.h</code> függvényei használhatóak.</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<img src="kzh-sztringtomb.svg" alt="Az strjoinv() függvény működése" class="kozep" style="width: 28em;">
+<p>Ez is klasszikus feladat, <code>strjoinv</code> vagy <code>implode</code> néven.
+Lent a kódban az egykarakteres <code>elv[]</code> sztring
+pedig gyakorlatilag <code>sprintf("elv", "%c", elvalaszto)</code>.
+Azért csináltam, hogy az elválasztót is lehessen <code>strcat()</code>-olni.
+Gyakorlatilag a karakterből <code>';'</code> sztring lesz <code>";"</code>.</p>
+
+<pre   ><code class="language-c">#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+char *osszerak(char **sztringek, char elvalaszto) {
+    int hossz = 0;
+    for (int i = 0; sztringek[i] != NULL; ++i)
+        /* az i. sztring hossza, es utana az elvalaszto char */
+        hossz += strlen(sztringek[i]) + 1;
+
+    /* +1 a lezaro 0, -1 hogy nincs utolso elvalaszto... szoval most pont jo */
+    char *uj = (char *) malloc(hossz * sizeof(char));
+
+    /* ez egy egykarakteres sztring */
+    char elv[2];
+    elv[0] = elvalaszto;
+    elv[1] = '\0';
+
+    /* az elsőt külön, aztán a többi elé elválasztó is kell */
+    strcpy(uj, sztringek[0]);
+    for (int i = 1; sztringek[i] != NULL; ++i) {
+        strcat(uj, elv);
+        strcat(uj, sztringek[i]);
+    }
+
+    return uj;
+}
+
+int main(void) {
+    char *sztringek[] = {&quot;alma&quot;, &quot;korte&quot;, &quot;narancs&quot;, NULL};
+    char *uj = osszerak(sztringek, ';');
+    printf(&quot;[%s]\n&quot;, uj);
+    free(uj);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+<h3>Dinamikus sztring</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Definiálj egy olyan DinSztring struktúrát, amely egy tetszőlegesen hosszú sztring karaktereit 
+tárolja dinamikus tömbben, és annak hosszát is megjegyzi (a tömb nincsen nullával lezárva)!</p>
+<p>Írj függvényt, amely átvesz paraméterként egy ilyen sztringet, és úgy módosítja a tartalmát, 
+hogy abból eltűnnek a szóközök! Pl. „egy ilyen sztring”-ből „egyilyensztring” lesz. A foglalt 
+tömbnek mindig pont akkorának kell lennie, amennyi a karakterek tárolásához szükséges. A 
+szükséges fejlécfájlokat jelezd!</p>
+<p>Írj rövid programrészt, amelyben definiálsz egy ilyen változót, és azzal a feltételezéssel, 
+hogy már tartalmaz valamit, szóközteleníted.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct DinSztring {
+    int meret;
+    char *betuk;
+} DinSztring;
+
+void spacetelenit(DinSztring *ds) {
+    int kell = 0;
+    for (int i = 0; i &lt; ds-&gt;meret; ++i)
+        if (ds-&gt;betuk[i] != ' ')
+            ++kell;
+    char *uj = (char*) malloc(kell * sizeof(char));
+    int j = 0;
+    for (int i = 0; i &lt; ds-&gt;meret; ++i)
+        if (ds-&gt;betuk[i] != ' ')
+            uj[j++] = ds-&gt;betuk[i];
+
+    free(ds-&gt;betuk);
+    ds-&gt;betuk = uj;
+    ds-&gt;meret = kell;
+}
+
+int main(void) {
+    DinSztring szoveg;  /* a mainbol csak ez a sor kellett */
+
+    szoveg.meret = strlen(&quot;ez egy szoveg&quot;);
+    szoveg.betuk = (char*) malloc(sizeof(char) * szoveg.meret);
+    strncpy(szoveg.betuk, &quot;ez egy szoveg&quot;, szoveg.meret);
+
+    spacetelenit(&amp;szoveg);  /* es ez a sor */
+
+    for (int i = 0; i &lt; szoveg.meret; ++i)
+        putchar(szoveg.betuk[i]);
+    free(szoveg.betuk);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Dinamikus sztring II.</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Definiálj egy olyan DinSztring struktúrát, amely egy tetszőlegesen hosszú sztring karaktereit 
+tárolja dinamikus tömbben, és annak hosszát is megjegyzi (a tömb nincsen nullával lezárva)!</p>
+<p>Írj függvényt, amely átvesz paraméterként egy ilyen sztringet, és madárnyelvesíti a sztringet: 
+minden magánhangzó után betesz egy v betűt, és újra a magánhangzót (mavadávárnyelv). Ehhez 
+tételezd fel, hogy van egy maganhangzo() függvény, amely igazat ad vissza magánhangzó 
+karakterekre. A foglalt tömbnek pont akkorának kell lennie, amennyi a karakterek tárolásához 
+szükséges. A szükséges fejlécfájlokat jelezd!</p>
+<p>Írj rövid programrészt, amelyben definiálsz egy ilyen DinSztring változót, és azzal a 
+feltételezéssel, hogy már tartalmaz valamit, madárnyelvesíted.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdbool.h&gt;
+
+typedef struct DinSztring {
+    int meret;
+    char *betuk;
+} DinSztring;
+
+/* ez a fuggveny nem kellett */
+bool maganhangzo(char c) {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+void madar(DinSztring *ds) {
+    int hossz = 0;
+    for (int i = 0; i &lt; ds-&gt;meret; ++i)
+        hossz += maganhangzo(ds-&gt;betuk[i]) ? 3 : 1;
+
+    char *uj = (char*) malloc(hossz * sizeof(char));
+
+    int j = 0;
+    for (int i = 0; i &lt; ds-&gt;meret; ++i) {
+        uj[j++] = ds-&gt;betuk[i];
+        if (maganhangzo(ds-&gt;betuk[i])) {
+            uj[j++] = 'v';
+            uj[j++] = ds-&gt;betuk[i];
+        }
+    }
+
+    free(ds-&gt;betuk);
+    ds-&gt;betuk = uj;
+    ds-&gt;meret = hossz;
+}
+
+int main(void) {
+    DinSztring szoveg;  /* a mainbol csak ez a sor kellett */
+
+    szoveg.meret = strlen(&quot;ez egy szoveg&quot;);
+    szoveg.betuk = (char*) malloc(sizeof(char) * szoveg.meret);
+    strncpy(szoveg.betuk, &quot;ez egy szoveg&quot;, szoveg.meret);
+
+    madar(&amp;szoveg);  /* es ez a sor */
+
+    for (int i = 0; i &lt; szoveg.meret; ++i)
+        putchar(szoveg.betuk[i]);
+    free(szoveg.betuk);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+<h3>Dinamikus halmaz</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Definiálj egy olyan Halmaz struktúrát, amely egy elemszámot, és a halmaz elemeit (egész 
+típusúak) képes tárolni egy dinamikus tömbben!</p>
+<p>Írj függvényt, amely paraméterként kap egy ilyen halmazt, és egy számot. Távolítsa el a függvény 
+a halmazból azokat a számokat, amelyek kisebbek a paraméterben kapottnál! A lefoglalt tömbnek 
+mindig pont akkorának kell lennie, mint amennyi elem van. A szükséges fejlécfájlokat jelezd!</p>
+<p>Írj rövid programrészt, amelyben definiálsz egy halmaz változót, és azzal a feltételezéssel, 
+hogy már vannak benne adatok, kiveszed belőle a 20-nál kisebbeket!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct Halmaz {
+    int meret;
+    double *szamok;
+} Halmaz;
+
+void kisebbeket_kivesz(Halmaz *h, double minel) {
+    int hossz = 0;
+    for (int i = 0; i &lt; h-&gt;meret; ++i)
+        if (!(h-&gt;szamok[i] &lt; minel))
+            ++hossz;
+
+    double *uj = (double*) malloc(sizeof(double) * hossz);
+    int j = 0;
+    for (int i = 0; i &lt; h-&gt;meret; ++i)
+        if (!(h-&gt;szamok[i] &lt; minel))
+            uj[j++] = h-&gt;szamok[i];
+
+    free(h-&gt;szamok);
+    h-&gt;szamok = uj;
+    h-&gt;meret = hossz;
+}
+
+int main(void) {
+    Halmaz h;  /* a mainbol csak ez a sor hosszett */
+
+    h.meret = 5;
+    h.szamok = (double*) malloc(sizeof(double) * 5);
+    for (int i = 0; i &lt; 5; ++i)
+        h.szamok[i] = i * 15;
+
+    kisebbeket_kivesz(&amp;h, 20);  /* es ez a sor */
+
+    for (int i = 0; i &lt; h.meret; ++i)
+        printf(&quot;%g &quot;, h.szamok[i]);
+    free(h.szamok);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+<h3>Dinamikus tömb</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Definiálj olyan DinTomb struktúrát, amely egész típusú számokat (tetszőlegesen sokat)
+képes tárolni egy dinamikus tömbben, és melléjük eltárolja a darabszámukat is!</p>
+<p>Írj függvényt, amely paraméterként kap egy ilyen DinTomb-ot, és kiszűri (eldobja) belőle a 
+negatív számokat! Pl. ha az eredeti tartalom 3, 5, -1, 0, -3, 7, akkor a 
+szűrés után a 3, 5, 0, 7 számok kell, hogy benne legyenek. A foglalt tömbnek 
+pontosan akkorának kell lennie, amekkorában a számok éppen elférnek. A szükséges fejlécfájlokat 
+jelezd!</p>
+<p>Írj rövid programrészt, amelyben definiálsz egy DinTomb változót, és azzal a feltételezéssel,
+hogy már vannak benne számok, kiszűröd belőle a negatívakat!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef struct DinTomb {
+    int meret;
+    int *szamok;
+} DinTomb;
+
+void negativakat_kivesz(DinTomb *h) {
+    int db = 0;
+    for (int i = 0; i &lt; h-&gt;meret; ++i)
+        if (!(h-&gt;szamok[i] &lt; 0))
+            ++db;
+
+    int *uj = (int*) malloc(sizeof(int) * db);
+    int j = 0;
+    for (int i = 0; i &lt; h-&gt;meret; ++i)
+        if (!(h-&gt;szamok[i] &lt; 0))
+            uj[j++] = h-&gt;szamok[i];
+
+    free(h-&gt;szamok);
+    h-&gt;szamok = uj;
+    h-&gt;meret = db;
+}
+
+int main(void) {
+    DinTomb h;  /* a mainbol csak ez a sor dbett */
+    int i;
+
+    h.meret = 5;
+    h.szamok = (int*) malloc(sizeof(int) * 5);
+    for (int i = 0; i &lt; 5; ++i)
+        h.szamok[i] = i * 15 - 30;
+
+    negativakat_kivesz(&amp;h);  /* es ez a sor */
+
+    for (int i = 0; i &lt; h.meret; ++i)
+        printf(&quot;%d &quot;, h.szamok[i]);
+    free(h.szamok);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Karakterek szűrése</h3>
+<p>Deklarálj és írj C függvényt, amely kap egy nullával terminált sztringet
+paraméterként, továbbá egy betűt. Hozzon létre a függvény egy olyan sztringet,
+amely hasonló az eredetihez, de a megadott karakter mindenhonnan ki van szűrve
+belőle! Például ha <code>"ez a bemeneti szöveg"</code>, és a karakter
+a szóköz <code>' '</code>, akkor az eredmény <code>"ezabemenetiszöveg"</code> legyen.
+Írj rövid főprogramot, amelyben meghívod a függvényt!</p>
+
+
+
+
+<h3>Adatok a 7 bites csatornán</h3>
+
+<div class="sticky">Vizsga volt</div>
+
+<p>Adott egy tömbünk, 8 bites <code>unsigned char</code> elemekből. Ezt kellene egy olyan 
+csatornán átküldenünk, amely csak 7 bites átvitelt támogat. Ezért a tömböt egy sztringgé 
+alakítjuk. Ha a benne lévő bájt 32 és 127 közötti (zárt intervallum), azt egy az egyben 
+megjelenítjük a sztringben; ha ezen kívüli, <code>\</code> bevezető után a nyolcas 
+számrendszerbeli jelöljük (mindig 3 számjeggyel, így pl. a sortörésből <code>\012</code> lesz, 
+mert 10 az ASCII kódja). A backslash karaktert a sztringben úgy jelöljük, ahogy azt C-ben szokás 
+(<code>"\\"</code>).</p>
+
+<p>Írj egy függvényt, amelynek bemeneti paraméterei a tömb és annak mérete; visszatérési értéke 
+egy dinamikusan foglalt sztring, amelyik a kódolt szöveget tartalmazza. Pontosan annyi memóriát 
+foglalj, amennyire szükség van!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+char *strescape(unsigned char *input, int meret) {
+    int ujhossz = 0;
+    for (int i = 0; i &lt; meret; i++)
+        if (input[i] &lt; 32 || input[i] &gt;= 128)
+            ujhossz += 4; /* ez ilyen lesz, mint pl \012, szoval 4 betu */
+        else if (input[i] == '\\')
+            ujhossz += 2; /* mert ezt \\ formaban jeloljuk majd */
+        else
+            /* ha nem az a tartomany, akkor siman megy a char -&gt; 1 betu */
+            ujhossz += 1;
+
+    char *uj = (char *) malloc((ujhossz + 1) * sizeof(char));
+    int idx = 0;
+    for (int i = 0; i &lt; meret; i++)
+        if (input[i] &lt; 32 || input[i] &gt;= 128) {
+            uj[idx++] = '\\';
+            uj[idx++] = '0' + input[i] / 8 / 8;
+            uj[idx++] = '0' + input[i] / 8 % 8;
+            uj[idx++] = '0' + input[i] % 8;
+        }
+        else if (input[i] == '\\') {
+            uj[idx++] = '\\';
+            uj[idx++] = '\\';
+        }
+        else
+            uj[idx++] = input[i];
+    uj[idx] = '\0';
+
+    return uj;
+}
+
+int main(void) {
+    unsigned char tmb[] = {'h', 'e', 'l', '\n', 'l', 'o',
+                           '\\', '!', 012, 0377, '3'
+                          };
+    char *uj = strescape(tmb, sizeof(tmb));
+    printf(&quot;[%s]\n&quot;, uj);
+    free(uj);
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+<h3>Adatok a 7 bites csatornán – visszafelé</h3>
+
+<p>Írd meg azt a programot, amely az előző feladat által előállított kimenetből visszaállítja
+annak bemenetét!</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Több dimenziós tömbök">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Több dimenziós tömbök<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Tó mélysége</h3>
+
+<p>Egy tóra négyzethálót fektetünk, és minden rácspontban megmérjük a víz 
+mélységét, amit egy n×m méretű kétdimenziós valós tömbben tárolunk. A 
+négyzetháló szélső rácspontjai a szárazföldön vannak. Készíts programot, 
+mely meghatározza a leggyorsabban mélyülő helyet.</p>
+
+
+<h3>SMS</h3>
+
+<div class="sticky">Vizsga volt</div>
+
+<p>Írj sms-billentyűlenyomásokat dekódoló függvényt! Az adott telefonon a következő gombok 
+megfelelő számú lenyomásával a keletkező karakterek:
+
+0: space
+1: .,!
+2: abc
+3: def
+4: ghi
+5: jkl
+6: mno
+7: pqrs
+8: tuv
+9: wxyz.
+
+Definiálj struktúrát, amelyik azt tárolja, egy adott gombot hányszor nyomtak le. A függvényed 
+dekódoljon egy ilyen struktúrákból álló tömböt, és az eredményt egy paraméterként kapott 
+stringben adja vissza!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+struct lenyomas {
+    int mit, hanyszor;
+};
+
+void dekodol(char eredmeny[], struct lenyomas be[]) {
+    /* ez egy két dimenziós tömb. az első dimenzió az, hogy melyik gomb
+     * lett megnyomva (0-9), a második pedig egy karaktertömb, amelyben
+     * az annyiadik indexen (-1) van egy karakter, ahányszor az adott gombot
+     * meg kell nyomni. */
+    char betuk[][5] = {&quot; &quot;, &quot;.,!&quot;, &quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;, &quot;jkl&quot;, &quot;mno&quot;, &quot;pqrs&quot;, &quot;tuv&quot;, &quot;wxyz&quot;};
+    int db;
+    for (db = 0; be[db].mit != -1; db++)
+        eredmeny[db] = betuk[be[db].mit][be[db].hanyszor-1];
+    eredmeny[db] = '\0';
+}
+
+int main(void) {
+    struct lenyomas bevitel[] = {
+        {4, 2},
+        {3, 2},
+        {5, 3},
+        {5, 3},
+        {6, 3},
+        {1, 3},
+        {-1, 0},        /* lezáró elem */
+    };
+    char eredmeny[161]; /* max 160 karakteres egy sms */
+
+    dekodol(eredmeny, bevitel);
+    printf(&quot;%s\n&quot;, eredmeny);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+<h3>Jégtömbök</h3>
+
+<pre class="screenshot sorsurit1 float">
+[........]
+[..####..]
+[..#####.]
+[..#####.]
+[...####.]
+[...###..]
+[..###...]
+[........]
+</pre>
+
+<pre class="screenshot sorsurit1 float" style="clear: none;">
+[        ]
+[  1221  ]
+[  23321 ]
+[  14432 ]
+[   4321 ]
+[   321  ]
+[  121   ]
+[        ]
+</pre>
+
+
+<p>Jégtömböket írunk le egy táblázat segítségével. A kereszttel jelölt pontok jelölik a jégtömbbe 
+tartozó pozíciókat. Ha a jégtömbre meleg levegőt fújunk, akkor a szélén olvad­ni kezd, s a 
+keletkezett víz elfolyik. Az olvadás szabálya: egy időegység alatt abban a mező­ben levő jég 
+olvad el (s tűnik el a táblázatból), amelynek 4 oldal-szomszédja közül legalább 2 levegő volt. 
+(Ilyenek az ábrán 1-es számmal jelölt pontok.) Ezután keletkezhetnek újabb ilyen tulajdonságú 
+pontok (az ábrán 2-vel jelöljük őket), amelyek a 2. időegységben olvadnak el és így tovább.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdbool.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int olvaszt(char *tomb, int szel, int mag) {
+    bool *olvadhat_e = malloc((szel * mag) * sizeof(bool));
+    
+    for (int y = 0; y &lt; mag; y++) {
+        for (int x = 0; x &lt; szel; x++) {
+            int db = 0;
+            /* barhol: sze'len vagyunk vagy ures a szomszed, az jo. */
+            if (x &gt; 0 &amp;&amp; !tomb[(x - 1) + y * szel]) db++;
+            if (y &gt; 0 &amp;&amp; !tomb[x + (y - 1)*szel]) db++;
+            if (x &lt; szel - 1 &amp;&amp; !tomb[x + 1 + y * szel]) db++;
+            if (y &lt; mag - 1 &amp;&amp; !tomb[x + (y + 1)*szel]) db++;
+            olvadhat_e[x + y * szel] = db &gt;= 2;
+        }
+    }
+
+    int olvadt = 0;
+    for (int y = 0; y &lt; mag; y++)
+        for (int x = 0; x &lt; szel; x++)
+            if (olvadhat_e[x + y * szel])
+                if (tomb[x + y * szel]) {
+                    olvadt++;
+                    tomb[x + y * szel] = 0; /* elolvadt */
+                }
+
+    free(olvadhat_e);
+
+    return olvadt;  /* ennyi olvadt el */
+}
+
+void kiir(char *tomb, int szel, int mag) {
+    for (int y = 0; y &lt; mag; y++) {
+        printf(&quot;[&quot;);
+        for (int x = 0; x &lt; szel; x++)
+            printf(&quot;%c&quot;, tomb[y * szel + x] ? '#' : '.');
+        printf(&quot;]\n&quot;);
+    }
+    printf(&quot;\n&quot;);
+}
+
+int main(void) {
+    int szel = 8;
+    int mag = 8;
+    char tomb[szel * mag];
+    int kor;
+
+    for (int x = 0; x &lt; szel; x++)
+        for (int y = 0; y &lt; mag; y++)
+            tomb[szel * y + x] = 0;
+
+    for (int x = 0; x &lt; szel * mag; x++)
+        tomb[rand() % (szel - 2) + 1 + szel * (rand() % (mag - 2) + 1)] = 1;
+
+    kiir(tomb, szel, mag);
+    kor = 0;
+    while (olvaszt(tomb, szel, mag) &gt; 0) {
+        ++kor;
+        kiir(tomb, szel, mag);
+    }
+
+    printf(&quot;%d körben olvadt.\n&quot;, kor);
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Dinamikusan foglalt struktúrák">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Dinamikusan foglalt struktúrák<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+
+<h3>Szöveget tároló struktúra</h3>
+
+<p>Sztringeket úgy is lehet tárolni, hogy a lezáró nulla helyett minden karaktertömb
+mellé eltároljuk a benne lévő szöveg hosszát is.
+Egy sztringhez így két
+adat tartozik: a hossz (egész szám) és a karaktereket tároló tömb (karakterre mutató pointer,
+hiszen dinamikus memóriáról van szó). A „helló, világ” szöveg például így lehet eltárolva:</p>
+
+   <table class="tomb">
+      <tr><td>12
+   </table>
+
+   <table class="tomb">
+      <tr>
+         <td>h
+         <td>e
+         <td>l
+         <td>l
+         <td>o
+         <td>,
+         <td>&nbsp;
+         <td>v
+         <td>i
+         <td>l
+         <td>a
+         <td>g
+      
+   </table>
+
+<p>Definiálj <code>DinSztring</code> nevű struktúrát, amely egy
+szöveg adatait tárolja ilyen módon! Írj függvényeket:</p>
+
+<ul>
+   <li><code>dinsztring_init()</code>: paraméterként kap egy <code>DinSztring</code>-re mutató pointert és egy
+      szokványos nullával lezárt C sztringet (karaktertömböt). Inicializálja
+      a struktúrát úgy, hogy az a C sztring másolatát tárolja dinamikusan
+      foglalt memóriaterületen!
+      <div class="megjegyzes">
+      Mivel a másolat nem lesz nullával lezárt (és semelyik <code>DinSztring</code>-hez
+      tartozó karaktertömb nem lesz az), ezért a <code>string.h</code> beépített
+      függvényei nem használhatóak.
+      </div>
+      Ez lesz az <em>egyetlen</em> olyan függvény, amely inicializálatlan struktúrán
+      dolgozik. Az összes többi már inicializált struktúrát kap majd, amelyet
+      ez a függvény állított be!
+      
+
+   <li><code>dinsztring_kiir()</code>: paraméterként kap egy <code>DinSztring</code>-re mutató pointert, és
+      képernyőre írja a tárolt szöveget.
+
+   <li><code>dinsztring_vege()</code>: paraméterként kap egy <code>DinSztring</code> pointert, és felszabadítja
+      a hozzá tartozó dinamikus memóriaterületet.
+</ul>
+
+<p>Ha helyesek a függvényeid, az alábbi programnak működnie kell:</p>
+
+<pre   ><code class="language-c">int main(void) {
+   DinSztring hv;
+
+   dinsztring_init(&amp;hv, &quot;hello, vilag&quot;);
+   dinsztring_kiir(&amp;hv);
+   dinsztring_vege(&amp;hv);
+
+   return 0;
+}</code></pre>
+
+<p>Írj függvényt, amely egy meglévő <code>DinSztring</code>-hez
+fűz hozzá egy másikat. Figyelj arra, hogy ehhez a módosított
+<code>DinSztring</code> memóriaterületét újra kell foglalni
+(hiszen megnő a mérete). Tedd hozzá a példához a felszabadításukat is! Példaprogram:</p>
+
+<pre   ><code class="language-cbub">DinSztring s1, s2;
+
+dinsztring_init(&amp;s1, &quot;hello, &quot;);
+dinsztring_init(&amp;s2, &quot;vilag&quot;);
+dinsztring_hozzafuz(&amp;s1, &amp;s2);
+dinsztring_kiir(&amp;s1); // hello, vilag</code></pre>
+
+
+<p>Írj függvényt, amely egy paraméterként kapott <code>DinSztring</code>-et
+felülír, és abba egy másik paraméterként kapottat másol.
+Figyelj arra, hogy a felülírt sztring (itt: <code>s1</code>) eredeti tömbjét törölni kell, fel kell szabadítani.
+A lemásolt sztringnek (itt: <code>s2</code>) pedig nem elég lemásolni a pointerét, hanem új tömböt kell foglalni,
+és a karaktereket is másolni kell! Ezt úgy mondjuk, hogy nem sekély másolatot (shallow copy), hanem mély másolatot
+(deep copy) kell készíteni a sztringről. Így tud a két sztring egymástól független maradni.
+A fenti példát
+folytatva:</p>
+
+<pre   ><code class="language-cbub">dinsztring_ertekad(&amp;s1, &amp;s2);
+dinsztring_kiir(&amp;s1); // vilag</code></pre>
+
+<p>Írj függvényt, amely egy <code>DinSztringet</code> úgy módosít,
+hogy kivágja abból a paraméterként kapott két index közötti részt.
+Az első index az első karakterre mutasson, ami már kell, a második index
+pedig arra az első karakterre, ami már nem kell. Ha az első index kisebb 0-nál, akkor vegye a függvény
+0-nak azt; ha a második nagyobb a sztring hosszánál, akkor pedig azzal megegyezőnek.
+Írj teszt programrészt is – próbáld ki a függvényt különböző bemenetekre!
+Pl. így:</p>
+
+<table class="tomb">
+   <tr>
+      <td>0
+      <td>1
+      <td>2
+      <td class="piros">3
+      <td>4
+      <td>5
+      <td>6
+      <td>7
+      <td>8
+      <td class="piros">9
+      <td>10
+      <td>11
+   
+   <tr>
+      <td class="athuzott">h
+      <td class="athuzott">e
+      <td class="athuzott">l
+      <td class="piros">l
+      <td class="piros">o
+      <td class="piros">,
+      <td class="piros">&nbsp;
+      <td class="piros">v
+      <td class="piros">i
+      <td class="athuzott">l
+      <td class="athuzott">a
+      <td class="athuzott">g
+   
+</table>
+
+<p class="megjegyzes">
+Egyébként az első ami már igen, utolsó ami már nem konvenció éppen megegyezik azzal,
+amit a tömböknél is használunk: for i=0; i&lt;méret stb., azaz i=0 már igen, i=méret már nem.
+Itt is az intervallum alulról zárt, felülről nyílt.
+</p>
+
+
+<p>Csináld meg a fentit fordítva: az indexekkel jelzett részt a függvény
+vágja ki, a többi maradjon!</p>
+
+<table class="tomb">
+   <tr>
+      <td>0
+      <td>1
+      <td>2
+      <td>3
+      <td class="piros">4
+      <td>5
+      <td>6
+      <td>7
+      <td class="piros">8
+      <td>9
+      <td>10
+      <td>11
+   
+   <tr>
+      <td class="piros">h
+      <td class="piros">e
+      <td class="piros">l
+      <td class="piros">l
+      <td class="athuzott">o
+      <td class="athuzott">,
+      <td class="athuzott">&nbsp;
+      <td class="athuzott">v
+      <td class="piros">i
+      <td class="piros">l
+      <td class="piros">a
+      <td class="piros">g
+   
+</table>
+
+<p>Írj függvényt, amely:</p>
+
+<ol>
+   <li>Nulla hosszúságúra állít egy <code>DinSztring</code>-et.
+   <li>Hozzáfűz egy <code>DinSztring</code>-hez egy paraméterként
+      kapott karaktert.
+</ol>
+
+<p>Írj ezek segítségével függvényt, amely tetszőlegesen
+hosszú szöveget (sort) képes beolvasni a szabványos bemenetről. A sor
+végét újsor karakter (<code>\n</code>) vagy fájlvége jel jelzi.
+</p>
+
+<pre   ><code class="language-cbub">dinsztring_beolvas(&amp;s);
+puts(&quot;Ezt irtad be:&quot;);
+dinsztring_kiir(&amp;s);</code></pre>
+
+
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+
+/* Dinamikus sztringet tároló struktúra */
+typedef struct {
+    int hossz; /* Hossz */
+    char *p;   /* Pointer a dinamikusan foglalt tömbre */
+} DinSztring;
+
+
+/* Inicializálás */
+bool dinsztring_init(DinSztring *ds, char *s) {
+    int len = 0;
+    while (s[len] != '\0')
+        len++;                              /* Kiszámoljuk s hosszát */
+    ds-&gt;hossz = len;                        /* Ez lesz a hossz */
+    ds-&gt;p=(char*) malloc(len*sizeof(char)); /* Helyfoglalás */
+    if (ds-&gt;p == NULL)
+        return false;                       /* Ha nem sikerül :( */
+    for (int i = 0; i &lt; len; i++)
+        ds-&gt;p[i] = s[i];                    /* Másolás */
+    return true;                            /* Siker :) */
+}
+
+/* Kiírás */
+void dinsztring_kiir(DinSztring *ds) {
+    for (int i = 0; i &lt; ds-&gt;hossz; i++)
+        putchar(ds-&gt;p[i]);
+}
+
+/* Felszabadítás */
+void dinsztring_vege(DinSztring *ds) {
+    free(ds-&gt;p);
+}
+
+/* Hozzáfűzés */
+bool dinsztring_hozzafuz(DinSztring *ds1, DinSztring *ds2) {
+    char *uj = (char*)malloc((ds1-&gt;hossz+ds2-&gt;hossz)*sizeof(char));  /* Helyfoglalás */
+    if (uj==NULL) return false; /* Ha nem sikerül :( */
+    for (int i = 0; i &lt; ds1-&gt;hossz; i++)
+        uj[i]=ds1-&gt;p[i];        /* Régi rész másolása */
+    for (int i = 0; i &lt; ds2-&gt;hossz; i++)
+        uj[ds1-&gt;hossz+i] = ds2-&gt;p[i];  /* Új rész másolása */
+    
+    free(ds1-&gt;p);    /* Régi sztring törlése!!! */
+    ds1-&gt;p = uj;     /* Mutasson az új tömbre */
+    ds1-&gt;hossz += ds2-&gt;hossz;  /* Új hossz */
+    return true;     /* Siker :) */
+}
+
+/* Értékadás */
+bool dinsztring_ertekad(DinSztring *ds1, DinSztring *ds2) {
+    free(ds1-&gt;p);  /* Régi sztring törlése!!! */
+    ds1-&gt;p = (char*)malloc(ds2-&gt;hossz*sizeof(char));  /* Helyfoglalás */
+    if (ds1-&gt;p == NULL)
+        return false;  /* Ha nem sikerül :( */
+    for (int i = 0; i &lt; ds2-&gt;hossz; i++)
+        ds1-&gt;p[i] = ds2-&gt;p[i];  /* Másolás */
+    ds1-&gt;hossz = ds2-&gt;hossz;    /* Hossz felülírása */
+    return true;  /* Siker :) */
+}
+
+/* Részsztring kivágása */
+bool dinsztring_resz(DinSztring *ds, int mettol, int meddig) {
+    if (mettol&lt;0)
+        mettol=0;  /* Határok ellenőrzése */
+    if (meddig&gt;ds-&gt;hossz)
+        meddig = ds-&gt;hossz;
+    char *uj=(char*)malloc((meddig-mettol)*sizeof(char));  /* Helyfoglalás ideiglenes tömbbe */
+    if (uj==NULL)
+        return false;  /* Ha nem sikerül :( */
+    for (int i = mettol; i &lt; meddig; i++)
+        uj[i-mettol] = ds-&gt;p[i];  /* Megfelelő rész bemásolása az újba */
+    free(ds-&gt;p);  /* Régi törlése!!! */
+    ds-&gt;p = uj;   /* Új pointer, amit kaptunk a malloc-tól */
+    ds-&gt;hossz = meddig-mettol;  /* Hossz felülírása */
+    return true;  /* Siker :) */
+}
+
+
+int main(void) {
+    DinSztring s1, s2, s3;
+
+    dinsztring_init(&amp;s1, &quot;hello, &quot;);
+    dinsztring_init(&amp;s2, &quot;vilag&quot;);
+    dinsztring_init(&amp;s3, &quot;ez felul lesz irva&quot;);
+    dinsztring_hozzafuz(&amp;s1,&amp;s2);
+    dinsztring_kiir(&amp;s1); putchar('\n');
+    dinsztring_ertekad(&amp;s3,&amp;s1);
+    dinsztring_kiir(&amp;s3); putchar('\n');
+    dinsztring_resz(&amp;s3,3,9);
+    dinsztring_kiir(&amp;s3); putchar('\n');
+    dinsztring_vege(&amp;s1);
+    dinsztring_vege(&amp;s2);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Dinamikusan foglalt struktúra</h3>
+
+<p>A fenti kódban oldd meg azt, hogy dinamikusan foglalt legyen sztring struktúrája, ne csak a tárolt adat! A <em>létrehozó</em> 
+függvény itt is térjen vissza a lefoglalt struktúrára mutató pointerrel. Sztring használatához így nem struktúrát, hanem pointert 
+kell majd definiálni:</p>
+
+<pre   ><code class="language-c">DinSztring *sz;
+
+sz = dinsztring_letrehoz(&quot;hello, vilag&quot;);
+dinsztring_kiir(sz);
+dinsztring_felszabadit(sz);</code></pre>
+
+<p>Természetesen a felszabadításnak ilyenkor a struktúrát és fel kell 
+szabadítania majd.</p>
+
+
+<h3>Sztring létrehozása másolatként</h3>
+
+<p>Írj függvényt, amely paraméterként kap egy <code>DinSztring</code>-et,
+és <em>létrehoz</em> egy másikat, amely másolata annak. Ez is az
+újra mutató pointerrel térjen vissza, mint az előbbi. Mi a különbség
+eközött, és az értékadás között? Használható a fent megírt értékadás
+függvény a dinamikusan foglalt struktúrák esetében?</p>
+
+<h3>Beszúrás</h3>
+
+<p>Írj függvényt, amely egy <code>DinSztring</code>-be egy adott helyen
+beszúrja a másik tartalmát. Pl. a „hellóvilág” szövegbe az ötödik indexnél
+beszúrt sztring:</p>
+
+<table class="tomb">
+   <tr>
+      <td>0
+      <td>1
+      <td>2
+      <td>3
+      <td>4
+      <td class="piros">5
+      <td>6
+      <td>7
+      <td>8
+      <td>9
+      <td>10
+      <td>11
+   
+   <tr>
+      <td>h
+      <td>e
+      <td>l
+      <td>l
+      <td>o
+      <td class="piros">,
+      <td class="piros">&nbsp;
+      <td>v
+      <td>i
+      <td>l
+      <td>a
+      <td>g
+   
+</table>
+
+<h3>További, nagyobb feladat: a <code>malloc()</code>–<code>free()</code> hívások számának csökkentése</h3>
+
+<p>A fenti megoldásban elég gyakran hívódik a <code>malloc()</code> és <code>free()</code>
+függvény. Akár egy karakter hozzáfűzése miatt is másolódik a sztring. Alakítsd át
+a sztringkezelő függvényeket ezért úgy, hogy mindig egy kicsivel több memóriát
+foglaljanak, mint amennyi szükséges. Így pedig csak akkor foglaljanak újra, ha az is betelik.
+Ehhez vegyél fel a struktúrába egy új integert (kapacitás), amely a lefoglalt terület nagyságát
+tárolja. Természetesen méret&le;kapacitás minden esetben, hiszen a tárolt szöveg
+nem lehet nagyobb a lefoglalt területnél. Az összes függvényt
+ehhez újra kell írni, hogy figyelembe vegyék a kapacitás adattagot is.
+</p>
+
+<p>A függvények kidolgozása előtt találj ki egy stratégiát: hogyan 
+viszonyuljon a kapacitás a szöveg hosszához. Vagyis ha növelni kell, akkor 
+mennyivel nőjön a terület nagysága; ha pedig feleslegesen nagy a terület, 
+akkor mennyivel csökkenjen. Itt kompromisszumra van szükség: ha nagy a szabadon 
+tartott terület, akkor ritkán kell újrafoglalni, de sok az elpocsékolt 
+memória. Ezt a stratégiát építsd be egy függvénybe (pl. olyan módon, hogy ez
+egy függvényként jelenik meg, amely megadja, mekkora a foglalt terület a sztring
+hossza szerint). Ez a függvény a sztring modulnak egy „láthatatlan” része
+legyen, a sztring modul használói elől legyen elrejtve!</p>
+
+
+
+<h3>Halmaz dinamikusan foglalt struktúrával</h3>
+
+<p>Írd át a <a href="../gy09/index.html#gyakhalmaz">gyakorlati óra halmaz programját</a> úgy, hogy a halmazt <em>létrehozó</em> 
+függvények ne egy meglévő, inicializálatlan halmaz struktúrán dolgozzanak, hanem azt is dinamikusan foglalják, és a címével 
+térjenek vissza. Erősen különböztesd meg az új halmazt <em>létrehozó</em> és a meglévő halmazt <em>módosító</em> függvényeket! Az 
+előbbiek visszatérnek egy pointerrel, az utóbbiak várnak egy pointert a módosítandó halmazra. A függvények használata:</p>
+
+<pre   ><code class="language-c">Halmaz *h;
+
+h = halmaz_uj();
+halmaz_betesz(h, 3.14);
+halmaz_betesz(h, 6.1);
+halmaz_lista(h);
+halmaz_kivesz(h, 3.14);
+halmaz_lista(h);
+halmaz_felszabadit(h);</code></pre>
+
+<p>Így a halmazok kényelmesen adhatók át a függvények között, nem szűnnek meg amiatt, mert lokális változók lennének. Figyeld 
+meg, hogy ez a szintaktikára nézve is jótékony hatással van: mivel <code>h</code> itt eleve már pointer, sehol nem kell az 
+<code>&amp;</code> címképző operátort használni.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Ilyenkor a memóriaképünk ilyen:</p>
+
+<img src="memoriakep_halmaz2.svg" class="kozep" style="width: 22em;">
+
+<p>A <code>main()</code>-ben lokális változó csak egy pointer; a kupacon van a struktúra és a tömb is.</p>
+
+<p>A különbség csak a létrehozó és a felszabadító függvényekben van. A létrehozáskor <code>malloc()</code>-oljuk a struktúrát 
+<em>is</em>, és emiatt természetesen a felszabadításnál <code>free()</code>-zni kell azt is:</p>
+
+<pre   ><code class="language-c">Halmaz *halmaz_init(void) {
+    Halmaz *ph;
+    ph = (Halmaz*) malloc(sizeof(Halmaz));
+    ph-&gt;adat = NULL;
+    ph-&gt;db = 0;
+    return ph;
+}
+
+void halmaz_felszab(Halmaz *ph) {
+    free(ph-&gt;adat);
+    free(ph);
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+<h3>Halmaz dinamikusan foglalt struktúrával</h3>
+
+<p>Implementáljuk a <a href="../gy09/index.html#gyakhalmaz">gyakorlati óra halmaz típusát</a> úgy, hogy rendezett tömböt 
+használ az elemek tárolására! Hogyan kell módosítani a <code>betesz()</code>, <code>kivesz()</code>, <code>benne_van_e()</code>, 
+illetve a <code>metszet()</code>, <code>unio()</code> függvényeket, hogy kihasználják ezt? Hogyan változik az algoritmusok 
+hatékonysága?</p>
+
+<p>A rendezve tartáshoz a <code>betesz()</code> és <code>kivesz()</code> függvényeket is módosítani kell, hiszen azoknak figyelnie 
+kell a rendezettség megtartására. A többi függvényt is sokkal hatékonyabbá lehet tenni, mint eddig voltak.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<table>
+    <thead>
+        <tr><th>Művelet<th>Hatékonyság<br>rendezetlen tömb<th>Hatékonyság<br>rendezett tömb
+    </thead>
+        <tr><th>Keresés (eleme-e?)<td>Θ(n)<td>Θ(log n), bináris kereséssel
+        <tr><th>Beszúrás<td>Θ(n)<td>Θ(n), a másolás miatt
+        <tr><th>Törlés<td>Θ(n)<td>Θ(n), a másolás miatt
+        <tr><th>Unió<td>Θ(n²)<td>Θ(n), összefésüléssel
+        <tr><th>Metszet<td>Θ(n²)<td>Θ(n), összefésüléssel
+</table>
+</div>
+</details>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

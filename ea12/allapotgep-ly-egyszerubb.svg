@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg61" width="15.948cm" height="2.6144cm" version="1.1" viewBox="559 374 305 44.444" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata id="metadata67">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="Háttér" transform="translate(-1 -3.7778)">
+  <g id="g8">
+   <path id="ellipse2" d="m864 400a24 24 0 0 1-24 24 24 24 0 0 1-24-24 24 24 0 0 1 24-24 24 24 0 0 1 24 24z" fill="#7babe3" stroke="#000" stroke-width="2"/>
+  </g>
+  <g id="g16">
+   <path id="ellipse10" d="m660 400a20 20 0 0 1-20 20 20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20z" fill="#7babe3" stroke="#000" stroke-width="2"/>
+  </g>
+  <g id="g22" fill="none" stroke="#000" stroke-width="2">
+   <path id="line18" d="m560 400h55.528"/>
+   <path id="polyline20" d="m607.76 405 10-5-10-5"/>
+  </g>
+  <g id="g30">
+   <path id="ellipse24" d="m760 400a20 20 0 0 1-20 20 20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20z" fill="#7babe3" stroke="#000" stroke-width="2"/>
+  </g>
+  <g id="g36" fill="none" stroke="#000" stroke-width="2">
+   <path id="line32" d="m660 400h55.528"/>
+   <path id="polyline34" d="m707.76 405 10-5-10-5"/>
+  </g>
+  <g id="g44">
+   <path id="ellipse38" d="m860 400a20 20 0 0 1-20 20 20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20z" fill="#7babe3" stroke="#000" stroke-width="2"/>
+  </g>
+  <g id="g50" fill="none" stroke="#000" stroke-width="2">
+   <path id="line46" d="m760 400h51.528"/>
+   <path id="polyline48" d="m803.76 405 10-5-10-5"/>
+  </g>
+  <g id="text54" aria-label="l">
+   <path id="path51" d="m689.3 377.99h1.4199v12.008h-1.4199z" style=""/>
+  </g>
+  <g id="text58" aria-label="y">
+   <path id="path54" d="m790.41 390.8q-0.60192 1.5434-1.173 2.0141-0.57106 0.47074-1.528 0.47074h-1.1344v-1.1884h0.83343q0.58649 0 0.91061-0.27781 0.32411-0.27781 0.71768-1.3119l0.25466-0.64823-3.4958-8.5041h1.5048l2.701 6.7601 2.701-6.7601h1.5048z" style=""/>
+  </g>
+ </g>
+</svg>

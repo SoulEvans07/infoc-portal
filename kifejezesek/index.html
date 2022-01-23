@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Matematikai kifejezések tárolása fában</title>
+<meta property="og:title" content="TEST InfoC :: Matematikai kifejezések tárolása fában">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Szorzatokat, összegeket tartalmazó kifejezések tárolása bináris fában.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Szorzatokat, összegeket tartalmazó kifejezések tárolása bináris fában.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Matematikai kifejezések tárolása fában">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Matematikai kifejezések tárolása fában</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.09.03.</p>
+<p class="kivonat">Szorzatokat, összegeket tartalmazó kifejezések tárolása bináris fában.</p>
+</div>
+
+<img src="muveletek.svg" style="width: 15em" class="float">
+
+<p>Az előadáson szerepelt egy ötlet, amelyben bináris fában tároltunk műveleteket:
+összegeket, szorzatokat.</p>
+
+<p>A bináris fás tárolás előnye az, hogy a fában tárolt hierarchia, vagyis a fa 
+felépítése meghatározza a műveletek sorrendjét. Ezért nincsen szükség se 
+precedenciát leíró szabályokra, se zárójelezésre. Példa erre a <code>4*(5+7)</code>
+kifejezés, amelyet a rajzon látható fa ábrázol. Ennek szövegként 
+leírásához szükségünk van a zárójelezésre is, hiszen az alacsony precedenciájú 
+összeg kifejezés <code>(5+7)</code> eredményét szorozzuk össze egy számmal – a 
+fában tárolt műveletnél a kétértelműség nem merül fel.</p>
+
+<p>Bár egy szövegesen adott műveletből a fa felépítése nem triviális feladat, a 
+fában tárolt művelet kiírása és elvégzése igen egyszerű. Csak be kell járni a fát, 
+és közben elvégezni a megfelelő feladatot, kiírást vagy számolást. Ezeket az 
+ötleteket dolgozza ki ez az írás.</p>
+
+<p>A teljes program letölthető innen: <a href="kifejezesek.c">kifejezesek.c</a>.</p>
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">A fa struktúrája</a>
+              <li><a href="index.html#2" class="">A fa létrehozása</a>
+              <li><a href="index.html#3" class="">A kifejezés értéke</a>
+              <li><a href="index.html#4" class="">A fa törlése</a>
+              <li><a href="index.html#5" class="">A kifejezés kiírása szövegként</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A fa struktúrája">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    A fa struktúrája<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<img src="muveletekx.svg" style="width: 15em" class="float">
+
+<p>Ha megvizsgáljuk az előbbi rajzon látható fát, akkor háromféle csomópontot
+találunk rajta: összeg, szorzat és konstans csomópontot. Az összeg
+és szorzat csomópontoknak vannak gyerekeik: olyan részfák, amelyek
+ugyancsak műveleteket tárolnak. Ezek határozzák meg azokat a számokat,
+amelyeken a műveletet el kell végezni. A konstans típusú csomópontoknak
+nincsenek már gyerekeik, vagyis azok a fa levelei.
+</p>
+
+<p>Ezek szerint egy csomópontban egy számot vagy két pointert kell eltárolni.
+Bár sokáig lehetne szépítgetni, maradjunk most annál a megoldásnál, amelyben mindkét adatot
+egy struktúrába tesszük, a típust mutató <code>enum</code>-mal együtt. Hogy
+izgalmasabb legyen a program, vegyünk fel egy új típust is, a változót: így
+a fában tárolt kifejezés egy függvénnyé válhat, amelyet egy adott <code>x</code>
+helyen tudunk kiértékelni.
+</p>
+
+<pre   ><code class="language-c">typedef enum {
+   Konstans,
+   Osszeg,
+   Szorzat,
+   Valtozo
+} KifejezesTipus;
+
+typedef struct Kifejezes {
+   KifejezesTipus tipus;
+   double szam;                   /* csak konstanshoz */
+   struct Kifejezes *bal, *jobb;  /* csak muvelethez */
+} Kifejezes;</code></pre>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A fa létrehozása">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    A fa létrehozása<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A fa létrehozását nagyban megkönnyítjük, ha minden csomóponttípus létrehozásához írunk egy 
+függvényt, amely a keletkező csomópont tartalmát paraméterként veszi át. Ilyen függvény a <code>
+Konstans</code> típusra:</p>
+
+<pre   ><code class="language-c">Kifejezes *uj_konstans(double szam) {
+    Kifejezes *uj = (Kifejezes *) malloc(sizeof(Kifejezes));
+    uj-&gt;tipus = Konstans;
+    uj-&gt;szam = szam;
+    return uj;
+}</code></pre>
+
+<p>Az összegre:</p>
+
+<pre   ><code class="language-c">Kifejezes *uj_osszeg(Kifejezes *bal, Kifejezes *jobb) {
+    Kifejezes *uj = (Kifejezes *) malloc(sizeof(Kifejezes));
+    uj-&gt;tipus = Osszeg;
+    uj-&gt;bal = bal;
+    uj-&gt;jobb = jobb;
+    return uj;
+}</code></pre>
+
+<p>Egy fát így C kódban könnyen, olvashatóan fel tudunk építeni. Például a 2*3*x*x+3*x kifejezés:</p>
+
+<pre   ><code class="language-c">/* 2*3*x*x + 3*x */
+fa = uj_osszeg(
+        uj_szorzat(
+            uj_szorzat(uj_konstans(2), uj_konstans(3)),
+            uj_szorzat(uj_valtozo(), uj_valtozo())),
+        uj_szorzat(
+            uj_konstans(3),
+            uj_valtozo()));</code></pre>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A kifejezés értéke">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    A kifejezés értéke<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A fában tárolt műveletsor kiértékeléséhez be kell járnunk a fát. Egy konstans önmagára 
+értékelődik ki, a változó pedig a paraméterként kapott értékre. Összeg és szorzat esetén ki kell 
+értékelnünk a bal és jobb oldali részfában tárolt kifejezéseket, és az így kapott eredményeken 
+elvégezni az összeadást és a szorzást:</p>
+
+<pre   ><code class="language-c">double szamol(Kifejezes *gy, double x) {
+   switch (gy-&gt;tipus) {
+      case Konstans:
+          return gy-&gt;szam;
+      case Valtozo:
+          return x;
+      case Osszeg:
+          return szamol(gy-&gt;bal, x)+szamol(gy-&gt;jobb, x);
+      case Szorzat:
+          return szamol(gy-&gt;bal, x)*szamol(gy-&gt;jobb, x);
+   }
+
+   /* ide nem lenne szabad eljutni */
+   abort();
+}</code></pre>
+
+<p>A fenti <code>switch</code> szerkezet felsorolja az összes lehetséges típust, vagyis a négy 
+<code>return</code> közül valamelyik hatására a függvényből vissza kell térnünk. Azonban 
+előfordulhat, hogy nincs így – például ha egy inicializálatlan, memóriaszemetet tartalmazó 
+<code>Kifejezes</code> struktúrára hívtuk meg a függvényt. Ez viszont azt jelenti, hogy a 
+programunk hibásan van megírva. Ilyenkor a legjobb, amit tehetünk, hogy megszakítjuk a program 
+futását, lehetővé téve a hiba megkeresését. Ezt teszi az <code>abort()</code> függvény.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A fa törlése">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    A fa törlése<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A fa törlésekor figyelembe kell vennünk azt, hogy mely csomópontok levelek. Változó és szám 
+típusú csomópont esetén ugyanis nincsenek részfák. Ez az a feltétel, ami megállítja a 
+rekurziót:</p>
+
+<pre   ><code class="language-c">void torol(Kifejezes *gy) {
+    switch (gy-&gt;tipus) {
+        case Valtozo:
+        case Konstans:
+            break;
+        case Szorzat:
+        case Osszeg:
+            torol(gy-&gt;bal);
+            torol(gy-&gt;jobb);
+            break;
+    }
+    free(gy);
+}</code></pre>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A kifejezés kiírása szövegként">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    A kifejezés kiírása szövegként<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<img src="muveletekx.svg" style="width: 15em" class="float">
+
+<p>A művelet kiírása már bonyolultabb. Elvileg ugyanúgy, rekurzívan kell csinálni, mint a
+többi fabejárást:</p>
+
+<ul>
+    <li>Konstans esetén kiírjuk a számot,
+    <li>Változó esetén kiírunk egy <code>x</code>-et,
+    <li>Összeg és szorzat esetén kiírjuk a bal oldali részfát, utána egy <code>+</code>-t vagy egy <code>*</code>-ot, végül a jobb oldali részfát.
+</ul>
+
+<p>Így azonban rossz eredményt kaphatunk. A jobb oldalt látható fa esetén például a képernyőn 
+<code>4*5+x</code> jelenne meg, ami hibás, mivel nem a 4-et kell az 5-tel szorozni, hanem az 
+összeget.</p>
+
+<p>A naív megoldás a problémára az, hogy az összegeket bezárójelezzük. Tehát egy összeg esetén a 
+kiírandó dolgok: <code>(</code>, bal részfa, <code>+</code>, jobb részfa, <code>)</code>. Ez sem 
+teljesen jó, mivel ilyenkor <code>((1+2)+3)</code>-at és ehhez hasonló kimeneteket fogunk kapni. 
+</p>
+
+<p>Ennél okosabban kell figyelembe vennünk a precedenciaszabályokat. Tudjuk, hogy akkor kell 
+zárójelezni, ha egymás mellett szerepel egy szorzat és egy összeg – vagyis ha egy szorzat 
+valamelyik tagja egy összeg. Mert ebben az esetben „enné meg” a szorzásjel a mellette álló 
+összeg valamelyik tagját a magasabb precedencia miatt. Ezért az összegeket minden gondolkodás 
+(és zárójel) nélkül kiírhatjuk, a szorzásnak azonban figyelnie kell arra, hogy milyen a 
+részfáinak típusa. Ha azt látja, hogy a bal vagy a jobb oldali részfája egy összeg, akkor 
+zárójelezve kell kiírnia azt:</p>
+
+<pre   ><code class="language-c">void kiir(Kifejezes *gy) {
+   switch (gy-&gt;tipus) {
+      …
+      …
+      case Szorzat:     /* ha a gyerek osszeg, be kell zarojelezni (a gyereket) */
+         if (gy-&gt;bal-&gt;tipus==Osszeg) {
+            printf(&quot;(&quot;); kiir(gy-&gt;bal); printf(&quot;)&quot;);
+         }
+         else
+            kiir(gy-&gt;bal);
+         printf(&quot;*&quot;);
+         if (gy-&gt;jobb-&gt;tipus==Osszeg) {
+            printf(&quot;(&quot;); kiir(gy-&gt;jobb); printf(&quot;)&quot;);
+         }
+         else
+            kiir(gy-&gt;jobb);
+         break;
+      …
+   }
+}</code></pre>
+
+<p>És így már jó. Ha még többféle operátorunk és precedenciánk lenne, meg tudnánk
+ezt fogalmazni általánosságban is: az erős operátor részfáit, ha azok gyengébb
+operátorok, zárójelezni kell. A hatványozás így bezárójelezné a szorzatot, a szorzat
+pedig bezárójelezi az összeget.</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

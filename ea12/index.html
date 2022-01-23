@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Állapotgépek, reguláris kifejezések</title>
+<meta property="og:title" content="TEST InfoC :: Állapotgépek, reguláris kifejezések">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Állapotgépek működése és tervezése. Reguláris kifejezések alapjai, kapcsolatuk az állapotgépekkel.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Állapotgépek működése és tervezése. Reguláris kifejezések alapjai, kapcsolatuk az állapotgépekkel.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<link rel="stylesheet" href="allapotgep.css@v101.css">
+<link rel="stylesheet" href="regex.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+<script src="allapotgep.js@v101"></script>
+<script src="regex.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Állapotgépek, reguláris kifejezések">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Állapotgépek, reguláris kifejezések</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Pohl László, Kohári Zsolt, Nagy Gergely · <i class="ido"></i> 2019.11.11.</p>
+<p class="kivonat">Állapotgépek működése és tervezése. Reguláris kifejezések alapjai, kapcsolatuk az állapotgépekkel.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="fontos">Állapotgépek</a>
+              <li><a href="index.html#2" class="">Szmájlik chat programokban</a>
+              <li><a href="index.html#3" class="">Előtte még: karakterek beolvasása, kiírása</a>
+              <li><a href="index.html#4" class="">Karakter I/O: Blian élete</a>
+              <li><a href="index.html#5" class="">Klasszikus állapotgép: az „ly” számláló</a>
+              <li><a href="index.html#6" class="">Ötlet: az állapotváltozó</a>
+              <li><a href="index.html#7" class="">Állapotgép tervezése – állapotgráf</a>
+              <li><a href="index.html#8" class="">Állapotgép tervezése, állapottábla</a>
+              <li><a href="index.html#9" class="">Ly számláló: C kód</a>
+              <li><a href="index.html#10" class="">Állapotgépek: szmájlik cseréje</a>
+              <li><a href="index.html#11" class="">Tényleg a switch a legjobb megoldás?</a>
+              <li><a href="index.html#12" class="">Állapotgép táblázattal – leképezések</a>
+              <li><a href="index.html#13" class="">Állapotgép: a táblázat és a kód</a>
+              <li><a href="index.html#14" class="">Állapotgépek általában</a>
+              <li><a href="index.html#15" class="fontos">Reguláris kifejezések</a>
+              <li><a href="index.html#16" class="">C kommentek szűrése: /* komment */</a>
+              <li><a href="index.html#17" class="">Reguláris kifejezések használata: célok</a>
+              <li><a href="index.html#18" class="">Reguláris kifejezések szintaxisa</a>
+              <li><a href="index.html#19" class="">Sztringek illesztése reguláris kifejezésekre</a>
+              <li><a href="index.html#20" class="">Ismétlés és csoport véges automatával</a>
+              <li><a href="index.html#21" class="">Opcionalitás véges automatával</a>
+              <li><a href="index.html#22" class="">A PCRE könyvtár I.</a>
+              <li><a href="index.html#23" class="">A PCRE könyvtár II.</a>
+              <li><a href="index.html#24" class="">A csoportok (blokkok) szerepe</a>
+              <li><a href="index.html#25" class="">A blokkok részsztringjei</a>
+              <li><a href="index.html#26" class="">Mi nem állapotgép? (a+)b\1</a>
+              <li><a href="index.html#27" class="">Mohó és nem mohó illeszkedés: * és *?</a>
+              <li><a href="index.html#28" class="">Az NFA fogalma: (méh|méz|mos)</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Állapotgépek">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="eaallapotgep" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Állapotgépek</h1>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Szmájlik chat programokban">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Szmájlik chat programokban<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<table class="float">
+<thead>
+  <tr><th>Szmájli<th>Ezt kell beírni
+</thead>
+  <tr><td><img src="face-smile.png" alt=":)"><td><code>:)  :-)</code>
+  <tr><td><img src="face-laugh.png" alt=":D"><td><code>:D  :-D</code>
+  <tr><td><img src="face-cool.png" alt="8-)"><td><code>8-)</code>
+  <tr><td><img src="face-monkey.png" alt=":(|)"><td><code>:(|)</code>
+  <tr><td><img src="face-heart.png" alt="<3"><td><code>&lt;3</code>
+</table>
+
+<p><em>Feladat:</em> megkeresni a beírt szövegben a szmájlikat, és utána úgy
+kiírni a szöveget, hogy képek szerepelnek benne helyettük.</p>
+
+<br class="smallskip">
+
+<p>Oldjuk meg ezt minél kevesebb memória felhasználásával!</p>
+
+
+<p class="csakdoksi">Lehetne működőképes megoldást csinálni úgy, hogy
+beolvassuk az egész szöveget egy sztringbe. De ez elég rossz ötlet. Ha látunk egy
+hosszú szöveget, abban rá tudunk mutatni a szmájlikra, anélkül hogy az előttük
+vagy utánuk lévő részt ismernünk kellene.</p>
+
+<p class="csakdoksi">A feladatot elképzelhetjük egy adatfolyam (stream)
+problémaként. Valaki diktálja nekünk a szöveget (bejövő karakterek), nekünk pedig
+le kell írni azt (kimenő karakterek). A diktálás közben pedig nem szeretnénk a
+teljes szöveget, vagy hosszú szövegrészletet a fejünkben tartani.</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Előtte még: karakterek beolvasása, kiírása">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Előtte még: karakterek beolvasása, kiírása<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<p><em>Karakterek olvasása:</em> a <code>printf</code>, <code>scanf</code> <code>%c</code>-n kívül használhatóak:</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-cbub">int getchar(void); // beolvas</code></pre>
+</div>
+<div>
+<pre   ><code class="language-cbub">int putchar(int); // kiír</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi">Ezek gyorsabbak, mint a <code>printf</code> és a <code>scanf</code>,
+de egyszerre pontosan csak egy karaktert írnak és olvasnak.</p>
+
+<br class="smallskip">
+
+<p class="csakeloadas">Nagyon fontos: a <code>getchar()</code> visszatérési típusa <code>int</code>!</p>
+
+<pre   ><code class="language-cbub">int c; // int
+
+c = getchar();
+if (c == EOF)
+    printf(&quot;Bemenet vége!&quot;);
+else
+    printf(&quot;Karaktert olvastam, kódja: %d&quot;, c);</code></pre>
+
+<div class="csakdoksi">
+
+<p>A <code>getchar()</code> függvénynek a visszatérési értéke a fájl vége jelet
+is tudja jelezni. Ezt úgy oldották meg a C-ben, hogy az <code>stdio.h</code>
+tartalmaz egy <code>EOF</code> nevű konstanst, amely ezt jelzi. Ennek a
+konstansnak az értéke szándékosan <em>kívül esik a karakter típus ábrázolási
+tartományán,</em> hiszen minden olyan szám, ami azon belül van, egy bájt, ami
+szerepelhet a program bemenetén is. Emiatt a <code>getchar()</code> függvény
+visszatérési értékét <code>char</code> típusban tárolni <strong>hiba!</strong></p>
+
+<blockquote>
+<p>
+A <code>getchar()</code> függvény visszatérési típusa
+<code>int</code>. A visszatérési értéke <code>EOF</code>, ha vége van a bemenetnek,
+és nem sikerült már beolvasni egy karaktert sem (fájl vége jelnél); és a beolvasott
+karakter kódja, ha sikerült.
+</p>
+</blockquote>
+
+<p class="megjegyzes">Az elvesző bitek miatt (emlékezzünk: a <code>char</code>
+kisebb, mint az <code>int</code>) lesz olyan karakter, amelyet a program
+összekever a fájl vége jellel. Természetesen miután meggyőződtünk róla, hogy nem
+<code>EOF</code>, már bemásolhatjuk vagy castolhatjuk karakter típusúra. Az <code>EOF</code> konstans
+számértékét a C fordítók maguk határozhatják meg. Ezért az is hiba, ha valaki azzal
+a feltételezéssel él a forráskódban, hogy <code>EOF = -1</code>!
+Egyébként a legtöbb karaktert kezelő függvény, pl. <code>putchar()</code>,
+<code>toupper()</code>, <code>isdigit()</code>, &hellip; is <code>int</code> típusú
+paraméterrel rendelkezik, de a <code>getchar()</code>-ral ellentétben
+ez legtöbbször nem lényeges a használatuk közben.</p>
+
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Karakter I/O: Blian élete">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Karakter I/O: Blian élete<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Példa: Blian élete. Az alábbi ploglam minden 'r' betűt 'l' betűle cselél.</p>
+
+<pre class="editable"  ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int c;      /* kalaktel */
+    
+    while ((c = getchar()) != EOF) { /* éltékadás! */
+        if (c == 'r')
+            putchar('l');
+        else if (c == 'R')
+            putchar('L');
+        else
+            putchar(c);
+    }
+    
+    return 0;   /* letuln zéló */
+}</code></pre>
+
+<div class="csakdoksi">
+<p>A <code>(c = getchar()) != EOF</code> kifejezés működése
+a következő:</p>
+<ul>
+   <li>Kiértékelődik a <code>getchar()</code> kifejezés. Erre
+      beolvasódik egy karakter vagy az <code>EOF</code> fájl vége jel.
+   <li>Ez bemásolódik a <code>c</code> változóba az értékadás miatt.
+   <li>Az egész zárójelezett kifejezés az értékadás. Ennek értéke
+      a másolt érték, vagyis maga a karakter.
+   <li>Ezt hasonlítjuk össze az <code>EOF</code> konstanssal.
+   <li>Ha nem egyenlő vele, akkor karaktert olvastunk, és mehetünk be a ciklusba.
+   <li>Ha egyenlő, fájl vége jelet, akkor pedig kiléphetünk a ciklusból.
+</ul>
+<p>Fontos a zárójel. Ha az nem lenne ott, akkor az <code>=</code> értékadás
+és <code>!=</code> egyenlőségvizsgálat operátorok precedenciája miatt
+a <code>getchar()!=EOF</code> összehasonlítás eredménye kerülne a <code>c</code>
+változóba, nem a karakter! (A legkülső zárójelnek természetesen nincs köze a kifejezéshez, mert az
+a <code>while</code>-hoz tartozik.)</p>
+</div>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Klasszikus állapotgép: az „ly” számláló">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Klasszikus állapotgép: az „ly” számláló<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p><em>Feladat:</em> számoljuk meg a beolvasott szövegben az <code>ly</code> betűket:
+<ul>
+   <li>Az <code>ly</code> 1-nek számít: <code><em>ly</em>uk</code>,
+   <li>az <code>lly</code> 2-nek: <code>ga<em>lly</em></code>,
+   <li>nagybetűkkel most ne foglalkozzunk.
+</ul>
+
+<br class="smallskip">
+
+<h3>A probléma nehézsége</h3>
+<p>Önmagában egyik karakternél sem egyértelmű a teendő!</p>
+<ul>
+   <li><code><em>l</em></code>-nél: nem tudjuk,
+mit kell <strong>majd</strong> csinálni: <code>a<em>l</em>ma</code>, <code><em>ly</em>uk</code>, <code>ga<em>lly</em></code>
+   <li><code><em>y</em></code>-nál: a teendő attól függ, <strong>előbb</strong> mi történt: <code>né<em>gy</em></code>, <code><em>ly</em>uk</code>
+</ul>
+
+<p class="csakdoksi">Azt azért sejtjük, hogy a végleges döntés az <code>y</code> karakternél
+fog megszületni. Az <code>l</code>-nél nem lehet, hiszen a jövőbe nem látunk. Úgyhogy a második
+gondolatmenet a járható út. Eltárolni a teljes szöveget viszont felesleges, hiszen elég mindig
+csak egy kis részletet látni belőle.</p>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Ötlet: az állapotváltozó">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Ötlet: az állapotváltozó<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A kidolgozatlan ötlet az előzőek alapján:</p>
+
+<pre   ><code class="language-cbub">sz = 0;
+while ((c = getchar()) != EOF) {
+    if (c == 'y') {
+        switch (……… ELŐZMÉNYEK ………) {    // !
+            case ……… és l volt előtte ………:     // !
+               sz += 1;
+               break;
+            case ……… és ll volt előbb ………:     // !
+               sz += 2;
+               break;
+            default:
+               break;
+        }
+    }
+}
+
+printf(&quot;%d darab ly szerepelt.\n&quot;, sz);</code></pre>
+
+<p class="csakdoksi">Tehát szükségünk van egy változóra, ami azt reprezentálja, mik voltak az előzmények,
+mi történt a múltban. Az <code>y</code> karaktert pedig ennek függvényében értelmezzük: nem <code>l</code>
+volt előtte, vagy egy <code>l</code> volt előtte, esetleg kettő. Ezt nevezzük <em>állapotváltozónak.</em></p>
+
+
+
+<div class="csakdoksi">
+
+<h3>Állapotgép = véges automata (finite-state machine)</h3>
+
+<p>Működése: <em>az eddig kialakult állapottól és az eseménytől függ:</em>
+  <ul>
+     <li>az elvégzendő tevékenység,
+     <li>a következő állapot.
+  </ul>
+
+<p>Az állapotgép egy olyan gép, program, amely a bemenetei hatására
+a belső, véges számú állapot között ugrál. Minden bemenet–állapot pároshoz egy, és csakis
+egy pontosan meghatározott következő állapot (állapotátmenet) tartozik.</p>
+
+<p>Egy állapotgép mindig <em>egy bizonyos állapotban</em> van, és attól
+függően reagál az eseményekre. Az események hatására <em>állapotátmenet</em> történhet.
+Az állapotgépet állapotátmeneti gráffal vagy állapotátmeneti táblázattal adjuk meg.</p>
+
+<p>A mostani programjainkban az állapotátmenetekhez tevékenységeket is fogunk társítani.</p>
+
+<h3>Példa: italautomata</h3>
+<img src="italautomata.svg" style="width: 32em;" class="kozep" alt="Az italautomata állapotátmeneti gráfja">
+
+<p>Az italautomata másképp reagál a sztornó gomb és az italválasztó gomb
+megnyomására attól függően, hogy be lett-e dobva már a pénz, vagy még nem.</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Állapotgép tervezése – állapotgráf">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+  <a id="allapotatmenetigraf" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    Állapotgép tervezése – állapotgráf<a class="hlink" href="index.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Az állapotgép működését <em>gráffal</em> is megadhatjuk. Ez a megadás teljesen ekvivalens a táblázattal. 
+Minden állapotra (a gráf csúcsai) megadja, hogy az egyes eseményeknél (élekre írt karakterek) mi a teendő. A nyíl az új állapot 
+felé mutat, illetve az elvégzendő tevékenység is a nyíl mellé írva szerepel.</p>
+
+<p class="csakdoksi">A konkrét példában: alap állapotban egy <code>l</code> hatására még nem történik semmi, de tudjuk, hogy a 
+következő karakternél figyelni kell, mert az esetleg egy <code>y</code> lehet. Ezért felvesszük az <code>l_volt</code> állapotot. 
+Alap állapotban a másik két karaktertípus hatására semminek nem kell történnie. Az <code>l_volt</code> állapotban viszont 
+<code>y</code> esetén növeljük a számlálót, és visszaugrunk alap állapotba (hiszen a következő karakternél már nem lesz igaz, hogy 
+az ahhoz képest előző <code>l</code> betű volt). Az <code>ll_volt</code> állapotnál viszont egy harmadik <code>l</code> betű esetén 
+maradunk ugyanabban az állapotban, mert a következő karakternél igaz lesz az, hogy az előző kettő <code>l</code> volt. (Ha van 
+ilyen magyar szó egyáltalán.)</p>
+
+<img src="ly_szamlalo.svg" class="kozep" style="width: 32em" alt="Az ly számláló állapotátmeneti gráfja">
+
+<p class="csakdoksi">Az állapotátmeneti gráf sokszor kevésbé áttekinthető, mint a táblázat – ha abból kell kódolni, akkor
+nehéz lehet követni a nyilakat. Az sem látszik rajta, hogy teljesen definiált-e, szemben a táblázattal, ahol látjuk, hogy
+minden cellája ki van-e töltve.</p>
+
+<p class="csakdoksi">Viszont tervezésre, ötletelésre kiválóan alkalmas. Az állapotgép által felismert jelsorozatokat 
+(eseménysorozatokat) is könnyebb ezen felismerni, egyszerűen csak követni kell az átmenetekre (nyilakra, élekre) írt 
+feliratokat.</p>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Állapotgép tervezése, állapottábla">
+<div class="slide" id="slide_8">
+
+<a id="8" class="namer"></a>
+  <a id="allapottabla" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">8</span><span class="oldalszamafter">. </span>    Állapotgép tervezése, állapottábla<a class="hlink" href="index.html#8"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi"><strong>Tervezzük meg az „ly” számláló állapotgépét!</strong> Melyik állapotban, milyen esemény hatására, mi a 
+teendő?</p>
+
+<p class="csakdoksi">Egy állapotgép működése rögzíthető egy <em>állapotátmeneti táblán</em>,
+pongyolán fogalmazva egy <em>állapottáblán</em>. A táblázat sorai az egyes állapotokat jelentik
+(amelyekbe valamely régebbi események alapján került az automata). A táblázat oszlopai pedig az
+eseményeket (ezek most a beérkező karakterek). Minden eseménynél, vagyis minden karakter
+olvasásánál az aktuális állapottól és az éppen beolvasott karaktertől függően dől el az, hogy
+mit kell csinálni (tevékenység) és hova kell ugrani (állapot). Gyakran ezt két külön táblázatban
+adják meg – lentebb az állapot- és tevékenységtábla egy táblázatba összegyúrva szerepel.</p>
+
+<p class="csakdoksi">Az állapottábla nagyban <em>segíti a tervezést</em>, amelynek menete a
+következő. Először felvesszük egy táblázat oszlopaiba a számunkra érdekes eseményeket (jelen
+esetben ezek az <code>l</code>, az <code>y</code> és az összes többi karakterek). Utána az első
+sorba az alapállapotot, ahonnan indul az automata. Végiggondoljuk, hogy ebben az állapotban mely
+eseményre (karakterre) minek kell történnie. Ha kell, új állapotokat veszünk föl; és addig
+folytatjuk, amíg van kitöltetlen sora a táblázatnak.</p>
+
+<br class="smallskip">
+
+<table class="allapotgep">
+    <caption class="csakdoksi">Az „ly” számláló állapot- és tevékenységtáblája</caption>
+    <thead>
+        <tr><th><th>l<th>y<th>egyéb
+    </thead>
+    <tr class="siblingclick"><th>alap<td>&rarr;l_volt<td>-<td>-
+    <tr class="siblingclick"><th>l_volt<td>&rarr;ll_volt<td>sz += 1, &rarr;alap<td>&rarr;alap
+    <tr class="siblingclick"><th>ll_volt<td>-<td>sz += 2, &rarr;alap<td>&rarr;alap
+</table>
+
+<br class="smallskip">
+
+<table class="tomb">
+<tr>
+    <td class="siblingclick">k
+    <td class="siblingclick">u
+    <td class="siblingclick">l
+    <td class="siblingclick">c
+    <td class="siblingclick">s
+    <td class="siblingclick">l
+    <td class="siblingclick">y
+    <td class="siblingclick">u
+    <td class="siblingclick">k
+    <td class="siblingclick">,
+    <td class="siblingclick">
+    <td class="siblingclick">g
+    <td class="siblingclick">a
+    <td class="siblingclick">l
+    <td class="siblingclick">l
+    <td class="siblingclick">y
+</table>
+
+<div class="kozep">
+Számláló: <span id="szamlalo" style="display: inline-block; border: 1px solid black; width: 2em; text-align: center;">0</span>
+<button id="pluszegy">+1</button>
+<button id="nullaz">nulla</button>
+</div>
+
+<div class="csakdoksi">
+<p>Az „ly” számláló állapottáblája tehát a következőket jelenti:</p>
+<ul>
+   <li>Az <em>alap</em> állapot: semmi, amire figyelni kellene. Ez egyben a kiindulási állapot is.
+   <li>Ha jön egy <code>l</code> betű, átmegyünk <em>l_volt</em> állapotba.
+      <ul>
+      <li>Ha ilyenkor jön egy <code>y</code>, akkor a számlálót növelni kell +1-gyel (és &rarr; alap!)
+      <li>Ha viszont még egy <code>l</code>, akkor meg <em>ll_volt</em> állapotba.
+          Azért, mert ha harmadikként <code>y</code> érkezik, akkor +2 kell a számlálóba.
+
+      <li>Ha bármi más, akkor viszont vissza <em>alap</em> állapotba (pl. a<em>lm</em>afa, az
+         <code>l</code> után <code>m</code> betű jött).
+      </ul>
+
+</ul>
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Ly számláló: C kód">
+<div class="slide" id="slide_9">
+
+<a id="9" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">9</span><span class="oldalszamafter">. </span>    Ly számláló: C kód<a class="hlink" href="index.html#9"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi"> Az állapot eltárolásához a legjobb választás egy felsorolt típus,
+<code>enum</code>. Megtehetnénk, hogy mi magunk számozzuk be az állapotokat, de akkor a
+programkód követhetetlen lenne. Így viszont olvasható lesz!</p>
+
+<pre class="float"  ><code class="language-c">typedef enum LyAllapot {
+    alap,
+    l_volt,
+    ll_volt
+} LyAllapot;</code></pre>
+
+<div class="sticky" style="clear: both; ">a teljes<br>forráskód<br>letölthető:<br><a href="lyszaml.c">lyszaml.c</a></div>
+
+<pre   ><code class="language-cbub">LyAllapot all = alap;
+
+while ((c = getchar()) != EOF) {
+  switch (all) {
+    case alap:   // alap állapot
+      if (c == 'l')
+        all = l_volt;
+      break;
+
+    case l_volt: // már volt egy 'l'
+      switch (c) {
+        case 'l': all = ll_volt; break;
+        case 'y': szaml += 1; all = alap; break;
+        default:  all = alap; break;
+      }
+      break;
+
+    case ll_volt:
+      /* ... */</code></pre>
+
+
+<p class="csakdoksi">Minden beérkező karakternél a tevékenység és a következő
+állapot is függ a beérkező karaktertől és az állapottól. Más például a teendő egy
+beérkező <code>y</code> karakternél akkor, ha előzőleg <code>l</code> betűt
+láttunk. Ezért minden karakter feldolgozásánál a táblázat egy cellájából kell
+kiolvasnunk a teendőket. Ez alapján a kódban egy esetszétválasztást csinálhatunk,
+ami viszont triviális: a meglévő állapottábla alapján a programkód
+szisztematikusan, szinte gondolkozás nélkül elkészíthető!</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Állapotgépek: szmájlik cseréje">
+<div class="slide" id="slide_10">
+
+<a id="10" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">10</span><span class="oldalszamafter">. </span>    Állapotgépek: szmájlik cseréje<a class="hlink" href="index.html#10"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<div class="sticky">A program:<br><a href="szmajli.c">szmajli.c</a></div>
+
+<p class="csakdoksi">Az eddigiek alapján a táblázat könnyen elkészíthető, most az egyszerűsítés kedvéért csak két szmájlira:</p>
+
+<table class="allapotgep">
+    <thead>
+    <tr><th><th class="kozep">normál<th class="kozep">:<th class="kozep">)<th class="kozep">&lt;<th class="kozep">3
+    </thead>
+    <tr class="siblingclick"><th>alap      <td>&rarr;alap<br>c      <td>&rarr;kettőspont<br>(semmi) <td>&rarr;alap<br>c    <td>&rarr;kisebb<br>(semmi)     <td>&rarr;alap<br>c
+    <tr class="siblingclick"><th>kettőspont<td>&rarr;alap<br>:, c   <td>&rarr;kettőspont<br>:       <td>&rarr;alap<br><img src="face-smile.png" alt=":)">    <td>&rarr;kisebb<br>:     <td>&rarr;alap<br>:, c
+    <tr class="siblingclick"><th>kisebb    <td>&rarr;alap<br>&lt;, c<td>&rarr;kettőspont<br>&lt;    <td>&rarr;alap<br>&lt;, c<td>&rarr;kisebb<br>&lt;<td>&rarr;alap<br><img src="face-heart.png" alt="<3">
+</table>
+
+<p class="csakdoksi">Itt is az állapotgép táblázatában minden cella tartalmaz egy következő
+állapotot (fent) és egy tevékenységet (lent). A tevékenység minden esetben
+valamilyen karakter vagy karakterek kiírását jelenti. <code>c</code>-vel jelöltük
+az épp beolvasott karakter képernyőre másolását; a többi kiírásnál pedig a megadott jelet
+kell majd a programnak kiírnia (pl. kisebb jel vagy kettőspont).</p>
+
+<p class="csakdoksi">Mivel minden oszlopban ugyanaz az állapotátmenet, egyszerűbbnek tűnik
+az esemény (karakter) szerint csinálni az első esetszétválasztást:</p>
+
+<pre class="csakdoksi"  ><code class="language-c">while ((c = getchar()) != EOF) {
+    switch (c) {
+        default:
+            switch (all) {
+                case Alap: printf(&quot;%c&quot;, c); break;
+                case Kettospont: printf(&quot;:%c&quot;, c); break;
+                case Kisebb: printf(&quot;&lt;%c&quot;, c); break;
+            }
+            all = Alap;
+            break;
+        case ':':
+            switch (all) {
+                case Alap: /* semmi */ break;
+                case Kettospont: putchar(':'); break;
+                case Kisebb: putchar('&lt;'); break;
+                }
+            all = Kettospont;
+            break;</code></pre>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Tényleg a switch a legjobb megoldás?">
+<div class="slide" id="slide_11">
+
+<a id="11" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">11</span><span class="oldalszamafter">. </span>    Tényleg a switch a legjobb megoldás?<a class="hlink" href="index.html#11"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Az állapot- és tevékenységtábla kézzel történő leprogramozása (ti. a hatalmas <code>switch</code>-ek) 
+helyett lehet egy sokkal okosabb ötletünk is.</p>
+
+<p>Táblázat &rarr; csináljunk 2D tömböt a kódban!</p>
+
+<ul>
+    <li>Minden cellában <em>egy tevékenység és egy állapot.</em>
+        <span class="csakdoksi">Ez azt jelenti, hogy a táblacella egy struktúra.</span>
+    <li>Az állapot: a következő állapot kódja.
+    <li>A tevékenységek: mi a teendő.
+</ul>
+
+<p class="csakdoksi">A tevékenység az ly számláló példájában könnyen leképezhető akár egy egész számra: mennyivel kell növelni a 
+számlálót. Összetettebb esetben <a href="../ea13/index.html#eafvptr">függvénymutatókat</a> lehet ehhez használni.</p>
+
+<br class="smallskip">
+
+<p>Az adatszerkezet: struktúrák kétdimenziós tömbje.</p>
+<pre   ><code class="language-cbub">typedef struct TablaCella {
+   Allapot kovetkezo;
+   int tevekenyseg;
+} TablaCella;
+
+TablaCella tabla[3][3] = { ... };</code></pre>
+
+<p class="csakdoksi">Kérdés, hogyan fogjuk ezt a tömböt indexelni.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Állapotgép táblázattal – leképezések">
+<div class="slide" id="slide_12">
+
+<a id="12" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">12</span><span class="oldalszamafter">. </span>    Állapotgép táblázattal – leképezések<a class="hlink" href="index.html#12"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az állapotból és a karakterből is tömbindexet kell csinálni:</p>
+
+<ul class="csakdoksi">
+    <li>A <em>sorokat</em> az állapot szerint indexeljük: <code>tabla[all]</code>
+    <li>Az <em>oszlopot</em> a karakter szerint indexeljük: <code>tabla[all][kar_o]</code>
+    <li>Azon belül pedig pl. <code>tabla[all][kar_o].allapot</code>
+</ul>
+
+<pre class="eloadassorsurit115"  ><code class="language-cbub">typedef enum LyAllapot { // állapot → 0...2 egész szám
+    alap = 0,
+    l_volt = 1,
+    ll_volt = 2,
+} LyAllapot;
+
+int karakterosztaly(char c) { // char fajtája → 0...2 egész szám
+    switch (c) {
+        case 'l': return 0;
+        case 'y': return 1;
+        default:  return 2;
+    }
+}</code></pre>
+
+<p class="csakdoksi">Az állapotnál egyszerű a feladatunk. Azt amúgy is felsorolt típussal ábrázoljuk, és az <code>enum</code>-ok 
+konverzálhatók <code>int</code> típusú értékké. Akár hagyhatnánk is a fordítónak, hogy 0-tól kezdődően a természetes számokat 
+hozzárendelje az egyes állapotokhoz – de mivel tömbindexnek fogjuk ezeket használni, érthetőbb lesz a kód, ha megadjuk ezeket.</p>
+
+<p class="csakdoksi">A karakter fenti <code>switch</code> szerkezetében a <code>break</code> utasítások elhagyhatóak, hiszen a 
+<code>return</code> utáni részek úgysem hajtódnak végre a függvényből. Kicsit „sormintás”, de ha nem így lenne, akkor meg egy 256 
+elemű tömbre lenne szükségünk (ennyiféle bájt van), amiben szinte minden érték nulla, csak néhány másik van – úgyhogy most jó lesz 
+ez a megoldás is.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Állapotgép: a táblázat és a kód">
+<div class="slide" id="slide_13">
+
+<a id="13" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">13</span><span class="oldalszamafter">. </span>    Állapotgép: a táblázat és a kód<a class="hlink" href="index.html#13"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>A táblázat</h3>
+
+<div class="sticky" style="clear: both">A teljes program:<br><a href="lyszaml_tabla.c">lyszaml_tabla.c</a></div>
+
+<pre   ><code class="language-cbub">TablaCella allapotgep[3][3] = {
+    {{l_volt, 0},  {alap, 0}, {alap, 0}}, 
+    {{ll_volt, 0}, {alap, 1}, {alap, 0}}, 
+    {{ll_volt, 0}, {alap, 2}, {alap, 0}}, 
+};</code></pre>
+
+<p class="csakdoksi">A táblázat egy az egyben megfelel az állapotátmeneti táblázatnak, amelyet először rajzoltunk ehhez
+a feladathoz.</p>
+
+<br class="smallskip">
+
+<h3>A táblázatot használó kód</h3>
+
+<pre   ><code class="language-cbub">while ((c = getchar()) != EOF) {
+    int kar = karakterosztaly(c);
+    szaml += allapotgep[all][kar].tevekenyseg;
+    all = allapotgep[all][kar].kovetkezo;
+}</code></pre>
+
+<p class="csakdoksi">Vagyis minden beolvasott karakterre csak kiolvassa a táblázatból a tevékenységet és a következő
+állapotot.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Állapotgépek általában">
+<div class="slide" id="slide_14">
+
+<a id="14" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">14</span><span class="oldalszamafter">. </span>    Állapotgépek általában<a class="hlink" href="index.html#14"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Előnyök</h3>
+<div class="sticky">Digitből:<br>sorrendi hálózatok</div>
+<ul>
+   <li><em>Tervezésnél:</em> <strong>a tervezés eszköze!</strong>
+   <li>A felesleges állapotok kiszűrhetők
+   <li><em>Kódolásnál:</em> mechanikusan kódolható
+   <li>Áttekinthetőbb, érthetőbb a kód, mint egy ad-hoc megoldás
+</ul>
+
+<br class="smallskip">
+
+<h3>Felhasználásuk</h3>
+<ul>
+   <li>Szűrőprogramok (fájlok feldolgozása); fordítóprogramok, nyelvi elemzők
+   (pl.&nbsp;<code>/*&nbsp;kommentek&nbsp;*/</code> kiszűrése)
+   <li>Grafikus alkalmazások vezérlése (pl. egérkattintások, mozdulatok)
+   <li>Internetes alkalmazások kommunikációja (protokollok)
+   <li>Hardver: <em>a processzor egy nagy állapotgép!</em>
+</ul>
+
+<p class="csakdoksi">Hardver oldalról is fontos az állapotgép. A
+számítógép belseje is tele van ilyenekkel. A processzor működését is egy
+állapotgép vezérli: utasítás beolvasása, beolvasott utasítás dekódolása, utána
+további operandusok beolvasása (már a dekódolt utasítás jelentése alapján) stb.
+Erről a Digit tárgyban van szó.</p>
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Reguláris kifejezések">
+<div class="slide" id="slide_15">
+
+<a id="15" class="namer"></a>
+  <a id="earegex" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Reguláris kifejezések</h1>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="C kommentek szűrése: /* komment */">
+<div class="slide" id="slide_16">
+
+<a id="16" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">16</span><span class="oldalszamafter">. </span>    C kommentek szűrése: /* komment */<a class="hlink" href="index.html#16"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p><em>Feladat:</em> keressük ki egy C forráskódból a kommenteket!</p>
+
+<br class="smallskip">
+
+<div class="csakeloadas">
+<div class="regex">
+<h3>Reguláris kifejezés (regular expression, regex)</h3>
+<input class="regex-input" type="text" value="">
+<br class="smallskip">
+<h3>Forráskód</h3>
+<pre class="regex-result" data-nomatchicon>
+printf("Hello, vilag!\n"); /* első komment */
+i = i + 123;
+return 0;                  /* második komment */
+</pre>
+</div>
+</div>
+
+
+<div class="csakdoksi">
+<div class="regex">
+<h3>Forráskód</h3>
+<pre class="regex-result" data-nomatchicon>
+printf("Hello, vilag!\n"); /* első komment */
+i = i + 123;
+return 0;                  /* második komment */
+</pre>
+<h3>Reguláris kifejezés (regular expression, regex)</h3>
+<input class="regex-input" type="text" value="/\*.*?\*/">
+</div>
+
+<p>A szövegfeldolgozási feladat legegyszerűbben egy ún. <em>reguláris kifejezéssel</em> (regular expression, regex) oldható meg. A 
+kifejezés így fest: <code>/\*.*?\*/</code> – hogy ennek az egyes karakterei pontosan mit jelentenek, és hogy a neve honnan jön, 
+arról rövidesen szó lesz.</p>
+
+<p>A reguláris kifejezésekkel szövegformátumok, mintázatok írhatóak le. Ilyeneket szövegfeldolgozásban, formátumok ellenőrzésekor 
+használnak leggyakrabban. Próbáld ki: ha <code>\d+</code> kifejezést adsz meg, a program kikeresi a számokat a forráskódból. Ha 
+<code>".*?"</code>-t írsz (idézőjelekkel együtt), akkor pedig a sztringet találja meg a program.</p>
+
+</div>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Reguláris kifejezések használata: célok">
+<div class="slide" id="slide_17">
+
+<a id="17" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">17</span><span class="oldalszamafter">. </span>    Reguláris kifejezések használata: célok<a class="hlink" href="index.html#17"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A reguláris kifejezéseket főként az alábbi két feladat elvégzésére használják.</p>
+
+<h3 class="csakdoksi">Formátumvalidáció</h3>
+
+<div class="columns">
+<div>
+<h4 class="csakdoksi">Bankkártyaszám</h4>
+<div class="regex">
+<blockquote class="regex-result">
+123 5678 1234 5678
+1234 5678 1234 5678
+1234 5678 12q34 5678
+1234-5678-1234-5678
+</blockquote>
+<p><input class="regex-input" type="text" value="^\d{4} \d{4} \d{4} \d{4}$"></p>
+</div>
+</div>
+<div>
+<h4 class="csakdoksi">E-mail cím</h4>
+<div class="regex">
+<blockquote class="regex-result">
+barki@.example.com
+elektro.m.agnes@pikac.hu
+kicsoda#example.com
+valaki@pikac.hu
+</blockquote>
+<p><input class="regex-input" type="text" value="^[\w.]+@\w+(?:\.\w+)*$"></p>
+</div>
+</div>
+</div>
+
+<div class="csakdoksi">
+
+<p>Az első feladattípus: formátumok validációja. Például ellenőrizni szeretnénk, hogy a felhasználó helyes formátumban adta-e meg 
+egy űrlapban az adatait. Helyes-e a bankkártyaszáma? Ez egy 16 számjegyet tartalmazó sztring kell legyen, ahol a számjegyek 
+négyesével vannak csoportosítva, és a csoportok szóközök elválasztva. Ha az elválasztás nem szóközökkel történik, vagy valahol nem 
+négy számjegy van, esetleg véletlenül egy betű kerül a sztringbe, akkor a formátum helytelen.</p>
+
+<p>Hasonló az email cím vizsgálata. Ehhez az kell, hogy középen legyen egy kukac, @ karakter (pontosan egy, nem több, nem 
+kevesebb). A kukac előtt a felhasználó neve, a kukac után pedig a szolgáltató neve kell legyen. Az utóbbi pontokkal elválasztott 
+nevekből kell álljon stb. Ezeket a szabályokat írja le a megadott minta.</p>
+
+<p>Ezeknél a feladatoknál a formátum <em>nyelvtani szabályait</em> sokkal egyszerűbb leírni egy reguláris kifejezéssel,
+utána pedig egy ilyeneket kezelő programra bízni a feldolgozást, mint egy ad-hoc függvényt írni az ellenőrzésre.</p>
+
+</div>
+
+<br class="smallskip">
+
+<h3 class="csakdoksi">Szövegrészek keresése</h3>
+
+<h4 class="csakdoksi">Kommentek tartalma</h4>
+<div class="regex">
+<pre class="regex-result" data-nomatchicon>
+printf("Hello, vilag!\n"); /* első komment */
+i = i + 123;
+return 0;                  /* második komment */
+</pre>
+<p><input class="regex-input" type="text" value="/\* (.*?) \*/"></p>
+</div>
+
+<div class="csakdoksi">
+<p>A másik gyakori használatban egy szöveg valamilyen mintázatra illeszkedő részeit szeretnénk megtalálni, kigyűjteni. Például
+a Doxygen program a kommenteket képes kigyűjteni egy forráskódból. A fentebb megadott kifejezést is hasonlót csinál: megkeresi
+a forráskódból a kommenteket, és kigyűjti a kommentek belsejét. Vagyis a kezdő /* és a befejező */ karakterpárossal már nem
+foglalkozik, és eldobja a nyitó és záró szóközöket is. Így jutunk a kód alatt kilistázott sztringekhez.</p>
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Reguláris kifejezések szintaxisa">
+<div class="slide" id="slide_18">
+
+<a id="18" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">18</span><span class="oldalszamafter">. </span>    Reguláris kifejezések szintaxisa<a class="hlink" href="index.html#18"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<table>
+    <thead>
+        <tr><th>Regex</th><th>Jelentés</th><th>Példák</th></tr>
+    </thead>
+        <tr><td>ab?</td>
+            <td>Opcionális</td><td>
+            <i class="regex-m igen"></i>a
+            <i class="regex-m igen"></i>ab
+            </td></tr>
+        <tr><td>ab+c</td>
+            <td>Ismétlés (legalább 1)</td><td>
+            <i class="regex-m igen"></i>abc
+            <i class="regex-m igen"></i>abbbc
+            <i class="regex-m nem"></i>ac
+            </td></tr>
+        <tr><td>ab*c</td>
+            <td>Ismétlés (akár 0)</td><td>
+            <i class="regex-m igen"></i>abbbc
+            <i class="regex-m igen"></i>ac
+            </td></tr>
+        <tr><td>a{5}</td>
+            <td>Ismétlés (adott számú)</td><td>
+            <i class="regex-m igen"></i>aaaaa
+            <i class="regex-m nem"></i>aaaa
+            </td></tr>
+        <tr><td>(ab)+</td>
+            <td>Csoportosítás (blokk)</td><td>
+            <i class="regex-m igen"></i>ababab
+            <i class="regex-m nem"></i>bbaa
+            </td></tr>
+        <tr><td>\d</td>
+            <td>Számjegy</td><td>
+            <i class="regex-m igen"></i>123
+            <i class="regex-m nem"></i>abba
+            </td></tr>
+        <tr><td>\w</td>
+            <td>Számjegy vagy betű</td><td>
+            <i class="regex-m igen"></i>kort123
+            <i class="regex-m nem"></i>-+()
+            </td></tr>
+        <tr><td>[0-9A-F]</td>
+            <td>Karakterlista v. -tartomány</td><td>
+            <i class="regex-m igen"></i>FCE2
+            <i class="regex-m nem"></i>zsák
+            </td></tr>
+        <tr><td>.</td>
+            <td>Bármilyen karakter</td><td>
+            <i class="regex-m igen"></i>bármi
+            <i class="regex-m nem"></i>\n
+            </td></tr>
+        <tr><td>^alma</td>
+            <td>Sztring/sor eleje</td><td>
+            <i class="regex-m igen"></i>almafa
+            <i class="regex-m nem"></i>hatalmas
+            </td></tr>
+        <tr><td>fa$</td>
+            <td>Sztring/sor vége</td><td>
+            <i class="regex-m igen"></i>körtefa
+            <i class="regex-m nem"></i>téglafal
+            </td></tr>
+</table>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Sztringek illesztése reguláris kifejezésekre">
+<div class="slide" id="slide_19">
+
+<a id="19" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">19</span><span class="oldalszamafter">. </span>    Sztringek illesztése reguláris kifejezésekre<a class="hlink" href="index.html#19"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Hogy jön a reguláris kifejezések témája az állapotgépekhez? Úgy, hogy sok reguláris kifejezés könnyedén 
+állapotgéppé alakítható. Erre mutatunk a következőkben néhány példát, azzal a megjegyzéssel, hogy a téma matematikájába nem 
+megyünk bele. Ez annak tisztázásához lenne szükséges, hogy pontosan mely reguláris kifejezések írhatóak le állapotgépekkel és 
+melyek nem – ez majd az Algoritmuselmélet c. tárgyban fog szerepelni.</p>
+
+<p class="csakdoksi">Vezessünk be előbb néhány jelölést! Vegyünk példának egy olyan állapotgépet (véges automatát), amelyik az 
+<code>^ly$</code> sztringet próbálja meg illeszteni. (Oké, ez egy egyszerű sztringösszehasonlítással is megoldható, de most a rajz 
+jelölései a lényegesek.) Ez azt mondja, hogy a sztring elején jönnie kell egy <code>l</code> betűnek, aztán egy <code>y</code> 
+betűnek, végül pedig nem lehet már más.</p>
+
+<img src="allapotgep-ly.svg" class="kozep" style="width: 20em;" alt="Az ^ly$ kifejezést illesztő automata">
+<div class="kozep"><code>^ly$</code> kifejezést illesztő automata</div>
+
+<p class="csakdoksi">Az automata 4 állapotot tartalmaz.</p>
+
+<ul class="csakdoksi">
+    <li>Az 1-essel jelölt állapot a <em>kezdőállapot</em>. Ezt onnan ismerjük meg, hogy kívülről egy nyíl megy bele.</li>
+    <li>Innen <code>l</code> betű hatására a 2-essel jelölt állapotba megyünk. Bármi más karakter hatására a 4-es
+        állapotba.</li>
+    <li>A pirosra színezett 4-es állapot a visszautasítást jelöli. Ha ide jutunk, az azt jelenti, hogy a sztring nem illeszkedett.
+        Például ha nem <code>l</code> betűvel kezdődött, akkor az 1&rarr;4 állapotátmenet után a feldolgozást be is fejezhetjük.</li>
+    <li>Az <code>y</code> hatására a 2-es állapotból a 3-asba ugrik az automata. Ez az ún. <em>elfogadó állapot,</em> ugyanis ha
+        itt vége lett a sztringnek, akkor tényleg egy <code>"ly"</code>-ról volt szó. Ha jönne még karakter, akkor viszont
+        innen is a 4-esbe ugrik az automata – a visszautasításhoz, mert az <code>y</code> után már nem lehetne semmi.</li>
+</ul>
+
+
+<br class="smallskip">
+<br class="smallskip">
+
+<img src="allapotgep-ly-egyszerubb.svg" class="kozep" style="width: 20em;" alt="Az ^ly$ kifejezést illesztő automata, egyszerűbb jelöléssel">
+<div class="kozep"><code>^ly$</code> kifejezést illesztő automata, egyszerűbb jelöléssel</div>
+
+<p class="csakdoksi">Ez a rajz ugyanazt mutatja, mint a fenti, csak egyszerűbb jelölésekkel.</p>
+
+<ul class="csakdoksi">
+    <li>A kezdőállapotot ugyanúgy jelöljük – kívülről belemutató nyíllal.</li>
+    <li>A visszautasító állapotot nem jelöljük. Ha bárhol olyan bemenetet kap az automata, amihez nem tartozik jelölt átmenet,
+        akkor azt jelölés nélkül elutasításnak tekintjük.</li>
+    <li>Ezzel együtt értelemszerűen az „egyéb” feliratú átmenetek is eltűntek az ábráról.</li>
+    <li>Az elfogadó állapotot duplán bekarikázás jelöli.</li>
+</ul>
+
+<p class="csakdoksi">A következő példákban az egyszerűség kedvéért mindig teljes sztringet próbálunk illeszteni; vagyis a
+reguláris kifejezés elején mindig <code>^</code>, a végén mindig <code>$</code> lesz.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Ismétlés és csoport véges automatával">
+<div class="slide" id="slide_20">
+
+<a id="20" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">20</span><span class="oldalszamafter">. </span>    Ismétlés és csoport véges automatával<a class="hlink" href="index.html#20"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A reguláris kifejezés illesztéséhez tehát építeni kell egy véges automatát. Nézzük meg néhány egyszerűbb
+esetben, hogy működik ez!</p>
+
+<img src="allapotgep-ismetles1.svg" class="kozep" style="width: 26em;" alt="Az ^ab+c$ kifejezést illesztő automata">
+<div class="kozep"><code>^ab+c$</code> kifejezéshez tartozó automata</div>
+
+<p class="csakdoksi">A <code>+</code> operátor egy vagy több előfordulást jelent. Tehát a sztring elején kell legyen egy 
+<code>a</code> betű. Utána kell jönnie egy <code>b</code> betűnek, ami újabb állapotátmenetet eredményez. Innen két úton
+mehetünk tovább. Jöhet még <code>b</code> betű, akkor nem váltunk állapotot (tehát emiatt akármennyi további <code>b</code>
+betűt „megeszünk” ezen a ponton). Vagy egy <code>c</code> betű, aminek hatására az elfogadó állapotba kerülünk.</p>
+
+<br class="smallskip">
+<br class="smallskip">
+
+<img src="allapotgep-csoport.svg" class="kozep" style="width: 26em;" alt="Az ^(ab)+c$ kifejezést illesztő automata">
+<div class="kozep"><code>^(ab)+c$</code> kifejezéshez tartozó automata</div>
+
+<p class="csakdoksi">Mi történik, ha teszünk egy zárójelet az <code>ab</code> köré? Ilyenkor a <code>+</code> ismétlés operátor
+az <code>ab</code> karaktersorozatra vonatkozik, nem csak a <code>b</code> betűre. Vagyis az <code>abc</code>, <code>ababc</code>,
+<code>abababc</code> és hasonló sztringeket találja meg ez a kifejezés. Véges automatával ez is könnyen megvalósítható: amikor
+a <code>b</code> betű utáni állapotban vagyunk, onnan <code>a</code> betű hatására abba az állapotba kell visszamenni, amelybe
+a kezdeti <code>a</code> betű által is kerültünk. Így egy újabb <code>b</code> következhet majd, kiadva a második <code>ab</code>
+sorozatot. De ez megtörténhet bárhányszor.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Opcionalitás véges automatával">
+<div class="slide" id="slide_21">
+
+<a id="21" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">21</span><span class="oldalszamafter">. </span>    Opcionalitás véges automatával<a class="hlink" href="index.html#21"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<img src="allapotgep-ismetles0.svg" class="kozep" style="width: 20em;" alt="A * operátor: 0-szor is előfordulhat">
+<div class="kozep"><code>^ab*c$</code> kifejezéshez tartozó automata</div>
+
+<p class="csakdoksi">A <code>*</code> operátor is ismétlést jelent, de ez elfogadja a nulla darab előfordulást is. Vagyis
+az <code>^ab*c$</code> reguláris kifejezésre az <code>"ac"</code> sztring is illeszkedik; a közepén nulla darab <code>b</code>
+betűvel. Ezért az <code>a</code> betű utáni, középső állapotból a <code>b</code> betű hatására nem mozdulunk el. Ha egyáltalán
+nincs <code>b</code> a sztring közepén, hanem az <code>a</code> után máris <code>c</code> jön, akkor elfogadjuk a sztringet.
+Ha viszont jön <code>b</code>, az nem változtat ezen a helyzeten.</p>
+
+<br class="smallskip">
+<br class="smallskip">
+
+<img src="allapotgep-opcionalitas.svg" class="kozep" style="width: 26em;" alt="A ? operátor: opcionális megjelenés, azaz 0-szor vagy 1-szer">
+<div class="kozep"><code>^ab?c$</code> kifejezéshez tartozó automata</div>
+
+<p class="csakdoksi">Az <code>^ab?c$</code> kifejezésben a <code>b</code> megjelenése opcionális. Vagyis ez csak az 
+<code>"ac"</code> és <code>"abc"</code> sztringekre illeszkedik. Az <code>a</code> utáni <code>c</code>-vel így egyből elfogadó 
+állapotba jut a keresés. Ha az <code>a</code> után <code>b</code> jön, akkor egy másik állapotba kerül az automata – ahonnan persze 
+<code>c</code> hatására ugyanúgy továbbhalad, mintha a <code>b</code> karakter nem jelent volna meg a sztringben.</p>
+
+<p class="csakdoksi">Fontos látni a különbséget eközött és a <code>*</code> operátor között. A <code>*</code> esetén a gráfon
+hurokél jelenik meg, vagyis ugyanabban az állapotban marad az automata, mint előtte. Emiatt illeszthető a <code>*</code> előtti
+rész, vagyis a <code>b</code> betű bárhányszor. Itt viszont mindenképpen tovább kell haladni, hogy a <code>b</code>-t maximum
+egyszer illesszük csak.</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A PCRE könyvtár I.">
+<div class="slide" id="slide_22">
+
+<a id="22" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">22</span><span class="oldalszamafter">. </span>    A PCRE könyvtár I.<a class="hlink" href="index.html#22"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A C nyelv nem tartalmaz beépítetten reguláris kifejezéseket feldolgozó függvényeket. (Más, ennél nagyobb 
+nyelvekben, pl. C++, Java, Python, ... van ilyen gyárilag is.) Viszont könnyű ilyet telepíteni, például a PCRE könyvtár a legtöbb 
+operációs rendszeren rendelkezésre áll. Ez a „Perl Compatible Regular Expressions” rövidítése, mert a reguláris kifejezéseknek
+pont azt a dialektusát használja, mint amelyet a Perl programozási nyelv is.</p>
+
+<p class="csakdoksi">A használatnak két lépése van. Az első lépés az, hogy „le kell fordítanunk” a reguláris kifejezést. Ekkor a 
+program ellenőrzi annak szintaxisát, és felépíti azt az állapotgépet, és egyéb más adatszerkezeteket, amikre később egy adott 
+sztring illesztésekor szüksége van.</p>
+
+<pre   ><code class="language-c">#include &lt;pcre.h&gt;</code></pre>
+
+<pre class="eloadassorsurit115"  ><code class="language-c">char const regex[] = &quot;ak+e&quot;;
+
+const char *error;
+int erroffset;
+pcre *re = pcre_compile(
+  regex, 0,               /* regex + opciók */
+  &amp;error, &amp;erroffset,     /* hibajelzéshez */
+  NULL
+);
+if (re == NULL) {
+    printf(&quot;Hibás a %d pozícióban: %s\n&quot;, erroffset, error);
+    return 1;
+}
+
+/* ... használat ... */
+
+pcre_free(re);</code></pre>
+
+<p class="csakdoksi">A fordítás utána kapunk egy <code>pcre *</code> típusú pointert, amelyen keresztül az adatok hivatkozhatóak.
+A hibajelzés módja a szokásos: <code>NULL</code> pointer jelzi, ha hiba történt. Amúgy pedig, ha már nincsen szükségünk az
+illesztéshez szükséges adatokra, akkor a <code>pcre_free()</code> függvénnyel felszabadítjuk azokat. Hogy milyen adatokról van
+szó pontosan, azzal nem kell foglalkoznunk, a PCRE könyvtár belső működéséhez szükségesek, és az tudja, hogy hogyan kezelendőek.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A PCRE könyvtár II.">
+<div class="slide" id="slide_23">
+
+<a id="23" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">23</span><span class="oldalszamafter">. </span>    A PCRE könyvtár II.<a class="hlink" href="index.html#23"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Ha létrejött a <code>pcre</code> objektum, akkor az illesztést a <code>pcre_exec()</code> függvény végzi.
+Ennek egy halom paramétere van, amelyek most nem lényegesek – a fontosakat a komment is jelzi.</p>
+
+<pre class="eloadassorsurit115"  ><code class="language-cbub">char szoveg[] = &quot;Nyakkendő és aknakereső.&quot;;  // ak+e
+
+int pos[3];
+int rc = pcre_exec(
+  re, NULL,                /* compiled regex */
+  szoveg, strlen(szoveg),  /* a sztring */
+  0, 0,                    /* start, opciók */
+  pos, 3                   /* eredmény tömb és méret */
+);
+if (rc &lt; 0) {
+    if (rc == PCRE_ERROR_NOMATCH)
+        printf(&quot;Nem illeszkedett.\n&quot;);
+    else
+        printf(&quot;Hiba történt, hibakód: %d\n&quot;, rc);
+} else {
+    printf(&quot;Illeszkedett: %d-%d.\n&quot;, pos[0], pos[1]);
+}</code></pre>
+
+<pre class="screenshot">
+Illeszkedett: 2-6.
+</pre>
+
+<p class="csakdoksi">A függvény először is megkapja a <code>pcre_compile()</code> által épített adatszerkezeteket. Meg kell adni 
+neki a vizsgált sztringet és annak hosszát (lehetne benne akár <code>\0</code> is). Meg kell adni a kezdő pozíciót: ennek akkor
+lenne jelentősége, ha a mintára több részlet is illeszkedne, ugyanis azt egymás utáni függvényhívásokkal kapnánk meg. Végül
+pedig, adni kell egy tömböt, ahova az eredményt teszi. Ha a találat pozíciója nem érdekelne minket (hanem egyszerűen csak az,
+hogy van-e a sztringben olyan rész, amelyre a minta illeszthető), akkor adhatnánk ehelyett is <code>NULL</code> pointert.</p>
+
+<p class="csakdoksi">Hiba esetén negatív számot kapunk. Ha viszont illeszkedést talált a függvény, akkor a <code>pos[]</code> 
+tömbbe beírja, hogy mettől meddig. Jelen esetben ezek a <code>2–6</code> karakterek, mert a <code>"Nyakkendő és aknakereső."</code> 
+sztringben a nyakkendő szó „akke” része illeszkedik az <code>ak+e</code> mintára. Ha kíváncsiak lennénk, a sztring fennmaradó 
+részében van-e még ilyen, akkor a 6-odik start pozíciótól kellene újra megpróbálnunk az illesztést, és meglenne az aknakereső 
+„ake”-je is.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A csoportok (blokkok) szerepe">
+<div class="slide" id="slide_24">
+
+<a id="24" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">24</span><span class="oldalszamafter">. </span>    A csoportok (blokkok) szerepe<a class="hlink" href="index.html#24"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A zárójelekben megadott alkifejezések (csoportok, blokkok – grouping) szerepe valójában kettős. Ezzel nem csak 
+precedenciát adhatunk meg, mint pl. az <code>(ab)+</code> kifejezésben, ahol az ismétlés nem csak a <code>b</code>-re, hanem az 
+<code>ab</code> karaktersorozatra vonatkozott. Az illesztett reguláris kifejezéseken belül a csoportok által meghatározott 
+karaktersorozatokat a PCRE könyvtár, és más regex motorok külön is képesek kigyűjteni (capture). Így a találatok esetén azok egyes 
+részeit külön is megkapjuk sztringek formájában.</p>
+
+<h3 class="csakdoksi">Kommentek tartalma</h3>
+<div class="regex">
+<pre class="regex-result" data-nomatchicon>
+printf("Hello, vilag!\n"); /* első komment */
+i = i + 123;
+return 0;                  /* második komment */
+</pre>
+<p><input class="regex-input" type="text" value="/\*\s*(.*?)\s*\*/"></p>
+</div>
+
+<div class="csakdoksi">
+<p>Vizsgáljuk meg, mit csinál a nyakatekert <code>/\*\s*(.*?)\s*\*/</code> reguláris kifejezés!</p>
+<ul>
+    <li><code>/\*</code>, azaz előbb jönnie kell egy <code>/</code> és egy <code>*</code> karakternek. Itt a
+        csillag elé visszaper kellett, mert a csillag karakterre gondolunk, nem pedig a perjelek ismétlésére.</li>
+    <li>Ezután jöhet bármennyi szóköz vagy tabulátor, a <code>\s*</code> megeszi ezeket.</li>
+    <li>Utána jöhet bármilyen karakterből bármennyi: <code>(.*?)</code>, erre a részre viszont kíváncsiak vagyunk,
+        ezért be van zárójelezve.</li>
+    <li>Aztán jöhet bármennyi szóköz: <code>\s*</code>, végül pedig egy csillag és egy perjel kell következzen: <code>\*/</code>.</li>
+</ul>
+<p>Lényegében tehát megtaláltunk egy C kommentet, mert perjel-csillaggal kezdődő, csillag-perjellel befejeződő sztringrészletre
+fog illeszkedni ez a reguláris kifejezés. A közepén lévő részt külön sztringben is szeretnénk megkapni. Leszámítva az elején
+és a végén lévő szóközöket, mert azok nem érdekelnek minket, tehát tisztán csak a komment szövege.</p>
+</div>
+
+<br class="smallskip">
+
+<h3 class="csakdoksi">E-mail cím részei</h3>
+<div class="regex">
+<blockquote class="regex-result">
+kicsoda#example.com
+valaki@pikac.hu
+</blockquote>
+<p><input class="regex-input" type="text" value="^([\w.]+)@(\w+(?:\.\w+)*)$"></p>
+</div>
+
+<div class="csakdoksi">
+<p>Az email címeknél hasonló a helyzet. A kukac két oldalán álló részeknek külön jelentése van. Az előtte álló egy felhasználónév.
+Az utána álló pedig a szolgáltató, amelyik az e-mail tárhelyet adja; technikailag ez egy számítógép neve az Interneten. Ezért ha
+a reguláris kifejezésben a kukac előtti és utáni részekre illeszkedő részletet bezárójelezzük, akkor a regex motor kivágja nekünk
+ezeket a részsztringeket. Vagy nem vág ki semmit, ha az e-mail cím hibásan van megadva, és az egész sztring nem illeszkedik.</p>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A blokkok részsztringjei">
+<div class="slide" id="slide_25">
+
+<a id="25" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">25</span><span class="oldalszamafter">. </span>    A blokkok részsztringjei<a class="hlink" href="index.html#25"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A PCRE könyvtár a regex illesztése közben a megjelölt blokkok részsztringjeit is vissza tudja adni.
+Ehhez az eredmények tömböt nagyobbra kell vennünk: a <code>pos[]</code> tömb ugyanis ilyenkor nem csak a teljes illeszkedő
+szövegrészt fogja megmutatni, hanem a megjelölt blokkokat is. A tömb mérete 3-mal osztható kell legyen; benne az egész számok
+páronként a találatok és blokkok helyét mutatják az eredeti sztringben, illetve a tömb végét ideiglenes tárolónak használja
+a függvény (ezzel nem kell foglalkoznunk).</p>
+
+<pre   ><code class="language-cbub">char const regex[] = &quot;^([\\w.]+)@(\\w+(?:\\.\\w+)*)$&quot;;
+char szoveg[] = &quot;valaki@pikac.hu&quot;;
+char resz[100];
+
+int pos[9];
+int rc = pcre_exec(/* ... paraméterek ... */);
+
+/* ... hibakezelés helye... */
+
+strncpy(resz, szoveg + pos[2], pos[3] - pos[2]);
+resz[pos[3] - pos[2]] = '\0';
+printf(&quot;Felhasználó: %s\n&quot;, resz);
+
+strncpy(resz, szoveg + pos[4], pos[5] - pos[4]);
+resz[pos[5] - pos[4]] = '\0';
+printf(&quot;Gép: %s\n&quot;, resz);</code></pre>
+
+<div class="csakdoksi">
+<p>Tegyük fel, hogy a paraméterként adott sztring illeszkedik. Ekkor az alábbi eredményeket kapjuk:</p>
+<ul>
+    <li>A visszatérési érték nem hibakód (negatív szám lesz). Valójában a visszatérési érték azt mutatja, hány számpárt tett
+        a <code>pos[]</code> tömbbe a függvény.</li>
+    <li>Az első számpár, <code>pos[0]</code> és <code>pos[1]</code> az illeszkedő részt mutatja. Jelen esetben ez a teljes sztring.</li>
+    <li>A Következő számpárok pedig a megjelölt blokkokat; <code>pos[2]</code>–<code>pos[3]</code> pár a felhasználónév részt,
+         <code>pos[4]</code>–<code>pos[5]</code> páros pedig a kukac utáni részt.</li>
+</ul>
+
+<p>Minden megadott tartomány balról zárt, jobbról nyílt. Ha ezeket használni szeretnénk sztringként, akkor legegyszerűbb, ha az 
+eredeti sztringből kimásoljuk azokat. Arra kell figyelni, hogy a megadott tartományok az eredeti sztring belsejébe mutatnak; vagyis 
+a kimásoláskor nem támaszkodhatunk a lezáró nullákra. Ezért kell a <code>strncpy()</code> függvényt használnunk, amelynek a maximum 
+írandó karakterek számát is meg tudjuk adni. Mivel ez sajnos lezáró nullát nem tesz a cél tömbbe, azt külön beleírjuk.</p>
+
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mi nem állapotgép? (a+)b\1">
+<div class="slide" id="slide_26">
+
+<a id="26" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">26</span><span class="oldalszamafter">. </span>    Mi nem állapotgép? (a+)b\1<a class="hlink" href="index.html#26"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A blokkokra a reguláris kifejezéseken belül is lehet hivatkozni. Ezt a visszaper karakterrel lehet jelölni; az 
+utána írt szám a kifejezésben szereplő blokkra utal, azok megjelenési sorrendjében. Az <code>(a+)b\1</code> reguláris kifejezés 
+ezért azt jelenti, hogy jönnie kell egy vagy több <code>a</code> betűnek (amennyi volt, azt megjegyezzük egy sztringben), aztán a 
+következő karakter egy <code>b</code> betű kell legyen, végül pedig az első megjegyzett sztringrészlet újra. Vagyis pont ugyanannyi 
+<code>a</code> betű kell legyen az illesztett sztring végén is, mint amennyi az elején volt.</p>
+
+<div class="regex">
+<blockquote class="regex-result" data-nocaptures>
+aba
+aaabaa
+aaabaaa
+aabaaa
+</blockquote>
+<p><input class="regex-input" type="text" value="^(a+)b\1$"></p>
+</div>
+
+<p class="csakdoksi">Milyen állapotgépet konstruálnánk ehhez? Ha az elején egy <code>a</code> betű volt, a végén is egy kell legyen.
+Ha kettő, akkor olyan állapotba kell kerülni, ahonnan egy <code>b</code> betűvel és két további <code>a</code> betűvel lehet az
+elfogadáshoz jutni. (A többszörös egymás utáni állapotátmeneteket most csak pontozott vonallal jeleztük, hogy áttekinthető legyen
+a rajz.) A három <code>a</code> betűs kezdethez is tartoznia kell egy állapotnak, a négy betűshöz is, és így tovább. Az állapotokba
+írt számok azt jelölik, hány kezdő <code>a</code> betű hatására lehet oda eljutni.</p>
+
+<img src="allapotgep-aabaa.svg" class="kozep" style="width: 24em;" alt="Visszahivatkozás: ugyanannyi 'a' betű legyen a végén, mint az elején">
+
+<p class="csakdoksi">Azt vesszük észre, hogy a tetszőlegesen sok <code>a</code> ismétlődés <em>és a visszahivatkozás miatt</em>
+tetszőlegesen sok állapottal kellene rendelkeznie az automatának. Így viszont <em>nem lenne véges,</em> vagyis ez a feladat
+<em>nem oldható meg véges automatával.</em></p>
+
+<p class="csakdoksi">A matematikában használt reguláris kifejezés fogalom ezért különbözik a programozásban használt reguláris 
+kifejezésektől. Az utóbbiak többféle szabályt tartalmazhatnak, és a lehetséges szabálytípusok között vannak olyanok is, amelyek már 
+nem írhatóak le állapotgépekkel. (Hogy melyek ezek, arról az Algoritmuselmélet c. tárgyban lesz szó.) Ilyen a visszahivatkozás is. 
+Az összetettebb kifejezéseket feldolgozni képes könyvtárak, mint amilyen pl. a PCRE is, nem mindig állapotgépekkel dolgoznak.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mohó és nem mohó illeszkedés: * és *?">
+<div class="slide" id="slide_27">
+
+<a id="27" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">27</span><span class="oldalszamafter">. </span>    Mohó és nem mohó illeszkedés: * és *?<a class="hlink" href="index.html#27"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+
+<p>Hasonló talány a <code>.*</code>-ot tartalmazó kifejezések illesztése. Mit jelent vajon a <code>.*a</code> reguláris 
+kifejezés? Ennek a <code>.*</code> része tetszőlegesen hosszú karaktersorozatra illeszkedhet – vagyis a teljes bemenetre. Ha 
+ehhez tartozóan „elfogyasztjuk” a teljes bemenetet, akkor hogyan lenne lehetséges, hogy utána még egy <code>a</code> betű jön?
+Lehetséges, hogy a <code>.*a</code> kifejezés semmire nem illeszkedik?</p>
+
+<p>Valójában ez nem igaz, mert a legelső példában a C komment belsejének illesztését is egy <code>.*</code> kifejezésrészlettel 
+végeztük, mert ott lehetett bármi. A <code>*</code>, azaz ismétlés operátor a fejlett reguláris kifejezéseket feldolgozó 
+programokban próbálkozást jelent: próbáljuk meg az illeszkedést valahány karakterrel (valahány karakter ismétlését), és ha nem, 
+akkor próbáljuk meg kevesebbel.</p>
+
+<p>Lássuk, mit jelent ez a gyakorlatban! Mindkét alább látható reguláris kifejezés az illesztett szövegrészlet elején és végén is 
+idézőjelet vár, vagyis a forráskódból a sztringeket keresi ki. A különbség csak a sztring belsejére illeszkedő <code>.*</code> és 
+<code>.*?</code> részletekben van, vagyis abban, hogy <code>*</code> vagy <code>*?</code> operátort használunk.</p>
+
+</div>
+
+<h3>* – a lehető legtöbb</h3>
+<div class="regex">
+<pre class="regex-result">
+char h[] = "helló", v[] = "világ";
+</pre>
+<p><input class="regex-input" type="text" value="&quot;(.*)&quot;"></p>
+</div>
+
+<p class="csakdoksi">A <code>.*</code> ezzel szemben a lehető leghosszabb illeszkedést jelenti. Vagyis a keresés közben először 
+elmegyünk a sor végéig, és aztán ha a kifejezés nem illeszkedik, elindulunk visszafelé, kevesebb karakterrel próbálkozunk. Nyilván 
+a <em>sor vége után</em> nem lesz bezáró idézőjel (hogy is lehetne, hiszen elfogyott a sor), ezért visszafelé kell lépkedni onnan. 
+Így viszont nem az első sztringet bezáró idézőjelet fogja megtalálni, hanem a másodikét – és a kettő között még ott van a
+<code>v[]</code> tömb deklarációja is.</p>
+
+<p class="csakdoksi">A leghosszabb megoldás megkeresése miatt ezt <em>mohó (greedy) ismétlésnek</em> nevezzük. A sztringek 
+megtalálására ez nem alkalmas, csak a <code>.*?</code> működik helyesen.</p>
+
+<br class="smallskip">
+
+<h3>*? – a legkevesebb</h3>
+<div class="regex">
+<pre class="regex-result">
+char h[] = "helló", v[] = "világ";
+</pre>
+<p><input class="regex-input" type="text" value="&quot;(.*?)&quot;"></p>
+</div>
+
+<p class="csakdoksi">A <code>*?</code> a lehető legrövidebb illeszkedést jelenti. Vagyis miután a motor megtalálta a sztringet 
+nyitó idézőjelet, feltételezi, hogy a <code>.*</code> nulla karakterre illeszkedik. Ez azonban nem jön be, mert a sztring nem üres, 
+tartalmaz szöveget. Ezért egyre hosszabb sztringrészletekkel próbálkozik: h, he, hel, hell, helló... Végül sikerrel jár, mert a 
+sztring teljes tartalma után megtalálja a bezáró idézőjelet, ami a vessző előtt van.</p>
+
+<p class="csakdoksi">Ugyanez megtörténik a második sztring esetén is, vagyis összesen két sztringet tartalmaz a forráskód. A 
+legrövidebb megoldás megkeresése miatt ezt <em>nem mohó (non-greedy) ismétlésnek</em> szokták nevezni.</p>
+
+
+<div class="csakdoksi megjegyzes">
+<h3>Forráskódok színezése – syntax highlighting</h3>
+<p>A forráskódokat színező programok épp így működnek: reguláris kifejezéseket kezelő program segítségével találják meg a 
+forráskódban a kommenteket, szövegeket, számokat, kulcsszavakat stb. amiket aztán különféle színnel jelenítenek meg. Az eddigiek
+alapján tudjuk, hogy a kommenteket a <code>/\*.*?\*/</code> kifejezés, a sztringeket a <code>".*?"</code> kifejezés
+találja meg. A dolog annyiban bonyolultabb, hogy az egymásba ágyazódott találatoknál mindig a külsőt kell csak figyelembe venni:</p>
+<pre   ><code class="language-c">char s[] = &quot;Ez itt /* nem egy komment */.&quot;;
+/* Ez pedig itt &quot;nem sztring&quot;. */</code></pre>
+<p>Vagyis a megtalált részeket még ellenőrizni kell ilyen szempontból.</p>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az NFA fogalma: (méh|méz|mos)">
+<div class="slide" id="slide_28">
+
+<a id="28" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">28</span><span class="oldalszamafter">. </span>    Az NFA fogalma: (méh|méz|mos)<a class="hlink" href="index.html#28"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Mi a helyzet a <code>^(méh|méz|mos)$</code> reguláris kifejezéssel? Ez a három felsorolt szóra illeszkedik,
+és csak azokra. Rajzoljuk fel ezt állapotgéppel! Az opcionalitás miatt három irányba indulunk; a három ágon az „m, é, h”, 
+továbbá az „m, é, z”, végül pedig az „m, o, s” betűket kell illesztenünk, vagyis azok hatására kell a következő állapotba
+jutnunk. Bármelyik ágon végigértünk, elfogadó állapotba jutunk, egyéb esetben pedig nem illeszkedett a sztring.</p>
+
+<img src="allapotgep-mehmezmos-nfa.svg" class="kozep" style="width: 24em;" alt="A ^(méh|mez|mos)$ kifejezést illesztő automata">
+
+<div class="csakdoksi">
+<p>Mit jelent ennek az automatának a kezdő állapota? Onnan három irányba indulhatunk, de <em>minden irányba az m 
+betű hatására megyünk tovább</em>. Hogyan döntjük el, hogy merrefelé kéne menni? Az első m betű hatására ez nem dönthető el. Ha 
+elindulunk a felső úton, a „méz” felé, de a harmadik betűnél kiderül, hogy a „méh” szó érkezik, akkor nem utasíthatjuk vissza a 
+sztringet. Ha a „mos” felé indulnánk kezdetben, akkor a „méh” és „méz” szavakat utasítjuk vissza, pedig ezek illeszkednek.</p>
+
+<p>Az ábra egy <em>nemdeterminisztikus véges automatát</em> mutat (nondeterministic finite state automaton, NFA), 
+amelyiknél egy adott állapotból több irányba is továbbmehetünk ugyanazon esemény hatására. Egy ilyen automata működését 
+elképzelhetjük úgy, hogy az állapotgép nem egy, hanem <em>egyszerre több</em> állapotban van.</p>
+
+<p>Lássuk, mit jelent ez! A kezdő állapot egyértelmű. Jelöljük meg ezt egy színnel, egy ún. tokennel!</p>
+
+<img src="allapotgep-mehmezmos-nfa-kezdo.svg" class="kozep" style="width: 24em;" alt="A ^(méh|mez|mos)$ automata kezdőállapota">
+
+<p>Ha nem „m” betű érkezik, meg is állunk. Viszont ha igen, akkor továbbmegyünk <em>mindhárom</em> irányba, ahova 
+m-mel jelölt nyíl vezet. Most három tokenünk van, mindhárom tippünk bejöhet még – hogy mi a szó többi része, az majd kiderül:</p>
+
+<img src="allapotgep-mehmezmos-nfa-m.svg" class="kozep" style="width: 24em;" alt="A ^(méh|mez|mos)$ automata állapotai az 'm' betű feldolgozása után">
+
+<p>Tegyük fel, hogy ezután egy „é” betű érkezik. Ekkor az alsó úton, a „mos” szó felé haladó illeszkedés elakad. Azt a tokent
+eldobjuk. Viszont ez nem gond, mert még van olyan út, ami végül találathoz vezethet. Innentől két tokennel dolgozunk tovább:</p>
+
+<img src="allapotgep-mehmezmos-nfa-me.svg" class="kozep" style="width: 24em;" alt="A ^(méh|mez|mos)$ automata állapota az 'm', 'é' karaktersorozat után">
+
+<p>Ebből az állapotból akár „h” betűvel, akár „z” betűvel az elfogadáshoz tudunk jutni: mindkét esetben az egyik tokent ugyan 
+eldobjuk, de a másik beér a célba. Ha más karaktert kapunk, pl. egy „g” betűt („még”), akkor elveszik az összes token, ami 
+visszautasítást jelent.</p>
+
+<p>Összefoglalva a működés lényegét: a <em>nemdeterminisztikus automata</em> egyszerre több állapotban is lehet. Ha a bemenet 
+hatására több irányba lehet indulni, az állapotot jelző token <em>token többszöröződik</em>. Ha az illesztés valamelyik úton 
+elakad, akkor azt a <em>tokent eldobjuk</em>.</p>
+
+</div>
+
+<br class="smallskip">
+
+<p class="csakdoksi">Másik lehetőségünk, hogy a nemdeterminisztikus automatát determinisztikus automatává (deterministic finite 
+state automaton, DFA) alakítjuk. Matematikailag bizonyított, hogy ez mindig megtehető; a művelet néha az állapotok számának 
+csökkenésével, néha pedig (akár igen nagymértékű) növekedésével jár. Ebben a példban szerencsére csökken az állapotok száma:</p>
+
+<img src="allapotgep-mehmezmos-dfa.svg" class="kozep" style="width: 24em;" alt="A ^(méh|méz|mos)$ kifejezés determinisztikus automatával">
+
+<p class="csakdoksi">Az ábráról leolvasható, hogy a <code>^m(é[hz]|os)$</code> reguláris kifejezés pontosan ugyanazokra a szavakra 
+illeszkedik, mint az eredeti, <code>^(méh|méz|mos)$</code> kifejezés.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

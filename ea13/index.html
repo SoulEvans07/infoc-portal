@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Generikus algoritmusok, visszalépő keresés</title>
+<meta property="og:title" content="TEST InfoC :: Generikus algoritmusok, visszalépő keresés">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Generikus algoritmusok, a void* típus. A visszalépő keresés alapjai">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Generikus algoritmusok, a void* típus. A visszalépő keresés alapjai">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<link rel="stylesheet" href="sakk.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+<script src="sakk.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Generikus algoritmusok, visszalépő keresés">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Generikus algoritmusok, visszalépő keresés</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Pohl László, Kohári Zsolt, Nagy Gergely · <i class="ido"></i> 2019.09.03.</p>
+<p class="kivonat">Generikus algoritmusok, a void* típus. A visszalépő keresés alapjai</p>
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="fontos">Generikus algoritmusok</a>
+              <li><a href="index.html#2" class="">Menürendszer I. – a feladat</a>
+              <li><a href="index.html#3" class="">Ismétlés: a függvényhívás menete</a>
+              <li><a href="index.html#4" class="">Függvényre mutató pointer: a háttérben…</a>
+              <li><a href="index.html#5" class="">A függvénypointer típus szintaktikája</a>
+              <li><a href="index.html#6" class="">Menürendszer II. – a mutató típus</a>
+              <li><a href="index.html#7" class="">Menürendszer III. – a tömb és használata</a>
+              <li><a href="index.html#8" class="">Az év eleji tételek generikus változata</a>
+              <li><a href="index.html#9" class="">Generikus rendezés</a>
+              <li><a href="index.html#10" class="">Állapotgépek függvényre mutató pointerrel</a>
+              <li><a href="index.html#11" class="fontos">Generikus algoritmusok tömbökön</a>
+              <li><a href="index.html#12" class="">Sztringek rendezése: qsort() és strcmp()</a>
+              <li><a href="index.html#13" class="">Generikus tömbök: stdio, stdlib</a>
+              <li><a href="index.html#14" class="">qsort() és bsearch(): hasonlító függvény</a>
+              <li><a href="index.html#15" class="">Tömbök generikusan – a pointerek kezelése</a>
+              <li><a href="index.html#16" class="">Tömbök generikusan – az elemek kezelése</a>
+              <li><a href="index.html#17" class="fontos">Visszalépő keresés (backtrack)</a>
+              <li><a href="index.html#18" class="">A nyolckirálynő-probléma</a>
+              <li><a href="index.html#19" class="">A mi problémánk</a>
+              <li><a href="index.html#20" class="">Variációk, permutációk</a>
+              <li><a href="index.html#21" class="">Az ütések vizsgálata</a>
+              <li><a href="index.html#22" class="">A permutációk előállítása</a>
+              <li><a href="index.html#23" class="">Feleslegesen kipróbált megoldások?</a>
+              <li><a href="index.html#24" class="">Nyolckirálynő-probléma: új algoritmus</a>
+              <li><a href="index.html#25" class="">Az ütések vizsgálata: csak az n-edik</a>
+              <li><a href="index.html#26" class="">Algoritmus visszalépő kereséssel (félkész)</a>
+              <li><a href="index.html#27" class="">Permutáló algoritmus visszalépéssel</a>
+              <li><a href="index.html#28" class="">Hatékonyság: permutáló és visszalépő</a>
+              <li><a href="index.html#29" class="">A visszalépő keresés általános alakja</a>
+              <li><a href="index.html#30" class="">Visszalépő keresés: csak egy megoldás</a>
+              <li><a href="index.html#31" class="">Visszalépő keresés: alkalmazások</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Generikus algoritmusok">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="eagenerikus" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Generikus algoritmusok</h1>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Menürendszer I. – a feladat">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Menürendszer I. – a feladat<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Írjunk programot, amelyben menüből választhatjuk ki a teendőt!</p>
+
+<pre class="screenshot eloadassorsurit11">
+1. Összeadás
+2. Szorzás
+3. Hatványozás
+0. Kilépés
+Melyik? <span class="blink">_</span>
+</pre>
+
+<pre class="eloadassorsurit11"  ><code class="language-cbub">printf(&quot;1. Összeadás\n&quot;); // 1. sorminta
+printf(&quot;2. Szorzás\n&quot;);
+printf(&quot;3. Hatványozás\n&quot;);
+printf(&quot;0. Kilépés\n&quot;);
+scanf(&quot;%u&quot;, &amp;valasztas);</code></pre>
+
+<pre class="eloadassorsurit11"  ><code class="language-cbub">if (valasztas &lt; 4) {
+    switch (valasztas) {
+        case 1: eredm = osszead(a, b); break; // 2. sorminta
+        case 2: eredm = szoroz(a, b); break;
+        case 3: eredm = hatvanyoz(a, b); break;
+    }
+    printf(&quot;E = %d\n&quot;, eredm);
+}</code></pre>
+
+
+<div class="csakdoksi">
+
+<p>A sormintákkal mindig az a baj, hogy nehezen módosítható, nehezen karbantartható programkódot
+eredményeznek.</p>
+
+<p>Itt, hogy a <code>switch</code>, ahol a beírt szám alapján kiválasztjuk a teendőt, ne legyen túl
+áttekinthetetlen, az egyes lépéseket eleve függvénybe tettük. Ez jó is – egészen addig, amíg nem kell
+módosítani a menüt. Tegyük fel, hogy a 2-es menüponthoz szeretnénk beszúrni a kivonást. A teendők:</p>
+
+<ul>
+    <li>Beszúrunk egy <code>printf()</code>-et az összeadás és a szorzás közé.
+    <li>Ezek után a többit is átszámozzuk (szorzás, hatványozás).
+    <li>A <code>switch</code> előtti <code>if</code>-nél átírjuk a számot
+        (amely a menüpontok számával van összefüggésben) 5-re.
+    <li>Beírjuk a <code>switch</code>-be az új <code>case 2</code>-t.
+    <li>Átszámozzuk a többi <code>case</code>-t is.
+</ul>
+
+<p>Ennél biztosan van jobb megoldás is. A sorminta <em>mindig</em> elkerülhető. Például a menüpontok nevei
+betehetőek tömbbe, és akkor egy ciklussal elvégezhető a kiírás és a beszámozás. Vajon a menüpontok maguk, azaz
+a függvények is betehetőek a tömbbe? Ha igen, meg tudjuk szüntetni a második kódduplikációt is! </p>
+
+</div>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Ismétlés: a függvényhívás menete">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Ismétlés: a függvényhívás menete<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A <a href="../ea05/index.html#eafuggvenyhivasmenete">függvényhívás menetéről</a> már volt szó régebben. 
+Ismétlésként foglaljuk ezt össze!</p>
+
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+double negyzet(double a) {
+    return a * a;
+}
+
+int main(void) {
+    double x = negyzet(5.9);
+    double y = sin(6.1);
+
+    printf(&quot;%g&quot;, x + y);
+    return 0;
+}</code></pre>
+</div>
+<div>
+<img src="verem.svg" class="kozep" style="height: 17em;">
+</div>
+</div>
+
+<div class="csakdoksi">
+
+<p>Minden függvényhíváskor lefoglalódik egy terület a veremben, amely az adott híváshoz tartozik,
+és visszatéréskor megszűnik: ez a keret (stack frame).</p>
+
+<p>A <em>függvényhívás előtt</em> a fenti példában a következő történik:</p>
+<ul>
+   <li>A hívó, azaz a <code>main()</code> beteszi a verembe a paramétereket.
+   <li>Helyet csinál a visszatérési értéknek is.
+   <li>Meghívja a függvényt, ami által bekerül a verembe a visszatérés címe
+      (vagyis hogy hol kell folytatni a programot a függvényből visszatérvén).
+</ul>
+
+<p>A <code>negyzet()</code> <em>függvényben</em> a működés:</p>
+<ul>
+   <li>A paramétereit a veremben találja.
+   <li>A visszatérési értéket a verembe teszi, a megfelelő memóriaterület felülírásával.
+   <li>Amikor visszatér, akkor a hívóhoz ugrik vissza, az eltárolt visszatérési cím alapján.
+</ul>
+<p>A <em>függvényhívás után</em> a hívó:</p>
+<ul>
+   <li>A veremben megtalálja a visszatérési értéket. Ezt felhasználja, ha szeretné.
+   <li>Kitörli a veremből az általa betett dolgokat, hiszen azokra már nincsen szükség.
+</ul>
+</div>
+
+<br class="smallskip">
+
+<div class="csakeloadas">
+<p>Mi lenne, ha egy <em>másik</em> függvényt hívnánk meg ugyanolyan kerettel?</p>
+</div>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Függvényre mutató pointer: a háttérben…">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+  <a id="eafvptr" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Függvényre mutató pointer: a háttérben…<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Ha két függvénynek <em>egyforma a fejléce,</em> akkor egyformán kezelik a vermet,
+és ezért <em>kompatibilisek</em> egymással.</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">double negyzet(double a);</code></pre>
+</div>
+<div>
+<pre   ><code class="language-c">double sin(double alfa);</code></pre>
+</div>
+</div>
+
+<br class="smallskip">
+
+<div class="sticky">függvényre<br>mutató pointer</div>
+<pre   ><code class="language-cbub">int main(void) {
+  double (*fptr)(double);   // ptr létrehozása
+  double x;
+
+  fptr = negyzet;           // ptr beállítása
+  x = fptr(3);  /* negyzet(3) */
+
+  fptr = sin;
+  x = fptr(5);  /* sin(5) */
+
+  return 0;
+}</code></pre>
+
+<div class="csakdoksi">
+<p>Mi is történik itt? Tegyük fel, hogy van egy függvényünk, amelyik
+egy darab <code>double</code> paramétert vár, és egy darab <code>double</code>
+paramétert ad vissza. Ha meghívjuk ezt a függvényt, akkor a hívó felépít
+hozzá egy keretet, amelyben ezeknek az értékeknek meglesz a megfelelő helye.
+A hívott fogja tudni, hogy a verem tetejéhez képest hol találja a paramétereket
+és hova kell tennie a visszatérési értéket. (Ennek technikai részleteiről
+természetesen a fordító gondoskodik.)</p>
+<p>Ha van egy másik függvényünk, amelynek ugyanilyen a prototípusa, akkor
+a hívási keret megfelelő felépítése után meghívhatjuk azt is. Hiszen az a függvény
+a veremben ugyanott fogja keresni az ugyanolyan típusú értékeket. Vagyis
+ha a keretet megfelelően építjük föl, meghívható akár a <code>negyzet()</code>, akár
+a <code>sin()</code> függvény. Ennek pedig semmi akadálya nincs, ha a két függvény
+prototípusa megegyezik.</p>
+
+<p>Így bevezethetjük a <em>függvényre mutató pointer</em> típust. Ez azt a memóriacímet tárolhatja, ahol a függvény található a 
+memóriában. Ez a cím <em>képezhető</em>, akár elmenthető egy függvénypointer típusú változóba, és egy függvénypointer segítségével 
+<em>meghívható a függvény.</em> A függvény hívása ilyenkor az alábbi módon fog történni:</p>
+
+<ul>
+    <li>Felépítjük a hívási keretet a megfelelő módon.
+    <li>Arra a memóriacímre ugrunk a végrehajtással, amire a pointer hivatkozik.
+    <li>Miután visszatért, a veremből kivesszük a visszatérési értékét, és töröljük
+        a keretet.
+</ul>
+<p>Mivel azt tudni kell, hogy mi legyen a hívási keret felépítése, ezért a
+függvénypointer típusában benne kell legyen az általa hivatkozott függvény prototípusa.
+Ezért néz így ki fent az <code>fptr</code> változó definíciója:</p>
+<pre   ><code class="language-c">double (*fptr)(double);</code></pre>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A függvénypointer típus szintaktikája">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    A függvénypointer típus szintaktikája<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3 class="csakdoksi">Hogyan definiálunk egy függvényre mutató pointert?</h3>
+
+<p>Függvényre mutató pointer típusú változó:</p>
+
+<div class="sticky csakdoksi">Fontos a *-ot<br>és a nevet<br>körbevevő zárójel!</div>
+<div class="sticky csakeloadas">Minek van<br>a zárójel?</div>
+
+<pre   ><code class="language-cbub">VisszaTíp (*változónév)(ParamTíp, /*...*/);</code></pre>
+
+<pre   ><code class="language-cbub">double (*fptr)(double);
+fptr = sin;</code></pre>
+
+<div class="csakdoksi">
+
+<p>Egy számra mutató pointernél is a pointer típusából tudja a fordító, hogy a dereferálása esetén milyen típusú értéket vehetünk 
+ki a memóriából (pl. <code>int*</code> egy egész számra mutat, <code>double*</code> valósra). A függvényre mutató pointereknél 
+ugyanez a helyzet: a pointer típusából tudja a fordító, hogy mik a hívott függvény paraméterei és mi a visszatérési értéke. Vagyis 
+hogy hogyan kell számára a hívási keretet felépíteni. Tehát a függvényre mutató pointer típusú változónak a típusa két információt 
+kell magában hordozzon: 1) hogy egy pointerről van szó, 2) hogy milyen paraméterezésű függvényre mutat.</p>
+
+<p>A jobb oldali zárójel és a benne lévő <code>(double)</code> mutatja, hogy egy függvényről van szó, amelynek egy 
+<code>double</code> paramétere van. A bal oldali <code>double</code> pedig azt, hogy ha meghívjuk a függvényt, egy valós számot 
+kapunk vissza. A változónév előtti <code>*</code> jelzi, hogy az <code>fptr</code> változó egy pointer, amely az előbb részletezett 
+fejlécű függvényre mutat.</p>
+
+<p>Már csak egy a kérdés: miért van a <code>(*fptr)</code> zárójelben? Azért, mert a kifejezés a változódeklarációknál megszokott 
+logikát követi: úgy deklaráljuk a változót, ahogy használni fogjuk, és a deklaráló kifejezésben az operátorok szokásos 
+precedenciája érvényes. Itt a változó neve <code>fptr</code>. Az első zárójelpár a precedenciát adja meg: <code>(*fptr)</code> 
+miatt a <code>*</code> operátor az <code>fptr</code>-hez tartozik, nem pedig a bal szélső <code>double</code>-höz. Emiatt 
+<code>fptr</code> egy olyan pointer, ami... Mire is mutat? A deklaráció maradék része a <code>double ___(double)</code> – vagyis 
+egy olyan függvényre, amit <code>double</code> paraméterrel meghívva <code>double</code>-t kapunk vissza.</p>
+
+<p>Amit tehát fontos megjegyezni:</p>
+
+<ul>
+   <li><em>Zárójel</em> veszi körül a változó nevét a csillaggal.
+   <li>Az argumentumoknál <em>csak a típusokat</em> soroljuk fel, vesszővel elválasztva.
+</ul>
+
+<p>Legegyszerűbben így tudjuk ezt észben tartani: ha egy függvénydeklarációban a név elé teszünk egy <code>*</code>-ot, majd azt és 
+a függvény nevét bezárójelezzük, függvénypointert kapunk.</p>
+
+</div>
+
+<br class="smallskip">
+
+<h3 class="csakdoksi">Hogyan segít ebben a <code>typedef</code>?</h3>
+
+<p class="csakeloadas">A típust a <code>typedef</code> is megadhatja:</p>
+
+<p class="csakdoksi">Emlékezzünk vissza: a <code>typedef</code> után írt dolog szintaxisa tökéletesen <a href="../ea03/index.html#eatypedef">megegyezik a változódeklaráció szintaxisával</a>. Tehát ha típusként szeretnénk definiálni egy 
+függvényre mutató pointert, ugyanazt kell csinálnunk, mint a változóknál, csak a sor elejére még a <code>typedef</code> kulcsszó is 
+odakerül. A fenti példában az <code>EgyvaltozosFvPtr</code> nevű típus lett definiálva függvénypointerként.</p>
+
+<pre   ><code class="language-c">typedef VisszaTíp (*ÚjTípusNév)(ParamTíp, /*...*/);</code></pre>
+
+<pre   ><code class="language-c">typedef double (*EgyvaltozosFvPtr)(double);
+EgyvaltozosFvPtr f;
+f = sin;</code></pre>
+
+<div class="csakdoksi">
+    
+<p>A <code>typedef</code> a bonyolult típudefiníciók megalkotásában sokat segíthet,
+ugyanis lehetővé teszi azt, hogy lépésenként építsük meg a típusnevet. Például
+a függvényre mutató pointer típus „megépíthető”, előbb a függvény, utána pedig
+a pointer típus definíciójával:</p>
+
+<pre   ><code class="language-c">typedef double EgyvaltozosFv(double);
+typedef EgyvaltozosFv *EgyvaltozosFvPtr;</code></pre>
+
+<p>Ennek az első sora a <code>double ___(double)</code> alakú, egyváltozós matematikai
+függvények típusát definiálja <code>EgyvaltozosFv</code> néven. A második sor pedig egy
+ilyenre mutató pointer típust definiál, <code>EgyvaltozosFvPtr</code> néven. Látszik, hogy
+ilyenkor a zárójelre már nincsen szükség, mivel a függvény típus össze lett vonva egy szóvá.</p>
+
+<div class="megjegyzes">
+
+<h3>Miért kell a zárójel a csillag köré?</h3>
+
+<p>Lássunk <em>ellenpéldákat!</em> Ha a deklarációban a név elé nem tennénk <code>*</code>-ot, akkor nem is változót, hanem egy 
+függvényt deklarálnánk. Leírva azonnal látjuk:</p>
+
+<pre   ><code class="language-cbub">double f(double);</code></pre>
+
+<p>Ha pedig nem tennénk az így becsillagozott kifejezést zárójelbe, akkor is függvényt deklarálnánk. Ez esetben a <code>*</code> 
+operátor a visszatérési érték része lenne, tehát olyan függvényről lenne szó, amelyik egy pointerrel tér vissza:</p>
+
+<pre   ><code class="language-cbub">double * f(double);</code></pre>
+
+<p>A függvénypointer típus különálló deklarációja sokat segíthet a szintaxis érthetőbbé tételében. Különösen akkor, ha olyan 
+függvényünk van, amelyik maga is függvénypointert vesz át paraméterként, vagy ad a visszatérési értékében. Erre legjobb példa a 
+szabványos <code>signal()</code> függvény, amelyik függvénypointert kap, és függvénypointert is ad vissza:</p>
+
+<pre   ><code class="language-c">typedef void (*sighandler_t)(int);
+sighandler_t signal(int signum, sighandler_t handler);</code></pre>
+
+<p>Ezen egyből látjuk, hogy a függvény második paramétere ugyanolyan típusú, mint a visszatérési
+értéke. Ellenben ugyanez <code>typedef</code> nélkül ilyen lenne:</p>
+
+<pre   ><code class="language-c">void (*signal(int signum, void (*handler)(int)))(int);</code></pre>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Menürendszer II. – a mutató típus">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Menürendszer II. – a mutató típus<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A menüpontok <em>függvényei:</em></p>
+<div class="columns">
+<div>
+<pre class="eloadaskicsinyit"  ><code class="language-c">int osszead(int a, int b) {
+  return a + b;
+}
+
+int szoroz(int a, int b) {
+  return a * b;
+}</code></pre>
+</div>
+<div>
+<pre class="eloadaskicsinyit"  ><code class="language-c">int hatvanyoz(int a, int b) {
+  int eredmeny = 1;
+  for (int i = 0; i &lt; b; ++i)
+    eredmeny *= a;
+  
+  return eredmeny;
+}</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi">
+Vagyis minden függvény <em>megkap két számot és elvégez rajtuk egy műveletet,</em> aminek az eredményét a visszatérési értékben közli.
+</p>
+
+<br class="smallskip">
+
+<p>Ezekre a függvényekre egy ilyen pointer tud mutatni:</p>
+
+<pre   ><code class="language-c">typedef int (*MatFv)(int, int);</code></pre>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Menürendszer III. – a tömb és használata">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    Menürendszer III. – a tömb és használata<a class="hlink" href="index.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="columns eloadaskicsinyit">
+<div>
+<pre   ><code class="language-c">typedef int (*MatFv)(int,int);
+
+typedef struct {
+    char const *nev;
+    MatFv pfv;
+} MenuPont;</code></pre>
+</div>
+<div>
+<pre class="eloadaskicsinyit"  ><code class="language-c">MenuPont menupontok[] = {
+  {&quot;Összeadás&quot;, osszead},
+  {&quot;Szorzás&quot;, szoroz},
+  {&quot;Hatványozás&quot;, hatvanyoz},
+  {NULL, NULL}   /* végjel */
+};</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi"> Mivel <em>mutatókat tárolnak,</em> ezért utolsó elemnek betehető egy <em>NULL</em> érték, ami jelzi a végét – 
+így biztonságosan kezelhető. Ez egy végjel: amikor egy ciklus fut a tömbön, a tömb <em>tartalma</em> alapján tudni fogja, hol van a 
+vége. Nem kell majd külön szerepelnie a programban a tömbméret megadásának sem. Ezt a trükköt már rengetegszer használtuk.</p>
+
+<br class="smallskip">
+
+<p class="csakdoksi">
+A menüpontok <em>kiírása:</em>
+</p>
+
+<div class="sticky csakdoksi">menü kiírása<br>és a hívás</div>
+<pre   ><code class="language-cbub">for (i = 1; menupontok[i-1].nev != NULL; ++i)
+    printf(&quot;%d. %s\n&quot;, i, menupontok[i-1].nev);
+meret = i;</code></pre>
+
+<p class="csakdoksi">A for ciklus indexváltozójának utolsó értéke a NULL elem indexe, vagyis a <em>tömbben lévő értékes elemek 
+száma.</em> Ezzel az értékkel tudjuk <em>ellenőrizni,</em> hogy a felhasználó által bevitt menüpont értéke <em>érvényes-e.</em></p>
+
+<p class="csakdoksi">
+A kiválasztott menüpont <em>végrehajtása:</em>
+</p>
+
+<pre   ><code class="language-cbub">if (val &gt;= 1 &amp;&amp; val &lt;= meret) {
+    eredmeny = menupontok[val-1].pfv(a, b); // fv pointer
+    printf(&quot;Eredmény: %d\n&quot;, eredmeny);
+} else {
+    printf(&quot;Nincs ilyen menüpont\n&quot;);
+}</code></pre>
+
+<div class="csakdoksi">
+<p>A fenti kifejezés működése részletesen:</p>
+<table>
+<thead>
+  <tr><th>Kifejezés<th>típus
+</thead>
+  <tr><th><code>menupontok</code><td>struktúrák tömbje, a menüpontok leírása
+  <tr><th><code>menupontok[index]</code><td>egy struktúra, menüpont leírása
+  <tr><th><code>menupontok[index].fv</code><td>egy függvényre mutató pointer
+  <tr><th><code>menupontok[index].fv(2.6, 3)</code><td>2.6, 3 paraméterekkel meghívva az egyik függvény
+</table>
+
+<p>Ezzel a függvénypointereket a hozzájuk tartozó leírással egy tömbbe tettük. Így az egy új menüpont hozzáadása nagyon egyszerű, 
+csak a tömböt kell módosítani. A működés automatizált, ha új menüpontunk van, csak kiegészítjük a tömböt, és minden további 
+programrész helyesen kezeli.</p>
+
+</div>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az év eleji tételek generikus változata">
+<div class="slide" id="slide_8">
+
+<a id="8" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">8</span><span class="oldalszamafter">. </span>    Az év eleji tételek generikus változata<a class="hlink" href="index.html#8"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<div class="csakdoksi">
+
+<p>Mivel a függvények <em>értékként kezelhetőek,</em> és paraméterként adhatóak át, egyes algoritmusok működése megfogalmazható 
+általánosságban is. Gondoljunk a programozási tételekre a félév eleji anyagból – ezek mind <em>generikus</em> algoritmusok:</p>
+<ul>
+   <li>Számlálás tétele: adott tulajdonságú elemek darabszáma
+   <li>Maximumkeresés tétele: legvalamilyenebb elem megkeresése
+   <li>…
+</ul>
+<p>Megfogalmazhatók általánosságban is, hogy a kód szintjén is generikusak legyenek.</p>
+</div>
+
+<div class="sticky">generikus<br>számlálás</div>
+<pre class="eloadaskicsinyit"  ><code class="language-cbub">int szamlal(long *tomb, int n, bool (*pred)(long)) {
+    int db = 0;
+    for (int i = 0; i &lt; n; ++i)
+        if (pred(tomb[i]))     // adott tulajdonságú?
+            ++db;
+    return db;
+}</code></pre>
+
+<p class="csakdoksi">A program forráskódja is így nagyon szemléletes.
+Akárhány függvényt írhatunk, amelyek tulajdonságokat vizsgálnak.
+Ezek a <em>predikátumok:</em></p>
+<div class="sticky">unáris<br>predikátumok</div>
+<pre class="eloadaskicsinyit"  ><code class="language-c">bool negativ(long x) {
+    return x &lt; 0;
+}
+
+bool paros(long x) {
+    return x % 2 == 0;
+}</code></pre>
+
+<p class="csakdoksi">A függvényeket pedig egyszerűen paraméterként átadjuk:</p>
+<pre class="eloadaskicsinyit"  ><code class="language-c">long tomb[10] = { ……… };
+printf(&quot;%d negativ van.\n&quot;, szamlal(tomb, 10, negativ));
+printf(&quot;%d   paros van.\n&quot;, szamlal(tomb, 10, paros));</code></pre>
+
+<p class="csakdoksi">A függvény tehát paraméterként kapja a vizsgálandó számsort, továbbá egy másik függvényt, a predikátumot.
+Ezt a függvényt meghívja minden elemre – ez a függvény mondja meg, hogy az adott elemeket bele kell-e épp számolni, vagy nem.
+Hogy épp a negatív számok esetén növeljük a számlálót, vagy a páros számok esetén.</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Generikus rendezés">
+<div class="slide" id="slide_9">
+
+<a id="9" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">9</span><span class="oldalszamafter">. </span>    Generikus rendezés<a class="hlink" href="index.html#9"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A rendezőalgoritmusokat is meg tudjuk fogalmazni generikusan. Ott ugyanez a helyzet, mint a számlálásnál
+vagy a keresésnél. Az algoritmus maga ugyanaz, csak az változik, hogy melyik tömbelem kisebb, melyik nagyobb – egész pontosan,
+hogy melyik való a tömb elejére, és melyik a végére, mert kisebbről és nagyobbról itt már nem beszélhetünk.</p>
+
+<pre   ><code class="language-cbub">void rendez(double *t, int n, bool (*p)(double, double)) {
+    for (int i = 0; i &lt; n-1; ++i) {
+        int leg = i;
+        for (int j = i+1; j &lt; n; ++j)
+            if (p(t[j], t[leg]))  // !
+                leg = j;
+        if (i != leg)
+            csere(&amp;t[i], &amp;t[leg]);
+    }
+}</code></pre>
+
+<p class="csakdoksi">A függvénynek adott predikátum most nem egy-, hanem kétparaméterű. Ugyanis nem egy elemről kell megmondania,
+hogy rendelkezik-e valamilyen tulajdonsággal, hanem két elemet kell összehasonlítania; előrébb való-e az egyik a rendezett tömbben,
+mint a másik. Ha a kisebb elemekre mondjuk azt, hogy előrébb való, akkor növekvő sorrendet kapunk. Ha a nagyobb elemek kerülnek
+előre, akkor csökkenő lesz a sorrend.</p>
+
+<div class="sticky">bináris<br>predikátumok</div>
+<pre   ><code class="language-c">bool kisebb(double a, double b) {
+    return a &lt; b;
+}
+
+bool nagyobb(double a, double b) {
+    return a &gt; b;
+}</code></pre>
+
+<p class="csakdoksi">Az előző pont egyparaméterű predikátumait unáris predikátumnak nevezzük (unary predicate). Az összehasonlító,
+kétparaméterű predikátumokat pedig binárisnak (binary predicate).</p>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Állapotgépek függvényre mutató pointerrel">
+<div class="slide" id="slide_10">
+
+<a id="10" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">10</span><span class="oldalszamafter">. </span>    Állapotgépek függvényre mutató pointerrel<a class="hlink" href="index.html#10"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A tevékenység egy függvény:</p>
+
+<pre   ><code class="language-c">typedef struct AllapotPont {
+    Allapot kovetkezo;
+    void (*tevekenyseg)(void);
+} AllapotPont;</code></pre>
+
+<br class="smallskip">
+
+<p>Az állapotgépet kezelő program:</p>
+
+<pre   ><code class="language-c">Esemeny esemeny;
+Allapot allapot;
+
+while ((esemeny = uj_esemenyre_var()) != -1) {
+    tabla[allapot][esemeny].tevekenyseg();
+    allapot = tabla[allapot][esemeny].kovetkezo;
+}</code></pre>
+
+<p class="csakdoksi">Vagyis két dolgot csinálunk egy esemény
+hatására: elvégezzük az állapottól és az eseménytől függő tevékenységet,
+majd ugrunk az állapottól és tevékenységtől függő, következő állapotba.
+Ennyi, és ez minden állapotgépnél így van. Hogy konkrétan mi történik,
+az az állapot- és tevékenységtáblától függ, már nem az itteni kódtól.</p>
+
+<p class="csakdoksi">Hogy ne legyen túl sok állapotunk,
+általában véve a tevékenységeket érdemes paraméterezni. Például a tevékenységnek
+paramétere lehet az aktuálisan beolvasott karakter, vagy egy kiírandó
+szöveg is. Így egyszerűsödhet az állapotgép.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Generikus algoritmusok tömbökön">
+<div class="slide" id="slide_11">
+
+<a id="11" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Generikus algoritmusok tömbökön</h1>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Sztringek rendezése: qsort() és strcmp()">
+<div class="slide" id="slide_12">
+
+<a id="12" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">12</span><span class="oldalszamafter">. </span>    Sztringek rendezése: qsort() és strcmp()<a class="hlink" href="index.html#12"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A rendezés megvalósítására a C szabványos könyvtára tartalmaz egy <code>qsort()</code> nevű generikus 
+algoritmust. Ennek az összehasonlítás kritériuma, azaz a rendezési reláció megadható. Ha sztringeket szeretnénk rendezni, könnyű a 
+dolgunk: az szintén szabványos <code>strcmp()</code> függvény lehet a paraméter:</p>
+
+<pre class="screenshot float">
+alma barack korte szilva
+</pre>
+
+<pre   ><code class="language-cbub">char szavak[4][20] = {
+    &quot;barack&quot;,
+    &quot;alma&quot;,
+    &quot;szilva&quot;,
+    &quot;korte&quot;,
+};
+
+qsort(szavak, 4, 20, strcmp);   // db = 4, meret = 20
+for (int i = 0; i &lt; 4; ++i)
+    printf(&quot;%s &quot;, szavak[i]);</code></pre>
+
+<p class="csakdoksi">Vegyük észre, hogy itt a függvénynek két paramétert is kell adni a tömbhöz. Egyrészt tudnia kell,
+hány eleme van (hány sztringet kell sorbaraknia). Ez itt <code>db = 4</code>. Másrészt pedig azt is látnia kell, hogy
+egy elem mekkora, vagyis hogy hány karakterből álló sztringeket kell cserélgetni. Ez meg <code>meret = 20</code>.</p>
+
+<img src="generikus-tomb-param.svg" style="width: 18em;" class="kozep">
+
+<p class="csakdoksi">Tehát „mindkét irányban” változhat a méret, az elemszám és a sztringek hossza is tetszőleges. A 
+<code>qsort()</code> paramétere ezért nem két dimenziós tömbre mutató pointer (amelybe bele kellene írni a tömb méretét is, pl. 
+<code>int (*p)[20]</code>), hanem inkább egy <code>void *</code>. A <code>void *</code>-ként átadott mutatót lehetne <code>(void*) 
+szavak</code> formában írni, kiemelve azt, hogy ott egy mutató konvertálásról van szó, de ezt nem szokás megtenni. A pointerek 
+konverziója <code>void *</code>-ra, típus nélküli pointerre a C nyelvben automatikus, éppen ezek miatt az algoritmusok miatt.</p>
+
+<p class="csakdoksi">A <code>qsort()</code> negyedik paramétere az összehasonlító függvény, amelyet meg fogja hívni minden 
+elempárra, amit a rendezés közben össze kell hasonlítania.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Generikus tömbök: stdio, stdlib">
+<div class="slide" id="slide_13">
+
+<a id="13" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">13</span><span class="oldalszamafter">. </span>    Generikus tömbök: stdio, stdlib<a class="hlink" href="index.html#13"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A <code>void *</code> technika <em>olyan hasznos,</em> hogy a <em>C könyvtár</em> is alkalmazza:</p>
+
+<pre   ><code class="language-c">/* dinamikus memóriakezelés */
+void *malloc(size_t meret);
+free(void *ptr);</code></pre>
+
+<pre   ><code class="language-c">/* fájlkezelés */
+fwrite(void const *ptr, size_t meret, size_t db, FILE *fp);
+fread(void *ptr, size_t meret, size_t db, FILE *fp);</code></pre>
+
+<pre   ><code class="language-c">/* gyorsrendezés, bináris keresés */
+void qsort(void *tomb, size_t db, size_t meret,
+           int (*hasonlit)(void const *, void const *));
+void *bsearch(void const *kulcs, void const *tomb,
+              size_t db, size_t meret,
+              int (*hasonlit)(void const *, void const *));</code></pre>
+
+<p class="csakdoksi">Látjuk, hogy ez az ötlet végigvonul mindenhol. Az <code>fread()</code> és <code>fwrite()</code>
+megkapják a tömbök elemszámát, és az egyes elemek méretét. A gyorsrendezést és bináris keresést végző függvény szintén.
+Sőt még a <code>malloc()</code>–<code>free()</code> páros is ilyen volt. A <code>malloc()</code> megkapja a foglalandó
+terület méretét bájtban, és <code>void*</code>-ot ad vissza; a <code>free()</code> is <code>void*</code>-ot vár. Egyik
+függvénynek sem kell tudnia, hogy tulajdonképp milyen típusú adattal dolgoznak.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="qsort() és bsearch(): hasonlító függvény">
+<div class="slide" id="slide_14">
+
+<a id="14" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">14</span><span class="oldalszamafter">. </span>    qsort() és bsearch(): hasonlító függvény<a class="hlink" href="index.html#14"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A <code>qsort()</code> valójában nem foglalkozik vele, nem is tudja, hogy milyen típusú elemeket rendez. Az 
+egyes elemeket meg tudja cserélni enélkül is (nyers adatot másol, mindig annyi bájtot, amennyi egy elem mérete). Az 
+összehasonlítást pedig a paraméterként átvett függvényre bízza. Ennek a függvénynek a visszatérési értéke pont olyan kell legyen, 
+mint ahogy azt a szabványos <code>strcmp()</code> is használja:</p>
+
+<div class="sticky">mint a<br><code>strcmp()</code></div>
+<pre>
+hasonlit(a, b) =
+    <em>negatív:</em> ha a &lt; b
+    <em>  nulla:</em> ha a == b
+    <em>pozitív:</em> ha a &gt; b
+</pre>
+
+<p class="csakdoksi">Vegyük észre, hogy ez egy kicsit más, mint a fentebb bemutatott bináris predikátum. Az igazzal tért vissza,
+ha <code>a &lt; b</code>. Ez viszont egy <code>int</code>-et ad, aminek három leheséges értéke van, és azok a kisebb, egyenlő,
+nagyobb eseteket reprezentálják.</p>
+
+<p class="csakdoksi">Például egy hasonlító függvény <code>double</code> típusú elemekre az alábbiak szerint implementálható.
+Figyelni kell arra, hogy mivel nem tudja a <code>qsort()</code>, hogy milyen adatokkal dolgozik, ezért a hasonlító függvénynek
+is <code>void *</code> típusú pointereket ad a két összehasonlítandó elemre. Egész pontosan <code>void const *</code>-ot, hiszen
+az összehasonlító függvénynek értelemszerűen nem dolga, hogy módosítsa az adatot.</p>
+
+<p class="csakdoksi">Ezt a <code>void *</code> típusú pointert át kell konvertálnunk a saját típusunkra. De mivel tudjuk, hogy
+ezt a függvényt <code>double</code> elemeket tartalmazó tömb esetén adjuk majd a <code>qsort()</code>-nak, a konverzió jogos
+és helyes:</p>
+
+<pre   ><code class="language-c">int hasonlit(void const *vp1, void const *vp2) {
+    double const *sz1 = (double const *) vp1;
+    double const *sz2 = (double const *) vp2;
+    if (*sz1 &gt; *sz2) return +1;
+    if (*sz1 &lt; *sz2) return -1;
+    return 0;
+}</code></pre>
+
+<pre   ><code class="language-c">double szamok[4] = {9.7, 3.4, 8.5, 1.2};
+qsort(szamok, 4, sizeof(double), hasonlit);
+for (int i = 0; i &lt; 4; ++i)
+    printf(&quot;%g &quot;, szamok[i]);</code></pre>
+
+<p class="csakdoksi">Így tulajdonképpen a függvény bármilyen elemekből álló tömböt rendezni tud. Az egyes elemek méretét most a 
+<code>sizeof(double)</code> adja meg. Vagy egyszerűen oda <code>sizeof(szamok[0])</code>-t is írhatnánk. (Egyébként az előző 
+példában is a <code>20 * sizeof(char)</code> lett volna teljesen korrekt.)</p>
+
+
+
+<div class="csakdoksi">
+
+<h3><code>bsearch()</code> használata</h3>
+
+<p>A bináris kereséshez ugyanilyen függvény van beépítetten, a <em>bsearch()</em>:</p>
+
+<pre   ><code class="language-cbub">int t[] = {23, 119, 47, -2, 54, 86};
+
+/* bináris keresés csak rendezett tömbökön */
+qsort(t, 6, sizeof(int), hasonlit_int);
+
+int minta = 47;
+int *talalt;
+talalt = (int *) bsearch(&amp;minta, t, 6, sizeof(int), hasonlit_int);
+
+if (talalt != NULL)
+    printf(&quot;Megtaláltam, itt van: %p\n&quot;, talalt);
+else
+    printf(&quot;Nincs a tömbben.\n&quot;);</code></pre>
+
+<p>Hogy ugyanazt a hasonlító függvényt lehessen használni, mint amit a <code>qsort()</code>-hoz is, a <code>bsearch()</code> úgy 
+van megadva, hogy egy mintát is vár tőlünk: első paramétere egy olyan elemre mutató pointer kell legyen, amely egy mintául szolgál 
+a kereséshez. Innen fogja tudni, hogy néz ki az az elem, amit keresnie kell. A hasonlító függvény pedig megmondja neki, hogy a 
+tömbben előre, hátra kell mozogni, esetleg megtalálta az adott elemet. Ne feledjuk, bináris keresésről van szó, és ezért a tömbnek 
+rendezettnek kell lennie!</p>
+
+<p>A visszatérési érték is ahhoz hasonló, mint amit megszoktunk: <code>NULL</code> pointer akkor, ha nincs meg az elem. Ha megvan, 
+akkor pedig a találatra mutat a pointer, amit kapunk.</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Tömbök generikusan – a pointerek kezelése">
+<div class="slide" id="slide_15">
+
+<a id="15" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">15</span><span class="oldalszamafter">. </span>    Tömbök generikusan – a pointerek kezelése<a class="hlink" href="index.html#15"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Vajon lehet olyan függvényt írni, ami bármilyen tömbön működik?</p>
+
+<pre   ><code class="language-cbub">double szamok[4] = {9.7, 3.4, 8.5, 1.2};
+void *ptomb = (void *) szamok;       // így kapja a függvény :(</code></pre>
+
+<div class="csakdoksi">
+
+<p>A gondunk az, hogy a <code>void *</code> esetén a pointer aritmetika nem működhet. Amikor az adatok tömbben vannak, a pointer 
+típusának nem csak egy, hanem két szerepe is van. Azon felül, hogy ez ad információt arról, hogy az adott típust hogyan kell 
+kezelni (nyilván más egy <code>double</code> és egy <code>struct Konyv</code>), a típus ismerete a tömbelemek címének 
+kiszámításakor is fontos. Innen tudja a fordító azt, hogy mekkora egy tömbelem, vagyis a következő elemre lépéshez hány bájtot kell 
+ugrani a memóriában. Ezt az információt mindig figyelembe veszi, amikor egy tömbelemet indexelünk, vagy a címét számítjuk.</p>
+
+<p>Ha a tömb elejére mutató pointert <code>void *</code>-gá konvertáljuk, akkor nem csak a tömb tartalma válik ismeretlenné, hanem 
+az is, hogy az egyes tömbelemek hol helyezkednek el. A tömb elejére mutató <code>void *</code> pointer nem ad semmilyen információt 
+a tömbelemekről. A predikátum paramétere még csak-csak lehet <code>void *</code> (majd a törzsében megfelelő típusú pointerré 
+konvertáljuk), de a tömb elemein nem tudunk lépkedni a típus ismerete nélkül. Ezt a problémát oldja meg az elemméret átadása a 
+<code>qsort()</code> és társai esetén.</p>
+
+</div>
+
+<br class="smallskip">
+
+<p>Egy <code>char*</code> típusú mutatót használva <em>bájtonként</em> lépkedhetünk:</p>
+
+<pre   ><code class="language-cbub">char *pbyte = (char *) ptomb;        // sizeof(char) = 1 miatt
+for (int i = 0; i &lt; 4; ++i) {          
+    double *elem = (double *) pbyte; // újra double
+    printf(&quot;%g &quot;, *elem);              
+    pbyte += sizeof(double);         // hány bájtot ugrunk?
+}</code></pre>
+
+<p class="csakdoksi">Ahhoz, hogy a mutató aritmetika működjön, a mutatót típussal kell ellátni, hiszen ilyenkor az adott típus 
+méretével szorozzuk a lépések számát. Ha <code>char *</code> típusúvá alakítjuk a pointert, akkor bájtonként tudunk lépni, mivel 
+definíció szerint <code>sizeof(char) = 1</code>. Mivel ilyenkor a lépések bájtonként értendők, az elem címének kiszámításakor nem 
+azt kell megadnunk, hogy hányadik valós számra, hanem hogy hányadik bájtra ugrunk. Ezért a ciklusban a mutatónkat nem egyesével, 
+hanem <code>sizeof(double)</code> lépésekkel léptetjük: annyi bájtot kell mindig előremenni, ahány bájtból egy <code>double</code> 
+áll. Az így kapott pointert pedig bátran visszakonvertálhatjuk <code>double *</code>-gá.</p>
+
+<p class="csakdoksi megjegyzes">Egyes fordítók megengedik azt, hogy <code>void *</code> mutatókon használjunk pointer aritmetikát, 
+de ez nem szabványos, úgyhogy inkább kerüljük az ilyesmit!</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Tömbök generikusan – az elemek kezelése">
+<div class="slide" id="slide_16">
+
+<a id="16" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">16</span><span class="oldalszamafter">. </span>    Tömbök generikusan – az elemek kezelése<a class="hlink" href="index.html#16"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+<p class="csakdoksi"> A probléma tehát megoldható, mégpedig úgy, ha egy generikus tömböt feldolgozó algoritmusnak nem csak a tömb 
+kezdőcímét (most <code>void *</code> formában!) és a tömb méretét adjuk át, hanem megmondjuk neki az egyes tömbelemek méretét is! 
+Erre nincsen trükkös megoldás, egyszerűen közölni kell ezt a számot is az algoritmussal.</p>
+
+<img src="generikus-tomb-param.svg" style="width: 18em;" class="kozep">
+</div>
+
+<p>Egy függvény így lépdelhet végig egy <code>void *</code> tömbön:</p>
+
+<pre   ><code class="language-cbub">void for_each_tomb(void *t, int db, size_t meret,
+                   void (*muvelet)(void *))
+{
+    char *pbyte = (char *) t;  // sizeof(char) = 1 miatt
+    for (int i = 0; i &lt; db; ++i)
+        muvelet((void *) (pbyte + i * meret));
+}</code></pre>
+
+<p class="csakdoksi">Tehát ebben a <code>char *</code> csak azért szerepel, mert tudjuk, hogy <code>sizeof(char) = 1</code>, és
+a pointer aritmetika esetén bájtokkal dolgozunk.</p>
+
+<p>A <code>for_each_tomb()</code> használata egy tömb minden elemének a kiírására:</p>
+
+<pre   ><code class="language-c">void kiir_int(void *vp) {
+    printf(&quot;%d &quot;, *(int *) vp);
+}
+
+int tomb[] = { 68, 12, 125, 97, 56 };
+for_each_tomb(tomb, 5, sizeof(int), kiir_int);</code></pre>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Visszalépő keresés (backtrack)">
+<div class="slide" id="slide_17">
+
+<a id="17" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Visszalépő keresés (backtrack)</h1>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A nyolckirálynő-probléma">
+<div class="slide" id="slide_18">
+
+<a id="18" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">18</span><span class="oldalszamafter">. </span>    A nyolckirálynő-probléma<a class="hlink" href="index.html#18"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p><em>Feladat:</em> tegyünk sakktáblára 8 királynőt úgy, hogy ne üssék egymást!</p>
+
+<br class="smallskip">
+
+<table class="sakk" data-char="♛" id="sakk-problema">
+<tr><td><td><td><td><td>♛<td><td><td>
+<tr><td><td>♛<td><td><td><td><td><td>
+<tr><td><td><td><td>♛<td><td><td><td>
+<tr><td><td><td><td><td><td><td>♛<td>
+<tr><td><td><td>♛<td><td><td><td><td>
+<tr><td><td><td><td><td><td><td><td>♛
+<tr><td><td><td><td><td><td>♛<td><td>
+<tr><td>♛<td><td><td><td><td><td><td>
+</table>
+<p class="csakdoksi kozep">Húzd az egeret a királynők fölé!</p>
+
+<div class="csakdoksi">
+
+<p>Lőjünk le néhány kérdést előre! Első kérdésünk lehet, hogy van-e megoldás. A válasz: van, de ez a rajzról is kiderül.</p>
+
+<p>Második pedig, hogy hány megoldás van – összesen 92, amiből csak 12 lényegesen különböző van (a többi forgatással vagy
+tükrözéssel átvihető egymásba). A programunkban most az összeset megkeressük majd, nem csak a lényegesen különbözőeket;
+megszámláljuk és ki is rajzoljuk a megoldásokat.</p>
+
+<p>A harmadik kérdésünk az, hogy a feladat általánosítható-e: 9×9-es sakktáblára 9 királynő, vagy 7×7-esre 7 darab.
+A válasz erre is az, hogy igen. A 2×2-es és 3×3-as esetben nincs megoldás, az összes többi esetben van. A lehetséges
+megoldások száma igen gyorsan nő a tábla méretével, nagyjából exponenciálisan. 27×27-es táblára</p>
+
+<p class="kozep">234 907 967 154 122 528</p>
+
+<p>elrendezést találhatunk – lásd a Wikipédia <a href="https://hu.wikipedia.org/wiki/Nyolckir%C3%A1lyn%C5%91-probl%C3%A9ma">Nyolckirálynő-probléma</a>
+szócikkét. Ez egyébként a legnagyobb tábla, amire sikerült a megoldások számát meghatároznia egy csapatnak 2016 szeptemberében; nagyobb
+táblákra a megoldások száma ismeretlen.</p>
+
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A mi problémánk">
+<div class="slide" id="slide_19">
+
+<a id="19" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">19</span><span class="oldalszamafter">. </span>    A mi problémánk<a class="hlink" href="index.html#19"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Próbáljuk végig a lehetséges megoldásokat!</p>
+
+<p class="csakdoksi">Ehhez el kell tárolnunk, hogy melyik királynő hol van. Definiáljunk egy pozíció nevű
+típust, és hozzuk létre belőle a 8 elemű tömböt!</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">typedef struct Pozicio {
+    int x;
+    int y;
+} Pozicio;
+
+Pozicio kiralynok[8];</code></pre>
+</div>
+<div>
+<pre   ><code class="language-c">Pozicio kiralynok[8] = {
+    {1, 5},
+    {7, 6},
+    {5, 3},
+    /* ... */
+};</code></pre>
+</div>
+</div>
+
+<br class="smallskip">
+
+<p class="csakeloadas">Hány megoldást kell végigpróbálnunk?</p>
+
+<p class="csakdoksi">Hány megoldást kell végigpróbálnunk? Összesen 8×8 = 64 mezőre kell 8 királynőt raknunk.
+Vagyis 64 mezőből 8-at kell választanunk, ahol lesz királynő, a többi mezőkön nem. Ez ugyanaz a probléma matematikailag,
+mint a lottósorsolás, ahol 90 számból kell 5 különbözőt választani. A kombinatorikában ezt <em>ismétlés nélküli kombinációnak</em>
+nevezik. Ezek számát, „64 alatt a 8-at” jópár faktoriális kiszámításával lehet meghatározni:</p>
+
+<pre style="line-height: 0.75;">
+         64!
+C = ──────────── = 4 426 165 368
+     8!·(64-8)!
+</pre>
+
+<p>100 000 próbálkozás / másodperc &rarr; 44 261 másodperc &rarr; fél nap.</p>
+
+<p class="csakdoksi">Ha a gépünk százezer állást tud végigpróbálni másodpercenként, akkor is fél napig fog futni a programunk.
+Ezért másképp kell okoskodni, még akkor is, ha valójában a mai asztali számítógépek sokkal gyorsabbak ennél (kb. 1–10 millió
+próbálkozás / másodperc is belefér).</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Variációk, permutációk">
+<div class="slide" id="slide_20">
+
+<a id="20" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">20</span><span class="oldalszamafter">. </span>    Variációk, permutációk<a class="hlink" href="index.html#20"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="float eloadaskicsinyit" style="">
+    <table class="sakk" data-char="♛" >
+<tr><th class="sakk-idx">5<td><td><td><td><td>♛<td><td><td>
+<tr><th class="sakk-idx">2<td><td>♛<td><td><td><td><td><td>
+<tr><th class="sakk-idx">4<td><td><td><td>♛<td><td><td><td>
+<tr><th class="sakk-idx">7<td><td><td><td><td><td><td>♛<td>
+<tr><th class="sakk-idx">3<td><td><td>♛<td><td><td><td><td>
+<tr><th class="sakk-idx">8<td><td><td><td><td><td><td><td>♛
+<tr><th class="sakk-idx">6<td><td><td><td><td><td>♛<td><td>
+<tr><th class="sakk-idx">1<td>♛<td><td><td><td><td><td><td>
+</table>
+</div>
+
+<p class="csakdoksi">Mivel nem lehet egy sorban két királynő (ütnék egymást vízszintesen), ezért biztosak lehetünk abban, hogy minden
+sorban pontosan egy királynő lesz (8 sor, 8 királynő). Tehát lényegében elég csak azt megmondanunk a programunkban, hogy
+melyik sorban hol van a királynő. És ezt eltárolni is bőven elegendő; egy szimpla <code>int poz[8]</code> tömbre
+van csak szükségünk. Ha például <code>poz[3] == 7</code>, az azt jelenti, hogy a harmadik sor királynője a hetedik
+oszlopban van.</p>
+
+<p class="csakeloadas">Észrevehetjük, hogy minden sorban pontosan egy királynő lesz:</p>
+
+<pre   ><code class="language-c">int poz[8] = { ... };</code></pre>
+
+<p class="csakdoksi">Hogyan számítjuk ki így a végigpróbálandó esetek számát? A tömbelemek a 0...7 (1...8) értékeket
+vehetik fel. Ez 8<sup>n</sup> lehetőséget jelent, ahol n a tömbelemek száma; az pedig most szintén 8. A kombinatorikában
+ez az ún. <em>ismétléses variáció</em>.</p>
+
+<pre>
+V = 8<sup>8</sup> = 16 777 216
+</pre>
+
+<p class="csakdoksi">Vagyis 16,7 millió esetről van szó – az előzőek 260-adrészéről. Ez már sokkal inkább vállalhatónak
+tűnik, de még valamit észre kell vennünk.</p>
+
+<br class="smallskip">
+
+<p class="clear">Kétszer nem szerepelhet ugyanaz a szám:</p>
+
+<pre   ><code class="language-c">int poz[8] = { 1, 2, 3, 4, 5, 6, 7, 8 };</code></pre>
+
+<p class="csakdoksi">Ha a tömbben kétszer szerepelne ugyanaz a szám, az azt jelentené, hogy két különböző királynő ugyanabban
+az oszlopban van. Akkor viszont ütnék egymást függőlegesen, ezért ezeket az eseteket is kizárhatjuk. Vagyis valójában nem egy
+ismétléses variációt keresünk, hanem a fenti, 1-8 számokat tartalmazó tömb <em>permutációit</em>. Az tehát a kérdésünk, hogy ennek
+a tömbnek mely keverései, sorbaállításai adják a megoldást.</p>
+
+<pre>
+P = 8! = 40 320 <span class="bubble">!</span>
+</pre>
+
+<p class="csakdoksi">A permutációk száma faktoriálissal határozható meg. A 8-elemű tömbünk lehetséges permutációinak száma 40320,
+vagyis az eredetileg kigondolt 4,4 milliárd megvizsgálandó esetet százezred részére tudtuk csökkenteteni! Ha ez még nem lenne elég,
+az így kialakított tömbben az ütési helyzetek vizsgálata is egyszerűbb. Mivel eleve minden sorba csak egy királynőt rakunk (a sor
+száma a tömbindex), és minden oszlopba is egyet (a tömbelemek egymástól különböző értékei), így már csak az átlós ütéseket kell
+vizsgálnunk majd, a függőlegeseket és a vízszinteseket nem.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az ütések vizsgálata">
+<div class="slide" id="slide_21">
+
+<a id="21" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">21</span><span class="oldalszamafter">. </span>    Az ütések vizsgálata<a class="hlink" href="index.html#21"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakeloadas">Ütésben vannak, ha</p>
+
+<p class="csakdoksi">Tehát csak az átlós ütésekkel kell foglalkozni. Átlós ütés akkor van, ha ugyanannyi sort kell lépni az egyik
+királynőtől a másikig, mint ahány oszlopot.</p>
+
+<ul>
+    <li>45 fokos átlón: Δx = Δy</li>
+    <li>–45 fokos átlón: Δx = –Δy</li>
+    <li>A kettő együtt: |Δx| = |Δy|</li>
+</ul>
+
+<p class="csakdoksi">Figyelembe kell vennünk, hogy ez mindkét irányú átlón megtörténhet. De ha vesszük az ugrások abszolút
+értékét (hogy mindegy legyen, fel vagy le, illetve jobbra vagy balra kell menni), akkor egyetlen egy egyenlettel leírhatjuk,
+mikor van ütközés: ha |x1–x2| = |y1–y2|.</p>
+
+<br class="smallskip">
+
+<p class="csakdoksi">A vizsgálatot ez a függvény fogja végezni:</p>
+
+<pre   ><code class="language-c">bool kiralyno_oke(int *poz, int meret) {
+    for (int i = 0; i &lt; meret-1; ++i)
+        for (int j = i+1; j &lt; meret; ++j)
+            if (abs(poz[i] - poz[j]) == abs(i - j))
+                return false;
+    return true;
+}</code></pre>
+
+<p class="csakdoksi">Az adatszerkezetünkben a tömbindexek a sorok, a tömbértékek pedig az oszlopok. Vagyis ha bármely két
+tömbelemre igaz az, hogy az <em>indexek különbsége</em> megegyezik az <em>értékek különbségével</em>, akkor ütést találtunk, és az
+nem megoldás. Ha sehol nincs ilyen, akkor a tömb egy helyes megoldást tartalmaz.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A permutációk előállítása">
+<div class="slide" id="slide_22">
+
+<a id="22" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">22</span><span class="oldalszamafter">. </span>    A permutációk előállítása<a class="hlink" href="index.html#22"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+<p>Ha ezek megvannak, a megoldások előállítása a permutációk végigpörgetéséből, és azok vizsgálatából áll.</p>
+<p>A permutációk előállítása a <a href="../gy08/index.html#gyakpermutacio">gyakorlaton megismert módon</a> történik. A rekurzív
+algoritmus gondolatmenetét egy négyelemű tömbön szemléltetjük: {1, 2, 3, 4}. Ennek permutációi négy csoportba oszthatóak:</p>
+<ul>
+    <li>{1, x, x, x}, az egyessel,</li>
+    <li>{2, x, x, x}, a kettessel,</li>
+    <li>{3, x, x, x}, a hármassal,</li>
+    <li>és {4, x, x, x}, a négyessel kezdődő permutációk.</li>
+</ul>
+<p>Az x-szel jelzett helyeken pedig a többi elem van. A többi elemet szintén sorba lehet rakni különféle módokon. Pl. a {1, x, x,
+x} esetben ezek a {2, 3, 4}, amelyek lehetséges sorrendezései: {2, 3, 4}, {2, 4, 3}, {3, 2, 4} stb. Ezek pedig előállíthatók
+rekurzívan, hiszen itt egy háromelemű tömb permutációit keressük.</p>
+</div>
+
+<pre   ><code class="language-c">void kiralyno_keres(int *poz, int meret, int honnan) {
+    if (honnan == meret) {
+        if (kiralyno_oke(poz, meret))
+            kiralyno_kiir(poz, meret);
+        return;
+    }
+    for (int i = honnan; i &lt; meret; ++i) {
+        csere(&amp;poz[honnan], &amp;poz[i]);
+        kiralyno_keres(poz, meret, honnan+1);
+        csere(&amp;poz[honnan], &amp;poz[i]);
+    }
+}
+
+int main(void) {
+    int poz[8] = {1, 2, 3, 4, 5, 6, 7, 8};
+    kiralyno_keres(poz, 8, 0);
+}</code></pre>
+
+<div class="csakdoksi">
+<p>A permutációk előállításának módszere tehát az alábbi:</p>
+<ul>
+    <li>Menjünk végig a tömbön (ezt csinálja a ciklus). Tegyük a tömb minden elemét annak
+        elejére, az eredeti elemet tegyük hátra (első csere).</li>
+    <li>Az így kapott tömbnek a fennmaradó részét permutáljuk (rekurzív hívás).</li>
+    <li>Végül az előrehozott elemet tegyük vissza a helyére (második csere), hogy egy újabb
+        elemet vehessünk majd előre.</li>
+</ul>
+<p>A rekurzív hívásban mindig csak a tömb fennmaradó részét kell permutálni, ezért a tömbméret mellett átveszünk
+egy <code>honnan</code> nevű paramétert is. A cserék innen indulnak, a rekurzív hívásban pedig <code>honnan + 1</code>
+lesz a következő paraméter (a fennmaradó rész). Amikor eljutunk a <code>honnan == meret</code> értékig, akkor előállt
+egy permutáció, tehát ez a báziskritérium. Ekkor megvizsgáljuk a tömböt, és ha megoldása a nyolckirálynő-problémának,
+kirajzoljuk azt.</p>
+<p>Az elkészült program letölthető innen: <a href="8kiralyno_perm.c">8kiralyno_perm.c</a>.</p>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Feleslegesen kipróbált megoldások?">
+<div class="slide" id="slide_23">
+
+<a id="23" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">23</span><span class="oldalszamafter">. </span>    Feleslegesen kipróbált megoldások?<a class="hlink" href="index.html#23"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="float eloadaskicsinyit">
+    <table class="sakk" data-char="♛" id="sakk-feleslegesen">
+<tr><th class="sakk-idx">1<td>♛<td><td><td><td><td><td><td>
+<tr><th class="sakk-idx">2<td><td>♛<td><td><td><td><td><td>
+<tr><th class="sakk-idx">?<td><td><td><td><td><td><td><td>
+<tr><th class="sakk-idx">?<td><td><td><td><td><td><td><td>
+<tr><th class="sakk-idx">?<td><td><td><td><td><td><td><td>
+<tr><th class="sakk-idx">?<td><td><td><td><td><td><td><td>
+<tr><th class="sakk-idx">?<td><td><td><td><td><td><td><td>
+<tr><th class="sakk-idx">?<td><td><td><td><td><td><td><td>
+</table>
+</div>
+
+<p>Valójában most is rengeteg feleslegesen kipróbált megoldás van:</p>
+
+<pre   ><code class="language-c">int poz[8] = {1, 2, ???};
+int poz[8] = {3, 2, ???};
+int poz[8] = {1, ?, 3, ???};
+int poz[8] = {6, ?, 4, ???};</code></pre>
+
+<p class="csakdoksi">A permutációs módszerrel rengeteg állást megvizsgáltunk hiábavalóan. Például az első királynőt
+leraktuk az első oszlopba, a másodikat a második oszlopba (mint a rajzon). Ezek biztosan ütik egymást, tehát a maradék hatot hiába
+próbáljuk meg elhelyezni bárhogyan, helytelen lesz a megoldásunk. A maradék 6 királynő elhelyezésére 6! = 720 lehetőség van, tehát
+ennyi állás vizsgálatát kihagyhattuk volna. És nem ez az egyetlen ilyen eset; a fenti tömbkezdemények mind olyan elhelyezéseket
+mutatnak, ahol a kérdőjelek helyére bármi is kerül, biztosan rossz a megoldás.</p>
+
+<br class="smallskip">
+
+<p class="clear">Tehát a nyolckirálynő-problémában:</p>
+
+<ul>
+    <li>Részmegoldások vizsgálhatók (első n sor).</li>
+    <li>Ezek vizsgálatával sok lehetőség kizárható.</li>
+</ul>
+
+<p class="csakdoksi">Vannak olyan feladványok, ahol egy lehetséges megoldást egyben kell látnunk, és csak akkor tudjuk eldönteni,
+hogy helyes-e. A nyolckirálynő-probléma azonban nem ilyen. Itt egy részmegoldást is tudunk vizsgálni. Vagyis egy még nem teljesen
+kitöltött táblára kétféle állítást tehetünk, a) ez még lehet jó, próbáljuk meg kitölteni az alját, b) ez már biztosan nem lesz jó.
+Vagyis <em>hasznos megvizsgálnunk a részmegoldást is,</em> mert az ki fog zárni egy csomó esetet.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Nyolckirálynő-probléma: új algoritmus">
+<div class="slide" id="slide_24">
+
+<a id="24" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">24</span><span class="oldalszamafter">. </span>    Nyolckirálynő-probléma: új algoritmus<a class="hlink" href="index.html#24"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<table class="sakk" data-char="♛" id="sakktablaclick">
+<tr><td><td><td><td><td><td><td><td>
+<tr><td><td><td><td><td><td><td><td>
+<tr><td><td><td><td><td><td><td><td>
+<tr><td><td><td><td><td><td><td><td>
+<tr><td><td><td><td><td><td><td><td>
+<tr><td><td><td><td><td><td><td><td>
+<tr><td><td><td><td><td><td><td><td>
+<tr><td><td><td><td><td><td><td><td>
+</table>
+<p class="kozep">
+    <button id="sakktablaclickstart">start</button>
+    <button id="sakktablaclickkovetkezo">következő</button>
+    <button id="sakktablaclickfolyamatos">folyamatos</button>
+</p>
+
+<div class="csakdoksi">
+<p>Az algoritmus működése:</p>
+<ul>
+<li>Tekintsük a következő üres sort.
+<li>Próbáljuk végig az összes oszlopot a sorban.
+    <ul>
+    <li>Tegyük a táblára a királynőt.
+    <li>Ha üti az eddigieket, <em>vegyük le</em>.
+    <li>Ha nem üti, akkor:
+        <ul>
+        <li>Próbáljuk elhelyezni a többit.
+        <li>Végül <em>vegyük le</em>, a többi oszlopot is próbáljuk.
+        </ul>
+    </ul>
+<li>Ha közben megtelik a tábla, megoldást találtunk.
+</ul>
+
+<p>A kiemelt műveleteket („ha üti, vegyük le”) nevezzük visszalépésnek, ezért az algoritmus
+neve: visszalépő keresés (backtracking search).</p>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az ütések vizsgálata: csak az n-edik">
+<div class="slide" id="slide_25">
+
+<a id="25" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">25</span><span class="oldalszamafter">. </span>    Az ütések vizsgálata: csak az n-edik<a class="hlink" href="index.html#25"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Az új algoritmushoz egy egyszerűbb tesztelőfüggvény tartozik, mint az előzőhöz. Mivel most egyesével rakjuk
+majd a királynőket, mindig csak a legutóbbit kell megnézni, hogy jó-e, nem üti-e a többit. Az összes előzőre nem figyelünk: úgy
+jutunk mindig ide, hogy azok már ellenőrizve vannak. A függvény paramétere a tömb mellett a sornak a száma, amelyik királynőt
+ellenőrizni kell.</p>
+
+<p>Ütésben vannak, ha</p>
+
+<ul>
+    <li>Azonos oszlopban vannak: x1 = x2</li>
+    <li>Azonos átlón vannak: |dx| = |dy|</li>
+</ul>
+
+<br class="smallskip">
+
+<pre   ><code class="language-c">bool kiralyno_nedik_oke(int *poz, int n) {
+    for (int i = 0; i &lt; n; ++i) {
+        if (poz[i] == poz[n]
+            || abs(poz[i] - poz[n]) == abs(i - n))
+            return false;
+    }
+    return true;
+}</code></pre>
+
+<p class="csakdoksi">Ügyelni kell arra, hogy most nem csak az átlót kell vizsgálni, hanem azt is, hogy az új királynő nem került-e
+valamelyikkel azonos oszlopba: <code>poz[i] == poz[n]</code>. A tömbbe ugyanis most nem permutációk kerülnek, hanem minden sorban
+végigpróbáljuk az összes oszlopot, és oszlopok szerinti ütés is előfordulhat. De ez csak egy újabb feltétel; az algoritmus még így
+is egyszerűbb, egyetlen egy ciklus vizsgálja az új királynő sora előtti sorokat.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Algoritmus visszalépő kereséssel (félkész)">
+<div class="slide" id="slide_26">
+
+<a id="26" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">26</span><span class="oldalszamafter">. </span>    Algoritmus visszalépő kereséssel (félkész)<a class="hlink" href="index.html#26"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Az alábbi függvény valósítja meg a visszalépő keresést a probléma megoldására. Ez nem a klasszikus megvalósítás,
+még később finomítjuk majd, de előbb lássuk a működését!</p>
+
+<pre   ><code class="language-cbub">void kiralyno_keres(int *poz, int meret, int n) {
+    if (n == meret) {
+        kiralyno_kiir(poz, meret);
+        return;
+    }
+    for (int uj = 1; uj &lt;= meret; ++uj) {
+        poz[n] = uj;
+        if (!kiralyno_nedik_oke(poz, n)) {
+            poz[n] = 0;    // visszalépés
+            continue;
+        }
+        kiralyno_keres(poz, meret, n+1);
+        poz[n] = 0;
+    }
+}</code></pre>
+
+<div class="csakdoksi">
+<p>A függvénynek most is paramétere a kitöltendő tömb mérete. Paramétere továbbá az n, amely azt
+mutatja, hogy épp hányadik sorban fogunk megoldást keresni.</p>
+<p>A ciklus az, amely az adott sorban megpróbálja elhelyezni az új királynőt. Ez végigpróbálja 1-től
+8-ig a lehetséges értékeket, amelyek abba a tömbelembe kerülhetnek, vagyis a lehetséges oszlopokat.
+Az a hipotézis, hogy az új oszlop a királynő számára jó lesz, ezért be is teszi oda: <code>poz[n] = uj</code>.
+Utána pedig megnézi, hogy a hipotézis jó-e. A <code>kiralyno_nedik_oke()</code> függvénynek ezt az egy
+új királynőt kell néznie, mivel az összes eddigi biztosan nem üti egymást. Ha kiderül, hogy ez ütésben
+van az eddigiekkel, akkor kiveszi a tömbből, és próbálkozik tovább. Ha rendben van, akkor pedig a
+rekurzív hívással megpróbálja elhelyezni a többit.</p>
+<p>Valójában egyébként a <code>poz[n] = 0</code> értékadások feleslegesek, csak az érthetőség kedvéért
+szerepelnek. Egyrészt mert a következő iteráció úgyis felülírja azt az elemet, másrészt pedig a
+vizsgáló függvény úgyis csak az első <code>n</code> elemmel foglalkozik – tehát ha nem írjuk felül
+újra 0-val az adott elemet, az sem baj.</p>
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Permutáló algoritmus visszalépéssel">
+<div class="slide" id="slide_27">
+
+<a id="27" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">27</span><span class="oldalszamafter">. </span>    Permutáló algoritmus visszalépéssel<a class="hlink" href="index.html#27"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+
+<p>Az előbbi magyarázatban a visszalépő keresés tisztázása kedvéért szerepelt egy egyszerűsítés: ismétléses variációkat 
+vizsgáltunk, nem pedig permutációkat. Vagyis nem az {1, 2, 3, 4, 5, 6, 7, 8} tömböt permutáltuk, hanem minden sorban az összes 
+oszlopba próbáltunk királynőt tenni.</p>
+
+<p>Valójában a permutációkat előállító algoritmus beilleszthető a visszalépő keresésbe. Vegyük szemügyre csak a permutációkat 
+előállító kódot egy pillanatra! Ez így fest:</p>
+
+<pre   ><code class="language-c">void permutacio(int *poz, int meret, int n) {
+    if (n == meret)
+        return;
+
+    for (int i = n; i &lt; meret; ++i) {
+        csere(&amp;poz[n], &amp;poz[i]);
+        permutacio(poz, meret, n+1);
+        csere(&amp;poz[n], &amp;poz[i]);
+    }
+}</code></pre>
+
+<p>Ebben a cserékkel minden tömbelem <em>előre jön</em>, utána a rekurzióban csak a tömb <em>fennmaradó részét</em> permutáljuk.
+A nyolckirálynő-probléma és a visszalépő keresés esetében ez éppen jó nekünk: a cserével előre hozott szám (oszlop index) lesz
+a vizsgálandó elem a báziskritériumban. Ha az rendben van, akkor a tömb végét permutáljuk utána csak, vagyis csak ott rendezgetjük
+a királynőket; az eddig elhelyezettek közötti ütközéseket azok már nem fogják módosítani.</p>
+
+</div>
+
+<pre   ><code class="language-cbub">void kiralyno_keres(int *poz, int meret, int n) {
+    if (!kiralyno_nedik_oke(poz, n-1)) {   // !
+        return;
+    }
+    if (n == meret) {
+        kiralyno_kiir(poz, meret);
+        return;
+    }
+    
+    for (int i = n; i &lt; meret; ++i) {
+        csere(&amp;poz[n], &amp;poz[i]);
+        kiralyno_keres(poz, meret, n+1);
+        csere(&amp;poz[n], &amp;poz[i]);
+    }
+}</code></pre>
+
+<p class="csakdoksi">A végleges megoldásunk így néz ki. Valójában ez alig különbözik az első, permutáló megoldástól. Az egyetlen
+különbség abban rejlik, hogy ez részmegoldásokat is megvizsgál, és azokat nagyon hamar visszautasítja, ha nem jók. Ezt mutatja a
+jelölt rész. A teljes program letölthető innen: <a href="8kiralyno_bt_perm.c">8kiralyno_bt_perm.c</a>.</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Hatékonyság: permutáló és visszalépő">
+<div class="slide" id="slide_28">
+
+<a id="28" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">28</span><span class="oldalszamafter">. </span>    Hatékonyság: permutáló és visszalépő<a class="hlink" href="index.html#28"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Az alábbi táblázat azt mutatja, hogy táblaméret függvényében hány pályaállást kell megvizsgálni akkor,
+ha a permutáló módszert, illetve a visszalépő keresést alkalmazzuk a probléma megoldására.</p>
+
+<table>
+<thead>
+<tr><th>méret<th>permutációval<th>visszalépővel<th>gyorsulás
+</thead>
+<tr><td>8<td>40320<td>5509<td>7,3×
+<tr><td>9<td>362880<td>24012<td>15,1×
+<tr><td>10<td>3628800<td>110005<td>33,0×
+<tr><td>11<td>39916800<td>546358<td>73,1×
+<tr><td>12<td>479001600<td>2915741<td>164,3×
+<tr><td>13<td>6227020800<td>16469570<td>378,1×
+<tr><td>14<td>87178291200<td>99280505<td>878,1×
+</table>
+
+<div class="csakdoksi">
+<p>Látható, hogy a visszalépő keresés sokkal gyorsabb; a hibás részmegoldások (és azok befejezéseinek) eliminálásával a gyorsulás a 
+táblamérettel meredeken nő. 14×14-es tábla megoldásainak keresésekor már majdnem 900-ad részére csökken a megvizsgált esetek 
+száma.</p>
+
+<p>Ez az algoritmus azért is sokkal gyorsabb, mert az egyes esetek vizsgálata egyszerűbb. Míg a permutáló
+algoritmusnál teljes játékállásokat kellett vizsgálni (minden királynőt mindegyikkel párba állítva), itt egy hipotézis
+vizsgálatához elég csak az újonnan felrakottat figyelembe venni. Egy i5-8250U processzorral rendelkező gépen a 14×14-es pályára a megoldások
+megkeresése mindössze 1,6 másodpercig tart.</p>
+</div>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A visszalépő keresés általános alakja">
+<div class="slide" id="slide_29">
+
+<a id="29" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">29</span><span class="oldalszamafter">. </span>    A visszalépő keresés általános alakja<a class="hlink" href="index.html#29"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Lent látható a visszalépő keresés általános megfogalmazása pszeudokód formájában. Ez annyiban különbözik az
+előbb látott nyolckirálynő-megoldótól, hogy itt a hipotézis helyességének a vizsgálata is báziskritériumként szerepel. Vagyis a
+ciklus feltétel nélkül elindítja a rekurziót a kiegészített megoldás vizsgálatára; aztán a rekurzív hívás dönti el, hogy elfogadja
+vagy visszautasítja azt a megoldást, amit éppen lát.</p>
+
+<pre>
+<em>függvény:</em> visszalépő_keresés(megoldás)
+
+    <em>ha</em> a (rész)megoldás hibás <span class="bubble">báziskritériumok</span>
+        <em>vissza</em>
+    <em>ha</em> megoldás teljes (és elfogadható)
+        kiírás
+        <em>vissza</em>
+
+    <em>ciklus</em> a következő részmegoldásokkal <span class="bubble">egyszerűsítés</span>
+        megoldás kiegészítése
+        visszalépő_keresés(megoldás)
+</pre>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Visszalépő keresés: csak egy megoldás">
+<div class="slide" id="slide_30">
+
+<a id="30" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">30</span><span class="oldalszamafter">. </span>    Visszalépő keresés: csak egy megoldás<a class="hlink" href="index.html#30"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A fenti algoritmus az összes megoldást kilistázza. De a visszalépő keresés könnyedén módosítható
+olyan feladatok megoldására, ahol csak egy megoldást keresünk, vagy esetleg meg akarunk állni az első egynéhány megoldás
+megtalálása után.</p>
+
+<p class="csakdoksi">Ha egy megoldás keresése a feladat, akkor ahhoz bevezetünk a függvénynek egy visszatérési értéket.
+Ez fogja azt mutatni, sikerült-e megoldást találni vagy nem.</p>
+
+<pre   ><code class="language-c">bool kiralyno_keres(int *poz, int meret, int n) {
+    if (!kiralyno_nedik_oke(poz, n-1))
+        return false;
+    if (n == meret)
+        return true;
+
+    for (int i = n; i &lt; meret; ++i) {
+        csere(&amp;poz[n], &amp;poz[i]);
+        if (kiralyno_keres(poz, meret, n+1))
+            return true;
+        csere(&amp;poz[n], &amp;poz[i]);
+    }
+    return false;
+}</code></pre>
+
+<pre   ><code class="language-c">int poz[8] = {1, 2, 3, 4, 5, 6, 7, 8};
+bool talalt = kiralyno_keres(poz, 8, 0);
+if (talalt)
+    kiralyno_kiir(poz, 8);</code></pre>
+
+<div class="csakdoksi">
+<p>Ha <code>true</code> értéket kapunk a függvényből, akkor sikerült egy megoldást találni, és azt betette a tömbbe.
+Ha <code>false</code>, akkor nem volt megoldás, és a tömbben nincs hasznos adat.</p>
+<p>A függvény belsejében elő kell állítani ezt az értéket. Egyrészt a báziskritériumoknál: ha rossz helyre került a királynő,
+akkor <code>false</code>, ha tele a tábla, akkor jó helyen vannak, és <code>true</code>.</p>
+<p>Másrészt pedig magában a keresésben. A leglényegesebb rész az, ahol a rekurzív hívás van. Ha az igazzal tér vissza, azt azt
+jelenti, hogy a tömb egy teljes megoldást tartalmaz; ilyenkor a hívó is visszatér igazzal. Ez az, ami megszakítja a keresést az
+első megoldás megtalálása után, ugyanis ilyenkor megáll egyrészt a ciklus is, másrészt pedig a rekurzív hívók is mind igazzal
+fognak visszatérni. A függvény legalján hamis értékkel kell visszatérni. Ugyanis ha lefutott a ciklus teljes egészében, az azt
+jelenti, hogy a szóba jövő oszlopok közül egyik se vezetett megoldáshoz.</p>
+<p>Így működik a rekurzió kapcsán bemutatott <a href="../labirintus/index.html">labirintus megoldó</a> is. Ott tudjuk
+előre, hogy egyetlen egy megoldás van, és azt kell megtalálni; zsákutca esetén pedig visszajönni.</p>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Visszalépő keresés: alkalmazások">
+<div class="slide" id="slide_31">
+
+<a id="31" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">31</span><span class="oldalszamafter">. </span>    Visszalépő keresés: alkalmazások<a class="hlink" href="index.html#31"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A <em>visszalépő keresés</em> alkalmazásai:</p>
+
+<ul>
+    <li>Rejtvények: nyolc királynő, sudoku, keresztrejtvény, labirintus</li>
+    <li>Nyelvi elemzés (fordítóban)</li>
+    <li>Optimalizálási feladatok, pl. hátizsák-probléma, pénzosztás</li>
+</ul>
+
+<img src="hatizsak.png" class="kozep" style="width: 16em;">
+
+<div class="csakdoksi">
+
+<p>Lássunk néhány példát a visszalépő keresés alkalmazására!</p>
+
+<p><em>Nyelvi elemzés.</em> A fordítóprogramnak a megkapott forráskódot elemeznie kell, és az elemzés közben könnyen zsákutcába
+futhat. Például az <code>x = (double) y;</code> kifejezés értelmezésekor rá kell jönnie, hogy a zárójel mit jelent. Ha elindul
+abba az irányba, hogy precedenciamódosító zárójelet feltételez (mint pl. az <code>5 + (2*3)</code> kifejezésben), akkor
+ellentmondásra jut, mert a zárójelben nem kifejezés van. Ezért visszalép, és megpróbálkozik mással: <em>cast</em> operátornak
+feltételezve a zárójelet, kiderül hogy a teljes kifejezés értelmezhető.</p>
+
+<p><em>Optimalizálási feladatok.</em> Ezek közül a legismertebb a hátizsák-probléma, amit a rajz is szemléltet. Adott egy hátizsák, 
+amelynek a teherbírása véges. Adott egy csomó tárgy, amelyeknek ismerjük az értékét és a súlyát. Kérdés, mely tárgyakat kell 
+kiválasztanunk, hogy a legnagyobb összértéket állítsuk össze, figyelembe véve a hátizsák teherbírását. A rajz példáját tekintve, a 
+két legértékesebb tárggyal 10+4 = 14 dolláros csomagot állíthatnánk össze, ezeknek a súlya azonban 12+4 = 16 kg, ami túllépi a 
+limitet. Valamelyiket el kell hagynunk, és könnyebbet keresni helyette.</p>
+
+<p>Szintén visszalépő kereséssel oldható meg helyesen egy bankautomata feladata is, amelynek ki kell adnia egy adott összeget,
+figyelembe véve, hogy milyen címletekből mennyi áll rendelkezésre. Ha a bankautomata rekeszei ezeket a bankjegyeket tartalmazzák:</p>
+
+<table>
+    <thead>
+        <tr><th>címlet<th>darabszám
+    </thead>
+    <tr><td>5000<td>137
+    <tr><td>2000<td>275
+    <tr><td>1000<td>0
+</table>
+
+<p>Akkor egy mohó algoritmus, amely a legnagyobb címletekkel próbálkozik, a 6000 forint kifizetéséhez nem tudna megoldást találni.
+Elakadna ott, hogy ad egy 5000-est, és utána 1000-esből meg nincsen. Viszont ezen a ponton visszalépve, úgy döntve, hogy mégsem
+ad ki 5000-est, rájöhet, hogy a 3×2000 megoldása a feladatnak.</p>
+</div>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

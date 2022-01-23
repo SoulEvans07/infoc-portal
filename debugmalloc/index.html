@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Debugmalloc, memóriakezelés</title>
+<meta property="og:title" content="TEST InfoC :: Debugmalloc, memóriakezelés">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="A Debugmalloc egy varázs-malloc(), amely képes kilistázni a felszabadítatlan területeket, és ezzel megkönnyíti a hibakeresést. Bizonyos keretek között a túlindexelést is tudja ellenőrizni.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="A Debugmalloc egy varázs-malloc(), amely képes kilistázni a felszabadítatlan területeket, és ezzel megkönnyíti a hibakeresést. Bizonyos keretek között a túlindexelést is tudja ellenőrizni.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Debugmalloc, memóriakezelés">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Debugmalloc, memóriakezelés</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Szekeres Dániel · <i class="ido"></i> 2019.08.24.</p>
+<p class="kivonat">A Debugmalloc egy varázs-malloc(), amely képes kilistázni a felszabadítatlan területeket, és ezzel megkönnyíti a hibakeresést. Bizonyos keretek között a túlindexelést is tudja ellenőrizni.</p>
+</div>
+
+<p>A Debugmalloc függvénykönyvtár egy okos <code>malloc()</code>-<code>free()</code> függvénypárost ad a használójának. A nagy házi 
+teszteléséhez hasznos, a memóriakezelési hibák megtalálásának könnyítésére.</p>
+
+<p>A függvénykönyvtár a következő szolgáltatásokat nyújtja:</p>
+
+<ul>
+    <li>Képes arra, hogy a program futásának a végén kilistázza a felszabadítatlan területeket.
+        Vagyis meg lehet vele találni a memóriaszivárgásokat.
+    <li>Nyilvántartja, hogy az egyes memóriafoglalások hol, melyik forrásfájlban, és
+        melyik sorban történtek.
+    <li>Képes megtalálni az olyan <code>free()</code> hívásokat, amelyek le nem foglalt
+        memóriaterületre hivatkoznak.
+    <li>Képes érzékelni és jelezni a tömbök túlindexelését (attól függően, hogy mekkora túlindexelésről volt szó).
+    <li>Segít megtalálni az inicializálatlan változókat.
+    <li>A hibaüzeneteket a képernyőre, vagy egy megadott fájlba tudja írni.
+</ul>
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">A függvénykönyvtár használata</a>
+              <li><a href="index.html#2" class="">A függvénykönyvtár szolgáltatásai</a>
+              <li><a href="index.html#3" class="">Tömbök túlindexelése – a kanárik</a>
+              <li><a href="index.html#4" class="">Példaprogram</a>
+              <li><a href="index.html#5" class="">Egyebek</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A függvénykönyvtár használata">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    A függvénykönyvtár használata<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A könyvtár egyetlen egy fájlból áll, ez a <a href="debugmalloc.h">debugmalloc.h</a>. Ezt le kell tölteni, és a szokásos módon a 
+projekthez hozzáadni.</p>
+
+<p>A könyvtár makrókat definiál, amelyek a szokásos <code>malloc()</code> és <code>free()</code> függvényeket helyettesítik. A 
+debugmalloc.h fájlt az adott projekt <em>minden forrásfájljába be kell szerkeszteni</em>, vagyis a saját, tesztelt program minden 
+<code>.c</code> fájljának elején szerepelnie kell az alábbi sornak. Fontos, hogy ez tényleg minden <code>.c</code> fájlba 
+bekerüljön!</p>
+
+<pre   ><code class="language-c">#include &quot;debugmalloc.h&quot;</code></pre>
+
+<p>A tesztelendő program kódjában ezen kívül semmilyen más módosítást nem kell végezni. A memóriaterületek dinamikus foglalása a 
+szokásos módon kell történjen: a <code>malloc(size_t)</code> hívás foglal, és a <code>free(void&nbsp;*)</code> hívás szabadít fel 
+egy területet. A <code>calloc()</code> és <code> realloc()</code> hívások is működnek.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A függvénykönyvtár szolgáltatásai">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    A függvénykönyvtár szolgáltatásai<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az új <code>malloc()</code> a lefoglalt memóriát nem inicializálatlanul adja, hanem konstans számmal tölti ki. Ezzel könnyebbé 
+válik az inicializálatlan változók okozta hibák kiszűrése (legalábbis a dinamikusan foglalt elemek, tömbök esetében), mert a 
+program működése határozottan nemdeterminisztikussá válik.</p>
+
+<p>Az újraírt <code>free()</code> függvény ellenőrzi a hibás felszabadításokat, és ezeknél megszakítja a programot egy 
+<code>abort()</code> hívással. Így egy nyomkövetőben látszik az is, hogy hogyan jutott a végrehajtás a hibás részhez.</p>
+
+<p>A programból kilépéskor, ha maradtak felszabadítatlan memóriaterületek, azokról lista készül. Egy felszabadítatlan tétel 
+részletezése így néz ki:</p>
+
+<pre class="screenshot">
+0x56343a6e2d10, 100 bajt, kanari: ok
+example.c:30, malloc(100 * sizeof(char))
+    0000  48 65 6c 6c 6f 2c 20 76 69 6c 61 67 21 00 4b 4b   Hello, vilag!.KK
+    0010  4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b   KKKKKKKKKKKKKKKK
+    0020  4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b   KKKKKKKKKKKKKKKK
+    0030  4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b   KKKKKKKKKKKKKKKK
+</pre>
+
+<p>Az első sorban látható a pointer értéke, vagyis a memóriacím. A második sorban az, hogy az adott memóriaterület az 
+<em>example.c</em> fájl 30. sorában lett lefoglalva. A mérete a <code>100 * sizeof(char)</code> kifejezéssel lett megadva, amely 
+100 bájtra értékelődött ki a program futása közben. Ezen kívül pedig látható a lefoglalt memóriaterület eleje. A lefoglalt 
+területre itt a <em>Hello, vilag!</em> szöveget került – megfigyelhető a lezáró nulla is. A tartalom segíthet beazonosítani, hogy 
+az adott memóriaterület mi célt szolgált a programban, és így következtetni arra, hogy mikor és hol kellett volna felszabadítani 
+azt.</p>
+
+<p>A lefoglalt területekről bármikor lista kérhető a <code>debugmalloc_dump()</code> függvényhívással. Az üzenetek alapértelmezés 
+szerint a szabványos hibakimenetre kerülnek, de fájlba is írhatóak. A nevét egy <code>debugmalloc_log_file("memlog.txt")</code> 
+hívással lehet megadni.</p>
+
+<p>Az egyes foglalások méretét a Debugmalloc maximálja, alapbeállítás szerint 1 megabájtban. Ha ez kevés, akkor a beállítás
+egy <code>debugmalloc_max_block_size(s)</code> függvényhívással módosítható.</p>
+
+<p>Végezetül pedig, ha a program hibátlanul működik, akkor csak el kell távolítani a fenti <code>#include</code> sort a forrás 
+fájlokból, és automatikusan újra a beépített, szabványos memóriakezelés veszi át a Debugmalloc helyét.</p>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Tömbök túlindexelése – a kanárik">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Tömbök túlindexelése – a kanárik<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A könyvtár támogatja a túlindexeléses hibák megtalálását. Ezt úgy éri el, hogy minden egyes memóriafoglalásnál egy kicsit 
+nagyobb területet kér az operációs rendszertől, mint amekkora a programban igényelve lett; előtte és utána 128 bájtot hagy rá. 
+Ezeket a plusz területeket kanárinak hívják.</p>
+
+
+<table class="tomb">
+<tr>
+<td>kanári<br>128 bájt
+<td>A malloc() hívásnál megadott<br>méretű memóriaterület
+<td>kanári<br>128 bájt
+</table>
+
+<p>A plusz területeket egy megadott karakterrel, a <code>K</code> betűvel tölti ki foglaláskor. Ha a lefoglalt terület például egy 
+tömb, és írásnál túlindexelés történik, akkor az a <code>K</code> betűket fogja felülírni. A felszabadításnál, a 
+<code>free()</code> hívásakor ellenőrzi, hogy a <code>K</code> betűk megmaradtak-e. Ha nem, kiírja a memóriatartalom elejét, és a 
+kanárik teljes tartalmát. Egy sérült kanári így néz ki:</p>
+
+<pre class="screenshot">
+0000  4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b   KKKKKKKKKKKKKKKK
+0010  4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b   KKKKKKKKKKKKKKKK
+0020  4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b   KKKKKKKKKKKKKKKK
+0030  4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b   KKKKKKKKKKKKKKKK
+0040  4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b   KKKKKKKKKKKKKKKK
+0050  4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b   KKKKKKKKKKKKKKKK
+0060  4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b 4b   KKKKKKKKKKKKKKKK
+0070  4b 4b 4b 4b 78 56 34 12 4b 4b 4b 4b 4b 4b 4b 4b   KKKKxV4.KKKKKKKK
+</pre>
+
+<p class="megjegyzes">
+Kanári madarakat még a 20. században is
+<a href="http://en.wikipedia.org/wiki/Canary_in_a_coal_mine#Canaries_in_coal_mines">alkalmaztak bányákban</a>,
+mivel érzékenyebbek bizonyos mérgező gázokra, mint az
+ember. <a href="http://en.wikipedia.org/wiki/Buffer_overflow_protection#Canaries">Innen ered</a> a programozásban is ez az elnevezés.
+</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Példaprogram">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Példaprogram<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre   ><code class="language-c">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+ 
+#include &quot;debugmalloc.h&quot;
+ 
+int main(void) {
+    int *adat;
+    char *szoveg;
+ 
+    /* itt minden rendben van. */
+    adat = (int*) calloc(8, sizeof(int));
+    adat[0] = 0x12345678;
+    printf(&quot;\n\nMost egy memoriaterulet van lefoglalva:\n&quot;);
+    debugmalloc_dump();
+    adat = (int*) realloc(adat, 16 * sizeof(int));
+    printf(&quot;\n\nMost atmereteztem:\n&quot;);
+    debugmalloc_dump();
+    free(adat);
+    printf(&quot;\n\nMost egy sem:\n&quot;);
+    debugmalloc_dump();
+ 
+    /* itt egy tulindexeles */
+    adat = (int*) malloc(32 * sizeof(int));
+    adat[-3] = 0x12345678;     /* tulindexeles */
+    printf(&quot;\n\nEz uj memoria. Felszabaditom, de tulindexeltem, ezert szol:\n&quot;);
+    free(adat);
+ 
+    /* ez pedig egy memoriaszivargas... */
+    szoveg = malloc(100 * sizeof(char));
+    strcpy(szoveg, &quot;Hello, vilag!&quot;);
+
+    /* ... amit a program vegere irt dumppal latunk majd. */
+    return 0;
+}</code></pre>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egyebek">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Egyebek<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Makrók</h3>
+
+<p>Mind a négy memóriakezelést végző függvény (<code>malloc</code>, <code>free</code>, <code>realloc</code>, <code>calloc</code>)
+makróként jelenik meg. Ez zavaró lehet, mert emiatt sehol nem lehet ilyen nevű változó sem a programban. De ez amúgy is furcsa
+és szokatlan lenne; ugyan elméletben szabad lenne, a gyakorlatban <code>printf</code>-nek sem szoktunk változót elnevezni.</p>
+
+<h3>SDL</h3>
+
+<p>A debugmalloc a hibaüzeneteket a szabványos hibakimenetre (stderr) írja. A <code>debugmalloc_log_file()</code> függvénnyel ezek 
+egy megadott nevű fájlba irányíthatóak át. Windows-on, SDL-es programoknál ezt a megoldást érdemes választani, vagy az <a href="../sdl/index.html">SDL-es oldalon</a> bemutatott <code>freopen()</code>-es trükköt.</p>
+
+<h3>Belső felépítés</h3>
+
+<p>A függvénykönyvtár belső megvalósítása használ olyan nyelvi elemeket, amelyek a dinamikus tömböket bemutató előadáson még nem 
+szerepeltek. Ezeket azonban nem kell érteni a használathoz. A listás és a generikus algoritmusokat bemutató előadásokon egyébként 
+azok az elemek is szerepelni fognak.</p>
+
+<p>A <code>malloc()</code> hívása végül a beépített, gyári <code>malloc()</code> függvényt hívja meg. A kanárik hozzáadásán, és a 
+memóriaterület inicializálásán kívül a lefoglalt területek adatait egy láncolt listában is rögzíti; így tudja ellenőrizni a 
+felszabadítások helyességét.</p>
+
+<p>A belső, foglalást végző függvény fejléce, és az azt használó makró a következő:</p>
+
+<pre   ><code class="language-c">static void *debugmalloc_malloc_full(size_t size,
+                                     char const *func,
+                                     char const *expr,
+                                     char const *file,
+                                     unsigned line);
+
+#define malloc(S) debugmalloc_malloc_full((S), &quot;malloc&quot;, #S, __FILE__, __LINE__)</code></pre>
+
+<p>Ez első paraméterként megkapja <code>S</code>-et, vagyis a lefoglalandó memóriaterület méretét. Harmadik paramétere az 
+<code>S</code> kifejezés sztringgé alakítva (<code>#S</code>). Ez teszi lehetővé azt, hogy a kifejezést magát is rögzítse a 
+Debugmalloc, ahogyan az a forráskódban látható, (pl. <code>100 * sizeof(int)</code>. A negyedik és ötödik paraméter pedig a 
+fordító beépített makrói, amelyek a forrásfájl nevére és az adott sor számára helyettesítődnek be végül.</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

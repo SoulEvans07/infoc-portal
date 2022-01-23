@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Turing gépei és a Brainfuck nyelv</title>
+<meta property="og:title" content="TEST InfoC :: Turing gépei és a Brainfuck nyelv">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Turing gépei és a méltán hírhedt Brainfuck programozási nyelv. Mit jelent az, hogy egy nyelv Turing-teljes? A „Mi tud a számítógép? Mi az, amire képtelen?” írás folytatása.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Turing gépei és a méltán hírhedt Brainfuck programozási nyelv. Mit jelent az, hogy egy nyelv Turing-teljes? A „Mi tud a számítógép? Mi az, amire képtelen?” írás folytatása.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Turing gépei és a Brainfuck nyelv">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Turing gépei és a Brainfuck nyelv</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán · <i class="ido"></i> 2019.02.27.</p>
+<p class="kivonat">Turing gépei és a méltán hírhedt Brainfuck programozási nyelv. Mit jelent az, hogy egy nyelv Turing-teljes? A „Mi tud a számítógép? Mi az, amire képtelen?” írás folytatása.</p>
+</div>
+
+<p>Alan Turing cikke óta tudjuk, hogy <a href="../turing/index.html">léteznek algoritmikusan megoldhatatlan feladatok</a>. Például az, hogy olyan 
+programot írjunk, amely bármely másikban képes megtalálni a szemantikai hibákat. 
+Ennek bizonyítását ő igen szokatlan módon végezte el: képzeletbeli számítógépeket 
+talált ki, és azokra írt programokat.</p>
+
+<p>A gépek meglehetősen egyszerűek voltak. Egyszerűségük ellenére viszont ekvivalensek a mai 
+számítógépekkel – amit azokkal nem lehetett megcsinálni, azt nem lehet egy mai számítógéppel 
+sem. Innen ered a „Turing-teljes” fogalom. Egy programozási nyelvre azt mondjuk, hogy 
+Turing-teljes, ha megoldhatók benne ugyanazok a feladatok, amelyek megoldhatóak egy 
+Turing-géppel is. A C például ilyen: lekódolható benne minden algoritmizálható probléma. Ennél 
+kevesebbet tudhat egy nyelv (bár akkor nagyon korlátozott lesz a használhatósága), ennél többet 
+azonban nem. A legmodernebb programozási nyelvek sem többek ennél, legfeljebb tömörebbek vagy 
+kényelmesebbek.</p>
+
+<p>Egy nyelv Turing-teljességét többféle úton lehet bizonyítani. Például úgy, 
+hogy megírunk benne egy programot, amelyik utánozza egy Turing-gép működését. Vagy 
+úgy, hogy írunk benne egy értelmezőt (interpretert), amelynek a bemenete egy 
+másik Turing-teljes programozási nyelven írt program – és képes lefuttatni azt. 
+Ha képes utánozni egy teljes nyelvet, akkor, ha máshogy nem, azon a nyelven kell 
+majd megfogalmazni a feladatot. De meg fogja tudni csinálni. Vannak más, 
+bonyolultabb útjai is egy ilyen bizonyításnak.</p>
+
+<pre   ><code class="language-bf">Hello world Brainfuck nyelven
+++++++++++[&gt;+++++++&gt;++++++++++&gt;+++&gt;+&lt;&lt;&lt;&lt;-]
+&gt;++.&gt;+.+++++++..+++.&gt;++.
+&lt;&lt;+++++++++++++++.&gt;.+++.------.--------.&gt;+.&gt;.</code></pre>
+
+<p>A Brainfuck (BF) nyelv egy rendkívül primitív programozási nyelv, amely 
+mindössze nyolc utasítást ismer. Látván, hogyan fest benne egy Hello world 
+program, érthető, hogy miért kapta ezt a nem szalonképes nevet ez az ezoterikus 
+nyelv. Azonban ez is Turing-teljes, hiszen lehetséges benne olyan programot írni, 
+amely egy Turing-gépet utánoz! Nézzük meg, hogyan működnek ezek.</p>
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Turing gépének felépítése és működése</a>
+              <li><a href="index.html#2" class="">A Brainfuck nyelv</a>
+              <li><a href="index.html#3" class="">BF nyelv – példák</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Turing gépének felépítése és működése">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Turing gépének felépítése és működése<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Az említett gépek felépítése a következő. Minden gép tartalmaz egy <em>vezérlőegységet,</em> 
+egy <em>programkártyát,</em> és egy <em>adatszalagot.</em> Az adatszalag egy cellákra osztott 
+tároló, amelyen tetszőleges szimbólumok (betűk, számok stb.) lehetnek. Minden cella egy 
+szimbólumot tartalmazhat. A szalag egy író-olvasó fej alatt mozog, amelyik egyszerre mindig csak 
+egy cellát lát.  A kiindulási állapotban a szalag teljesen üres.</p>
+
+<img src="turing.svg" class="kozep" style="width: 40em;">
+
+<p>A programkártya egy táblázat, amely ún. állapotokra oszlik. A vezérlőegység tárolja azt, hogy 
+éppen melyik az aktív állapot. A táblázat első két oszlopa egy állapotot és egy szimbólumot 
+tartalmaz, második két oszlopa pedig egy tevékenységet és a következő állapotot.</p>
+
+<p>A működés nagyon egyszerű. A vezérlőegység megnézi, hogy a szalagon milyen <em>szimbólum</em> 
+található az aktuális pozícióban. Ezután az aktuális <em>állapota</em> és a beolvasott szimbólum 
+alapján kiválasztja a nekik megfelelő sort a táblázatból. (Ezek egyértelműen ki kell jelöljenek 
+egy sort, különben hibás a program.) Végrehajtja az ott megadott tevékenységeket, végül pedig 
+átugrik az utolsó oszlopban adott következő állapotra. És így folytatja a végtelenségig.</p>
+
+<table>
+    <caption>Példaprogram: 01010101&hellip;</caption>
+    <thead>
+        <tr><th>állapot<th>szimbólum<th>tevékenység<th>köv. állapot
+    </thead>
+    <tr><th>start<th>üres<td>P0, J<td>egy
+    <tr><th>egy<th>üres<td>P1, J<td>start
+</table>
+
+<p>A fenti példaprogram teleírja a szalagot a 010101&hellip; sorozattal. Bekapcsoláskor a gép a 
+<code>start</code> állapotba kerül. Megvizsgálja a szalagot, ahol egy üres cellát talál (hiszen 
+bekapcsoláskor a szalag üres). Ez az állapot és szimbólum kombináció kijelöli az első sort. Leír 
+(P) ezért egy 0-t a gép az aktuális pozícióra, utána pedig jobbra lép (J), és átugrik az
+<code>egy</code> állapotba. A következő körben majdnem ugyanez történik: a szalag az új pozíción megint 
+üres, de most az <code>egy</code> állapotban van a gép. Ezért a második sor alapján leír egy 
+1-est, és jobbra lép, aztán vissza a <code>start</code> állapotba.</p>
+
+<table>
+    <caption>Megnöveli a számot eggyel</caption>
+<thead>
+    <tr><th>állapot<th>szimbólum<th>tevékenység<th>köv. állapot
+</thead>
+<tr><th>plusz-egy             <th>bármi    <td>-     <td>van-átv
+<tr><th>nincs-átv <th>0        <td>P0, B <td>nincs-átv
+<tr><th>nincs-átv <th>1        <td>P1, B <td>nincs-átv
+<tr><th>nincs-átv <th>üres     <td>B <td>vége
+<tr><th>van-átv   <th>0        <td>P1, B <td>nincs-átv
+<tr><th>van-átv   <th>1        <td>P0, B <td>van-átv
+<tr><th>van-átv   <th>üres     <td>P1, B <td>vége
+<tr><th>vége      <th>bármi    <td>-     <td>vége
+</table>
+
+<p>A második példaprogram jóval hosszabb. Ennek feladata megnövelni egy kettes számrendszerben 
+leírt számot eggyel – feltéve, hogy akkor indítjuk el, amikor a szám legalsó helyiértéke az 
+aktuális szalagpozíció alatt van, és tőle balra vannak az egyre növekvő helyiértékek. A program 
+a következőképp működik. Tegyük fel, hogy az előző körből hoztunk átvitelt (<code>van-átv</code>).
+Akkor ha 0-t látunk, az 1-re kell változtatni, mert 0+1=1; és a következő körben nem lesz 
+átvitel. Viszont ha 1-est, akkor 1+1=2 (10<sub>kettő</sub>), ezért 0-t kell leírni, és a 
+következő körben is számolni kell az átvitellel. Ha nem hoztunk átvitelt az előző körből
+(<code>nincs-átv</code>), akkor egyszerűen le kell másolni az aktuális szimbólumot (0+0=0, 1+0=1),
+és ugyanígy folytatni. Ez történik a szám közepén.
+
+<img src="turing_osszead.svg" class="kozep" style="width: 32em;">
+
+<p>Lássuk a szám elejét és végét. Egyrészt, a szám végére, azaz a legnagyobb helyiértéke utáni 
+első üres cellára érve, hozott átvitel esetén még le kell írni egy 1-est. Ez azt jelenti, hogy a 
+számjegyek száma megnőtt eggyel. Ha nem hoztunk átvitelt, akkor viszont nincs teendő. Mindkét 
+esetben a program végeztével a szám utáni első üres cellán fog állni a szalag. Másrészt, a szám 
+végén, legalsó helyiértéknél (az egyeseknél) is egy kicsit mást kell csinálni, mint a többinél. 
+Ott elvileg nincsen átvitel az előző körből (nem volt előző kör), de az volt a feladat, hogy 
+hozzá kell adni egyet a számhoz. Ezért úgy vehetjük, mintha lett volna. Ezzel a trükkel indul az 
+összeadás. Az induláskor, a <code>plusz-egy</code> állapotban a gép nem csinál semmit, csak 
+átugrik a <code>van-átv</code> állapotba. Vagyis a legalsó helyiértéket úgy dolgozza fel, mintha 
+lett volna átvitel az előző körből.</p>
+
+<div class="kozep">
+<iframe width="560" height="315" src="http://www.youtube.com/embed/E3keLeMwfHY" frameborder="0" allowfullscreen class="arnyek"></iframe>
+<p>Egy megkonstruált Turing-gép</p>
+</div>
+
+<p>A Turing-gépek igazából érdemi munkára alkalmatlanok, csak elvi jelentőségük van. A 
+programozásuk nagyon nehéz, nem igazán követi az emberi gondolkodást. A megírt programok pedig 
+lassúak, az idejük nagy részét azzal töltik, hogy ide-oda tekergetik a szalagot, és keresik a 
+különféle módon megjelölt cellákat. Az ehhez hasonlóan viselkedő, minimalista programozási 
+nyelveket „Turing tarpit”-nek szokták nevezni angolul.</p>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A Brainfuck nyelv">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    A Brainfuck nyelv<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<p>A BF nyelv igencsak érezhetően ezeket a gépeket utánozza. A BF gépnek is van egy 
+adatszalagja, amelyik mindenhol nullákat tartalmaz bekapcsoláskor, és jobbra-balra lehet lépni 
+rajta. Programkártya helyett azonban itt a program is egy szalagon van. Nem ugyanazon, mint az 
+adat, hanem egy másikon.</p>
+
+<p>A nyelv mindössze nyolc utasítást tartalmaz. A Turing géphez hasonlóan a BF esetén is a gép 
+műveletet végezni csak az aktuális szalagpozíció alatt található számmal tud. Ellentétben velük 
+viszont képes a felhasználójával kommunikálni: kérni tőle egy karaktert (aminek a beolvasott 
+kódját természetesen a szalag aktuális pozíciójára tárolja el), és kiírni egyet (az aktuális 
+szalagpozíción lévőt). Az utasításokat az alábbi táblázat foglalja össze.</p>
+
+<table>
+    <thead>
+        <tr><th>utasítás<th>feladat
+    </thead>
+    <tr>  <th>&gt;<td>Jobbra lép a szalagon 
+    <tr>  <th>&lt;<td>Balra lép a szalagon 
+    <tr>  <th>+<td>A mutatott bájt növelése eggyel 
+    <tr>  <th>-<td>A mutatott bájt csökkentése eggyel 
+    <tr>  <th>.<td>A mutatott karakter (bájt) kiírása a kimenetre 
+    <tr>  <th>,<td>Karakter beolvasása a bemenetről a mutatott bájtba 
+    <tr>  <th>[<td>Elöltesztelő ciklus kezdete 
+    <tr>  <th>]<td>Ciklus vége 
+    <tr>  <td>minden más<td>Komment 
+</table>
+
+<p>Az utasítások szekvenciálisan hajtódnak végre, azaz egy utasítás végrehajtása után a gép 
+ugrik a következőre. Kivétel a ciklusszervezésnél. A ciklusnak csak elöltesztelő változata van. 
+Ha a belépési feltétel teljesül (a mutatott bájt nem nulla), akkor a ciklusmag első utasításánál 
+folytatódik a végrehajtás. Ha nem, akkor pedig a bezáró zárójelpár utáni első utasításnál. A 
+ciklusokat szabad egymásba ágyazni, feltétel (elágazás) azonban nincs, hanem egyszer lefutó 
+ciklussal kell helyettesíteni.</p>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="BF nyelv – példák">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    BF nyelv – példák<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A nyelv működését legkönnyebben példákon keresztül lehet megérteni.</p>
+
+<h3>Echo</h3>
+
+<pre   ><code class="language-bf">12345678   ez a sor komment
+,+[-.,+]   ez a sor a program</code></pre>
+
+<p>Ez a program kiír mindent, amit a bemenetén megkap. A működése a következő. Beolvas egy 
+bájtot (1). Hozzáad a beolvasott bájthoz 1-et (2). Ha az így keletkezett érték nem nulla (vagyis 
+a beolvasott bájt nem -1 volt), akkor bemegy a ciklusba (3). A ciklusban csökkenti a bájtot, 
+vagyis visszakapja az eredeti értékét (4), amit utána kiír (5). Aztán megint beolvas és növel 
+egy karaktert a következő iteráció számára (6, 7), ugyanúgy, mint a ciklus előtt, és végül ugrik 
+a ciklus elejére (8&rarr;3). Vagyis a program addig másolja a kimenetre a bemenetét, amíg
+&minus;1-es kódú karaktert nem kap. (A BF interpretereknél az a szokás, hogy a fájl vége jel érzékelése 
+esetén a futó BF programnak &minus;1-et adunk a beolvasásra.)
+
+<h3>Nulla és más konstansok</h3>
+
+<pre   ><code class="language-bf">[-]</code></pre>
+
+<p>A ciklus addig fut, amíg az aktuális pozíción lévő bájt nem nulla. A ciklus
+törzse csökkenti azt, vagyis előbb-utóbb nulla lesz.</p>
+
+<pre   ><code class="language-bf">huszonhat (otszor ot meg egy)
++++++[&gt;+++++&lt;-]&gt;+</code></pre>
+
+<p>Ez a program az aktuális szalagpozíciótól eggyel jobbra lévő helyre a 26-os konstanst írja 
+(feltéve, hogy mindkettőn előzőleg nulla volt). Ehhez előbb az aktuális pozícióra az ötöt írja 
+(ötször növeli a nullát), utána bemegy egy ciklusba, ami ugrik jobbra, ötször növel, és 
+visszaugrik (vagyis az eggyel jobbra lévő bájtot változtatja). Végül az eredeti pozíción lévő 
+bájtot csökkenti és ismétel. Az ismétlés miatt a ciklus érdemi törzse <code>&gt;+++++&lt;</code> 
+ötször fut, azaz huszonötször növeli meg a jobb oldali bájtot. A ciklusból kilépés után pedig 
+még egyszer, így adódik ki a huszonhat.</p>
+
+<h3>Elágazás (feltétel)</h3>
+
+<pre   ><code class="language-bf">[valami[-]]</code></pre>
+
+<p>A külső ciklus belsejére (a „valami”) kommenttel jelzett helyre akkor kerül a végrehajtás, ha 
+a szalag aktuális pozíciójában nem nulla van. A ciklustörzs végén viszont nullázzuk azt a 
+pozíciót, és ezért maximum egyszer hajtódik végre az. Szóval ez egy elfajult ciklus, amely csak 
+egyszer futhat: egy elágazás.</p>
+
+<h3>Helló</h3>
+
+<pre   ><code class="language-bf">++++++++[&gt;++++++++&lt;-]&gt;++++++++.---.+++++++..+++.</code></pre>
+
+<p>Kiírja, hogy HELLO. Ehhez előállítja a 64-es konstanst (8×8), és utána azt a bájtot 
+növeli-csökkenti, hogy a megfelelő ASCII kód jöjjön ki.</p>
+
+
+<h3>Érték mozgatása két cellával arrébb</h3>
+
+<pre   ><code class="language-bf">KOD     PSZEUDOKOD
+&gt;&gt;      cella2re ugrik
+[-]     cella2t kinullazza
+&lt;&lt;      visszamegy cella0ra
+[       amig cella0 nem nulla
+  -       kivon egyet cella0bol
+  &gt;&gt;      atmegy cella2be
+  +       hozzaad egyet cella2hoz
+  &lt;&lt;      visszamegy cella0ra
+]       ciklus vege</code></pre>
+
+
+<h3>Sierpiński-háromszög</h3>
+
+<p>Az alábbi BF program egy Sierpiński-háromszöget rajzol csillagokból, ha 80 karakter széles 
+ablakban fut. A kimenete majdnem ugyanúgy néz ki, mint a forráskódja.</p>
+
+<p>Ennek érdekes az első sora. Mert ránézésre kommentnek tűnik, azonban tartalmaz utasításokat: 
+<code>[-.]</code>, amelyek közül az egyik ráadásul kiírás. De mivel ez fut legelőször, és ez az 
+egész sor egy ciklus, sosem hajtódik végre a belseje, mert induláskor a szalag minden pozícióján 
+0 van.</p>
+
+<pre   ><code class="language-bf">[ This program prints Sierpinski triangle on 80-column display. ]
+                                &gt;
+                               + +
+                              +   +
+                             [ &lt; + +
+                            +       +
+                           + +     + +
+                          &gt;   -   ]   &gt;
+                         + + + + + + + +
+                        [               &gt;
+                       + +             + +
+                      &lt;   -           ]   &gt;
+                     &gt; + + &gt;         &gt; &gt; + &gt;
+                    &gt;       &gt;       +       &lt;
+                   &lt; &lt;     &lt; &lt;     &lt; &lt;     &lt; &lt;
+                  &lt;   [   -   [   -   &gt;   +   &lt;
+                 ] &gt; [ - &lt; + &gt; &gt; &gt; . &lt; &lt; ] &gt; &gt; &gt;
+                [                               [
+               - &gt;                             + +
+              +   +                           +   +
+             + + [ &gt;                         + + + +
+            &lt;       -                       ]       &gt;
+           . &lt;     &lt; [                     - &gt;     + &lt;
+          ]   +   &gt;   [                   -   &gt;   +   +
+         + + + + + + + +                 &lt; &lt; + &gt; ] &gt; . [
+        -               ]               &gt;               ]
+       ] +             &lt; &lt;             &lt; [             - [
+      -   &gt;           +   &lt;           ]   +           &gt;   [
+     - &lt; + &gt;         &gt; &gt; - [         - &gt; + &lt;         ] + + &gt;
+    [       -       &lt;       -       &gt;       ]       &lt;       &lt;
+   &lt; ]     &lt; &lt;     &lt; &lt;     ] +     + +     + +     + +     + +
+  +   .   +   +   +   .   [   -   ]   &lt;   ]   +   +   +   +   +
+ * * * * * M a d e * B y : * N Y Y R I K K I * 2 0 0 2 * * * * *</code></pre>
+
+<p>Más nyelvekben meg kell küzdeni, hogy így kinéző kódokat
+írjon az ember – a BF azonban eleve ilyen. :)</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="408.63" width="846.28" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="118 48 459.76399 214.31169">
+ <metadata id="metadata172">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="g4" transform="translate(-1 -4.8442)">
+  <path id="rect6" fill="#7babe3" d="m280 100h60v60h-60z"/>
+  <path id="rect8" d="m280 100h60v60h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g10" transform="translate(-1 -4.8442)">
+  <path id="rect12" fill="#7babe3" d="m380 100h60v60h-60z"/>
+  <path id="rect14" d="m380 100h60v60h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g16" transform="translate(-1 -4.8442)">
+  <path id="path18" d="m340 160c40 0 0-30 30.264-30" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="polygon20" d="m370.26 130-2.5-5 10 5-10 5z"/>
+  <path id="polygon22" d="m370.26 130-2.5-5 10 5-10 5z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g24" transform="translate(-1 -4.8442)">
+  <path id="path26" d="m240 130h30.264" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="polygon28" d="m270.26 130-2.5-5 10 5-10 5z"/>
+  <path id="polygon30" d="m270.26 130-2.5-5 10 5-10 5z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g32" transform="translate(-1 -4.8442)">
+  <path id="rect34" fill="#7be38e" d="m380 200h60v60h-60z"/>
+  <path id="rect36" d="m380 200h60v60h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g38" transform="translate(-1 -4.8442)">
+  <path id="line40" d="m410 70v20.264" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="polygon42" d="m410 90.264 5-2.5-5 10-5-10z"/>
+  <path id="polygon44" d="m410 90.264 5-2.5-5 10-5-10z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="text46">
+  <path id="path3078" style="" d="m438.39 53.424c0.40568-0.72906 0.89075-1.267 1.4552-1.614 0.56444-0.34689 1.2288-0.52034 1.9932-0.52035 1.0289 0.00001 1.8227 0.36161 2.3812 1.0848 0.55855 0.71732 0.83783 1.7404 0.83785 3.0692v5.9619h-1.6316v-5.909c-0.00001-0.94661-0.16758-1.6492-0.5027-2.1078-0.33516-0.4586-0.84668-0.68791-1.5346-0.68792-0.84079 0.000008-1.5052 0.27929-1.9932 0.83785-0.48802 0.55857-0.73202 1.32-0.73201 2.2842v5.5827h-1.6316v-5.909c0-0.95249-0.16757-1.6551-0.5027-2.1078-0.33515-0.4586-0.85256-0.68791-1.5522-0.68792-0.82904 0.000008-1.4876 0.28223-1.9756 0.84666-0.48801 0.55857-0.73201 1.317-0.73201 2.2754v5.5827h-1.6316v-9.8778h1.6316v1.5346c0.37041-0.60559 0.81432-1.0524 1.3317-1.3406 0.51741-0.28809 1.1318-0.43214 1.8433-0.43215 0.7173 0.00001 1.3258 0.18228 1.8256 0.5468 0.50564 0.36455 0.87899 0.89371 1.1201 1.5875"/>
+  <path id="path3080" style="" d="m452.13 52.666c-0.87019 0.000009-1.5581 0.34103-2.0638 1.0231-0.50565 0.67616-0.75848 1.6051-0.75847 2.7869-0.00001 1.1818 0.24988 2.1137 0.74965 2.7958 0.50564 0.67616 1.1965 1.0142 2.0726 1.0142 0.86429 0.000001 1.5493-0.34102 2.0549-1.0231 0.50564-0.68203 0.75847-1.611 0.75847-2.7869 0-1.17-0.25283-2.0961-0.75847-2.7781-0.50565-0.68791-1.1906-1.0319-2.0549-1.0319m0-1.3758c1.4111 0.00001 2.5194 0.45862 3.3249 1.3758 0.8055 0.91723 1.2082 2.1872 1.2083 3.81-0.00001 1.6169-0.40276 2.8869-1.2083 3.81-0.80551 0.91722-1.9138 1.3758-3.3249 1.3758-1.417 0-2.5282-0.45861-3.3338-1.3758-0.79963-0.9231-1.1994-2.1931-1.1994-3.81 0-1.6228 0.39981-2.8928 1.1994-3.81 0.8055-0.91721 1.9168-1.3758 3.3338-1.3758"/>
+  <path id="path3082" style="" d="m458.64 51.528h7.7082v1.4817l-6.103 7.0996h6.103v1.2965h-7.9287v-1.4817l6.103-7.0996h-5.8826v-1.2965"/>
+  <path id="path3084" style="" d="m475.34 56.352c0-1.1759-0.24401-2.0873-0.73201-2.734-0.48213-0.64675-1.1612-0.97013-2.0373-0.97014-0.87019 0.000009-1.5493 0.32339-2.0373 0.97014-0.48213 0.64676-0.72319 1.5581-0.72319 2.734 0 1.17 0.24106 2.0784 0.72319 2.7252 0.48801 0.64676 1.1671 0.97014 2.0373 0.97014 0.87606 0.000001 1.5552-0.32338 2.0373-0.97014 0.488-0.64676 0.73201-1.5552 0.73201-2.7252m1.6228 3.8276c-0.00001 1.6816-0.37337 2.931-1.1201 3.7483-0.74672 0.82314-1.8903 1.2347-3.4308 1.2347-0.57033-0.000004-1.1083-0.0441-1.614-0.13229-0.50565-0.08232-0.9966-0.21167-1.4728-0.38806v-1.5787c0.47625 0.2587 0.94662 0.44979 1.4111 0.57326 0.46449 0.12347 0.9378 0.1852 1.4199 0.18521 1.0642-0.000003 1.8609-0.27928 2.3901-0.83785 0.52915-0.55268 0.79374-1.3905 0.79374-2.5135v-0.80257c-0.33514 0.58208-0.76435 1.0172-1.2876 1.3053-0.5233 0.2881-1.1495 0.43215-1.8785 0.43215-1.2112 0-2.1872-0.46155-2.928-1.3847-0.74084-0.9231-1.1112-2.1461-1.1112-3.6689 0-1.5287 0.37041-2.7546 1.1112-3.6777 0.74083-0.92309 1.7168-1.3846 2.928-1.3847 0.72907 0.00001 1.3552 0.14406 1.8785 0.43215 0.52328 0.28811 0.95249 0.7232 1.2876 1.3053v-1.4993h1.6228v8.6519"/>
+  <path id="path3086" style="" d="m484.13 52.666c-0.87019 0.000009-1.5581 0.34103-2.0638 1.0231-0.50565 0.67616-0.75847 1.6051-0.75847 2.7869s0.24988 2.1137 0.74965 2.7958c0.50565 0.67616 1.1965 1.0142 2.0726 1.0142 0.8643 0.000001 1.5493-0.34102 2.0549-1.0231 0.50564-0.68203 0.75846-1.611 0.75847-2.7869-0.00001-1.17-0.25283-2.0961-0.75847-2.7781-0.50566-0.68791-1.1906-1.0319-2.0549-1.0319m0-1.3758c1.4111 0.00001 2.5194 0.45862 3.3249 1.3758 0.80549 0.91723 1.2082 2.1872 1.2083 3.81-0.00001 1.6169-0.40277 2.8869-1.2083 3.81-0.80552 0.91722-1.9138 1.3758-3.3249 1.3758-1.417 0-2.5282-0.45861-3.3338-1.3758-0.79963-0.9231-1.1994-2.1931-1.1994-3.81 0-1.6228 0.39981-2.8928 1.1994-3.81 0.80551-0.91721 1.9168-1.3758 3.3338-1.3758"/>
+ </g>
+ <g id="g50" transform="translate(-1 -4.8442)">
+  <path id="path52" d="m440 160c40 25-101.01 16.745-68.795 40.904" stroke="#f62e2e" stroke-width="2" fill="none"/>
+  <path id="polygon54" fill="#f62e2e" d="m371.2 200.9 1-5.5 5 10-11-2z"/>
+  <path id="polygon56" d="m371.2 200.9 1-5.5 5 10-11-2z" stroke="#f62e2e" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g58" transform="translate(-1 -4.8442)">
+  <path id="rect60" fill="#7babe3" d="m480 100h60v60h-60z"/>
+  <path id="rect62" d="m480 100h60v60h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g64" transform="translate(-1 -4.8442)">
+  <path id="rect66" fill="#7be38e" d="m480 200h60v60h-60z"/>
+  <path id="rect68" d="m480 200h60v60h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g70" transform="translate(-1 -4.8442)">
+  <path id="rect72" fill="#fdfd04" d="m180 100h60v60h-60z"/>
+  <path id="rect74" d="m180 100h60v60h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g76" transform="translate(-1 -4.8442)">
+  <path id="rect78" fill="#fdfd04" d="m120 120h20v20h-20z"/>
+  <path id="rect80" d="m120 120h20v20h-20z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g82" transform="translate(-1 -4.8442)">
+  <path id="path84" d="m140 130h30.264" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="polygon86" d="m170.26 130-2.5-5 10 5-10 5z"/>
+  <path id="polygon88" d="m170.26 130-2.5-5 10 5-10 5z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g90" transform="translate(-1 -4.8442)">
+  <path id="rect92" fill="#fdfd04" d="m280 150h60v20h-60z"/>
+  <path id="rect94" d="m280 150h60v20h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g96" transform="translate(-1 -4.8442)">
+  <path id="rect98" fill="#fdfd04" d="m380 150h60v20h-60z"/>
+  <path id="rect100" d="m380 150h60v20h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g102" transform="translate(-1 -4.8442)">
+  <path id="rect104" fill="#fdfd04" d="m480 150h60v20h-60z"/>
+  <path id="rect106" d="m480 150h60v20h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g108" transform="translate(-1 -4.8442)">
+  <path id="rect110" fill="#fdfd04" d="m380 250h60v20h-60z"/>
+  <path id="rect112" d="m380 250h60v20h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g114" transform="translate(-1 -4.8442)">
+  <path id="rect116" fill="#fdfd04" d="m480 250h60v20h-60z"/>
+  <path id="rect118" d="m480 250h60v20h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g120" transform="translate(-1 -4.8442)">
+  <path id="path122" d="m440 160c40 0 0-30 30.264-30" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="polygon124" d="m470.26 130-2.5-5 10 5-10 5z"/>
+  <path id="polygon126" d="m470.26 130-2.5-5 10 5-10 5z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <path id="line128" d="m449 115.16 20 20" stroke="#f62e2e" stroke-width="2" fill="none"/>
+ <path id="line130" d="m449 135.16 20-20" stroke="#f62e2e" stroke-width="2" fill="none"/>
+ <g id="g132" transform="translate(-1 -4.8442)">
+  <path id="path134" d="m540 160c40 0 0-29 30.264-29" stroke="#000" stroke-width="2" fill="none"/>
+  <path id="polygon136" d="m570.26 131-2.5-5 10 5-10 5z"/>
+  <path id="polygon138" d="m570.26 131-2.5-5 10 5-10 5z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g140" transform="translate(-1 -4.8442)">
+  <path id="path142" d="m540 260c80-95-110.99-65.21-68.6-99.12" stroke="#f62e2e" stroke-width="2" fill="none"/>
+  <path id="polygon144" fill="#f62e2e" d="m471.4 160.88-5.076-2.343 10.933-2.342-4.686 10.151z"/>
+  <path id="polygon146" d="m471.4 160.88-5.076-2.343 10.933-2.342-4.686 10.151z" stroke="#f62e2e" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g148" transform="translate(-1 -4.8442)">
+  <path id="path150" d="m440 260c40 0 0-30 30.264-30" stroke="#f62e2e" stroke-width="2" fill="none"/>
+  <path id="polygon152" fill="#f62e2e" d="m470.26 230-2.5-5 10 5-10 5z"/>
+  <path id="polygon154" d="m470.26 230-2.5-5 10 5-10 5z" stroke="#f62e2e" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g156" transform="translate(-1 -4.8442)">
+  <path id="rect158" fill="#fdfd04" d="m180 150h60v20h-60z"/>
+  <path id="rect160" d="m180 150h60v20h-60z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+ <g id="g162" transform="translate(-1 -4.8442)">
+  <path id="rect164" fill="#fdfd04" d="m400 50h20v20h-20z"/>
+  <path id="rect166" d="m400 50h20v20h-20z" stroke="#000" stroke-width="2" fill="none"/>
+ </g>
+</svg>

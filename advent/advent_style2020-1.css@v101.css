@@ -1,0 +1,71 @@
+div#advent {
+    position: relative;
+    width: 800px;
+    height: 427px;
+    background: url(advent_hatter.jpg);
+    box-shadow: 0 0 0.75em rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+}
+
+div#advent a {
+    border: none;
+    position: absolute;
+    cursor: default;
+    display: block;
+    width: 50px;
+    height: 70px;
+    background: url(advent_cipo_ures.png);
+}
+
+div#advent a[data-number="1"] { top: 2%; left: 11%; }
+div#advent a[data-number="2"] { top: 6%; left: 17%; }
+div#advent a[data-number="3"] { top: 9%; left: 23%; }
+div#advent a[data-number="4"] { top: 12%; left: 30%; }
+div#advent a[data-number="5"] { top: 14%; left: 37%; }
+div#advent a[data-number="6"] { top: 15%; left: 44%; }
+div#advent a[data-number="7"] { top: 16%; left: 51%; }
+div#advent a[data-number="8"] { top: 15%; left: 57%; }
+div#advent a[data-number="9"] { top: 15%; left: 63%; }
+div#advent a[data-number="10"] { top: 14%; left: 69%; }
+div#advent a[data-number="11"] { top: 13%; left: 74%; }
+div#advent a[data-number="12"] { top: 11%; left: 81%; }
+div#advent a[data-number="13"] { top: 39%; left: 14%; }
+div#advent a[data-number="14"] { top: 42%; left: 20%; }
+div#advent a[data-number="15"] { top: 44%; left: 26%; }
+div#advent a[data-number="16"] { top: 45%; left: 32%; }
+div#advent a[data-number="17"] { top: 45%; left: 38%; }
+div#advent a[data-number="18"] { top: 45%; left: 44%; }
+div#advent a[data-number="19"] { top: 45%; left: 50%; }
+div#advent a[data-number="20"] { top: 44%; left: 56%; }
+div#advent a[data-number="21"] { top: 44%; left: 61%; }
+div#advent a[data-number="22"] { top: 42%; left: 67%; }
+div#advent a[data-number="23"] { top: 40%; left: 73%; }
+div#advent a[data-number="24"] { top: 38%; left: 79%; }
+
+div#advent a.day {
+    cursor: pointer;
+    background: url(advent_cipo_full.png);
+}
+div#advent a.day:hover {
+    background: url(advent_cipo_hover.png);
+}
+div#advent a:after {
+    content: attr(data-number);
+    font-family: inherit;
+    display: block;
+    position: absolute;
+    width: 100%;;
+    height: 100%;
+    line-height: 70px;
+    margin-left: -5px;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    color: white;
+}
+div#advent a:hover {
+    text-decoration: none;
+}
+div#advent a:focus { outline: none; }

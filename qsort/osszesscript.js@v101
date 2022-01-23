@@ -1,0 +1,53 @@
+"use strict";infoc.onloads.push(function(){rendezqsort("qsorttomb");szetvalogat("szetvalogat")});function rendezqsort(idprefix){var div=$(idprefix);var caption=$(idprefix+"capt");var buttonstart=$(idprefix+'start');var buttonkovetkezo=$(idprefix+'kovetkezo');var buttonfolyamatos=$(idprefix+'folyamatos');var tomb=[];var tav=2+0.5;var elemszam=9;var magas=2;var anim=500;var rendezesek=[];function setcaption(capt){if(caption==null)
+return;caption.innerHTML=capt}
+function csereij(x,y){var objx=tomb[x],objy=tomb[y];for(var i=0;i<tomb.length;i++)
+tomb[i].style.zIndex="";objx.style.zIndex=objy.style.zIndex=1;var xleft=objx.style.left,yleft=objy.style.left;objx.style.left=yleft;objx.style.top="2em";objy.style.left=xleft;objy.style.top="-2em";setTimeout(function(){objx.style.top="0em";objy.style.top="0em"},250);tomb[x]=objy;tomb[y]=objx}
+function start(){for(var x=0;x<tomb.length;x++)
+tomb[x].parentNode.removeChild(tomb[x]);var rendezetlen=[];for(var i=0;i<elemszam;i++)
+rendezetlen[i]=i+1;for(var i=rendezetlen.length-1;i>0;i--){var j=parseInt(Math.random()*i);var x=rendezetlen[i];rendezetlen[i]=rendezetlen[j];rendezetlen[j]=x}
+tomb.length=0;for(var j=0;j<elemszam;j++){var ujszam=document.createElement("div");ujszam.innerHTML=rendezetlen[j];ujszam.style.left=(j*tav)+"em";ujszam.style.top="0em";div.appendChild(ujszam);tomb[j]=ujszam}
+setcaption("új tömb");rendezesek.length=0}
+function gyorsrendezbelsoobj(bal,jobb){var state=0;var pivotvalue;function intkent(melyik){return parseInt(tomb[melyik].innerHTML)}
+function pivotkivalaszt(){pivotvalue=intkent(bal);tomb[bal].className="pivot";setcaption("vezérelem kiválasztása…");state++}
+function jelol(){for(var i=bal;i<=jobb;i++)
+if(intkent(i)<pivotvalue)
+tomb[i].className="kek";else if(intkent(i)>pivotvalue)
+tomb[i].className="piros";setcaption("vezérelemnél kisebbek és nagyobbak: kékek és pirosak");state++}
+function szetvalogat(){var b=bal,j=jobb;while(b<j){while(b<j&&tomb[b].className=="kek")b++;while(b<j&&tomb[j].className=="piros")j--;if(b<j)
+csereij(b,j)}
+setcaption("szétválogatás: kékek a vezérelem elé, pirosak mögé");state++}
+function ujraszinez(){var utolsokek=bal;while(utolsokek+1<=jobb&&tomb[utolsokek+1].className=="kek")
+utolsokek++;var elsopiros=jobb;while(elsopiros-1>=bal&&tomb[elsopiros-1].className=="piros")
+elsopiros--;for(var i=bal;i<=jobb;i++)
+tomb[i].className="kesz";if(jobb-bal>1){if(bal<utolsokek)
+rendezesek.push(new gyorsrendezbelsoobj(bal,utolsokek));if(elsopiros<jobb)
+rendezesek.push(new gyorsrendezbelsoobj(elsopiros,jobb))}
+setcaption("a vezérelem jó helyen van!");state++}
+function kovetkezolepes(){switch(state){case 0:pivotkivalaszt();break;case 1:jelol();break;case 2:szetvalogat();break;case 3:ujraszinez();break;default:return!0}
+return!1}
+this.kovetkezolepes=kovetkezolepes;this.setcaption=setcaption;for(var i=bal;i<=jobb;i++)
+tomb[i].className=""}
+function kovetkezo(){if(rendezesek.length==0)
+rendezesek.push(new gyorsrendezbelsoobj(0,tomb.length-1));var hossz=rendezesek.length;var vanmeg=!1;for(var i=0;i<hossz;i++)
+if(rendezesek[i].kovetkezolepes()==!1)
+vanmeg=!0;if(!vanmeg)
+setcaption("kész!");return vanmeg}
+function folyamatos(){if(kovetkezo())
+setTimeout(folyamatos,anim)}
+setcaption("&nbsp;");div.style.height=(magas)+'em';div.style.width=(elemszam*tav-0.5)+'em';start();if(buttonstart)
+addEvent(buttonstart,'click',start);if(buttonkovetkezo)
+addEvent(buttonkovetkezo,'click',kovetkezo);if(buttonfolyamatos)
+addEvent(buttonfolyamatos,'click',folyamatos)};function szetvalogat(idprefix){var div=$(idprefix);var caption=$(idprefix+"capt");var buttonstart=$(idprefix+'start');var buttonkovetkezo=$(idprefix+'kovetkezo');var tomb=[];var tav=2+0.5;var elemszam=9;var magas=2;var bal,jobb,forgat;function setcaption(capt){if(caption==null)
+return;caption.innerHTML=capt}
+function csereij(x,y){var objx=tomb[x],objy=tomb[y];for(var i=0;i<tomb.length;i++)
+tomb[i].style.zIndex="";objx.style.zIndex=objy.style.zIndex=1;var xleft=objx.style.left,yleft=objy.style.left;objx.style.left=yleft;objx.style.top="2em";objy.style.left=xleft;objy.style.top="-2em";setTimeout(function(){objx.style.top="0em";objy.style.top="0em"},250);tomb[x]=objy;tomb[y]=objx}
+function start(){for(var x=0;x<tomb.length;x++)
+tomb[x].parentNode.removeChild(tomb[x]);var rendezetlen=[];for(var i=0;i<elemszam;i++)
+rendezetlen[i]=i>elemszam/2?1:0;for(var i=rendezetlen.length-1;i>0;i--){var j=parseInt(Math.random()*i);var x=rendezetlen[i];rendezetlen[i]=rendezetlen[j];rendezetlen[j]=x}
+tomb=[];for(var j=0;j<elemszam;j++){var ujszam=document.createElement("div");ujszam.className=rendezetlen[j]?"piros":"kek";ujszam.innerHTML=rendezetlen[j];ujszam.style.left=(j*tav)+"em";ujszam.style.top="0em";div.appendChild(ujszam);tomb[j]=ujszam}
+setcaption("új tömb");bal=0;jobb=tomb.length-1;forgat=!1}
+function kovetkezo(){if(bal<jobb){if(forgat){csereij(bal,jobb);forgat=!1;setcaption("cserélve!")}else{for(var i=0;i<tomb.length;i++)
+tomb[i].className=tomb[i].className.replace("jelolt","");while(bal<jobb&&tomb[bal].innerHTML=="0")bal++;while(bal<jobb&&tomb[jobb].innerHTML!="0")jobb--;if(bal<jobb){tomb[bal].className+=" jelolt";tomb[jobb].className+=" jelolt";forgat=!0;setcaption("rossz helyen…")}else{setcaption("kész!")}}}}
+div.style.height=(magas)+'em';div.style.width=(elemszam*tav-0.5)+'em';setcaption("&nbsp;");start();if(buttonstart)
+addEvent(buttonstart,'click',start);if(buttonkovetkezo)
+addEvent(buttonkovetkezo,'click',kovetkezo)}

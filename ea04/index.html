@@ -1,0 +1,2640 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Pointerek, sztringek</title>
+<meta property="og:title" content="TEST InfoC :: Pointerek, sztringek">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="A pointerek (mutatók) fogalma, használata. Cím szerinti paraméterátadás. Mutatók és tömbök kapcsolata, címaritmetika. Sztringek.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="A pointerek (mutatók) fogalma, használata. Cím szerinti paraméterátadás. Mutatók és tömbök kapcsolata, címaritmetika. Sztringek.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Pointerek, sztringek">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Pointerek, sztringek</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Pohl László, Kohári Zsolt, Nagy Gergely · <i class="ido"></i> 2020.08.24.</p>
+<p class="kivonat">A pointerek (mutatók) fogalma, használata. Cím szerinti paraméterátadás. Mutatók és tömbök kapcsolata, címaritmetika. Sztringek.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="fontos">Mutatók (pointerek)</a>
+              <li><a href="index.html#2" class="">Keresés és a hely megjelölése</a>
+              <li><a href="index.html#3" class="">Az indirekció</a>
+              <li><a href="index.html#4" class="">A mutatók és operátoraik</a>
+              <li><a href="index.html#5" class="">Mutatók – a háttérben</a>
+              <li><a href="index.html#6" class="">Cím szerinti paraméterátadás</a>
+              <li><a href="index.html#7" class="">Címaritmetika (pointer arithmetic)</a>
+              <li><a href="index.html#8" class="">Címaritmetika – az indexelés működése</a>
+              <li><a href="index.html#9" class="">Tömböt átvevő függvények</a>
+              <li><a href="index.html#10" class="">A keresés és a NULL pointerek</a>
+              <li><a href="index.html#11" class="">Pointerek: így már minden érthető</a>
+              <li><a href="index.html#12" class="fontos">&quot;Sztringek&quot;</a>
+              <li><a href="index.html#13" class="">A sztringek létrehozása</a>
+              <li><a href="index.html#14" class="">A sztringek manipulációja</a>
+              <li><a href="index.html#15" class="">A sztringek átadása függvénynek</a>
+              <li><a href="index.html#16" class="">Sztring másolása</a>
+              <li><a href="index.html#17" class="">Beépített sztringkezelő függvények</a>
+              <li><a href="index.html#18" class="">Nagy példa: Gipsz Jakab</a>
+              <li><a href="index.html#19" class="">Gipsz Jakab: karakterenként</a>
+              <li><a href="index.html#20" class="">Gipsz Jakab: beépített függvényekkel</a>
+              <li><a href="index.html#21" class="">Gipsz Jakab: scanf–printf trükk</a>
+              <li><a href="index.html#22" class="fontos">Szótárprogram</a>
+              <li><a href="index.html#23" class="">A feladat</a>
+              <li><a href="index.html#24" class="">Új szó felvétele a szótárba: a probléma</a>
+              <li><a href="index.html#25" class="">Pointerek struktúrákra: a nyíl operátor</a>
+              <li><a href="index.html#26" class="">Új szó felvétele: a függvény</a>
+              <li><a href="index.html#27" class="">Fájlkezelés: az alapok</a>
+              <li><a href="index.html#28" class="">A szótár fájlba írása: döcögősen</a>
+              <li><a href="index.html#29" class="">A jól megválasztott elválasztó</a>
+              <li><a href="index.html#30" class="">Minden kifejezés külön sorban</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mutatók (pointerek)">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="eapointer" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Mutatók (pointerek)</h1>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Keresés és a hely megjelölése">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Keresés és a hely megjelölése<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p><em>Feladat:</em> írjunk függvényt, amely egy számot megkeres egy tömbben!</p>
+
+<div class="csakdoksi">
+
+<p>Gondoljuk át előbb, mit jelent ez a tömören megfogalmazott feladat!
+A függvénynek nyilvánvalóan paramétere lesz a vizsgálandó tömb
+és a keresett szám, visszatérési értéke pedig a megtalált elem <em>indexe</em>.
+A megtalált tömbelem <em>indexét</em>, azaz a találat helyét kell visszaadnunk,
+különben értelmetlen lenne a megoldásunk. A „keressük meg a 3.14-et” feladatra a helyes
+válasz az, hogy „a 94. helyen van”, nem pedig az, hogy „3.14”. Ezért
+a visszatérési értékünk egy <code>int</code> lesz.</p>
+
+<p>Fel kell készülnünk arra az eshetőségre, hogy a keresett szám nincsen benn
+a tömbben. A függvénynek ilyenkor is vissza kell térnie valamivel. Valahogyan
+a hívó tudtára kell adnunk azt, hogy nincs találat. Erre egyik lehetőség
+az, ha valamilyen speciális értéket használunk, ami nem lehetne semelyik tömbelem
+indexe sem. Például a <code>-1</code>.</p>
+
+<p>A függvénynek át kell adnunk paraméterként a tömböt. Ilyesmivel eddig nem
+találkoztunk. Ezt a <code>double tomb[], int meret</code> paraméterekkel tudjuk
+megtenni. Hogy pontosan mit jelent ez a fejléc, arról lentebb lesz szó –
+egyelőre fogadjuk el, hogy így kell írni ezt C-ben.</p>
+
+<p>Ha ezt is tudjuk, a függvényt már könnyen megírhatjuk:</p>
+</div>
+<div class="sticky">++n &cong; n+=1</div>
+
+<pre class="eloadassorsurit115"  ><code class="language-c">int hol_van(double tomb[], int meret, double keresett) {
+    for (int idx = 0; idx &lt; meret; ++idx)
+        if (tomb[idx] == keresett)
+            return idx;
+    return -1;
+}</code></pre>
+
+<p class="csakdoksi">Lássuk, hogyan kell használni!</p>
+
+<pre class="eloadassorsurit115"  ><code class="language-c">int main(void) {
+    double szamok[5] = { 4.5, 9.2, 7.1, -6.9, 8 };
+
+    int idx = hol_van(szamok, 5, -6.9);
+    if (idx != -1) {
+        printf(&quot;%d. elem, értéke: %f&quot;, idx, szamok[idx]);
+        szamok[idx] *= -1;
+    } else {
+        printf(&quot;Nincs benne ilyen.&quot;);
+    }
+}</code></pre>
+
+<div class="csakdoksi">
+
+<p>A függvénynek tehát megmutatjuk a tömböt, és közöljük vele a tömb méretét is,
+továbbá a keresett számot. A hívás eredménye pedig a megtalált elem indexe,
+vagy <code>-1</code>.</p>
+
+<p>Az indexet magát is ki tudjuk írni: <code>idx</code>, de ha kell, a tömb
+elemére is hivatkozhatunk vele: <code>szamok[idx]</code>. A visszakapott
+számmal indexelve a tömböt, látjuk a megtalált tömbelemet magát. Ha olyan a
+további feladatunk, a megtalált elemet akár módosíthatjuk is, pl. az ellentettjére:
+<code>szamok[idx] *= -1</code>, vagy kicserélhetjük egy másik értékre: <code>szamok[idx] = 10.2</code>.</p>
+
+</div>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az indirekció">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Az indirekció<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Látjuk, hogy a <em>tömb és az index együtt</em> megjelölnek egy <code>double</code> típusú változót
+a memóriában. A <code>szamok[idx]</code> kifejezésben a <code>szamok</code> mondja meg, melyik
+tömbről van szó, és a <code>idx</code> pedig azt, hogy annak hányadik eleméről.
+Az index önmagában kevés (melyik tömbről van szó?), a tömb megjelölése is kevés (annak hányadik eleméről van szó?)
+ahhoz, hogy egy konkrét elemet hivatkozzunk. Mindkettőre szükség van.</p>
+
+<img src="tomb_es_index.svg" style="height: 7em;" class="kozep" alt="tömb és index: konkrét tömbelem">
+<p class="kozep">tömb és index &rarr; hely</p>
+
+<p class="csakdoksi">
+Fölmerülhet a kérdés, van-e esetleg olyan eszközünk, amely <em>önmagában</em> képes lenne egy
+bizonyos tömbelem meghivatkozására. Ha lenne egy ilyen eszközünk, akkor megoldhatnánk az előző keresős feladatot úgy is,
+hogy a kereső függvény egy hivatkozással tér vissza: hivatkozással a megtalált <code>double</code> típusú tömbelemre.
+</p>
+
+<p class="csakdoksi">Ezt a gondolatmenetet általánosítani is tudjuk: egy olyan eszközt szeretnénk, amellyel tetszőleges
+<em>változót megjelölhetünk, hivatkozhatunk,</em> legyen az akár egy tömb valahányadik eleme, vagy egy önálló változó.</p>
+
+<br class="smallskip">
+
+<img src="tomb_es_index_es_ptr.svg" style="height: 7em;" class="kozep" alt="tömb és index: konkrét tömbelem">
+<p class="kozep">mágikus valami &rarr; hely</p>
+
+<p class="csakdoksi">Mint az mindjárt kiderül, C-ben van ilyen. <code>scanf("%lf", &amp;x);</code> – ismerős ez az első óráról?
+Itt pontosan ez történik; egy <code>double</code> típusú változót jelölünk meg a <code>scanf</code> számára, hogy oda
+írja a beolvasott számot.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A mutatók és operátoraik">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    A mutatók és operátoraik<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Lássuk, mi is ez a típus!</p>
+
+<p class="csakdoksi">Egy memóriahelyet hivatkozó típus neve: <em>mutató (pointer)</em>. A mutatókat <code>*</code> operátorral
+jelöljük – lásd a <code>p</code> változó definícióját lentebb. A <code>double*</code> típusú mutató arra képes, hogy hivatkozzon
+egy <code>double</code> típusú változóra a memóriában. A mutatón keresztül közvetetten a mutatott változót is elérhetjük; ez az ún.
+<em>indirekció</em>.</p>
+
+<pre   ><code class="language-cbub">double neg[5] = { -4.5, -9.2, -7.1, -6.9, -8 };
+double poz[5] = { 9.3, 78, 7, 0.01, 4.6 };
+
+double *p;  // pointer típusú változó
+
+p = &amp;neg[1];
+printf(&quot;%f\n&quot;, *p);  // -9.2
+
+p = &amp;poz[3];
+*p = 5.7;            // a poz[3]-at módosítja
+
+scanf(&quot;%lf&quot;, &amp;poz[2]);</code></pre>
+
+<div class="csakdoksi">
+
+<p>A cím előállítása a <em>címképző</em> <code>&amp;</code> (address of) operátorral történik. A fenti kód egyik sorában a
+<code>neg[1]</code>, másik sorában pedig a <code>poz[3]</code> tömbelem címét képezzük az operátorral. A legalsó
+sorban pedig a <code>poz[2]</code> elem címét, és ezt a <code>scanf()</code> kapja paraméterként.</p>
+
+<p>A pointer által hivatkozott változót az <em>indirekció</em> <code>*</code> (indirection) operátorral érjük el: <code>*p</code>.
+Ez ilyenkor teljesen ugyanúgy viselkedik, mintha az eredeti változóról beszélnénk; az indirekció feloldása után írhatjuk,
+olvashatjuk azt a változót, amelyre a mutató hivatkozik.</p>
+
+</div>
+
+<div class="csakeloadas">
+<ul>
+    <li><code>double *p;</code> – mutató (pointer) típusú változó</li>
+    <li><code>&amp;x</code> – címképző operátor</li>
+    <li><code>*p</code> – indirekció, dereferálás</li>
+</ul>
+</div>
+
+<div class="csakdoksi">
+<h3>Elnevezések, műveletek</h3>
+<ul>
+    <li><code>double *p;</code> – mutató (pointer) típusú változó definíciója, ami egy <code>double</code> típusú adatra mutat (rövidebben egy <code>double*</code> típusú, <code>p</code> nevű változó)</li>
+    <li><code>p = &amp;x;</code> – címképző operátor használata, és a kapott cím bemásolása <code>p</code>-be</li>
+    <li><code>*p = 3.4;</code> – indirekció, dereferálás, a <code>p</code> által mutatott változó kezelése</li>
+</ul>
+</div>
+
+<p class="csakdoksi">A pointerekre a Prog1-ben a legtöbbször angol nevükön fogunk hivatkozni.</p>
+
+
+
+<div class="csakdoksi csik">
+
+<h3>A * deklarációkban és kifejezésekben</h3>
+
+<p>Néhány megjegyzés a <code>*</code> operátor használatával kapcsolatban – ezek olyan „apró betűs” dolgok, amikre érdemes
+külön felhívni a figyelmet.</p>
+
+<p>Először is: a <code>*</code> operátor kétféle helyen is állhat, deklarációban és kifejezében.</p>
+
+<pre   ><code class="language-cbub">void novel(double *sz) {    // deklaráció
+    *sz += 10;    // kifejezés
+}</code></pre>
+
+<pre   ><code class="language-cbub">int *p = ...;               // deklaráció
+printf(&quot;%d&quot;, *p); // kifejezés</code></pre>
+
+<ul>
+    <li>Deklarációban <code>típus *p</code>: pointer típusú változó és paraméter.</li>
+    <li>Kifejezésben <code>*p</code>: dereferálás, elérjük a mutatott adatot.</li>
+</ul>
+
+<p>Vegyük észre, hogy mindkét esetben a kódban a <code>*p</code> vagy <code>*sz</code> karaktersorozatot látjuk.
+Csak míg az egyik helyen épp deklarálunk vagy definiálunk valamit (egy változót, egy függvényparamétert), a másik helyen
+már egy meglévő pointert használunk.</p>
+
+<p>Másodszor: egy sorban több változót létrehozhatunk, amik akár lehetnek vegyesen számok, pointerek és tömbök:</p>
+
+<pre   ><code class="language-c">int tomb[5], *p1, *p2, tav;</code></pre>
+
+<p>Ebben a sorban négy változó jön létre egyszerre (<code>tomb</code>, <code>p1</code>, <code>p2</code>, <code>tav</code>),
+amelyeknek mind valahogyan <code>int</code>-ekhez van közük. Nevezetesen: megfelelő módon használva a változókat, mindegyik által
+egész számokhoz juthatunk. Hogy hogyan jutunk el az <code>int</code>-ekhez, azt pedig a változók neve mellett használt operátorok
+adják meg. A négy változó definícióját megadó sor magyar nyelvű olvasata tehát az alábbi:</p>
+
+<ul>
+    <li><code>int</code> – változókat hozunk létre, amelyek <code>int</code>-ekkel kapcsolatosak.
+    <li><code>tomb[5]</code> – az első a <code>tomb</code> nevű változó, amelyen az indexelő <code>[]</code>
+        operátor használható (tehát ez egy tömb), és azt használva kapunk <code>int</code>-eket. Tehát <code>tomb</code> típusa
+        <code>int[5]</code>, azaz <code>int</code>-ek 5 elemű tömbje.
+    <li><code>,</code> – ezen kívül...
+    <li><code>*p1</code> – szeretnénk létrehozni egy <code>p1</code> nevű változót is, amelyen a dereferálás <code>*</code>
+        operátorát használva jutunk egy <code>int</code>-hez. Így <code>p1</code> típusa <code>int*</code>,
+        azaz <code>int</code>-re mutató pointer.
+    <li><code>,</code> – ezen kívül...
+    <li><code>*p2</code> ugyanígy.
+    <li><code>,</code> – ezen kívül...
+    <li><code>tav</code> – kérünk még egy <code>tav</code> nevű változót is, amin semmiféle operátort nem kell használni,
+        hogy <code>int</code> legyen, tehát önmaga egy <code>int</code>.
+    <li><code>;</code> – és most ennyi.
+</ul>
+
+<p>Az elv lényege az, hogy C-ben <em>a változók típusát a használat módja alapján kell megnevezni.</em> A deklarációban megadjuk
+azt, hogy a változón milyen operátorokat használva jutunk el a megadott típushoz. Szokás néha pointerek esetén a <code>*</code>-ot a
+típus neve mellé tenni deklarációban (definícióban):</p>
+<pre   ><code class="language-c">int* p1;
+int* p2 = &amp;x;</code></pre>
+<p>Azonban ezt csak akkor érdemes így használni, ha soronként csak egy változót hozunk létre. A <code>*</code> így is csak az őt követő
+változóra érvényes. Tehát a következő sorban nem két pointert, hanem egy <code>p</code> nevű pointert és egy <code>i</code> nevű
+egész számot hozunk létre, és ez nagyon-nagyon félrevezető:</p>
+<pre   ><code class="language-c">int* p, i;</code></pre>
+<p>A gép nem foglalkozik vele, hova tettük a szóközt, számára az <code>int* p, i;</code> és az <code>int *p, i;</code> teljesen
+egyenértékű. A típus neve mellé tett <code>*</code>-gal gyakrabban találkozunk függvények paraméterezésekor, ahol minden
+paraméternek külön meg kell adni a típusát, és a visszatérési érték is egyetlen típus. Az alábbi függvény három pointert
+kap paraméterként, és pointerrel tér vissza:</p>
+<pre   ><code class="language-c">char* fgv(double* x, int* a, char* c);</code></pre>
+
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mutatók – a háttérben">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Mutatók – a háttérben<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+
+<p>Nézzünk meg részletesen az új nyelvi elem működését! Miért hívjuk címeknek is a pointer típusú változókban tárolt
+értékeket?</p>
+
+<img src="cimutca.svg" class="float" style="width: 26em;">
+
+<p>A számítógép memóriájának rekeszei, bájtjai meg vannak számozva. A processzor, amikor szeretne egy változóban tárolt értéket
+kiolvasni, vagy szeretné módosítani azt, akkor a változó helyét jelző <em>memóriacím</em> (memory address) segítségével hivatkozza
+meg. Innen tudja a memória, hogy melyik tárolt bájtot kell előszednie, vagy hogy hova tegye a megjegyzendő adatot.</p>
+
+<p>Amikor pointereket használunk a programunkban, tulajdonképp ezekkel a címekkel dolgozunk. A pointer belső ábrázolása egyszerűen
+a memóriacím. Az <code>&amp;x</code> (address of x) kifejezéssel tudhatjuk meg egy változó memóriabeli helyét: azt a címet kapjuk
+meg ezáltal, ahova a fordító a memóriában elhelyezte az <code>x</code> változót. Ez hasonló értelmű, mint a hétköznapi értelemben
+vett postai cím. Ez mutatja a postásnak, hogy <em>hol</em> van az a hely, ahova a levelet vinnie kell.</p>
+
+<p>A memóriacím akár eltárolható egy változóban is, aminek természetesen <em>mutató (pointer)</em> típusúnak kell lennie. Az előző
+példához hasonlóan, a következő kódrészletben is ilyen van. A <code>ptr</code> nevű változó, amely <code>double*</code> típusú
+mutató lévén, pont ilyet tud tárolni, azt, hogy mi a címe a program valamelyik <code>double</code> típusú változójának.</p>
+
+<div class="columns c6040">
+<div>
+<pre   ><code class="language-cbub">double x;
+double *ptr;
+
+ptr = &amp;x;    // cím képzése
+
+*ptr = 3.14; // a mutatott változó</code></pre>
+</div>
+
+<div>
+<img class="kozep" src="indirekcio.svg" style="width: 12em;" alt="Az indirekció működése">
+</div>
+</div>
+
+<p>Az utolsó sor <code>*ptr</code> kifejezése a <code>ptr</code> által mutatott változót adja. A kifejezés kiértékelése során a
+<code>ptr</code> nevű változóból kiolvasódik a memóriacím, utána pedig az így kapott memóriacím által hivatkozott helyen tárolt
+változóval dolgozunk tovább, mintha csak az eredeti nevén neveztük volna. Mivel a <code>ptr</code> a fenti példában az
+<code>x</code> változóra mutat a <code>ptr = &amp;x</code> értékadás miatt (lásd a rajzot), <code>*ptr</code>-t írva tulajdonképp
+az <code>x</code>-ről beszélünk. A címet gyakran hivatkozásnak, referenciának (reference) is szokás nevezni. Ezért mondják a
+<code>*</code> operátorra, hogy dereferál (dereference); általa már a mutatott változót látjuk.</p>
+
+<p>Figyeljük meg, hogy a <code>*</code> karaktert a fenti kódban két helyen is használjuk. Egyrészt deklaratív helyen, vagyis egy
+változó típusának megadásakor, másrészt kifejezésben. Deklaratív helyen, azaz a <code>double *ptr</code> sorban a <code>*</code>
+azt jelenti, hogy a nevezett <code>ptr</code> változó egy pointer lesz. Kifejezésben pedig, a <code>*ptr = 3.14</code> jelentése
+az, hogy a címet tartalmazó <code>ptr</code> változót dereferáljuk, és az általa mutatott memóriahellyel dolgozunk, oda írjuk be a
+számot. A két jelentés persze nincs távol egymástól: az előbbinél megmondjuk, hogy hogyan fogjuk használni <code>ptr</code>-t, az
+utóbbi pedig a konkrét használata.</p>
+
+<p>Egy értékadásnál és egy inicializálásnál viszont ez elég nagy különbséget jelent. A fenti <code>*ptr = 3.14;</code> sorban a
+pointer által mutatott helyen tárolt <code>double</code> változó kap új értéket; ott a <code>*</code> a meglévő pointer
+dereferálását jelenti. Ha lenne egy <code>double *ptr = &amp;x;</code> sorunk, abban a létrejövő pointert inicializálnánk úgy, hogy
+az <code>x</code> változóra mutasson. Tehát a <code>*</code> a létrejött változó típusát adja meg ebben az esetben, és a létrejövő
+pointer kap értéket. Megtévesztő lehet, mert mindkét sorban szerepel a <code>*ptr =</code> karaktersorozat... Ezt meg kell szokni.
+Az elején sokat segít, ha külön sorba írjuk a pointer létrehozását és a változóra mutatást, ahogy a fenti példában is szerepel.</p>
+
+<p class="megjegyzes">Az említett két operátor, a <code>*</code> dereferáló és az <code>&amp;</code> címképző operátor
+precedenciája viszonylag magas. A jobb oldalon álló (indexelő <code>[]</code>, függvényhívó <code>()</code> stb.) operátorokénál
+alacsonyabb, azonban minden kétoperandusú aritmetikai műveletnél (pl. <code>+</code>, <code>-</code> stb.) magasabb.</p>
+
+<p class="megjegyzes">A precedencia fogalmáról egy <a href="../ea06/index.html#eaoperatorok">másik előadásban</a> van szó. 
+Lényegében azt adja meg, melyik operátor és operandus tartozik össze. Mint ahogy matematikában a szorzás és az összeadás: a <code>3 
++ 4 * 5</code> kifejezésben a szorzás „erősebb”, magasabb a precedenciája, ezért <code>3 + (4 * 5)</code>-ként értelmezzük.</p>
+
+<h3>Mutató típusú változók</h3>
+
+<p>Pointer típusú változót úgy definiálunk, hogy a definícióban egy <code>*</code>-ot teszünk a változó neve elé, mint pl. a
+<code>double *p;</code> sorban. A pointer típusához hozzátartozik a mutatott változó típusa is, hiszen az általa mutatott hely
+hivatkozásakor tudnia kell a fordítónak azt, hogy milyen típusú érték található ott – egyáltalán hány bájtból álló adatot kell
+kezelni. A pointer a program futása során tetszőlegesen másik változókra állítható át, ha azok a változók megfelelő típusúak. A
+fenti példában a mutató típusa <code>double*</code>, ezért a program bármelyik <code>double</code> típusú változójának címét
+tárolhatná. A pointer típusú változó maga is egy teljesen szokványos változóként viselkedik: értéket kell adni neki használat
+előtt! A pointerek pedig a szokványos módon átadhatók függvénynek paraméterként, és lehetnek függvények visszatérési értékei
+is.</p>
+
+</div>
+
+<div class="csakdoksi">
+<h3>Címek és mutatott értékek: példaprogram</h3>
+<p>Az alábbi programban a <code>p</code> pointert hol az egyik, hol a másik változóra állítjuk be.
+Így a <code>*p</code> kifejezés kiértékelésével hol az egyiket, hol a másikat érjük el.</p>
+</div>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    double x = 5.6;
+    double y = 10.9;
+    double *p;
+
+    p = &amp;x;
+    printf(&quot;p = %p \n&quot;, p);
+    printf(&quot;*p = %g \n&quot;, *p);
+
+    printf(&quot;\n&quot;);
+
+    p = &amp;y;
+    printf(&quot;p = %p \n&quot;, p);
+    printf(&quot;*p = %g \n\n&quot;, *p);
+
+    return 0;
+}</code></pre>
+
+<div class="csakdoksi">
+<pre class="screenshot">
+p=0x7fff48732580
+*p=5.6
+
+p=0x7fff48732588
+*p=10.9
+</pre>
+
+<p>Egy pointer értékét, amely a memóriacím maga (vagyis a fenti példában az
+<code>x</code> és <code>y</code> helye a memóriában), a <code>printf()</code>-fel a <code>%p
+</code> konverzióval lehet kiírni. Ez akkor lehet jó, ha a programunkban hibát keresünk. A
+pointer értéke egyébként <em>általában</em> nem más, mint egy szám, a hivatkozott memóriarekesz sorszáma.</p>
+
+<p class="megjegyzes">Ugyan a <code>scanf %p</code> képes beolvasni egy pointert, de azzal sokra
+nem megyünk. Nincs értelme pl. kiírni egy fájlba egy pointert és újra használni a program későbbi
+újrafuttatásánál, hiszen minden egyes futtatáskor máshova kerülhetnek a memóriában a változók.
+Próbáld ki, futtasd le többször a fenti programot!</p>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Cím szerinti paraméterátadás">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+  <a id="cimszerint" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Cím szerinti paraméterátadás<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Mire jók ezek a mutatók? Például ezekkel el tudjuk érni azt, hogy a
+függvények módosítani tudják a nekik átadott változók értékét.</p>
+
+<p class="csakdoksi">Legyen a feladatunk egy olyan függvényt írni, amely két egész típusú változó tartalmát megcseréli.</p>
+
+<div class="columns">
+<div>
+<pre class="eloadasbetusurit eloadaskisebbpadding"  ><code class="language-cbub">void csere(int a, int b) {
+  int temp;
+  temp = a;
+  a = b; // nem x és y változik!
+  b = temp;
+}
+
+int main(void) {
+  int x = 3, y = 4;
+  csere(x, y);
+  printf(&quot;%d,%d&quot;, x, y); // 3,4
+}</code></pre>
+<p class="kozep csakdoksi">érték szerinti paraméterátadás</p>
+<img src="cserefv_ertekszerint.svg" style="height: 8em;" class="kozep" alt="A hibás csere függvény: érték szerinti paraméterátadással">
+</div>
+<div>
+<pre class="eloadasbetusurit eloadaskisebbpadding"  ><code class="language-cbub">void csere(int *pa, int *pb) {
+  int temp;
+  temp = *pa;
+  *pa = *pb; // x és y változik!
+  *pb = temp;
+}
+
+int main(void) {
+  int x = 3, y = 4;
+  csere(&amp;x, &amp;y);
+  printf(&quot;%d,%d&quot;, x, y); // 4,3
+}</code></pre>
+<p class="kozep csakdoksi">cím szerinti paraméterátadás</p>
+<img src="cserefv_cimszerint.svg" style="height: 8em;" class="kozep" alt="A helyes csere függvény: cím szerinti paraméterátadással">
+</div>
+</div>
+
+<div class="csakdoksi">
+
+<p>Az első kódban egy hibás próbálkozás látható. Mint tudjuk, a C nyelvben <em>érték szerinti paraméterátadás</em> történik, ami azt
+jelenti, hogy a függvény a hívás helyén megadott kifejezések értékét, kiszámított eredményét kapja meg. Emiatt a
+<code>csere(x, y)</code> függvényhívás azt jelenti, hogy ki kell olvasni az <code>x</code> és <code>y</code> változók tartalmát, és
+az ott tárolt számokat átadni a függvénynek. <em>Nem a változókat, hanem a számokat!</em> Az átadott két szám, a 3 és a 4 a két
+paraméterbe, azaz a két lokális változóba másolódik, amelyek tartalmát pedig a függvény hiába cseréli meg. Az két másik változó,
+amelyeknek a módosítása nincs hatással az eredeti két változó értékeire.</p>
+
+<p>A második függvény már működik, mert az <em>indirekciót</em> használ. Ez azt jelenti, hogy a híváskor a függvény nem a
+változók értékét, hanem a változók helyét, azaz <em>címét</em> kapja meg paraméterként. Tehát a hívással nem két számot adunk neki, hanem
+rámutatunk két rekeszre a memóriában: „az egyik változó itt található a memóriában, a másik ott, ezek tartalmát cseréld meg!” Így
+nem jön létre a hívás idejére két új egész típusú változó, hanem a függvény a hívó által megadott két eredeti változón
+dolgozik.</p>
+
+<p>A második függvényben a paraméterek típusai: <code>int*</code>. Ez az előzőek alapján egy <code>int</code> változó
+<em>helyére mutat</em> a memóriában, máshogy fogalmazva, a mutatott változó címét tárolja.  A függvény ezen a mutatón
+keresztül közvetetten, <em>indirekt módon</em> látja az eredeti változót.</p>
+
+<p class="megjegyzes">A fenti módszert legtöbbször pongyolán cím szerinti paraméterátadásnak nevezzük. Azonban tudni kell, igazából
+ilyenkor is érték szerinti paraméterátadás történik. A <code>csere()</code> függvény ilyenkor is mindent másolatként kap; annak a
+<code>pa</code> nevű pointerében van egy másolat az <code>x</code> változó <code>&amp;</code> operátor segítségével lekérdezett
+címéről, a <code>pb</code> nevű paraméterben pedig egy az <code>y</code> változó lekérdezett címéről. Vagyis az <code>&amp;x</code>
+és <code>&amp;y</code> kifejezések értékeit tárolják a pointerek, nem pedig a változók értékeit. Ezek viszont címként a
+<code>main()</code> változóira mutatnak, a dereferálás után az eredeti <code>x</code> és <code>y</code> változókat lehet elérni és
+akár megváltoztatni.</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Címaritmetika (pointer arithmetic)">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+  <a id="cimaritmetika" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    Címaritmetika (pointer arithmetic)<a class="hlink" href="index.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Nézzük meg egy kicsit alaposabban, mi is történik akkor, amikor <em>egy tömböt átadunk egy függvénynek</em>!
+Ilyenkor ugyanis nem a tömb adódik át paraméterként, hanem egy pointer.</p>
+
+<p>Mivel a tömbelemek <em>egymás után</em> helyezkednek el a memóriában, a címeik kiszámíthatóak!</p>
+
+<br class="smallskip">
+
+<div class="columns c6040">
+<div>
+<pre   ><code class="language-cbub">int tomb[5];
+int *p1, *p2;
+int tav;
+
+p1 = &amp;tomb[0];     // kezdőelem ptr
+
+p1 = tomb;         // így rövidítjük
+
+p2 = &amp;tomb[4] - 1; // tomb[4-1] címe
+
+tav = p2 - p1;     // távolság: 3</code></pre>
+</div>
+<div>
+<img src="cimaritmetika.svg" style="width: 13em;" class="kozep">
+</div>
+</div>
+
+<div class="csakdoksi">
+<img src="cimutcaaritm.svg" class="float" style="width: 26em;">
+
+<p>A pointeraritmetika azt jelenti, hogy memóriacímekkel végzünk számításokat. Ennek tömböknél van értelme, hiszen ezáltal a tömb
+kezdőcímének és a típusának ismeretében meghatározható az egyes elemek címe. (Ahogyan azt is meg tudjuk mondani, mi a szomszédos
+ház címe.) Ezt a kódban úgy jelöljük, hogy a pointerhez hozzáadunk egy egész számot – azt a számot, hogy a tömbben a címtől
+számítva hányadik elem címére vagyunk kíváncsiak. A hozzáadás a tömb vége felé, a kivonás a tömb eleje felé való mozgást jelent.
+</p>
+
+<p>Két pointert akár ki is vonhatunk egymásból, hogy megkapjuk a közöttük lévő távolságot (ugrásszámot). Sőt még a
+<code>&lt;=</code>, <code>&gt;</code> stb. operátorokat is használhatjuk. Természetesen ezeknek csak akkor van értelme, ha a két
+pointer ugyanazon tömb belsejére mutat.</p>
+
+<p>Emiatt is fontos a pointerek típusa. A típusból tudja a fordító, hogy az adott változó, amire a pointer mutat, hány bájtból áll.
+Ha például a pointer egy 8 bájtos <code>double</code> típusra mutat, a <code>p+1</code> azt jelenti, hogy 8 bájtot ad hozzá a
+<code>p</code> pointer értékéhez. Ezzel azonban nekünk nem kell foglalkozni, a fordító ezt automatikusan megoldja a háttérben!
+Nekünk csak arra kell gondolni, hogy <code>p+1</code> a következő <code>double</code> címe, <code>p+2</code> az azt követő címe
+stb. A bájtok számolgatását végző kódért a fordító felel.</p>
+
+<p class="megjegyzes">Tudni kell azt, hogy egy önálló <code>int</code> változóra mutató <code>int *p</code> pointer esetén is
+helyes szintaktikailag a <code>p+1</code>, a <code>*(p+1)</code> és a <code>p[1]</code> kifejezés. Vagyis a program lefordítható,
+csak szemantikailag helytelen. Ugyanis nem tudhatjuk, hogy milyen változót helyezett el a fordító az adott egész után, vagy van-e
+ott egyáltalán változó. Ilyen hibákat elkövetve a tömb túlindexeléséhez hasonló misztikus hibákat és programlefagyásokat
+kelthetünk.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Címaritmetika – az indexelés működése">
+<div class="slide" id="slide_8">
+
+<a id="8" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">8</span><span class="oldalszamafter">. </span>    Címaritmetika – az indexelés működése<a class="hlink" href="index.html#8"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Tömbök és pointerek</h3>
+
+<p class="csakdoksi">A tömbök egy elemének elérésekor mindig két művelet történik. Az egyik a kérdéses elem címének kiszámítása (ez
+egy pointeraritmetikai művelet), a másik pedig az elem elérése (az indirekció a kiszámított pointerrel.) A tömb nevének
+használatával ezekben a kifejezésekben mintha azt kérnénk a fordítótól, hogy adja meg, hol található a tömb a memóriában. Ilyenkor
+automatikusan képzi a címet, és egy pointert kapunk, amelyen <em>a <code>[]</code> indexelő operátort használva címszámítást és
+dereferálást is végzünk.</em></p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-cbub">int tomb[10];
+tomb[2] = 3;
+*(tomb + 2) = 3; // ugyanaz</code></pre>
+</div>
+<div>
+<pre   ><code class="language-cbub">int *p = ...;
+p[2] = 3;
+*(p + 2) = 3;    // ugyanaz</code></pre>
+</div>
+</div>
+
+<p class="csakeloadas">A <code>*(p+2)</code> formát <em>NEM HASZÁLJUK,</em> mert a <code>p[2]</code> egyszerűbb.</p>
+
+<div class="csakdoksi">
+
+<p>A C nyelv az összes tömbi műveletet így értelmezi. Ez történt a 3. előadás óta az összes tömbös programban, csak mindezidáig
+hallgattunk róla. Ezt mutatja az első kódrészlet is: <code>*(tomb+2)</code> ugyanazt jelenti, mint a
+<code>tomb[2]</code>, egy címszámítást és egy dereferálást. A szögletes zárójel <code>[]</code> operátor a C szemléletében nem
+egyéb, mint egy rövidítés: az emberi gondolkodás számára nehezebben követhető kerek zárójeles kifejezést tudjuk vele egyszerűen
+megfogalmazni.</p>
+
+<p>A második kódrészletben a <code>p</code> pointert ugyanazon tömb elejére állítjuk (a 0. indexű elemre). Így a <code>p+2</code> kifejezés
+értéke egy pointer, amely a tömb 2. elemére mutat, <code>*(p+2)</code> pedig ez a pointer dereferálva, vagyis a 2. indexű elem
+maga. A <code>p</code> pointeren keresztül is a <code>tomb</code> nevű tömb elemeit érjük el, mivel ez a pointer a tömb elejére
+mutat. Így <code>p[2]</code> ugyanaz, mint <code>*(p+2)</code>, ami pedig itt ugyanaz, mint <code>tomb[2]</code>.</p>
+
+<p>A kétféle módon leírt indexelés teljesen egyenértékű. Mivel a csillagos-pluszos (pointeres) forma nehezebben olvasható, mint a
+szögletes zárójeles (tömbös), a szögletes zárójelest szoktuk használni; legyen az indexelt változó akár tömb, akár pointer.
+(ZH-ban pontot vonunk a <code>*(p+x)</code> l'art pour l'art használatáért.)</p>
+
+<p>Ez általában véve is fontos: lehet olyan algoritmust írni, amely egy tömbön vegyesen indexeléssel és címaritmetikával dolgozik,
+de általában ez nehezen érthető programkódhoz vezet. Érdemes mindig az egyik stílusnál maradni: vagy csak indexelést, vagy csak
+címaritmetikát használni.</p>
+
+</div>
+
+<h3>Tömbös ciklusok</h3>
+<pre   ><code class="language-c">double t[100];
+
+/* i = 0 → 99, 100 már nem */
+for (int i = 0; i != 100; ++i)
+    t[i] = 0.0;
+
+/* p = t+0 → t+99, t+100 nem */
+for (double *p = t; p != t + 100; ++p)
+    *p = 0.0;</code></pre>
+
+<p class="csakdoksi">A tömbökön iteráló ciklusokat nem csak indexeléssel, hanem pointerek használatával is megírhatjuk. (Némelyik
+tömbös algoritmusnál egyszerűbb így gondolkodni.) Fent látható a szokásos, indexelő operátort használó forma, lentebb a
+pointeres. A ciklus kezdetén a pointert beállítjuk a tömb elejére: <code>p = t</code>, és egészen addig fut a ciklus,
+amíg el nem éri a pointer a tömb 100. indexű elemét: <code>p != t+100</code>. Mivel a tömb csak 0&hellip;99-ig indexelődik, a
+<code>t+100</code> cím használata már túlindexelés lenne, ezért a ciklus itt megáll.</p>
+
+<p class="csakdoksi">A két forma itt is teljesen egyenértékű. Mindkét esetben egyébként balról zárt, jobbról nyílt
+intervallummal dolgoznak a ciklusok: az <code>i=0</code> indexű, azaz a <code>t+0</code> című elemet feldolgozzák, az
+<code>i=100</code> indexű, azaz <code>t+100 </code> címűt pedig nem.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Tömböt átvevő függvények">
+<div class="slide" id="slide_9">
+
+<a id="9" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">9</span><span class="oldalszamafter">. </span>    Tömböt átvevő függvények<a class="hlink" href="index.html#9"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Ezek ismeretében már mindent tudunk arról, hogyan lehet tömböt átadni függvényeknek paraméterként.</p>
+
+<h3>Fejléc és törzs</h3>
+
+<p class="csakdoksi">Az alábbi függvények paraméterként kapott tömbökkel dolgoznak. A <code>kiir()</code> kiírja az elemeiket, a
+<code>beolvas()</code> pedig feltölti a tömböt a billentyűzetről beolvasott értékekkel.</p>
+
+<pre   ><code class="language-cbub">void kiir(double *tomb, int meret) {    // kezdőcím és méret
+    for (int i = 0; i != meret; ++i)
+        printf(&quot;%g &quot;, tomb[i]);         // indexelő operátor
+    printf(&quot;\n&quot;);
+}
+
+void beolvas(double tomb[], int meret); // ugyanazt jelenti (!)</code></pre>
+
+<div class="csakdoksi">
+
+<p>A módszer a következő. A függvénynek átadjuk a tömb <em>elejére mutató pointert.</em> Az még csak egy pointer, abból nem fogja
+tudni az elemszámát – ezért átadjuk neki a tömb <em>méretét is.</em> Nagy előny, hogy így a függvény bármekkora tömbön használható.
+(A méret átadását csak akkor tudjuk megúszni, ha a függvény valahonnan máshonnan tudja azt; például ha végjeles tömbről van szó.)</p>
+
+<p>Bár a függvény pointert kap, azon belül tömbként használhatjuk, mivel a nyelv megengedi azt, hogy pointeren használjuk az
+indexelő operátort. Fel sem tűnik a különbség, mivel ez az operátor ugyanúgy működik a pointeren is! (Ne felejtsük: ha tömbön
+használjuk az indexelő operátort, akkor is ugyanez történik!) </p>
+
+<p>Ha tömböt adunk át egy függvénynek, akkor a függvény formális paramétereinek listájában használható a <code>tomb[]</code>
+jelölés is. Ez azonban ne tévesszen meg senkit: ilyenkor is csak egy pointer adódik át. Tökéletesen ugyanazt jelenti, mint a
+<code>*tomb</code> forma! Nem a teljes tömb lesz az átadott adat, hanem csak a kezdőcím.</p>
+
+</div>
+
+
+<br class="smallskip">
+
+<h3>Hívás (használat)</h3>
+
+<pre   ><code class="language-cbub">double szamok[10];
+beolvas(szamok, 10); // tömb argumentum → kezdőcímet adja át
+kiir(szamok, 10);</code></pre>
+
+<p class="csakdoksi"> A híváskor a tömb nevét adjuk első paraméternek, ilyenkor a függvény a tömb kezdőcímét kapja meg.
+Természetesen a tömb méretét is meg kell adni. Fontos viszont, hogy <em>mivel a függvény cím szerint veszi át a tömböt, meg is
+tudja változtatni az elemeit!</em> Ebből a szempontból nagy a különbség a beépített típusok és a tömbök függvény paraméterként
+történő átadása között. De, mint azt eddig láttuk, igazából semmi különbség nincsen – ilyenkor is érték adódik át, csak az érték a
+tömb kezdőcíme (ami pointerként egy beépített típus), nem pedig a teljes tartalma. A <code>beolvas()</code> függvény egyébként így
+képes ellátni a feladatát, hogy a billentyűzetről számokkal töltse fel a tömböt.</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A keresés és a NULL pointerek">
+<div class="slide" id="slide_10">
+
+<a id="10" class="namer"></a>
+  <a id="nullpointer" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">10</span><span class="oldalszamafter">. </span>    A keresés és a NULL pointerek<a class="hlink" href="index.html#10"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Térjünk vissza a tömbben keresős függvényünkre! A megtalált
+szám megjelölését egy pointerrel is megoldhatjuk. A tömb <code>double</code> elemeket tartalmaz,
+ezért a függvény visszatérési értéke egy <code>double*</code> típusú pointer lesz:</p>
+
+<pre   ><code class="language-cbub">double *hol_van(double *tomb, int meret, double keresett) {
+    for (int idx = 0; idx &lt; meret; ++idx)
+        if (tomb[idx] == keresett)
+            return &amp;tomb[idx]; // !
+    return NULL; // !
+}</code></pre>
+
+<div class="csakdoksi">
+<p>Ezzel megvalósítottuk a függvényt olyan formában, ahogy az ötletünk adta. A visszatérési értéke egy pointer (figyelem:
+<code>double*</code> van a függvény neve előtt, ott a <code>*</code> is!), amelyik belemutat a tömbbe, rámutat a megtalált elemre.</p>
+
+<img src="tomb_es_ptr.svg" style="height: 7em;" class="kozep" alt="pointer a találatra: konkrét tömbelem">
+</div>
+
+<p class="csakdoksi">Használni pedig így kell majd:</p>
+
+<pre   ><code class="language-cbub">int main(void) {
+    double szamok[5] = { 4.5, 9.2, 7.1, -6.9, 8 };
+
+    double *ptr = hol_van(szamok, 5, -6.9);
+    if (ptr != NULL) {
+        printf(&quot;%p helyen, értéke: %f&quot;, ptr, *ptr); // !
+        *ptr *= -1;
+    } else {
+        printf(&quot;Nincs benne ilyen.&quot;);
+    }
+}</code></pre>
+
+<div class="csakdoksi">
+<p>Ha ezek után módosítani szeretnénk a megtalált elemet, <code>*ptr = 10.2</code> vagy hasonló kifejezéssel
+megtehetjük. Ha pedig kíváncsiak vagyunk rá, hányadik indexű, a <code>ptr - szamok</code> pointeraritmetikai kifejezés megadja.</p>
+
+<p>Látszik a fenti kódban, hogy lehetséges a pointereknél a „nem mutat sehova” eset megjelölése is.
+Az ilyen az ún. null-pointer, amelynek a jelölése a forráskódban <code>NULL</code>.</p>
+</div>
+
+<div class="csakdoksi">
+
+<h3>NULL pointer: ami nem mutat sehova</h3>
+<img src="nullpointer.svg" style="width: 12em;" class="float">
+<pre   ><code class="language-cbub">int *ptr;
+int i;
+
+ptr = &amp;i;    // most az i-re mutat
+*ptr = 5;
+
+ptr = NULL;  // most nem mutat sehova</code></pre>
+
+<p>A <code>NULL</code> pointer egy olyan mutatót jelent, amely nem mutat semmilyen
+változóra. Bármilyen típusú pointer (<code>int*</code>, <code>double*</code>,
+<code>struct Pont*</code> stb.) lehet <code>NULL</code> értékű.</p>
+
+<h3>NULL-e? Nem NULL-e?</h3>
+<div class="columns">
+<div>
+<pre   ><code class="language-c">if (ptr != NULL)
+  printf(&quot;Mutat vhova.\n&quot;);
+if (ptr == NULL)
+  printf(&quot;Sehova sem.\n&quot;);</code></pre>
+</div>
+<div>
+<pre   ><code class="language-c">if (ptr)
+  printf(&quot;Mutat vhova.\n&quot;);
+if (!ptr)
+  printf(&quot;Sehova sem.\n&quot;);</code></pre>
+</div>
+</div>
+
+<p>A pointerek  a logikai kifejezésekhez <em>hasonlóan</em> használhatók. Igazra értékelődnek ki, ha mutatnak valahova, és hamisra,
+ha nem. Így aztán a tagadó <code>!</code> operátor is működik: <code>!ptr</code> igazra értékelődik ki, ha <code>ptr</code> nem
+mutat sehova, vagyis null-pointer. Emiatt <code>if (ptr != NULL)</code> és és <code>if (ptr)</code> ugyanazt jelentik. Ahogyan az
+<code>if (ptr == NULL)</code> és <code>if (!ptr)</code> is ekvivalensek.</p>
+
+<div class="megjegyzes">
+<p>Gyakran szokott vita lenni abból még gyakorlott programozók között is, hogy ugyanaz-e a <code>0</code> és a <code>NULL</code>. A
+C szabvány megengedi azt, hogy a <code>NULL</code>, vagyis a sehova nem mutató pointert <code>0</code>-val jelöljük, ha a
+programkód szövegéből kiderül, hogy azt pointerként kell értelmezni (lásd: ISO/IEC 9899:1999, § 6.3.2.3 (3)). Vagyis ez a kód
+helyes:</p>
+<pre   ><code class="language-c">int *p;
+p = 0;</code></pre>
+<p>Emiatt egy pointer null vagy nem null értékét akár a <code>ptr == 0</code> vagy <code>ptr != 0</code> kifejezésekkel is
+ellenőrizhetjük. De ezt sokan nem tekintik szép stílusnak; jobb kiírni a NULL-t.</p>
+<p>Gyakran a C-ben a „0”-t polimorf (többalakú) literálisnak is nevezik (polymorphic literal), hiszen jelenthet számot és
+pointert is. Semelyik másik literális nem képes ilyenre: se egy másik egész (pl. 1), se egy valós szám, se egy sztring. Mindez
+kifejezetten a C nyelv sajátja, más nyelvekben nem feltétlenül van így!</p>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Pointerek: így már minden érthető">
+<div class="slide" id="slide_11">
+
+<a id="11" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">11</span><span class="oldalszamafter">. </span>    Pointerek: így már minden érthető<a class="hlink" href="index.html#11"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Első előadás: <code>scanf()</code></h3>
+<div class="sticky">Ismerős?!</div>
+
+<pre   ><code class="language-cbub">int a;
+scanf(&quot;%d&quot;, &amp;a);  // cím szerinti átadás</code></pre>
+
+<p>Így már érthető! Különben nem tudná beleírni a beolvasott számot.</p>
+
+<img src="leesik.png" style="width: 6em;" class="float">
+
+<br class="smallskip">
+
+<h3>A többi furcsaság</h3>
+<ul>
+   <li>Ezért <em>nincs tömb értékadás:</em> <code>t1 = t2</code>
+   <li>Ezért <em>nincs sztring értékadás</em> (azok is tömbök)
+   <li>Ezért <em>nem lehet sztringeket <code>==</code> operátorral</em> összehasonlítani.
+</ul>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="&quot;Sztringek&quot;">
+<div class="slide" id="slide_12">
+
+<a id="12" class="namer"></a>
+  <a id="easztring" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">"Sztringek"</h1>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A sztringek létrehozása">
+<div class="slide" id="slide_13">
+
+<a id="13" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">13</span><span class="oldalszamafter">. </span>    A sztringek létrehozása<a class="hlink" href="index.html#13"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Sztringek</h3>
+<p>A sztringek C-ben nullával (<code>'\0'</code> vagy <code>0</code>) lezárt karaktertömbök.</p>
+
+<table class="tomb">
+<tr>
+    <td>h<td>e<td>l<td>l<td>o
+    <td class="kek">\0
+    <td class="piros">±<td class="piros">¤<td class="piros">%<td class="piros">X<td class="piros">§<td class="piros">»<td class="piros">"<td class="piros">$<td class="piros">»
+
+</table>
+
+<p class="csakdoksi">A NUL nevű ASCII vezérlőkódot a <em>sztringek végének jelölésére</em>
+tartjuk fenn. A karakter kódja 0. Ezt a forráskódban <code>'\0'</code> és <code>0</code>
+formában írhatjuk. Ez nem keverendő a <code>'0'</code>-val, ami a nullás <em>számjegyet</em>
+jelöli, és a kódja 48.</p>
+
+<br class="smallskip">
+<br class="smallskip">
+
+<h3>Sztring létrehozása és inicializálása</h3>
+<pre   ><code class="language-c">char szoveg1[50] = { 'h', 'e', 'l', 'l', 'o', '\0' };
+char szoveg2[50] = &quot;hello&quot;;
+char szoveg3[50];</code></pre>
+
+<p class="csakdoksi megjegyzes">
+A fenti utasítások nem értékadások, hanem inicializálások. Az <code>=</code> jel itt
+azt jelenti, hogy létrehozunk egy tömböt, amelyet kezdeti értékekkel töltünk fel.
+Nem értékadást jelent, hiszen tömbök közötti értékadás nincs.
+</p>
+
+<p class="csakdoksi">A karaktertömb tartalma: a karakterek <em>és a lezáró nulla.</em>
+Ha a <code>"hello"</code> formát írjuk, akkor is hozzáteszi a fordító
+a lezáró nullát. Ezért a fenti két inicializálás tökéletesen ugyanazt
+jelenti, de természetesen az alsót használjuk inkább. Az ilyesmit
+szintaktikai édesítőszernek (syntactic sugar) szokás nevezni – szebb,
+olvashatóbb kódot kapunk. (Figyeljünk a szintaktikára: ha a karaktereket egyesével
+adjuk meg, akkor szükség van a vesszővel elválasztott sorozat köré a <code>{}</code>
+kapcsos zárójelekre. Ha idézőjelben adjuk meg a karaktersorozatot, akkor már
+nincs arra szükség: C-ben <code>"egy ilyen"</code> eleve karaktertömböt jelent.)</p>
+
+<blockquote class="csakdoksi">
+    <p>Egy adott méretű tömbbe <em>méret−1 hosszú, azaz egy karakterrel rövidebb
+    szöveg fér csak!</em> A lezáró 0-nak is kell hely!</p>
+</blockquote>
+
+<p class="csakdoksi"> Erre a szabályra nagyon fontos emlékezni! Az „alma” szó
+eltárolásához például egy 5 (öt!) elemű karaktertömbre van szükség: <code>char
+szoveg[5] = "alma"</code>. Négy nem elég, mert a lezáró nulla akkor már nem férne
+bele. Fent mindkét tömb 50 karakterből áll. Abból a szöveg 5 bájtos, de végülis
+legalább 6 bájt kell neki, mert <em>1 bájtot a lezáró nulla is igényel.</em> </p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A sztringek manipulációja">
+<div class="slide" id="slide_14">
+
+<a id="14" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">14</span><span class="oldalszamafter">. </span>    A sztringek manipulációja<a class="hlink" href="index.html#14"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3 class="csakdoksi">Példa: sztring, mint karaktertömb</h3>
+
+<div class="sticky editable mono" style="margin-top: 5em; white-space: pre; font-weight: bold; transform: none; text-align: left; letter-spacing: 1px;">[0] h<br>[1] e<br>[2] l<br>[3] l<br>[4] o<br>[5]\0<br>[6]<br>[7]<br>...</div>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    char str[50] = &quot;hello&quot;;
+
+    printf(&quot;1. %s\n&quot;, str);
+
+    str[0] = 'H';
+    printf(&quot;2. %s\n&quot;, str);
+
+    str[5] = '!';
+    str[6] = '\0';
+    printf(&quot;3. %s\n&quot;, str);
+
+    return 0;
+}</code></pre>
+
+<div class="csakdoksi">
+
+<p>A 2. lépésnél a sztring legelső karakterét, a <code>'h'</code>-t felülírjuk egy nagybetűs <code>'H'</code>-val. Mivel tömbről 
+van szó, az első karaktere a 0. indexű.</p>
+
+<p>A 3. lépésben egy új karaktert fűzünk a sztringhez. Az eredeti sztringben a <code>Hello</code> szöveg betűi a tömb 0–4. indexű 
+elemeit foglalták el; az 5. indexen volt a lezáró nulla. Azt a lezáró nullát felülírjuk egy felkiáltójellel, és a következő üres 
+helyre elhelyezünk egy új lezáró nullát, hiszen annak mindig lennie kell. Így lesz az új tartalom <code>"Hello!"</code>. A 
+<code>printf %s</code> pedig a lezáró nulla alapján tudja, hol van vége a sztringnek, azért nem írja ki mind a húsz karaktert.</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A sztringek átadása függvénynek">
+<div class="slide" id="slide_15">
+
+<a id="15" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">15</span><span class="oldalszamafter">. </span>    A sztringek átadása függvénynek<a class="hlink" href="index.html#15"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A következő függvény egy sztring összes karakterét nagybetűre cseréli. Ehhez a <code>ctype.h</code>
+szabványos <code>toupper</code> függvényét használja, amelyik a neki paraméterként adott karaktert nagybetűsítve
+adja vissza. Nincs más dolga, mint meghívni ezt minden karakterre, és a visszatérési értéket eltárolni ugyanabban
+a tömbelemben, ahonnan kivette azt:</p>
+
+<pre   ><code class="language-cbub">void sztringet_nagybetusit(char *sztring) {
+    for (int i = 0; sztring[i] != '\0'; ++i)
+        sztring[i] = toupper(sztring[i])
+}</code></pre>
+
+<img src="sztring_hello.svg" class="kozep" style="width: 20em;" alt="A hello tartalmú karaktertömb a hívás helyén, és a rá mutató pointer a függvényben.">
+
+<p class="csakdoksi">A sztringet címével látja, ezért <em>meg is változtathatja</em> azt! De vajon miért nem adjuk most át a 
+függvénynek a tömb méretét? Az előbb a tömbök/függvények témakörben azt mondtuk, hogy mindig át kell adni. Viszont most a tömb 
+méretének nincs köze a sztring hosszához! A lezáró 0-ból tudjuk, hol van a sztringnek vége.</p>
+
+<br class="smallskip">
+
+<p class="csakdoksi">A függvény használata:</p>
+
+<pre   ><code class="language-cbub">char h[] = &quot;Hello&quot;;
+sztringet_nagybetusit(h); // Hello → HELLO
+printf(&quot;%s&quot;, h);</code></pre>
+
+<p>Figyelem: <em>nem kell &amp; operátor</em> a sztring átadásánál! <span class="csakdoksi">A sztring egy tömb, amelynek a nevét 
+írva már eleve pointer jön létre a paraméterátadás helyén!</span></p>
+
+<div class="csakdoksi">
+<h3>Mennyi a sztring hossza?</h3>
+
+<div class="sticky">A tömb méretét<br>ez sem veszi át!</div>
+
+<pre   ><code class="language-cbub">int sztring_hossza(char *sztring) {
+    int i;
+    for (i = 0; sztring[i] != '\0'; ++i)
+        ;  /* üres */
+    return i;
+}</code></pre>
+
+<p>Az üres ciklus igazából nem üres: <code>++i</code>. Ezt a ciklust írhattuk volna <code>i = 0;</code> <code>while (sztring[i] != '\0')</code> 
+<code>++i;</code> formában is, ami teljesen ugyanezt jelentené. Azért írtuk így, mert a C szemlélete szerint „ez még belefér” számlálásos 
+ciklusnak. Honnan? – a nulladiktól. Meddig? – a sztring végéig. Hányasával? – egyesével. A ciklus törzse így látszólag üresnek 
+tűnik. Ilyen esetben illik külön sorban írni az üres utasítást, esetleg kommenttel is megjelölni, hogy látszódjon, szándékosan 
+írtuk így.</p>
+
+<pre   ><code class="language-cbub">char h[20] = &quot;Hello&quot;;
+printf(&quot;%d&quot;, sztring_hossza(h)); // 5</code></pre>
+
+<p>Ez a függvény sem kapja paraméterként a sztring hosszát – nyilván, mert épp azt várjuk a függvénytől, hogy számolja meg. :) A 
+ciklus <code>i=5</code>-nél fog megállni, mivel a sztringben az 5. indexű elem a lezáró nulla. Ez egyben pont a sztring hossza is, 
+vagyis a benne lévő hasznos karakterek száma (a lezáró nullán kívül). Ez azért jön ki pont így, mivel az értékes karakterek a 0. 
+indextől kezdődően találhatóak a tömbben.</p>
+
+<table class="tomb">
+<thead>
+    <tr><th>0<th>1<th>2<th>3<th>4<th>5
+</thead>
+<tr><td>H<td>e<td>l<td>l<td>o<td>\0
+</table>
+
+<p>Konklúzió: a <em>lezáró nulla pont annyiadik indexű</em> elem a tömbben,
+<em>mint amilyen hosszú</em> benne a szöveg.</p>
+
+</div>
+
+
+<div class="csakdoksi">
+<h3><code>strlen()</code> ciklusfeltételben?</h3>
+
+<p>Gyakran találkozunk ehhez hasonló kóddal:</p>
+
+<pre   ><code class="language-cbub">char h[20] = &quot;Hello&quot;;
+for (int i = 0; i &lt; strlen(h); ++i) // nem jó ötlet!
+    printf(&quot;%c\n&quot;, h[i]);</code></pre>
+
+<p>De miért mutatja a jelzés, hogy ezt nem jó ötlet így írni? Azért, mert ez az <code>strlen()</code> lényegében ugyanúgy működik, 
+mint a fenti, saját függvényünk; egy ciklussal elindul a sztring elejéről, keresve a lezáró nullát. Tehát ebben a kis kódrészletben 
+a <em>ciklusfeltételbe</em> tettünk egy olyan függvényhívást, amelyik végigmegy a teljes sztringen. És ezt pontosan <em>annyiszor 
+fogja megtenni,</em> ahány karaktere a sztringnek van. Minden egyes karakternél megszámolja, hogy hány karakterből áll a sztring;
+minden egyes karakter kedvéért végigmegy a teljes tömbön.</p>
+
+<p>Ezért <em>nem teszünk <code>strlen()</code> függvényhívást</em> a ciklusok feltételébe, hanem a lezáró nullára építjük azt:
+ez a <code>h[i] != '\0'</code> kifejezés jelen esetben.</p>
+
+</div>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Sztring másolása">
+<div class="slide" id="slide_16">
+
+<a id="16" class="namer"></a>
+  <a id="sztringtulindex" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">16</span><span class="oldalszamafter">. </span>    Sztring másolása<a class="hlink" href="index.html#16"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A ciklus átmásolja az „értékes” karaktereket.
+Utána pedig még a lezáró nullát kell, pont az <code>ide[i]</code> helyre!</p>
+
+<pre class="eloadassorsurit11"  ><code class="language-cbub">void sztringet_masol(char *ide, char *innen) {
+    int i;
+    for (i = 0; innen[i] != '\0'; ++i)
+        ide[i] = innen[i];
+    ide[i] = '\0';                     // lezáró nulla!
+}</code></pre>
+
+<img src="sztring_masolas.svg" class="kozep" style="width: 36em;" alt="Sztring másolása: a forrás és a cél tömbre pointert kap a függvény.">
+
+<br class="smallskip">
+
+<p class="csakdoksi">A függvény használata:</p>
+
+<pre class="eloadassorsurit11"  ><code class="language-cbub">char eredeti[] = &quot;Hello&quot;;
+char masolat[20];
+sztringet_masol(masolat, eredeti);</code></pre>
+
+<p><strong>Túlindexelés veszélye:</strong> a függvény nem tudja, mekkora a cél tömb!
+<ul class="csakdoksi">
+  <li>Emiatt nem tud felelősséget vállalni ezért! <em>Ha túl kicsi, túlírja!</em>
+  <li>A függvény <em>hívója felel érte,</em> hogy elég nagy legyen!
+</ul>
+
+<div class="csakdoksi">
+
+<h3>Sztringmásolás: a klasszikus megoldás</h3>
+
+<img src="kandr.jpg" class="float arnyek" alt="A K&R könyv" style="width: 180px;">
+
+<p>A sztring másolására Brian Kernighan and Dennis Ritchie „The C Programming Language” című könyvében
+az alábbi megoldás szerepel:</p>
+
+<pre   ><code class="language-cbub">void masol(char *ide, char *innen) {
+    while (*ide++ = *innen++)
+        ;
+}</code></pre>
+
+<p>A ciklus feltételében szándékosan <em>értékadás</em> van! Ennek a kifejezésnek
+az értéke a másolt karakter kódja. Ha a <em>lezáró nulla, az logikai
+hamisként</em> értékelődik ki. Ettől megáll a ciklus, de azt <em>még</em>
+átmásolta, mivel annak a kifejezésnek a mellékhatása a karakter másolása. A másik
+mellékhatás az, hogy mindkét pointer a következő karakterre mutat (postincrement,
+utólagos).</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Beépített sztringkezelő függvények">
+<div class="slide" id="slide_17">
+
+<a id="17" class="namer"></a>
+  <a id="beepitettsztringkezelo" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">17</span><span class="oldalszamafter">. </span>    Beépített sztringkezelő függvények<a class="hlink" href="index.html#17"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<div class="columns">
+<div>
+<h3 class="csakdoksi">Sztringeket kezelő függvények</h3>
+<pre   ><code class="language-cbub">#include &lt;string.h&gt;
+
+char str[50], *hol;
+
+strcpy(str, &quot;alma&quot;);
+strcat(str, &quot;fa&quot;);
+printf(&quot;%d&quot;, strlen(str));
+hol = strstr(kazal, tu);</code></pre>
+</div>
+<div>
+<h3 class="csakdoksi">Sztringek bevitele/kiírása</h3>
+<pre   ><code class="language-cbub">#include &lt;stdio.h&gt;
+
+gets(str); // problémás
+puts(str);
+scanf(&quot;%s&quot;, str); // egy szó!
+printf(&quot;str: %s\n&quot;, str);
+sprintf(str, &quot;x=%d&quot;, 19);
+sscanf(str, &quot;%d&quot;, &amp;i);</code></pre>
+</div>
+</div>
+
+<div class="csakdoksi">
+<p>A fontosabb függvények:</p>
+<ul>
+    <li><code>char *strcpy(char *ide, char *ezt)</code> – sztringet másol.
+    <li><code>char *strcat(char *ehhez, char *ezt)</code> – „ehhez” sztringhez hozzáfűzi „ezt”.
+    <li><code>size_t strlen(char *str)</code> – visszatér a sztring hosszával (size_t egy egész szám).
+    <li><code>gets(char *str)</code> – beolvas egy egész sort a billentyűzetről.
+    <li><code>puts(char *str)</code> – kiírja a sztringet és új sort kezd.
+    <li><code>printf("%s", str)</code> – kiírja a sztringet.
+    <li><code>scanf("%s", str)</code> – beolvas egy <em>szót</em> (szóköz, enter, tabulátor karakterig).
+    <li><code>sprintf(str, formátum, ...)</code> – ugyanaz, mint a <code>printf()</code>, de a sztringbe ír, nem a szabványos kimenetre.
+    <li><code>sscanf(str, formátum, ...)</code> – ugyanaz, mint a <code>scanf()</code>, de a sztringből olvas, nem a szabványos bemenetről.
+    <li><code>int strcmp(char *a, char *b)</code> – összehasonlít két sztringet. A visszatérési értéket lásd lentebb.
+    <li><code>char *strchr(char *str, int c);</code> – c karakter első előfordulásának címe. NULL, ha nincs.
+    <li><code>char *strrchr(char *str, int c);</code> – az utolsó előfordulás címe vagy NULL.
+    <li><code>char *strstr(char *kazal, char *tu)</code> – megkeresi a tűt (needle) a szénakazalban (haystack). Ha megtalálta, pointert ad rá, ha nem, NULL pointer.
+</ul>
+
+<p>Fontos, hogy a sztring paramétereknél <em>sehol nem kell <code>&amp;</code>
+címképző operátor</em>, még a <code>scanf()</code>-nél sem! Emlékezzünk arra,
+hogy a sztringek C-ben tömbök, amelyeknek a neve önmagában pointert jelent.</p>
+
+<p>Azoknál a függvényeknél, amelyek egy sztringet írnak, a <em>hívó felelőssége megfelelő méretű tömböt biztosítani!</em>
+Pl. az <code>strcpy()</code> esetén az <code>ide[]</code> tömb legalább akkora kell legyen, mint <code>strlen(ezt)+1</code>.
+Sok függvénynek van <code>n</code> betűs párja: <code>strncpy()</code>, <code>strncat()</code> stb., amelyek figyelembe
+tudják venni a cél tömb méretét is. <em>Azonban ezek nem pontosan úgy működnek, ahogy várnánk. Pl. az
+<code>strncpy()</code> nem biztos, hogy lezárja nullával a cél tömböt!</em></p>
+
+<p class="megjegyzes">Ez a probléma különösen a <code>gets()</code>-nél
+jelentkezik, mivel ott a sor hossza a felhasználótól függ. Emiatt azt veszélyes
+függvénynek szokták tartani, hiszen sokszor használták már ki ezt a dolgot
+számítógépek feltöréséhez (crack), jogosulatlan hozzáférés megszerzéséhez.
+Ajánlott az <code>fgets()</code> függvényt használni
+helyette.</p>
+
+</div>
+
+<br class="smallskip">
+
+<h3 class="csakdoksi">Összehasonlítás (compare)</h3>
+
+<div class="sticky">Vigyázat:<br>nem bool!</div>
+
+<pre   ><code class="language-cbub">int strcmp(char *a, char *b);
+
+if (strcmp(s1, s2) == 0)    // 0 → egyenlőek
+    printf(&quot;s1 == s2\n&quot;);
+if (strcmp(s1, s2) &lt; 0)     // negatív/pozitív → előrébb/hátrébb
+    printf(&quot;s1 &lt; s2\n&quot;);</code></pre>
+
+<div class="csakdoksi">
+
+<p>A <code>strcmp(a,b)</code> függvényhívás értéke egész szám, amelynek értéke:</p>
+<ul>
+    <li>0, ha <code>a == b</code>
+    <li>negatív, ha <code>a &lt; b</code>
+    <li>pozitív, ha <code>a &gt; b</code>
+</ul>
+
+<p>Legegyszerűbb ezt úgy megjegyezni, hogy az <code>strcmp()</code> hívás értéke és a 0 egész szám közé lehet tenni azt az
+operátort, amelyet a két sztring közé tennénk. Pl. <code>a!=b</code> &rarr; <code>strcmp(a,b)!=0</code>; <code>a&gt;=b</code>
+&rarr; <code>strcmp(a,b)&gt;=0</code>.</p>
+
+<p><em>Vigyázat:</em> figyelni kell arra, hogy ez nem kezelhető logikai értékként!
+A <code>strcmp()</code> értéke egyezés esetén nulla, ami a C szabályai szerint hamis értéket jelent, ha
+logikai értékként tekintünk rá! Emiatt az alábbi kódrészlet hibás:</p>
+
+<pre   ><code class="language-cbub">if (strcmp(s1, s2))
+    printf(&quot;Egyformák.\n&quot;); // HIBÁS!</code></pre>
+
+<p>Itt pont akkor megy be a végrehajtás a feltétel igaz ágába, ha <em>nem</em> egyformák a sztringek. Ha egyezést vizsgálunk, írjuk
+ki az <code>==0</code>-t, és ne használjuk a <code>strcmp()</code> függvény értékét elágazásban se magában, se a <code>!</code>
+tagadás operátorral!</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Nagy példa: Gipsz Jakab">
+<div class="slide" id="slide_18">
+
+<a id="18" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">18</span><span class="oldalszamafter">. </span>    Nagy példa: Gipsz Jakab<a class="hlink" href="index.html#18"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p><em>A feladat:</em> megcserélni egy névben a keresztnevet és a vezetéknevet,
+és az eredményt egy másik tömbbe írni.</p>
+
+<pre   ><code class="language-cbub">char eredeti[] = &quot;Gipsz Jakab&quot;;
+char forditott[20];
+
+/*
+ * Itt bármit csinálhatunk...
+ */
+
+printf(&quot;%s\n&quot;, forditott);  // Jakab Gipsz</code></pre>
+
+<br class="smallskip">
+
+<p>A fő probléma: meg kell keresni a szóközt. Vigyázat: a vezetéknév
+és a keresztnév hossza különbözhet!</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Gipsz Jakab: karakterenként">
+<div class="slide" id="slide_19">
+
+<a id="19" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">19</span><span class="oldalszamafter">. </span>    Gipsz Jakab: karakterenként<a class="hlink" href="index.html#19"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre class="eloadassorsurit11"  ><code class="language-cbub">char eredeti[] = &quot;Gipsz Jakab&quot;, forditott[20];
+
+int i;
+for (i = 0; eredeti[i] != ' '; ++i) // szóköz helye
+    ;
+int szokoz = i;
+
+int cel = 0;
+for (int i = szokoz + 1; eredeti[i] != '\0'; ++i) { // ker.
+    forditott[cel] = eredeti[i];
+    ++cel;
+}
+forditott[cel] = ' ';
+++cel;
+for (int i = 0; i != szokoz; ++i) {                 // vez.
+    forditott[cel] = eredeti[i];
+    ++cel;
+}
+forditott[cel] = '\0';
+
+printf(&quot;%s\n&quot;, forditott);</code></pre>
+
+<p class="csakdoksi">
+Az első lehetőség: „kézzel”, egyszerű tömbkezeléssel megoldjuk a problémát.
+Először is, megkeressük a szóközt a név közepén,
+mert tudjuk, hogy ami előtte van, az a vezetéknév, ami utána, az pedig a keresztnév.
+Aztán pedig ezeket fordított sorrendben a <code>forditott[]</code> tömbbe másoljuk: az elejére
+a keresztnevet (az eredeti tömbben a szóköz utántól a végéig), középre teszünk
+egy szóközt, a végére pedig a vezetéknevet (az eredeti tömbben az elejétől a szóköz
+előttig).
+</p>
+
+<p class="csakdoksi">
+Az eredményt tároló <code>forditott[]</code> tömbbe a karaktereket folyamatosan
+írjuk: hogy mindig tudjuk, hányadik indexű helyre kerül a következő karakter, egyszerűbb
+bevezetni egy új változót (<code>cel</code>), minthogy bonyolult képletekkel számoltatnánk ki,
+az eredeti tömb hányadik karaktere az új tömb hányadik karaktere lesz. Az írást a C-ben
+megszokott <code>forditott[cel++] = következő_karakter;</code> fordulattal is végezhetjük,
+kihasználva, hogy a posztinkremens operátornál a kifejezés értéke még a növelés előtti érték.
+A tömb végére a lezáró nulla ugyanígy kerül be.
+</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Gipsz Jakab: beépített függvényekkel">
+<div class="slide" id="slide_20">
+
+<a id="20" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">20</span><span class="oldalszamafter">. </span>    Gipsz Jakab: beépített függvényekkel<a class="hlink" href="index.html#20"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre   ><code class="language-cbub">char eredeti[] = &quot;Gipsz Jakab&quot;;
+char forditott[20];
+
+char *szokoz_helye = strchr(eredeti, ' ');
+strcpy(forditott, szokoz_helye + 1);
+strcat(forditott, &quot; &quot;);
+strncat(forditott, eredeti, szokoz_helye - eredeti);
+
+printf(&quot;%s\n&quot;, forditott);</code></pre>
+
+<p class="csakdoksi">
+Ez a megoldás ugyanúgy működik, mint az előző, csak az összes részfeladat
+egy beépített függvény segítségével van megoldva. A szóköz helyének megkeresését
+az <code>strchr()</code> függvény végzi; ez visszaad egy pointert az eredeti tömbben
+a szóközre.
+</p>
+
+<p class="csakdoksi">
+A <code>strcpy()</code> hívás a keresztnevet másolja. Ez kerül be a <code>forditott[]</code>
+tömb elejére. Vegyük észre, hogy ez másolandó sztringként nem az eredeti sztringet kapja,
+hanem „behazudjuk” neki kezdőcímként a szóköz utáni első karaktert, azaz a vezetéknév első betűjét.
+A <code>strcpy()</code>-nak ez mindegy, az úgyis csak előrefelé halad a sztringben, és megáll
+az eredeti keresztnév utáni lezáró nullánál – közben a cél tömbbe is tesz egy lezáró nullát.
+Ebben a pillanatban a cél tömb tartalma <code>"Jakab"</code>.
+</p>
+
+<p class="csakdoksi">
+A <code>strcat()</code> hívás ezt a lezáró nullát megkeresi, és felülírja; a cél tömbhöz
+hozzáfűz egy szóközt. Persze utána tesz egy új lezáró nullát, tehát a tömb tartalma
+<code>"Jakab "</code> lesz.
+</p>
+
+<p class="csakdoksi">
+Végül pedig, ehhez fűzzük hozzá a vezetéknevet, a <code>strncat()</code> függvény használatával.
+Ez ugyanúgy összefűzésre használható, de a sima <code>strcat()</code>-hoz képest egy további paramétere
+is van, amelyikkel a másolt karakterek száma korlátozható. Mivel az eredeti tömbben a vezetéknév
+után nincs vége a sztringnek (hanem egy szóköz és a keresztnév követi), erre a korlátra szükségünk is
+van, ha csak a vezetéknevet szeretnénk másolni. Tehát korlátként megadjuk a vezetéknév hosszát, amelyet
+címaritmetikával számítunk ki: <code>szokoz_helye-eredeti</code>. A <code>strncat()</code> is tesz
+lezáró nullát a cél tömbbe, tehát készen vagyunk: a tartalom eddigra <code>"Jakab Gipsz"</code> lett.
+</p>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Gipsz Jakab: scanf–printf trükk">
+<div class="slide" id="slide_21">
+
+<a id="21" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">21</span><span class="oldalszamafter">. </span>    Gipsz Jakab: scanf–printf trükk<a class="hlink" href="index.html#21"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre   ><code class="language-cbub">char eredeti[] = &quot;Gipsz Jakab&quot;;
+char forditott[20];
+
+char vezeteknev[20], keresztnev[20];
+sscanf(eredeti, &quot;%s %s&quot;, vezeteknev, keresztnev);
+sprintf(forditott, &quot;%s %s&quot;, keresztnev, vezeteknev);
+
+printf(&quot;%s&quot;, forditott);</code></pre>
+
+<div class="csakdoksi">
+<p>Láttuk, hogy a <code>scanf "%s"</code> nem sort, hanem szót olvas be,
+azaz beolvasásnál nem csak a sortörés, hanem a szóköz karakternél is megáll.
+Ezen kívül, láttuk azt is, hogy a <code>scanf()-printf()</code>-nek vannak sztringes
+párjaik: az <code>sscanf()-sprintf()</code> sztringből olvasnak, sztringbe írnak.</p>
+
+<p>Innentől a feladat nagyon egyszerű: olvassuk be a két szót, mintha a billentyűzetről jönnének,
+az eredeti tömbből... Aztán írjuk bele, mintha a képernyőre írnánk, a cél tömbbe a két szót.
+Persze fordítva.</p>
+
+<p>Mindehhez szükségünk van két segédtömbre is, amelyekbe a szétválasztáskor a vezetéknév
+és a keresztnév kerül. Sebaj, még jó is, mert érthetőbbé is válik tőlük a kódrészlet.</p>
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Szótárprogram">
+<div class="slide" id="slide_22">
+
+<a id="22" class="namer"></a>
+  <a id="easzotar" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Szótárprogram</h1>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A feladat">
+<div class="slide" id="slide_23">
+
+<a id="23" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">23</span><span class="oldalszamafter">. </span>    A feladat<a class="hlink" href="index.html#23"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3><em>Feladatunk:</em> készítsünk szótárprogramot!</h3>
+
+<div class="sticky">Letöltés:<br><a href="szotar.c">szotar.c</a></div>
+
+<ul>
+    <li>Tároljon angol–magyar szópárokat.</li>
+    <li>Lehessen felvenni új szópárt, vagy törölni egyet.</li>
+    <li>Fájlba elmenteni, onnan visszatölteni a szótárt.</li>
+    <li>(Keresni angol vagy magyar szó szerint, ...)</li>
+</ul>
+
+<p class="csakdoksi">Ez a feladat már kicsit hajaz arra, mint amilyen egy nagy házi. De annál jóval kisebb, és egyszerűbb
+még; nem épít kellően bonyolult adatszerkezetet ahhoz, hogy nagy házi lehessen. A célja inkább az, hogy a sztringkezelésre
+újabb példákat lássunk, és a fájlkezelés alapjait bemutassuk.</p>
+
+<h3>Az adatszerkezet</h3>
+
+<pre class="eloadassorsurit115"  ><code class="language-cbub">typedef struct Szo {
+    char magyar[50+1];
+    char angol[50+1];
+} Szo;
+
+typedef struct Szotar {
+    Szo szavak[200];  // 0 ... db-1
+    int db;
+} Szotar;</code></pre>
+
+<p class="csakdoksi">Lássuk legelőbb az adatszerkezetet! Szópárokat kell tárolnunk, ezért szükségünk lesz egy struktúrára.
+Ebben két sztring van, a magyar és az angol nyelvű szónak. Nehéz eldönteni, hogy milyen nagyok legyenek ezek a sztringek,
+úgyhogy most az egyszerűség kedvéért maradjunk az 50-nél. (Később majd lesz róla szó, hogyan kell változtatható méretű,
+ún. dinamikus tömböket létrehozni.)</p>
+
+<p class="csakdoksi">A szótár pedig ilyen szópárokból áll, ezért létrehozunk egy tömböt. Ismét fölmerül a kérdés, hogy ez
+a tömb mekkora legyen; ezzel határozzuk meg azt, hogy a program hány szót fog tudni tárolni. Ennek a meghatározásától most
+ismét tekintsünk el, dolgozzunk maximum 200 szópárral. (Itt megint legjobb lenne egy átméretezhető adatszerkezet, de
+hagyjuk ezt egy későbbi előadásra.)</p>
+
+<p class="csakdoksi">Azt viszont tudnunk kell mindenképp, hogy a maximum 200 szópárt tartalmazó szótárunk mennyire van tele.
+Ezért fogunk még egy egész számot, ez lesz a darabszám. A szópárok tömbjét, és a darabszámot szintén betesszük egy struktúrába,
+hiszen összetartozó adatokról van szó: a) melyik tömb, b) meddig van tele. Úgy definiáljuk, hogy a szavakat mindig a tömb
+elején tároljuk, vagyis a tömb <code>0 ... db-1</code> indexű elemei tartalmaznak adatot. A többi lehet memóriaszemét is akár.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Új szó felvétele a szótárba: a probléma">
+<div class="slide" id="slide_24">
+
+<a id="24" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">24</span><span class="oldalszamafter">. </span>    Új szó felvétele a szótárba: a probléma<a class="hlink" href="index.html#24"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Úgy tervezzük, hogy lesz egy <code>felvesz()</code> függvényünk, amellyel új elem adható hozzá
+a szótárunkhoz. Ez megkapja paraméterként a szótárat és az új szópárt, amelyik vagy benne van a szótárban, vagy nem.
+Ha már benne van, nincs semmilyen teendője. Lássuk, hogy kell ezt használni!</p>
+
+<p>Felvennénk egy szót a szótárba:</p>
+
+<div class="sticky">nem jó</div>
+
+<pre   ><code class="language-cbub">Szotar sz;
+sz.db = 0;
+
+felvesz(sz, (Szo){&quot;alma&quot;,&quot;apple&quot;}); // ?!</code></pre>
+
+<p class="csakdoksi">Vigyázat: C-ben a függvényeknél csak <em>érték szerinti paraméterátadás</em> létezik. A függvénynek átadott
+<em>struktúra is érték szerint adódik</em> át! Vagyis ha ezt a hibás megoldást próbálnánk használni, akkor a függvényhívás
+pillanatában <em>a teljes szótár lemásolódna,</em> és a <code>felvesz()</code> függvény legfeljebb a másolatot tudná módosítani.
+Azt pedig hiába, attól az <code>sz</code> nevű struktúra nem változik meg; az új szópár se kerül bele, és a darabszám is nulla
+marad benne.</p>
+
+<br class="smallskip">
+
+<p>Csak így fog működni:</p>
+
+<div class="sticky">jó lesz</div>
+
+<pre   ><code class="language-cbub">Szotar sz;
+sz.db = 0;
+
+felvesz(&amp;sz, (Szo){&quot;alma&quot;,&quot;apple&quot;}); // Szotar *</code></pre>
+
+<p class="csakdoksi">A függvényünk módosítani fogja a szótárat adatait tároló struktúrát, ezért <em>indirekten, rá mutató
+pointerrel</em> kell nekik átadunk, ahogy a javított kódrészlet mutatja. Vagyis a <code>felvesz()</code> függvény első
+paramétere <code>Szotar *</code> típusú lesz, struktúrára mutató pointer.</p>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Pointerek struktúrákra: a nyíl operátor">
+<div class="slide" id="slide_25">
+
+<a id="25" class="namer"></a>
+  <a id="nyiloperator" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">25</span><span class="oldalszamafter">. </span>    Pointerek struktúrákra: a nyíl operátor<a class="hlink" href="index.html#25"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Az eddigiek szerint tehát a felvesz függvény a <em>szótár struktúrára mutató pointert kap</em>.
+Ebben az esetben a függvény paramétere pointer típusú, azon nem használhatjuk a <code>.</code> (pont) mezőkiválasztó
+operátort. Ha struktúrára mutató pointerünk van, akkor a <code>-&gt;</code> (nyíl) operátorral érjük el a mutatott
+struktúra valamelyik adattagját.</p>
+
+<p>A <code>felvesz()</code> függvény fejléce, és egy jellegzetes kódsor:</p>
+
+<pre   ><code class="language-cbub">void felvesz(Szotar *szt, Szo ujszo) {
+    /* ... */
+    szt-&gt;db += 1;
+}</code></pre>
+
+<p>Hívása:</p>
+
+<pre   ><code class="language-cbub">Szotar sz;
+felvesz(&amp;sz, (Szo){&quot;alma&quot;,&quot;apple&quot;}); // Szotar *</code></pre>
+
+<br class="smallskip">
+
+<h3>Miért találták ki a nyíl operátort?</h3>
+
+<p class="csakdoksi">A nyíl operátor tulajdonképp két műveletet végez el egyszerre: dereferál egy pointert, mint a <code>*</code>
+(csillag) operátor, és aztán mezőt választ ki a struktúrából, mint a <code>.</code> (pont) operátor.</p>
+
+<pre   ><code class="language-cbub">(*szt).db += 1; // ezt történik, de nem így írjuk
+
+szt-&gt;db += 1;   // hanem így rövidítjük</code></pre>
+
+<div class="csakdoksi">
+
+<p>Ezt az operátort azért találták ki, mert a <code>.</code> mezőkiválasztó operátornak magasabb a precedenciája, mint a
+<code>*</code> dereferáló operátornak. Ha ennyit írnánk: <code>*szt.db</code>, akkor azt a <code>.</code> magasabb
+precedenciája miatt <code>*(szt.db)</code>-ként próbálná meg értelmezni a fordító. Ez nyilván nem lehetséges, hiszen
+<code>szt</code> nem struktúra, hanem pointer, amelynek nincsenek mezői. Ha nem lenne a nyíl operátor, akkor minden ilyen
+hozzáférést zárójelezni kellene, mint ahogyan az fent a példában is látszik.</p>
+
+<p>Struktúrákra mutató pointerek esetén mindig a nyilat használjuk, mert egyszerűbb, olvashatóbb kódot kapunk, mintha zárójelezni
+kellene. Ugyanúgy, ahogyan az indexelő operátor esetén: <code>tomb[i]</code> helyett sem írunk <code>*(tomb+i)</code>-t, mert
+nehézkesebb, bonyolultabb, és semmivel nem jobb, mint az indexelő operátoros forma. Sőt igazából rosszabb, mert olvashatatlan,
+ezért <em>nem használjuk</em>.</p>
+
+<p>Tehát a <em>lényeg röviden:</em> ha struktúrából egy mező kell, akkor ponttal választjuk ki. Ha pointer van a struktúrára, akkor
+pedig nyíllal.</p>
+
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Új szó felvétele: a függvény">
+<div class="slide" id="slide_26">
+
+<a id="26" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">26</span><span class="oldalszamafter">. </span>    Új szó felvétele: a függvény<a class="hlink" href="index.html#26"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Az új szó felvételét így már meg tudjuk csinálni:</p>
+
+<pre   ><code class="language-cbub">bool felvesz(Szotar *szt, Szo uj) {
+    if (szt-&gt;db == 200)               // megtelt?
+        return false;
+
+    for (int i = 0; i &lt; szt-&gt;db; ++i) // benne van?
+        if (strcmp(szt-&gt;szavak[i].magyar, uj.magyar) == 0
+            &amp;&amp; strcmp(szt-&gt;szavak[i].angol, uj.angol) == 0)
+            return true;
+
+    szt-&gt;szavak[szt-&gt;db] = uj;        // betesszük
+    szt-&gt;db += 1;
+    return true;
+}</code></pre>
+
+<pre   ><code class="language-c">    strcpy(szt-&gt;szavak[szt-&gt;db].magyar, uj.magyar);
+    strcpy(szt-&gt;szavak[szt-&gt;db].angol, uj.angol);</code></pre>
+
+<div class="csakdoksi">
+
+<p>Figyeljük meg előbb a szintaktikát! Az új szópárt érték szerint vesszük át, <code>Szo uj</code> formában. Ezért annak
+adattagjait ponttal érjük el: <code>uj.magyar</code> és <code>uj.angol</code>. A teljes szótár viszont egy olyan struktúra, amit
+változtatni szeretnénk a függvényből, úgyhogy arra pointert vettünk át, <code>Szotar *szt</code> az első paraméter. Ezért a szótár
+mindegyik adattagját, a <code>db</code> és a <code>szavak</code> nevűt a nyíl operátorral tudjuk elérni. Ezért van a kódban
+<code>szt-&gt;db</code> és <code>szt-&gt;szavak</code> több helyen is.</p>
+
+<p>A szótárban lévő <code>szavak[]</code> tömb megindexelésekor <code>Szo</code> típusú struktúrához jutunk, nem pointerhez. Így
+azután ugyanúgy <code>.</code> (pont) operátort kell használni, mint az <code>uj</code> nevű paraméter esetén is, ha el szeretnénk
+érni a <code>magyar</code> és az <code>angol</code> adattagokat. Ez legjobban a két sztringmásolásnál látszik.</p>
+
+<p>Pár szó a függvény működéséről. Az eddigi gondolatot kiegészítettük a betelt szótár kezelésével. Ha nincs már hely beszúrni az
+új szót, akkor ez a függvény hamissal tér vissza, hibát jelezve. Ennek ellenőrzése előtt viszont megnézi, hogy bent van-e már a
+megadott szópár a szótárban. Ha igen, akkor nincs teendő, és sikeresnek tekinthető a művelet.</p>
+
+<p>A szópár beszúrásához struktúra értékadást használunk, mivel a struktúra teljes tartalmát át kell másolnunk. Használhatnánk két
+egymás utáni <code>strcpy()</code> függvényhívást is a két sztringhez, ahogy a kommentben szerepel – ebben az esetben ugyanazt az
+eredményt kapjuk. (A kettő között annyi a különbség, hogy a struktúra értékadással tulajdonképpen a karaktertömbök végén lévő
+memóriaszemetet is másoljuk. De mivel a tömbök nem túl nagyok, és úgyis mindig a lezáró nulláig tekintjük csak a tartalmukat, ennek
+nincs jelentősége.)</p>
+
+</div>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Fájlkezelés: az alapok">
+<div class="slide" id="slide_27">
+
+<a id="27" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">27</span><span class="oldalszamafter">. </span>    Fájlkezelés: az alapok<a class="hlink" href="index.html#27"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Lássuk a fájlkezelés alapjait a szótárprogram megvalósításához! A következőkben csak a legalapvetőbb dolgokról
+lesz szó a fájlokkal kapcsolatban, később <a href="../ea08/index.html#eafajl">részletesebben is fog szerepelni</a> ez a
+téma.</p>
+
+<h3>Szövegfájl írása</h3>
+
+<p class="csakdoksi">A fenti programrész egy fájl létrehozására mutat példát.</p>
+
+<pre class="eloadassorsurit11"  ><code class="language-cbub">int adat = 123;
+FILE *f = fopen(&quot;adat.txt&quot;, &quot;wt&quot;);
+if (f == NULL) {
+    perror(&quot;Nem lehet megnyitni a fájlt!&quot;);
+    return; /* vagy más módon &quot;menekülünk&quot; */
+}
+fprintf(f, &quot;%d&quot;, adat);
+fclose(f);</code></pre>
+
+<div class="csakdoksi">
+
+<p>A <em>fájl létrehozása</em> az <code>fopen()</code> (file-open) függvényhívással lehetséges. Ennek meg kell adni első paraméterként a
+fájl nevét, a második paraméterként pedig azt, hogy mit szeretnénk azzal csinálni. Ez is egy sztring, amelyben az egyes megnyitási
+módokat karakterek jelzik. Ez most a <code>"wt"</code> sztring. Ebben a <code>w</code> betű a write, azaz írás jelölése, a
+<code>t</code> pedig a text szóé, mert szöveget szeretnénk a fájlba írni. Ez egy rövid szövegfájl lesz, amit akár a Jegyzettömbbel
+is meg tudunk nyitni.</p>
+
+<p>Az <code>fopen()</code> függvény egy <code>FILE *</code> típusú pointert ad vissza. Ez az ún. „file handle”: a nyitott fájlra
+később <em>ezzel a pointerrel tudunk hivatkozni</em>. Egyszerre akár több fájlt is kezelhetnénk; a későbbi műveletek, pl. fájlba írás
+számára ez a pointer azonosítja azt, hogy melyik fájllal dolgozunk.</p>
+
+<p>A visszaadott pointer lehet <code>NULL</code> értékű is. Ez valamilyen <em>hibát jelent</em>, tehát azt, hogy a fájlt nem sikerült
+megnyitni. Például azért, mert nincs elérési jogosultságunk, vagy esetleg fizikai lehetetlenséget kérünk: egy „gyári”, csak
+olvasható DVD-re próbálunk épp fájlt létrehozni. Ilyenkor nem mehetünk tovább a többi műveletre. (Bár a példa csak egy kódrészletet
+mutat, a <code>return</code> utasítás azt hivatott jelképezni, hogy a műveletsort a megnyitás sikertelensége esetén nem
+folytathatjuk.) Probléma esetén például a <code>perror()</code> függvénnyel jeleníthetünk meg hibajelzést; a megadott szövegünk
+mellett ez a hiba okára utaló hibaüzenetet is kiír.</p>
+
+<p>Ha sikerült, akkor folytathatjuk a műveletet. Innentől könnyű a dolgunk, szinte nincs is új megtanulnivaló. A szövegfájlba
+ugyanúgy írhatunk, mintha a konzol ablakba írnánk valamit. A <code>printf()</code> függvénynek van egy <code>fprintf()</code>
+nevű párja (file-printf), amelyik az első paramétereként megadott, írásra megnyitott <em>fájlba ír</em>. Amúgy teljesen ugyanúgy kell
+használni, mint a <code>printf()</code>-et, ez látszik a példában is.</p>
+
+<p>Végül pedig, az <code>fclose()</code> (file-close) függvény <em>bezárja a fájlt</em>. Ezzel jelezzük az operációs rendszernek,
+hogy végeztünk a fájllal, véglegesítjük annak tartalmát. Ezek után az <code>f</code> változó tartalma memóriaszemétnek tekintendő.</p>
+
+<p>Elvileg minden művelet sikerességét ellenőrizni kellene (pl. fájlba írás közben is elfogyhat a hely), de az egyszerűség
+kedvéért ez most kimaradt a példában.</p>
+
+</div>
+
+<h3>Szövegfájl olvasása</h3>
+
+<pre class="eloadassorsurit11"  ><code class="language-cbub">int adat;
+FILE *f = fopen(&quot;adat.txt&quot;, &quot;rt&quot;);
+if (f == NULL) {
+    return; /* lásd fent */
+}
+fscanf(f, &quot;%d&quot;, &amp;adat);
+fclose(f);</code></pre>
+
+<div class="csakdoksi">
+<p>Az olvasás az előzőekhez hasonlóan működik. Itt az <code>fopen()</code> második paramétere <code>"rt"</code>, azaz „read
+text” kell legyen. A megnyitás ugyanúgy lehet sikertelen, például ha nem is létezik a megadott nevű fájl. Ha viszont igen,
+akkor az <code>fscanf()</code>-fel (file-scanf) tudunk olvasni belőle. Ha végeztünk, az <code>fclose()</code> függvénnyel
+ugyanúgy be kell zárni a fájlt, mint az írásra megnyitottat, különben fölöslegesen lekötjük az operációs rendszer erőforrásait.</p>
+
+<p>Itt is ellenőrizni kellene nem csak a megnyitás műveletét, hanem az összes többit. Például a fájlban nem biztos, hogy
+szám van; ezt az <code>fscanf()</code> visszatérési értékének vizsgálatával tudnánk detektálni.</p>
+</div>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A szótár fájlba írása: döcögősen">
+<div class="slide" id="slide_28">
+
+<a id="28" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">28</span><span class="oldalszamafter">. </span>    A szótár fájlba írása: döcögősen<a class="hlink" href="index.html#28"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A fájlba írás nagyjából így működhet a szótárprogramunkban:</p>
+
+<pre   ><code class="language-c">bool ment(Szotar *szt, char *fajlnev) {
+    FILE *f = fopen(fajlnev, &quot;wt&quot;);
+    if (f == NULL) {
+        perror(&quot;Nem sikerült menteni a szótárat&quot;);
+        return false;
+    }
+    for (int i = 0; i &lt; szt-&gt;db; ++i)
+        fprintf(f, &quot;%s %s\n&quot;, szt-&gt;szavak[i].magyar,
+                              szt-&gt;szavak[i].angol);
+    fclose(f);
+    return true;
+}</code></pre>
+
+<br class="smallskip">
+
+<p class="csakdoksi">A fenti kód ezekhez hasonló fájlokat hoz létre:</p>
+
+<div class="columns c4060">
+<div>
+<pre class="screenshot">
+alma apple
+körte pear
+barack peach
+</pre>
+</div>
+<div>
+<pre class="screenshot">
+tábla csoki bar of chocolate
+doboz gyufa box of matches
+idegroncs nervous wreck  <span class="bubble">?!</span>
+</pre>
+</div>
+</div>
+
+<p class="csakdoksi">Egy nagy gond viszont van. <em>Nem választhatjuk el szóközzel</em> a fájlban a magyar és az angol szót.
+Előfordulhat ugyanis, hogy a szótár nem csak szavakat, hanem kifejezéseket is tartalmaz; például „bar of chocolate”
+jelentése: tábla csoki, és „box of matches” jelentése: doboz gyufa. Mind a magyar, mind az angol kifejezésben
+szóközök is vannak. Az ilyen soroknál visszaolvasáskor nem tudná eldönteni a program, meddig tart a magyar szó, és honnan
+kezdődik az angol.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A jól megválasztott elválasztó">
+<div class="slide" id="slide_29">
+
+<a id="29" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">29</span><span class="oldalszamafter">. </span>    A jól megválasztott elválasztó<a class="hlink" href="index.html#29"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Hogyan oldhatjuk meg ezt a problémát? Egyik lehetőségünk, hogy a szóköz helyett keresünk
+valami mást. Egy olyan elválasztó karaktert, amelyik biztosan nem szerepelhet sem az angol, sem a magyar szóban.
+Ilyen karakter lehet például a tabulátor.</p>
+
+<pre   ><code class="language-c">for (int i = 0; i &lt; szt-&gt;db; ++i)
+    fprintf(f, &quot;%s\t%s\n&quot;, szt-&gt;szavak[i].magyar,
+                           szt-&gt;szavak[i].angol);</code></pre>
+
+
+<p class="csakdoksi">Az új fájlunk tehát tabulátorral választja el a szavakat, és az eddigiekhez hasonlóan külön sorba írja a
+szópárokat. Az ábrán a színes nyilakkal a tabulátor karaktert jelképezzük:</p>
+
+<pre class="screenshot">
+tábla csoki<strong style="margin: 0 0.2em;">→</strong>bar of chocolate
+doboz gyufa<strong style="margin: 0 0.2em;">→</strong>box of matches
+</pre>
+
+<br class="smallskip">
+
+<p class="csakdoksi">A visszaolvasás itt biztosan nem működne <code>fscanf()</code> <code>"%s %s"</code>-sel. Mint azt a sztringek
+kapcsán láttuk, a <code>scanf()</code> egy <code>"%s"</code> konverzió megadása esetén minden <em>szóköz jellegű</em> karakternél
+megáll, tehát a több szóból álló kifejezések esetén csak az első szót olvasná be. Emiatt például a „tábla csoki” kezdetű sornál a
+magyar szót tároló adattagba tenné a táblát, az angol adattagba pedig a csokit. Valahogyan a <code>scanf()</code> tudatára kell
+adnunk, hogy nem a szóköznél, hanem a tabulátornál van vége a sztringnek.</p>
+
+<p class="csakdoksi">Ilyen feladatok megoldására találták ki a <code>scanf()</code> <code>"%[]"</code> (szögletes zárójel) jelű
+konverzióját. Ez a <code>"%s"</code>-hez hasonlóan egy sztringet olvas be, viszont itt <em>meg lehet adni</em>, hogy a sztring
+milyen karaktereket tartalmazhat, vagy miket nem tartalmazhat.</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">scanf(&quot;%[0-9a-f]&quot;, s);</code></pre>
+</div>
+<div>
+<pre   ><code class="language-c">scanf(&quot;%[^\n]&quot;, s);</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi">Ezt kétféleképpen használhatjuk: ha a szögletes zárójelben felsorolunk valamilyen karaktereket, azzal ezt
+mondjuk: addig olvassuk a sztringet, amíg a <em>megadott karakterek sorozata</em> jön. Ha bármi ettől eltérő, akkor ott álljunk
+meg. Az első példa egy olyan sztringet olvas be: <code>"%[0-9a-f]"</code>, amiben hexadecimális számjegyek vannak: 0 és 9, illetve
+a és f között.</p>
+
+<p class="csakdoksi">A második lehetőségünk, hogy kizárt karaktereket sorolunk fel. Ha a szögletes zárójel után egy <code>^</code>
+kalapot (caret) teszünk, utána azokat a karaktereket adhatjuk meg, amiknél <em>meg kell állni.</em> Vagyis bármi mást beolvas, de
+az első olyannál, ami a listában van, meg fog állni a sztring. A második példa egy sort olvas be: <code>"%[^\n]"</code>. A
+sztringben bármi lehet, kivétel újsor karakter.</p>
+
+<p class="csakdoksi">Ezzel már vissza tudjuk olvasni a fenti módon létrehozott fájlunkat. A magyar szó (kifejezés) tabulátorig
+tart, az angol pedig a sor végéig. A beolvasás tehát:</p>
+
+<pre   ><code class="language-c">szt-&gt;db = 0;
+Szo uj;
+while (fscanf(f, &quot; %[^\t] %[^\n]&quot;,
+                 uj.magyar, uj.angol) == 2) {
+    szt-&gt;szavak[szt-&gt;db] = uj;
+    szt-&gt;db += 1;
+}</code></pre>
+
+<div class="csakdoksi">
+
+<p>Ebben még egy utolsó dologra kellett figyelnünk. Nevezetesen arra, hogy a <code>"%[]"</code> konverzió, amikor valamelyik
+karakter miatt megáll, akkor azt a határoló karaktert már nem olvassa be a fájlból. Például a magyar szó beolvasása megáll a
+tabulátornál, és ez a tabulátor ott marad a bemeneten. Vagyis a következő alkalommal, amikor valamit szeretnénk a fájlból olvasni,
+elsőként ezt a karaktert fogjuk megkapni.</p>
+
+<img src="szotar_sor.svg" class="kozep" style="width: 24em;">
+
+<p>A fenti ábrán a fölfelé mutató nyíl jelzi azt, hogy ilyenkor hol állunk a fájlban. Ha ezt a tabulátort nem lépjük át, akkor
+bekerül az angol szóba, mert a <code>"%[^\n]"</code> konverzió elfogadja. Ezt értelemszerűen el kell kerülnünk. Erre való a
+<em>formátumsztringben használt szóköz</em>: ez átlépi az entereket, a szóközöket és mellesleg azt a tabulátort, ami épp az
+elválasztó karakterünk volt.</p>
+
+<p>Ugyanez a helyzet a sor végén: az angol szó beolvasása megáll az újsor karakternél, és az ott marad a bemeneten; ha nem akarjuk,
+hogy a következő magyar szóba bekerüljön, akkor azt a magyar szó beolvasása előtt el kell dobni.</p>
+
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Minden kifejezés külön sorban">
+<div class="slide" id="slide_30">
+
+<a id="30" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">30</span><span class="oldalszamafter">. </span>    Minden kifejezés külön sorban<a class="hlink" href="index.html#30"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A szóközök problémáját úgy is megoldhatjuk, hogy egyszerűen külön sorban tárolunk minden kifejezést. Így a
+fájl sorai felváltva magyar, angol, magyar, angol kifejezéseket tartalmaznak majd. Ezt nagyon másnak érezzük az előző megoldástól,
+de valójában ugyanarról van szó: itt a jól megválasztott elválasztó karakter az újsor. A fájl írása:</p>
+
+<pre   ><code class="language-c">for (int i = 0; i &lt; szt-&gt;db; ++i)
+    fprintf(f, &quot;%s\n%s\n&quot;, szt-&gt;szavak[i].magyar,
+                           szt-&gt;szavak[i].angol);</code></pre>
+
+<pre class="screenshot">
+tábla csoki
+bar of chocolate
+doboz gyufa
+box of matches
+</pre>
+
+<p class="csakdoksi">A beolvasást végezhetjük ugyanúgy, mint az előbb, vagy akár az <code>fgets()</code> függvénnyel is:</p>
+
+<pre class="eloadassorsurit115 csakeloadas"  ><code class="language-cbub">szt-&gt;db = 0;
+Szo uj;
+while (fgets(uj.magyar, 51, f) != NULL
+       &amp;&amp; fgets(uj.angol, 51, f) != NULL) {
+    *strchr(uj.magyar, '\n') = '\0'; // vigyázat!
+    *strchr(uj.angol, '\n') = '\0';
+    szt-&gt;szavak[szt-&gt;db] = uj;
+    szt-&gt;db += 1;
+}</code></pre>
+
+<pre class="eloadassorsurit115 csakdoksi"  ><code class="language-cbub">szt-&gt;db = 0;
+Szo uj;
+while (fgets(uj.magyar, 51, f) != NULL
+       &amp;&amp; fgets(uj.angol, 51, f) != NULL) {
+    enter = strchr(uj.magyar, '\n');
+    if (enter != NULL)
+        *enter = '\0';
+    enter = strchr(uj.angol, '\n');
+    if (enter != NULL)
+        *enter = '\0';
+    szt-&gt;szavak[szt-&gt;db] = uj;
+    szt-&gt;db += 1;
+}</code></pre>
+
+<div class="csakdoksi">
+    
+<p>Itt arra kell figyelnünk, hogy az <code>fgets()</code> a fájlban a sorok végét jelzó <em>újsor karaktert is
+beteszi a sztringbe</em>. Ennek az a célja, hogy a csonka sorokat is detektálni tudjuk. Ugyanis a függvénynek a karaktertömb
+méretét, és ezáltal a sztring maximális hosszát meg kell adni. Előfordulhat, hogy a fájlból érkező sor hosszabb. Ezt onnan
+vesszük észre, hogy a beolvasott sztring végén nincsen újsor karakter. Amúgy viszont a tábla csokit tartalmazó sor beolvasása
+után a sztring tartalma <code>"tabla csoki\n"</code>.</p>
+
+<p>Erre az újsor karakterre nincs szükségünk, a beolvasás után ki kell törölnünk azt a magyar és az angol szóból is. Ezt 
+legegyszerűbben úgy tehetjük meg, hogy az <code>strchr()</code> függvénnyel megkerestetjük, és <em>felülírjuk egy lezáró 
+nullával</em>. A felkiáltójel azért szerepel a kódban, mert az <code>strchr()</code> hívás értéke <code>NULL</code> pointer is 
+lehet – ezt ellenőrizni kell. Ilyen valójában csak akkor történhet, ha hibás a fájl, hiszen eredendően is maximum 50 karakteres
+sztringeket írtunk bele.</p>
+
+</div>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

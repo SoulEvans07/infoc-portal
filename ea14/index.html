@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Nagyobb program: mini táblázatkezelő</title>
+<meta property="og:title" content="TEST InfoC :: Nagyobb program: mini táblázatkezelő">
+<meta property="og:image" content="/modulz/logo-sapi.png">
+<meta property="og:description" content="Összefoglalás, egy nagy program tervezése. Egy táblázatkezelő megvalósítása: rekurzió a nyelvtani elemzésben és a kiértékelésben.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Összefoglalás, egy nagy program tervezése. Egy táblázatkezelő megvalósítása: rekurzió a nyelvtani elemzésben és a kiértékelésben.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo-sapi.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Nagyobb program: mini táblázatkezelő">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+  <a id="eaparser" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Nagyobb program: mini táblázatkezelő</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Pohl László, Kohári Zsolt, Nagy Gergely · <i class="ido"></i> 2019.09.03.</p>
+<p class="kivonat">Összefoglalás, egy nagy program tervezése. Egy táblázatkezelő megvalósítása: rekurzió a nyelvtani elemzésben és a kiértékelésben.</p>
+</div>
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Komplex példa: táblázatkezelő</a>
+              <li><a href="index.html#2" class="">Egy táblázat anatómiája</a>
+              <li><a href="index.html#3" class="fontos">Kifejezések értelmezése (parsing)</a>
+              <li><a href="index.html#4" class="">Matematikai kifejezések kiértékelése</a>
+              <li><a href="index.html#5" class="">A nyelvtani szabályok, EBNF</a>
+              <li><a href="index.html#6" class="">A rekurzív alászálló értelmező</a>
+              <li><a href="index.html#7" class="">A szabályok használata</a>
+              <li><a href="index.html#8" class="">Matematikai kifejezés – számok összege</a>
+              <li><a href="index.html#9" class="">Matematikai kifejezés – precedenciák</a>
+              <li><a href="index.html#10" class="">Matematikai kifejezés – zárójelek</a>
+              <li><a href="index.html#11" class="">A kiértékelő megírása I.</a>
+              <li><a href="index.html#12" class="">A kiértékelő megírása II.</a>
+              <li><a href="index.html#13" class="">Kifejezés kiértékelő működés közben</a>
+              <li><a href="index.html#14" class="fontos">A cellák kiértékelése</a>
+              <li><a href="index.html#15" class="">A cellák kiértékelése</a>
+              <li><a href="index.html#16" class="">A körkörös hivatkozás</a>
+              <li><a href="index.html#17" class="">A táblázat reprezentálása: az adatszerkezet</a>
+              <li><a href="index.html#18" class="">Egy cella értékének kiszámítása</a>
+              <li><a href="index.html#19" class="">Táblázatkezelő futás közben</a>
+              <li><a href="index.html#20" class="">A cella módosítása</a>
+              <li><a href="index.html#21" class="">Fordítási függőségek csökkentése</a>
+              <li><a href="index.html#22" class="fontos">Epilógus</a>
+              <li><a href="index.html#23" class="">https://infoc.eet.bme.hu/</a>
+              <li><a href="index.html#24" class="">typedef void Ize, Semmi;</a>
+              <li><a href="index.html#25" class="">Mit ír ki?</a>
+              <li><a href="index.html#26" class="">#define trollkodás</a>
+              <li><a href="index.html#27" class="">Öndokumentáló kód!</a>
+              <li><a href="index.html#28" class="">IOCCC – Mit ír ki?</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Komplex példa: táblázatkezelő">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Komplex példa: táblázatkezelő<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A mai órán: írjunk egy egyszerű táblázatkezelő programot!</p>
+
+<br class="smallskip">
+
+
+<img class="kozep arnyek" src="longdrinks.png">
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egy táblázat anatómiája">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Egy táblázat anatómiája<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<table class="">
+<thead><tr><th>&nbsp;<th style="text-align: center;">A
+<th style="text-align: center;">B
+<th style="text-align: center;">C
+<th style="text-align: center;">D
+</thead>
+<tr><th>1<td><input type="text" value="Összetevők" size="10"><td><input type="text" value="" size="10"><td><input type="text" value="" size="10"><td><input type="text" value="" size="10">
+<tr><th>2<td><input type="text" value="" size="10"><td><input type="text" value="Rum" size="10"><td><input type="text" value="12" size="10"><td><input type="text" value="Ft/ml" size="10">
+<tr><th>3<td><input type="text" value="" size="10"><td><input type="text" value="Cola" size="10"><td><input type="text" value="2" size="10"><td><input type="text" value="Ft/ml" size="10">
+<tr><th>4<td><input type="text" value="" size="10"><td><input type="text" value="Cuba Libre" size="10"><td><input type="text" value="=50*C2+100*C3" size="10"><td><input type="text" value="Ft" size="10">
+<tr><th>5<td><input type="text" value="Fogyasztás" size="10"><td><input type="text" value="" size="10"><td><input type="text" value="" size="10"><td><input type="text" value="" size="10">
+<tr><th>6<td><input type="text" value="" size="10"><td><input type="text" value="Cuba Libre" size="10"><td><input type="text" value="2" size="10"><td><input type="text" value="db" size="10">
+<tr><th>7<td><input type="text" value="" size="10"><td><input type="text" value="Fizet" size="10"><td><input type="text" value="=C4*C6" size="10"><td><input type="text" value="Ft" size="10">
+</table>
+
+<div class="csakdoksi">
+<p>Kihívások:</p>
+<ol>
+    <li>A képletek <em>értelmezése</em>.
+    <li>A <em>kereszthivatkozások</em> feloldása.
+</ol>
+</div>
+
+<div class="csakdoksi">
+<p>Gondoljuk meg: a fizetendő összeg kiszámításakor a képlet
+hivatkozik az egyes italok árára (amiket megszoroz a fogyasztott
+mennyiséggel). Az italok árai további cellákra hivatkoznak
+(összetevők ára és mennyisége). Az igazi problémát az jelenti, hogy
+nagyon nehéz feladat megtalálni azt a bejárási sorrendet, amelyen
+végighaladva csupa már kiszámított celleértéket használunk csak fel.</p>
+
+<p>A jelen esetben ez azt jelentené, hogy előbb kiszámítjuk az
+egyes italok árait, majd ezután számoljuk ki a fizetendő összeget.
+Csakhogy a Long Island Ice Tea egy jóval későbbi cellában
+helyezkedik el, mint a fogyasztás, így előre-hátra kéne ugrálni a
+cellák között.</p>
+
+<p>Egy összetett lapon annyira bonyolult összefüggések lehetnek az egyes cellák
+között, hogy a kiszámítás útvonalának a feltérképezése annyira nehézzé válik,
+amit már nem érdemes leprogramozni. Ehelyett azt választjuk, hogy elindulunk a
+bal felső cellától és jobbra lefelé haladva sorra vesszük a cellákat.</p>
+
+<p>Ha egy cella hivatkozik egy másik értékére, akkor elugrunk oda, és megnézzük
+azt az értéket. Ha az is hivatkozik egy másikra, akkor tovább ugrunk egészen
+addig, amíg olyan cellákig nem érünk, amelyek rögtön kiértékelhetőek (pl. egy
+szám vagy csupa számokból álló képlet van bennük, vagy már korábban
+kiszámítottuk az értéküket).</p>
+
+<p>Előfordulhat olyan eset is, hogy egy cella hivatkozik egy másik cella értékére, ami 
+viszont hivatkozik az előbbire. Például az A3 cella képlete: <code>A3 = B4 * 2</code>, míg a B4-é: <code>B4 = 123 + 
+A3</code>. Az ilyen jellegű hivatkozások nem oldhatóak fel, nem tudjuk meghatározni az értéket. 
+Ugyanakkor a programunk végtelen rekurzióba kerülhet miattuk, ezért fel kell derítenünk, vagy a 
+számolás során észre kell vennünk az ilyen csapdákat. Ráadásul egy ilyen, ún. körkörös 
+hivatkozás előfordulhat több lépésben is – például az A3 hivatkozik a B4-re, ami hivatkozik a 
+C8-ra, ami az A7-re, ami az A3-ra. A programnak ezeket is észre kell vennie, hiszen itt is 
+ugyanúgy előállna a végtelen rekurzió.</p>
+
+<p>Ezeket a problémákat kell megoldania a programunknak.</p>
+</div>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Kifejezések értelmezése (parsing)">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Kifejezések értelmezése (parsing)</h1>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Matematikai kifejezések kiértékelése">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Matematikai kifejezések kiértékelése<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<img class="float" src="muveletek.svg" style="width: 12em;">
+
+<h3>Matematikai kifejezések</h3>
+<ul>
+    <li>Postfix alak: <code>4 5 7 + *</code>
+    <li>Prefix alak: <code>* 4 + 5 7</code>
+    <li>Infix alak: <code>4 * (5 + 7)</code>
+</ul>
+
+<p>Ezek mind ugyanazt jelentik.</p>
+
+<br class="medskip">
+
+<h3>Infixes alak: <code>4 * (5 + 7)</code></h3>
+<p>Ezt összetett feladat értelmezni: zárójelek, precedenciaszabályok, …</p>
+
+
+<div class="csakdoksi">
+<p>A nyelvi elemzés (parse, parsing) „Helló világ”-ja a négy alapműveletet
+és a zárójeleket ismerő matematikai kifejezések értelmezése.</p>
+
+<p>Furcsa vagy nem, a legbonyolultabb a fenti három közül a hétköznapi <em>infixes</em>
+alak, amely esetén az operátort a két operandus közé tesszük. Itt megszoktuk
+azt, hogy a műveleteknek precedenciája van. Például a szorzásé magasabb,
+mint az összeadásé. Hogy az <code>5+7</code> összeget szorozzuk 4-gyel,
+a kifejezésben zárójelezni is kell azt.</p>
+
+<p>A <em>postfixes</em> alak esetén az operandusok után van az operátor.
+Minden operátor az előtte lévő két operandusra vonatkozik. Pl.
+<code>4&nbsp;<strong>5&nbsp;7&nbsp;+</strong>&nbsp;*</code>, a <code>+</code>
+jel az előtte álló 5-ösre és 7-esre. Ezt lehetne zárójelezni is, de felesleges,
+hiszen mindig tökéletesen egyértelmű. Nincsen szükség precedenciaszabályokra sem.
+Példa egy bonyolultabb képletre:
+</p>
+<pre>
+(<em>3+4</em>)*(<strong>5+6</strong>) = <em>3 4 +</em> <strong>5 6 +</strong> *
+</pre>
+
+<p>A <em>prefixes</em> alak esetén az operátor az operandusok előtt van.
+Ez egyrészről lehetne a postfixes visszafelé, másrészről viszont szokás mindig
+zárójelezni. Ugyanis zárójelezés esetén könnyedén tudjuk azt is jelezni, ha
+egy operátornak kettőnél több operandusa van:
+<pre>
+(+ 4 5 6)
+</pre>
+<p>Ez a 4, 5 és 6 számok összege. Ezt infix alakban le sem tudjuk írni, csak
+két külön összeadással – amely egyrészről ugyanazt jelenti, másrészről viszont
+korántsem ugyanaz:</p>
+<pre>
+4+5+6 = (+ 4 (+ 5 6))
+</pre>
+</p>
+</div>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A nyelvtani szabályok, EBNF">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    A nyelvtani szabályok, EBNF<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Kezdetnek próbáljuk megfogalmazni, hogy néz ki egy egész szám:</p>
+
+<blockquote>
+<ul>
+   <li>Egy szám legalább egy számjegyből áll.
+   <li>Egy számjegy a '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' szimbólumok valamelyike.
+   <li>Ha a szám több számjegyű, akkor a legelső számjegy nem lehet nulla.
+</ul>
+</blockquote>
+
+
+<br class="smallskip">
+<br class="smallskip">
+
+<p class="csakdoksi">A fenti, szabad nyelvi leírás nehezen áttekinthető és nem formális, ami nehezíti az algoritmizálást.</p>
+
+<p>Az egész szám <em>formális leírása EBNF alakban:</em>
+
+<pre>
+szám              <strong>::=</strong> számjegy<strong>|</strong><strong>(</strong>számjegy_nemnulla számjegy<strong>+</strong><strong>)</strong>
+számjegy_nemnulla <strong>::=</strong> '1'<strong>|</strong>'2'<strong>|</strong>'3'<strong>|</strong>'4'<strong>|</strong>'5'<strong>|</strong>'6'<strong>|</strong>'7'<strong>|</strong>'8'<strong>|</strong>'9'
+számjegy          <strong>::=</strong> '0'<strong>|</strong>számjegy_nemnulla
+</pre>
+
+<div class="sticky csakdoksi"><img src="bach.jpg" style="display: block; width: 9em;"></div>
+
+<ul class="csakdoksi">
+   <li><code>::=</code> egy nyelvtani szabály definíciója
+   <li><code>'c'</code> egy tényleges karakter a szövegben
+   <li><code>|</code> opció (vagy az egyik elem van ott, vagy a másik)
+   <li><code>+</code> egy, vagy több ugyanolyan elem
+   <li><code>()</code> egy együtt kezelt egység (ua. mint algebrában)
+   <li>egymás után írt szimbólumok pedig egymást kell kövessék a szövegben.
+</ul>
+
+<p class="csakdoksi">
+Többféle EBNF alak létezik, mi most a <a href="http://www.w3.org/TR/REC-xml/#sec-notation">W3C konzorcium szabványát</a>
+használjuk.
+</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A rekurzív alászálló értelmező">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    A rekurzív alászálló értelmező<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="sticky">recursive<br>descent<br>parser</div>
+
+<p class="csakdoksi">A sztringet értelmező program felépítésének egyik módja,
+ha az ún. „rekurzív alászálló értelmezőt” valósítjuk meg. Ez tulajdonképp egy visszalépő kereséssel oldja meg
+a szöveg illesztését a szabályokra.</p>
+
+<p class="csakdoksi">Ebben <em>minden szabálynak</em> megfeleltetünk egy <em>függvényt.</em>
+A függvény átveszi az értelmezendő sztring címét, amit a futása során a 
+sikeresen felismert szakasz végére állít át. (Ha nem ismert fel semmit, akkor nem 
+változtatja meg.) A függvény visszatérési értéke logikai típusú, ami igaz, ha 
+sikeresen felismert egy szakaszt, és hamis, ha nem történt illeszkedés. Minden függvény 
+ezentúl paraméterként átvett változók címébe tölti a felismert szakasz értelmezésével 
+kapcsolatos eredményeit.</p>
+
+<div  class="csakeloadas">
+<p>Minden szabályhoz egy függvény:</p>
+</div>
+
+<pre   ><code class="language-c">bool szabaly(char **szoveg, ……… *eredmeny);</code></pre>
+
+<br class="smallskip">
+
+<p>Az illesztő függvény így néz ki egyetlen számjegy illesztése esetén:</p>
+<pre class="eloadaskicsinyit"  ><code class="language-cbub">bool szamjegy(char **szoveg, char *szamjegy) {
+    char *ptxt;
+    ptxt = *szoveg;                     // munkaváltozat
+
+    if (ptxt[0]&gt;='0' &amp;&amp; ptxt[0]&lt;='9') { // számjegy?
+        *szamjegy = ptxt[0];
+        *szoveg = ptxt+1;
+        return true;                    // illeszkedik :)
+    }
+    else
+        return false;                   // nem illik rá :(
+}</code></pre>
+
+<div class="csakdoksi">
+<p>Az illesztés menete a fenti példafüggvényre (amely egy számjegyet próbál
+illeszteni a szövegrészre) a következő:</p>
+<ul>
+   <li>Készítünk egy munkaváltozatot <code>ptxt</code>-be.
+    Ahogy haladunk ennek a szabálynak a feldolgozásával, ezzel dolgozunk.
+   <li>Megpróbáljuk számjegyként értelmezni az aktuális karaktert. Ha sikerült, akkor
+      <ol>
+         <li>a paraméterként kapott változóba írjuk az eredményt,
+         <li>léptetjük az értelmezett szöveget,
+         <li>igazzal térünk vissza.
+      </ol>
+    
+</ul>
+
+<p>A <code>ptxt</code> változóra bonyolultabb szabályok esetén van igazán szükség. Mert ha a 
+szabály illesztése sikertelen, akkor a <code>*szoveg</code> mutatót nem állítjuk el! Ha sikeres, 
+akkor viszont beállítjuk a soron következő értelmezendő szövegrészre. Ez biztosítja ugyanis a 
+összefűzhetőséget, amit később fogunk megvizsgálni.</p>
+
+</div>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A szabályok használata">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    A szabályok használata<a class="hlink" href="index.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+bool szamjegy(char **szoveg, char *szamjegy) {
+    char *ptxt;
+    ptxt = *szoveg;
+
+    if (ptxt[0]&gt;='0' &amp;&amp; ptxt[0]&lt;='9') {
+        *szamjegy = ptxt[0];
+        *szoveg = ptxt+1;
+        return true;
+    }
+    else
+        return false;
+}
+
+int main(void) {
+    char szoveg[100] = &quot;123 hello&quot;;
+
+    char t;
+    char *leptet = szoveg;
+    bool sikerult = szamjegy(&amp;leptet, &amp;t);
+    if (sikerult)
+        printf(&quot;Sikerült: t = %c!\n&quot;, t);
+    else
+        printf(&quot;Nem sikerült.\n&quot;);
+
+    printf(&quot;%s\n&quot;, szoveg);
+    for (int i = 0; i &lt; leptet-szoveg; ++i)
+        printf(&quot; &quot;);
+    printf(&quot;^\n&quot;);
+    return 0;
+}</code></pre>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Matematikai kifejezés – számok összege">
+<div class="slide" id="slide_8">
+
+<a id="8" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">8</span><span class="oldalszamafter">. </span>    Matematikai kifejezés – számok összege<a class="hlink" href="index.html#8"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Bonyolultabb, összetett szabályokat az ilyen függvények segítségével 
+fogunk felépíteni. Lássuk, hogyan!</p>
+
+<p><em>Minta</em> (pattern) összeadások és kivonások leírására:</p>
+
+<pre>
+összeg ::= szám (('+' | '-') szám)<strong>*</strong>
+</pre>
+
+<p>A <code><strong>*</strong></code> tetszőleges számú (akár 0) ismétlést jelent.</p>
+
+<br class="smallskip">
+
+<p>A minta <em>illeszkedik</em> (match) ezekre a példákra:</p>
+
+<div class="columns">
+<div>
+<pre>
+2
+234 + 14
+1278 - 897
+788 + 567 - 34
+</pre>
+</div>
+<div>
+<img class="kozep" src="muvelet_osszead.svg" style="width: 12em;">
+</div>
+</div>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Matematikai kifejezés – precedenciák">
+<div class="slide" id="slide_9">
+
+<a id="9" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">9</span><span class="oldalszamafter">. </span>    Matematikai kifejezés – precedenciák<a class="hlink" href="index.html#9"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+<p>Fontos a precedencia: hogyan tudjuk bevezetni a szorzást/osztást?!</p>
+
+<p>Nem vezethetjük be a '+' és '-' alternatívájaként:
+
+<pre class="athuzott">
+kifejezés ::= szám (('+' | '-' | '*' | '/') szám)*
+</pre>
+
+<img class="kozep" src="muvelet_butaszoroz.svg" style="width: 12em;">
+
+<p>Mert így nem érvényesül az, hogy pl. a <pre>2 + 3 * 6</pre> kifejezésben a
+szorzás a 3-ra és a 6-ra vonatkozik: 2+(3*6).</p>
+</div>
+
+<p><em>Ötlet:</em> legyen a szorzás és osztás egy különálló egység, így azokat egyben kezeli az értelmező.</p>
+
+<p class="csakdoksi">Ez azt jelenti, hogy egy <em>új szabályt</em> vezetünk be a szorzás és osztás számára.</p>
+
+
+<pre class="selectable">
+kifejezés <strong>::=</strong> összeg
+összeg    <strong>::=</strong> szorzat <strong>(</strong><strong>(</strong>'+' <strong>|</strong> '-'<strong>)</strong> szorzat<strong>)</strong><strong>*</strong>
+szorzat   <strong>::=</strong> szám    <strong>(</strong><strong>(</strong>'*' <strong>|</strong> '/'<strong>)</strong> szám<strong>)</strong><strong>*</strong>
+</pre>
+
+<div class="csakdoksi">
+<p>A szabályok jelentése a fentiek alapján a következő:</p>
+<ul>
+    <li>A kifejezésünk egy összeg
+    <li>Az összeg szorzatokból áll (szorzatok összege)
+    <li>A szorzat pedig számok szorzata.
+</ul>
+</div>
+
+<br class="smallskip">
+
+<p>Nézzük meg, hogyan értelmeződik a 2+3*6:</p>
+
+<div class="columns">
+<div>
+<pre class="selectable eloadasbetusurit">
+   2        +     3   *    6
+ szám           szám     szám
+                \___________/
+szorzat            szorzat
+\________________________/
+          összeg
+</pre>
+</div>
+<div>
+<img class="kozep" src="muvelet_okeszoroz.svg" style="width: 14em;">
+</div>
+</div>
+
+
+<div class="csakdoksi">
+
+<ol class="eloadaskicsinyit">
+   <li>A kifejezés elejére egy szorzatot próbál illeszteni az összeg kifejezés alapján.
+   <li>Egy szorzat egy számmal kezdődik – ez rendben van: '2' egy szám.
+   <li>Utána következhetne egy '*' vagy '/' és egy szám – ez
+   nincs itt meg, hiszen '+' jön, de nem baj, mert egy szorzat lehet egy
+   szám önmagában.
+   <li>Folytatjuk az összeg értelmezését és találunk  is egy '+'-t, tehát megint egy szorzatnak kell jönnie.
+   <li>Ott egy szorzat: "3*6", amit tehát szorzatként ismerünk fel! Az eredményét összeadjuk az összeg első tagjával.
+</ol>
+
+</div>
+
+<p class="csakdoksi">
+Figyeljük meg, hogy a fenti nyelvtan továbbra is leírja az összes esetet, amit
+az összeadás/kivonás vizsgálatakor megnéztünk, hiszen a szorzat bármikor
+leegyszerűsödhet egy egyszerű számmá, amivel visszakapjuk az eredeti, egy
+szabályból álló nyelvtant.
+</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Matematikai kifejezés – zárójelek">
+<div class="slide" id="slide_10">
+
+<a id="10" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">10</span><span class="oldalszamafter">. </span>    Matematikai kifejezés – zárójelek<a class="hlink" href="index.html#10"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Ami egy kifejezés értelmezését bonyolulttá teszi, az a zárójel!</p>
+
+<p class="csakdoksi">Minden zárójelen belül egy <em>új kifejezés</em> van: úgy kell értelmezni, mint az egészet, és önálló egységként kell kezelni. Ezen felül: tetszőleges mélységben egymásba ágyazható kifejezéseket kell értelmeznünk.</p>
+
+<br class="smallskip">
+
+<p class="csakdoksi">
+<em>Megoldás:</em> új szabályt kell bevezetni a zárójel lekezélésére – ezzel megoldjuk, hogy egy egységként legyen lekezelve (precedencia). Mi lehet egy zárójelpáron belül? Egy új matematikai kifejezés, vagyis a legalacsonyabb szabályunk! Ez egy rekurzió.
+</p>
+
+<div class="csakeloadas">
+<p>Új szabályt kell bevezetni a zárójel kezelésére:</p>
+</div>
+
+<img class="float" src="kigyo.png" style="width: 8em;">
+
+<pre>
+kifejezés <strong>::=</strong> összeg
+összeg    <strong>::=</strong> szorzat <strong>(</strong><strong>(</strong>'+' <strong>|</strong> '-'<strong>)</strong> szorzat<strong>)</strong><strong>*</strong>
+szorzat   <strong>::=</strong> tényező <strong>(</strong><strong>(</strong>'*' <strong>|</strong> '/'<strong>)</strong> tényező<strong>)</strong><strong>*</strong>
+tényező   <strong>::=</strong> szám <strong>|</strong> zárójeles
+zárójeles <strong>::=</strong> '(' kifejezés ')'
+</pre>
+
+
+<br class="smallskip">
+
+<p>Így értelmezhetővé válnak az alábbi alakok is:</p>
+
+<div class="sticky">Kész a<br>nyelvtan!</div>
+<pre>
+2 + 3 * (4 - 8 * 2)
+12 * ((3 - 4) * 14)
+</pre>
+
+<p class="csakdoksi">Kész a nyelvtan! Nézzük meg, hogyan lehet ezt programmá alakítani!</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A kiértékelő megírása I.">
+<div class="slide" id="slide_11">
+
+<a id="11" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">11</span><span class="oldalszamafter">. </span>    A kiértékelő megírása I.<a class="hlink" href="index.html#11"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A rekurzív alászálló értelmező fentebb leírt függvényalakja könnyűvé teszi a nyelvtanok algoritmizálását.
+A minták az alábbiak.</p>
+
+<h3><button data-diapopup="opcionalitas">&nbsp;?&nbsp;</button> Opcionalitás</h3>
+
+<div class="kozep"><em><code>'-'<strong>?</strong> szám</code></em></div>
+
+<div id="opcionalitas">
+<p>Vagyis ott vagy van egy elem, vagy nincs:</p>
+
+<pre   ><code class="language-c">char *szoveg = &quot;-223&quot;;
+
+if (szabaly_minusz(&amp;szoveg, ………)) {
+    /* sikeres illeszkedés feldolgozása */
+}
+
+/* további részek feldolgozása */
+……… szabaly_szam(&amp;szoveg, ………);</code></pre>
+
+<div class="csakdoksi">
+<p>
+Az opcionális elem feldolgozásának menete a következő.
+Ha a <code>szabaly()</code> az illeszkedése sikeres volt,
+akkor a <code>szoveg</code> mutató a
+soronkövetkező, értelmezendő karakterre mutat, és a <code>szabaly()</code> „………”-al jelölt
+argumentum(ok)ban visszaadta az illesztett rész feldolgozott eredményét.
+Ilyenkor, kilépve az <code>if</code> blokkból a soronkövetkező szabályok már a
+léptetett mutatót kapják meg.
+</p>
+<p>
+Ha nem történt értelmezés, akkor egyszerűen tovább lépünk az <code>if</code>-en
+és a változatlan mutatót kapják a további szabályok, vagyis ugyanonnan
+próbálják értelmezni a sztringet, mint ahonnan a <code>szabaly</code> próbálta
+sikertelenül.
+</p>
+</div>
+</div>
+
+
+<h3><button data-diapopup="tetszolegesszamu">&nbsp;*&nbsp;</button> Tetszőleges számú előfordulás</h3>
+
+<div class="kozep"><em><code>szám ::= nemnullaszámjegy bármilyenszámjegy<strong>*</strong></code></em></div>
+
+<div id="tetszolegesszamu">
+
+<p>Vagyis lehet akár nulla, egy vagy sok illeszkedő rész:</p>
+
+<pre   ><code class="language-c">char *szoveg = &quot;223&quot;;
+
+/* előző részek feldolgozása */
+
+while (szabaly_barmilyenszamjegy(&amp;szoveg, ………)) {
+    /* első és további illeszkedések feldolgozása */
+}
+
+/* további részek feldolgozása */</code></pre>
+</div>
+
+<p class="csakdoksi">A működése hasonló a fentihez, csak a szabály
+illesztése többször is megtörténik. Minden egyes sikeres illesztésnél
+a <code>szoveg</code> pointer módosul, így a különböző
+hívások eltérő szövegrészeken dolgoznak.</p>
+
+
+
+
+
+
+<h3><button data-diapopup="legalabbegyszer">&nbsp;+&nbsp;</button> Legalább egyszeri előfordulás</h3>
+<div class="kozep"><em><code>név ::= vezetéknév keresztnév<strong>+</strong></code></em></div>
+
+<div id="legalabbegyszer">
+
+<p>Az <code>if</code> felel az első előfordulásért, a ciklus a többiért:</p>
+
+<pre   ><code class="language-c">char *szoveg = &quot;Kiss István Pista&quot;;
+
+/* előző részek feldolgozása */
+
+if (szabaly_keresztnev(&amp;szoveg, ………)) {
+    /* első illeszkedés feldolgozása */
+
+    while (szabaly_keresztnev(&amp;szoveg, ………)) {
+        /* további illeszkedések feldolgozása */
+    }
+}
+else
+  return false;  /* nincs illeszkedés! */</code></pre>
+
+<div class="csakdoksi">
+<p>A *-nál előfordulhat, hogy egyszer sem lépünk be a ciklusba, de
+akárhány iteráció is történhet.</p>
+
+<p>Ha sikeres az első illesztés (<code>if</code>), akkor
+feldolgozzuk, és egy <code>while</code> ciklussal addig próbálunk
+illeszteni, amíg lehet. Az eredményeket pedig fokozatosan dolgozzuk
+fel a ciklusmagban.</p>
+
+<p>Akár sikeresek voltak a ciklusbel illesztések, akár nem, illetve akármennyiszer
+illesztettünk, mindenképpen a soron következő, értelmezendő
+karakterre mutat a pointer a ciklus alatti kódrészekben.</p>
+</div>
+
+</div>
+
+
+
+
+<h3><button data-diapopup="opcio">&nbsp;|&nbsp;</button> Opciók</h3>
+
+<div class="kozep"><em><code>megszólítás ::= 'Tisztelt' ('Hölgyem'<strong>|</strong>'Uram')</code></em></div>
+
+<div id="opcio">
+
+<p>Kihasználjuk a logikai rövidzárat!</p>
+
+<pre   ><code class="language-c">char *szoveg = &quot;Tisztelt Uram!&quot;;
+
+/* előző részek feldolgozása */
+/* pointer az U betűre mutat */
+
+if (szabaly_holgyem(&amp;szoveg, ………)
+    || szabaly_uram(&amp;szoveg, ………)) {
+
+   /* bármelyik opció teljesül, itt értékeljük ki */
+
+}
+else
+   return false;    /* nem illeszkedett! */
+
+/* további részek feldolgozása */</code></pre>
+
+<div class="csakdoksi">
+<p>Az opcióknál ha az első szabály sikerrel értékelődik ki, akkor a
+logikai rövidzár miatt a másodikat már nem is próbálja meg illeszteni!
+Ha pedig nem sikerült az elsőt illeszteni, csak akkor próbálja meg a másodikat.</p>
+
+<p>
+Az <code>if</code> belesejébe csak akkor lépünk, ha a szabályok valamelyike
+sikeresen illeszkedett. Természetesen az argumentumokként kapott értékek
+alapján, vagy az egyes szabályok visszatérési értékének elmentése segítségével
+ellenőriznünk kell, hogy melyik szabály illeszkedett ténylegesen.
+</p>
+</div>
+</div>
+
+
+
+<h3><button data-diapopup="egymasrakovetkezes">&nbsp;&nbsp;&nbsp;&nbsp;</button> Egymásra következés</h3>
+
+<div class="kozep"><em><code>megszólítás ::= 'Tisztelt' címzett</code></em></div>
+
+<div id="egymasrakovetkezes">
+
+<p>Itt is kihasználjuk a logikai rövidzárat!</p>
+
+<pre   ><code class="language-cbub">char *szoveg = &quot;Tisztelt Uram!&quot;;
+
+char *ptxt = szoveg;
+if (szabaly_tisztelt(&amp;ptxt, ………)
+    &amp;&amp; szabaly_cimzett(&amp;ptxt, ………)) {
+
+   /* illeszkedés feldolgozása */
+
+}
+else
+   return false;    /* nem illeszkedett! */
+
+/* további részek feldolgozása */</code></pre>
+
+<p class="csakdoksi">
+Csak siker esetén értékeli ki a második szabályt, tehát az
+egymásrakövetkezés ki van kényszerítve, de vigyázni kell rá, hogy ha az első
+szabály illeszkedett, akkor itt odébb lett állítva a pointer, és ezért
+ilyenkor kiléphetünk úgy az <code>if</code>-ből, hogy nem volt teljes
+illeszkedés, de a pointer olyan pontra mutat, ami túl van az első még
+értelmezetlen karakteren. Ezért őt vissza kell állítani sikertelen esetben
+(vagy ha függvényben vagyunk, meg sem változtatni a cím szerinti paramétert,
+és visszatérni HAMIS értékkel.)
+</p>
+</div>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A kiértékelő megírása II.">
+<div class="slide" id="slide_12">
+
+<a id="12" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">12</span><span class="oldalszamafter">. </span>    A kiértékelő megírása II.<a class="hlink" href="index.html#12"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Egy bonyolultabb szabály C illesztő függvénnyé alakítva:</p>
+
+<pre   ><code class="language-cbub">bool szorzat(char **szoveg, int *ertek) {
+    char *ptxt = *szoveg;
+    int val;
+
+    if (szam(&amp;ptxt, &amp;val)) {
+        int val2;
+        char c;
+        while (csillagper_szam(&amp;ptxt, &amp;c, &amp;val2)) {
+            if (c == '*') val *= val2;
+            else val /= val2;
+        }
+        *ertek = val;
+        *szoveg = ptxt;
+        return true;
+    } else {
+        return false;
+    }
+}</code></pre>
+
+<div class="sticky" style="margin-top: -5em">szorzat <strong>::=</strong> szám <strong>(</strong><strong>(</strong>'*' <strong>|</strong> '/'<strong>)</strong> szám<strong>)</strong><strong>*</strong></div>
+
+<div class="csakdoksi">
+<p>
+Az első számot <code>val</code>-ban menti el, majd <code>( ('+'
+| '-') szam)*</code> illesztést próbál csinálni az egymásrakövetkezés és a
+tetszőleges számú ismétlődés együttes alkalmazásával, és <code>val</code> mindig
+megváltoztatja a történtek függvényében.
+</p>
+
+<p>
+Itt szükség van még egy változóra (<code>val2</code>), amelyben a további
+<code>szorzat</code> részeredményeket eltárolhatjuk, hiszen a <code>val</code>
+értékét csak mi változtathatjuk az első illeszkedés után.
+</p>
+
+<p>A nyelvtani szabályok alapján az elemző kód megalkotása
+automatizálható. Erre vannak is programok, pl. a yacc, amelyik C kódot generál. A Spirit pedig
+egy olyan függvénykönyvtár, amely a C++ nyelvet egészíti ki úgy, hogy
+a nyelv eszközeivel EBNF-szerű kifejezéseket tudunk megfogalmazni.
+</p>
+</div>
+
+
+
+
+
+<div class="csakdoksi">
+<h3>Buktató: vegyes logikai kifejezések?</h3>
+<p>Van néhány buktató, amire figyelni kell. Az egyik: </p>
+
+<div class="sticky" style="margin-top: -2.5em">('Tisztelt' név) | 'Helló'</div>
+<pre   ><code class="language-cbub">if ((tisztelt(&amp;szoveg, ………) &amp;&amp; nev(&amp;szoveg, ………))
+    || hello(&amp;szoveg, ………)) {
+    /* illeszkedés feldolgozása */
+}</code></pre>
+
+<p>Ha <code>tisztelt()</code> illeszkedik, de <code>nev()</code> nem, akkor megpróbálja 
+<code>hello()</code>-t illeszteni, de <code>tisztelt()</code> elállította a mutatót! Ilyenkor
+vissza kell állítani a mutatót a szöveg elejére az ÉS kapcsolat sikertelensége esetén,
+és utána lehet megpróbálni <code>hello()</code>-t illeszteni.</p>
+
+<h3>Buktató: ciklusban egymásra következés?</h3>
+<p>A másik:</p>
+
+<div class="sticky" style="margin-top: -2.5em">(szabály1 szabály2)*</div>
+<pre   ><code class="language-cbub">while (szabaly1(&amp;szoveg, ………) &amp;&amp; szabaly2(&amp;szoveg, ………) {
+    /* illeszkedés feldolgozása */
+}</code></pre>
+
+<p>Ez sem jó ötlet. Itt is megsértjük a fenti szabályokat, miszerint ha sikerül az illesztés,
+léptetjük a pointert, ha nem sikerül, akkor pedig marad. Ugyanis előfordulhat, hogy
+<code>szabaly1()</code> illeszkedik, de <code>szabaly2()</code> nem. Ilyenkor a teljes kifejezés
+értéke hamis, és a végrehajtás nem kerül be a ciklusmagba – de a <code>szabaly1()</code>
+elállította a mutatót!</p>
+</div>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Kifejezés kiértékelő működés közben">
+<div class="slide" id="slide_13">
+
+<a id="13" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">13</span><span class="oldalszamafter">. </span>    Kifejezés kiértékelő működés közben<a class="hlink" href="index.html#13"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Példa bemenet:</p>
+<pre class="screenshot">3+4*5</pre>
+
+<div class="sticky" style="z-index: 10; margin-top: -6em">A parser letölthető<br>az infoc-ről!</div>
+
+<div class="csakdoksi">
+
+<p>A teljes program letölthető erről a linkről: <a href="parser.c">parser.c</a>.</p>
+
+<p>Ez annyiban tud többet a fentiekben bemutatottnál, hogy bárhol elfogad szóközöket is a kiértékelt kifejezésben (erre utal a 
+nevében a ws szócska: whitespace). A megvalósításában azonban mindenhol a fent bemutatottakat követi. Mivel a leírt nyelvtanunk nem 
+ismeri a negatív számokat, ezért csak pozitív és csak egész számokon működik a program! Pl. <code>5+-3</code> azt fogja mondani, 
+hogy nem tudja értelmezni.</p>
+
+<p>Amit még vizsgál ez a program, az pedig az, hogy teljes kifejezést kapott-e; tehát hogy a sztring elején lévő értelmezhető
+kifejezés után nincsenek-e további karakterek. Ugyanis pl. egy <code>"1 + 2 * 3 ("</code> tartalmú sztringnél az eddigi kifejezés
+szabályunk eljutna az <code>"1 + 2 * 3"</code>-ig, utána pedig azt mondaná, hogy az illesztés megtörtént. Vagyis amikor a teljes
+sztringet vizsgáljuk, akkor meg kell azt is nézni, hogy az illesztés után a sztring végére értünk-e.</p>
+
+</div>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A cellák kiértékelése">
+<div class="slide" id="slide_14">
+
+<a id="14" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">A cellák kiértékelése</h1>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A cellák kiértékelése">
+<div class="slide" id="slide_15">
+
+<a id="15" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">15</span><span class="oldalszamafter">. </span>    A cellák kiértékelése<a class="hlink" href="index.html#15"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+
+<p>Térjünk át a táblázatkezelő részre. A cellák kiértékelése:</p>
+<ul>
+    <li>meg kell különböztetni a szöveget és a képletet tartalmazó cellákat,
+    <li>fel kell tudni dolgozni a <em>cellahivatkozásokat</em>,
+    <li>észre kell venni a <em>körkörös hivatkozásokat</em> és jelezni kell őket.
+</ul>
+
+</div>
+
+<table class="">
+<thead><tr><th>&nbsp;<th style="text-align: center;">A
+<th style="text-align: center;">B
+<th style="text-align: center;">C
+</thead>
+<tr><th>1<td><input type="text" value="Fogyasztás:" size="10"><td><input type="text" value="2" size="10"><td><input type="text" value="Cuba Libre" size="10">
+<tr><th>2<td><input type="text" value="Fizet:" size="10"><td><input type="text" value="=B1*B5" size="10"><td><input type="text" value="" size="10">
+<tr><th>3<td><input type="text" value="" size="10"><td><input type="text" value="" size="10"><td><input type="text" value="" size="10">
+<tr><th>4<td><input type="text" value="Rum" size="10"><td><input type="text" value="12" size="10"><td><input type="text" value="Ft/ml" size="10">
+<tr><th>5<td><input type="text" value="Cuba Libre" size="10"><td><input type="text" value="=50*B4" size="10"><td><input type="text" value="Ft" size="10">
+</table>
+
+<div class="csakdoksi">
+<p>Kiértékelés menete pl. B2-re:</p>
+<pre>
+B2 ┬&rarr; B1
+   └&rarr; B5 &rarr; B4
+</pre>
+</div>
+
+<br class="smallskip">
+
+<p class="csakdoksi">
+A cellák bejárása rekurzívan történik:
+</p>
+
+<pre>
+FÜGGVÉNY kiszamit(cellacím) {
+    HA (van cella hivatkozás)
+        kiszamit(hivatkozott cella);
+
+    cella érték beállítása;
+}
+</pre>
+
+<p class="csakdoksi">Vagyis kiszámítjuk a hivatkozott cellák értékét, mert utána az aktuális cella értéke már 
+megmondható.</p>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A körkörös hivatkozás">
+<div class="slide" id="slide_16">
+
+<a id="16" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">16</span><span class="oldalszamafter">. </span>    A körkörös hivatkozás<a class="hlink" href="index.html#16"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="columns">
+<div>
+<table class="">
+<thead><tr><th>&nbsp;<th style="text-align: center;">A
+<th style="text-align: center;">B
+</thead>
+<tr><th>1<td><input type="text" value="=2+B1" size="10"><td><input type="text" value="=B2/4" size="10">
+<tr><th>2<td><input type="text" value="4" size="10"><td><input type="text" value="=A2-A1" size="10">
+</table>
+<br class="smallskip">
+<div class="kozep"><strong>A1</strong>&rarr;B1&rarr;B2&rarr;<strong>A1</strong></div>
+</div>
+<div class="kozep">
+<img class="kozep" src="kigyo.png" style="width: 10em;">
+</div>
+</div>
+
+<br class="smallskip">
+
+<div class="kozep"><button data-diapopup="javitottbejarasid">Javított bejárás</button></div>
+
+<div class="csakdoksi">
+
+<p>A probléma a fenti kóddal az, hogy ha körkörös hivatkozás van, akkor végtelen lesz a rekurzió. Kell egy megfelelő leállási 
+feltétel.</p>
+
+<p>A megoldást az jelenti, hogy a cellabejárás során megjelöljük a cellákat, ahol jártunk már. Így ha jelölt cellára visszajutunk, 
+akkor az körkörös hivatkozást jelent. Ekkor hibaüzenetet adunk a cella címének megjelölésével. Amikor egy cella értékét sikeresen 
+kiszámítottuk, a bejelölést megszüntetjük, így „teszünk rendet” magunk után.</p>
+
+</div>
+
+<pre id="javitottbejarasid">
+FÜGGVÉNY kiszamit(cellacím) &rarr; logikai {
+    HA (jártunk itt)
+        VISSZA: HAMIS;
+
+    cella megjelölése;    <span class="bubble">+ jel</span>
+
+    HA (van cella hivatkozás) {
+        HA (!kiszamit(hivatkozott cella))
+            VISSZA: HAMIS;
+    }
+    cellaérték beállítása;
+
+    cellajelölés törlése; <span class="bubble">- jel</span>
+
+    VISSZA: IGAZ;
+}
+</pre>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A táblázat reprezentálása: az adatszerkezet">
+<div class="slide" id="slide_17">
+
+<a id="17" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">17</span><span class="oldalszamafter">. </span>    A táblázat reprezentálása: az adatszerkezet<a class="hlink" href="index.html#17"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Maga a táblázat egy kétdimenziós tömb:</p>
+<pre   ><code class="language-cbub">typedef struct Tablazat {
+    Cella **adat;           /* 2D din. tömb */
+    int szelesseg;
+    int magassag;
+} Tablazat;</code></pre>
+
+<p>A táblázat egy cellája:</p>
+<pre   ><code class="language-cbub">typedef struct Cella {
+    char *tartalom;         /* din. sztring */
+
+    bool kiszamitva;
+    double ertek;           /* ne kelljen többször */
+
+    bool mar_jartunk_itt;   /* bejáráshoz */
+} Cella;</code></pre>
+
+<div class="csakdoksi">
+
+<p>A <code>Cella</code> struktúrában a <code>kiszamitva</code> mező azt jelenti, hogy az adott körben már meghatároztuk a cella 
+tartalmát. Ez két okból történhetett: a bejárás során már érintettük a cellát vagy egy korábbi cella hivatkozott rá és a hivatkozás 
+feloldásakor ugrottunk ide. Ha a <code>kiszamitva</code> igaz, akkor a <code>ertek</code> mező tartalmazza a cella érvényes 
+értékét.</p>
+
+<p>A <code>mar_jartunk_itt</code> adattagot csak bejárás közben használjuk majd, hogy a körkörös hivatkozásokat fel tudjuk ismerni. 
+Ezt a jelölést nem feltétlenül kellene itt a cellánál tárolnunk; bejárás közben építhetnénk hozzá külön adatszerkezetet is. De 
+mivel tudjuk, hogy minden cellához pontosan egy jelölés kell csak, ez a legkézenfekvőbb és egyben legegyszerűbb megoldás. BSZ2
+tárgyból lesz szó gráfbejáró algoritmusokról, ahol ez a probléma ugyanígy fel fog merülni.</p>
+
+</div>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egy cella értékének kiszámítása">
+<div class="slide" id="slide_18">
+
+<a id="18" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">18</span><span class="oldalszamafter">. </span>    Egy cella értékének kiszámítása<a class="hlink" href="index.html#18"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre class="eloadassorsurit11"  ><code class="language-cbub">bool cella_kiszamit(Tablazat *t, int sor, int oszlop) {
+    Cella *cella = &amp;t-&gt;adat[sor][oszlop];
+
+    if (cella-&gt;mar_jartunk_itt) return false;    // körkörös
+    if (cella-&gt;kiszamitva) return true; // már kész
+
+    cella-&gt;mar_jartunk_itt = true;
+
+    double ertek;
+    if (kiertekel(cella-&gt;tartalom, &amp;ertek, t)) { // ok?
+        cella-&gt;ertek = ertek;
+        cella-&gt;kiszamitva = true;
+        cella-&gt;mar_jartunk_itt = false;
+        return true;                             // ok!
+    } else {
+        cella-&gt;mar_jartunk_itt = false;
+        return false;                            // hiba
+    }
+}</code></pre>
+
+<div class="csakeloadas kozep" style="margin-top: -0.25em;"><button data-diapopup="escherid">Escher</button></div>
+
+<div id="escherid">
+<p>A <code>cella_kiszamit()</code> hívja a <code>kiertekel()-t</code>:</p>
+<img class="kozep arnyek" src="escher.jpg">
+<p>&hellip; és a <code>kiertekel()</code> hívja a <code>cella_kiszamit()</code>-t. <em>Kölcsönös rekurzió!</em></p>
+</div>
+
+<p class="csakdoksi">A <code>kiertekel()</code> függvény meghívása az a pont, ahol kapcsolódunk az előző előadásrészben
+bemutatott szintaktikai elemzőhöz. Ez lesz az a függvény, amelyik a cellában található matematikai képletet
+kiértékeli. Persze módosítani kellett, hogy lássa a táblázatot is; a képletek tartalmaznak cellahivatkozásokat is, ezért
+arra szükség lehet.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Táblázatkezelő futás közben">
+<div class="slide" id="slide_19">
+
+<a id="19" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">19</span><span class="oldalszamafter">. </span>    Táblázatkezelő futás közben<a class="hlink" href="index.html#19"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="sticky">Letölthető:<br><a href="tablazatkezelo.zip">tablazatkezelo.zip</a></div>
+
+<pre class="screenshot">
+Utasítás: kiir
+───┬───────────┬─────────┬─────────┬─────────┬─────────┬
+   │     A     │    B    │    C    │    D    │    E    │
+───┼───────────┼─────────┼─────────┼─────────┼─────────┼
+ 0 │ Osszetevo │ Rum     │      12 │ Ft/ml   │         │
+ 1 │           │ Cola    │       2 │ Ft/ml   │         │
+ 2 │ CubaLibre │         │     800 │ Ft      │         │
+ 3 │           │         │         │         │         │
+ 4 │           │         │         │         │         │
+───┴───────────┴─────────┴─────────┴─────────┴─────────┴
+
+Utasítás: vizsgal c2
+
+C2:  =C0*50+C1*100
+
+Utasítás: <blink>_</blink>
+</pre>
+
+<div class="csakdoksi">
+<p>A táblázatkezelő letölthető: <a href="tablazatkezelo.zip">tablazatkezelo.zip</a>. A szokásos módon a nagyobb
+programhoz bemutatjuk a függvények hívási összefüggéseit mutató, egyszerűsített ábrát, a nagyobb program áttekintéséhez.</p>
+<img src="tablazatkezelo_hivasi_graf.svg" class="kozep">
+<p>Érdemes megfigyelni, hogy ebben két kör is van. Az egyik az
+<code>összeg</code>&rarr;<code>szorzat</code>&rarr;<code>tényező</code>&rarr;<code>zárójeles</code>&rarr;<code>összeg</code>
+kör, amely a rekurzív alászálló értelmező része. A másik pedig a <code>cella_kiszámít</code>&rarr;<code>kiértékel</code>&rarr;<code>...</code>&rarr;<code>cella_kiszámít</code> kör, amely az előző dián bemutatott működést biztosítja. A cella matematikai képletet tartalmaz, a matematikai képlet pedig cellát hivatkozhat.</p>
+</div>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A cella módosítása">
+<div class="slide" id="slide_20">
+
+<a id="20" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">20</span><span class="oldalszamafter">. </span>    A cella módosítása<a class="hlink" href="index.html#20"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Csak akkor írhatunk bele, ha nem viszünk be körkörös hivatkozást:</p>
+
+<pre   ><code class="language-cbub">void cella_modosit(Tablazat *t, int sor, int oszlop, char *tartalom) {
+   char *regi = t-&gt;adat[sor][oszlop].tartalom;
+
+   /* megpróbáljuk betenni az újat */
+   char *uj = (char *) malloc(strlen(tartalom) + 1);
+   strcpy(uj, tartalom);
+   t-&gt;adat[sor][oszlop].tartalom = uj;
+
+   /* sikerült? */
+   if (cella_kiszamit(t, sor, oszlop)) { // ok?
+      free(regi);
+   } else {                                       // hiba!
+      free(uj);
+      t-&gt;adat[sor][oszlop].tartalom = regi;
+   }
+}</code></pre>
+
+<p class="csakdoksi">A cella újra kiszámítása csak a körkörös
+hivatkozások felfedésére jó, mint hibakereső. Más cellák
+hivatkozásait is elronthatjuk ezzel.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Fordítási függőségek csökkentése">
+<div class="slide" id="slide_21">
+
+<a id="21" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">21</span><span class="oldalszamafter">. </span>    Fordítási függőségek csökkentése<a class="hlink" href="index.html#21"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<button style="margin-top: -0.5em;" class="float" data-diapopup="xkcdcompilingid">compiling</button>
+<p>Minden modul mutassa a lehető legkisebb felületet!</p>
+
+<div class="sticky" style="margin-top: -0.5em">elemzo.h</div>
+<pre class="eloadaskicsinyit"  ><code class="language-cbub">#include &quot;tablazat.h&quot;
+
+bool kiertekel(char *szoveg, double *ertek, Tablazat *t);</code></pre>
+
+<p class="csakdoksi">Az elemzőnek egyedül a <code>kiertekel</code> függvényét ismeri a 
+táblázatkezelő, hiszen ez az ún. "kezdőszabály". Ez az a szabály, ami egy teljes kifejezés 
+szerkezetét leírja. Az egyes részleteket leíró szabályok függvényeit csak modulon belül hívjuk, 
+így ezeket a külvilágnak nem kell ismerniük.</p>
+
+<p>Az elemző többi függvénye statikus – tehát a modulra nézve lokális.</p>
+
+<div class="sticky">elemzo.c</div>
+<pre class="eloadaskicsinyit"  ><code class="language-cbub">#include &quot;elemzo.h&quot;
+
+static bool szokoz(char **txt)         { ……… }
+static bool karakter(char **txt, ………)  { ……… }
+static bool szam(char **txt, ………)      { ……… }
+static bool cellacim(char **txt, ………)  { ……… }
+static bool osszeg(char **txt, ………)    { ……… }
+static bool szorzat(char **txt, ………)   { ……… }
+static bool tenyezo(char **txt, ………)   { ……… }
+static bool zarojeles(char **txt, ………) { ……… }</code></pre>
+
+<p class="csakdoksi">Miért jó, ha így csináljuk? Két okból. Egyrészt,
+aki használja az elemzőt, nem kell gondolkodjon, hogy a sok számára érthetetlen
+függvény közül melyiket kell hívja. Egy függvény érhető el, a <code>kiertekel()</code>.
+Másrészt a fejlécfájlt más forrásba is beillesztjük, ezért ha változik, azokat
+a forrásokat is újra kell fordítani. Ha a kifelé nem mutatott részeket nem
+írjuk bele, akkor az ottani változtatások miatt nem kell feleslegesen sok mindent
+újrafordítani a programban.</p>
+
+<div id="xkcdcompilingid" class="csakeloadas">
+<img src="xkcd-compiling.png" class="kozep" style="width: 24em;">
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Epilógus">
+<div class="slide" id="slide_22">
+
+<a id="22" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Epilógus</h1>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="https://infoc.eet.bme.hu/">
+<div class="slide" id="slide_23">
+
+<a id="23" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">23</span><span class="oldalszamafter">. </span>    https://infoc.eet.bme.hu/<a class="hlink" href="index.html#23"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<button class="float" data-diapopup="xkcdgotoid">goto</button>
+
+<p>Egy C99 függvény belsejében elhelyezhetünk egy Web címet:</p>
+
+<pre class="selectable"  ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int i = 0;
+
+    https://infoc.eet.bme.hu/
+    printf(&quot;Helló, InfoC!\n&quot;);
+    i++;
+
+    if (i &lt; 10) goto https;
+
+    return 0;
+}</code></pre>
+
+<p class="csakdoksi">Ez azért van, mivel a kettősponttal egy címkét jelölhetünk meg a kódban, ahova a <code>goto</code> utasítással 
+lehet ugrani. A címke neve itt <code>https</code> lesz – így az <code>if</code>-fel és a <code>goto https</code>-sel egy 
+hátultesztelő ciklust valósítunk meg. Természetsen a címkék neve egyedi kell legyen, tehát egy függvényben csak egy 
+<code>https://</code> kezdetű címünk lehet.</p>
+
+<p class="csakdoksi">A <code>//</code> a C99 óta kommentet is jelöl. Ez a C++ nyelvből származik, onnan „szivárgott vissza” az 
+ősébe, a C-be.</p>
+
+<div id="xkcdgotoid" class="csakeloadas">
+<br class="smallskip">
+<br class="smallskip">
+<br class="smallskip">
+<img src="xkcd-goto.png" class="kozep" style="width: 36em;">
+</div>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="typedef void Ize, Semmi;">
+<div class="slide" id="slide_24">
+
+<a id="24" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">24</span><span class="oldalszamafter">. </span>    typedef void Ize, Semmi;<a class="hlink" href="index.html#24"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A <code>void</code> <code>typedef</code>-elhető:</p>
+
+<pre class="selectable"  ><code class="language-c">typedef void Ize, Semmi;
+
+Semmi foreach(Ize *ettol, Ize *eddig, Semmi (*fv)(Ize *),
+              Semmi (*kov)(Ize **)) {
+    for (Ize *iter = ettol; iter != eddig; kov(&amp;iter))
+        fv(iter);
+}
+
+Semmi intkiir(Ize *pi) {
+    printf(&quot;%d &quot;, *(int *)pi);
+}
+
+Semmi intptrnovel(Ize **pi) {
+    ++*(int**)pi;   // here be dragons
+}
+
+foreach(tomb, tomb+5, intkiir, intptrnovel);</code></pre>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mit ír ki?">
+<div class="slide" id="slide_25">
+
+<a id="25" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">25</span><span class="oldalszamafter">. </span>    Mit ír ki?<a class="hlink" href="index.html#25"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre class="editable"  ><code class="language-c">int main(void) {
+    int a[] = { 0, 10, 20, 30, 40, 50 };
+
+    // drunk, fix later
+    printf(&quot;%d&quot;, 3[a]);
+
+    return 0;
+}</code></pre>
+
+<p class="csakdoksi">Tipp: az összeadás kommutatív: tagjai felcserélhetőek.</p>
+
+<pre class="editable"  ><code class="language-c">int main(void) {
+    int c;
+
+    c = 1[&quot;Hello&quot;];
+    printf(&quot;%c&quot;, c);
+
+    return 0;
+}</code></pre>
+
+<p class="csakdoksi">A sztring C-ben: csak egy karaktertömb, semmi más.
+Ha tömb, akkor kifejezésben a rá mutató pointer képződik. Az indexelés
+összeadássá és dereferálássá alakul fordítás közben, tehát az
+<code>1["Hello"]</code> kifejezés <code>*(1 + (char*) "Hello")</code>-t jelent.</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="#define trollkodás">
+<div class="slide" id="slide_26">
+
+<a id="26" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">26</span><span class="oldalszamafter">. </span>    #define trollkodás<a class="hlink" href="index.html#26"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Mire jó még a <code>#define</code>?</p>
+
+<p class="csakdoksi">A <code>for (;;)</code> ciklus végtelennek számít. Mivel nincs ciklusfeltétele, ezért nem vizsgálunk benne 
+olyan állítást, ami hamis lehetne, és megállítaná a ciklust. Ha meg nem állítunk semmit, az igaz. <code>for ever</code>, örökké 
+fut.</p>
+
+<pre class="selectable"  ><code class="language-c">#define ever (;;)
+
+for ever {
+    printf(&quot;I ♥ U\n&quot;);
+}</code></pre>
+
+<p class="csakdoksi">No meg aztán, a <code>struct</code> és a <code>union</code> szintaktikája
+„vészesen” hasonlít egymásra:</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">struct szamok {
+    int i;
+    double d;
+};</code></pre>
+</div>
+<div>
+<pre   ><code class="language-c">union szamok {
+    int i;
+    double d;
+};</code></pre>
+</div>
+</div>
+
+<img src="troll-face.png" style="width: 9em;" class="float">
+<p>Tehát a teendők:</p>
+<ul>
+    <li>Bekapcsolni a szobatárs gépét
+    <li>Megkeresni a fejlesztőkörnyezet <code>stdio.h</code>-ját
+    <li>Beírni az elejére: <code>#define struct union</code>
+    <li>Várni a hatást :D
+</ul>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Öndokumentáló kód!">
+<div class="slide" id="slide_27">
+
+<a id="27" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">27</span><span class="oldalszamafter">. </span>    Öndokumentáló kód!<a class="hlink" href="index.html#27"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="columns c4060">
+<div>
+<pre class="eloadasbetusurit eloadaskicsinyit"  ><code class="language-c">main(                int l
+  ){char            h=-1,*
+   c=&quot;\\&quot;          &quot;/&quot;;
+    scanf        (&quot;%d&quot;
+     ,&amp;l);      while
+       (h++&lt;   l*2)
+          printf(
+        &quot;%*c%*c\n&quot;
+       ,h-2*(h/l)*(
+      h%l)-h   /l+1,c
+    [h/l],      2*(l-h
+   )+4*(h        /l)*(h
+  %l)+2*          (h/l)-
+ 1,c[1-            h/l]);}</code></pre>
+<p class="kozep">Juhász Bálint:<br>X kirajzolása</p>
+</div>
+<div>
+<pre class="eloadasbetusurit eloadaskicsinyit"  ><code class="language-c">         palacsInt_a
+        pancake_sort(
+  palacsInt_a *t, int meret)     //=====
+   {int i,f_db;if(meret==1)     //
+   {return 0;}i=maxkeres(t,    //
+      meret);f_db=0;if        //
+     (i==0){fordit(t,0,      //
+        meret-1);f_db       /*
+---------------------------*/
+    =1;}else if(i!=meret
+       -1){fordit(t
+      ,0,i);fordit(t,
+  0,meret-1);f_db=2;}return
+pancake_sort(t,meret-1)+f_db;}</code></pre>
+<p class="kozep">Dömők Dávid:<br>Palacsintarendezés</p>
+</div>
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="IOCCC – Mit ír ki?">
+<div class="slide" id="slide_28">
+
+<a id="28" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">28</span><span class="oldalszamafter">. </span>    IOCCC – Mit ír ki?<a class="hlink" href="index.html#28"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre class="eloadasbetusurit eloadaskicsinyit" style="font-size: 87%" ><code class="language-c">#include &lt;stdio.h&gt;
+main(t,_,a) char *a; {
+return!0&lt;t?t&lt;3?main(-79,-13,a+main(-87,1-_,main(-86,0,a+1)+a)):
+1,t&lt;_?main(t+1,_,a):3,main(-94,-27+t,a)&amp;&amp;t==2?_&lt;13?
+main(2,_+1,&quot;%s %d %d\n&quot;):9:16:t&lt;0?t&lt;-72?main(_,t,
+&quot;@n'+,#'/*{}w+/w#cdnr/+,{}r/*de}+,/*{*+,/w{%+,/w#q#n+,/#{l+,/n{n+,/+#n+,/#\
+;#q#n+,/+k#;*+,/'r :'d*'3,}{w+K w'K:'+}e#';dq#'l \
+q#'+d'K#!/+k#;q#'r}eKK#}w'r}eKK{nl]'/#;#q#n'){)#}w'){){nl]'/+#n';d}rw' i;#\
+){nl]!/n{n#'; r{#w'r nc{nl]'/#{l,+'K {rw' iK{;[{nl]'/w#q#n'wk nw' \
+iwk{KK{nl]!/w{%'l##w#' i; :{nl]'/*{q#'ld;r'}{nlwb!/*de}'c \
+;;{nl'-{}rw]'/+,}##'*}#nc,',#nw]'/+kd'+e}+;#'rdq#w! nr'/ ') }+}{rl#'{n' ')# \
+}'+}##(!!/&quot;)
+:t&lt;-50?_==*a?putchar(31[a]):main(-65,_,a+1):main((*a=='/')+t,_,a+1)
+:0&lt;t?main(2,2,&quot;%s&quot;):*a=='/'||main(0,main(-61,*a,
+&quot;!ek;dc i@bK'(q)-[w]*%n+r3#l,{}:\nuwloca-O;m .vpbks,fxntdCeghiry&quot;),a+1);
+}</code></pre>
+
+<p class="csakdoksi">
+Ehhez hasonló C kódokat a <a href="http://www.ioccc.org/">The International Obfuscated C Code Contest </a> oldalon lehet találni.
+Ők minden évben megrendeznek egy versenyt, hogy ki tud olvashatatlanabb C kódot írni.
+</p>
+<p class="csakdoksi">
+Hogy működik a fenti? <a href="https://web.archive.org/web/20091227121408/http://research.microsoft.com/en-us/um/people/tball/papers/xmasgift">Reverse Engineering the Twelve Days of Christmas</a>.
+</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo-sapi.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

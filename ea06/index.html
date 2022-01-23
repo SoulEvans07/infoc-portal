@@ -1,0 +1,2896 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Operátorok. Számábrázolás</title>
+<meta property="og:title" content="TEST InfoC :: Operátorok. Számábrázolás">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Operátorok, kiértékelési szabályok. Számábrázolás, bitműveletek.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Operátorok, kiértékelési szabályok. Számábrázolás, bitműveletek.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<link rel="stylesheet" href="szamologep.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+<script src="szamologep.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Operátorok. Számábrázolás">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Operátorok. Számábrázolás</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Pohl László, Kohári Zsolt, Nagy Gergely · <i class="ido"></i> 2019.10.15.</p>
+<p class="kivonat">Operátorok, kiértékelési szabályok. Számábrázolás, bitműveletek.</p>
+</div>
+
+
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="fontos">Operátorok</a>
+              <li><a href="index.html#2" class="">Operátorok: precedencia és asszociativitás</a>
+              <li><a href="index.html#3" class="">Operátorok: precedenciatáblázat</a>
+              <li><a href="index.html#4" class="">Polimorfizmus és konverziók</a>
+              <li><a href="index.html#5" class="">Az érték és a mellékhatás fogalma</a>
+              <li><a href="index.html#6" class="">Operátorok: érték és mellékhatás</a>
+              <li><a href="index.html#7" class="">Növeljük meg: pre- és posztinkremens</a>
+              <li><a href="index.html#8" class="">Mi a különbség: ++x és x++?</a>
+              <li><a href="index.html#9" class="">A ++ és -- tipikus használata</a>
+              <li><a href="index.html#10" class="">Mik azok a kiértékelési pontok?</a>
+              <li><a href="index.html#11" class="">A ?: operátor</a>
+              <li><a href="index.html#12" class="">A rövidzár tulajdonság: &amp;&amp;, || és ?:</a>
+              <li><a href="index.html#13" class="">A vessző operátor</a>
+              <li><a href="index.html#14" class="">Rejtvény: mit ír ki?</a>
+              <li><a href="index.html#15" class="fontos">Számítógép, számábrázolás, számrendszerek</a>
+              <li><a href="index.html#16" class="">Adatok és programok</a>
+              <li><a href="index.html#17" class="">Számrendszerek (numeral system)</a>
+              <li><a href="index.html#18" class="">Binary digit = bit</a>
+              <li><a href="index.html#19" class="">Egész típusok a C-ben</a>
+              <li><a href="index.html#20" class="">Túlcsordulás és kettes komplemens</a>
+              <li><a href="index.html#21" class="">Valós számok ábrázolása</a>
+              <li><a href="index.html#22" class="">Lebegőpontos típusok C-ben</a>
+              <li><a href="index.html#23" class="">Lebegőpontos ábrázolás: furcsaságok</a>
+              <li><a href="index.html#24" class="fontos">Bitműveletek</a>
+              <li><a href="index.html#25" class="">Boole-féle algebra</a>
+              <li><a href="index.html#26" class="">Bitműveletek: léptetés (shift)</a>
+              <li><a href="index.html#27" class="">A bitenkénti VAGY művelet: |</a>
+              <li><a href="index.html#28" class="">A bitenkénti kizáró vagy: ^</a>
+              <li><a href="index.html#29" class="">A bitenkénti ÉS művelet: &amp;</a>
+              <li><a href="index.html#30" class="">A bitenkénti tagadás: ~</a>
+              <li><a href="index.html#31" class="">Példa: Eratoszthenész szitája, spórolósan</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Operátorok">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="eaoperatorok" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Operátorok</h1>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Operátorok: precedencia és asszociativitás">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Operátorok: precedencia és asszociativitás<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Operátorok: a kifejezések építőkockái</h3>
+<div class="sticky">Lásd a <br> <a href="../jegyzet/index.html">C puskát</a>!</div>
+<ul>
+   <li>Pl. matematikai műveletek <em>jelei:</em> +, -, *, /
+   <li><em>Operandusok:</em> amiken a műveletet végzik
+</ul>
+
+<h3>Mik az operandusok? – Szabályok</h3>
+<ul>
+   <li class="csakdoksi">Több is lehet: <code>a = <em>-x</em>;</code> unáris (unary), <code>b = <em>x-y</em>;</code> bináris (binary), azaz egy- és kétoperandusú
+
+   <li><em>Precedencia:</em> különfélék „erőssége”, pl. <code>5+2*3 = 5+(2*3)</code>
+   
+   <li><em>Asszociativitás:</em> egyformák csoportosítása, pl. <code>a/b/c = (a/b)/c</code>
+</ul>
+
+<p class="csakdoksi">Az operátorok precedenciája és asszocivitása tehát nem azt határozza meg, hogy egy nagyobb kifejezés melyik 
+részkifejezését értékeli ki <em>időben</em> előbb a program, hanem csak azt mondják meg, hogy melyik operátornak mi az operandusa. 
+Pl. egy <code>a*b+c*d</code> kifejezésben mindegy is, hogy előbb az <code>a*b</code> vagy a <code>c*d</code> részkifejezést 
+értékeljük ki. Ellenben az <code>a/b/c</code> kifejezés egészen mást jelentene, ha az osztás jobbról balra lenne asszociatív, mert 
+akkor <code>a/(b/c)</code>-t értenénk alatta, ami viszont nem ugyanazt az eredményt adja.</p>
+
+<p class="csakdoksi">Az operátorok által leírt műveletek ún. <em>kifejezésfákkal</em> ábrázolhatóak. A kifejezésfa megadja, hogy 
+melyik operátoroknak mely értékek az operandusai. A kifejezésfa már <em>nem tartalmaz zárójeleket,</em> annak a hierarchiája 
+ugyanis egyértelműen meghatározza, hogy mely művelethez mely operandusok tartoznak. Az alábbi rajzokon <span style="background: 
+#fdfd04;">sárga</span> színnel jelöltük az operátorokat. Az ezekből lefelé kiinduló vonalak adják meg, hogy az adott operátorhoz 
+mely operandusok tartoznak. A <span style="background: #7babe3;">kék</span> szín olyan részkifejezéseket jelöl, amelyek önmagukban 
+kiértékelhetőek; ilyenek a változók és a konstansok. Ezekből már nem indulnak ki vonalak lefelé, nincsenek operandusaik.</p>
+
+<div class="columns">
+    <div>
+    <img class="kozep" src="3xp8.svg" style="height: 8em;">
+    <p class="kozep"><code>3 * x + 8</code></p>
+    </div>
+    <div>
+    <img class="kozep" src="6_ym4.svg" style="height: 8em;">
+    <p class="kozep"><code>6 * (y - 4)</code></p>
+    </div>
+    <div>
+    <img class="kozep" src="aemb.svg" style="height: 8em;">
+    <p class="kozep"><code>a = -b</code></p>
+    </div>
+</div>
+
+<div class="csakdoksi">
+    
+<p>A <code>3*x + 8</code> kifejezés egy olyan <em>összeget</em> ad meg, amely két tagból áll. Az első tag egy szorzat 
+(<code>3*x</code>), a második tag pedig egy konstans (<code>8</code>). Vegyük észre, hogy ez nem attól van így, mert a szóközökkel 
+a tagokat csoportosítottuk, és nem is azért, mert bal oldalon van a szorzat! Hanem azért, mert a szorzás művelet magasabb rendű, 
+azaz a <code>*</code> operátor <em>magasabb precedenciájú</em>, mint a <code>+</code> operátor.</p>
+
+<p>Ha nem megfelelő a precedencia, <em>zárójelek közé</em> zárhatjuk az egyes részkifejezéseket, ezzel módosíthatjuk az 
+operátor–operandus viszonyt. A <code>6 * (y-4)</code> kifejezésben a szorzat jobb oldali tényezője a különbség; tehát egy olyan 
+művelet eredménye (a kivonásé), amelynek a precedenciája amúgy alacsonyabb, mint a szorzásé.</p>
+
+<p>Az utolsó példa az <code>a = -b</code> kifejezést ábrázolja. Ebben két operátor szerepel, az értékadás és az ellentett képzése. 
+Az ellentett magasabb precedenciájú, és csak <em>egyetlen operandusa van</em>, a <code>b</code> változó. Az értékadás operandusai 
+pedig az <code>a</code> változó, továbbá az ellentettképzés eredménye, tehát az a szám, amit a <code>-b</code> kifejezés 
+kiértékelésével kapunk.</p>
+
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Operátorok: precedenciatáblázat">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Operátorok: precedenciatáblázat<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<table>
+    <thead>
+        <tr><th>Operátorok</th><th>Leírás</th></tr>
+    </thead>
+    <tbody class="eloadassorsurit115">
+        <tr><td><code>[]</code>, <code>()</code>, <code>.</code>, <code>-></code></td><td>posztfix: indexelés, fv. hívás, struktúra mező</td></tr>
+        <tr><td><code>+x</code>, <code>-x</code>, <code>!x</code></td><td>prefix: ellentett, tagadás</td></tr>
+        <tr><td><code>*</code>, <code>/</code>, <code>%</code></td><td>multiplikatív: szorzás, osztás, maradék</td></tr>
+        <tr><td><code>+</code>, <code>-</code></td><td>additív: összeadás, kivonás</td></tr>
+        <tr><td><code>&lt;</code>, <code>&gt;=</code>, ...</td><td>komparatív: kisebb, nagyobb</td></tr>
+        <tr><td><code>==</code>, <code>!=</code></td><td>komparatív: egyenlőség</td></tr>
+        <tr><td><code>&amp;&amp;</code></td><td>logikai és</td></tr>
+        <tr><td><code>||</code></td><td>logikai vagy</td></tr>
+        <tr><td><code>=</code>, <code>+=</code>, ...</td><td>értékadás</td></tr>
+    </tbody>
+</table>
+
+<br class="smallskip">
+
+<div class="columns">
+    <div>
+    <img class="kozep csakdoksi" src="m2p3.svg" style="height: 8em;">
+    <p class="kozep editable"><code>-2 + 3</code></p>
+    </div>
+    <div>
+    <img class="kozep csakdoksi" src="axbecxd.svg" style="height: 8em;">
+    <p class="kozep editable"><code>a * b == c * d</code></p>
+    </div>
+    <div>
+    <img class="kozep csakdoksi" src="naab.svg" style="height: 8em;">
+    <p class="kozep editable"><code>!a &amp;&amp; b</code></p>
+    </div>
+</div>
+
+<div class="csakdoksi">
+<p>Az operátorok precedenciáját (erősségét) mutatja a fenti, amúgy hiányos táblázat. (Néhány operátorról később lesz szó.)</p>
+<p>A táblázat tetején lévő, magas precedenciájú operátorok erősebben kötődnek az operandusaikhoz, mint az alul lévők. Tehát
+ha egy kifejezést értelmeznénk, ezekből kell kiindulni. Ahogy az előző példákon is szerepelt, a <code>3 * x + 8</code> kifejezésben
+a szorzás erősebb precedenciájú, mint az összeadás, és ezért adjuk a szorzathoz hozzá a <code>8</code>-at.
+Hasonlóképp, a <code>-2 + 3</code> kifejezés is <code>(-2) + 3</code>-et jelent így zárójelezés nélkül is, mert
+az ellentett a magasabb precedenciájú művelet. Így +1-et kapunk. Zárójelezve –5 lehetne az értéke: <code>-(2 + 3)</code>.</p>
+<p>A precedenciatáblázatot (nagyjából) úgy alkották meg, hogy intuitív legyen, a szokásos használatnál kevés zárójelre legyen szükség.
+Nem véletlen, hogy az összehasonlító operátorok alacsonyabb precedenciájúak, mint a matematikai műveletek. Például az
+<code>a * b == c * d</code> kifejezésben intuíció szerint két szorzatot hasonlítunk össze, és ezt a nyelv is pontosan így
+értelmezi. Ez úgy valósul meg, hogy a szorzó operátor precedenciája magasabb, az összehasonlítóé pedig alacsony; vagyis
+a szorzások „magukhoz vonzzák” a tényezőket, mintha <code>(a * b) == (c * d)</code> módon zárójelezük volna a kifejezést.</p>
+<p>A <code>!a &amp;&amp; b</code> kifejezésben a logikai tagadás, mint prefix (operandus elé írandó) operátor
+igen magas precedenciájú. Vagyis ez a kifejezés <code>(!a) &amp;&amp; b</code>-t jelent. Ha az <code>a &amp;&amp; b</code> kifejezés
+értékét szeretnénk tagadni, akkor zárójelezésre van szükség: <code>!(a &amp;&amp; b)</code>. Érdemes a szóközökkel kifejezni
+azt a forráskódban, hogy mire gondolunk, tehát pl. ezt a kifejezést nem lenne jó ötlet <code>! a &amp;&amp; b</code> formában írni.
+Ahogy rossz ötlet az is, ha <code>a+b * c</code>-t írunk, mert hiába tettük közel egymáshoz az összeadás két oldalán álló
+változót, és távol a szorzás tényezőit, valójában mégis <code>a+(b*c)</code>-nek fogja ezt venni a fordító. A helyes, nem
+megtévesztő írásmód ezért <code>a + b*c</code> vagy <code>a + b * c</code>.</p>
+<p>Egy érdekesség: az unáris <code>+</code> operátor is létezik, viszont nem csinál semmit. <code>5</code> és <code>+5</code>
+ugyanaz a szám, ahogy <code>x</code> és <code>+x</code> is ugyanannyi, függetlenül attól, hogy <code>x</code> pozitív vagy negatív.
+Ezt azért van így, hogy a kódban kiemelhessük, hogy pozitív számról beszélünk, ahogy élő szóban is időnként mondjuk
+ilyeneket: „plusz öt fok van”.</p>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Polimorfizmus és konverziók">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Polimorfizmus és konverziók<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Előfordulhat az, hogy egy operátor többféleképp működhet?</p>
+
+<pre class="float"  ><code class="language-cbub">int a = 5, b = 2;
+double c = 5, d = 2;
+double x;
+
+
+x = a / b;
+printf(&quot;%g\n&quot;, x); // 2
+x = c / d;
+printf(&quot;%g\n&quot;, x); // 2.5
+
+
+x = (double)a / b;
+x = a / (double)b;
+printf(&quot;%g\n&quot;, x); // 2.5</code></pre>
+
+<h3>Polimorfizmus (többalakúság)</h3>
+
+<p class="csakdoksi">Az operátorok jelentése függhet az operandusok típusától:</p>
+
+<ul>
+   <li><code>a/b</code>: osztás. Ha <code>a</code> és <code>b</code> is <code>int</code>, egész osztás, ami lefelé kerekít!
+   <li>Ha bármelyik lebegőpontos, az eredmény is az.
+</ul>
+
+<p class="csakdoksi">Az egész osztás sok esetben hasznos. Lásd a bankautomatás feladatot: ha az a kérdésünk, hogy 5500 Ft 
+kifizetéséhez hány ezresre van szükségünk. <code>5500/1000</code>&nbsp;=&nbsp;5 darab ezres, és 
+<code>5500%1000</code>&nbsp;=&nbsp;500 Ft a maradék, amelyet máshogy kell megoldanunk, nem ezresekkel.</p>
+
+<p class="csakdoksi">Ha valamelyik operandus valós, a másik automatikusan valóssá konvertálódik. Automatikus konverzió egyéb 
+esetekben is történik. Pl. <code>short+int</code> összeadás esetén a <code>short</code> típusú operandus a nagyobb ábrázolási 
+tartományú <code>int</code> típusúvá konvertálódik. Ugyanígy, <code>int+long</code> esetén az összeadás előtt az <code>int</code> 
+konvertálódik automatikusan, az <code>5+2.3</code> kifejezésben pedig az <code>5</code>-ből lesz <code>5.0</code>. Mindig a nagyobb 
+ábrázolási tartomány felé történik az automatikus konverzió, hogy ne amiatt legyen adatvesztés vagy túlcsordulás.</p>
+
+<br class="smallskip">
+
+<h3>Kézi konverzió (cast)</h3>
+<ul>
+   <li>Ha két <code>int</code> van, de lebegőpontos osztást szeretnénk,
+      jelezni kell
+   <li><em>Konverziós (cast) operátort</em> használva: <code>(double) x</code>
+</ul>
+
+<p class="csakdoksi">Fontos megfigyelni, hogy jobb oldalt látható kódban az <code>x=a/b</code> kifejezésben
+az eredmény még így is <code>2</code>, hogy utána azt a <code>double&nbsp;x</code>
+változóba másoljuk! Az értékadás egy újabb operátor, amelynek az osztás eredményébe
+már nincsen „beleszólása”. Az osztás egész/nem egész jellege nem azon múlik, hogy az
+elvégzése <em>után</em> mit csinálunk az eredménnyel! Ha az osztás valamelyik operandusát
+lebegőpontos számmá alakítjuk azáltal, hogy elé a <code>(double)</code> operátort
+írjuk, már nem egész osztás fog történni. A konverziós operátorok nagyon magas
+precedenciájúak: mindig közvetlenül arra az értékre vonatkoznak, amelyek elé írjuk őket.</p>
+
+<p class="csakdoksi">A konverzió segítségével más típusúvá alakítható egy érték. Egy lebegőpontos
+érték elé <code>(int)</code>-et írva egésszé alakítható az, természetesen a törtrészt
+elveszítve. Számtani műveletek esetén ritkán kell kézi konverziót alkalmazni. Más típusoknál, a
+mutatóknál, amelyek egy későbbi előadáson fognak szerepelni, nagyobb szerepet kapnak a
+konverziók. De ezekről majd később.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Az érték és a mellékhatás fogalma">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Az érték és a mellékhatás fogalma<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>A <code>printf()</code> értéke</h3>
+
+<pre class="screenshot float" style="white-space: pre;">
+123, 456, 1234,
+0, 6, 12, 11, 1,
+1234577, 93628,
+2, 4, 9, 1, 3,
+</pre>
+<p class="csakdoksi">A <code>printf()</code> <em>függvény,</em> amellett hogy kiírja
+a megadott szöveget a képernyőre, megadja a kiírt karakterek
+számát is. Ez hasznos lehet, ha azt szeretnénk vizsgálni, a sor végére értünk-e már. A jobb oldalon
+látható dobozban például az egyes sorok nagyjából egyforma hosszúak, függetlenül attól, hogy
+az egyes számok hány számjegyből állnak. Kicsi számokból sok kifér egy sorba, nagy számokból kevés.
+A kimenetet ez a programrész generálta:</p>
+<pre   ><code class="language-cbub">int db = 0;
+for (int i = 0; szamok[i] != -1; i += 1) {
+    db += printf(&quot;%d, &quot;, szamok[i]); // !
+    if (db &gt; 15) {
+        printf(&quot;\n&quot;);
+        db = 0;
+    }
+}</code></pre>
+
+<p class="csakdoksi">Erre azt mondjuk, hogy a <code>printf()</code> műveletnek van
+<em>értéke</em> és <em>mellékhatása</em> is. Az érték a kiírt karakterek száma,
+a mellékhatás pedig a szöveg kiírása.
+A mellékhatás a programozásban nem jelent rosszat! A <code>printf()</code>-et általában épp a mellékhatása 
+miatt használjuk: a kiírás a lényeges, az értékkel, a karakterek számával ritkán foglalkozunk. De ettől még a kiírás 
+technikailag egy mellékhatásnak számít.</p>
+
+<br class="smallskip">
+
+<h3>Érték és mellékhatás: példák</h3>
+
+<p class="csakdoksi">Összehasonlításképp:</p>
+
+<div class="columns">
+
+<div>
+<pre   ><code class="language-c">printf(&quot;hello&quot;)</code></pre>
+<p><em>Érték:</em> 5
+<br>
+<em>Mellékhatás:</em> szöveg kiíródása</p>
+</div>
+
+<div>
+<pre   ><code class="language-c">sqrt(2)</code></pre>
+<p><em>Érték (value):</em> 1,414
+<br>
+<em>Mellékhatás (side effect):</em> nincs</p>
+</div>
+
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Operátorok: érték és mellékhatás">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Operátorok: érték és mellékhatás<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Érték és mellékhatás</h3>
+
+<p class="csakdoksi">Az operátorok esetén az érték és a mellékhatás fogalmát ugyanígy használjuk.</p>
+
+<div class="csakdoksi">
+<dl>
+<dt>Érték (value)</dt>
+    <dd>A műveletnek <em>értéke van</em>, amely behelyettesítődik a kifejezésbe, ahol használjuk.</dd>
+<dt>Mellékhatás (side effect)</dt>
+    <dd>Történik valahol egy változás, pl. <em>megváltozik</em> egy változó értéke, megjelenik valami a képernyőn.</dd>
+</dl>
+</div>
+
+<p class="csakdoksi">Lássunk két kifejezést a mellékhatás és az érték megértéséhez.</p>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">x + y</code></pre>
+<p><em>Érték:</em> az összeg
+<br>
+<em>Mellékhatás:</em> nincs</p>
+</div>
+<div>
+<pre   ><code class="language-c">x = y</code></pre>
+<p><em>Érték:</em> a másolt szám
+<br>
+<em>Mellékhatás:</em> <code>x</code> megváltozik</p>
+</div>
+</div>
+
+<p class="csakdoksi">Miért fontos a mellékhatás figyelembe vétele? A mellékhatással nem rendelkező operátorokkal leírt képletek 
+mindig ugyanazt az eredményt adják. Az <code>x+y</code> kifejezésnek nincs mellékhatása, ezért akárhányszor is kiértékeljük,
+ugyanazt a számot fogjuk kapni. Ezzel szemben, az <code>x+=1</code> kifejezésnek van mellékhatása: nem ugyanaz lesz az eredmény
+elsőre, másodjára, harmadjára.</p>
+
+<br class="smallskip">
+
+<h3>Az értékadás értéke</h3>
+
+<pre   ><code class="language-cbub">a = b = 1;
+a = (b = 1);         // jobbról balra asszociatív
+b = 1; a = 1;</code></pre>
+
+<p class="csakdoksi">A mellékhatás jelenti a változtatás képességét. Az <code>=</code>
+operátort a mellékhatása miatt használjuk. Az értékével ritkán
+törődünk, viszont pont az teszi lehetővé a láncolt értékadást: pl.
+az <code>a=b=1</code> kifejezés mindkét változóba 1-et tesz. Így rövidebben, kifejezőbben
+tudjuk leírni, hogy mindkét változónak ugyanazt az értéket szeretnénk adni.</p>
+
+<p class="csakdoksi">Hogy működik egy ilyen <em>láncolt értékadás</em>? Az <code>=</code>
+értékadó operátor jobbról balra asszociatív, tehát az <code>a=b=1</code> kifejezés pont
+ugyanúgy működik, mintha <code>a=(b=1)</code> formában zárójeleztük volna. Így már érthető:
+az 1-es érték a <code>b</code> változóba másolódik (mellékhatás), a <code>b=1</code> részkifejezés
+értéke pedig a másolt érték, az 1. Ezt kell helyettesíteni a kifejezésbe a <code>b=1</code>
+helyére: <code>a=(1)</code>, innen pedig már látszik, hogy az <code>a</code>-ba is 1 kerül.</p>
+
+<p class="csakdoksi">Az értékadás az egyik legfontosabb operátorunk, mert ezzel tudjuk változtatni
+a változók értékét a program futása során. Nem minden kifejezés állhat azonban az értékadás bal
+vagy jobb oldalán: <code>a=1</code> és <code>szamok[2]=5</code> helyes, viszont <code>1=a</code>
+és <code>a+2=3</code> helytelen kifejezések. Értéket adni változóknak, tömbelemeknek tudunk: ezeket
+<em>balértéknek (left, l-value)</em> nevezzük, mert ilyenek állhatnak egy értékadó operátor bal oldalán
+is. Az értékadó operátor kizárólag jobb oldalára írható értékeket pedig <em>jobbértéknek (right value,
+r-value)</em> nevezzük. Általában véve a balértékek valamiféle változók szoktak lenni, a memóriában
+megjelölt helyek; a jobbértékek pedig számértékek, számítások eredményei, amik nem kötődnek helyhez.</p>
+
+<p class="csakdoksi">A balérték, jobbérték kifejezéseket ismerni kell, mert a
+fordítók hibaüzeneteiben gyakran megjelennek. Például az <code>5=6</code>
+kifejezésre az „lvalue required as left operand of assignment” jelzést kapjuk,
+vagyis hogy az értékadás bal oldali operandusaként egy balérték kellene szerepeljen.</p>
+
+<p class="csakdoksi">Mindezek érvényesek az összes kombinált értékadó
+operátorra is: <code>+=</code>, <code>-=</code> stb.</p>
+
+<pre   ><code class="language-cbub">printf(&quot;%d&quot;, a = b); // neeeee
+a = b;
+printf(&quot;%d&quot;, a);</code></pre>
+
+<p class="csakdoksi">Az értékadás kifejezés értéke miatt olyanokat is lehet írni, mint a
+fenti <code>printf</code> – de nem érdemes. Az ilyesmi csak zavart okoz. Bár a
+fordító által készített gépi kód úgyis teljesen ugyanaz lesz, inkább kerüljük a
+felesleges tömörítést! Jobb külön, két sorba leírni a két, egymástól logikailag
+független teendőt (értékadás, kiírás).</p>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Növeljük meg: pre- és posztinkremens">
+<div class="slide" id="slide_7">
+
+<a id="7" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">7</span><span class="oldalszamafter">. </span>    Növeljük meg: pre- és posztinkremens<a class="hlink" href="index.html#7"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Rövidített értékadások</h3>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">x = x + 1;
+x += 1;</code></pre>
+</div>
+<div>
+<pre   ><code class="language-c">y = y / 5;
+y /= 5;</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi">Mint láttuk, az összes aritmetikai művelet rövidítve is leírható, ha egy változóból kiolvasott adattal
+szeretnénk dolgozni, és visszaírni az eredményt ugyanabba a változóba. Így lesz az <code>x = x+1</code>-ből <code>x += 1</code>,
+és az <code>y = y/5</code>-ből <code>y /= 5</code>.</p>
+
+<br class="smallskip">
+
+<h3>A ++ és -- operátorok</h3>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-cbub">int i = 5;
+++i;
+printf(&quot;%d&quot;, i); // 6</code></pre>
+</div>
+<div>
+<pre   ><code class="language-cbub">int j = 5;
+--j;
+printf(&quot;%d&quot;, j); // 4</code></pre>
+</div>
+</div>
+
+<p class="csakdoksi">Egy változó eggyel növelése és csökkentése nagyon gyakori művelet. Leginkább ciklusokban és tömböknél 
+használjük őket: következő lépés, előző elem, és így tovább. Emiatt ezekhez egy még rövidebb formát kitaláltak, külön operátorokkal
+jelölhető a „növeld meg eggyel a változót”, és „csökkentsd le eggyel a változót”. Vagyis az „ugorj a következő elemre”, és „lépj
+vissza az előző elemre”. Ezek az operátorok <code>++</code> és <code>--</code>, az ún. inkremens (increment) és dekremens
+(decrement) operátorok.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mi a különbség: ++x és x++?">
+<div class="slide" id="slide_8">
+
+<a id="8" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">8</span><span class="oldalszamafter">. </span>    Mi a különbség: ++x és x++?<a class="hlink" href="index.html#8"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+    
+<p class="csakdoksi">Ezt a két operátort a változó neve elé és mögé is lehet írni. A kettő azonban <em>nem ugyanazt jelenti,</em>
+és bizonyos esetekben a programunk jelentése függhet attól, hogy melyiket használjuk: a <code>++x</code> vagy az <code>x++</code>
+formát. Ettől függően nevezzük ezt preinkremensnek (<code>++x</code>) vagy posztinkremensnek (<code>x++</code>).</p>
+
+
+<p>A hatása mindkét változatnak ugyanaz. A <code>++x</code> és az <code>x++</code> kifejezés is megnöveli az <code>x</code> 
+változót eggyel. Különbséget akkor látunk, ha a <code>++x</code> és <code>x++</code> műveletet <em>egy nagyobb kifejezésbe</em>
+írjuk be. Figyeljük meg ezt az alábbi programrészletekben! A lényeg azokban a sorokban van, ahol az <code>y</code>-nak
+értéket adunk: először a <code>++x</code> kifejezés, aztán az <code>x++</code> kifejezés értékét kapja meg.</p>
+
+</div>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int x = 3;
+    int y = ++x;
+    printf(&quot;x = %d, y = %d&quot;, x, y);
+    
+    printf(&quot;\n\n&quot;);
+
+    int a = 3;
+    int b = a++;
+    printf(&quot;a = %d, b = %d&quot;, a, b);
+
+    return 0;
+}</code></pre>
+
+<div class="csakdoksi">
+    
+<pre class="screenshot">
+x = 4  y = 4
+
+a = 4  b = 3
+</pre>
+
+<p>A program futási eredmény nagyon jól látszik a különbség. A <code>++x</code> esetben a kifejezésben felhasznált érték már a 
+megnövelt szám. Így az <code>y</code> változó értéke 4 lesz, mert előbb megnöveljük az <code>x</code>-et, és utána használjuk fel a 
+változó értékét, ami addigra 3-ról 4-re változott. Nem így az <code>a++</code> forma esetén, ahol az <code>b</code> változóba a
+növelés előtti érték kerül, vagyis 3.</p>
+
+<p>Vegyük észre, hogy a <code>++</code> operátornak a hatásra a változóra mindkét esetben ugyanaz. Az <code>x</code>-en és az 
+<code>a</code>-n alkalmaztuk, tehát ezek mindkét esetben megnőttek eggyel. Az <code>y</code> és <code>b</code> értéke lett más, 
+mert az a növelés utáni, vagy még a növelés előtti értéket kapta. Ezért nevezzük a <code>++x</code> formát preinkremensnek (pre: 
+előbb növeljük, utána felhasználjuk az értékét), az <code>a++</code> formát pedig posztinkremensnek (előbb felhasználjuk, és utána 
+növeljük csak meg). Melyik melyik? Ezt könnyű megjegyezni: ha előbb van a <code>++</code>, akkor előbb történik a növelés, ha pedig 
+csak a változó neve után, akkor a növelés marad utoljára.</p>
+
+<p>A dekremens operátor ugyanígy működik, annak is létezik predekremens és posztdekremens változata: <code>--x</code> és 
+<code>x--</code>.</p>
+
+</div>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A ++ és -- tipikus használata">
+<div class="slide" id="slide_9">
+
+<a id="9" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">9</span><span class="oldalszamafter">. </span>    A ++ és -- tipikus használata<a class="hlink" href="index.html#9"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Ciklusban vagy önmagában</h3>
+<pre class="editable"  ><code class="language-c">for (int i = 1; i &lt;= 10; ++i) {
+   /* ... */
+}</code></pre>
+
+<p class="csakdoksi">Nem használjuk az értékét. Itt <em>teljesen mindegy</em>, melyik változatot írjuk, az <code>i++</code> vagy
+a <code>++i</code> alakot.</p>
+
+<div class="csakdoksi megjegyzes kicsinyit">
+<p>Gyakori félreértés, hogy a fenti ciklusba <code>i++</code>-t írva más számokat kapunk eredményül, de ez nem igaz.
+Hiába van posztinkremens az egyik, preinkremens a másik ciklusban, mind a kettő 1-től 10-ig írja ki a számokat:</p>
+<pre   ><code class="language-cbub">for (int i = 1; i &lt;= 10; i++) // ugyanaz, mint a fenti
+    printf(&quot;%d &quot;, i);</code></pre>
+
+<p>A kiértékelési pontok (lásd lentebb) ismeretében könnyű megmagyarázni, miért lesz ugyanaz a kimenet. Az egyik kiértékelési pont a 
+ciklustörzs vége után van, azaz a <code>printf()</code> után; a másik kiértékelési pont pedig a ciklusfeltétel, az <code>i &lt;= 
+10</code> ellenőrzése előtt. Mire ide ér a végrehajtás, addigra az <code>i</code> változó garantáltan megnőtt, függetlenül 
+attól, hogy pre- vagy posztinkremens operátort használtunk. Az utasítások mindkét esetben önmagukban állnak, két kiértékelési 
+pont között.</p>
+</div>
+
+<br class="smallskip">
+
+<h3>Tömb feltöltése</h3>
+
+<div class="columns">
+<div>
+<pre   ><code class="language-c">scanf(&quot;%d&quot;, &amp;x);
+szamok[db++] = x;</code></pre>
+</div>
+<div>
+<table class="tomb">
+    <tr><th>0.<th>1.<th>2.<th>3.<th>4.
+    <tr><td>12<td>43<td><td><td>
+</table>
+</div>
+</div>
+
+<p class="csakdoksi">Itt a posztfix formát használjuk. A darabszám régi értéke az index; oda beírjuk, <em>utána</em> növeljük. Pl. 
+ha <code>db = 2</code>, az új elem <code>szamok[2]</code> helyre kerül, utána <code>db = 3</code> lesz. Ami pont stimmel, hiszen az 
+5 elem a <code>szamok[0]…szamok[4]</code> helyeken van.</p>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mik azok a kiértékelési pontok?">
+<div class="slide" id="slide_10">
+
+<a id="10" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">10</span><span class="oldalszamafter">. </span>    Mik azok a kiértékelési pontok?<a class="hlink" href="index.html#10"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>A mellékhatások <em>kiértékelési pontokig</em> (sequence point) érvényesülnek.</h3>
+<ul>
+    <li>Utasítás végén: <code>;</code> vagy <code>}</code>
+    <li><code>if</code>, <code>while</code>, <code>for</code> feltétele után
+    <li>Néhány operátornál menet közben: logikai és vessző
+    <li>Függvényhívás előtt az összes paraméter kiértékelődik
+</ul>
+
+<br class="smallskip">
+
+<h3>„A szabvány által nem definiált”</h3>
+<ul>
+   <li>A kiértékelési pontok között a <em>mellékhatások sorrendje kötetlen!</em>
+   <li>A függvényparaméterek kiértékelési sorrendje kötetlen
+   <li class="csakdoksi">Ha kell, több utasításba szedéssel, segédváltozók használatával
+       kényszeríthetjük a sorrendet.
+   <li>Helytelen: <code>a = a++;</code>
+   <li>Viszont helyes: <code>while (scanf("%c", &amp;c) == 1 &amp;&amp; c != '\n')</code>
+</ul>
+
+<div class="csakdoksi">
+<p>
+<em>Ne írjunk olyan kódot, ahol többször használjuk egy változó értékét, amelyre mellékhatás is van!</em>
+Be kell tartani a következő szabályokat:</p>
+<ul>
+   <li>Ne zsúfoljunk egy kifejezésbe több mellékhatással rendelkező műveletet!
+   <li>Ne keverjük a mellékhatással rendelkező és a rövidzáras operátorokat!
+   <li>Ne tegyünk az <code>if</code>, <code>while</code>… utasítások
+      feltételébe fölöslegesen mellékhatás kifejezést!
+</ul>
+
+<p>Ilyenekre úgysem lesz szükség programozás közben. Ha mégis megsértjük ezeket a
+szabályokat, nemcsak azt kockáztatjuk, hogy követhetetlen és olvashatatlan lesz a
+programunk, hanem azt is, hogy nem fog működni. Különböző fordítók (de
+még akár ugyanaz a fordító is, más beállítások mellett) másképpen fogják
+értelmezni a kódot! Ettől nem rossz a C. Sőt emiatt lehet gyors, és emiatt van
+minden elképzelhető fajta számítógépre C fordító. Csak be kell tartanunk a
+játékszabályokat.</p>
+
+<div class="megjegyzes">
+<p>A fentiek miatt nemcsak értelmetlen, hanem még hibás is az <code>a = a++;</code> utasítás.
+Ez nem csak amiatt rossz, mert a <code>++</code> operátornak amúgy is van
+mellékhatása (az már amúgy is megváltoztatja az <code>a</code> változót), hanem
+mert nem lehet megmondani, mi lesz az eredménye. Itt egy kifejezésen belül,
+tehát ugyanazon kiértékelési pont előtt az <code>a</code> változót két mellékhatás
+is érinti. Az egyik az értékadó operátor mellékhatása, a másik pedig a posztinkremens
+operátoré. Ezekről nem lehet tudni, hogy milyen sorrendben fognak megtörténni. Ha
+előbb az értékadás történik meg, utána az inkrementálás, akkor <code>a</code> értéke
+megnő eggyel. Ha előbb az inkrementálás, és csak utána az értékadás, akkor <code>a</code>
+értéke nem változik, mivel a posztinkremens kifejezés értéke a változó növelés
+előtti értéke.</p>
+</div>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A ?: operátor">
+<div class="slide" id="slide_11">
+
+<a id="11" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">11</span><span class="oldalszamafter">. </span>    A ?: operátor<a class="hlink" href="index.html#11"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>A „3 operandusú operátor” (ternary operator)</h3>
+<ul>
+   <li>Formája: <code>feltétel ? igaz_kif : hamis_kif</code>
+   <li>Értéke: ha IGAZ a feltétel, <code>igaz_kif</code>, különben <code>hamis_kif</code> értéke.
+        <br>Mint Excel-ben a <code>HA()</code> függvény.
+</ul>
+
+<p class="csakdoksi">Ezt az operátort kérdőjel–kettőspont operátornak, vagy feltételes
+operátornak szokás nevezni. Néha, főleg angol nyelvű szakirodalomban három operandusú
+operátornak is nevezik, mivel ez az egyetlen, amelyiknek három operandusa van.</p>
+
+<br class="smallskip">
+
+<h3>Használata</h3>
+
+<p class="csakdoksi">Melyik a nagyobb?</p>
+
+<pre   ><code class="language-c">nagyobb = a &gt; b ? a : b;</code></pre>
+
+<div class="csakdoksi">
+<p>A feltételes operátor itt azért jó, mert egyértelműsíti, hogy a <code>nagyobb</code> nevű változónak adunk értéket. Ha 
+utasításokkal fejtjük ki, akkor ez az értékadás már duplikáltan kell megjelenjen. Ilyenkor a kódot olvasva csak akkor fogunk 
+rájönni, hogy a változó mindenképp kapott értéket, ha megnézzük a hamis és az igaz ágat is:</p>
+<pre   ><code class="language-c">if (a &gt; b)
+    nagyobb = a;
+else
+    nagyobb = b;</code></pre>
+</div>
+
+<p class="csakdoksi">Páros vagy páratlan?</p>
+
+<pre   ><code class="language-c">int x;
+scanf(&quot;%d&quot;, &amp;x);
+printf(&quot;%s&quot;, x % 2 == 0 ? &quot;páros&quot; : &quot;páratlan&quot;);</code></pre>
+
+<p class="csakdoksi">Itt a <code>"páros"</code> és <code>"páratlan"</code> sztringek közül választjuk ki az egyiket,
+a szám paritásától függően. A <code>printf()</code> függvény a formátumsztringen túl már csak egyetlen egy sztringet kap.</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A rövidzár tulajdonság: &amp;&amp;, || és ?:">
+<div class="slide" id="slide_12">
+
+<a id="12" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">12</span><span class="oldalszamafter">. </span>    A rövidzár tulajdonság: &amp;&amp;, || és ?:<a class="hlink" href="index.html#12"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3 class="csakdoksi">A logikai <code>&amp;&amp;</code>, <code>||</code> rövidzár tulajdonsága</h3>
+
+<pre   ><code class="language-cbub">if (b != 0 &amp;&amp; a/b &gt; 3) // elkerüljük a 0-val osztást
+   /* ... */;
+
+if (i &lt; meret &amp;&amp; tomb[i] &gt; 0) // túlindexelés elkerülése
+   /* ... */;</code></pre>
+
+<p class="csakdoksi">Gondoljunk egy pillanatra az ÉS, illetve a VAGY műveletek igazságtáblájára.
+Az alábbiakat mondhatjuk:</p>
+<ul>
+    <li><code>A &amp;&amp; B</code>: ha A=HAMIS, nem számít B, az egész biztosan HAMIS
+    <li><code>A || B</code>: ha A=IGAZ, a kifejezés értéke biztosan IGAZ
+</ul>
+
+<p class="csakdoksi">A nyelv ÉS, illetve VAGY operátorai ezt figyelembe is veszik.
+Ha az első operandusból kiderül az eredmény, a második operandus már ki sem értékelődik.
+Bár matematikailag ez a két művelet kommutatív, a programozásban emiatt mégsem mindegy, hogy
+milyen sorrendben írjuk az operandusaikat.</p>
+
+<p class="csakdoksi">A rövidzár tulajdonságot a fenti kódrészletekben ki is használjuk – lásd a kommenteket.</p>
+
+
+<br class="smallskip">
+
+<h3 class="csakdoksi">A <code>?:</code> operátor rövidzár tulajdonsága</h3>
+<pre   ><code class="language-cbub">z = x &gt; y ? x++ : y++;     // neeee</code></pre>
+
+<p class="csakdoksi">A rövidzár tulajdonság olykor hasznos, de mellékhatásokkal kombinálva veszélyes, mert áttekinthetetlen, 
+érthetetlen programokhoz vezet. Ilyen a fenti is. Első ránézésre úgy tűnik, hogy mindkét változó értéke megnő eggyel.
+De ez nem igaz, hanem a kettő közül csak a nagyobbik fog nőni, mert <code>x&gt;y</code> esetén csak az <code>x++</code>, amúgy
+csak az <code>y++</code> kifejezés értékelődik ki, és csak annak a mellékhatása történik meg.
+Lehetőleg kerüljük az ilyesmit, <em>ne írjunk ilyeneket!</em> Ne használjunk olyan kifejezést a rövidzár
+tulajdonsággal rendelkező operátorok operandusaként, amelynek mellékhatása van!</p>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A vessző operátor">
+<div class="slide" id="slide_13">
+
+<a id="13" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">13</span><span class="oldalszamafter">. </span>    A vessző operátor<a class="hlink" href="index.html#13"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  <p class="csakdoksi">Több kifejezés egymás utáni kiértékelése egy kifejezésben; értéke az utolsó kifejezés értéke.
+Leggyakrabban <code>for</code> ciklus fejlécében:</p>
+<div class="sticky">erőltetett<br>példa</div>
+<pre   ><code class="language-cbub">for (unsigned i = 0, j = 1; i &lt; 4; ++i, j *= 2)
+    printf(&quot;Kettő %u. hatványa: %u\n&quot;, i, j);</code></pre>
+<pre class="screenshot">
+Kettő 0. hatványa: 1
+Kettő 1. hatványa: 2
+Kettő 2. hatványa: 4
+Kettő 3. hatványa: 8
+</pre>
+
+<br class="smallskip">
+
+<p><strong>Vigyázat,</strong> függvényhívás paraméterei: az nem vessző operátor!</p>
+
+<div class="csakdoksi megjegyzes">
+<p>Logikai ÉS, VAGY operátorok helyett se használjuk! Tipikus hiba ciklusfeltételbe vesszőt írni valamelyik logikai operátor helyett:</p>
+<pre   ><code class="language-cbub">while (oszto &lt; szam, !vanoszto) {   // HIBÁS!
+    ...
+}</code></pre>
+<p>Ez a C számára <em>nem azt jelenti,</em> hogy „amíg osztó kisebb számnál ÉS nincs osztó”,
+hanem azt, hogy „amíg nincs osztó”. A vessző operátor kiértékeli a bal oldali részkifejezést
+(szám és osztó összehasonlítása), utána <em>ezt eldobja,</em> és a ciklus feltételének a
+<code>!vanoszto</code> értékét tekinti. Tehát <code>oszto&gt;=szam</code> esetén is
+fut tovább a ciklus!</p>
+</div>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Rejtvény: mit ír ki?">
+<div class="slide" id="slide_14">
+
+<a id="14" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">14</span><span class="oldalszamafter">. </span>    Rejtvény: mit ír ki?<a class="hlink" href="index.html#14"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    /* 1. */
+    printf(&quot;%d %d\n&quot;,
+           printf(&quot;hello,\n&quot;),
+           printf(&quot;vilag\n&quot;));
+
+    /* 2. */
+    double a = 2, b = 3, c = 5;
+    printf(&quot;%f&quot;,  a
+                 ---
+                 b+c
+          );
+
+    return 0;
+}</code></pre>
+
+<div class="csakdoksi">
+    
+<h3>Az első: printf, printf, printf</h3>
+
+<p>Ha mellékhatások vannak a programban, akkor nem mindegy a műveletek sorrendje.
+Az <code>a = b; b += 1;</code> nem ugyanazt csinálja, mint a <code>b += 1; a = b;</code>
+utasítássorozat: nem mindegy, hogy a növelés előtti vagy utáni értéket másoljuk.</p>
+
+<p>Egy ezzel kapcsolatos furcsaságot szemléltet a fenti programrész.
+A <code>printf("%d %d\n", ...)</code> kiírás előtt elő kell
+állítani a <code>printf()</code> paramétereit, a két számot. A <code>printf("hello,\n")</code> értéke 7
+(5 betű, a vessző és a sortörés), a <code>printf("vilag\n")</code> értéke 6 lesz. Azonban nem mindegy, hogy
+melyik történik meg előbb: a világ, vagy a helló szöveget látjuk előbb a képernyőn. Így a kimenet
+lehet „hello, vilag 7 6”, de esetleg lehet „vilag hello, 7 6” is.</p>
+
+<p>Ha kicsit utánajárunk, kiderül, hogy nem tudjuk megmondani, melyik lesz. A paraméterek kiértékelési
+sorrendjét a fordító szabadon megválaszthatja, a mellékhatások esetleg a nem várt
+sorrendben történhetnek meg. Így még az is előfordulhat, hogy egyik fordítóval kipróbálva „hello, vilag 7 6”-ot
+kiíró programot, másik fordítót használva „vilag hello, 7 6”-ot kiíró programot kapunk.</p>
+
+<p>Emiatt tudnunk kell, hogy <em>nem szabad ilyen kódot írni</em>. Miért olyan fontos ez? Adódhatnak
+olyan esetek, ahol nem ennyire egyértelmű a hiba. Tegyük fel, hogy van egy <code>beolvas()</code>
+nevű függvényünk, amely a billentyűzetről kér egy számot, és visszaadja értékként. A
+<code>beolvas() + beolvas()</code> kifejezés kiértékeléséhez kétszer is használni kell
+ezt a függvényt, a felhasználó két számot kell kapjon. Kérdés, hogy melyik lesz az összeadás
+bal és jobb oldali operandusa? Az összeadás kommutatív, ezért mindegy – viszont ha
+<code>beolvas() - beolvas()</code> kifejezést írunk, akkor már korántsem ez a helyzet! Nem mindegy,
+hogy melyik a kisebbítendő és a kivonandó, mert a rossz sorrend esetén a várt eredmény ellentettjét
+kapjuk.</p>
+
+<p>Ilyen esetben különálló utasításokat kell írnunk, mert úgy különálló, ún. <em>kiértékelési pontokat</em>
+helyezünk el a programban. A fenti példák helyesen:</p>
+
+<pre   ><code class="language-c">int h = printf(&quot;hello,\n&quot;);
+int v = printf(&quot;vilag\n&quot;);
+printf(&quot;%d %d\n&quot;, h, v);
+
+int kisebbitendo = beolvas();
+int kivonando = beolvas();
+printf(&quot;Különbség: %d&quot;, kisebbitendo - kivonando);</code></pre>
+
+</div>
+
+
+<div class="csakdoksi">
+    
+<h3>A második: a/(b+c)?</h3>
+
+<p>C-ben lenne tört? Nem, nincs ilyen. Valójában a három egymás melletti mínusz karaktert egy posztdekremens és egy kivonás 
+operátornak dolgozza fel a fordító. Valahogy így: <code>(a--) - b + c</code>. Ebből már következik, hogy <code>a - b + c</code> 
+értéke jelenik meg, azaz <code>2 - 3 + 5</code> == <code>4</code>. És mellesleg az <code>a</code> változó értéke <code>1</code>-re 
+változik.</p>
+
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Számítógép, számábrázolás, számrendszerek">
+<div class="slide" id="slide_15">
+
+<a id="15" class="namer"></a>
+  <a id="easzamrendszer" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Számítógép, számábrázolás, számrendszerek</h1>
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Adatok és programok">
+<div class="slide" id="slide_16">
+
+<a id="16" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">16</span><span class="oldalszamafter">. </span>    Adatok és programok<a class="hlink" href="index.html#16"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<img class="arnyek float" src="notebookmemory.jpg" alt="Notebook számítógép memóriája">
+
+<h3>Memória működése: számok tárolása</h3>
+
+<p class="csakdoksi">Ez tárolja az adatokat és a programokat.</p>
+
+<ul>
+   <li>Karakterek &rarr; számok
+   <li>Képek &rarr; fényesség értékek &rarr; számok
+   <li>Hang &rarr; levegőnyomás értékek &rarr; számok
+   <li>Gépi utasítások (mov, add) &rarr; számok
+</ul>
+
+<p class="csakdoksi">Érdekesség: A végrehajtott program, és az adatok, amelyeken
+a program dolgozik, lehetnek külön memóriában is. Az első automatikusan működő számítógépek
+a programot nem a belső memóriájukban tárolták, hanem papírszalagról vagy lyukkártyáról olvasták
+be azt futás közben. Ennek egyszerűen az volt az oka, hogy nagyon költséges és bonyolult volt
+relékből (lásd lent) memóriát csinálni. A tervezők pedig ott spóroltak, ahol tudtak.</p>
+
+<p class="csakdoksi">Ahogyan a technika
+fejlődött, úgy vált lehetővé, hogy a programot is a központi memóriában tárolják.
+Ezt az elvet <a href="http://en.wikipedia.org/wiki/John_von_Neumann">Neumann János</a> (John von Neumann)
+javasolta kollégáival, és ma Neumann-féle architektúrának nevezzük. Az első ilyen elven működő számítógép
+az <a href="http://en.wikipedia.org/wiki/EDVAC">EDVAC</a> nevet viselte.
+Ez egyben az első kettes számrendszert használó, már nem elektromechanikus, hanem teljesen elektronikus
+számítógép is volt.
+A külön programmemória elve a fentiek ellenére nem halt ki: ezt ma Harvard architektúrának nevezzük, az
+EDVAC-nál régebbi <a href="http://en.wikipedia.org/wiki/Harvard_Mark_1">Mark&nbsp;I</a> számítógép nyomán.</p>
+
+
+<h3>CPU működése</h3>
+
+<img class="arnyek float" src="notebookcpu.jpg" alt="Notebook számítógép CPU-ja">
+
+<p class="csakdoksi">Processzor, CPU (central processing unit): Ez hajtja végre a fordító által gépi kóddá alakított programjainkat.</p>
+
+<ul>
+   <li>Elemi, egyszerű lépések: <em>gépi utasítások</em>
+   <li>A <em>fordítóprogram</em> állítja elő a C forráskódból
+</ul>
+
+<pre   ><code class="language-c">x += 2;</code></pre>
+
+<pre class="eloadasbetusurit">
+mov  eax, [1055]  <em>; x memóriából processzorba</em>
+add  eax, 2       <em>; processzor hozzáad 2-t</em>
+mov  [1055], eax  <em>; eredmény memóriába</em>
+</pre>
+
+
+<p class="csakdoksi">A számítógép processzora rendkívül egyszerű, gépi nyelvű
+utasításokat tud csak végrehajtani. A gépi nyelvnél legtöbbször még egy
+egyszerű változónövelést is három lépésre kell bontani: 1. a változó értékének
+kiolvasása a memóriából, 2. az érték növelése, 3. az érték visszaírása a
+memóriába. A processzor a működés közben így legtöbbet a memóriával kommunikál,
+jóval többet, mint bármelyik perifériával. Főleg, hogy általában a számítógépeknek
+közös memóriájuk van az adatok és programok számára.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Számrendszerek (numeral system)">
+<div class="slide" id="slide_17">
+
+<a id="17" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">17</span><span class="oldalszamafter">. </span>    Számrendszerek (numeral system)<a class="hlink" href="index.html#17"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A római számokkal bizonyos műveleteket, pl. az összeadást nagyon könnyű elvégezni: pl. III + VIII = VIIIIII
+= VVI = XI. Más műveletek, a szorzás és az osztás bonyolultak. A matematikusok nagy találmánya a nullás számjegy: ez teszi
+lehetővé azt, hogy tömören (kevés számjeggyel), ugyanakkor helyiértékenként egységes jelölésrendszerrel tudjuk leírni a
+számokat. A nullás számjegy a leírt számokban helyőrzőként szerepel: a 203 számban pl. azt jelzi, hogy az 2-es a százasok számát
+tárolja. A hindu-arab számírásban nincs külön jele az egynek, tíznek, száznak, ezernek. (Vegyük észre: a tízes csoportosítás
+ettől független! A római számokban is létezik már az 1-10-100-1000 fogalma. Nem a tízes csoportosítás a lényeg, hanem a
+jelölésmód, ami a nulla bevezetésével válik lehetővé.)</p>
+
+<p class="csakdoksi">A mindennapi életben a tízes számrendszert használjuk. Ebben 
+az egyes helyiértékek a 10 hatványait követik. Ennek oka nagyon egyszerű: azért 
+alakult így ki, mert tíz ujjunk van. Más számrendszerek is használhatóak, és a 
+hindu-arab számírás logikus felépítése miatt ezekben a szabályok pontosan 
+ugyanazok, mint a tízes számrendszerben.</p>
+
+<div class="columns">
+    <div class="kozep"><img src="ot_ujj.svg" style="height: 7em;"><div id="szam10">1</div></div>
+    <div class="kozep"><img src="stew.png" style="height: 7em;"><div id="szam8">1</div></div>
+    <div class="kozep"><img src="delfin.png" style="height: 7em;"><div id="szam2">1</div></div>
+</div>
+
+<br class="smallskip">
+
+<table>
+    <caption>számrendszerek</caption>
+    <thead>
+      <tr><th>alap<th>példa
+    </thead>
+    <tr><th>10 decimális<td><strong>1203</strong><sub>tíz</sub> = <strong>1</strong>·10<sup>3</sup> + <strong>2</strong>·10<sup>2</sup> + <strong>0</strong>·10<sup>1</sup> + <strong>3</strong>·10<sup>0</sup>
+    <tr><th>8 oktális<td><strong>377</strong><sub>nyolc</sub> = <strong>3</strong>·8<sup>2</sup> + <strong>7</strong>·8<sup>1</sup> + <strong>7</strong>·8<sup>0</sup> = 255<sub>tíz</sub>
+    <tr><th>2 bináris<td><strong>1101</strong><sub>kettő</sub> = <strong>1</strong>·2<sup>3</sup> + <strong>1</strong>·2<sup>2</sup> + <strong>0</strong>·2<sup>1</sup> + <strong>1</strong>·2<sup>0</sup> = 13<sub>tíz</sub>
+</table>
+
+<div class="csakdoksi">
+<p>
+A létező legegyszerűbb számrendszer a kettes alapú. Ebben csak kétféle
+számjegy van, a 0 és az 1. Hogy miért ez a legegyszerűbb? Mert
+ebben az összeadó és a szorzótábla nem tízszer tízes, hanem mindössze kétszer kettes.</p>
+<div class="columns">
+    <div>
+        <table class="kozepre">
+            <caption>bináris összeadás</caption>
+            <thead>
+                <tr><th>+<th>0<th>1
+            </thead>
+            <tr><th>0<td>0<td>1
+            <tr><th>1<td>1<td>10
+        </table>
+    </div>
+    <div>
+        <table class="kozepre">
+            <caption>bináris szorzás</caption>
+            <thead>
+                <tr><th>×<th>0<th>1
+            </thead>
+            <tr><th>0<td>0<td>0
+            <tr><th>1<td>0<td>1
+        </table>
+    </div>
+    <div>
+        <img class="kozep" src="sudoku.png" style="width: 5.5em;">
+    </div>
+</div>
+</div>
+
+
+
+
+<div class="csakdoksi">
+
+<h3>Érdekesség: kapcsolók generációi</h3>
+
+<p>A mai számítógépek digitális elven működnek. Csak egész számokkal tudnak dolgozni, amelyeket kettes 
+számrendszerben tárolnak. A kettes számrendszer előnye az, hogy csak két számjegy van benne: 0 és 1. Ez elektronikusan könnyen 
+kezelhető (nincs áram, van áram), ezért a működést <em>kapcsolók</em> adják. Bármi, ami kapcsolóként tud működni, az használható 
+számítógép építésére is.<p>
+
+<p>Az alábbi fényképek a számítógépek generációit mutatják. Ezek elvben nem különböznek egymástól, csak a 
+gyakorlatban, méghozzá abból az egyetlen szempontból, hogy milyen elektronikus, vagy esetleg még elektromechanikus eszközt 
+használtak kapcsolónak. Az első három képen lévő eszköz egyetlen kapcsolónak felel meg, míg a jobb alsó képen látható integrált 
+áramkörön már sok millió kapcsoló van. Összehasonlításképp: 3-4000 kapcsoló használatával már egészen jól használható processzor 
+tervezhető, egy Core i7 processzorban viszont már 730 millió darab van.</p>
+
+<div class="columns">
+<div><img src="rele.jpg" style="height: 300px;" class="kozep">
+    <p>Relék (relay): az áram hatására a bennük lévő tekercsben (jobb oldalt) mágneses tér keletkezik, és így
+    lehet vezérelni a kapcsolót (bal oldalt). Egy ilyen eszköz kb. 3-4 cm nagy. Manapság is használnak ilyet nagyobb áramok
+    kapcsolására, pl. autókban is.</p></div>
+<div><img src="cso.jpg" style="height: 300px;" class="kozep">
+    <p>Elektroncső (tube): a bennük lévő vákuumban repülő elektronok mozgása vezérelhető az elektromos
+    tér változtatásával. Ezek is viszonylag nagyok: 3-4 cm, ráadásul fűteni kell a belsejüket, hogy az elektronok kilépjenek
+    a fémből.</p>
+</div>
+</div>
+<div class="columns">
+<div><img src="tranz.jpg" style="height: 300px;" class="kozep">
+    <p>Tranzisztor (transistor): a félvezető anyagok vezetőképessége (ellenállása) elektromos úton
+    szabályozható, így kapcsolónak is használhatóak. A képen látható tranzisztorban a félvezető szilícium
+    darabka 1 mm-nél is kisebb. A védő fém vagy műanyag tokozás nagyobb, 3-4 mm-es.</p>
+</div>
+<div><img src="ic.jpg" style="height: 300px;" class="kozep arnyek">
+    <p>Integrált áramkör (integrated circuit): ebben is tranzisztorok vannak, azonban az előzőnél
+    jóval kisebbek. Egy 1 cm<sup>2</sup> méretű szilícium lapra akár több tízmillió transzisztor integrálható, amelyek
+    egyesével alig néhány tíz nanométeresek (vagyis méretük egy ember hajszál vastagságának ezrede).
+    A fenti processzor mikroszkóp alatt forgatva egy <a href="http://www.youtube.com/watch?v=4p24osayuPI">videón</a> is látható.</p>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Binary digit = bit">
+<div class="slide" id="slide_18">
+
+<a id="18" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">18</span><span class="oldalszamafter">. </span>    Binary digit = bit<a class="hlink" href="index.html#18"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A számrendszerek közötti átalakítás könnyű: csak el kell osztanunk
+(vagy meg kell szoroznunk) a számokat, számjegyeket az adott számrendszer alapszámának
+hatványaival.</p>
+
+<h3>Átalakítás kettesből tízesbe</h3>
+
+<p class="csakdoksi">Az átalakítás lépései: a szám számjegyeit (alaki értékek) 
+összeszorozzuk kettő megfelelő hatványaival (helyi értékek). Az így kapott számok 
+(valódi értékek) összege adja az eredményt.</p>
+
+<table class="eloadassorsurit115">
+    <thead>
+    <tr><th>helyiérték<td>×64<td>×32<td>×16<td>×8<td>×4<td>×2<td>×1
+    </thead>
+    <tr><th>számjegy<td id="szamjegy6">&nbsp;<td id="szamjegy5"><td id="szamjegy4"><td id="szamjegy3"><td id="szamjegy2"><td id="szamjegy1"><td id="szamjegy0">
+    <tr><th>valódi érték<td id="szorzat6">&nbsp;<td id="szorzat5"><td id="szorzat4"><td id="szorzat3"><td id="szorzat2"><td id="szorzat1"><td id="szorzat0">
+</table>
+
+<div class="kozep">
+<input maxlength="7" id="kettesbol" style="width: 4.5em; text-align: right;"> <sub>kettő</sub>
+&nbsp;&nbsp;&nbsp;<button id="kettesbolgomb">&rarr;</button>&nbsp;&nbsp;&nbsp;
+<input readonly style="width: 4.5em; text-align: right;" id="tizes"> <sub>tíz</sub>
+</div>
+
+
+<br class="smallskip">
+
+<h3>Átalakítás tízesből kettesbe</h3>
+
+<p class="csakdoksi"> Az átalakítás lépései: a számot leosztjuk kettő első olyan 
+hatványával, amely kisebb nála. Az eredmény egy számjegy, a maradékot pedig 
+felírjuk a következő oszlopba. Így folytatjuk az egyre kisebb hatványokkal, amíg 
+el nem érünk 0-ig. (A legutolsó esetben eggyel osztunk, aminek a maradéka 
+biztosan nulla lesz.) Az osztások során sehol nem kaphatunk 1-nél nagyobb 
+értéket; ha ilyen történne, akkor kettő egy nagyobb hatványától kell indulnunk.</p>
+
+<table class="eloadassorsurit115">
+    <thead>
+    <tr><th>helyiérték<td>/64<td>/32<td>/16<td>/8<td>/4<td>/2<td>/1
+    </thead>
+    <tr><th>maradék<td id="maradek6">&nbsp;<td id="maradek5"><td id="maradek4"><td id="maradek3"><td id="maradek2"><td id="maradek1"><td id="maradek0">
+    <tr><th>számjegy<td id="hanyados6">&nbsp;<td id="hanyados5"><td id="hanyados4"><td id="hanyados3"><td id="hanyados2"><td id="hanyados1"><td id="hanyados0">
+</table>
+
+<div class="kozep">
+<input maxlength="2" id="kettesbe" style="width: 4.5em; text-align: right;"> <sub>tíz</sub>
+&nbsp;&nbsp;&nbsp;<button id="kettesbegomb">&rarr;</button>&nbsp;&nbsp;&nbsp;
+<input readonly style="width: 4.5em; text-align: right;" id="kettes"> <sub>kettő</sub>
+</div>
+
+
+
+
+
+
+<p class="csakdoksi">
+A más számrendszerekbe átalakítás ugyanígy működik, csak az ottani alap
+hatványait kell használni.
+</p>
+
+
+
+<div class="csakdoksi">
+<img class="float" src="hd.png" alt="HDD: akár 2 TiB">
+
+<h3>Bitek és bitcsoportok</h3>
+<dl>
+   <dt>bit</dt>
+      <dd>Az információ alapegysége: 0 vagy 1.</dd>
+
+   <dt>bájt (byte): a memória (adatkezelés) egysége</dt>
+      <dd>Jellemzően 8 bites csoport.</dd>
+
+   <dt>szó (word): több bájtos adategység</dt>
+      <dd>Általában 4 bájt (32 bit), vagy 8 bájt (64 bit).</dd>
+</dl>
+
+<br class="smallskip">
+
+<img class="float" src="dvd.png" alt="DVD: 4.3 GiB">
+
+<h3>Előtagok (prefix)</h3>
+
+<p>A kettes számrendszerbeli működés miatt a szokásos 
+mértékegységeknek megvan a bináris párja. Bár a kilo- előtag általában ezret 
+jelent, a számítástechnikában inkább 1024-et, azaz 2<sup>10</sup>-t. Ezt azért 
+választották meg így, mert a kettő között nagyon kicsi a különbség. Sajnos 
+gyakran keverik is a kettőt. A merevlemezgyártók például előszeretettel 
+használják a kilo=1000 jelölést, mert így nagyobb kapacitást írhatnak rá az 
+eladott merevlemezekre. Hogy ne kelljen mindig hozzátenni, ha pontosak akarunk 
+lenni, hogy a bináris vagy a decimális prefixumról beszélünk, bevezették a 
+kibibájt, mebibájt stb. jelöléseket. Egy DVD kapacitása így 4,7 gigabájt, azaz 
+4,3 gibibájt.</p>
+
+<dl>
+   <dt>kilobájt (kB) és kibibájt (KiB)</dt>
+      <dd>10<sup>3</sup>=1000 ≈ 2<sup>10</sup>=1024 bájt.</dd>
+   <dt>megabájt (MB) és mebibájt (MiB)</dt>
+      <dd>10<sup>6</sup>=1000000 ≈ 2<sup>20</sup>=1048576 bájt.</dd>
+   <dt>gigabájt (GB, GiB), terabájt (TB, TiB)</dt>
+      <dd>10<sup>9</sup>≈2<sup>30</sup> és 10<sup>12</sup>≈2<sup>40</sup> bájt.</dd>
+</dl>
+
+<p class="megjegyzes">Érdekesség: A „binary digit”, azaz bináris számjegy
+szókapcsolatot eredetileg „bigit” vagy „binit” néven rövidítették. Később a „bit” szót
+<a href="http://en.wikipedia.org/wiki/John_Tukey">John Tukey</a>, amerikai matematikus javasolta. 
+(Ő találta ki a „software” szót is.) A bit szó tudományos írásban először
+<a href="http://en.wikipedia.org/wiki/Claude_Shannon">Claude Shannon</a> diplomamunkájában 
+szerepelt, amelynek címe
+<a href="http://en.wikipedia.org/wiki/A_Symbolic_Analysis_of_Relay_and_Switching_Circuits">A
+Symbolic Analysis of Relay and Switching Circuits</a>. Ebben megmutatta, hogy az addig 
+telefonközpontokban használt <a href="http://en.wikipedia.org/wiki/Relay">relék</a> segítségével 
+logikai problémák is megoldhatóak. Pár évvel később megépült az első relékből felépített, kettes 
+számrendszert használó számítógép, a <a 
+href="http://en.wikipedia.org/wiki/Harvard_Mark_1">Harvard Mark I.</a> Azóta gyakorlatilag 
+nem készül olyan számítógép, amely nem bináris elven működne.</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egész típusok a C-ben">
+<div class="slide" id="slide_19">
+
+<a id="19" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">19</span><span class="oldalszamafter">. </span>    Egész típusok a C-ben<a class="hlink" href="index.html#19"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Mivel a számítógép nem végtelen nagy, a tárolt adatok sem lehetnek azok. Ha szeretnénk egy számot eltárolni, 
+akkor arra egy véges, fix méretű memóriaterületet kell kijelölnünk. Ezáltal keletkezik „legkisebb” és „legnagyobb” szám, bár 
+matematikailag ez értelmetlenül hangzik. A számítógépen használt számok emiatt a matematikai számfogalomnak csak tökéletlen 
+modelljei. A matematika számai lehetnek egészek, racionálisak, irracionálisak – a programjainkban ezzel szemben rögzítenünk kell, 
+hogy egy változó típusa egész-e vagy nem, sőt még a tartományban és a pontosságban is be vagyunk korlátozva.</p>
+
+<table>
+   <caption>Egész számok tipikus méretei</caption>
+   <thead>
+      <tr>
+        <th>név
+        <th>méret
+        <th>tartomány
+        <th>printf, scanf
+        <th class="csakdoksi">megjegyzés
+   </thead>
+      <tr>
+        <td>signed char<br>unsigned char
+        <td>8 bit
+        <td>-128…127<br>0…255
+        <td>
+        <td class="csakdoksi">legkisebb,<br>mindig 1 bájt
+      <tr>
+        <td>signed short int<br>unsigned short int
+        <td>16 bit
+        <td>-32768…32767<br>0…65535
+        <td>%hd<br>%hu
+        <td class="csakdoksi">
+      <tr style="color: red;">
+        <td>signed int<br>unsigned int
+        <td>32 bit
+        <td>-2<sup>31</sup>…2<sup>31</sup>-1 <span class="csakdoksi">(±2·10<sup>9</sup>)</span><br>0…2<sup>32</sup>-1 <span class="csakdoksi">(4·10<sup>9</sup>)</span>
+        <td>%d<br>%u
+        <td class="csakdoksi">tipikus szóhossz<br>a gépen
+      <tr>
+        <td>signed long int<br>unsigned long int
+        <td>32 vagy<br>64 bit
+        <td>
+        <td>%ld<br>%lu
+        <td class="csakdoksi">
+      <tr>
+        <td>signed long long int<br>unsigned long long int
+        <td>64 bit
+        <td>kb. ±9·10<sup>18</sup><br>kb. 0…1,8·10<sup>19</sup>
+        <td >%lld<br>%llu
+        <td class="csakdoksi">
+</table>
+
+<p class="kozep">Literálisok: <code>123</code>, <code>123u</code>, <code>123l</code>, <code>012</code>, <code>0xFCE2</code></p>
+
+<div class="csakdoksi">
+
+<p>Egy egész szám tárolására egy vagy több bájtot foglalunk le. A számítógép ezeket általában „hardverből”, áramkörileg tudja 
+kezelni. Az egész típus neve a C-ben <code>int</code>, amelyhez társulhatnak ún. módosító jelzők (specifier). Pl. az 
+<code>unsigned</code> jelző az előjel nélkülit jelenti, a <code>signed</code> pedig az előjelest. Vannak bizonyos 
+alapértelmezések:</p>
+
+<ul>
+   <li>Az <code>int</code> típus (méret megadása nélkül) mindig azt a méretet jelenti,
+        amely az adott számítógépen az optimális, vagyis amellyel a processzor leggyorsabban
+        tud dolgozni. Ez manapság a 32 bitest szokta jelenteni, de lehetnek eltérések.
+   <li>Ha nincs <code>signed</code> vagy <code>unsigned</code> megadva, akkor <code>signed</code>, azaz előjeles lesz a változó.
+       Kivétel a <code>char</code>: ennél nincs alapértelmezés. Ajánlatos így használni:
+      <ul>
+         <li><code>char</code>: betű
+         <li><code>signed char</code>: 1 bájtos, előjeles egész szám
+         <li><code>unsigned char</code>: 1 bájtos, előjel nélküli egész szám
+      </ul>
+    <li>Ha van módosító megadva, akkor az <code>int</code> szó elhagyható. Pl. <code>long x;</code> ugyanaz, mint <code>long int x;</code>
+    és <code>signed x;</code> ugyanolyan típusú változót hoz létre, mint a <code>signed int x;</code> utasítás.
+</ul>
+
+<pre   ><code class="language-c">signed long a;
+short b;        /* signed short */
+unsigned c;     /* unsigned int */</code></pre>
+
+<p><strong>A szabvány nem köti meg a típusok pontos méretét,</strong> csak a minimális méreteket, hogy minél többféle számítógépen működhessenek a C programok.
+A fenti táblázat a tipikus értékeket mutatja. Ritka, de van, ahol a <code>char</code> 9 bites vagy az <code>int</code> csak 16!
+Erre figyelni kell, amikor hordozható (portable) programokat szeretnénk írni, amelyek különféle gépeken működnek. Főleg, ha
+Interneten kommunikálnak egymással vagy egymás fájljait kell olvassák.
+
+<p>Újabb C szabványokban a <code>printf()</code> és a <code>scanf()</code> a <code>signed</code> és <code>unsigned char</code>-t
+is ismeri; <code>%hhd</code> és <code>%hhu</code> a hozzájuk tartozó formátumjelző.
+
+<p>Ritkán fontos, de a forráskódba írt konkrét számok (literálisok) típusa is jelezhető. Pl. <code>123</code> típusa <code>int</code>,
+ugyanakkor <code>123u</code> típusa <code>unsigned int</code>, és <code>123l</code> típusa <code>long</code>.</p>
+
+<p>Gyakrabban használjuk a számrendszer megadását. A <code>0</code>-val bevezetett literális 8-as számrendszerben van, és értéke
+10. A <code>0x</code>-szel bevezetett literális 16-os számrendszerben van.</p>
+
+<h3>A 16-os számrendszer</h3>
+
+<ul>
+    <li>4-es csoportokban (nibble) átalakíthatóak
+    <li>Pl. <strong>1001</strong><em>1111</em><sub>kettő</sub> = <strong>9</strong><em>f</em><sub>tizenhat</sub>
+    <li class="csakdoksi">A 10…15 alaki értékek jelölésére az a…f vagy A…F betűket használjuk
+</ul>
+
+<p class="csakdoksi">A kettes számrendszerben leírt számok nagyon sok számjegyből állnak.
+Ezért sokszor helyette a tizenhatos (hexadecimális) számrendszert szoktuk használni. Ez „rokon”
+a bináris számrendszerrel. Mivel 2<sup>4</sup>=16, a bitek négyes csoportokban adnak egy
+hexadecimális számjegyet.</p>
+
+<p class="csakdoksi megjegyzes">Használhatnánk a nyolcas számrendszert is azzal a céllal, hogy spóroljunk a számjegyekkel. Azzal 
+azonban van egy kis gond. Manapság szinte mindegyik számítógépen nyolc bites a bájt. Ha egy ilyet nyolcas számrendszerben írunk le, 
+akkor 2-3-3 bites csoportok adódnak: 10'101'111<sub>kettő</sub>=257<sub>nyolc</sub>. Ezzel önmagában nem is lenne probléma, azonban 
+ha egy két bájtos, azaz 16 bites számot szeretnénk átírni, akkor az egymás mellé tett bájtok nyolcas átírása eltér attól, mint a 
+két bájtté külön. Ha az előző bitsorozatot kétszer egymás mellé írjuk, annak átírása: 
+1'010'111'110'101'111<sub>kettő</sub>=127657<sub>nyolc</sub>, nem pedig 257257<sub>nyolc</sub>, ahogyan a két nyolcas 
+számrendszerbeli egymás után írása miatt gondolnánk. A tizenhatos számrendszerrel nincs ilyen probléma, mert ott nem három, hanem 
+négy bit van egy csoportban, és egy bájt nyolc bitje pontosan két csoportot ad. A négybites csoportok angol neve a nibble (esetleg 
+nybble).</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Túlcsordulás és kettes komplemens">
+<div class="slide" id="slide_20">
+
+<a id="20" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">20</span><span class="oldalszamafter">. </span>    Túlcsordulás és kettes komplemens<a class="hlink" href="index.html#20"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+
+<p>A számokat tehát kettes számrendszerben, bitekkel tároljuk. A biteket az alsó helyiértékektől számozzuk, aszerint, hogy 2 
+hányadik hatványának felel meg. 2<sup>0</sup> &rarr; 0. bit, 2<sup>1</sup> &rarr; 1. bit stb. A helyiértékek matematikából 
+megszokott neve alapján a legkisebb helyiértékű bitet (least significant bit, LSB) legalsónak, a legnagyobb helyiértékűt (most 
+significant bit, MSB) legfelsőnek nevezzük.</p>
+
+<div class="sticky">255+1 = 0<br>0-1 = 255</div>
+
+<p>Számítások végzése közben könnyen a véges bitszám korlátaiba ütközhetünk. Ha egy eredmény nem fér el az adott 
+bitszámban, <em>túlcsordulás</em> történik. Emiatt pl. 8 biten: 255+1 = 0, és 0-1 = 255.</p>
+
+<pre style="line-height: 0.7">
+ 11111111
+
++00000001
+─────────
+<strong><span class="piros">1</span></strong>00000000
+</pre>
+
+<h3>Túlcsordulás: ha nem fér el az eredmény</h3>
+
+<p>Szorzásokat végezve még gyorsabban növekszik a szám, még hamarabb észrevesszük a problémát:</p>
+</div>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    unsigned char kicsi;
+    
+    kicsi = 1;
+    for (int i = 0; i &lt; 20; i += 1) {
+        printf(&quot;%u\n&quot;, kicsi);
+        kicsi *= 2;
+    }
+    
+    return 0;
+}</code></pre>
+
+<p class="csakdoksi">Típusok, amelyekkel érdemes kipróbálni a fenti programot: <code>unsigned char</code>, 
+<code>signed char</code>, <code>short</code>. Bármekkorával is próbáljuk, előbb-utóbb előjön a 
+probléma. Ha kettővel szorozgatjuk a számot, akkor előbb-utóbb nulla lesz az eredmény, így 
+könnyű tetten érni a hibát. Ha hárommal szorzunk a ciklusban, akkor már kevésbé!</p>
+
+
+<div class="csakdoksi">
+<h3>Negatív számok tárolása: a kettes komplemens</h3>
+
+<table class="float">
+    <caption>kettes komplemens</caption>
+   <thead>
+      <tr><th>bitek<th>érték
+   </thead>
+      <tr><td><strong>1</strong>1111110<td>-2
+      <tr><td><strong>1</strong>1111111<td>-1
+      <tr><td><strong>0</strong>0000000<td>0
+      <tr><td><strong>0</strong>0000001<td>1
+      <tr><td><strong>0</strong>0000010<td>2
+</table>
+
+<p>Negatív számokat úgy tudunk tárolni, hogy egy bitet felhasználunk
+az előjelnek. A számolás sémája a jobb oldali táblázatban látható.
+A gondolatmenet lényege az, hogy a &minus;1-et egy olyan bitsorozatnak kellene jelentenie,
+amelyhez 1-et adva 0-t kapunk. a &minus;2-t egy olyannak, amelyhez 2-t adva nullát kapunk,
+és így tovább. Így alakul ki a jobb oldali táblázat.</p>
+
+<p>Ennek az ún. kettes komplemens ábrázolásnak az előnye, hogy a 
+túlcsordulások miatt automatikusan előállnak a helyes pozitív/negatív értékek – 
+nem kell megkülönböztetnie a hardvernek (az áramköröknek) a pozitív és negatív 
+számokkal végzett összeadásokat, kivonásokat. Egy négy bites példát tekintve: 
+<code>1110+0011=0001</code>, azaz <code> &minus;2+3 = 1</code>, ami éppen a helyes 
+eredmény. Ezért mindenhol ezt szokás használni.</p>
+
+<p>Egy bitenként adott, kettes komplemens ábrázolású számsort
+az alábbiak szerint lehet értelmezni.</p>
+
+<ul>
+    <li>Az előjelet a legfelső bit dönti el.
+    <li>Ha a <em>legfelső bit 0</em>, akkor nemnegatív szám. Például: <code><strong>0</strong>0000011</code> &rarr; értéke 3<sub>tíz</sub>
+    <li>Ha a <em>legfelső bit 1</em>, akkor negatív szám. Értéke a többi bit negáltja + 1. Például: <code><strong>1</strong>1111001 &rarr; 0000110</code>, aminek értéke 6<sub>tíz</sub>; ehhez hozzáadva +1-et az eredmény 7, tehát a bitsorozat a &minus;7-et reprezentálja.
+    <li>Lásd még: Digit tárgy!
+</ul>
+
+<p>Szerencsére ezt a számítógép hardvere megoldja helyettünk. Csak azért kell tudni róla, hogy értsük, két pozitív szám 
+összeadásakor hogyan kaphatunk negatív értéket. A témakör a Digitális technika tárgyból még fog szerepelni részletesen.</p>
+
+<p class="megjegyzes">A komplemens számábrázolás amúgy működik tízes alapú számrendszerben is. Pl. három számjegyen 017+999=1016, 
+amiből ha eldobjuk a túlcsordulás miatti ezrest, akkor 16-ot kapunk. Ez pont 17-1, tehát a 999 akár a -1-et is ábrázolhatja.</p>
+
+</div>
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Valós számok ábrázolása">
+<div class="slide" id="slide_21">
+
+<a id="21" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">21</span><span class="oldalszamafter">. </span>    Valós számok ábrázolása<a class="hlink" href="index.html#21"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Mivel a digitális elven működő hardver csak egész számokkal 
+képes dolgozni, a törtek tárolását vissza kell vezetni egész számokra. Ez 
+megoldható egy normálalakszerű sémával, ahol a kitevő lehet negatív is. A 
+normálalak természetesen a gép (és a tervezőmérnökök) kényelme érdekében nem 
+tízes, hanem kettes alapú.</p>
+
+<p>Lebegőpontos ábrázolás (floating point): lényegében normálalak, kettes számrendszerben:</p>
+
+<pre class="kozep mono">± mantissza · 2<sup>karakterisztika</sup></pre>
+
+<ul>
+   <li>Pl. 4 = 1·2<sup>2</sup> = 100<sub>kettő</sub>, ¼ = 1·2<sup>-2</sup> = 0.01<sub>kettő</sub>
+   <li>Véges a méret: adott bitszám a mantisszának és a kitevőnek
+   <li><em>Korlátos</em> az ábrázolható számtartomány és a pontosság is
+</ul>
+
+<br class="smallskip">
+
+<img class="kozep" src="szamegyenes.svg" style="width: 28em;" alt="Lebegőpontos számok a számegyenesen">
+
+<div class="csakdoksi">
+<p>Emiatt a számítások eredménye sokszor pontatlan! Még az is előfordulhat, hogy 
+<code>a+b=a</code>, ahol <code>a</code> egy nagy, <code>b</code> pedig egy kicsi 
+szám. Ez történik (pirossal az értékes jegyek): </p>
+<pre>
+a    <strong>10000000</strong>000000.0000000
+b   +             <strong>0.0000001</strong>
+    ───────────────────────
+a+b  <strong>10000000</strong>000000.0000001 &rarr; <strong>10000000</strong>000000 lesz!
+</pre>
+<p>Így az <code>==</code> és <code>!=</code> operátorokat valós számokon elvileg
+nem is lenne szabad használni, de a többi is adhat váratlan eredményt. Ehelyett
+a módszer az, hogy az összehasonlításokat egy adott tűréssel végezzük. Például
+egyenlőség helyett ezt a kifejezést használuk: <code>fabs(a-b)&lt;0.0001</code>.
+Tehát ha a két szám különbsége kevesebb egy tízezrednél, akkor egyenlőnek tekintjük őket.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Lebegőpontos típusok C-ben">
+<div class="slide" id="slide_22">
+
+<a id="22" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">22</span><span class="oldalszamafter">. </span>    Lebegőpontos típusok C-ben<a class="hlink" href="index.html#22"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<table>
+   <caption>Lebegőpontos típusok</caption>
+   <thead>
+      <tr><th>név<th>tipikus<br>tartomány<th>pontosság<br>(tizedesjegy)<th>printf<th>scanf
+   </thead>
+      <tr><td>float<td>±10<sup>±38</sup><td>kb. 7<td  colspan="2" style="text-align: center">%f
+      <tr style="color: red;"><td>double<td>±10<sup>±308</sup><td>kb. 15<td >%f<td >%lf
+      <tr><td>long double<td>±10<sup>±4932</sup><td>kb. 18<td  colspan="2" style="text-align: center">%Lf
+</table>
+
+<br class="smallskip">
+
+<p class="csakdoksi"> Ha valós szám kell, <em>legtöbbször <code>double</code>-t használunk.</em> A támogatott típusok itt is 
+eltérnek számítógépenként. A <code>long double</code> gyakran nem létezik, hanem a <code>double</code> szinonímája csak. Figyeljünk 
+arra is, hogy a <code>printf()</code>-nek és a <code>scanf()</code>-nek adott formátumkód a <code>double</code> esetében nem 
+ugyanaz. A kiíráshoz ennél <code>%f</code> kell, a beolvasáshoz <code>%lf</code>. (Ennek mélyebb, történelmi okai vannak, amelyek 
+itt nem lényegesek. Némelyik környezettel működik a <code>%lf</code> is, de inkább a <code>%f</code>-et használjuk a 
+<code>printf()</code>-nél!)</p>
+
+<p class="csakdoksi">A lebegőpontos literálisok típusa is jelezhető: míg <code>12.3</code> típusa <code>double</code>, egy 
+<code>f</code> betűt mögé írva, <code>12.3f</code> esetén <code>float</code> lesz a típus. Használhatunk normálalakot is, mérnöki 
+jelölésmóddal: <code>6.022e23</code> = 6,022·10<sup>23</sup>. Ugyanígy, <code>1e40</code> = 10<sup>40</sup>. A <code>math.h</code> 
+függvényeinek is megvan mind a <code>float</code> paraméterű és értékű párja, pl. <code>sqrtf</code>, <code>sinf</code>, 
+<code>powf</code> és így tovább. Ezeket akkor érdemes használni, ha konzekvensek vagyunk.</p>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Lebegőpontos ábrázolás: furcsaságok">
+<div class="slide" id="slide_23">
+
+<a id="23" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">23</span><span class="oldalszamafter">. </span>    Lebegőpontos ábrázolás: furcsaságok<a class="hlink" href="index.html#23"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Néhány példa a valós számábrázolás pontatlanságaira:</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    if (0.1 + 0.2 == 0.3)
+        printf(&quot;Egyenlőek!\n&quot;);
+    else
+        printf(&quot;Nem egyenlőek!\n&quot;);
+    printf(&quot;\n&quot;);
+
+    printf(&quot;%.16f\n&quot;, 9.95);
+    printf(&quot;\n&quot;);
+
+    double x;
+    for (x = 0; x &lt; 1; x += 0.1)
+        printf(&quot;%f\n&quot;, x);
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre>
+
+<div class="csakdoksi">
+
+<p>A tizedek nem ábrázolhatóak pontosan kettes számrendszerben, mert 1/10 = 1/(2*5), tehát nem 2 hatványa. Emiatt sem a 0,1, sem a 
+0,2 nem ábrázolható, csak közelítőleg; az összegük a kerekítési hiba miatt nem adja ki a 0,3 értéket. Hogy ez a pontatlanság 
+tényleg előjön-e, az persze a számítógép típusától is függ. (Vegyük észre, hogy tízes számrendszerben is pont azok a törtek 
+ábrázolhatóak pontosan, amelyek nevezőjének prímtényezői 2 és 5. Minden másból végtelen, szakaszos tizedes tört lesz.)</p>
+
+<p>A 9,95 egy olyan szám, ahol ez közvetlenül tetten is érhető, akár műveletvégzés nélkül is. Ha pénzről van szó, általában 
+századokkal szoktunk dolgozni (pl. euró és cent). Banki szoftverekben a századok miatt nem szoktak lebegőpontos számokat használni, 
+hiszen még egy ilyen egyszerű pénzösszeg, mint a 9,95 € (9 euró 95 cent), sem adható meg pontosan.</p>
+
+<p>A harmadik rész ciklusa adhat olyan kimenetet, amelyben 11-szer történik meg a kiírás. A dolog külön érdekessége, hogy a ciklus, 
+bár feltételében szam&lt;1 van, gyakorlatilag 1-nél is lefut! Nem 10-szer (0; 0,1; … 0,9), hanem 11-szer! És ez teljesen esetleges; 
+szam=1, szam&lt;2 esetén csak 10-szer fut le, mivel ott úgy alakulnak a kerekítési hibák. Az eredmény géptípusonként változhat, a 
+pontosság függvényében. Ha a <code>printf()</code> formátumsztringjébe <code>%.16f</code>-et írunk, akkor egyből látszik, mi okozza 
+a hibát: a helyzet ugyanaz, mint az előbb. A jelenség azért érhető ilyen könnyen tetten, mert a tízes számrendszerben „kerek” 
+számok, mint a 0,1, kettes számrendszerben nem azok. Érdemes kipróbálni!</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Bitműveletek">
+<div class="slide" id="slide_24">
+
+<a id="24" class="namer"></a>
+  <a id="eabitek" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="diacim">Bitműveletek</h1>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Boole-féle algebra">
+<div class="slide" id="slide_25">
+
+<a id="25" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">25</span><span class="oldalszamafter">. </span>    Boole-féle algebra<a class="hlink" href="index.html#25"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+
+<div class="sticky">Lásd:<br>Digit</div>
+
+<p>A számítógépek processzorai – mivel maguk is bitekkel dolgoznak – általában tartalmaznak olyan gépi 
+utasításokat, amelyekkel a tárolt számok egyes bitjeit tudjuk állítgatni, mégpedig a Boole-féle algebrából ismert műveletekkel. 
+Ebben az algebrában a változóknak két értékük lehet: HAMIS és IGAZ, vagy bitekben gondolkodva 0 és 1.</p>
+
+<p>A bitműveletek segítségével az egész szám típusú értékek (különféle méretű <code>int</code>-ek) egyes
+bitjeit is elérjük. Ezeket a műveleteket sok területen alkalmazhatjuk:</p>
+
+<ul>
+ <li>Minden bit kihasználása, tömörítés: egy 8 bites <code>unsigned
+    char</code> változóba 8 IGAZ/HAMIS értéket sűríthetünk.
+ <li>Hardverközeli programozás: hardvereszközben
+    adott bit 1-esbe állításával bekapcsolunk egy funkciót, pl. grafikus kártyán egérmutató láthatósága.
+ <li>Hálózatprogramozás: egy internet adatcsomag adott
+    bitjei jelzik, hogy kapcsolat létrehozása, lebontása stb. történik-e.
+ <li>Kriptográfia és véletlenszámok: titkosítási és ellenőrző összegeket
+    előállító algoritmusok, pszeudo-véletlenszámokat előállító algoritmusok.
+</ul>
+
+</div>
+
+<p class="csakdoksi">A legfontosabb, a C nyelvben is megjelenő műveletek a következők.</p>
+
+<div class="columns">
+<div>
+<img class="kozep" src="not.svg" style="width: 6em;">
+<table class="kozepre">
+  <caption>NEM<br>(NOT)</caption>
+  <thead>
+  <tr><th>A<th><span class="felulhuzott">A</span>
+  </thead>
+  <tr><td>0<td>1
+  <tr><td>1<td>0
+</table>
+</div>
+
+<div>
+<img class="kozep" src="and.svg" style="width: 6em;">
+<table class="kozepre">
+<caption>ÉS<br>(AND)</caption>
+  <thead>
+    <tr><th>A<th>B<th>AB
+  </thead>
+  <tr><td>0<td>0<td>0
+  <tr><td>0<td>1<td>0
+  <tr><td>1<td>0<td>0
+  <tr><td>1<td>1<td>1
+</table>
+</div>
+
+<div>
+<img class="kozep" src="or.svg" style="width: 6em;">
+<table class="kozepre">
+<caption>VAGY<br>(OR)</caption>
+  <thead>
+    <tr><th>A<th>B<th>A+B
+  </thead>
+  <tr><td>0<td>0<td>0
+  <tr><td>0<td>1<td>1
+  <tr><td>1<td>0<td>1
+  <tr><td>1<td>1<td>1
+</table>
+</div>
+
+<div>
+<img class="kozep" src="xor.svg" style="width: 6em;">
+<table class="kozepre">
+<caption>KIZÁRÓ&nbsp;VAGY<br>(XOR)</caption>
+  <thead>
+    <tr><th>A</th><th>B</th><th>A⊕B</th>
+  </thead>
+  <tr><td>0<td>0<td>0
+  <tr><td>0<td>1<td>1
+  <tr><td>1<td>0<td>1
+  <tr><td>1<td>1<td>0
+</table>
+</div>
+</div>
+
+<div class="csakdoksi">
+
+<p>Érdemes megvizsgálni ezen műveletek tulajdonságait egy különös szemszögből: az egyik bemenetet változatlanul hagyva azt 
+figyelni, hogyan reagál a kimenet a másik bemenet megváltozására. Az igazságtáblák alapján:</p>
+
+<ul>
+    <li>Az <em>ÉS műveletnél</em>: ha az egyik bemenet A = 0, akkor a másik, B bemenet értékétől függetlenül 0 jelenik a kimeneten. Ha az előbbi 
+        bemenet A = 1-es, akkor a kimenet értéke azonos lesz a másik bemenettel; mintha lemásolná azt.
+
+    <li>A <em>VAGY műveletnél</em>: ha A = 0 bemenetet adunk, akkor a kimeneten mintha a B értéke jelenne meg.
+        Ha A = 1-et, akkor viszont fixen 1 a kimenet. Másképp fogalmazva, ez a művelet lemásolja
+        az egyik bemenetét, ha a másik 0, és fixen 1-et ad a tőle függetlenül, ha a másik 1.
+
+    <li><em>XOR (exclusive or)</em>: ha az egyik bemenet 0, akkor a másikat lemásolja. Ha az előbbi
+        1-es, akkor pedig az utóbbit negálva másolja. Vagyis mintha egy ki-bekapcsolható inverter lenne.
+</ul>
+
+<p>A következő pontok feladatainál kiderül majd, hogy miért hasznosak ezek a megfigyelések.</p>
+
+<p>Egy nagyon <strong>fontos megjegyzés</strong> előzetesen: a bitenkénti műveletek nem keverendőek a logikai műveletekkel! Míg a 
+bitenkénti műveletek egy vagy két szám azonos helyiértékű bitjein dolgoznak páronként, addig a logikai műveletek egy „teljes” szám 
+(a változó méretének megfelelő) értékével. Míg a bitenkénti <code>~</code> művelet egy egész szám összes bitjét ellentettjére 
+állítja, a logikai <code>!</code> művelet nem nulla számból nullát csinál, és nullából nem nullát (egyet). Ugyanígy, a bitenkénti 
+<code>|</code> nem ugyanaz, mint a logikai <code>||</code>, és a bitenkénti <code>&amp;</code> mást csinál, mint a logikai 
+<code>&amp;&amp;</code> művelet. A <code>^</code> kizáró vagy műveletnek nincsen logikai párja. Vagyis de: a <code>!=</code> 
+operátor végülis az (ha helyesen használjuk, csak <code>bool</code> típusra).</p>
+
+</div>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Bitműveletek: léptetés (shift)">
+<div class="slide" id="slide_26">
+
+<a id="26" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">26</span><span class="oldalszamafter">. </span>    Bitműveletek: léptetés (shift)<a class="hlink" href="index.html#26"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">A léptető operátorok egy szám bitjeit eltolják.</p>
+
+<div class="columns">
+<div>
+<h3>Balra léptetés: &lt;&lt; operátor</h3>
+<pre>
+100<strong>00110</strong>  előtte
+<strong>00110</strong>000  balra 3-mal
+</pre>
+<pre   ><code class="language-c">x = 134 &lt;&lt; 3;</code></pre>
+<ul class="csakdoksi">
+   <li>A felső három elveszik, alulról három nulla jön be.
+   <li>Mintha szoroznánk 2<sup>3</sup>-nal.
+</ul>
+</div>
+
+<div>
+<h3>Jobbra léptetés: &gt;&gt; operátor</h3>
+<pre>
+<strong>010101</strong>10 előtte
+00<strong>010101</strong> jobbra 2-vel
+</pre>
+<pre   ><code class="language-c">x = 86 &gt;&gt; 2;</code></pre>
+<ul class="csakdoksi">
+   <li>Az alsó kettő elveszik, felülről két nulla jön be.
+   <li>Mintha osztanánk 2<sup>2</sup>-nal.
+</ul>
+</div>
+</div>
+
+
+
+<div class="csakdoksi">
+
+<p>Figyelem! A bitenkénti léptetés operátorok ugyanolyanok, mint az összeadás vagy a szorzás: két operandusuk van, és létrehoznak 
+egy harmadik számot, az eredményt. Eközben a két operandusukat nem változtatják meg, nincs mellékhatásuk! A <code>b = a &lt;&lt; 
+3</code> kifejezés így az <code>a</code> változó értékét változatlanul hagyja, és csak <code>b</code> változik. A többihez 
+hasonlóan viszont ezeknek is megvan a rövidített, értékadó párjuk:</p>
+
+<ul>
+    <li><code>x &lt;&lt;= 3</code> ugyanaz, mint <code>x = x&lt;&lt;3</code>, és
+    <li><code>x &gt;&gt;= 2</code> ugyanaz, mint <code>x = x&gt;&gt;2</code>.
+</ul>
+
+</div>
+
+<br class="smallskip">
+
+<p>Feladat: írjuk ki 2 hatványait!</p>
+
+<pre   ><code class="language-c">for (int i = 0; i &lt; 32; ++i)
+    printf(&quot;%2d. %10u\n&quot;, i, 1U &lt;&lt; i);</code></pre>
+
+<p class="csakdoksi">A formátumsztringben <code>"%10u"</code>, mert <code>unsigned</code>, előjel nélküli számot írunk ki. A 
+paraméterben pedig <code>1U</code>, mert az 1-et <code>unsigned int</code>-nek kell tekinteni, nem pedig <code>int</code>-nek. 
+Különben a 31-edik léptetés már túlcsordulna, az előjelbitbe csúszna az 1-es.</p>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A bitenkénti VAGY művelet: |">
+<div class="slide" id="slide_27">
+
+<a id="27" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">27</span><span class="oldalszamafter">. </span>    A bitenkénti VAGY művelet: |<a class="hlink" href="index.html#27"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+<div class="sticky" style="clear: both;"><span style="font-size: 2em">|</span><br>„pipe”,<br>álló vonal</div>
+</div>
+
+<p class="csakdoksi">A VAGY operátor <code>|</code> két szám bitjeit hozza VAGY kapcsolatba páronként. Ez minden helyiértéken így 
+lesz, vagyis az egyik szám 0. bitje és a másik szám 0. bitje, az egyik szám 1. bitje és a másik szám 1. bitje, és így tovább.</p>
+
+<p class="csakdoksi">A VAGY műveletnél az eredmény 1, ha bármelyik 1. Ezt adott bitek 1-be állítására szokás használni. Figyeljük 
+meg: ha az A = 0 bemenetet választjuk, akkor a kimeneten a B értéke jelenik meg. Ha az A = 1-et, akkor pedig fixen 1 a kimenet. 
+Tehát a VAGY művelet lemásolja az egyik bemenetét, ha a másik 0, és fixen 1-et ad a tőle függetlenül, ha a másik 1.</p>
+
+
+<div class="columns">
+<div>
+    <table class="kozepre eloadassorsurit105">
+    <caption>VAGY</caption>
+      <thead>
+        <tr><th>&nbsp;A&nbsp;<th>&nbsp;B&nbsp;<th>A|B
+      </thead>
+      <tr><td>0<td>0<td>0
+      <tr><td>0<td>1<td>1
+      <tr><td>1<td>0<td>1
+      <tr><td>1<td>1<td>1
+    </table>
+</div>
+<div>
+        <table class="bit" id="vagy">
+    <caption>VAGY <span class="csakdoksi"> – kattints a számokra!</span></caption>
+    <thead>
+    <tr><th><th>7<th>6<th>5<th>4<th>3<th>2<th>1<th>0    </thead>
+
+    <tr><th><code>A</code>
+    <td><span class="bea bea-7">0</span><td><span class="bea bea-6">0</span><td><span class="bea bea-5">1</span><td><span class="bea bea-4">0</span><td><span class="bea bea-3">0</span><td><span class="bea bea-2">0</span><td><span class="bea bea-1">0</span><td><span class="bea bea-0">0</span>
+        <tr><th><code>B</code>
+    <td><span class="beb beb-7">0</span><td><span class="beb beb-6">1</span><td><span class="beb beb-5">0</span><td><span class="beb beb-4">0</span><td><span class="beb beb-3">1</span><td><span class="beb beb-2">0</span><td><span class="beb beb-1">1</span><td><span class="beb beb-0">0</span>    
+    <tfoot>
+    <tr><th><code>A|B</code>
+    <td><span class="ki ki-7">0</span><td><span class="ki ki-6">0</span><td><span class="ki ki-5">0</span><td><span class="ki ki-4">0</span><td><span class="ki ki-3">0</span><td><span class="ki ki-2">0</span><td><span class="ki ki-1">0</span><td><span class="ki ki-0">0</span>    </tfoot>
+    </table>
+</div>
+</div>
+
+<br class="smallskip">
+
+<p>Feladat: állítsuk egy szám 5. bitjét 1-be!</p>
+
+<ul>
+    <li>Olyan maszk (mask) kell, amiben az 5. bit 1-es, többi 0.
+    <li>Ez a szám az <code>1&lt;&lt;5</code>:<br>
+        <code>0000000<strong>1</strong>  1</code><br>
+        <code>00<strong>1</strong>00000  1&lt;&lt;5</code><br>
+    
+    <li><code>x = x | 1&lt;&lt;5</code> vagy egyszerűbben: <code>x |= 1&lt;&lt;5</code>
+</ul>
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A bitenkénti kizáró vagy: ^">
+<div class="slide" id="slide_28">
+
+<a id="28" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">28</span><span class="oldalszamafter">. </span>    A bitenkénti kizáró vagy: ^<a class="hlink" href="index.html#28"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+<div class="sticky"><span style="font-size: 2em">^</span><br>„caret”,<br>kalap</div>
+</div>
+
+<p class="csakdoksi">A kizáró vagy <code>^</code> két operandusának ugyanolyan sorszámú bitjeit hozza KIZÁRÓ VAGY kapcsolatba. 
+Mivel a KIZÁRÓ VAGY műveletnél az eredmény akkor 0, ha egyformák a bemeneti bitek, és akkor 1, ha nem egyformák, ezt adott bitek 
+negálására szokás használni. Digites terminológiában: a KIZÁRÓ VAGY kapu a vezérelhető (ki/bekapcsolható) inverter.</p>
+
+<div class="columns">
+<div>
+    <table class="kozepre eloadassorsurit105">
+    <caption>KIZÁRÓ&nbsp;VAGY</caption>
+      <thead>
+        <tr><th>&nbsp;A&nbsp;</th><th>&nbsp;B&nbsp;</th><th>A^B</th>
+      </thead>
+      <tr><td>0<td>0<td>0
+      <tr><td>0<td>1<td>1
+      <tr><td>1<td>0<td>1
+      <tr><td>1<td>1<td>0
+    </table>
+</div>
+<div>    <table class="bit" id="xor">
+    <caption>KIZÁRÓ VAGY <span class="csakdoksi"> – kattints a számokra!</span></caption>
+    <thead>
+    <tr><th><th>7<th>6<th>5<th>4<th>3<th>2<th>1<th>0    </thead>
+
+    <tr><th><code>A</code>
+    <td><span class="bea bea-7">0</span><td><span class="bea bea-6">0</span><td><span class="bea bea-5">0</span><td><span class="bea bea-4">1</span><td><span class="bea bea-3">1</span><td><span class="bea bea-2">0</span><td><span class="bea bea-1">0</span><td><span class="bea bea-0">0</span>
+        <tr><th><code>B</code>
+    <td><span class="beb beb-7">0</span><td><span class="beb beb-6">1</span><td><span class="beb beb-5">0</span><td><span class="beb beb-4">0</span><td><span class="beb beb-3">1</span><td><span class="beb beb-2">0</span><td><span class="beb beb-1">1</span><td><span class="beb beb-0">0</span>    
+    <tfoot>
+    <tr><th><code>A^B</code>
+    <td><span class="ki ki-7">0</span><td><span class="ki ki-6">0</span><td><span class="ki ki-5">0</span><td><span class="ki ki-4">0</span><td><span class="ki ki-3">0</span><td><span class="ki ki-2">0</span><td><span class="ki ki-1">0</span><td><span class="ki ki-0">0</span>    </tfoot>
+    </table>
+</div>
+</div>
+
+<br class="smallskip">
+
+<p>Feladat: negáljuk egy szám 3. és 4. bitjét!</p>
+
+<ul>
+   <li>A maszk: <code>1&lt;&lt;3 | 1&lt;&lt;4</code>
+   <li>Tehát: <code>x = x ^ (1&lt;&lt;3 | 1&lt;&lt;4)</code>
+   <li>Vagy másképpen: <code>x = x ^ 1&lt;&lt;3 ^ 1&lt;&lt;4</code> 
+</ul>
+
+<p class="csakdoksi">Az <code>x = x^y</code> kifejezés rövidítve is írható: <code>x ^= y</code>, vagyis a fenti példa rövid 
+változata: <code>x ^= 1&lt;&lt;3 | 1&lt;&lt;4</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A bitenkénti ÉS művelet: &amp;">
+<div class="slide" id="slide_29">
+
+<a id="29" class="namer"></a>
+  <a id="eabitenkenties" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">29</span><span class="oldalszamafter">. </span>    A bitenkénti ÉS művelet: &amp;<a class="hlink" href="index.html#29"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+<div class="sticky"><span style="font-size: 2em">&amp;</span><br>„et” vagy<br>„és” jel</div>
+</div>
+
+<p class="csakdoksi">Az <code>&amp;</code> operátor két operandusának ugyanolyan sorszámú bitjeit hozza ÉS kapcsolatba. Ezzel meg 
+tudunk vizsgálni, ki tudunk vágni egy adott bitet egy számból. Miért? Mert ennél a műveletnél ha az egyik bemenet 0, akkor a másik 
+bemenet értékétől függetlenül 0-t ad a kimeneten. Ha az előbbi bemenet 1-es, akkor viszont az utóbbit lemásolja, változatlanul 
+megjeleníti a kimeneten. Olyan, mintha az egyik bemenet 0 értékével letiltanánk a másikat.</p>
+
+<div class="columns">
+<div>
+    <table class="kozepre eloadassorsurit105">
+    <caption>ÉS</caption>
+      <thead>
+        <tr><th>&nbsp;A&nbsp;<th>&nbsp;B&nbsp;<th>A&amp;B
+      </thead>
+      <tr><td>0<td>0<td>0
+      <tr><td>0<td>1<td>0
+      <tr><td>1<td>0<td>0
+      <tr><td>1<td>1<td>1
+    </table>
+</div>
+<div>
+        <table class="bit" id="es">
+    <caption>ÉS <span class="csakdoksi"> – kattints a számokra!</span></caption>
+    <thead>
+    <tr><th><th>7<th>6<th>5<th>4<th>3<th>2<th>1<th>0    </thead>
+
+    <tr><th><code>A</code>
+    <td><span class="bea bea-7">0</span><td><span class="bea bea-6">0</span><td><span class="bea bea-5">0</span><td><span class="bea bea-4">0</span><td><span class="bea bea-3">1</span><td><span class="bea bea-2">0</span><td><span class="bea bea-1">0</span><td><span class="bea bea-0">0</span>
+        <tr><th><code>B</code>
+    <td><span class="beb beb-7">0</span><td><span class="beb beb-6">1</span><td><span class="beb beb-5">0</span><td><span class="beb beb-4">0</span><td><span class="beb beb-3">1</span><td><span class="beb beb-2">0</span><td><span class="beb beb-1">1</span><td><span class="beb beb-0">0</span>    
+    <tfoot>
+    <tr><th><code>A&amp;B</code>
+    <td><span class="ki ki-7">0</span><td><span class="ki ki-6">0</span><td><span class="ki ki-5">0</span><td><span class="ki ki-4">0</span><td><span class="ki ki-3">0</span><td><span class="ki ki-2">0</span><td><span class="ki ki-1">0</span><td><span class="ki ki-0">0</span>    </tfoot>
+    </table>
+</div>
+</div>
+
+<br class="smallskip">
+
+<p>Feladat: ellenőrizzük, egyes-e a szám 3. bitje!</p>
+<ul>
+    <li>Vágjuk ki csak azt a bitet, minden másikat nullázva
+    <li>A maszk: <code>1&lt;&lt;3</code>
+    <li>Tehát: <code>if ((x &amp; 1&lt;&lt;3) != 0) …</code>
+</ul>
+
+<p class="csakdoksi">A zárójelezés a műveletek erőssége (precedenciája) miatt szükséges. Különben <code>1&lt;&lt;(3!=0)</code>-t 
+jelentene a kifejezés jobb oldala.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A bitenkénti tagadás: ~">
+<div class="slide" id="slide_30">
+
+<a id="30" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">30</span><span class="oldalszamafter">. </span>    A bitenkénti tagadás: ~<a class="hlink" href="index.html#30"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<div class="csakdoksi">
+<div class="sticky"><span style="font-size: 2em">~</span><br>„tilde”,<br>hullámvonal</div>
+</div>
+
+<p class="csakdoksi">A <code>~</code> operátor a bitenkénti negálás jele C-ben. Ezt egy szám vagy változó neve elé írva olyan 
+számot kapunk, amelyben minden bit ellenkezőjére (negáltjára) változik.</p>
+
+<div>
+        <table class="bit" id="not">
+    <caption>NEM <span class="csakdoksi"> – kattints a számokra!</span></caption>
+    <thead>
+    <tr><th><th>7<th>6<th>5<th>4<th>3<th>2<th>1<th>0    </thead>
+
+    <tr><th><code>A</code>
+    <td><span class="bea bea-7">0</span><td><span class="bea bea-6">0</span><td><span class="bea bea-5">0</span><td><span class="bea bea-4">0</span><td><span class="bea bea-3">1</span><td><span class="bea bea-2">0</span><td><span class="bea bea-1">0</span><td><span class="bea bea-0">0</span>
+    
+    <tfoot>
+    <tr><th><code>~A</code>
+    <td><span class="ki ki-7">0</span><td><span class="ki ki-6">0</span><td><span class="ki ki-5">0</span><td><span class="ki ki-4">0</span><td><span class="ki ki-3">0</span><td><span class="ki ki-2">0</span><td><span class="ki ki-1">0</span><td><span class="ki ki-0">0</span>    </tfoot>
+    </table>
+</div>
+
+
+<br class="smallskip">
+
+<p class="csakdoksi">Az ÉS művelettel együtt ezt arra is használhatjuk, hogy egy adott szám valamelyik bitjét 0-ba állítsuk.
+Ennek segítségével lehet ugyanis könnyedén előállítani olyan maszkot, ami csupa 1-esből áll, csak egy megadott helyen van
+benne 0-s bit. Ezzel az 1-esek helyén „engedélyezzük”, a 0 helyén pedig „letiltjuk” a bitet.</p>
+
+<div class="csakdoksi">
+
+<div class="columns">
+<div>
+    <table class="kozepre eloadassorsurit105">
+    <caption>ÉS</caption>
+      <thead>
+        <tr><th>&nbsp;A&nbsp;<th>&nbsp;B&nbsp;<th>A&amp;B
+      </thead>
+      <tr><td>0<td>0<td>0
+      <tr><td>0<td>1<td>0
+      <tr><td>1<td>0<td>0
+      <tr><td>1<td>1<td>1
+    </table>
+</div>
+<div>
+        <table class="bit" id="es2">
+    <caption>ÉS <span class="csakdoksi"> – kattints a számokra!</span></caption>
+    <thead>
+    <tr><th><th>7<th>6<th>5<th>4<th>3<th>2<th>1<th>0    </thead>
+
+    <tr><th><code>A</code>
+    <td><span class="bea bea-7">1</span><td><span class="bea bea-6">1</span><td><span class="bea bea-5">1</span><td><span class="bea bea-4">1</span><td><span class="bea bea-3">0</span><td><span class="bea bea-2">1</span><td><span class="bea bea-1">1</span><td><span class="bea bea-0">1</span>
+        <tr><th><code>B</code>
+    <td><span class="beb beb-7">0</span><td><span class="beb beb-6">1</span><td><span class="beb beb-5">0</span><td><span class="beb beb-4">0</span><td><span class="beb beb-3">1</span><td><span class="beb beb-2">0</span><td><span class="beb beb-1">1</span><td><span class="beb beb-0">0</span>    
+    <tfoot>
+    <tr><th><code>A&amp;B</code>
+    <td><span class="ki ki-7">0</span><td><span class="ki ki-6">0</span><td><span class="ki ki-5">0</span><td><span class="ki ki-4">0</span><td><span class="ki ki-3">0</span><td><span class="ki ki-2">0</span><td><span class="ki ki-1">0</span><td><span class="ki ki-0">0</span>    </tfoot>
+    </table>
+</div>
+</div>
+
+</div>
+
+<p>Feladat: állítsuk egy szám 3. bitjét 0-ba!</p>
+<ul>
+   <li>Maszk, amelyben csak a 3. bit 0: <code>~(1&lt;&lt;3)</code>, mert:<br>
+       <code>0000000<strong>1</strong> = 1</code><br>
+       <code>0000<strong>1</strong>000 = 1&lt;&lt;3</code><br>
+       <code>1111<strong>0</strong>111 = ~(1&lt;&lt;3)</code><br>
+   
+   <li>Tehát: <code>x = x &amp; ~(1&lt;&lt;3)</code> vagy rövidebben: <code>x &amp;= ~(1&lt;&lt;3)</code>
+</ul>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Példa: Eratoszthenész szitája, spórolósan">
+<div class="slide" id="slide_31">
+
+<a id="31" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">31</span><span class="oldalszamafter">. </span>    Példa: Eratoszthenész szitája, spórolósan<a class="hlink" href="index.html#31"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p class="csakdoksi">Egy bájtban, amennyiben az 8 bites, 8 logikai értéket lehet tárolni. Írjuk meg a gyakorlat 
+„Eratoszthenész szitája” feladatát úgy, hogy egy <code>unsigned char</code> típusba tömörítse 8 
+egymás melletti szám prím/nem prím tulajdonságát – azaz csökkentsük nyolcadára az ottani program 
+memóriahasználatát!</p>
+
+<p class="csakdoksi">Ebben a programban 8000-ig fogjuk vizsgálni a prímszámokat.
+A létrehozott tömb most <code>bool prim[8000]</code> helyett
+<code>unsigned char prim[1000]</code> típusú. Az eredeti változatban 8000 logikai
+érték (<code>bool</code>) volt; most 8 logikai értéket, bitet sűrítünk egy bájtba
+(<code>unsigned char</code>), és így a tömbnek már csak 1000 eleműnek kell lennie.
+Mindegyik logikai érték megtalálható ebben a tömbben, valahányadik bájt valahányadik
+bitjeként. Mivel minden bájt 8 bitből épül fel, egy vizsgálandó <code>sz</code>
+sorszámhoz a bájt sorszámát az <code>sz/8</code> kifejezéssel kaphatjuk meg.
+Azon belül a bit sorszámát pedig az <code>sz%8</code> kifejezés adja.</p>
+
+<table class="tomb eloadassorsurit1">
+    <tr><th>[0]<td>0<td>1<td class="piros">2<td class="piros">3<td>4<td class="piros">5<td>6<td class="piros">7
+    <tr><th>[1]<td>8<td>9<td>10<td class="piros">11<td>12<td class="piros">13<td>14<td>15
+    <tr><th>[2]<td>16<td class="piros">17<td>18<td class="piros">19<td>20<td>21<td>22<td class="piros">23
+    <tr><th>...<td colspan="8">...
+</table>
+
+<pre class="eloadassorsurit11"  ><code class="language-cbub">#include &lt;stdio.h&gt;
+
+int main(void) {
+    unsigned char prim[1000];   // 8000 bit
+    for (int sz = 0; sz &lt; 1000; sz++)   // csupa 1
+        prim[sz] = ~0;
+    for (int sz = 2; sz &lt; 8000; sz++)
+        if ((prim[sz/8] &amp; 1&lt;&lt;(sz%8)) != 0)
+            for (int t = sz * 2; t &lt; 8000; t += sz)
+                prim[t/8] &amp;= ~(1&lt;&lt;(t%8));   // 0: összetett
+    for (int sz = 2; sz &lt; 8000; sz++)
+        if ((prim[sz/8] &amp; 1&lt;&lt;(sz%8)) != 0)  // hol maradt 1?
+            printf(&quot;%8d&quot;, sz);
+}</code></pre>
+
+<div class="csakdoksi">
+
+<p>A program elején „teli”, csupa 1-ekből álló tömbbel indulunk:
+mindent prímszámnak tekintünk. Ezért a tömböt feltöltjük olyan értékekkel, amely
+csupa 1-es bitekből áll. Ehhez a 0-t bitenként tagadjuk: <code>~0</code>.</p>
+
+<p>Ezután megyünk végig a szitán az <code>sz</code>-es ciklussal. A tömb 1000 elemű, de minden
+elem 8 bitet tárol, ezért 8000-ig tudjuk vizsgálni a számokat! Amint találunk
+egy prímet, annak a többszöröseit húzzuk majd ki. A bit vizsgálatához a bitenkénti
+ÉS  <code>&amp;</code> műveletet használjuk: előállítjuk az <code>1&lt;&lt;(sz%8)</code>
+maszkot, amely csupa <code>0</code>-ból áll, kivétel az <code>sz%8</code>-adik bitet,
+ahol <code>1</code>-es van; ezt a maszkot „ÉS”-elve a tömb eleméhez <code>0</code>-t kapunk,
+ha a vizsgált bit nulla értékű, amúgy pedig nem nullát.</p>
+
+<p>A <code>t</code>-s ciklus húzza ki az <code>sz</code> többszöröseit
+a tömbből, vagyis jelöli be, hogy nem prímek. Ehhez nullába kell állítania a többszöröshöz tartozó bitet,
+ami a bitenkénti ÉS <code>&amp;</code> művelettel tehető meg.</p>
+
+<p>A program végére a következő apró kódrészletet téve láthatóvá válik a tömb eleje:</p>
+
+<pre   ><code class="language-c">    printf(&quot;\n&quot;);
+    for (int n = 0; n &lt; 10; ++n) {
+        for (int b = 0; b &lt; 8; ++b)
+            printf(&quot;%d&quot;, (prim[n] &gt;&gt; b) &amp; 1);
+        printf(&quot;\n&quot;);
+    }</code></pre>
+
+<p>Ebben az 1-es bitek jelölik a prímszámokat (kivéve a legelső kettőt, mert azok a 0-nak és az 1-nek felelnek meg, de azokkal nem 
+foglalkozunk):</p>
+
+<pre class="screenshot">
+11110101
+00010100
+01010001
+00000101
+00000100
+01010001
+00000100
+00010100
+00010001
+01000001
+</pre>
+
+</div>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: 4. hét: pointerek, sztringek</title>
+<meta property="og:title" content="TEST InfoC :: 4. hét: pointerek, sztringek">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum h3toid" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="4. hét: pointerek, sztringek">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">4. hét: pointerek, sztringek</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Nagy Gergely, Pohl László · <i class="ido"></i> 2020.08.24.</p>
+<p class="kivonat">Gyakorlófeladatok az előadás anyagához kapcsolódóan.</p>
+</div>
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Tömbök és függvények</a>
+              <li><a href="index.html#2" class="">Tömbök és összetett függvények</a>
+              <li><a href="index.html#3" class="">&quot;Bittömbök&quot; kezelése</a>
+              <li><a href="index.html#4" class="">Sztringek</a>
+              <li><a href="index.html#5" class="">Könyvtári sztringkezelő függvények</a>
+              <li><a href="index.html#6" class="">Összetett sztringes függvények</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Tömbök és függvények">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+  <a id="feladattombptr" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Tömbök és függvények<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Tömb eleme</h3>
+<div class="sticky">Vizsgán volt</div>
+<p> Írj függvényt, amely átvesz egy <code>double</code> tömböt, és visszatér a 4-es indexű elemével,
+ha az létezik, különben 0-val! </p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A C-ben, ha egy tömböt átadunk paraméterként, akkor csak az első
+elemének (nullás indexű elemének) a címe adódik át a függvénynek.
+Ebből az is következik, hogy a függvény nem tudja, mekkora az a
+tömb, vagyis azt is át kell adni, külön paraméterként. A függvény
+paramétereinek típusa ezért <code>double*</code>, a tömb elejére mutató
+pointer, és még egy <code>int</code>, amelyik pedig a tömb mérete.
+Hogy létezik-e a tömb 4-es indexű eleme, azt pedig ebből a méret
+változóból tudjuk.</p>
+
+<pre   ><code class="language-c">double fv(double *t, int meret) {
+    if (meret &gt; 4)
+        return t[4];
+    else
+        return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+<h3>Tömb összege</h3>
+<p>Készíts függvényt, mely egy valós számokból álló tömb elemeit összegzi!</p>
+
+<h3>Alig változik</h3>
+<p>Készíts függvényt, mely a paraméterben kapott egész tömbről megvizsgálja, hogy elemeinek értéke
+szomszédos elemek E sugaron belül helyezkednek el (különbségük nem nagyobb, mint E vagy -E)
+A függvény bemenő paramétere a tömbre mutató pointer, a tömb elemeinek száma, valamint az E értéke.
+Visszatérési értéke logikai típusú legyen, amely azt mutatja, teljesült-e a feltétel!</p>
+
+<h3>Legalább kettő előfordulás</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely paraméterként vesz át egy egészekből álló tömböt, és visszaadja az
+első olyan tömbelem címét, amelyből legalább kettő található a tömbben! Ha nincs
+ilyen tömbelem, adjon vissza NULL pointert!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">int *dupla(int *tomb, int n) {
+    for (int i = 0; i &lt; n - 1; i++)
+        for (int j = i + 1; j &lt; n; j++)
+            if (tomb[i] == tomb[j])
+                return tomb + i;
+    return NULL;
+}</code></pre>
+</div>
+</details>
+
+<h3>Minden második</h3>
+<p>Írj függvényt, ami egy tömböt átvesz
+paraméterként, és hátulról indulva kiírja minden második elemét!
+Ügyelj arra, hogy nehogy túl/alulindexeld a tömböt!</p>
+
+
+
+<h3>Rendezett-e</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely paraméterként vesz át egy valós értékekből álló tömböt, melyről
+biztosan tudjuk, hogy elemei különbözőek! A függvény ellenőrizze, hogy a tömb rendezett-e (akár
+növekvő, akár csökkenő sorrendben; a feltételezett rendezettség iránya az első két tömbelem
+vizsgálatával eldönthető). Ha a tömb nem rendezett, a függvény adja vissza az első olyan
+tömbelem címét, amelyik elrontja a rendezettséget! Ha a tömb rendezett, adjon vissza NULL
+pointert! Pl. be: {-8.11, -5.3, 0.1, 2.5, 1.4, 6.9, 12.0, 5.7}, a visszaadott érték az 1.4-et
+tartalmazó tömbelem címe. Pl. be: {7, 1, 2, 3, 4, 5}, a visszaadott érték a 2-t tartalmazó
+tömbelem címe.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">double *rendezette(double *tomb, int n) {
+    if (n &lt; 2) return NULL;
+    bool novekvo = tomb[0] &lt; tomb[1];
+    if (novekvo) {
+        for (int i = 2; i &lt; n; i++) {
+            if (tomb[i - 1] &gt; tomb[i])
+                return tomb + i;
+        }
+    } else {
+        for (int i = 2; i &lt; n; i++) {
+            if (tomb[i - 1] &lt; tomb[i])
+                return tomb + i;
+        }
+    }
+    return NULL;
+}</code></pre>
+</div>
+</details>
+
+
+<h3>Legnagyobb</h3>
+
+<p>Készíts függvényt, amely paraméterként vesz át egy egész számokból álló tömböt, és visszaadja 
+a tömb <em>legnagyobb elemének indexét!</em> Egészítsd ki teljes programmá, amely kiírja a 
+legnagyobb tömbelemet! (A kiírást <em>ne</em> a maximumkereső függvény végezze!)</p>
+
+<p>Alakítsd át a programot úgy, hogy ne a legnagyobb elem indexét, hanem annak memóriacímét adja 
+vissza a függvény!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int max(int *t, int elemszam) {
+    int maxidx = 0;      /* Feltételezzük, hogy van legalább egy eleme */
+    for (int i = 1; i &lt; elemszam; ++i)
+        if (t[i] &gt; t[maxidx])
+            maxidx = i;  /* Ha találunk nagyobbat, megjegyezzük az indexét */
+    return maxidx;       /* Visszaadjuk a maximumot */
+}
+
+int* maxcim(int *t, int elemszam) {
+    int maxidx = 0;      /* Feltételezzük, hogy van legalább egy eleme */
+    for (int i = 1; i &lt; elemszam; ++i)
+        if (t[i] &gt; t[maxidx])
+            maxidx = i;  /* Ha találunk nagyobbat, megjegyezzük az indexét */
+    return &amp;t[maxidx];   /* Visszaadjuk a címét. return t+maxidx is jó. */
+}
+
+int main(void) {
+    int tomb[5] = {1,5,3,9,8};
+    printf(&quot;%d\n&quot;, tomb[max(tomb, 5)]);
+    printf(&quot;%d\n&quot;, *maxcim(tomb, 5));
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+<p>Alakítsd át úgy is a programot, hogy a ciklusok tömbindexek helyett pointerekkel dolgozzanak, 
+az előadáson bemutatott módon.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">int max(int *t, int elemszam) {
+    int *max = t;
+    for (int *p = t+1; p != t+elemszam; ++p)
+        if (*p &gt; *max)
+            max = p;
+    return *max;
+}</code></pre>
+</div>
+</details>
+
+<h3>Legkisebb és legnagyobb</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely paraméterként vesz át egy egészekből álló tömböt! A függvény adja
+vissza címükkel átvett változókban a tömb legkisebb  és  legnagyobb  elemének
+indexét!  Ha  több  egyforma  érték  a legkisebb/legnagyobb, akkor ezek közül bármelyik indexét
+visszaadhatja.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<p>A minimum- és maximumkeresésben használt indexhez illik lokális változót használni, és csak
+a függvény végén betenni az eredményt a cím szerint átvett változókba. Ennek okai:</p>
+<ul>
+    <li>Egyszerűbb a kód, nincs tele <code>*pmin</code> és <code>*pmax</code> kifejezésekkel.</li>
+    <li>Áttekinthetőbb is.</li>
+    <li>Gyorsabb is, mivel a keresős ciklus lokális változókkal dolgozik, nem pedig indirekten
+        elér változókkal.</li>
+</ul>
+<pre   ><code class="language-c">void minmax(int *tomb, int n, int *pmin, int *pmax) {
+    int min = 0, max = 0;
+    for (int i = 1; i &lt; n; i++) {
+        if (tomb[i] &lt; tomb[min]) min = i;
+        if (tomb[i] &gt; tomb[max]) max = i;
+    }
+    *pmin = min;
+    *pmax = max;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Súlypont</h3>
+<p>Készíts struktúratípust, amely alkalmas egy térbeli pont
+koordinátáinak eltárolására (x, y, z koordinálta). Írj függvényt,
+amely átvesz egy térbeli pontokból álló tömböt, és visszaadja a
+pontok súlypontját (azaz azt a pontot, amelynek a koordiátáit a
+bemenő pontok megfelelő koordinátáinak átlagai)! Próbáld ki a
+függvényt teljes programmá kiegészítve!</p>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Tömbök és összetett függvények">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+  <a id="feladattombptrosszetett" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Tömbök és összetett függvények<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<h3>Hány egyedi elem van?</h3>
+<p>Készíts függvényt, mely egy adott tömbben megszámolja, hogy hány olyan
+elem van, amely csak egyszer fordul elő! Pl. a { 2, 7, 5, 8, 9, 5, 7, 5, 5, 3 }
+tömbre a visszatérési érték legyen 4, mert a { 2, 3, 8, 9 } számok mind
+csak egyszer szerepeltek! (Használhatod a <a href="index.html#legalabbkettoelofordulas">
+Legalább kettő</a> feladatban elkészült függvényt.)</p>
+
+
+<h3>A leggyakoribb elem</h3>
+<p>Készíts függvényt, mely meghatározza egy adott (véletlen számokkal
+feltöltött) tömbben, hogy melyik értékből található benne a legtöbb! Pl.
+ha a tömb elemei { 2, 7, 5, 8, 9, 5, 7, 5, 5, 3 }, akkor a függvény
+visszatérési értéke legyen 5, mivel az a leggyakoribb elem.
+
+
+
+<h3>Rendezettség vizsgálata</h3>
+
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj egy függvényt, amelyik egy double számokból álló tömböt vesz át paraméterként. A
+függvény térjen vissza egy felsorolt típussal, amelynek lehetséges értékei: <code>csokkeno</code>
+, ha a tömbben lévő számsorozat szigorúan monoton csökken; <code>novekvo</code>, ha szigorúan
+monoton nő; <code>osszevissza</code>, ha egyik sem igaz rá. Írj egy programrészt, amelyik
+definiál egy tömböt, és kiírja, hogy „növekvő”, ha a tömbben lévő számok szigmon növekvő sorban
+vannak. Pl. [3 2.1 0.9] → <code>csokkeno</code>, [3 4 2 9 5] → <code>osszevissza</code>, [3 4.65
+9 11] → <code>novekvo</code>.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+/* nem lenne muszaj typedefelni amugy */
+typedef enum { osszevissza, novekvo, csokkeno } SzigMon;
+
+/* a feladat nem definialja azt, mi a helyzet a 0 es 1 elemu
+   tombokre (amik szigmon novekvoek es csokkenoek is :D) */
+
+SzigMon vizsgal(double *t, int meret) {
+    bool nov = true, csokk = true; /* egyelore barmelyik lehet */
+
+    /* vigyazni a tulindexelesre! i+1, szoval itt i&lt;meret-1*/
+    for (int i = 0; i &lt; meret - 1; i++)
+        /* ha nem igaz, hogy kisebb a kovetkezonel */
+        if (!(t[i] &lt; t[i + 1]))
+            /* akkor ez novekvo nem lehet */
+            nov = false;
+
+    /* ugyanaz a logika */
+    for (int i = 0; i &lt; meret - 1; i++)
+        if (!(t[i] &gt; t[i + 1]))
+            csokk = false;
+
+    /* hacsak nem 0 vagy 1 elemu a tomb, akkor ez megfelel */
+    if (csokk) return csokkeno;
+    if (nov) return novekvo;
+    return osszevissza;
+}
+
+int main(void) {
+    double t1[5] = {5, 9, 1, 3, 45};
+    double t2[5] = {1, 2, 3, 4, 5};
+    double t3[5] = {9, 8, 7, 6, 5};
+
+    if (vizsgal(t1, 5) == osszevissza) printf(&quot;t1 osszevissza\n&quot;);
+    if (vizsgal(t2, 5) == novekvo) printf(&quot;t2 novekvo\n&quot;);
+    if (vizsgal(t3, 5) == csokkeno) printf(&quot;t3 csokkeno\n&quot;);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Párosak vagy negatívak?</h3>
+
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj egy függvényt, amelyik egy egész számokból álló tömböt vesz át paraméterként. A függvény
+térjen vissza az alábbi felsorolt típusból valamelyik értékkel: <code>parosak</code>,
+<code>negativak</code>, <code>mindketto</code>, <code>egyiksem</code>, ha a tömbben páros az
+összes szám, negatív az összes, illetve ha mindkét tulajdonság, vagy egyik tulajdonság sem
+érvényes rájuk. Írj programot, amelyik egy példaként definiált 100 elemű tömbre meghívja a
+függvényt, és kiírja, hogy „párosak”, ha érvényes rá ez a tulajdonság.</p>
+
+<ul>
+<li>[3 4 5] → <code>egyiksem</code>
+<li>[-2 -4 -6] → <code>mindketto</code>
+<li>[4 6 10] → <code>parosak</code>
+</ul>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+typedef enum { parosak, negativak, mindketto, egyiksem } Tulajdonsagok;
+
+Tulajdonsagok vizsgal(int *t, int meret) {
+    /* a megoldas gondolata, pl. parosakra:
+     * 1) tetelezzuk fel, hogy az osszes szam paros.
+     * 2) nezzuk vegig a tombot
+     *    2a) ha talalunk egy nem paros szamot...
+     *    2b) ... akkor nem igaz az, hogy mind parosak. */
+
+    /* 1 */
+    bool prsk = true;
+    bool ngtvk = true;
+    /* 2 */
+    for (int i = 0; i &lt; meret; ++i) {
+        if (t[i] % 2 != 0)      /* &lt;- 2a */
+            prsk = false;       /* &lt;- 2b */
+        if (t[i] &gt;= 0)
+            ngtvk = false;
+    }
+
+    if (prsk &amp;&amp; ngtvk)
+        return mindketto;
+    if (prsk)           /* ... de nem ngtvk */
+        return parosak;
+    if (ngtvk)          /* ... de nem prsk */
+        return negativak;
+    return egyiksem;    /* mar csak ez lehet. */
+}
+
+int main(void) {
+    int t[5] = {4, 6, 8, 10, 12};
+
+    if (vizsgal(t, 5) == parosak)
+        printf(&quot;parosak&quot;);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="&quot;Bittömbök&quot; kezelése">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+  <a id="feladattombbit" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    &quot;Bittömbök&quot; kezelése<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>24×21-es képecskék</h3>
+
+<p>Egy játékhoz, amit írunk, szükség vagy 24×21 fekete/fehér pontból álló kis képecskékre.
+Mivel ezekből rengeteg lesz, kitaláljuk, hogy a fekete/fehér jelleg miatt egy bit is tárolhat
+egy pontot, így az egy kép által lefoglalt memória (innentől feltételezve a 8 bites char-t)
+3×21=63 bájtot foglal csak el a memóriából. Feladat: írni három függvényt, amelyek a
+következőeket tudják:</p>
+<ul>
+    <li>Kirajzolni pontokból és csillagokból egy ilyen képecskét.
+    <li>Fehérre állítani egy pontot.
+    <li>Feketére állítani egy pontot.
+</ul>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef unsigned char kep[63];
+
+// Az elso feladatresz megoldasa: egy kepecske kirajzolasa
+void kirajzol(kep k) {
+    for (int y = 0; y &lt; 21; y++) {
+        for (int x = 0; x &lt; 24; x++) {
+            /* annyival shift, utana legalso bit */
+            /* (szóköz helyett .-ot használtam most) */
+            printf(&quot;%c&quot;, (k[y * 3 + x / 8] &gt;&gt; (7 - x % 8)) &amp; 1 ? '*' : '.');
+        }
+        printf(&quot;\n&quot;);
+    }
+    printf(&quot;---\n&quot;);
+}
+
+// A masodik feladatresz: adott pontot feherre allit
+void feher(kep k, int x, int y) {
+    /* keppont aktiv: bitenkenti VAGY */
+    k[y * 3 + x / 8] = k[y * 3 + x / 8] | (1 &lt;&lt; (7 - x % 8));
+}
+
+// A harmadik feladatresz: adott pontot feketere allit
+void fekete(kep k, int x, int y) {
+    /* keppont ki: bitenkenti ES a negalttal */
+    k[y * 3 + x / 8] = k[y * 3 + x / 8] &amp; ~(1 &lt;&lt; (7 - x % 8));
+}
+
+int main(void) {
+    kep k;
+
+    for (int y = 0; y &lt; 21; y++)
+        for (int x = 0; x &lt; 24; x++)
+            fekete(k, x, y);
+    kirajzol(k);
+    for (int x = 0; x &lt; 24; x++)
+        feher(k, x, 10);
+    kirajzol(k);
+    for (int y = 0; y &lt; 21; y++)
+        feher(k, 5, y);
+    kirajzol(k);
+
+    return 0;
+}</code></pre>
+
+<p>Megoldható kétdimenziós tömbbel is, <code>kep[3][21]</code>. Az egy bájton belüli képpond
+sorrend is tetszőleges; vagy mindenhol <code>7-x%8</code>, vagy mindenhol simán <code>x%8</code>.</p>
+</div>
+</details>
+
+
+<h3>Minden szám megfordítása</h3>
+
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj C programot, amelyik definiál egy 1000 elemű, bájtokból álló tömböt. A program fordítsa
+meg az egyes bájtokban a biteket; a 7. helyiértékű cseréljen helyet a 0. helyiértékűvel, a 6.
+helyiértékű az 1-essel stb. (Feltételezzük, hogy a bájtok 8 bitesek. A tömb számokkal
+feltöltésével nem kell foglalkozni.) A program végezetül írja ki binárisan a tömb 0. elemét. A
+megfordításra példa:</p>
+
+<pre class="screenshot">
+76543210
+10110010    bemenet
+01001101    kimenet
+</pre>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    unsigned char t[1000];
+
+    /* egyet most itt inicializalok, hogy lassam az eredmenyt,
+     * de a feladat nem keri */
+    t[0] = 0xd7;
+
+    /* kiiras, csak hogy a csere elott is lassuk */
+    for (int i = 7; i &gt;= 0; i--)
+        putchar((t[0] &gt;&gt; i) &amp; 1 ? '1' : '0');
+    printf(&quot;\n&quot;);
+
+    /* ez a MEGOLDAS LENYEGE */
+    for (int i = 0; i &lt; 1000; i++) {
+        unsigned char uj = 0;
+
+        /* amit a regi szambol kishiftelunk jobbRA,
+         * azt az ujba beshifteljuk jobbROL */
+        for (int j = 0; j &lt; 8; j++) {
+            int x = t[i] &amp; 1;   /* ez kiveszi az also bitet */
+            t[i] &gt;&gt;= 1;         /* a regit shifteli */
+            uj = uj &lt;&lt; 1 | x;       /* ez az ujat balra shifteli,
+                                         es az ujat berakja */
+        }
+        t[i] = uj;
+    }
+
+    /* ez csak copypaste, a feladat egyszer keri */
+    for (int i = 7; i &gt;= 0; i--)
+        putchar((t[0] &gt;&gt; i) &amp; 1 ? '1' : '0');
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+<h3>Bitek léptetése</h3>
+
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj egy C programot, amelyik 100 elemű, bájtokból álló tömböt léptet egy bittel jobbra! A
+számokból jobbra kicsúszó bit jöjjön be mindig a következő számba balról. Az utolsó szám legalsó
+helyiértékéből kicsúszó bit pedig kerüljön az első szám legfelső helyiértékébe. (Feltételezzük,
+hogy a bájtok 8 bitesek. A tömb számokkal feltöltésével nem kell foglalkozni.) Például:</p>
+
+<pre class="screenshot">
+76543210 76543210 ... 76543210 76543210
+01001010 11111101     01011110 00001101    bemenet
+10100101 01111110 ... 10101111 00000110    kimenet
+</pre>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void) {
+    unsigned char t[100];
+
+    /* ezt nem kerte a feladat, csak hogy ne legyen inicializalatlan */
+    for (int i = 0; i &lt; 100; ++i)
+        t[i] = rand() % 256;
+
+    /* ezt se kerte, csak hogy latszodjon az eredmeny */
+    for (int i = 7; i &gt;= 0; i--)
+        putchar((t[0] &gt;&gt; i) &amp; 1 ? '1' : '0');
+    printf(&quot; ... &quot;);
+    for (int i = 7; i &gt;= 0; i--)
+        putchar((t[99] &gt;&gt; i) &amp; 1 ? '1' : '0');
+    printf(&quot;\n&quot;);
+
+    /* MEGOLDASA a feladatnak: tulajdonkepp ez a ciklus. */
+    /* utolso szam utolso bitje,
+     * mert ez csuszik be az elso szamba; mar most kivesszuk,
+     * hogy lent, amikor az atvitelt &quot;becsusztatjuk&quot; az
+     * if (atvitel) resznel, ott mar a megfelelo erteket
+     * tartalmazza */
+    int atvitel = t[99] &amp; 1;
+    for (int i = 0; i &lt; 100; i++) {
+        int uj_atvitel = t[i] &amp; 1; /* a kovetkezo szamhoz - ez a kicsuszo bit */
+        t[i] &gt;&gt;= 1;                /* ezzel csuszik az egesz */
+        if (atvitel == 1)          /* ha volt &quot;atvitel&quot;, akkor azt berakjuk a legfelsobe */
+            t[i] |= 1 &lt;&lt; 7;
+        atvitel = uj_atvitel;
+    }
+
+    /* kiirom az eredmenyt; a feladat nem kerte */
+    for (int i = 7; i &gt;= 0; i--)
+        putchar((t[0] &gt;&gt; i) &amp; 1 ? '1' : '0');
+    printf(&quot; ... &quot;);
+    for (int i = 7; i &gt;= 0; i--)
+        putchar((t[99] &gt;&gt; i) &amp; 1 ? '1' : '0');
+    printf(&quot;\n&quot;);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Sztringek">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+  <a id="feladatsztring" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Sztringek<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<h3>Sztringek, mint karaktertömbök</h3>
+
+<p>Hozzunk létre egy sztringet! Változtassunk meg benne néhány
+karaktert! Írjunk ciklust, amelyik megszámolja az <code>'l'</code>
+betűket a sztringben!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    char sz[20] = &quot;Hello, vilag!&quot;;
+
+    printf(&quot;|%s|\n&quot;, sz);
+    sz[0] = 'h';              /* sztring: &quot;idezojel&quot;, karakter: 'h' aposztrof! */
+    printf(&quot;|%s|\n&quot;, sz);
+    sz[7] = '\0';             /* 0 is lehetne, ugyanaz. */
+    printf(&quot;|%s|\n&quot;, sz);
+
+    /* tekintsünk a sztringre, mint tömbre. hol van vége?
+       ahol sz[i]==0, nem pedig i=19-nél, ami a tömb méretéből adódna! */
+    int db = 0;
+    for (int i = 0; sz[i] != '\0'; ++i)
+        if (sz[i] == 'l')
+            db += 1;
+    printf(&quot;[%s] sztring %d darab l betűt tartalmaz.\n&quot;, sz, db);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+<h3>Üdvözlés</h3>
+<p>Készíts programot, amely bekéri a felhasználó nevét, majd üdvözli őt a nevén szólítva!</p>
+
+<h3>Hány szóköz?</h3>
+<p>Készíts programot, mely bekér egy mondatot, majd
+<br>
+a.) megszámolja és kiírja, hogy a mondatban hány szóköz található.
+<br>
+b.) kiírja a mondatot szóközök nélkül.</p>
+
+
+<h3>Kisbetűk I.</h3>
+<p>Készíts függvényt (numLower), ami megkap egy stringre mutató
+pointert, és visszaadja az adott szövegben található kisbetűk
+számát. (Ehhez használható a <code>ctype.h</code>
+<code>islower()</code> függvénye is.)</p>
+
+<h3>Kisbetűk II.</h3>
+<p>Írj C függvényt, amely egy nullával terminált sztringben kicseréli az
+angol abécé nagybetűit a nekik megfelelő kisbetűkre. Ha a bemeneti sztring
+"Hello&nbsp;Vilag", módosítsa azt "hello&nbsp;vilag"-ra.
+(Tipp: A megoldáshoz a <code>ctype.h</code> könyvtári függvényei használhatóak.)</p>
+<p>Hogyan kell módosítani a függvényt, hogy nagybetűkre cseréljen?</p>
+
+
+
+<h3>Felülírás és csere</h3>
+
+<p>Írj függvényt, amely az első paraméterében kapott sztringben megkeresi
+a második paraméterében adott karakter előfordulásait, és felülírja azokat
+a harmadik paraméterében adott karakterrel! Pl. "alma", 'a', 'e' &rarr; "elme".
+A függvény visszatérési értéke a kicserélt karakterek száma legyen.</p>
+
+<p>Írj függvényt, amely szintén egy sztringet és egy karakterpárost kap,
+de ez ne felülírja az első előfordulásait a másodikkal, hanem cserélje meg
+őket! Pl. 'a', 'e' jelentse azt, hogy 'a'-t 'e'-re kell cserélni, 'e'-t
+pedig 'a'-ra. Hogyan lehet ezt megoldani az előző függvény felhasználásával?</p>
+
+
+<h3>Squeeze</h3>
+
+<p>Írj olyan "squeeze" függvényt, amely az első paraméterben megadott
+sztringből az összes olyan karaktert törli, amelyik szerepel a második
+paraméterben megadott sztringben. Például "megadott sztring", "gt"
+paraméterekkel meghívva a függvényt az első paraméter így módosul: "meado
+szrin".</p>
+
+
+
+
+<h3>Pontosan egyszer</h3>
+
+<p>Írj programot, amely beolvas egy sztringet, és megállapítja, hogy vannak-e benne olyan
+karakterek, amelyek pontosan egyszer fordulnak elő. A program írja ki ezeket a karaktereket, ha
+pedig nincsenek a sztringben egyedi karakterek, akkor közölje a felhasználóval!</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Könyvtári sztringkezelő függvények">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+  <a id="feladatcstring" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Könyvtári sztringkezelő függvények<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<h3>Decimális</h3>
+<p>Írj olyan int <code>dec_to_int(char *s)</code> függvényt, amelyik a megadott
+számjegyekből álló sztringet a neki megfelelő egész értékké
+alakít (tízes számrendszer szerint)! Pl. <code>dec_to_int("256")</code> visszatérési értéke <code>256</code>.
+Oldd meg a feladatot a <code>sscanf()</code> segítségével és anélkül is!</p>
+
+
+
+<h3>Hexadecimális</h3>
+<p>Írj olyan int <code>hexa_to_int(char *s)</code> függvényt, amelyik a megadott
+hexadecimális számjegyekből álló sztringet a neki megfelelő egész értékké
+alakít! Pl. <code>hexa_to_int("1ef")</code> visszatérési értéke <code>495</code>.
+Oldd meg a feladatot a <code>sscanf()</code> segítségével és anélkül is!</p>
+
+
+
+
+
+
+
+<h3>Legalább kettő – sztringre</h3>
+
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj függvényt, amely paraméterként vesz át egy sztringet, és visszaadja az első olyan
+karakter címét, amelyből legalább kettő található a sztringben! Ha nincs ilyen karakter, adjon
+vissza NULL pointert!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">char *duplas(char *string) {
+    for (int i = 0; string[i] != '\0'; i++)
+        for (int j = i+1; string[j] != '\0'; j++)
+            if (string[i] == string[j])
+                return string+i;
+    return NULL;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Része-e?</h3>
+<p>Írj egy függvényt, amely egy adott sztringben megkeresi egy másik
+sztring legutolsó előfordulását, és visszaadja annak pozícióját, illetve
+-1-et, ha nem található. A megoldáshoz ne használd a könyvtári <code>strrstr()</code>
+függvényt! Például "abcd<em>abc</em>e"-ben keressük "abc"-t, a visszatérési érték
+4, a színnel jelölt előfordulás miatt.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A következő módon bontható fel ezt részekre:</p>
+
+<ul>
+    <li>Kell egy függvény, amelyik megmondja, hogy egy adott sztring elején szerepel-e
+    egy másik sztring. Ezt fogom lefuttatni a különböző részein az eredeti sztringeknek
+    (visszafelé). Szemfülesek az <code>strncmp</code>-t használhatják erre.
+    <li>Kell egy függvény, amelyik egy sztring hosszát megmondja (de jó a gyári <code>strlen</code> is), mivel
+    <li>visszafelé futtatok egy ciklust, és nézem, hogy megtalálom-e valahol a szénakazal
+    végén a tűt.
+    <li>Ahol először megtalálom, azzal az indexszel vissza is térhetek; ha sehol
+    nem találtam meg, akkor -1-gyel.
+</ul>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+bool igy_kezdodik(char *mi, char *hogyan) {
+    int i;
+
+    /* amig egyiknek sincs vege, es egyeznek a betuk, kov. karakter */
+    i=0;
+    while (hogyan[i]!='\0' &amp;&amp; mi[i]!='\0' &amp;&amp; hogyan[i]==mi[i])
+        i++;
+    /* ha a hogyan string vegere ertunk, akkor eddig tuti megegyezett
+       a mi-vel */
+    return hogyan[i]=='\0';
+}
+
+int hossz(char *str) {
+    int i = 0;
+    while (str[i]!='\0') i++;
+    return i;
+}
+
+int utolso_elofordulas(char *szenakazal, char *tu) {
+    int h;
+
+    h=hossz(szenakazal);
+    h-=hossz(tu);   /* ennel csak elorebb lehet */
+    while (h&gt;=0 &amp;&amp; !igy_kezdodik(szenakazal+h, tu))
+        h--;
+    /* ha ertelmes index van, akkor azzal terunk vissza */
+    if (h&gt;=0)
+        return h;
+    /* amugy -1 */
+    return -1;
+}
+
+int main(void) {
+    printf(&quot;%d\n&quot;, utolso_elofordulas(&quot;almafa, eperfa&quot;, &quot;fa&quot;));
+    printf(&quot;%d\n&quot;, utolso_elofordulas(&quot;almafa, eperfa&quot;, &quot;a&quot;));
+    printf(&quot;%d\n&quot;, utolso_elofordulas(&quot;almafa, eperfa&quot;, &quot;kortefa&quot;));
+
+    return 0;
+}</code></pre>
+
+<p>Az első függvénynek az is jó megoldás lenne, ha az összehasonlítandó
+karakterek számát paraméterként kapja; olyankor nem kellene figyelnie
+a lezáró nullákra.</p>
+
+</div>
+</details>
+
+
+
+
+<h3>strcat()</h3>
+
+<p>Írjunk függvényt, amelyik egyik sztring végére másol egy
+másikat, vagyis hozzáfűzi a paraméterként kapott első sztringhez a
+másodikat! (Ezt csinálja a könyvtári <code>strcat()</code> függvény
+is.)</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+void sztringhozzafuz(char *mihez, char *honnan) {
+    int folytat, i;
+
+    i = 0;
+    while (mihez[i] != '\0')
+        i++;      /* ezzel megkeressuk, az elobbinek hol van vege */
+    folytat = i;  /* es oda masoljuk a masikat, folytatolagosan */
+
+    i = 0;        /* nezzuk a masik sztringet az elejetol */
+    while (honnan[i] != '\0') {
+        mihez[folytat] = honnan[i];
+        i++;
+        folytat++;
+    }
+    mihez[folytat] = '\0';     /* lezaro nulla eddig nem - most megtesszuk. */
+}
+
+/* peldak, hogyan kell meghivni a fuggvenyeket */
+int main(void) {
+    /* mit a mizujs[]? azt, hogy a fordito kitalalja a tomb meretet. */
+    /* a hello[] sztringhez hozzafuzunk, ezert az nagyobb kell legyen. */
+    char hello[50] = &quot;Hello, vilag!&quot;,
+         mizujs[] = &quot;Mizujs?&quot;;
+
+    printf(&quot;Sztring: [%s] es [%s]\n&quot;, hello, mizujs);
+    sztringhozzafuz(hello, &quot; &quot;);
+    sztringhozzafuz(hello, mizujs);
+    printf(&quot;Osszefuzve: [%s].\n&quot;, hello);
+
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+<h3>strlcat()</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj egy függvényt (paraméterei: cél, forrás, cél tömb mérete), amelyik egy cél sztring (1.
+paraméter) végére hozzáfűz egy forrás sztringet (2. paraméter); figyelembe véve azt, hogy a cél
+tömb maximális mérete adott (3. paraméter), amelybe már a lezáró nullának is bele kell férnie.
+Mindkét helyen eredendően is 0-val lezárt sztring van. Ha az összefűzött sztring nem fér el a
+cél helyen, akkor le kell vágnia a függvénynek – de nullával mindig legyen lezárva. Írj
+programrészt, amelyben bemutatod a függvény használatát. A <code>string.h</code> függvényei NEM
+használhatóak.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<img src="kzh-strlcat.svg" alt="Az strlcat() függvény működése" class="kozep" style="width: 28em;">
+<p>Rendes helyeken ilyen gyárilag szokott lenni, <code>strlcat</code> vagy
+<code>g_strlcat</code> néven. Az egésznek az előnye, hogy a cél puffer
+méretét kell megadni a harmadik paraméterben, ami statikus tömb esetén egy
+sima sizeof. Nem kell levonni 1-et a lezáró 0 miatt, semmi ilyesmi, pontosan
+a méretet várja.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+void strlcat(char *cel, char *forras, int meret) {
+    int celmeret, forrasidx;
+
+    celmeret=0;
+    while (cel[celmeret]!=0)
+        ++celmeret;
+
+    forrasidx=0;
+    while (forras[forrasidx]!=0 &amp;&amp; celmeret+forrasidx&lt;meret-1) {
+        cel[celmeret+forrasidx]=forras[forrasidx];
+        forrasidx++;
+    }
+
+    /* akarmiert is lett vege, lezaro 0. */
+    cel[celmeret+forrasidx]=0;
+}
+
+int main(void) {
+    char cel[6]=&quot;alma&quot;;
+    char cel2[9]=&quot;alma&quot;;
+    strlcat(cel, &quot;le&quot;, sizeof(cel));
+    strlcat(cel2, &quot;le&quot;, sizeof(cel2));
+    printf(&quot;[%s]\n&quot;, cel);
+    printf(&quot;[%s]\n&quot;, cel2);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Összefűzés</h3>
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj függvényt, amely paraméterként vesz át egy cél sztringet, továbbá két másik sztringet és
+egy elválasztó karaktert! Másolja be a cél sztringbe a másik két sztringet úgy, hogy közéjük az
+elválasztó karaktert teszi.</p>
+
+<p>Írj főprogramot, amelyben egy példával bemutatod a függvény használatát! A beépített
+sztringkezelő függvények <em>nem</em> használhatóak!</p>
+
+<p>Példa paraméterek: <code>„alma”</code> és <code>„körte”</code>, továbbá <code>„;”</code>
+<br>Példa eredmény: <code>„alma;körte”</code>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+void osszefuz(char *ide, char *egyik, char *masik, char koze) {
+   int pos=0;
+   for (int i=0; egyik[i]!='\0'; ++i)
+      ide[pos++]=egyik[i];
+   ide[pos++]=koze;
+
+   for (int i=0; masik[i]!='\0'; ++i)
+      ide[pos++]=masik[i];
+   ide[pos++]='\0';
+}
+
+int main(void) {
+   char kesz[20];
+
+   osszefuz(kesz, &quot;alma&quot;, &quot;korte&quot;, ';');
+   printf(&quot;%s\n&quot;, kesz);
+
+   return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+<h3>Sztringek szétválasztása</h3>
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj egy függvényt, amely paraméterként vesz át egy bemeneti sztringet és egy elválasztó
+karaktert! Legyen még két további paramétere, amelyekbe az eredményt írja. Vágja ketté a
+függvény a sztringet az első elválasztó karakternél: az eleje menjen az egyik eredmény
+sztringbe, másik pedig a másikba!</p>
+
+<p>Írj főprogramot, amelyben egy példával bemutatod a függvény használatát! A
+beépített sztringkezelő függvények <em>nem</em> használhatóak.</p>
+
+<p>Példa paraméterek: <code>„alma;körte”</code> és <code>„;”</code>
+<br>Példa eredmény: <code>„alma”</code> és <code>„körte”</code></p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+void szeletel(char *be, char elvalaszto, char *egyik, char *masik) {
+    int x = 0;
+    int pos = 0;
+    while (be[x] != elvalaszto)
+        egyik[pos++] = be[x++];
+    egyik[pos] = '\0';
+ 
+    x++;
+    pos = 0;
+    while (be[x] != '\0')
+        masik[pos++] = be[x++];
+    masik[pos] = 0;
+}
+
+int main(void) {
+    char bal[20], jobb[20];
+
+    szeletel(&quot;alma;korte&quot;, ';', bal, jobb);
+    printf(&quot;[%s] es [%s]\n&quot;, bal, jobb);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+<h3>strstr()</h3>
+
+<p>Írj függvényt, amely két sztringet vesz át paraméterként, és az elsőben megkeresi a második 
+első előfordulását! Ha megtalálja, adja vissza a megtalált szöveg első karakterének címét, ha 
+nincs benne, akkor NULL pointert! A megoldáshoz nem használhatsz könyvtári függvényt. (A feladat 
+a string.h-ban található strstr függvény saját megvalósítása.) Egészítsd ki teljes programmá, a 
+program az &quot;Indul a kutya s a tyúk aludni.&quot; mondatban keresse meg a &quot;kutya&quot; 
+szót! (A függvény a kis és nagybetűket tekintse különbözőnek!)</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdbool.h&gt;
+
+char* mystrstr(char* hol, char* mit) {
+    for (int i = 0; hol[i]!='\0'; i++) {
+        bool talalt = true;
+        for (int j=0; hol[i+j] &amp;&amp; mit[j] &amp;&amp; talalt; j++)
+            if (hol[i+j]!=mit[j])
+                talalt = false;
+        if (talalt &amp;&amp; mit[j]=='\0')
+            return &amp;hol[i];
+    }
+    return NULL;
+}
+
+int main(void) {
+    char s1[] = &quot;Indul a kutya s a tyúk aludni.&quot;;
+    char* pos1 = mystrstr(s1, &quot;kutya&quot;);
+    if (pos1 != NULL)
+        printf(&quot;Pozíció: %d\n&quot;, (int) (pos1-s1));
+    else
+        printf(&quot;NULL - nincs benne\n&quot;);
+
+    char s2[] = &quot;Indul a kuty&quot;;
+    char* pos2 = mystrstr(s2, &quot;kutya&quot;);
+    if (pos2 != NULL)
+        printf(&quot;Pozíció: %d\n&quot;, (int) (pos2-s2));
+    else
+        printf(&quot;NULL - nincs benne\n&quot;);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Összetett sztringes függvények">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+  <a id="feladatsztringosszetett" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Összetett sztringes függvények<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+
+<h3>Névelő</h3>
+<p>Készíts programot, mely adott sztringben megszámolja, hányszor fordul
+elő az „a” névelő. A névelő lehet mondat elején, de végén nem, viszont vessző
+állhat előtte is és utána is, egyébként szóköz karakterek határolják.</p>
+
+
+
+<h3>Caesar kódolás</h3>
+
+<p>A gyakorlaton volt egy olyan példa, amelyik karaktereket képes bekódolni a&rarr;b, b&rarr;c,
+c&rarr;d stb kódolással. Írj egy függvényt, amelyiknek megadható a kódolandó karakter, és a&rarr;d
+kódolást használ. Javítsd úgy az órán tárgyalt függvényt, hogy csak a kisbetűket kódolja, más
+karaktereket hagyjon változatlanul. Figyelj arra is, hogy a programkódban ne legyenek mágikus
+értékek (pl. 26, mint az abc betűinek száma).</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+/* Ez bekodol egy karaktert, a kulcs szerint. */
+char kodol(char mit, char kulcs) {
+    char delta = kulcs - 'a';
+    if (mit &gt;= 'a' &amp;&amp; mit &lt;= 'z') {
+        /* eltolas */
+        mit = mit + delta;
+        /* tulcsuszott a z-n? */
+        if (mit &gt; 'z')
+            /* akkor vissza kell menni annyit, hogy ujra az abecen
+               belul legyunk. az 'annyit' erteke 'z'-'a'+1 lepes,
+               nem pedig 'z'-'a'! az utobbi a ket karakter kozotti
+               tavolsag, az elso pedig az a szam, amely az osszes
+               letezo betuk szamat mutatja! */
+            mit = mit - ('z' - 'a' + 1);
+    }
+    return mit;
+}
+
+char dekodol(char mit, char kulcs) {
+    char delta = kulcs - 'a';
+    if (mit &gt;= 'a' &amp;&amp; mit &lt;= 'z') {
+        mit = mit - delta;
+        if (mit &lt; 'a')
+            mit = mit + ('z' - 'a' + 1);
+    }
+    return mit;
+}
+
+
+int main(void) {
+    char szoveg[] = &quot;hello, world!&quot;;
+
+    /* az abc kiirasa */
+    for (int i = 'a'; i &lt;= 'z'; ++i)
+        printf(&quot;%c&quot;, i);
+    printf(&quot;\n&quot;);
+    for (int i = 'a'; i &lt;= 'z'; ++i)
+        printf(&quot;%c&quot;, kodol(i, 'd'));
+    printf(&quot;\n&quot;);
+
+    /* szoveg kodolasa */
+    for (int i = 0; szoveg[i] != 0; ++i)
+        szoveg[i] = kodol(szoveg[i], 'd');
+    printf(&quot;[%s]\n&quot;, szoveg);
+
+    /* szoveg dekodolasa */
+    for (int i = 0; szoveg[i] != 0; ++i)
+        szoveg[i] = dekodol(szoveg[i], 'd');
+    printf(&quot;[%s]\n&quot;, szoveg);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Karakterek törlése</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely átvesz paraméterként egy módosítandó sztringet és még egy karaktert.
+Alakítsa át úgy a sztringet úgy, hogy a megadott karaktert törölje a sztring elejéről és a
+végéről is! Mindkét oldalon lehet több is, vagy akár semennyi. A belsejében viszont tudjuk, hogy
+nincsen.
+<p>Írj főprogramot, amelyben egy példával bemutatod a függvény használatát! A beépített
+sztringkezelő függvények <em>nem</em> használhatóak.
+<p>Példa bemenet: <code>„xxxHello hallo elektor kalandorxxxx”</code> és az <code>„x”</code> karakter
+<p>Példa kimenet: <code>„Hello hallo elektor kalandor”</code>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+void sztring_trim(char *str, char mit) {
+    int eleje = 0;
+    while (str[eleje] == mit)
+        eleje++;
+    int pos = 0;
+    for (int i = eleje; str[i] != mit &amp;&amp; str[i] != '\0'; i++)
+        str[pos++] = str[i];
+    str[pos] = '\0';
+}
+
+int main(void) {
+    char szoveg[] = &quot;xxxHello hallo elektor kalandorxxxx&quot;;
+
+    sztring_trim(szoveg, 'x');
+    printf(&quot;[%s]\n&quot;, szoveg);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+<h3>Bevezető és lezáró karakterek</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely paraméterként átvesz egy cél sztringet, továbbá egy forrás sztringet,
+egy karaktert és egy darabszámot! Másolja át a cél sztringbe a forrást úgy, hogy elé és mögé a
+megadott karakterből a megadott darabszámút tegye. Ezen kívül a szóközöket is cserélje ki a
+megadott karakterre.
+<p>Írj főprogramot, amelyben egy példával bemutatod a függvény használatát! A beépített
+sztringkezelő függvények <em>nem</em> használhatóak.
+<p>Példa bemenet: <code>„Hello hallo elektor kalandor”</code>, továbbá az <code>„x”</code> karakter és 3
+<p>Példa kimenet: <code>„xxxHelloxhalloxelektorxkalandorxxx”</code>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+void strelemoge(char *ide, char *mit, char kar, int db) {
+    int pos = 0;
+    
+    for (int x = 0; x &lt; db; ++x)
+        ide[pos++] = kar;
+
+    for (int x = 0; mit[x] != '\0'; ++x)
+        ide[pos++] = mit[x] == ' ' ? kar : mit[x];
+
+    for (int x = 0; x &lt; db; ++x)
+        ide[pos++] = kar;
+
+    ide[pos] = '\0';
+}
+
+int main(void) {
+    char novelt[30];
+
+    strelemoge(novelt, &quot;Hello hallo elektor kalandor&quot;, 'x', 3);
+    printf(&quot;[%s]\n&quot;, novelt);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+<h3>Második szó, utolsó szó</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj függvényt, amely paraméterként kap egy sztringet! A sztring szöveget tartalmaz, melynek
+szavait szóközök választják el egymástól (minden szó, ami nem szóköz). A függvény adja vissza
+címével átvett változókban a sztring második szavának indexét, visszatérési
+értékként (return-nel) pedig a sztring utolsó szavának címét! A paraméterként kapott sztringről
+biztosan tudjuk, hogy legalább két szóból áll, a szavakat pontosan egy szóköz választja el
+egymástól, és a sztring első és utolsó karaktere nem szóköz.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">char *szavak(char *sztring, int *masodik) {
+    int utolso = 0;
+    *masodik = 0;
+    for (int i = 0; sztring[i] != '\0'; i++) {
+        if (sztring[i] == ' ') {
+            utolso = i;
+            if (*masodik == 0)
+                *masodik = i + 1;
+        }
+    }
+    return sztring + utolso + 1;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>„The” kezdetű címek"</h3>
+
+<p>Könyvek, filmet címeit úgy szokás rendezni, hogy a címek elején lévő névelőket (pl. angolul a
+„The”, magyarul az „A” és „Az”) a rendezésben nem vesszük figyelembe. Írj egy olyan módosított
+<code>strcmp_the()</code> függvényt, amely paramétere és visszatérési értéke az eredeti <code>strcmp()</code>-éhez
+hasonló, de az összehasonlításnál figyelmen kívül hagyja a „The” kezdetet!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>A legegyszerűbb megoldás az alábbi. Megvizsgáljuk mindkét sztringet. Ha valamelyik a „The&nbsp;” részsztringgel
+kezdődik, az annak megfelelő pointert 4-gyel növeljük, tehát négy karakterrel hátrébb léptetjük.
+Az így kapott sztringeket adjuk az eredeti <code>strcmp()</code>-nek. A két pointer növelését
+azért tehetjük meg, mert azok a saját függvényünknek lokális változói, amelyet módosíthatunk.</p>
+
+<pre   ><code class="language-c">/* Sztring összehasonlító függvény, ami nem veszi figyelembe
+ * a szting elején lévő &quot;The &quot; előtagot */
+int strcmp_the(char *egyik, char *masik) {
+    if (strncmp(egyik, &quot;The &quot;, 4) == 0)
+        egyik += 4;
+    if (strncmp(masik, &quot;The &quot;, 4) == 0)
+        masik += 4;
+    return strcmp(egyik, masik);
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>IP cím</h3>
+<div class="sticky">Vizsga volt</div>
+
+<p>Írj egy olyan szabványos ANSI C függvényt, amely paraméterként kap egy sztringet, mely egy IP
+címet tartalmaz a szokásos alakban: négy darab 0 és 255 közötti szám pontokkal elválasztva. A
+függvény állítsa elő az IP cím 32 bites reprezentációját! A visszatérési értéke legyen egy
+<code>unsigned</code> érték, amelynek legalsó bájtja az IP cím utolsó részének megfelelő értéket
+tartalmazza, a második az IP cím utolsó előtti részét és így tovább. Feltesszük, hogy az
+unsigned típus az adott architektúrán legalább 32 bites. Ha a bemenet például "0.0.2.33", akkor
+a kimenet: 545.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Barátunk a <code>scanf()</code>. Itt <em>egyáltalán</em> nem kell karakterenkénti
+feldolgozást, és semmi hasonlót csinálni. A <code> scanf&nbsp;%u</code> be fog olvasni egy
+nemnegatív számot, és a pontnál meg fog állni, mivel a pont nem lehet része egy egész számnak.
+A formátumsztringbe pedig ha elhelyezünk egy pontot, akkor a scanf azt fogja várni, hogy a
+bemeneten ott is legyen az a pont; beolvassa és eldobja. És hát, mivel nem a standard bemenetről
+olvasunk, hanem sztringből, <code>sscanf()</code> lesz a függvényünk. Vigyázni kell, hogy a
+&lt;&lt; műveleteket zárójelezni kell az összeadásnál – itt inkább bitenkénti vagy kapcsolatot
+használtam (az eredmény egyébként ugyanaz lenne).</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+unsigned str_to_ip(char *str) {
+    unsigned a, b, c, d;
+
+    sscanf(str, &quot;%u.%u.%u.%u&quot;, &amp;a, &amp;b, &amp;c, &amp;d);
+    return a&lt;&lt;24 | b&lt;&lt;16 | c&lt;&lt;8 | d;
+}
+
+int main(void) {
+    printf(&quot;%u\n&quot;, str_to_ip(&quot;0.0.2.33&quot;));
+    return 0;
+}</code></pre>
+
+</div>
+</details>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

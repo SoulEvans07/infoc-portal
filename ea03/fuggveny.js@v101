@@ -1,0 +1,13 @@
+"use strict";function fuggvobj(mit){this.elem=function(i){return $(this.melyik+i)};this.jelol=function(){for(var i=1;this.elem(i)!=null;i++)
+this.elem(i).classList.remove("aktiv");if(this.aktualis!=0)
+this.elem(this.aktualis).classList.add("aktiv")}
+this.kovetkezo=function(){this.aktualis=this.csinal();if(this.elem(this.aktualis)==null){this.aktualis=0}
+this.jelol()}
+this.melyik=mit;this.aktualis=0;this.jelol();this.show=function(elem){elem=this.elem(elem);elem.classList.remove("hidden");elem.classList.add("visible")}
+this.hidenow=function(elem){elem=this.elem(elem);elem.classList.remove("visible");elem.classList.add("hidden")}
+this.hide=function(elem){var dis=this;setTimeout(function(){dis.hidenow(elem)},1000)}
+this.csinal=function(){var dis=this;switch(this.aktualis){case 0:this.elem("szam").innerHTML="";this.elem("eredm").innerHTML="";this.elem("mie").innerHTML="";this.elem("szorzat").innerHTML="";this.elem("i").innerHTML="";this.elem("vissza").innerHTML="";this.elem("screenshot").innerHTML="\n\n";this.show("mainstack");return 1;case 1:this.elem("screenshot").innerHTML="sz = 8\n\n";this.szam=8;this.elem("szam").innerHTML=this.szam;return 2;case 2:this.show("faktstack");this.mie=this.szam;this.elem("mie").innerHTML=this.elem("param").innerHTML=this.mie;return 3;case 3:this.szorzat=1;this.elem("szorzat").innerHTML=this.szorzat;this.i=0;return 4;case 4:if(this.i==0)
+this.i=2;this.elem("i").innerHTML=this.i;if(this.i<=this.mie){this.aktualis++;setTimeout(function(){dis.kovetkezo()},200);return 5}
+else return 6;case 5:this.szorzat*=this.i;this.elem("szorzat").innerHTML=this.szorzat;this.i++;this.elem("i").innerHTML=this.i;setTimeout(function(){dis.kovetkezo()},200);return 4;case 6:this.vissza=this.szorzat;this.elem("vissza").innerHTML=this.vissza;return 7;case 7:this.hidenow("faktstack");this.eredm=this.vissza;this.elem("eredm").innerHTML=this.eredm;return 8;case 8:this.elem("screenshot").innerHTML="sz = "+this.szam+"\n"+this.szam+"! = "+this.eredm;return 9;case 9:this.hidenow("mainstack");return 0}}
+this.hidenow("faktstack");this.hidenow("mainstack");var gomb=this.elem("kovetkezo"),dis=this;addEvent(gomb,'click',function(event){dis.kovetkezo()})}
+infoc.onloads.push(function(){infoc.fuggvpeld=new fuggvobj("fuggv")})

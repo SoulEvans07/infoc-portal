@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Specifikáció: hogyan?</title>
+<meta property="og:title" content="TEST InfoC :: Specifikáció: hogyan?">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Mire jó a specifikáció? Hogyan írjunk specifikációt?">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Mire jó a specifikáció? Hogyan írjunk specifikációt?">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Specifikáció: hogyan?">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Specifikáció: hogyan?</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Móna Dániel · <i class="ido"></i> 2019.10.27.</p>
+<p class="kivonat">Mire jó a specifikáció? Hogyan írjunk specifikációt?</p>
+</div>
+
+<p>A nagy házi feladat 2-es mérföldkövénél, a specifikációban kell leírni azt, hogy pontosan hogyan fog kinézni a program, amit házi feladatként szeretnél elkészíteni. Ez többek közt azért is fontos, mert értékelési szempont, hogy a program teljesíti-e a specifikációját. Ugyanakkor ha most programozol először vagy még nem igazán tervezted előre a programjaidat, nem biztos, elsőre tiszta, hogy mi ez és miért kell egyáltalán.</p>
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Mire jó a specifikáció?</a>
+              <li><a href="index.html#2" class="">Hogyan írjunk specifikációt?</a>
+              <li><a href="index.html#3" class="">Összefoglalva (TL;DR)</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mire jó a specifikáció?">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Mire jó a specifikáció?<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>Specifikációt azért kell készíteni, mert az iparban ha programot írsz, leggyakrabban <em>nem magadnak</em> írod, hanem <em>valaki másnak</em>. Ez legfőképpen azt jelenti, hogy ilyenkor kezdetben nem a te tiszted tisztában lenni azzal, hogy <em>mik az elvárások</em> a programmal szemben: hogyan várja a bemenetét, mit kell csinálnia vele, milyen kimenetet adjon, milyen hibákat kell lekezelnie, és így tovább. Ezeket az elvárásokat ideális esetben a megrendelőnek kellene tudnia, azaz annak, aki a program elkészítését várja tőled. Ebben kell a megrendelőnek és a programozónak egyetértenie. A specifikáció pedig pontosan ez: a programmal szembeni elvárások összessége.</p>
+<p>Persze sokszor van az, hogy távol állunk az ideális esettől. A megrendelő nagyon gyakran nem is tud programozni, így segítség nélkül nem is igazán tudja pontosan összeszedni az igényeit. Ezért aztán különösen fontos, hogy a megrendelő és a programozó közösen megbeszélve írásba foglalják a programmal szembeni elvárásokat. Ahol pedig a <em>félreértésnek akár a lehetősége</em> megjelenik, válasszanak a lehetséges alternatívák közül, a választást pontosításként rögzítve a specifikációban.</p>
+<p>Előkerül emellett a specifikáció akkor is, amikor két programozó ugyanazon a programon dolgozik. Ilyenkor a benne leírt elvárások biztosítják azt, hogy ők ketten (vagy többen) ne álljanak hozzá véletlenül lényegesen máshogy a program elkészítéséhez, ne legyen ilyen természetű zűrzavar.</p>
+<p>Összegezve tehát a jól megírt specifikáció garantálja, hogy a programozók biztosan <em>egyazon</em> feladat megoldásán dolgozzanak és ez a megoldás az <em>elvárt</em> megoldás legyen. Vagyis az, amit a megrendelő szeretne.</p>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Hogyan írjunk specifikációt?">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Hogyan írjunk specifikációt?<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A specifikáció jóságát a következők határozzák meg:</p>
+<ul>
+<li>Elég részletesen ír olyan dolgokról, amikről írnia kell.</li>
+<li>Nem hagy ki olyat, amiről írnia kell.</li>
+<li>Nem ír olyanról, amiről nem kellene írnia.</li>
+</ul>
+<h3>Részletesség</h3>
+<p>A programozás nagy házihoz specifikációt írni abból a szempontból talán furcsa, hogy most lényegében egyszerre vagy a megrendelő és a megvalósító programozó is. Viszont amikor a specifikációt készíted, mégis érdemes ezt a két szerepet gondolatban különválasztanod: helyezd magad képzeletben a megrendelő szerepébe és gondold végig azt, hogy egy <em>másik</em> programozó el tudná-e <em>pontosan</em> a te elvárásaidnak megfelelően készíteni a programodat, ha <em>csak a specifikációt</em> kapná róla kézhez. Erre utal a legfontosabb tételmondat a pontosított <a href="http://infoc.local/nhf/#nhfreszfeladat">specifikációról szóló követelményekben</a>:</p>
+<blockquote>
+<p>A pontosított specifikáció részletességére jellemző, hogy ha két külön programozó elkészíti a programot ugyanabból a specifikációból, de egymástól függetlenül dolgozva, akkor kívülről nézve nagyon hasonló programoknak kell keletkezniük.</p>
+</blockquote>
+<p>Ami a probléma, hogy nem mindig gondolunk bele, hogy egy másik programozó hozzánk képest <em>mennyire máshogy</em> gondolkodhat. Biztosan (a program kifelé látszó viselkedését tekintve) ugyanúgy valósítaná meg azt, hogy „a program menüvezérelt és a következő menüpontok vannak: [...]”? Vagy hogy „a program az adatokat fájlba tudja menteni”?</p>
+<p><em>Egy konkrét példa.</em> Egy program rövid feladatleírása többek közt tartalmazza azt, hogy a program mentse fájlba az adatokat, amikkel dolgozik. Bár akár a megrendelőnek, akár a programozónak felületesen belegondolva nyilvánvalónak tűnhet, mit jelent ez – valójában itt számos dolgot félre lehet érteni. Pontosan milyen adatokat is mentünk? Hogyan nézzen ki a mentésfájl, mondjuk <code>A␣B␣C</code> formátumú sorok, ahol <code>A</code>, <code>B</code> és <code>C</code> a különböző adatfajták és <code>␣</code> egy szóköz, vagy inkább valahogy máshogy? Automatikusan mentsen a program kilépéskor, vagy erre mindig a felhasználónak kelljen utasítania? Az ilyen és ehhez hasonló dolgokat mind-mind meg kell határozni, rögzíteni kell a specifikációban.</p>
+<p>Amikor a specifikációt fogalmazod, folyamatosan arra gondolj, hogyan lehet azt, amit éppen írsz, <em>félreérteni</em>. Ha találsz egy ilyen esetet, akkor rögtön tudni fogod, hol kell pontosítani, hogy a képzeletbeli másik programozó is pontosan azt kódolja majd a specifikáció elolvasása után, amit te szeretnél.</p>
+
+<h3>Tartalom: ami kell</h3>
+<p>A specifikáció tartalma tehát a feladatkiírás a fentieknek megfelelő módon elvégzett részletekbe menő pontosítása. Általánosságban a specifikációból látsszon, hogy felhasználói szemszögből hogyan lehet használni a programot. Kiindulhatsz a <a href="../mintanhf/index.html#2">minta NHF</a> specifikációjának felépítéséből is. Legyen itt néhány pont gondolatébresztőnek:</p>
+<ul>
+<li>Menüvezérelt program:<ul>
+<li>Hogyan jelenik meg a menü, hogyan lehet menüpontot választani?</li>
+<li>Hogyan jelennek meg az egyes funkciók?</li>
+<li>Hogyan lehet visszakerülni a főmenübe, mikor van vagy nincs rá mód?</li>
+<li>Hogyan, milyen sorrendben kér be a program adatokat?</li>
+<li>Milyen formában várja a program az egyes adatokat? (pl. <code>ÉÉÉÉ/HH/NN</code>?)</li>
+<li>Vállalkozik-e a program hibás bemenet (pl. rossz formátumú adat) lekezelésére? Ha igen, milyen hibákat tud kezelni, hogyan jelzi a hibát? (hibaüzenet, stb.)</li>
+<li>Milyen az elvárt kimenete az egyes funkcióknak? </li>
+</ul>
+</li>
+<li>Játékprogram:<ul>
+<li>Játékszabályok: hogyan zajlik a játék, hogy lehet nyerni, mikor veszítünk? Akkor is, ha egyébként széles körben ismert játékról van szó. Mi van, ha a képzeletbeli programozók eddig valamiért sosem látott kígyós játékot? Ha nem ismeri a kártyajáték szabályait? Ha nem úgy ismeri a szabályait?</li>
+<li>Milyen nézetek vannak? Pl. főmenü, dicsőséglista, játéknézet... még valami?</li>
+<li>Mikor, hogyan lehet az egyes nézetekből másikba eljutni? („új játék gombbal indítható...”)</li>
+<li>Hogyan jelenik meg a pálya? Főleg, ha nem grafikus a program, ekkor milyen szöveges karakter mit reprezentál, stb.</li>
+<li>Menthető a játékállás? Ha igen, mikor, hogyan?</li>
+<li>Milyen bemenettel irányítható a játék?</li>
+<li>Hogyan reagál a játék az egyes bemenetekre?</li>
+</ul>
+</li>
+<li>Mi az írt/olvasott fájlok belsejének formátuma? (lásd a fentebbi példát)</li>
+<li>Vállalkozik-e a program hibás formátumú fájl lekezelésére? Ha igen, mit csinál ilyen helyzetben?</li>
+</ul>
+<p>Még egyszer: ezek csak gondolatébresztők, <em>nem feltétlenül csak ezeket, de innen sem feltétlenül mindet</em> kell a specifikációban kifejteni. Feladatfüggően simán lehet olyan dolog, ami fontos és leírandó, de ebben a listában nem szerepel és fordítva, azaz szerepel a listában, de az adott feladathoz nem releváns. A lista nem is jelenti azt, hogy kérdezz–felelek formában kellene a specifikációt megfogalmazni.</p>
+
+<h3>Tartalom: ami nem kell</h3>
+
+<p>A specifikáció írása közben vedd figyelembe a következőket:</p>
+<p>A specifikáció <em>nem megvalósítási terv</em>. Ha ilyeneket vagy ehhez hasonlókat írnál bele, hogy „integerben tárolja”, „dinamikus tömb”, vagy „láncolt listát épít”, akkor töröld is ki rögtön, mert nem feladata a specifikációnak ezeket előírni. Sőt! A megvalósítási részletek a megrendelőnek érdektelenek, őneki csak az a fontos, hogy a program azt csinálja, amit ő akar, számára a hogyan nem érdekes.</p>
+<p>Illetve, az előzővel kapcsolatosan: a specifikáció <em>nem szándéknyilatkozat</em>. (Néha kaptunk ilyet is.) Ha ilyeneket írnál, hogy „szeretnék”, „tervezek”, „úgy akarom, hogy”, vagy bármikor ehhez hasonlóan átcsúszik a szöveg egyes szám első személybe, azt töröld is ki, mert a specifikáció nem arról szól, hogy te elmagyarázod a laborvezetőnek, hogy mit akarsz lekódolni. (Személyes konzultáláskor, vagy levélben viszont megteheted! Örülünk a kérdéseknek.) A specifikáció <em>a programról</em> szól, azt mondja meg, hogy <em>a programot</em> milyenre kell megvalósítani.</p>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Összefoglalva (TL;DR)">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Összefoglalva (TL;DR)<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  <p>A specifikáció arról szól, hogy elmondja egy <em>másik</em> (képzeletbeli) programozónak, aki elég sok mindent félreért, hogy a programot <em>milyenre</em> kell megvalósítani. A specifikáció akkor jó, ha ebben sikerrel jár.</p>
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

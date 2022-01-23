@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: 1. hét: egyszerű programok</title>
+<meta property="og:title" content="TEST InfoC :: 1. hét: egyszerű programok">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Gyakorlófeladatok az előadás anyagához kapcsolódóan.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum h3toid" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="../lab01/index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="1. hét: egyszerű programok">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">1. hét: egyszerű programok</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Czirkos Zoltán, Nagy Gergely, Pohl László · <i class="ido"></i> 2021.08.24.</p>
+<p class="kivonat">Gyakorlófeladatok az előadás anyagához kapcsolódóan.</p>
+</div>
+
+
+<style>
+main h3 {
+    clear: both;
+}
+</style>
+
+
+
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">A program kerete</a>
+              <li><a href="index.html#2" class="">Egyszerű beolvasás és kiírás, egész és valós típusok</a>
+              <li><a href="index.html#3" class="">Elágazások</a>
+              <li><a href="index.html#4" class="">Ciklusok</a>
+              <li><a href="index.html#5" class="">Összetett vezérlési szerkezetek</a>
+              <li><a href="index.html#6" class="">Összetett rajzolós feladatok</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="A program kerete">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    A program kerete<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Helló világ</h3>
+<p>Készíts programot, mely kiírja a képernyőre azt a szöveget, hogy „Hello World”!</p>
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Egyszerű beolvasás és kiírás, egész és valós típusok">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+  <a id="feladategyszeru" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Egyszerű beolvasás és kiírás, egész és valós típusok<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Pénzezés</h3>
+<p>Készíts programot, mely bekéri a felhasználótól, hogy a kasszában hány 100, 200 és 500 Ft-os 
+található. A program számolja ki, hogy mennyi a beírt pénz összege!</p>
+
+<h3>Celsius–Fahrenheit</h3>
+<p>Készíts programot, amely bekér a felhasználótól egy valós számot (Celsius fok), az eredményt 
+átváltja Fahrenheit értékbe, és kiírja az eredményt a képernyőre (0°C=32°F, 40°C=104°F, 
+lineáris)! Írd meg ugyanezt fordítva is!</p>
+
+<h3>Időtartam</h3>
+<p>Készíts programot, mely két időpontot kérdez a felhasználótól (óra, perc, másodperc külön), 
+majd kiszámítja a két időpont közötti időtartamot másodpercben, és az eredményt kiírja a 
+képernyőre.</p>
+
+<h3>Háromszög</h3>
+<p>Készíts programot, mely egy síkbeli háromszög  a.) kerületét, b.) területét, c.) szögeit, d.) 
+a három magasság hosszát (ma, mb, mc), képes kiszámítani. A háromszög pontjait (x,y) 
+koordinátáival jellemezzük.</p>
+
+<h3>Négyszög</h3>
+<p>Készíts programot, melyben a felhasználó megadja egy tetszőleges négyszög csúcsainak 
+koordinátáit, A program pedig kiszámítja a négyszög kerületét. Feltételezzük, hogy a bevitt pontok 
+által meghatározott szakaszok nem metszik egymást. Számíttasd ki a területet is! (Ehhez Hérón 
+képlete használható.)</p>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Elágazások">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+  <a id="feladatelagazas" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Elágazások<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<h3>Pozitív, negatív, nulla</h3>
+<p>Készíts programot, mely a felhasználótól bekért számról megállapítja, hogy az a.) pozitív, 
+negatív vagy nulla, b.) egész vagy nem egész. Az eredményt a képernyőre szöveges válasz 
+formájában írja ki!</p>
+
+
+
+
+<h3>Fizetés</h3>
+<p>Készíts programot, mely beolvas a felhasználótól egy fizetést, és a 
+fizetés nagyságától függően kiírja, hogy az alacsony, átlagos, vagy magas!
+A kategóriákat a saját preferenciád alapján határozhatod meg! :D</p>
+
+
+<h3>Turi</h3>
+<p>Egy turkálóban minden póló darabja 500 Ft. Ha egy vásárlás során valaki több darabot is vesz, a második ára már csak 450 Ft, a 
+harmadik pedig 400 Ft, de a negyedik és további darabok is ennyibe kerülnek, tehát az ár a harmadik vásárlása után 
+már nem csökken tovább.</p>
+<p>Írj programot, amely a vásárolt pólók darabszámának ismeretében megmondja, hogy mennyit fizet a vásárló!</p>
+
+
+<h3>Másodfokú egyenlet</h3>
+<p>Írd át úgy a labor másodfokú egyenlet programját, hogy vegye az figyelembe a diszkrimináns 
+előjelét, és jelezze külön azt is, ha nincs megoldás, vagy ha pontosan egy valós megoldás van!
+Ha tanultál már komplex számokról, oldd meg úgy is a feladatot, hogy komplex gyökök esetén
+azokat írja ki a program!</p>
+
+
+
+
+<h3>Egyenletrendszer</h3>
+<p>Készíts programot, mely képes megoldani az alábbi egyenletrendszert:
+<pre>
+ax + by = p
+cx + dy = q
+</pre>
+<p>Az adatok: a, c, b, d, p és q. Vizsgáld meg, hogy az egyenletrendszer megoldható-e, illetve 
+függetlenek-e az egyeneletek. Ha létezik megoldás, számold ki x és y értékét!</p>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Ciklusok">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+  <a id="feladatciklus" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Ciklusok<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+
+
+<h3>Négyzetszámok</h3>
+<p>Írj programot, amely kiírja az első N darab négyzetszámot! N értékét kérd a felhasználótól!</p>
+<p>Írd ki a képernyőre az összes N-nél kisebb négyzetszámot! Vigyázz: ez nem ugyanaz a feladat, mint az előző!</p>
+
+
+
+
+
+<h3>Gömbök</h3>
+<p>Készíts programot, mely kiírja az 1 köbméternél kisebb 
+térfogatú, 10 cm-ként növekvő sugarú gömbök térfogatait!</p>
+
+
+
+
+
+<h3>Hatványozó program</h3>
+<p>Írj programot, amely hatványozni képes! Kérdezze meg az alapot (valós) és a kitevőt (egész), 
+és írja képernyőre a hatvány értékét!</p>
+
+
+
+
+<h3>Sorozat eleme</h3>
+<p>Írj programot, ami ki tudja számolni a következő sorozat n-edik elemét: <code>x<sub>0</sub>=2</code>;
+<code>x<sub>i</sub>=2·x<sub>i-1</sub>+5</code>. Az n értékét kérd a felhasználótól! Írd meg úgy
+is, hogy csak az n-edik íródik ki a képernyőre, és úgy is, hogy az első n eredmény!</p>
+
+
+
+
+<h3>Köbgyök</h3>
+<p>Newton módszere a köbgyök számítására azon alapszik, hogy ha van egy tippünk a szám köbgyökére, akkor
+<pre style="line-height: 0.7">
+szám/tipp<sup>2</sup>+2·tipp
+─────────────────
+        3
+</pre>
+<p>jobb közelítés. Írj az előadáson bemutatott „Hérón módszere” programhoz
+hasonlót köbgyök számítására!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main(void) {
+    double szam, tipp;
+
+    szam = 512;
+    tipp = 1;
+    while (fabs(tipp-szam/tipp/tipp) &gt; 0.1)
+        tipp = (szam/(tipp*tipp) + 2*tipp)/3;
+
+    printf(&quot;%g\n&quot;, tipp);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+<h3>Ferde hajítás I.</h3>
+
+<p>Egy ágyúból kilőtt golyó <code>v<sub>0</sub></code> (m/s) kezdeti sebességgel, <code>alfa</code> (fok)
+szöggel indul.</p>
+
+<img src="ferde.svg" style="width: 32em;" class="kozep">
+
+<img src="ferdex.png" class="kozep">
+<img src="ferdey.png" class="kozep">
+
+<p>Írj programot, amely bekéri ezeket az adatokat, továbbá egy
+<code>t</code> (mp) időpontot. Írja ki, hogy abban a pillanatban épp
+hol jár a golyó (<code>x</code> és <code>y</code> koordináta), továbbá hogy milyen messze
+van az ágyútól légvonalban!</p>
+
+<p>Ehhez a <code>math.h</code> függvényei, a <code>sin()</code> és a <code>cos()</code>
+használhatóak. Vigyázz arra, hogy a szöget ezeknek radiánban kell megadni! 1°=&pi;/180 rad.
+g=9,81 m/s<sup>2</sup>.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main(void) {
+    double v0, alfa, t;
+    double alfa_rad, x, y, r;
+
+    printf(&quot;Ferde hajítás\n&quot;);
+    printf(&quot;v0=&quot;);
+    scanf(&quot;%lf&quot;, &amp;v0);
+    printf(&quot;alfa=&quot;);
+    scanf(&quot;%lf&quot;, &amp;alfa);
+    printf(&quot;t=&quot;);
+    scanf(&quot;%lf&quot;, &amp;t);
+
+    alfa_rad = alfa*3.141593/180;
+    x = v0*t*cos(alfa_rad);
+    y = v0*t*sin(alfa_rad)-9.81/2*t*t;
+    r = sqrt(x*x+y*y);
+
+    printf(&quot;x=%f\n&quot;, x);
+    printf(&quot;y=%f\n&quot;, y);
+    printf(&quot;r=%f\n&quot;, r);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Ferde hajítás II.</h3>
+
+<p>Írd meg most úgy a programot, hogy <code>t=0,0; 0,1; 0,2; … s</code>
+időpontokban (tized másodpercenként) írja ki az ágyúgolyó helyét; egészen addig, amíg
+be nem csapódik az a földbe (<code>y&le;0</code>)!</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main(void) {
+    double t, x, y;
+    double v0, alfa, alfa_rad;
+    double g = 9.81;
+    
+    printf(&quot;Ferde hajitas\n&quot;);
+    printf(&quot;Add meg a kiloves sebesseget!\n&quot;);
+    scanf(&quot;%lf&quot;, &amp;v0);
+    printf(&quot;Es a kiloves szoget!\n&quot;);
+    scanf(&quot;%lf&quot;, &amp;alfa);
+    
+    /* radianban */
+    alfa_rad = alfa*3.1415926535/180;
+    
+    t = 0;
+    x = 0;
+    y = 0;
+    while (y &gt;= 0) {
+        printf(&quot;t=%8.4f x=%8.4f y=%8.4f\n&quot;, t, x, y);
+        
+        t = t+0.1;
+        x = v0*t*cos(alfa_rad);
+        y = v0*t*sin(alfa_rad) - g/2*t*t;
+    }
+    printf(&quot;t=%.4f s-ra mar biztosan becsapodott.\n&quot;, t);
+    
+    return 0;
+}</code></pre>
+
+<p>A fenti megoldás betartja a ciklusokkal kapcsolatos, előadáson bemutatott játékszabályt. 
+Nevezetesen azt, hogy a ciklustörzs elején szerepel az aktuális elem feldolgozása (jelen esetben 
+ez a kiírást jelenti), és a végén a következő elemre lépést (most ez az idő növelése, és 
+értelemszerűen a koordináták újraszámolása). Ennek az az előnye, hogy egy már ellenőrzött
+<code>y</code> értékkel megyünk be a ciklusba, amelyet külön feltétel nélkül ki is lehet írni!</p>
+
+<p>Mivel így a ciklus feltétele függ az <code>y</code> koordinátától (ez amúgy sem lehet 
+másképp, mert a becsapódás időpontját keressük), az első iteráció előtt már ki kell számolnunk 
+<code>x</code>-et és <code>y</code>-t. Odamásolhatnánk a ciklus előttre is a ferde hajítás 
+képleteit, de <code>t=0</code> miatt azok <code>x=0</code>-ra és <code>y=0</code>-ra 
+egyszerűsödnek.</p>
+
+</div>
+</details>
+
+
+
+<h3>Ferde hajítás III.</h3>
+
+<p>Most az ágyúval nem sík terepen lövünk, hanem egy adott magasságú dombra. Alakítsd
+át az előző programodat úgy, hogy kérdezze meg az a domb magasságát, aztán addig írja ki
+a röppálya adatait, amíg az ágyúgolyó a dombba be nem csapódott!</p>
+
+<img src="ferdedomb.svg" style="width: 32em;" class="kozep">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Összetett vezérlési szerkezetek">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+  <a id="feladatosszetett" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    Összetett vezérlési szerkezetek<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<h3>Osztók</h3>
+<p>Írj C programot, amely bekér egy számot a standard bemeneten, és kiírja az összes
+osztóját.</p>
+
+
+<h3>Összes szám</h3>
+<p>Írj programot, amely a képernyőre írja a 4, 5 és 6 számjegyekből képezhető összes négyjegyű számot!</p>
+
+
+<h3>Buszjegyek</h3>
+<p>Helyettesítsük az 1-9 számjegyekkel az autóbuszjegyen található 
+lyukasztási helyeket! Írj programot, amely kiírja az összes olyan 
+buszjegy "kódját", amely három helyen van kilyukasztva! Törekedj a 
+képernyő minél jobb kihasználására!</p>
+
+
+<h3>Számtani sorozat</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Egy program bekér a felhasználótól három valós számot, kiírja, hogy az első szám negatív 
+vagy nemnegatív, majd az első számtól indulva, a második szám által meghatározott lépésközzel 
+halad a harmadik számig, a számsorozat elemeit kiírja.
+<br>
+Pl. be: 3.2   0.6   5.1   ki: nemnegativ   3.2   3.8   4.4   5.0
+<br>
+Pl. be: -1.7   1.0   2.5   ki: negativ   -1.7   -0.7   0.3   1.3   2.3
+<br>
+Feltételezheted, hogy az első szám kisebb, mint a harmadik, és a 
+második szám pozitív. Ezek ellenőrzésével nem kell foglalkoznod.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    double a, step, b;
+    scanf(&quot;%lg%lg%lg&quot;, &amp;a, &amp;step, &amp;b);
+    if (a &lt; 0)
+        printf(&quot;negativ &quot;);
+    else
+        printf(&quot;nemnegativ &quot;);
+    double i = a;
+    while (i &lt;= b) {
+        printf(&quot;%g, &quot;,i);
+        i = i + step;
+    }
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Sorozat növekvő lépésekkel</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Egy program bekér a felhasználótól két pozitív egész számot, és a kisebbiktől a nagyobbikig 
+növekvő lépésközzel kiírja a számokat. A lépésköz kezdetben 1, és minden lépésben eggyel nő. A 
+program akkor is helyesen működik, ha a felhasználó előbb a felső, aztán az alsó határt adja meg 
+(és fordítva is).
+<br>
+Pl. be: 4   23   ki: 4   5   7   10   14   19
+<br>
+Pl. be: 23   4   ki: 4   5   7   10   14   19
+</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int elso, masodik, also, felso;
+
+    printf(&quot;Elso = &quot;);       scanf(&quot;%d&quot;, &amp;elso);
+    printf(&quot;Masodik = &quot;);    scanf(&quot;%d&quot;, &amp;masodik);
+    if (elso &gt; masodik) {
+        also = masodik;
+        felso = elso;
+    } else {
+        also = elso;
+        felso = masodik;
+    }
+
+    double i = also;
+    double step = 1;
+    while (i &lt;= felso) {
+        printf(&quot;%d &quot;, i);
+        i = i + step;
+        step = step + 1;
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Szögek</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Egy program bekér a felhasználótól két valós számot, melyek két szöget jelentenek °-ban. A 
+program a kisebb szögtől a nagyobbig haladva kiírja a szögeket egy fokonként, és mindegyik szög 
+mellett zárójelbe téve radiánban is kiírja a szöget (1°=π/180 rad). A program akkor is helyesen 
+működik, ha a felhasználó előbb a nagyobb, aztán a kisebb szöget adja meg (és fordítva is).
+<br>
+Pl. be: 11.3   14.9   ki: 11.3 (0.197), 12.3 (0.215), 13.3 (0.232), 14.3 (0.249),
+<br>
+Pl. be: 180   176   ki: 176 (3.07), 177 (3.09), 178 (3.11), 179 (3.12), 180 (3.14),
+</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    double also, felso;
+    scanf(&quot;%lg %lg&quot;,&amp;also, &amp;felso);
+    if (also &gt; felso) {
+        double temp = also;
+        also = felso;
+        felso = temp;
+    }
+    
+    double i = also;
+    while (i &lt;= felso) {
+        printf(&quot;%g (%g), &quot;, i, i*3.14/180);
+        i = i + 1;
+    }
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+<h3>Csökkenő sorozat</h3>
+<div class="sticky">Kis ZH volt</div>
+<p>Egy program bekér a felhasználótól két pozitív valós számot, és a nagyobbiktól induló 
+csökkenő számsorozatot ír ki. A csökkenés lépésköze a kisebbik szám. A csökkenés addig tart, 
+amíg a kiírandó érték nagyobb, mint a kisebbik szám. A program akkor is helyesen működik, ha a 
+felhasználó előbb a nagyobb, aztán a kisebb számot adja meg (és fordítva is).
+<br>
+Pl. be: 1.1   5.2   ki: 5.2   4.1   3.0   1.9
+<br>
+Pl. be: 6.3   2.1   ki: 6.3   4.2
+</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    double also, felso;
+    scanf(&quot;%lg %lg&quot;, &amp;also, &amp;felso);
+    if (also &gt; felso) {
+        double temp = also;
+        also = felso;
+        felso = temp;
+    }
+
+    double i = felso;
+    while (also&lt;i) {
+        printf(&quot;%g &quot;, i);
+        i = i - also;
+    }
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+<h3>A/0 papír</h3>
+<img class="float" src="a0papir.svg" style="width: 10em;">
+<p>
+Egy A/0-s, poszter méretű lap területe 1 m<sup>2</sup>; a szélessége a magasság √<span class="felulhuzott">2</span>-ed része.
+Az A/1-es lap ebből úgy keletkezik, hogy a
+rövidebb oldalával párhuzamosan középen kettévágjuk (vagyis a hosszabbat felezzük). Az A/2-es az A/1-eshez viszonyul ugyanígy stb.
+Írj programot, amelyik kiszámolja és kilistázza ezeket a papírméreteket A/0-tól A/6-ig! A program az összeset álló változatban
+írja ki, ne fekvő tájolással! Pl. az A4-es állóban: 210×297&nbsp;mm.
+<br>
+(A matek: mekkora ez alapján egy A/0-s lap? Legyen h a lap magassága, w pedig a
+szélessége! Tudjuk, hogy T=w·h, és azt is, hogy w=h/√<span class="felulhuzott">2</span>. Ebből T=h·h/√<span class="felulhuzott">2</span>,
+amibe az 1 m<sup>2</sup>-t is behelyettesíthetjük. 1=h·h/√<span class="felulhuzott">2</span>,
+√<span class="felulhuzott">2</span>=h·h, h=√<span class="felulhuzott">√2</span>. A szélessége pedig w=1 m<sup>2</sup>/h.)
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main(void) {
+    double a_old, b_old, rovid, hosszu;  /* Oldalak */
+
+    a_old = sqrt(sqrt(2));  /* A0-s papír egyik oldala */
+    b_old = 1/a_old;        /* A0-s papír másik oldala */
+
+    /* Ciklus A0-tól A6-ig */
+    for (int a = 0; a &lt;= 6; a = a+1) {
+        /* Megnézzük melyik a rövidebb és melyik a hosszabb oldal */
+        if (a_old &lt; b_old){
+            rovid = a_old;
+            hosszu = b_old;
+        }
+        else {
+            rovid = b_old;
+            hosszu = a_old;
+        }
+        /* Kiírjuk a-t, a rövidebb és a hosszabb oldalt */
+        /* 1000-el szorozva, hogy milliméter legyen az egység */
+        printf(&quot;A%d papir: %fmm x %fmm\n&quot;, a, rovid*1000, hosszu*1000);
+
+        /* A nagyobbik oldalt felezzük */
+        a_old = hosszu/2;
+        b_old = rovid;
+    }
+
+    return 0;
+}
+</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Összetett rajzolós feladatok">
+<div class="slide" id="slide_6">
+
+<a id="6" class="namer"></a>
+  <a id="feladatrajzolos" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">6</span><span class="oldalszamafter">. </span>    Összetett rajzolós feladatok<a class="hlink" href="index.html#6"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<h3>Táblázat</h3>
+
+<p>Készíts programot, mely egy n×n-es táblázat formájában kiírja a pozitív 
+egész számokat 1-től n<sup>2</sup>-ig. Az n értékét induláskor kérje be a felhasználótól!</p>
+
+<h3>Szorzótábla fejléccel</h3>
+<pre class="screenshot float sorsurit1">
+  |  1   2   3   4   5
+--+-------------------
+ 1|  1   2   3   4   5
+ 2|  2   4   6   8  10
+ 3|  3   6   9  12  15
+ 4|  4   8  12  16  20
+ 5|  5  10  15  20  25
+</pre>
+
+<p>Tervezz programot pszeudokóddal, amely kiírja a képernyőre az N×N-es
+szorzótáblát, ahol N értékét a felhasználó adhatja meg. Valósítsd meg C nyelven!
+Ügyelj arra, hogy a számok állandó oszlopszélességgel jelenjenek meg
+(maximum 16×16-as táblát feltételezve), azaz pl. az oldalt látható módon.
+(Ez abban nehezebb az előadáson bemutatottnál, hogy a szorzótáblának
+kerete is kell legyen.)</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    /* Keret felső része */
+    printf(&quot;   |&quot;);
+    for (int y = 1; y &lt;= 16; y = y+1)
+        printf(&quot;%3d &quot;,y);
+    printf(&quot;\n&quot;);
+    printf(&quot;---+&quot;);
+    for (int y = 1; y &lt;= 16; y = y+1)
+        printf(&quot;----&quot;);
+    printf(&quot;\n&quot;);
+
+    /* Szorzótábla */
+    for (int y = 1; y &lt;= 16; y = y+1) {
+        printf(&quot;%2d |&quot;,y); /* Keret bal oldala */
+        for (int x = 1; x &lt;= 16; x = x+1)
+            printf(&quot;%3d &quot;, x*y); /* Számok */
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+<h3>Adott méretű négyzet rajzolása</h3>
+<pre class="screenshot float sorsurit1">
++--+
+|  |
+|  |
++--+
+</pre>
+<div class="sticky">Kis ZH volt</div>
+<p>
+Írj C programot, amelyik bekér egy számot, és utána akkora négyzetet rajzol a +, - és | karakterekből,
+mint a megadott szám (annyi - és | karakterből áll az oldala). Pl. ha n=2, akkor a jobb oldalt látható
+négyzet legyen a kimenet!
+</p>
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf(&quot;Mekkora negyzet? &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    /* elso sor: +----+ */
+    printf(&quot;+&quot;);
+    for (int x=0; x&lt;n; ++x)
+        printf(&quot;-&quot;);
+    printf(&quot;+\n&quot;);
+
+    /* kozepso sorok: |    |   mint az elso,
+       csak a karakterek masok. */
+    for (int y=0; y&lt;n; ++y) {
+        printf(&quot;|&quot;);
+        for (int x=0; x&lt;n; ++x)
+            printf(&quot; &quot;);
+        printf(&quot;|\n&quot;);
+    }
+
+    /* utolso sor: +----+  ugyanaz, mint az elso. */
+    printf(&quot;+&quot;);
+    for (int x=0; x&lt;n; ++x)
+        printf(&quot;-&quot;);
+    printf(&quot;+\n&quot;);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Gyémánt</h3>
+<pre class="screenshot float sorsurit1">
+ /\
+/  \
+\  /
+ \/
+</pre>
+<div class="sticky">Kis ZH volt</div>
+<p>
+Írj C programot, amelyik egy számot kér (n), és n hosszú oldalú „gyémántot” rajzol a képernyőre a / és \ karakterekből.
+n=2 esetén így néz ki a kimenet:
+</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf(&quot;Mekkora gyemant? &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    /* teteje - kivalasztos logikaval */
+    for (int y=0; y&lt;n; y++) {
+        /* bal felso / */
+        for (int x=0; x&lt;n; x++)
+            if (x==n-y-1) printf(&quot;/&quot;); else printf(&quot; &quot;);
+        /* jobb felso \ */
+        for (int x=0; x&lt;n; x++)
+            if (x==y) printf(&quot;\\&quot;); else printf(&quot; &quot;);
+        printf(&quot;\n&quot;);
+
+    }
+    /* alja - kivalasztos logikaval */
+    for (int y=0; y&lt;n; y++) {
+        /* bal also \ */
+        for (int x=0; x&lt;n; x++)
+            if (x==y) printf(&quot;\\&quot;); else printf(&quot; &quot;);
+        /* jobb also / */
+        for (int x=0; x&lt;n; x++)
+            if (x==n-y-1) printf(&quot;/&quot;); else printf(&quot; &quot;);
+        printf(&quot;\n&quot;);
+
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Derékszögű háromszög</h3>
+<pre class="screenshot float sorsurit1">
+  /|
+ / |
+/  |
+---+
+</pre>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj C programot, amelyik egy számot kér, és a |, +, - és / karakterekből derékszögű 
+háromszöget rajzol, a megadott méretű (annyi karakterből álló) oldalakkal. n=3 esetén pl.:</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf(&quot;Mekkora haromszog? &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    /* ezt a feladatot egy kicsit maskepp csinaltam meg,
+     * mint a tobbit. itt a haromszoget befoglalo negyzet
+     * teljes teruletere csinalok egy x*y for ciklust
+     * (kiveve a befogoit es a sarkot), es abbol egy
+     * feltetellel valasztom ki az atlot. ez nem
+     * feltetlenul jobb megoldas, sot bizonyos szempontbol
+     * furcsa, hiszen olyan esemenyt valasztunk ki az if
+     * segitsegevel, amirol tudjuk, mikor fog bekovetkezni. */
+    for (int y=0; y&lt;n; y++) {
+        for (int x=0; x&lt;n; x++)
+            if (x==n-y-1)
+                printf(&quot;/&quot;);
+            else
+                printf(&quot; &quot;);
+        printf(&quot;|\n&quot;);
+    }
+    /* also sor */
+    for (int x=0; x&lt;n; x++)
+        printf(&quot;-&quot;);
+    printf(&quot;+\n&quot;);
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Csúcsán álló háromszög 1.</h3>
+
+<pre class="screenshot float sorsurit1">
+ooooo
+ ooo
+  o
+</pre>
+
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj C programot, amely kér a felhasználótól egy számot, és utána egy akkora, 
+csúcsán álló egyenlőszárú háromszöget rajzol a képernyőre "o" betűkből, hogy annak 
+éppen a megadott számú sora van! Például 3 esetén:</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf(&quot;Emelet=&quot;);
+    scanf(&quot;%d&quot;,&amp;n);
+
+    for (int i = 0; i &lt; n; i = i+1) {
+        for (int j = 0; j &lt; i; j = j+1)
+            printf(&quot; &quot;);
+        for (int j = 0; j &lt; 2*(n-i)-1; j = j+1)
+            printf(&quot;o&quot;);
+        printf(&quot;\n&quot;);
+    }
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Csúcsán álló háromszög 2.</h3>
+
+<pre class="screenshot float sorsurit1">
+  o
+ oo
+ooo
+ oo
+  o
+</pre>
+
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj C programot, amely kér a felhasználótól egy számot, és utána egy akkora, 
+csúcsán álló egyenlőszárú háromszöget rajzol a képernyőre "o" betűkből, hogy annak 
+éppen a megadott számú sora van! Például 3 esetén:</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf(&quot;Emelet=&quot;);
+    scanf(&quot;%d&quot;,&amp;n);
+
+    for (int i = 0; i &lt; n; i = i+1) {
+        for (int j = 0; j &lt; n-i-1; j = j+1) printf(&quot; &quot;);
+        for (int j = 0; j &lt;= i; j = j+1) printf(&quot;o&quot;);
+        printf(&quot;\n&quot;);
+    }
+    for (int i = 1; i &lt; n; i = i+1) {
+        for (int j = 0; j&lt;i; j = j+1) printf(&quot; &quot;);
+        for (int j = 0; j&lt;n-i; j = j+1) printf(&quot;o&quot;);
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Paralelogramma</h3>
+
+<pre class="screenshot float sorsurit1">
+  ooooooo
+ ooooooo
+ooooooo
+</pre>
+
+<div class="sticky">Kis ZH volt</div>
+
+<p>Írj C programot, amely kér a felhasználótól egy szélességet és egy magasságot, és 
+utána egy akkora paralelogrammát rajzol a képernyőre "o" betűkből! Például x=7, y=3 esetén:</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int x, y;
+
+    printf(&quot;x=&quot;); scanf(&quot;%d&quot;, &amp;x);
+    printf(&quot;y=&quot;); scanf(&quot;%d&quot;, &amp;y);
+
+    for (int i = 0; i &lt; y; i = i+1) {
+        for (int j = 0; j &lt; y-i-1; j = j+1) printf(&quot; &quot;);
+        for (int j = 0; j &lt; x; j = j+1) printf(&quot;o&quot;);
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Még egy háromszög</h3>
+<pre class="screenshot float sorsurit1">
+ooooo
+ oooo
+  ooo
+   oo
+    o
+</pre>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj programot, amely kér egy <code>n</code> egész számot a felhasználótól, és utána „o” 
+betűkből egy akkora háromszöget rajzol, amennyi a szám. Pl. <code>n=5</code> esetén az alábbi 
+rajz jelenik meg a kimenetén.</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf(&quot;Haromszog magassaga?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    for (int y=0; y&lt;n; y = y+1) {
+        for (int x=0; x&lt;y; x = x+1)
+            printf(&quot; &quot;);
+        for (int x=y; x&lt;n; x = x+1)
+            printf(&quot;o&quot;);
+
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Háztető</h3>
+<pre class="screenshot float sorsurit1">
+    ##
+   #  #
+  #    #
+ #      #
+#        #
+</pre>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj programot, amely kér egy <code>n</code> egész számot a billentyűzetről, és utána akkora 
+„háztetőt” rajzol kettőskereszt karakterekből, amekkora a szám. Pl. <code>n=5</code> esetén az 
+alábbi rajz jelenik meg a kimeneten.</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf(&quot;Hazteto magassaga?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    for (int y=0; y&lt;n; y = y+1) {
+        for (int x=0; x&lt;n-y-1; x = x+1)
+            printf(&quot; &quot;);
+        printf(&quot;#&quot;);
+        for (int x=0; x&lt;y*2; x = x+1)
+            printf(&quot; &quot;);
+        printf(&quot;#&quot;);
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Szakasz</h3>
+<pre class="screenshot float sorsurit1">
+xxx
+   xxx
+      xxx
+         xxx
+            xxx
+</pre>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj programot, amely két számot (<code>m</code> és <code>n</code>) kér a billentyűzetről, és 
+egy szakaszt rajzol karakterekből összerakva. A szakasz darabjainak a hosszát az első szám adja 
+meg, a sorok számát a második. Pl. <code>m=3</code>, <code>n=5</code> esetén:</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int m, n;
+    printf(&quot;Vonal darabok szelessege, osszmagassag?\n&quot;);
+    scanf(&quot;%d %d&quot;, &amp;m, &amp;n);
+
+    for (int y=0; y&lt;n; y = y+1) {
+        for (int x=0; x&lt;m*y; x = x+1)
+            printf(&quot; &quot;);
+        for (int x=0; x&lt;m; x = x+1)
+            printf(&quot;x&quot;);
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Két szakasz</h3>
+<pre class="screenshot float sorsurit1">
+#    #
+ #    #
+  #    #
+   #    #
+    #    #
+</pre>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj programot, amely beolvas egy egész számot, és egymás mellé rajzol két ferde vonalat, 
+karakterekből összerakva. A második vonal teteje egy karakterrel arrébb kezdődik, mint az első 
+vége. Pl. ha a megadott <code>n</code> szám <code>5</code>, a kimeneten az alábbi rajz jelenik 
+meg.</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf(&quot;Atlos vonal hossza?\n&quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    for (int y=0; y&lt;n; y = y+1) {
+        for (int x=0; x&lt;y; x = x+1)
+            printf(&quot; &quot;);
+        printf(&quot;#&quot;);
+        for (int x=0; x&lt;n-1; x = x+1)
+            printf(&quot; &quot;);
+        printf(&quot;#&quot;);
+        printf(&quot;\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Sakktábla</h3>
+
+<pre class="screenshot float kicsinyit" style="line-height: 0.8;">
+XX  XX  XX  XX
+XX  XX  XX  XX
+  XX  XX  XX  XX
+  XX  XX  XX  XX
+XX  XX  XX  XX
+XX  XX  XX  XX
+  XX  XX  XX  XX
+  XX  XX  XX  XX
+XX  XX  XX  XX
+XX  XX  XX  XX
+  XX  XX  XX  XX
+  XX  XX  XX  XX
+XX  XX  XX  XX
+XX  XX  XX  XX
+  XX  XX  XX  XX
+  XX  XX  XX  XX
+</pre>
+
+<p>Rajzolj a képernyőre <em>sakktáblát,</em> ahogyan az oldalt látható! Hogyan lehet
+ezt a legtöbb ciklussal, a programban szereplő legrövidebb kiírt szövegekkel
+megoldani? Vagyis ne szerepeljen a programban ilyesmi:
+<pre   ><code class="language-c">printf(&quot;XX  XX  XX  XX  \n&quot;);
+printf(&quot;XX  XX  XX  XX  \n&quot;);</code></pre>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    for (int i=1; i&lt;=4; i=i+1) {
+        for (int j=1; j&lt;=2; j=j+1) {
+            for (int k=1; k&lt;=4; k=k+1)
+                printf(&quot;XX  &quot;);
+            printf(&quot;\n&quot;);
+        }
+        for (int j=1; j&lt;=2; j=j+1) {
+            for (int k=1; k&lt;=4; k=k+1)
+                printf(&quot;  XX&quot;);
+            printf(&quot;\n&quot;);
+        }
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+<h3>Tetszőleges méretű sakktábla I.</h3>
+
+<p>Az előző feladatban a sakktáblán minden mező két karakter méretű volt: széltében és hosszában
+két x betű vagy két szóköz. Írd meg úgy a programot, hogy ezt a felhasználó adhassa meg!</p>
+
+
+<h3>Tetszőleges méretű sakktábla II.</h3>
+<pre class="screenshot float sorsurit1">
+n=1   **..      n=2 **..**..
+      **..          **..**..
+      ..**          ..**..**
+      ..**          ..**..**
+                    **..**..
+                    **..**..
+                    ..**..**
+                    ..**..**
+</pre>
+<div class="sticky">Kis ZH volt</div>
+<p>Írj C programot, amelyik egy egész számot kér, utána pedig . és * karakterekből adott méretű 
+sakktáblát rajzol. Pl. n=1 és n=2 esetén a jobb oldalt látható eredmények.</p>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf(&quot;Mekkora sakktabla? &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+
+    /* ennyi darab dupla*dupla sor van */
+    for (int sor=0; sor&lt;n; sor++) {
+        /* paros (duplan) */
+        for (int y=0; y&lt;2; y++) {
+            for (int x=0; x&lt;n; x++)
+                printf(&quot;**..&quot;);
+            printf(&quot;\n&quot;);
+        }
+        /* paratlan (duplan) */
+        for (int y=0; y&lt;2; y++) {
+            for (int x=0; x&lt;n; x++)
+                printf(&quot;..**&quot;);
+            printf(&quot;\n&quot;);
+        }
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+<h3>Téglalapok</h3>
+
+<pre class="screenshot float sorsurit1">
+ooooo ooooo ooooo
+ooooo ooooo ooooo
+
+ooooo ooooo ooooo
+ooooo ooooo ooooo
+</pre>
+
+<p>Készíts programot, mely egy m oszlopból és n sorból álló mátrixot rajzol a képernyőre, melynek minden eleme egy a×b méretű, "o" betűkből álló téglalap. A téglalapok között k szóköz/sortörés távolságot hagyj ki!
+Példa: m=3, n=2, a=5, b=2, k=1 értékekre a jobb oldalt látható.
+
+
+
+
+<h3>Négyzet (téglalap) rajzolása</h3>
+
+<pre class="screenshot float sorsurit1">
+******   ******
+******   *    *
+******   *    *
+******   *    *
+******   *    *
+******   ******
+</pre>
+
+<pre class="screenshot float sorsurit1">
+******
+**   *
+* *  *
+*  * *
+*   **
+******
+</pre>
+
+<p>Írj programot, amely bekér a felhasználótól egy pozitív egész számot, és
+kirajzol egy ekkora, * karakterekből álló, teljesen kitöltött négyzetet a képernyőre!</p>
+
+<p><em>Keret.</em> Oldd meg a feladatot úgy is, hogy csak a négyzet kerete álljon
+csillagokból, a belseje legyen üres! Erre két logikus megoldás is
+van: külön programrészben is megrajzolhatod a keretet, de csinálhatod azt is, hogy
+az n×n-es ciklus belsejében figyeled egy feltétellel, a négyzet belsejében vagy-e,
+vagy a kereten.</p>
+
+<p><em>Átló.</em> Alakítsd át a programot úgy, hogy a négyzet átlóját is behúzza! Az előző
+két átalakítási lehetőség közül ehhez melyiket érdemes választani? Hogyan
+lehetne ezt a programot megírni úgy, hogy ne használjon elágazásokat, csak
+ciklust? És hogyan úgy, hogy lényegében két egymásba ágyazott ciklust tartalmaz
+(y és benne x), amelyeken belül pedig tetszőleges kód lehet?</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+    int n;
+    printf(&quot;Mekkora legyen a negyzet? &quot;);
+    scanf(&quot;%d&quot;,&amp;n);  /* Beolvasás */
+
+    /* Teli négyzet */
+    for (int i = 0; i&lt;n; i=i+1) {
+        for (int j = 0; j&lt;n; j=j+1) printf(&quot;*&quot;);  /* n db csillag */
+        printf(&quot;\n&quot;);  /* Új sor */
+    }
+    printf(&quot;\n\n\n&quot;);  /* Pár üres sor */
+
+    /* Üres négyzet */
+    for (int i = 0; i&lt;n; i=i+1) {
+        for (int j = 0; j&lt;n; j=j+1) {
+            /* Széleken csillag */
+            if (i==0 || i==n-1 || j==0 || j==n-1) printf(&quot;*&quot;);
+            else printf(&quot; &quot;);  /* Különben szóköz */
+        }
+        printf(&quot;\n&quot;);  /* Új sor */
+    }
+    printf(&quot;\n\n\n&quot;);  /* Pár üres sor */
+
+    /* Átlós négyzet */
+    for (int i = 0; i &lt; n; i=i+1) {
+        for (int j = 0; j &lt; n; j=j+1) {
+            /* Széleken és átlóban csillag */
+            if (i==0 || i==n-1 || j==0 || j==n-1 || i==j) printf(&quot;*&quot;);
+            else printf(&quot; &quot;);  /* Különben szóköz */
+        }
+        printf(&quot;\n&quot;);  /* Új sor */
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+<h3>Láda</h3>
+<pre class="screenshot float sorsurit1">
++---+
+|\  |
+| \ |
+|  \|
++---+
+</pre>
+
+<p>Írj programot, amely +, |, -, és \ karakterekből egy,
+a felhasználó által adott méretű <em>ládát</em> rajzol!
+Figyelj a visszaper karakter kirajzolására: azt
+<code>"\\"</code> formában kell megadni. Ez a feladat megoldható
+kizárólag ciklusok alkalmazásával: próbáld meg így! Hova hány
+darab szóköz kell?</p>
+
+<details >
+<summary>Megoldás</summary>
+<div>
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(void) {
+   /* Méret beolvasása */
+   int meret;
+   printf(&quot;Mekkora legyen? &quot;);
+   scanf(&quot;%d&quot;, &amp;meret);
+
+   /* Felső oldal és sarkok */
+   printf(&quot;+&quot;);
+   for (int x=2; x&lt;meret; x = x+1) printf(&quot;-&quot;);
+   printf(&quot;+\n&quot;);
+
+   /* Függőleges oldalak és a láda belseje */
+   for (int y=2; y&lt;meret; y = y+1) {
+      printf(&quot;|&quot;); /* Bal oldal */
+
+      /* Szóközök, átló, majd ismét szóközök */
+      for (int x=2; x&lt;y; x = x+1) printf(&quot; &quot;);
+      printf(&quot;\\&quot;);
+      for (int x=y+1; x&lt;meret; x = x+1) printf(&quot; &quot;);
+
+      printf(&quot;|\n&quot;); /* Jobb oldal és újsor */
+   }
+
+   /* Alsó oldal és sarkok */
+   printf(&quot;+&quot;);
+   for (int x=2; x&lt;meret; x = x+1) printf(&quot;-&quot;);
+   printf(&quot;+\n&quot;);
+
+   return 0;
+}</code></pre>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+<h3>Szinusz</h3>
+<pre class="screenshot float" style="line-height: 0.8">
+               X
+                     X
+                         X
+                            X
+                              X
+                              X
+                            X
+                         X
+                     X
+               X
+          X
+      X
+   X
+ X
+ X
+   X
+      X
+          X
+               X
+</pre>
+
+<p>Rajzold ki programból a szinusz függvényt, 90 fokkal elforgatva és
+<code>X</code>-ekből kirakva! A mintát lásd a jobb oldalon.
+Ehhez a <code>math.h</code> függvénye, a <code>sin()</code> használható.
+Figyelj arra, hogy ez a paraméterét radiánban várja, vagyis
+1°=π/180 rad.</p>
+
+<details >
+<summary>Tipp</summary>
+<div>
+<p>Mindegyik sorban ki kell írnunk valahány szóközt, és utána egy <code>X</code>-et.
+Hány sor van összesen? Mitől függ az, hogy hány szóközt kell tenni?
+Először írj erre képletet! Gondold végig, a feladat megoldásában melyik
+változó lehet egész, és melyiknek kell valósnak lennie!</p>
+</div>
+</details>
+
+
+<details >
+<summary>Megoldás</summary>
+<div>
+
+<p>Szóközök száma: A <code>sin(fok)</code> nyilván nem jó, mert a sin radiánban várja a paramétert, ezért át kell váltani: 
+<code>sin(fok*3.1416/180)</code>. Ez viszont még mindig nem jó, mert a <code>sin()</code> &minus;1 és +1 közötti számot ad vissza, 
+azaz vagy 0 vagy 1 szóközt írnánk ki. Ha ezt megszorozzuk 10-el, akkor az eredmény &minus;10 és +10 közötti lesz. Ha viszont még 
+10-et hozzáadunk, akkor a szóközök száma 0 és 20 között lesz, ami a várt ábrát adja.</p>
+
+<pre   ><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;  /* Kell a szinusz miatt */
+
+int main(void) {
+    /* A fok változó 0-tól 360-ig megy 20-asával lépkedve */
+    for (int fok=0; fok&lt;=360; fok=fok+20) {
+        /* szóközök */
+        int szokoz = 10 + 10*sin(fok*3.1416/180);
+        for (int i = 0; i&lt;szokoz; i=i+1)
+            printf(&quot; &quot;);
+        /* végén egyetlen x */
+        printf(&quot;X\n&quot;);
+    }
+
+    return 0;
+}</code></pre>
+</div>
+</details>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>

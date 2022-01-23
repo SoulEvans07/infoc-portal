@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+<meta charset="utf-8">
+<title>TEST InfoC :: Labor, 1. hét: parancssor, ZIP</title>
+<meta property="og:title" content="TEST InfoC :: Labor, 1. hét: parancssor, ZIP">
+<meta property="og:image" content="/modulz/logo.png">
+<meta property="og:description" content="Operációs rendszer, Windows parancssor alapismeretek: fájlok, parancssori argumentumok.">
+<meta property="og:site_name" content="InfoC – Programozás alapjai I.">
+<meta name="description" content="Operációs rendszer, Windows parancssor alapismeretek: fájlok, parancssori argumentumok.">
+<meta name="robots" content="noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="../modulz/favicon.ico" id="faviconhref">
+<link rel="apple-touch-icon" href="../modulz/logo_touch.png">
+<link rel="image_src" href="../modulz/logo.png"> 
+<link rel="stylesheet" href="../modulz/alap-infoc.css@v101.css">
+<link rel="stylesheet" href="../modulz/style/localfonts.css@v101.css">
+<script>var infoc = { onloads: [] };</script>
+<script src="../modulz/site.js@v101"></script>
+</head>
+
+<body class=" doksi-formatum" data-version="101"
+    data-halozati-hiba="Hálózati hiba a kérés teljesítése közben."
+    data-tul-nagy-keres="A fájl túl nagy!"
+    data-biztos-navigal="Biztos el szeretnél navigálni? A nem mentett változások elvesznek."
+    data-ird-be-a-keresoszot="Írd be a keresőszót!"
+    data-vissza="Vissza">
+
+<div class="bodycontent">
+
+<nav class="menubg clearfix">
+<div class="shaper">
+<div id="menu" class="menu menu-font-size">
+<a id="menu-nyito" class="menu-nyito"  role="button"><i class="hamburger"></i></a>
+<div class="menu-brand"><a href="../index/index.html">InfoC</a></div>
+<div id="menu-elemek" class="menu-elemek">
+<ul>
+<li class="almenu "><a>Infó</a>
+<ul>
+<li><a  href="../index/index.html">Kezdőlap</a>
+<li><a  href="../elerhetoseg/index.html">Elérhetőség</a>
+</ul>
+
+<li class="almenu "><a>Tananyag</a>
+<ul>
+<li class="almenu "><a>Előadás</a>
+<ul>
+<li><a  href="../ea01/index.html">1. hét: típusok, változók, vezérlés</a>
+<li><a  href="../ea02/index.html">2. hét: nevezetes algoritmusok, tömbök</a>
+<li><a  href="../ea03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../ea04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../ea05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../ea06/index.html">6. hét: operátorok, számábrázolás</a>
+<li><a  href="../ea07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../ea08/index.html">8. hét: fájlkezelés, modulok</a>
+<li><a  href="../ea10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../ea11/index.html">11. hét: bináris fák</a>
+<li><a  href="../ea12/index.html">12. hét: állapotgépek, reguláris kifejezések</a>
+<li><a  href="../ea13/index.html">13. hét: generikus algoritmusok, visszalépő keresés</a>
+<li><a  href="../ea14/index.html">14. hét: összefoglalás</a>
+</ul>
+
+<li class="almenu "><a>Labor</a>
+<ul>
+<li><a  href="index.html">1. hét: parancssor, ZIP</a>
+<li><a  href="../lab02/index.html">2. hét: egyszerű programok</a>
+<li><a  href="../lab03/index.html">3. hét: tömbök, nevezetes algoritmusok</a>
+<li><a  href="../lab04/index.html">4. hét: struktúrák és függvények</a>
+<li><a  href="../lab06/index.html">6. hét: pointerek, sztringek</a>
+<li><a  href="../lab07/index.html">7. hét: rekurzió</a>
+<li><a  href="../lab08/index.html">8. hét: dinamikus tömbök I.</a>
+<li><a  href="../lab09/index.html">9. hét: dinamikus tömbök II.</a>
+<li><a  href="../lab10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../lab11/index.html">11. hét: bináris fák</a>
+<li><a  href="../lab12/index.html">12. hét: gyakorlás NZH-ra</a>
+<li><a  href="../lab13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../lab14/index.html">14. hét: labirintus játék</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../gy01/index.html">1. hét: adatmodellezés, algoritmusok</a>
+<li><a  href="../gy02/index.html">2. hét: tanult algoritmusok</a>
+<li><a  href="../gy03/index.html">3. hét: egyszerű programok</a>
+<li><a  href="../gy04/index.html">4. hét: tételek és tömbök</a>
+<li><a  href="../gy05/index.html">5. hét: származtatott típusok</a>
+<li><a  href="../gy06/index.html">6. hét: karakterek, számrendszerek</a>
+<li><a  href="../gy07/index.html">7. hét: pointerek használata</a>
+<li><a  href="../gy08/index.html">8. hét: rekurzió</a>
+<li><a  href="../gy09/index.html">9. hét: dinamikus tömbök</a>
+<li><a  href="../gy10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../gy12/index.html">12. hét: bináris fák</a>
+<li><a  href="../gy13/index.html">13. hét: állapotgépek</a>
+<li><a  href="../gy14/index.html">14. hét: generikus algoritmusok</a>
+</ul>
+
+<li class="almenu "><a>Példatár</a>
+<ul>
+<li><a  href="../f01/index.html">1. hét: egyszerű programok</a>
+<li><a  href="../f02/index.html">2. hét: logika, sorozatok, tömbök</a>
+<li><a  href="../f03/index.html">3. hét: függvények, struktúrák</a>
+<li><a  href="../f04/index.html">4. hét: pointerek, sztringek</a>
+<li><a  href="../f05/index.html">5. hét: rendezések, rekurzió</a>
+<li><a  href="../f06/index.html">6. hét: számábrázolás, bitek</a>
+<li><a  href="../f07/index.html">7. hét: dinamikus memóriakezelés</a>
+<li><a  href="../f08/index.html">8. hét: parancssor, fájlkezelés, modulok</a>
+<li><a  href="../f10/index.html">10. hét: láncolt listák</a>
+<li><a  href="../f11/index.html">11. hét: bináris fák, többszörös indirekció</a>
+<li><a  href="../f12/index.html">12. hét: állapotgépek</a>
+<li><a  href="../f13/index.html">13. hét: generikus algoritmusok</a>
+</ul>
+
+<li><a  href="../nhflista/index.html">Nagy házi lista</a>
+</ul>
+
+<li class="almenu "><a>Segédlet</a>
+<ul>
+<li><a  href="../jegyzet/index.html">Jegyzet és puska</a>
+<li><a  href="../fejlesztokornyezet.html">Fejlesztőkörnyezetek</a>
+<li><a  href="../stilus/index.html">Kódolási stílus</a>
+<li><a  href="../for_vs_while/index.html">For vagy while?</a>
+<li class="almenu "><a>Nagy házi</a>
+<ul>
+<li><a  href="../mintanhf/index.html">Minta nagy házi</a>
+<li><a  href="../nhfspecifikacio/index.html">Specifikáció: hogyan?</a>
+<li><a  href="../debugmalloc/index.html">Debugmalloc, memóriakezelés</a>
+<li><a  href="../fajlkezeles/index.html">Fájlkezelés, mappák</a>
+<li><a  href="../megjelenites/index.html">Szöveges és grafikus megjelenítés</a>
+<li><a  href="../scanf/index.html">Scanf problémák</a>
+<li><a  href="../scanf_hibakezeles/index.html">Scanf és hibakezelés</a>
+<li><a  href="../karakterkodolas/index.html">Karakterkódolások</a>
+<li><a  href="../cbtobbmodul/index.html">Több modulos programok</a>
+</ul>
+
+<li class="almenu "><a>ZH</a>
+<ul>
+<li><a  href="../tldr1/index.html">TL;DR I.</a>
+<li><a  href="../tldr2/index.html">TL;DR II.</a>
+</ul>
+
+</ul>
+
+<li class="almenu "><a>Extrák</a>
+<ul>
+<li class="almenu "><a>SVG óra galéria</a>
+<ul>
+<li><a  href="../orak2021/index.html">SVG óra galéria 2021</a>
+<li><a  href="../orak2020/index.html">SVG óra galéria 2020</a>
+<li><a  href="../orak2019/index.html">SVG óra galéria 2019</a>
+<li><a  href="../orak2018/index.html">SVG óra galéria 2018</a>
+<li><a  href="../orak2017/index.html">SVG óra galéria 2017</a>
+<li><a  href="../orak2016/index.html">SVG óra galéria 2016</a>
+<li><a  href="../orak2015/index.html">SVG óra galéria 2015</a>
+</ul>
+
+<li class="almenu "><a>NHF galéria</a>
+<ul>
+<li><a  href="../nhfgaleria2021/index.html">NHF galéria 2021</a>
+<li><a  href="../nhfgaleria2020/index.html">NHF galéria 2020</a>
+<li><a  href="../nhfgaleria2019/index.html">NHF galéria 2019</a>
+<li><a  href="../nhfgaleria2018/index.html">NHF galéria 2018</a>
+<li><a  href="../nhfgaleria2017/index.html">NHF galéria 2017</a>
+<li><a  href="../nhfgaleria2016/index.html">NHF galéria 2016</a>
+<li><a  href="../nhfgaleria2015/index.html">NHF galéria 2015</a>
+<li><a  href="../nhfgaleria2014/index.html">NHF galéria 2014</a>
+<li><a  href="../nhfgaleria2013/index.html">NHF galéria 2013</a>
+<li><a  href="../nhfgaleria2012/index.html">NHF galéria 2012</a>
+</ul>
+
+<li class="almenu "><a>Elmélet</a>
+<ul>
+<li><a  href="../turing/index.html">Mit tud a számítógép?</a>
+<li><a  href="../bf/index.html">BF</a>
+<li><a  href="../bitturmix/index.html">Bitturmix</a>
+<li><a  href="../kifesto/index.html">Zárt terület kifestése</a>
+<li><a  href="../labirintus/index.html">Labirintusok</a>
+<li><a  href="../qsort/index.html">Gyorsrendezés</a>
+<li><a  href="../tripla/index.html">Tripla indirekció</a>
+<li><a  href="../generikus/index.html">Generikus lista</a>
+</ul>
+
+<li class="almenu "><a>Gyakorlat</a>
+<ul>
+<li><a  href="../strlcpy/index.html">Kulturált sztringmásoló</a>
+<li><a  href="../xor_csere/index.html">XOR csere</a>
+<li><a  href="../include/index.html">include</a>
+<li><a  href="../inline/index.html">inline</a>
+<li><a  href="../internet/index.html">Internet</a>
+</ul>
+
+<li class="almenu "><a>Grafika</a>
+<ul>
+<li><a  href="../sdl/index.html">SDL grafika</a>
+<li><a  href="../sdl_telepito/index.html">SDL telepítés</a>
+<li><a  href="../fa/index.html">Fák rajzolása</a>
+</ul>
+
+<li class="almenu "><a>Nyelvészet</a>
+<ul>
+<li><a  href="../mondatelemzo/index.html">Mondatelemző</a>
+<li><a  href="../kifejezesek/index.html">Kifejezések</a>
+<li><a  href="../derivalas/index.html">Deriválás</a>
+</ul>
+
+<li><a  href="../advent/index.html">Adventi naptár</a>
+</ul>
+
+</ul>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="menu-font-size"><div class="menuplaceholder"></div></div>
+
+<main class="doksi">
+<div class="shaper">
+
+
+<section class="slidescreen" data-title="Labor, 1. hét: parancssor, ZIP">
+<div class="slide" id="slide_0">
+
+<a id="0" class="namer"></a>
+
+
+<div class="slidecontent">
+  <h1 class="eloadascim">Labor, 1. hét: parancssor, ZIP</h1>
+<div class="focim">
+<p class="szerzocim"><i class="szerzo"></i> Pohl László, Czirkos Zoltán · <i class="ido"></i> 2019.09.30.</p>
+<p class="kivonat">Operációs rendszer, Windows parancssor alapismeretek: fájlok, parancssori argumentumok.</p>
+</div>
+
+
+<p>Bár az átlagos felhasználó nem szokta használni, a Windows is rendelkezik egy ún. parancssori felhasználói felülettel,
+ahogyan a Unix típusú operációs rendszerek is. Ezen a felületen különböző parancsokat begépelve lehet elvégezni az alapvető
+feladatokat, pl. fájlok létrehozását, listázását és törlését. A mai laboron többek között ezzel is megismerkedünk.</p>
+
+
+  
+        <nav id="tartalom">
+      <h3>Tartalom</h3>
+      <ol>              <li><a href="index.html#1" class="">Kötelező feladatok</a>
+              <li><a href="index.html#2" class="">Parancssor indítása, programok indítása</a>
+              <li><a href="index.html#3" class="">Mappa parancsok</a>
+              <li><a href="index.html#4" class="">Be- és kimenet átirányítása</a>
+              <li><a href="index.html#5" class="">ZIP fájlok létrehozása</a>
+            </ol>    </nav>
+  </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Kötelező feladatok">
+<div class="slide" id="slide_1">
+
+<a id="1" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">1</span><span class="oldalszamafter">. </span>    Kötelező feladatok<a class="hlink" href="index.html#1"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<ul>
+
+<li>Ne feledkezz meg a címtár regisztrációról a <a href="https://login.bme.hu/admin/">login.bme.hu</a> oldalon! 
+Be kell állítani egy jelszót, ami a HSZK gépein a belépéshez szükséges. Ne hagyd az utolsó pillanatra,
+mert <em>két nap</em> is lehet a módosítás átfutása!
+</li>
+
+<li>Töltsd le és telepítsd az otthoni gépedre a félév során használt fejlesztőkörnyezetet a 
+<a href="../fejlesztokornyezet.html">leírás</a> szerint!</li>
+
+</ul>
+
+<br class="bigskip">
+
+<h2>A további feladatok megoldása önkéntes.</h2>
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Parancssor indítása, programok indítása">
+<div class="slide" id="slide_2">
+
+<a id="2" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">2</span><span class="oldalszamafter">. </span>    Parancssor indítása, programok indítása<a class="hlink" href="index.html#2"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+
+<p>A Start menü Futtatás… parancsát választva indítsd el a <code>cmd.exe</code> programot! (Windows 10 esetén:
+a Start gombra jobb klikk, és Futtatás, vagy <kbd>Windows + R</kbd>.) A továbbiakban a
+megjelenő <em>konzolablakban</em> kell dolgozni. A föl-le billentyűkkel kiválaszthatóak a korábban beírt
+parancsok, így nem kell egy dolgot többször begépelni.</p>
+
+
+
+<h3>Program indítása parancssorból</h3>
+
+<p>Egy program indításához csak be kell írni a nevét. Írd be:</p>
+
+<pre class="screenshot">
+notepad.exe
+</pre>
+
+<p>Erre elindul a Jegyzettömb, mintha a Start menüből indítottad volna.</p>
+
+<p>A Windows automatikusan kiegészíti a programok nevét az ahhoz tartozó kiterjesztéssel
+(végződéssel, extension, <code>.com</code>, <code>.exe</code>, <code>.bat</code>). Így a programot a
+<code>.exe</code> kiterjesztés beírása nélkül is futtathatod. Zárd be a Jegyzettömböt,
+és próbáld ki így is:</p>
+
+<pre class="screenshot">
+notepad
+</pre>
+
+
+
+
+
+<h3>Programok paraméterei</h3>
+
+<p>A legtöbb konzolos alkalmazás, de gyakran az ablakokat használó programok is, kaphatnak paramétereket.
+Próbaképp írd be az alábbi sort. Mit tapasztalsz?</p>
+
+<pre class="screenshot">
+notepad szoveg.txt
+</pre>
+
+<p>Egy programnak tetszőleges számú <em>parancssori paramétere</em>, más néven <em>parancssori
+argumentuma</em> (command line argument) lehet. Ezeket a program neve után írjuk, és szóközzel
+választjuk el egymástól.
+
+<div class="megjegyzes">
+<p>Ha paraméterként fájlt adunk meg, és az útvonalban vagy a fájlnévben szóköz van, normál
+esetben a Windows a szóközzel elválasztott elemeket külön paraméternek tekintené. Ezért kell
+ilyenkor idézőjelek közé tenni azt. Pl.:</p>
+
+<pre class="screenshot">
+notepad "Uj szoveg.txt"
+</pre>
+</div>
+
+<h3>Elérési útvonal – path</h3>
+
+<p>Honnan tudta az előbb a Windows, hogy hol van a <code>notepad.exe</code>? Hiszen az is egy fájl, amit
+meg kell keresnie a program elindításához. Onnan, hogy van egy lista azokról a mappákról,
+ahol a gyakran használt programok vannak. Így nem kell mindig beírni a mappa teljes nevét. A listát így tudod kiíratni:</p>
+
+<pre class="screenshot">
+path
+</pre>
+
+
+
+
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Mappa parancsok">
+<div class="slide" id="slide_3">
+
+<a id="3" class="namer"></a>
+  <a id="labmappa" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">3</span><span class="oldalszamafter">. </span>    Mappa parancsok<a class="hlink" href="index.html#3"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A kurzor az ún. <em>prompt</em> végén villog. Ez alapesetben az aktuális <em>útvonalból</em>
+(mappa nevéből, path) és a <code>&gt;</code> jelből áll. Ezt figyeld majd, miközben dolgozol!
+
+<p>A <em>mappát</em> (folder) a parancssori parancsok a <em>directory</em> szóból származtatják (a mappák
+másik neve, magyarul könyvtár). A mappa tartalmának listázása:</p>
+
+<pre class="screenshot">
+dir
+</pre>
+
+<p>Az eredmény a mappa tartalma: itt további mappák, valamint <em>fájlok</em> lehetnek. Ha nem a legfölső
+szinten (a gyökérkönyvtárban) vagyunk (<code>C:\</code>), akkor egy <code>.</code> és egy
+<code>..</code> nevű mappa (<code>&lt;DIR&gt;</code> jelzi) is látható. A <code>.</code> az aktuális
+mappát jelenti, a <code>..</code> az egy szinttel feljebb lévőt. Navigálj el egy Windows Fájlkezelővel a
+parancssori ablakod mappájába, és hasonlítsd össze a listát az Fájlkezelőben látható tartalommal!</p>
+
+<p>A <code>dir</code> parancsnak számos paramétere (kapcsolója) van, ezekről bővebb információ a</p>
+
+<pre class="screenshot">
+dir /?
+</pre>
+
+<p>paranccsal kapható. A többi parancsnak is van hasonló helpje, ezt a továbbiakban nem
+jelezzük külön.</p>
+
+
+<h3>Mappa váltása</h3>
+
+<p>Mappát váltani a <code>chdir</code> paranccsal, vagy ennek rövidebb változatával, a
+<code>cd</code>-vel lehet. Lépj egy szinttel feljebb:</p>
+
+<pre class="screenshot">
+cd ..
+</pre>
+
+<p>Lépj a gyökérkönyvtárba:</p>
+
+<pre class="screenshot">
+cd \
+</pre>
+
+<p>vagy</p>
+
+<pre class="screenshot">
+cd /
+</pre>
+
+<p>A mappák neveit a \ (fordított per vagy visszaper (backslash), <kbd>AltGr+Q</kbd>) választja
+el egymástól az elérési útvonalon. A Windows támogatja a UNIX-ból származó /-t is, a két jel
+bármelyikét bármikor használhatjuk. A Windows hasonlóan rugalmas a kis és nagybetűk kezelésében:
+a mappák és fájlok és parancsok nevében nem számít, hogy kis- ill. nagybetűről van szó (pl.
+notepad, Notepad, NOTEPAD, stb. egyaránt használható). Más rendszerek azonban
+megkülönböztetik ezeket. Informatikusként sokféle rendszerrel dolgoznod kell majd, ezért jobb,
+ha mindent a tényleges nevén használsz.</p>
+
+<p>Menj most vissza a felhasználód saját mappájába, a lentihez hasonló módon! Az 111111 helyére
+a felhasználóneved kerül.</p>
+
+<pre class="screenshot">
+cd C:\Users\111111\
+</pre>
+
+<h3>Mappa létrehozása és törlése</h3>
+
+<p>Mappát létrehozni az <code>mkdir</code> vagy <code>md</code> parancsokkal lehet:</p>
+
+<pre class="screenshot">
+md clabor
+</pre>
+
+<p>Mappát törölni az <code>rmdir</code> vagy <code>rd</code> paranccsal lehet:</p>
+<pre class="screenshot">
+rd clabor
+</pre>
+<p>A parancs a mappát csak akkor törli, ha az üres.</p>
+
+<p class="megjegyzes">
+Vigyázz! Ha a következő sort írod, két mappa jön létre, egy „c” és egy „labor” nevű: <code>md c labor</code>.
+Ha „c labor” nevű mappát szeretnél, tedd idézőjelbe a nevet: <code>md "c labor"</code>! (Akkor is szabad idézőjelbe tenni, ha nincs benne szóköz? Próbáld ki!)
+</p>
+
+<p>Egyes parancsoknak, mint pl. a <code>dir</code>-nek is, ún. <em>wildcard</em>-okkal megadott
+fájlneveket is lehet adni paraméterként. Pl. az alábbi sor csak az <code>.exe</code>
+kiterjesztésű fájlokat listázza:</p>
+
+<pre class="screenshot">
+cd c:\Windows
+dir *.exe
+</pre>
+
+<div class="megjegyzes">
+<p>A <code>?</code> karakterrel egy, a <code>*</code> karakterrel több karaktert
+helyettesíthetünk a névben. Pl.: <code>dir x*e</code> kilistázza az x-szel kezdődő, e-re
+végződő fájlokat. Akár több <code>*</code> is lehet: <code>dir x*py*e</code>. A kérdőjel használata:
+<code>dir C_85?.NLS</code>.</p>
+</div>
+
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="Be- és kimenet átirányítása">
+<div class="slide" id="slide_4">
+
+<a id="4" class="namer"></a>
+  <a id="labatiranyitas" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">4</span><span class="oldalszamafter">. </span>    Be- és kimenet átirányítása<a class="hlink" href="index.html#4"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>A <code>more</code> parancs sok dologra jó. Most a begépelt szöveg ismételt megjelenítésére fogjuk használni. Írd be:</p>
+
+<pre class="screenshot">
+more
+</pre>
+
+<p>Most nem jelent meg a prompt, ami mutatja, hogy a <code>more</code> program éppen fut, és
+várja tőlünk a bemenetét. Írj be tetszőleges szöveget, és nyomd meg az <kbd>Enter</kbd>-t. Mi
+történik? Ezt többször is megismételheted. A <kbd>Ctrl+Z</kbd> billentyűkombinációval léphetsz
+ki a <code>more</code>-ból, vissza a parancssorba.</p>
+
+<p>Jegyezd meg: a <code>more</code> <em>fájl vége jelig</em> olvas be szöveget. Ha ezzel találkozik,
+kilép. Ha billentyűzetről gépelsz, a Windowsban a fájl, vagyis a begépelt szöveg vége jelet a
+<kbd>Ctrl+Z</kbd>-vel lehet adni; ezt üres sorban kell írni, tehát <kbd>Enter</kbd> után.</p>
+
+<p>Írd most be:</p>
+
+<pre class="screenshot">
+more &gt; szoveg.txt
+</pre>
+
+<p>Gépeld be ismét szövegeket! Mit tapasztalsz? Több sor begépelése után lépj ki a
+<code>more</code>-ból a szokásos módon! Listázd ki a mappa tartalmát! Mit tapasztalsz?</p>
+
+<div class="megjegyzes">
+<pre class="screenshot">
+C:\WINDOWS&gt; more &gt; szoveg.txt
+Access denied
+</pre>
+<p>Előfordulhat, hogy a mappa, amelyben épp vagy, írásvédett. Ekkor hibaüzenetet fogsz kapni.
+(Vajon miért nem engedi a gép, hogy az operációs rendszer fájljai közé írj?)
+Ha kell, keress másik mappát, amelyben dolgozni fogsz, pl. <code>C:\Users\xxxxx</code>.
+Kérd a laborvezető segítségét!</p>
+</div>
+
+<p>Írd be:</p>
+
+<pre class="screenshot">
+more &lt; szoveg.txt
+</pre>
+
+<p>Most mit látsz? Figyeld meg, hogy most nem kellett <kbd>Ctrl+Z</kbd>-t írni a kilépéshez, mert a <code>more</code>
+a <code>szoveg.txt</code> fájl tartalmát jelenítette meg.</p>
+
+<p>Magyarázat: A konzolos programok a felhasználókkal a <em>szabványos bemenet</em> (standard
+input) és a <em>szabványos kimenet</em> (standard output) segítségével kommunikálnak. A szabványos
+bemenet alapértelmezés szerint a billentyűzet, a szabványos kimenet pedig a képernyő. Ezek
+azonban, a fenti módon, átirányíthatók. A programok nem is tudják, hogy valójában honnan olvasnak
+és hová írnak, billentyűzetről/képernyőre, vagy fájlból/fájlba.</p>
+
+<p class="megjegyzes">Tipp: ha egy régebben beírt parancshoz hasonlót szeretnél újra beírni, akkor a
+<kbd>&uarr;</kbd> felfelé nyíl billentyűt használva visszakeresheted a régebben beírt sorokat.</p>
+
+<pre class="screenshot">
+more &gt;&gt; szoveg.txt
+</pre>
+
+<p>A fenti parancsot írva a <code>szoveg.txt</code> fájl végéhez fűződik az újonnan beírt szöveg (egy
+<code>&gt;</code> esetén törli a korábbi <code>szoveg.txt</code>-t, ha volt olyan). Ha nem létezett a
+<code>szoveg.txt</code>, mindkét esetben létrehozza.</p>
+
+<p>A programoknak a szabványos kimenet mellett van egy szabványos hibakimenete is, a
+hibaüzeneteket ide szokták írni. Alapértelmezés szerint ez is a képernyőre kerül kiírásra. Ha a
+program kimenetét átirányítjuk, pl. <code>more nincsilyen.txt &gt; szoveg.txt</code>, és a <code>more</code>
+valami hibaüzenetet szeretne közölni, akkor a hibaüzenet továbbra is a képernyőn jelenik meg,
+nem kerül a fájlba. Ha a hibaüzenetet szeretnénk fájlba írni, akkor azt a <code>2&gt;</code>
+átirányítással adhatod meg:</p>
+
+<pre class="screenshot">
+more 2&gt; hiba.txt
+</pre>
+
+<p class="megjegyzes">Tipp: ha egy meglévő fájl nevét nem szeretnéd végig begépelni, akkor kezdd el az első
+pár betűvel, és utána nyomd meg a <kbd>Tab</kbd> billentyűt. Erre a Windows parancssora
+ki fogja egészíteni a fájlnevet. Pl. a <code>szo</code><kbd>Tab</kbd> olyan lesz, mintha
+beírtad volna, hogy <code>szoveg.txt</code>.</p>
+
+
+
+
+
+
+<h3>Windows pipe</h3>
+
+<p>Írd be, hogy</p>
+<pre class="screenshot">
+cd c:/Windows/System32
+dir
+</pre>
+
+<p>Túl sok fájl neve került kiírásra. A <code>more</code> parancs igazi funkciója, hogy egy szöveget képernyőnyi részekre osztva 
+jelenítsen meg. Használd ezt a mappa tartalmának kilistázására (a <code>|</code> az <kbd>AltGr+W</kbd> kombinációval érhető 
+el):</p>
+
+<pre class="screenshot">
+dir | more
+</pre>
+
+<p>A bemutatott módszer a <em>csővezeték</em> (pipe): az egyik program kimenete adja
+a másik program bemenetét, vagyis ezúttal is a szabványos kimenet és
+bemenet átirányításáról van szó.</p>
+
+<p>A <code>more</code> programban <kbd>szóköz</kbd>-t leütve egy képernyőnyivel tovább haladhatsz. Ha csak egy sornyit
+akarsz léptetni, üss <kbd>Enter</kbd>-t! Kilépni a <kbd>Q</kbd> billentyű lenyomásával lehet.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+
+<section class="slidescreen" data-title="ZIP fájlok létrehozása">
+<div class="slide" id="slide_5">
+
+<a id="5" class="namer"></a>
+
+<div class="slideheader">
+  <h2 class="slidetitle">
+    <span class="oldalszam">5</span><span class="oldalszamafter">. </span>    ZIP fájlok létrehozása<a class="hlink" href="index.html#5"><i class="hlink"></i></a>
+  </h2>
+</div>
+
+<div class="slidecontent">
+  
+<p>ZIP archívumokba több fájl csomagolható és tömöríthető. Utána az archívum egyetlen fájlként kezelhető, pl. küldhető el 
+e-mailben, vagy tölthető fel valahova. ZIP archívumot – vagy tömörített mappát, ahogy a Windows nevezi – legegyszerűbb a 
+Fájlkezelővel létrehozni. Ennek két módja lehetséges, próbáld ki mindkettőt!</p>
+
+<h3>Első módszer</h3>
+
+<ul>
+    <li>Keresd meg a tömöríteni kívánt fájlokat, pl. a mai órai kísérletezés közben létrehozott szövegeket: szoveg.txt,
+    hiba.txt és a többiek.</li>
+    <li>Jelöld ki az <em>összeset,</em> amelyre szükség van. Ezt megteheted az egérrel kattintva és húzva, téglalapot
+    rajzolva föléjük, vagy a <kbd>Ctrl</kbd> gombot nyomva tartva, és egyesével kattintva rájuk.</li>
+    <li>Ha sikerült a kijelölés, kattints a jobb egérgombbal valamelyikükre, és válaszd ki a menüből a Küldés / Tömörített
+    mappát:
+        <img src="kuldes-tomoritett.png" class="kozep arnyek">
+    </li>
+    <li>Ezután megadhatod a fájl nevét, és a ZIP archívum elkészült.</li>
+</ul>
+
+<p>Ugyanez az Asztalon is működik, ha eddig a fájlokat ott hoztad létre.</p>
+
+<h3>Második módszer</h3>
+
+<ul>
+    <li>Kattints jobb egérgombbal a semmibe a Fájlkezelőben vagy az asztalon. Válaszd ki az Új / Tömörített mappa
+    menüpontot.</li>
+    <li>Létrejön egy „Új tömörített mappa” nevű ZIP fájl. Kattints erre a jobb gombbal, és nevezd át arra, amire szeretnéd.</li>
+    <li>Ha megvan, utána a tömöríteni kívánt fájlokat egyesével húzd rá az egérrel őket a ZIP fájlra. A többszörös kijelölés
+    itt ugyanúgy működik, kattintás közben a <kbd>Ctrl</kbd> billentyűt nyomva tartva.</li>
+</ul>
+
+<p>A létrehozott archívumokra duplán kattinva a Windows Fájlkezelője megmutatja azok tartalmát is. Így ellenőrizni tudod, mi van 
+bennük. Ezekből (és ezekbe) ugyanúgy másolhatók a fájlok, mint egy mappába. De szem előtt kell tartani, hogy valójában ezek nem 
+igazi mappák. Ha bármire szükség van, akkor ki kell bontani az archívumot. A kicsomagolás legegyszerűbben a jobb egérgombbal 
+kattintásra előjövő menüből lehetséges, a „Kibontás” menüpontot kiválasztva.</p>
+
+
+
+
+  
+    </div>
+
+<div class="clear"></div>
+
+</div>
+</section>
+
+</div>
+</main>
+
+<footer role="contentinfo">
+<div class="shaper">
+<div class="footer ">
+  <a href="../index/index.html"><img src="../modulz/logo.png" class="footerlogo" alt="Logo"></a>
+<div>InfoC – Programozás alapjai I.</div>
+<div class="csakkepernyon">
+            <a href="../index/index.html">főoldal</a>
+         ·     <a href="../elerhetoseg/index.html">elérhetőség</a>
+         ·     <a href="../elerhetoseg/index.html#licenc">licenc</a>
+         ·     <a href="https://www.facebook.com/infoceetbmehu">facebook</a>
+    </div>
+<div class="csaknyomtatasban">Kérjük, az oldalak kinyomtatása előtt gondolj a környezetre.</div>
+BME EET, 2009-2021.</div>
+</div>
+</footer>
+
+</div>
+
+<nav>
+<a id="scrolltotop"></a>
+</nav>
+
+</body>
+
+</html>
